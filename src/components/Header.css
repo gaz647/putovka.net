@@ -1,0 +1,32 @@
+.header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: rgb(2, 2, 204);
+}
+
+.header {
+  max-width: 450px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0.5rem;
+  background-color: rgb(2, 2, 204);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.header-email {
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 0.9rem;
+}

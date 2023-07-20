@@ -1,0 +1,6338 @@
+[
+  {
+    "city": "Abertamy",
+    "zipcode": 36235,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 0
+  },
+  {
+    "city": "As",
+    "zipcode": 35201,
+    "weightTo27t": 493,
+    "weightTo34t": 540,
+    "terminal": "Usti nad Labem",
+    "objIndex": 1
+  },
+  {
+    "city": "Bakov nad Jizerou",
+    "zipcode": 29401,
+    "weightTo27t": 421,
+    "weightTo34t": 458,
+    "terminal": "Usti nad Labem",
+    "objIndex": 2
+  },
+  {
+    "city": "Basnice",
+    "zipcode": 50801,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Usti nad Labem",
+    "objIndex": 3
+  },
+  {
+    "city": "Bast",
+    "zipcode": 25065,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 4
+  },
+  {
+    "city": "Becov",
+    "zipcode": 43526,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 5
+  },
+  {
+    "city": "Bela pod Bezdezem",
+    "zipcode": 29421,
+    "weightTo27t": 230,
+    "weightTo34t": 253,
+    "terminal": "Usti nad Labem",
+    "objIndex": 6
+  },
+  {
+    "city": "Belusice",
+    "zipcode": 43401,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 7
+  },
+  {
+    "city": "Benatky nad Jizerou",
+    "zipcode": 29471,
+    "weightTo27t": 355,
+    "weightTo34t": 386,
+    "terminal": "Usti nad Labem",
+    "objIndex": 8
+  },
+  {
+    "city": "Benesov",
+    "zipcode": 25601,
+    "weightTo27t": 423,
+    "weightTo34t": 461,
+    "terminal": "Usti nad Labem",
+    "objIndex": 9
+  },
+  {
+    "city": "Benesov nad Ploucnici",
+    "zipcode": 40722,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 10
+  },
+  {
+    "city": "Beroun",
+    "zipcode": 26601,
+    "weightTo27t": 390,
+    "weightTo34t": 424,
+    "terminal": "Usti nad Labem",
+    "objIndex": 11
+  },
+  {
+    "city": "Berovice",
+    "zipcode": 27371,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Usti nad Labem",
+    "objIndex": 12
+  },
+  {
+    "city": "Bezdruzice",
+    "zipcode": 34953,
+    "weightTo27t": 454,
+    "weightTo34t": 499,
+    "terminal": "Usti nad Labem",
+    "objIndex": 13
+  },
+  {
+    "city": "Bezverov",
+    "zipcode": 33041,
+    "weightTo27t": 423,
+    "weightTo34t": 465,
+    "terminal": "Usti nad Labem",
+    "objIndex": 14
+  },
+  {
+    "city": "Bila Tremesna",
+    "zipcode": 54472,
+    "weightTo27t": 612,
+    "weightTo34t": 666,
+    "terminal": "Usti nad Labem",
+    "objIndex": 15
+  },
+  {
+    "city": "Bilina",
+    "zipcode": 41801,
+    "weightTo27t": 194,
+    "weightTo34t": 213,
+    "terminal": "Usti nad Labem",
+    "objIndex": 16
+  },
+  {
+    "city": "Bitouchov",
+    "zipcode": 29401,
+    "weightTo27t": 248,
+    "weightTo34t": 272,
+    "terminal": "Usti nad Labem",
+    "objIndex": 17
+  },
+  {
+    "city": "Bitozeves",
+    "zipcode": 44001,
+    "weightTo27t": 223,
+    "weightTo34t": 245,
+    "terminal": "Usti nad Labem",
+    "objIndex": 18
+  },
+  {
+    "city": "Bitozeves/Tatinna",
+    "zipcode": 43801,
+    "weightTo27t": 223,
+    "weightTo34t": 245,
+    "terminal": "Usti nad Labem",
+    "objIndex": 19
+  },
+  {
+    "city": "Blatnice",
+    "zipcode": 33025,
+    "weightTo27t": 597,
+    "weightTo34t": 649,
+    "terminal": "Usti nad Labem",
+    "objIndex": 20
+  },
+  {
+    "city": "Blizevedly",
+    "zipcode": 47104,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 21
+  },
+  {
+    "city": "Bohusovice nad Ohri",
+    "zipcode": 41156,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 22
+  },
+  {
+    "city": "Bohusovice nad Ohri/Hrdly",
+    "zipcode": 41201,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 23
+  },
+  {
+    "city": "Bochov",
+    "zipcode": 36471,
+    "weightTo27t": 363,
+    "weightTo34t": 399,
+    "terminal": "Usti nad Labem",
+    "objIndex": 24
+  },
+  {
+    "city": "Bor",
+    "zipcode": 34802,
+    "weightTo27t": 661,
+    "weightTo34t": 718,
+    "terminal": "Usti nad Labem",
+    "objIndex": 25
+  },
+  {
+    "city": "Bor/Nova Hospoda",
+    "zipcode": 34802,
+    "weightTo27t": 661,
+    "weightTo34t": 718,
+    "terminal": "Usti nad Labem",
+    "objIndex": 26
+  },
+  {
+    "city": "Boranovice",
+    "zipcode": 25065,
+    "weightTo27t": 274,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 27
+  },
+  {
+    "city": "Boranovice/Pakomerice",
+    "zipcode": 25065,
+    "weightTo27t": 274,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 28
+  },
+  {
+    "city": "Borek",
+    "zipcode": 27714,
+    "weightTo27t": 285,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 29
+  },
+  {
+    "city": "Borislav",
+    "zipcode": 41501,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 30
+  },
+  {
+    "city": "Bozi Dar",
+    "zipcode": 36301,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 31
+  },
+  {
+    "city": "Bozicany",
+    "zipcode": 36225,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 32
+  },
+  {
+    "city": "Branany",
+    "zipcode": 43522,
+    "weightTo27t": 202,
+    "weightTo34t": 222,
+    "terminal": "Usti nad Labem",
+    "objIndex": 33
+  },
+  {
+    "city": "Brandov",
+    "zipcode": 43547,
+    "weightTo27t": 221,
+    "weightTo34t": 243,
+    "terminal": "Usti nad Labem",
+    "objIndex": 34
+  },
+  {
+    "city": "Brandys nad Labem Stara Boleslav",
+    "zipcode": 25001,
+    "weightTo27t": 315,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 35
+  },
+  {
+    "city": "Brandysek",
+    "zipcode": 27341,
+    "weightTo27t": 267,
+    "weightTo34t": 291,
+    "terminal": "Usti nad Labem",
+    "objIndex": 36
+  },
+  {
+    "city": "Branov",
+    "zipcode": 27023,
+    "weightTo27t": 435,
+    "weightTo34t": 474,
+    "terminal": "Usti nad Labem",
+    "objIndex": 37
+  },
+  {
+    "city": "Brasy",
+    "zipcode": 33824,
+    "weightTo27t": 485,
+    "weightTo34t": 528,
+    "terminal": "Usti nad Labem",
+    "objIndex": 38
+  },
+  {
+    "city": "Brezno",
+    "zipcode": 29406,
+    "weightTo27t": 439,
+    "weightTo34t": 478,
+    "terminal": "Usti nad Labem",
+    "objIndex": 39
+  },
+  {
+    "city": "Brezova",
+    "zipcode": 35601,
+    "weightTo27t": 377,
+    "weightTo34t": 414,
+    "terminal": "Usti nad Labem",
+    "objIndex": 40
+  },
+  {
+    "city": "Brezovice",
+    "zipcode": 29424,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 41
+  },
+  {
+    "city": "Brniste",
+    "zipcode": 47129,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 42
+  },
+  {
+    "city": "Brno",
+    "zipcode": 60200,
+    "weightTo27t": 799,
+    "weightTo34t": 867,
+    "terminal": "Usti nad Labem",
+    "objIndex": 43
+  },
+  {
+    "city": "Brodce",
+    "zipcode": 29473,
+    "weightTo27t": 368,
+    "weightTo34t": 400,
+    "terminal": "Usti nad Labem",
+    "objIndex": 44
+  },
+  {
+    "city": "Broumov",
+    "zipcode": 34815,
+    "weightTo27t": 500,
+    "weightTo34t": 548,
+    "terminal": "Usti nad Labem",
+    "objIndex": 45
+  },
+  {
+    "city": "Brzkov",
+    "zipcode": 58813,
+    "weightTo27t": 639,
+    "weightTo34t": 695,
+    "terminal": "Usti nad Labem",
+    "objIndex": 46
+  },
+  {
+    "city": "Budceves",
+    "zipcode": 50732,
+    "weightTo27t": 448,
+    "weightTo34t": 488,
+    "terminal": "Usti nad Labem",
+    "objIndex": 47
+  },
+  {
+    "city": "Budyne nad Ohri",
+    "zipcode": 41118,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 48
+  },
+  {
+    "city": "Bustehrad",
+    "zipcode": 27343,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Usti nad Labem",
+    "objIndex": 49
+  },
+  {
+    "city": "Bynovec",
+    "zipcode": 40502,
+    "weightTo27t": 190,
+    "weightTo34t": 209,
+    "terminal": "Usti nad Labem",
+    "objIndex": 50
+  },
+  {
+    "city": "Bysice",
+    "zipcode": 27732,
+    "weightTo27t": 270,
+    "weightTo34t": 294,
+    "terminal": "Usti nad Labem",
+    "objIndex": 51
+  },
+  {
+    "city": "Bystrany",
+    "zipcode": 41761,
+    "weightTo27t": 171,
+    "weightTo34t": 188,
+    "terminal": "Usti nad Labem",
+    "objIndex": 52
+  },
+  {
+    "city": "Bystrice",
+    "zipcode": 50723,
+    "weightTo27t": 476,
+    "weightTo34t": 518,
+    "terminal": "Usti nad Labem",
+    "objIndex": 53
+  },
+  {
+    "city": "Cecelice",
+    "zipcode": 27732,
+    "weightTo27t": 270,
+    "weightTo34t": 294,
+    "terminal": "Usti nad Labem",
+    "objIndex": 54
+  },
+  {
+    "city": "Celakovice",
+    "zipcode": 25088,
+    "weightTo27t": 325,
+    "weightTo34t": 354,
+    "terminal": "Usti nad Labem",
+    "objIndex": 55
+  },
+  {
+    "city": "Ceradice",
+    "zipcode": 43801,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 56
+  },
+  {
+    "city": "Cerhovice",
+    "zipcode": 26761,
+    "weightTo27t": 443,
+    "weightTo34t": 482,
+    "terminal": "Usti nad Labem",
+    "objIndex": 57
+  },
+  {
+    "city": "Cerncice",
+    "zipcode": 43901,
+    "weightTo27t": 226,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 58
+  },
+  {
+    "city": "Cerneves",
+    "zipcode": 41301,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 59
+  },
+  {
+    "city": "Cernosice",
+    "zipcode": 25228,
+    "weightTo27t": 375,
+    "weightTo34t": 408,
+    "terminal": "Usti nad Labem",
+    "objIndex": 60
+  },
+  {
+    "city": "Cernosin",
+    "zipcode": 34958,
+    "weightTo27t": 522,
+    "weightTo34t": 572,
+    "terminal": "Usti nad Labem",
+    "objIndex": 61
+  },
+  {
+    "city": "Cernoucek",
+    "zipcode": 41301,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 62
+  },
+  {
+    "city": "Cernousy",
+    "zipcode": 46373,
+    "weightTo27t": 322,
+    "weightTo34t": 354,
+    "terminal": "Usti nad Labem",
+    "objIndex": 63
+  },
+  {
+    "city": "Cerny Dul",
+    "zipcode": 54344,
+    "weightTo27t": 433,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 64
+  },
+  {
+    "city": "Cerveny Ujezd",
+    "zipcode": 27351,
+    "weightTo27t": 307,
+    "weightTo34t": 335,
+    "terminal": "Usti nad Labem",
+    "objIndex": 65
+  },
+  {
+    "city": "Ceska Kamenice",
+    "zipcode": 40721,
+    "weightTo27t": 198,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 66
+  },
+  {
+    "city": "Ceska Lipa",
+    "zipcode": 47001,
+    "weightTo27t": 212,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 67
+  },
+  {
+    "city": "Ceske Budejovice",
+    "zipcode": 37001,
+    "weightTo27t": 662,
+    "weightTo34t": 720,
+    "terminal": "Usti nad Labem",
+    "objIndex": 68
+  },
+  {
+    "city": "Cesky Dub",
+    "zipcode": 46343,
+    "weightTo27t": 279,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 69
+  },
+  {
+    "city": "Cesky Jiretin",
+    "zipcode": 43601,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 70
+  },
+  {
+    "city": "Cisovice",
+    "zipcode": 25204,
+    "weightTo27t": 437,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 71
+  },
+  {
+    "city": "Citice",
+    "zipcode": 35601,
+    "weightTo27t": 388,
+    "weightTo34t": 426,
+    "terminal": "Usti nad Labem",
+    "objIndex": 72
+  },
+  {
+    "city": "Citoliby",
+    "zipcode": 43902,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Usti nad Labem",
+    "objIndex": 73
+  },
+  {
+    "city": "Cizkovice",
+    "zipcode": 41112,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Usti nad Labem",
+    "objIndex": 74
+  },
+  {
+    "city": "Ctverin",
+    "zipcode": 46345,
+    "weightTo27t": 469,
+    "weightTo34t": 510,
+    "terminal": "Usti nad Labem",
+    "objIndex": 75
+  },
+  {
+    "city": "Cvikov",
+    "zipcode": 47154,
+    "weightTo27t": 212,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 76
+  },
+  {
+    "city": "Dacice",
+    "zipcode": 38001,
+    "weightTo27t": 720,
+    "weightTo34t": 783,
+    "terminal": "Usti nad Labem",
+    "objIndex": 77
+  },
+  {
+    "city": "Dalovice",
+    "zipcode": 36263,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 78
+  },
+  {
+    "city": "Dalovice",
+    "zipcode": 29301,
+    "weightTo27t": 407,
+    "weightTo34t": 443,
+    "terminal": "Usti nad Labem",
+    "objIndex": 79
+  },
+  {
+    "city": "Dasice",
+    "zipcode": 53303,
+    "weightTo27t": 572,
+    "weightTo34t": 621,
+    "terminal": "Usti nad Labem",
+    "objIndex": 80
+  },
+  {
+    "city": "Davle",
+    "zipcode": 25206,
+    "weightTo27t": 407,
+    "weightTo34t": 444,
+    "terminal": "Usti nad Labem",
+    "objIndex": 81
+  },
+  {
+    "city": "Decin",
+    "zipcode": 40502,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Usti nad Labem",
+    "objIndex": 82
+  },
+  {
+    "city": "Desna",
+    "zipcode": 46861,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 83
+  },
+  {
+    "city": "Detenice",
+    "zipcode": 50724,
+    "weightTo27t": 450,
+    "weightTo34t": 490,
+    "terminal": "Usti nad Labem",
+    "objIndex": 84
+  },
+  {
+    "city": "Detrichov",
+    "zipcode": 46401,
+    "weightTo27t": 280,
+    "weightTo34t": 308,
+    "terminal": "Usti nad Labem",
+    "objIndex": 85
+  },
+  {
+    "city": "Dobra Voda u Horic",
+    "zipcode": 50773,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Usti nad Labem",
+    "objIndex": 86
+  },
+  {
+    "city": "Dobric",
+    "zipcode": 25225,
+    "weightTo27t": 349,
+    "weightTo34t": 380,
+    "terminal": "Usti nad Labem",
+    "objIndex": 87
+  },
+  {
+    "city": "Dobrichovice",
+    "zipcode": 25229,
+    "weightTo27t": 423,
+    "weightTo34t": 461,
+    "terminal": "Usti nad Labem",
+    "objIndex": 88
+  },
+  {
+    "city": "Dobrin",
+    "zipcode": 41301,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 89
+  },
+  {
+    "city": "Dobromerice",
+    "zipcode": 44001,
+    "weightTo27t": 215,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 90
+  },
+  {
+    "city": "Dobrovice",
+    "zipcode": 29441,
+    "weightTo27t": 405,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 91
+  },
+  {
+    "city": "Dobroviz",
+    "zipcode": 25261,
+    "weightTo27t": 312,
+    "weightTo34t": 340,
+    "terminal": "Usti nad Labem",
+    "objIndex": 92
+  },
+  {
+    "city": "Doksany",
+    "zipcode": 41182,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 93
+  },
+  {
+    "city": "Doksy",
+    "zipcode": 47201,
+    "weightTo27t": 208,
+    "weightTo34t": 229,
+    "terminal": "Usti nad Labem",
+    "objIndex": 94
+  },
+  {
+    "city": "Dolni Berkovice",
+    "zipcode": 27701,
+    "weightTo27t": 249,
+    "weightTo34t": 272,
+    "terminal": "Usti nad Labem",
+    "objIndex": 95
+  },
+  {
+    "city": "Dolni Bousov",
+    "zipcode": 29404,
+    "weightTo27t": 430,
+    "weightTo34t": 468,
+    "terminal": "Usti nad Labem",
+    "objIndex": 96
+  },
+  {
+    "city": "Dolni Branna",
+    "zipcode": 54362,
+    "weightTo27t": 544,
+    "weightTo34t": 592,
+    "terminal": "Usti nad Labem",
+    "objIndex": 97
+  },
+  {
+    "city": "Dolni Brezany",
+    "zipcode": 25241,
+    "weightTo27t": 388,
+    "weightTo34t": 422,
+    "terminal": "Usti nad Labem",
+    "objIndex": 98
+  },
+  {
+    "city": "Dolni Brusnice",
+    "zipcode": 54472,
+    "weightTo27t": 612,
+    "weightTo34t": 666,
+    "terminal": "Usti nad Labem",
+    "objIndex": 99
+  },
+  {
+    "city": "Dolni Kalna",
+    "zipcode": 54374,
+    "weightTo27t": 543,
+    "weightTo34t": 591,
+    "terminal": "Usti nad Labem",
+    "objIndex": 100
+  },
+  {
+    "city": "Dolni Olesnice",
+    "zipcode": 54375,
+    "weightTo27t": 544,
+    "weightTo34t": 592,
+    "terminal": "Usti nad Labem",
+    "objIndex": 101
+  },
+  {
+    "city": "Dolni Podluzi",
+    "zipcode": 40755,
+    "weightTo27t": 225,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 102
+  },
+  {
+    "city": "Dolni Poustevna",
+    "zipcode": 40782,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Usti nad Labem",
+    "objIndex": 103
+  },
+  {
+    "city": "Dolni Rasnice",
+    "zipcode": 46401,
+    "weightTo27t": 301,
+    "weightTo34t": 331,
+    "terminal": "Usti nad Labem",
+    "objIndex": 104
+  },
+  {
+    "city": "Dolni Rychnov",
+    "zipcode": 35604,
+    "weightTo27t": 376,
+    "weightTo34t": 413,
+    "terminal": "Usti nad Labem",
+    "objIndex": 105
+  },
+  {
+    "city": "Dolni Zandov",
+    "zipcode": 35493,
+    "weightTo27t": 447,
+    "weightTo34t": 490,
+    "terminal": "Usti nad Labem",
+    "objIndex": 106
+  },
+  {
+    "city": "Domazlice",
+    "zipcode": 34401,
+    "weightTo27t": 674,
+    "weightTo34t": 733,
+    "terminal": "Usti nad Labem",
+    "objIndex": 107
+  },
+  {
+    "city": "Doubice",
+    "zipcode": 40747,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 108
+  },
+  {
+    "city": "Drevcice",
+    "zipcode": 25001,
+    "weightTo27t": 291,
+    "weightTo34t": 317,
+    "terminal": "Usti nad Labem",
+    "objIndex": 109
+  },
+  {
+    "city": "Drinov",
+    "zipcode": 27371,
+    "weightTo27t": 227,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 110
+  },
+  {
+    "city": "Drisy",
+    "zipcode": 27714,
+    "weightTo27t": 285,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 111
+  },
+  {
+    "city": "Drouzkovice",
+    "zipcode": 43144,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 112
+  },
+  {
+    "city": "Drzkov",
+    "zipcode": 46824,
+    "weightTo27t": 347,
+    "weightTo34t": 381,
+    "terminal": "Usti nad Labem",
+    "objIndex": 113
+  },
+  {
+    "city": "Duba",
+    "zipcode": 47141,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Usti nad Labem",
+    "objIndex": 114
+  },
+  {
+    "city": "Dubenec",
+    "zipcode": 54455,
+    "weightTo27t": 580,
+    "weightTo34t": 630,
+    "terminal": "Usti nad Labem",
+    "objIndex": 115
+  },
+  {
+    "city": "Dubi",
+    "zipcode": 41701,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 116
+  },
+  {
+    "city": "Duchcov",
+    "zipcode": 41901,
+    "weightTo27t": 194,
+    "weightTo34t": 213,
+    "terminal": "Usti nad Labem",
+    "objIndex": 117
+  },
+  {
+    "city": "Dvur Kralove nad Labem",
+    "zipcode": 54401,
+    "weightTo27t": 592,
+    "weightTo34t": 644,
+    "terminal": "Usti nad Labem",
+    "objIndex": 118
+  },
+  {
+    "city": "Dysina",
+    "zipcode": 33002,
+    "weightTo27t": 528,
+    "weightTo34t": 574,
+    "terminal": "Usti nad Labem",
+    "objIndex": 119
+  },
+  {
+    "city": "Ejpovice",
+    "zipcode": 33701,
+    "weightTo27t": 507,
+    "weightTo34t": 551,
+    "terminal": "Usti nad Labem",
+    "objIndex": 120
+  },
+  {
+    "city": "Erpuzice",
+    "zipcode": 34901,
+    "weightTo27t": 465,
+    "weightTo34t": 511,
+    "terminal": "Usti nad Labem",
+    "objIndex": 121
+  },
+  {
+    "city": "Frantiskov nad Ploucnici",
+    "zipcode": 40723,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 122
+  },
+  {
+    "city": "Frantiskovy Lazne",
+    "zipcode": 35101,
+    "weightTo27t": 450,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 123
+  },
+  {
+    "city": "Frydlant",
+    "zipcode": 46401,
+    "weightTo27t": 290,
+    "weightTo34t": 319,
+    "terminal": "Usti nad Labem",
+    "objIndex": 124
+  },
+  {
+    "city": "Frydstejn",
+    "zipcode": 46342,
+    "weightTo27t": 328,
+    "weightTo34t": 360,
+    "terminal": "Usti nad Labem",
+    "objIndex": 125
+  },
+  {
+    "city": "Habartice",
+    "zipcode": 46373,
+    "weightTo27t": 323,
+    "weightTo34t": 355,
+    "terminal": "Usti nad Labem",
+    "objIndex": 126
+  },
+  {
+    "city": "Habartov",
+    "zipcode": 35709,
+    "weightTo27t": 396,
+    "weightTo34t": 435,
+    "terminal": "Usti nad Labem",
+    "objIndex": 127
+  },
+  {
+    "city": "Haj u Duchcova",
+    "zipcode": 41722,
+    "weightTo27t": 199,
+    "weightTo34t": 219,
+    "terminal": "Usti nad Labem",
+    "objIndex": 128
+  },
+  {
+    "city": "Haje nad Jizerou",
+    "zipcode": 51301,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 129
+  },
+  {
+    "city": "Hajnice",
+    "zipcode": 54466,
+    "weightTo27t": 612,
+    "weightTo34t": 666,
+    "terminal": "Usti nad Labem",
+    "objIndex": 130
+  },
+  {
+    "city": "Hamr na Jezere",
+    "zipcode": 47128,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Usti nad Labem",
+    "objIndex": 131
+  },
+  {
+    "city": "Harrachov",
+    "zipcode": 51246,
+    "weightTo27t": 370,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 132
+  },
+  {
+    "city": "Havlickuv Brod",
+    "zipcode": 58001,
+    "weightTo27t": 592,
+    "weightTo34t": 644,
+    "terminal": "Usti nad Labem",
+    "objIndex": 133
+  },
+  {
+    "city": "Havran",
+    "zipcode": 43501,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 134
+  },
+  {
+    "city": "Hejnice",
+    "zipcode": 46362,
+    "weightTo27t": 312,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 135
+  },
+  {
+    "city": "Hermanova Hut",
+    "zipcode": 33024,
+    "weightTo27t": 597,
+    "weightTo34t": 649,
+    "terminal": "Usti nad Labem",
+    "objIndex": 136
+  },
+  {
+    "city": "Hlavenec",
+    "zipcode": 29474,
+    "weightTo27t": 329,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 137
+  },
+  {
+    "city": "Hlohovice",
+    "zipcode": 33808,
+    "weightTo27t": 485,
+    "weightTo34t": 528,
+    "terminal": "Usti nad Labem",
+    "objIndex": 138
+  },
+  {
+    "city": "Hodkovice nad Mohelkou",
+    "zipcode": 46342,
+    "weightTo27t": 306,
+    "weightTo34t": 336,
+    "terminal": "Usti nad Labem",
+    "objIndex": 139
+  },
+  {
+    "city": "Holin",
+    "zipcode": 50601,
+    "weightTo27t": 478,
+    "weightTo34t": 520,
+    "terminal": "Usti nad Labem",
+    "objIndex": 140
+  },
+  {
+    "city": "Holoubkov",
+    "zipcode": 33801,
+    "weightTo27t": 468,
+    "weightTo34t": 509,
+    "terminal": "Usti nad Labem",
+    "objIndex": 141
+  },
+  {
+    "city": "Holovousy",
+    "zipcode": 50801,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 142
+  },
+  {
+    "city": "Holovousy/Chodovice",
+    "zipcode": 50801,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 143
+  },
+  {
+    "city": "Homole u Panny",
+    "zipcode": 40002,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 144
+  },
+  {
+    "city": "Horesedly",
+    "zipcode": 27004,
+    "weightTo27t": 283,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 145
+  },
+  {
+    "city": "Horice",
+    "zipcode": 50801,
+    "weightTo27t": 572,
+    "weightTo34t": 621,
+    "terminal": "Usti nad Labem",
+    "objIndex": 146
+  },
+  {
+    "city": "Horka u Stare Paky",
+    "zipcode": 51234,
+    "weightTo27t": 533,
+    "weightTo34t": 580,
+    "terminal": "Usti nad Labem",
+    "objIndex": 147
+  },
+  {
+    "city": "Horni Briza",
+    "zipcode": 33012,
+    "weightTo27t": 370,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 148
+  },
+  {
+    "city": "Horni Brusnice",
+    "zipcode": 54474,
+    "weightTo27t": 543,
+    "weightTo34t": 591,
+    "terminal": "Usti nad Labem",
+    "objIndex": 149
+  },
+  {
+    "city": "Horni Jiretin",
+    "zipcode": 43543,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 150
+  },
+  {
+    "city": "Horni Libchava",
+    "zipcode": 47111,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 151
+  },
+  {
+    "city": "Horni Pocaply",
+    "zipcode": 27703,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Usti nad Labem",
+    "objIndex": 152
+  },
+  {
+    "city": "Horni Pocaply/Krivenice",
+    "zipcode": 27703,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Usti nad Labem",
+    "objIndex": 153
+  },
+  {
+    "city": "Horni Slavkov",
+    "zipcode": 35731,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 154
+  },
+  {
+    "city": "Horni Smrcne",
+    "zipcode": 67507,
+    "weightTo27t": 663,
+    "weightTo34t": 721,
+    "terminal": "Usti nad Labem",
+    "objIndex": 155
+  },
+  {
+    "city": "Horomerice",
+    "zipcode": 25262,
+    "weightTo27t": 265,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 156
+  },
+  {
+    "city": "Horovice",
+    "zipcode": 26801,
+    "weightTo27t": 429,
+    "weightTo34t": 467,
+    "terminal": "Usti nad Labem",
+    "objIndex": 157
+  },
+  {
+    "city": "Hostin",
+    "zipcode": 27732,
+    "weightTo27t": 261,
+    "weightTo34t": 285,
+    "terminal": "Usti nad Labem",
+    "objIndex": 158
+  },
+  {
+    "city": "Hostinne",
+    "zipcode": 54371,
+    "weightTo27t": 565,
+    "weightTo34t": 615,
+    "terminal": "Usti nad Labem",
+    "objIndex": 159
+  },
+  {
+    "city": "Hostivice",
+    "zipcode": 25301,
+    "weightTo27t": 336,
+    "weightTo34t": 366,
+    "terminal": "Usti nad Labem",
+    "objIndex": 160
+  },
+  {
+    "city": "Hostka",
+    "zipcode": 41172,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 161
+  },
+  {
+    "city": "Hostka",
+    "zipcode": 34806,
+    "weightTo27t": 709,
+    "weightTo34t": 770,
+    "terminal": "Usti nad Labem",
+    "objIndex": 162
+  },
+  {
+    "city": "Hostomice",
+    "zipcode": 26724,
+    "weightTo27t": 437,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 163
+  },
+  {
+    "city": "Hostomice",
+    "zipcode": 41752,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 164
+  },
+  {
+    "city": "Hostoun",
+    "zipcode": 27353,
+    "weightTo27t": 312,
+    "weightTo34t": 340,
+    "terminal": "Usti nad Labem",
+    "objIndex": 165
+  },
+  {
+    "city": "Hovorcovice",
+    "zipcode": 25064,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 166
+  },
+  {
+    "city": "Hradec Kralove",
+    "zipcode": 50002,
+    "weightTo27t": 534,
+    "weightTo34t": 580,
+    "terminal": "Usti nad Labem",
+    "objIndex": 167
+  },
+  {
+    "city": "Hradek",
+    "zipcode": 33842,
+    "weightTo27t": 515,
+    "weightTo34t": 560,
+    "terminal": "Usti nad Labem",
+    "objIndex": 168
+  },
+  {
+    "city": "Hradek nad Nisou",
+    "zipcode": 46334,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Usti nad Labem",
+    "objIndex": 169
+  },
+  {
+    "city": "Hradistko",
+    "zipcode": 25209,
+    "weightTo27t": 417,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 170
+  },
+  {
+    "city": "Hranice",
+    "zipcode": 35124,
+    "weightTo27t": 504,
+    "weightTo34t": 552,
+    "terminal": "Usti nad Labem",
+    "objIndex": 171
+  },
+  {
+    "city": "Hrebec",
+    "zipcode": 27345,
+    "weightTo27t": 312,
+    "weightTo34t": 340,
+    "terminal": "Usti nad Labem",
+    "objIndex": 172
+  },
+  {
+    "city": "Hredle",
+    "zipcode": 27008,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Usti nad Labem",
+    "objIndex": 173
+  },
+  {
+    "city": "Hrensko",
+    "zipcode": 40717,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 174
+  },
+  {
+    "city": "Hribojedy",
+    "zipcode": 54456,
+    "weightTo27t": 581,
+    "weightTo34t": 631,
+    "terminal": "Usti nad Labem",
+    "objIndex": 175
+  },
+  {
+    "city": "Hrob",
+    "zipcode": 41704,
+    "weightTo27t": 194,
+    "weightTo34t": 213,
+    "terminal": "Usti nad Labem",
+    "objIndex": 176
+  },
+  {
+    "city": "Hrobce",
+    "zipcode": 41183,
+    "weightTo27t": 216,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 177
+  },
+  {
+    "city": "Hrobcice",
+    "zipcode": 41757,
+    "weightTo27t": 199,
+    "weightTo34t": 219,
+    "terminal": "Usti nad Labem",
+    "objIndex": 178
+  },
+  {
+    "city": "Hromnice",
+    "zipcode": 33011,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 179
+  },
+  {
+    "city": "Hroznetin",
+    "zipcode": 36233,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 180
+  },
+  {
+    "city": "Hruba Skala",
+    "zipcode": 51101,
+    "weightTo27t": 493,
+    "weightTo34t": 536,
+    "terminal": "Usti nad Labem",
+    "objIndex": 181
+  },
+  {
+    "city": "Hudlice",
+    "zipcode": 26703,
+    "weightTo27t": 401,
+    "weightTo34t": 437,
+    "terminal": "Usti nad Labem",
+    "objIndex": 182
+  },
+  {
+    "city": "Huntirov",
+    "zipcode": 40502,
+    "weightTo27t": 190,
+    "weightTo34t": 209,
+    "terminal": "Usti nad Labem",
+    "objIndex": 183
+  },
+  {
+    "city": "Husinec",
+    "zipcode": 25068,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 184
+  },
+  {
+    "city": "Hyskov",
+    "zipcode": 26706,
+    "weightTo27t": 388,
+    "weightTo34t": 422,
+    "terminal": "Usti nad Labem",
+    "objIndex": 185
+  },
+  {
+    "city": "Chabarovice",
+    "zipcode": 40317,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 186
+  },
+  {
+    "city": "Cheb",
+    "zipcode": 35002,
+    "weightTo27t": 450,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 187
+  },
+  {
+    "city": "Chlumcany",
+    "zipcode": 43903,
+    "weightTo27t": 226,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 188
+  },
+  {
+    "city": "Chlumcany",
+    "zipcode": 33442,
+    "weightTo27t": 558,
+    "weightTo34t": 606,
+    "terminal": "Usti nad Labem",
+    "objIndex": 189
+  },
+  {
+    "city": "Chlumec",
+    "zipcode": 40339,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 190
+  },
+  {
+    "city": "Chlumec/Cesky Ujezd",
+    "zipcode": 40010,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 191
+  },
+  {
+    "city": "Chlumec nad Cidlinou",
+    "zipcode": 50351,
+    "weightTo27t": 482,
+    "weightTo34t": 524,
+    "terminal": "Usti nad Labem",
+    "objIndex": 192
+  },
+  {
+    "city": "Chodov",
+    "zipcode": 35735,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 193
+  },
+  {
+    "city": "Chodova Plana",
+    "zipcode": 34813,
+    "weightTo27t": 490,
+    "weightTo34t": 537,
+    "terminal": "Usti nad Labem",
+    "objIndex": 194
+  },
+  {
+    "city": "Chomutov",
+    "zipcode": 43001,
+    "weightTo27t": 221,
+    "weightTo34t": 243,
+    "terminal": "Usti nad Labem",
+    "objIndex": 195
+  },
+  {
+    "city": "Chotetov",
+    "zipcode": 29428,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Usti nad Labem",
+    "objIndex": 196
+  },
+  {
+    "city": "Chotikov",
+    "zipcode": 33017,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 197
+  },
+  {
+    "city": "Chotimer",
+    "zipcode": 41002,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 198
+  },
+  {
+    "city": "Choustnikovo Hradiste",
+    "zipcode": 54442,
+    "weightTo27t": 581,
+    "weightTo34t": 631,
+    "terminal": "Usti nad Labem",
+    "objIndex": 199
+  },
+  {
+    "city": "Chozov",
+    "zipcode": 43922,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 200
+  },
+  {
+    "city": "Chrast",
+    "zipcode": 33003,
+    "weightTo27t": 528,
+    "weightTo34t": 574,
+    "terminal": "Usti nad Labem",
+    "objIndex": 201
+  },
+  {
+    "city": "Chrastany",
+    "zipcode": 25219,
+    "weightTo27t": 338,
+    "weightTo34t": 368,
+    "terminal": "Usti nad Labem",
+    "objIndex": 202
+  },
+  {
+    "city": "Chrastava",
+    "zipcode": 46331,
+    "weightTo27t": 252,
+    "weightTo34t": 277,
+    "terminal": "Usti nad Labem",
+    "objIndex": 203
+  },
+  {
+    "city": "Chribska",
+    "zipcode": 40744,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 204
+  },
+  {
+    "city": "Chrudim",
+    "zipcode": 53701,
+    "weightTo27t": 545,
+    "weightTo34t": 593,
+    "terminal": "Usti nad Labem",
+    "objIndex": 205
+  },
+  {
+    "city": "Chrustenice",
+    "zipcode": 26712,
+    "weightTo27t": 373,
+    "weightTo34t": 406,
+    "terminal": "Usti nad Labem",
+    "objIndex": 206
+  },
+  {
+    "city": "Chynava",
+    "zipcode": 26707,
+    "weightTo27t": 328,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 207
+  },
+  {
+    "city": "Chyne",
+    "zipcode": 25301,
+    "weightTo27t": 349,
+    "weightTo34t": 380,
+    "terminal": "Usti nad Labem",
+    "objIndex": 208
+  },
+  {
+    "city": "Chyse",
+    "zipcode": 36453,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 209
+  },
+  {
+    "city": "Jablonec nad Nisou",
+    "zipcode": 46601,
+    "weightTo27t": 304,
+    "weightTo34t": 334,
+    "terminal": "Usti nad Labem",
+    "objIndex": 210
+  },
+  {
+    "city": "Jablonne v Podjestedi",
+    "zipcode": 47125,
+    "weightTo27t": 225,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 211
+  },
+  {
+    "city": "Jachymov",
+    "zipcode": 36251,
+    "weightTo27t": 304,
+    "weightTo34t": 334,
+    "terminal": "Usti nad Labem",
+    "objIndex": 212
+  },
+  {
+    "city": "Jaromer",
+    "zipcode": 55101,
+    "weightTo27t": 575,
+    "weightTo34t": 624,
+    "terminal": "Usti nad Labem",
+    "objIndex": 213
+  },
+  {
+    "city": "Jencice",
+    "zipcode": 41115,
+    "weightTo27t": 199,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 214
+  },
+  {
+    "city": "Jenec",
+    "zipcode": 25261,
+    "weightTo27t": 339,
+    "weightTo34t": 369,
+    "terminal": "Usti nad Labem",
+    "objIndex": 215
+  },
+  {
+    "city": "Jenikov",
+    "zipcode": 41724,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 216
+  },
+  {
+    "city": "Jenisov",
+    "zipcode": 36001,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 217
+  },
+  {
+    "city": "Jenisovice",
+    "zipcode": 46833,
+    "weightTo27t": 330,
+    "weightTo34t": 362,
+    "terminal": "Usti nad Labem",
+    "objIndex": 218
+  },
+  {
+    "city": "Jenstejn",
+    "zipcode": 25073,
+    "weightTo27t": 301,
+    "weightTo34t": 328,
+    "terminal": "Usti nad Labem",
+    "objIndex": 219
+  },
+  {
+    "city": "Jesenice",
+    "zipcode": 25242,
+    "weightTo27t": 363,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 220
+  },
+  {
+    "city": "Jesenice/Horni Jircany",
+    "zipcode": 25242,
+    "weightTo27t": 363,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 221
+  },
+  {
+    "city": "Jesenice/Osnice",
+    "zipcode": 25242,
+    "weightTo27t": 363,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 222
+  },
+  {
+    "city": "Jesenice",
+    "zipcode": 27033,
+    "weightTo27t": 283,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 223
+  },
+  {
+    "city": "Jesenny",
+    "zipcode": 51212,
+    "weightTo27t": 359,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 224
+  },
+  {
+    "city": "Jetrichovice",
+    "zipcode": 40716,
+    "weightTo27t": 198,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 225
+  },
+  {
+    "city": "Jicin",
+    "zipcode": 50601,
+    "weightTo27t": 478,
+    "weightTo34t": 520,
+    "terminal": "Usti nad Labem",
+    "objIndex": 226
+  },
+  {
+    "city": "Jicineves",
+    "zipcode": 50731,
+    "weightTo27t": 470,
+    "weightTo34t": 512,
+    "terminal": "Usti nad Labem",
+    "objIndex": 227
+  },
+  {
+    "city": "Jihlava",
+    "zipcode": 58601,
+    "weightTo27t": 620,
+    "weightTo34t": 674,
+    "terminal": "Usti nad Labem",
+    "objIndex": 228
+  },
+  {
+    "city": "Jilemnice",
+    "zipcode": 51401,
+    "weightTo27t": 545,
+    "weightTo34t": 593,
+    "terminal": "Usti nad Labem",
+    "objIndex": 229
+  },
+  {
+    "city": "Jilove",
+    "zipcode": 40701,
+    "weightTo27t": 189,
+    "weightTo34t": 207,
+    "terminal": "Usti nad Labem",
+    "objIndex": 230
+  },
+  {
+    "city": "Jilove u Prahy",
+    "zipcode": 25401,
+    "weightTo27t": 385,
+    "weightTo34t": 419,
+    "terminal": "Usti nad Labem",
+    "objIndex": 231
+  },
+  {
+    "city": "Jiloviste",
+    "zipcode": 25202,
+    "weightTo27t": 413,
+    "weightTo34t": 450,
+    "terminal": "Usti nad Labem",
+    "objIndex": 232
+  },
+  {
+    "city": "Jindrichovice",
+    "zipcode": 35801,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 233
+  },
+  {
+    "city": "Jinocany",
+    "zipcode": 25225,
+    "weightTo27t": 338,
+    "weightTo34t": 368,
+    "terminal": "Usti nad Labem",
+    "objIndex": 234
+  },
+  {
+    "city": "Jiretin pod Bukovou",
+    "zipcode": 46843,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 235
+  },
+  {
+    "city": "Jiretin pod Jedlovou",
+    "zipcode": 40756,
+    "weightTo27t": 225,
+    "weightTo34t": 248,
+    "terminal": "Usti nad Labem",
+    "objIndex": 236
+  },
+  {
+    "city": "Jirikov",
+    "zipcode": 40753,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Usti nad Labem",
+    "objIndex": 237
+  },
+  {
+    "city": "Jirkov",
+    "zipcode": 43111,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Usti nad Labem",
+    "objIndex": 238
+  },
+  {
+    "city": "Jirny",
+    "zipcode": 25090,
+    "weightTo27t": 315,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 239
+  },
+  {
+    "city": "Josefuv Dul",
+    "zipcode": 29307,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 240
+  },
+  {
+    "city": "Kadan",
+    "zipcode": 43201,
+    "weightTo27t": 255,
+    "weightTo34t": 280,
+    "terminal": "Usti nad Labem",
+    "objIndex": 241
+  },
+  {
+    "city": "Kadan/Prunerov",
+    "zipcode": 43201,
+    "weightTo27t": 255,
+    "weightTo34t": 280,
+    "terminal": "Usti nad Labem",
+    "objIndex": 242
+  },
+  {
+    "city": "Kamenicky Senov",
+    "zipcode": 47114,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Usti nad Labem",
+    "objIndex": 243
+  },
+  {
+    "city": "Kamenne Zehrovice",
+    "zipcode": 27301,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 244
+  },
+  {
+    "city": "Kamenny Most",
+    "zipcode": 27326,
+    "weightTo27t": 242,
+    "weightTo34t": 264,
+    "terminal": "Usti nad Labem",
+    "objIndex": 245
+  },
+  {
+    "city": "Kamenny Privoz",
+    "zipcode": 25282,
+    "weightTo27t": 417,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 246
+  },
+  {
+    "city": "Karlovice",
+    "zipcode": 51101,
+    "weightTo27t": 482,
+    "weightTo34t": 524,
+    "terminal": "Usti nad Labem",
+    "objIndex": 247
+  },
+  {
+    "city": "Karlovy Vary",
+    "zipcode": 36001,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 248
+  },
+  {
+    "city": "Kaznejov",
+    "zipcode": 33151,
+    "weightTo27t": 359,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 249
+  },
+  {
+    "city": "Kladno",
+    "zipcode": 27201,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Usti nad Labem",
+    "objIndex": 250
+  },
+  {
+    "city": "Kladno/Dubi",
+    "zipcode": 27203,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Usti nad Labem",
+    "objIndex": 251
+  },
+  {
+    "city": "Kladruby",
+    "zipcode": 41501,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Usti nad Labem",
+    "objIndex": 252
+  },
+  {
+    "city": "Klapy",
+    "zipcode": 41116,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 253
+  },
+  {
+    "city": "Klasterec nad Ohri",
+    "zipcode": 43151,
+    "weightTo27t": 255,
+    "weightTo34t": 280,
+    "terminal": "Usti nad Labem",
+    "objIndex": 254
+  },
+  {
+    "city": "Klatovy",
+    "zipcode": 33901,
+    "weightTo27t": 618,
+    "weightTo34t": 672,
+    "terminal": "Usti nad Labem",
+    "objIndex": 255
+  },
+  {
+    "city": "Klecany",
+    "zipcode": 25067,
+    "weightTo27t": 266,
+    "weightTo34t": 290,
+    "terminal": "Usti nad Labem",
+    "objIndex": 256
+  },
+  {
+    "city": "Klicany",
+    "zipcode": 25069,
+    "weightTo27t": 266,
+    "weightTo34t": 290,
+    "terminal": "Usti nad Labem",
+    "objIndex": 257
+  },
+  {
+    "city": "Kliny",
+    "zipcode": 43601,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 258
+  },
+  {
+    "city": "Kmetineves",
+    "zipcode": 27322,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Usti nad Labem",
+    "objIndex": 259
+  },
+  {
+    "city": "Knezeves",
+    "zipcode": 25268,
+    "weightTo27t": 314,
+    "weightTo34t": 342,
+    "terminal": "Usti nad Labem",
+    "objIndex": 260
+  },
+  {
+    "city": "Knezmost",
+    "zipcode": 29402,
+    "weightTo27t": 431,
+    "weightTo34t": 469,
+    "terminal": "Usti nad Labem",
+    "objIndex": 261
+  },
+  {
+    "city": "Kocbere",
+    "zipcode": 54464,
+    "weightTo27t": 592,
+    "weightTo34t": 644,
+    "terminal": "Usti nad Labem",
+    "objIndex": 262
+  },
+  {
+    "city": "Kohoutov",
+    "zipcode": 54401,
+    "weightTo27t": 592,
+    "weightTo34t": 644,
+    "terminal": "Usti nad Labem",
+    "objIndex": 263
+  },
+  {
+    "city": "Kojetice",
+    "zipcode": 25072,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 264
+  },
+  {
+    "city": "Kokorin",
+    "zipcode": 27723,
+    "weightTo27t": 268,
+    "weightTo34t": 292,
+    "terminal": "Usti nad Labem",
+    "objIndex": 265
+  },
+  {
+    "city": "Kolin",
+    "zipcode": 28002,
+    "weightTo27t": 428,
+    "weightTo34t": 466,
+    "terminal": "Usti nad Labem",
+    "objIndex": 266
+  },
+  {
+    "city": "Kolova",
+    "zipcode": 36001,
+    "weightTo27t": 350,
+    "weightTo34t": 384,
+    "terminal": "Usti nad Labem",
+    "objIndex": 267
+  },
+  {
+    "city": "Komarov",
+    "zipcode": 26762,
+    "weightTo27t": 440,
+    "weightTo34t": 479,
+    "terminal": "Usti nad Labem",
+    "objIndex": 268
+  },
+  {
+    "city": "Konecchlumi",
+    "zipcode": 50705,
+    "weightTo27t": 512,
+    "weightTo34t": 557,
+    "terminal": "Usti nad Labem",
+    "objIndex": 269
+  },
+  {
+    "city": "Kopidlno",
+    "zipcode": 50732,
+    "weightTo27t": 459,
+    "weightTo34t": 500,
+    "terminal": "Usti nad Labem",
+    "objIndex": 270
+  },
+  {
+    "city": "Kornatice",
+    "zipcode": 33843,
+    "weightTo27t": 526,
+    "weightTo34t": 572,
+    "terminal": "Usti nad Labem",
+    "objIndex": 271
+  },
+  {
+    "city": "Korozluky",
+    "zipcode": 43401,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 272
+  },
+  {
+    "city": "Korozluky/Sedlec",
+    "zipcode": 43401,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 273
+  },
+  {
+    "city": "Kosmonosy",
+    "zipcode": 29306,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 274
+  },
+  {
+    "city": "Kosor",
+    "zipcode": 25226,
+    "weightTo27t": 375,
+    "weightTo34t": 408,
+    "terminal": "Usti nad Labem",
+    "objIndex": 275
+  },
+  {
+    "city": "Kosorice",
+    "zipcode": 29441,
+    "weightTo27t": 390,
+    "weightTo34t": 424,
+    "terminal": "Usti nad Labem",
+    "objIndex": 276
+  },
+  {
+    "city": "Kostalov",
+    "zipcode": 51202,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 277
+  },
+  {
+    "city": "Kostany",
+    "zipcode": 41723,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 278
+  },
+  {
+    "city": "Kostelec",
+    "zipcode": 34901,
+    "weightTo27t": 611,
+    "weightTo34t": 664,
+    "terminal": "Usti nad Labem",
+    "objIndex": 279
+  },
+  {
+    "city": "Kostelec/Ostrov u Stribra",
+    "zipcode": 34901,
+    "weightTo27t": 611,
+    "weightTo34t": 664,
+    "terminal": "Usti nad Labem",
+    "objIndex": 280
+  },
+  {
+    "city": "Kostelec nad Labem",
+    "zipcode": 27713,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 281
+  },
+  {
+    "city": "Kostelni Hlavno",
+    "zipcode": 29476,
+    "weightTo27t": 340,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 282
+  },
+  {
+    "city": "Kovac",
+    "zipcode": 50601,
+    "weightTo27t": 512,
+    "weightTo34t": 557,
+    "terminal": "Usti nad Labem",
+    "objIndex": 283
+  },
+  {
+    "city": "Kovan",
+    "zipcode": 29425,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Usti nad Labem",
+    "objIndex": 284
+  },
+  {
+    "city": "Kovarska",
+    "zipcode": 43186,
+    "weightTo27t": 272,
+    "weightTo34t": 299,
+    "terminal": "Usti nad Labem",
+    "objIndex": 285
+  },
+  {
+    "city": "Kozlany",
+    "zipcode": 33144,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 286
+  },
+  {
+    "city": "Kozojedy",
+    "zipcode": 27054,
+    "weightTo27t": 234,
+    "weightTo34t": 257,
+    "terminal": "Usti nad Labem",
+    "objIndex": 287
+  },
+  {
+    "city": "Kozomin",
+    "zipcode": 27745,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Usti nad Labem",
+    "objIndex": 288
+  },
+  {
+    "city": "Krajkova",
+    "zipcode": 35709,
+    "weightTo27t": 396,
+    "weightTo34t": 435,
+    "terminal": "Usti nad Labem",
+    "objIndex": 289
+  },
+  {
+    "city": "Kralovice",
+    "zipcode": 33141,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 290
+  },
+  {
+    "city": "Kralupy nad Vltavou",
+    "zipcode": 27801,
+    "weightTo27t": 240,
+    "weightTo34t": 262,
+    "terminal": "Usti nad Labem",
+    "objIndex": 291
+  },
+  {
+    "city": "Kraluv Dvur",
+    "zipcode": 26701,
+    "weightTo27t": 392,
+    "weightTo34t": 426,
+    "terminal": "Usti nad Labem",
+    "objIndex": 292
+  },
+  {
+    "city": "Kraslice",
+    "zipcode": 35801,
+    "weightTo27t": 412,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 293
+  },
+  {
+    "city": "Krasna Lipa",
+    "zipcode": 40746,
+    "weightTo27t": 212,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 294
+  },
+  {
+    "city": "Kravare",
+    "zipcode": 47103,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 295
+  },
+  {
+    "city": "Krenice",
+    "zipcode": 25084,
+    "weightTo27t": 313,
+    "weightTo34t": 341,
+    "terminal": "Usti nad Labem",
+    "objIndex": 296
+  },
+  {
+    "city": "Kresice",
+    "zipcode": 41148,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 297
+  },
+  {
+    "city": "Krivoklat",
+    "zipcode": 27023,
+    "weightTo27t": 328,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 298
+  },
+  {
+    "city": "Krnsko",
+    "zipcode": 29431,
+    "weightTo27t": 323,
+    "weightTo34t": 352,
+    "terminal": "Usti nad Labem",
+    "objIndex": 299
+  },
+  {
+    "city": "Kropacova Vrutice",
+    "zipcode": 29479,
+    "weightTo27t": 290,
+    "weightTo34t": 316,
+    "terminal": "Usti nad Labem",
+    "objIndex": 300
+  },
+  {
+    "city": "Krupka",
+    "zipcode": 41741,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 301
+  },
+  {
+    "city": "Krupka/Nove Modlany",
+    "zipcode": 41742,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 302
+  },
+  {
+    "city": "Krusovice",
+    "zipcode": 27053,
+    "weightTo27t": 314,
+    "weightTo34t": 342,
+    "terminal": "Usti nad Labem",
+    "objIndex": 303
+  },
+  {
+    "city": "Kryry",
+    "zipcode": 43981,
+    "weightTo27t": 263,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 304
+  },
+  {
+    "city": "Krystofovy Hamry",
+    "zipcode": 43191,
+    "weightTo27t": 272,
+    "weightTo34t": 299,
+    "terminal": "Usti nad Labem",
+    "objIndex": 305
+  },
+  {
+    "city": "Kuks",
+    "zipcode": 54443,
+    "weightTo27t": 581,
+    "weightTo34t": 631,
+    "terminal": "Usti nad Labem",
+    "objIndex": 306
+  },
+  {
+    "city": "Kutna Hora",
+    "zipcode": 28401,
+    "weightTo27t": 463,
+    "weightTo34t": 504,
+    "terminal": "Usti nad Labem",
+    "objIndex": 307
+  },
+  {
+    "city": "Kynsperk nad Ohri",
+    "zipcode": 35751,
+    "weightTo27t": 412,
+    "weightTo34t": 452,
+    "terminal": "Usti nad Labem",
+    "objIndex": 308
+  },
+  {
+    "city": "Kyselka",
+    "zipcode": 36272,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 309
+  },
+  {
+    "city": "Kysice",
+    "zipcode": 33001,
+    "weightTo27t": 517,
+    "weightTo34t": 562,
+    "terminal": "Usti nad Labem",
+    "objIndex": 310
+  },
+  {
+    "city": "Lahost",
+    "zipcode": 41725,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 311
+  },
+  {
+    "city": "Lanov",
+    "zipcode": 54341,
+    "weightTo27t": 423,
+    "weightTo34t": 465,
+    "terminal": "Usti nad Labem",
+    "objIndex": 312
+  },
+  {
+    "city": "Lanskroun",
+    "zipcode": 56301,
+    "weightTo27t": 717,
+    "weightTo34t": 780,
+    "terminal": "Usti nad Labem",
+    "objIndex": 313
+  },
+  {
+    "city": "Lany",
+    "zipcode": 27061,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 314
+  },
+  {
+    "city": "Lazne Belohrad",
+    "zipcode": 50781,
+    "weightTo27t": 533,
+    "weightTo34t": 580,
+    "terminal": "Usti nad Labem",
+    "objIndex": 315
+  },
+  {
+    "city": "Lazne Tousen",
+    "zipcode": 25089,
+    "weightTo27t": 315,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 316
+  },
+  {
+    "city": "Ledce",
+    "zipcode": 33014,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 317
+  },
+  {
+    "city": "Ledcice",
+    "zipcode": 27708,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 318
+  },
+  {
+    "city": "Ledvice",
+    "zipcode": 41772,
+    "weightTo27t": 194,
+    "weightTo34t": 213,
+    "terminal": "Usti nad Labem",
+    "objIndex": 319
+  },
+  {
+    "city": "Lenesice",
+    "zipcode": 43923,
+    "weightTo27t": 215,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 320
+  },
+  {
+    "city": "Lesna",
+    "zipcode": 34701,
+    "weightTo27t": 553,
+    "weightTo34t": 607,
+    "terminal": "Usti nad Labem",
+    "objIndex": 321
+  },
+  {
+    "city": "Lestkov",
+    "zipcode": 34953,
+    "weightTo27t": 512,
+    "weightTo34t": 561,
+    "terminal": "Usti nad Labem",
+    "objIndex": 322
+  },
+  {
+    "city": "Letkov",
+    "zipcode": 32600,
+    "weightTo27t": 517,
+    "weightTo34t": 562,
+    "terminal": "Usti nad Labem",
+    "objIndex": 323
+  },
+  {
+    "city": "Lety",
+    "zipcode": 25229,
+    "weightTo27t": 434,
+    "weightTo34t": 473,
+    "terminal": "Usti nad Labem",
+    "objIndex": 324
+  },
+  {
+    "city": "Lhota",
+    "zipcode": 27301,
+    "weightTo27t": 307,
+    "weightTo34t": 335,
+    "terminal": "Usti nad Labem",
+    "objIndex": 325
+  },
+  {
+    "city": "Liba",
+    "zipcode": 35131,
+    "weightTo27t": 461,
+    "weightTo34t": 505,
+    "terminal": "Usti nad Labem",
+    "objIndex": 326
+  },
+  {
+    "city": "Liban",
+    "zipcode": 50723,
+    "weightTo27t": 470,
+    "weightTo34t": 512,
+    "terminal": "Usti nad Labem",
+    "objIndex": 327
+  },
+  {
+    "city": "Libavske Udoli",
+    "zipcode": 35751,
+    "weightTo27t": 399,
+    "weightTo34t": 438,
+    "terminal": "Usti nad Labem",
+    "objIndex": 328
+  },
+  {
+    "city": "Libceves",
+    "zipcode": 43926,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 329
+  },
+  {
+    "city": "Libcice nad Vltavou",
+    "zipcode": 25266,
+    "weightTo27t": 248,
+    "weightTo34t": 271,
+    "terminal": "Usti nad Labem",
+    "objIndex": 330
+  },
+  {
+    "city": "Liber",
+    "zipcode": 25241,
+    "weightTo27t": 374,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 331
+  },
+  {
+    "city": "Liberec",
+    "zipcode": 46001,
+    "weightTo27t": 271,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 332
+  },
+  {
+    "city": "Liberec/Vesec",
+    "zipcode": 46312,
+    "weightTo27t": 271,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 333
+  },
+  {
+    "city": "Liberec/Vratislavice nad Nisou",
+    "zipcode": 46311,
+    "weightTo27t": 271,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 334
+  },
+  {
+    "city": "Libeznice",
+    "zipcode": 25065,
+    "weightTo27t": 266,
+    "weightTo34t": 290,
+    "terminal": "Usti nad Labem",
+    "objIndex": 335
+  },
+  {
+    "city": "Libis",
+    "zipcode": 27711,
+    "weightTo27t": 268,
+    "weightTo34t": 292,
+    "terminal": "Usti nad Labem",
+    "objIndex": 336
+  },
+  {
+    "city": "Libkovice pod Ripem",
+    "zipcode": 41301,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Usti nad Labem",
+    "objIndex": 337
+  },
+  {
+    "city": "Libocany",
+    "zipcode": 43975,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 338
+  },
+  {
+    "city": "Libochovany",
+    "zipcode": 41103,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 339
+  },
+  {
+    "city": "Libochovice",
+    "zipcode": 41117,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 340
+  },
+  {
+    "city": "Libotenice",
+    "zipcode": 41201,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 341
+  },
+  {
+    "city": "Libouchec",
+    "zipcode": 40335,
+    "weightTo27t": 187,
+    "weightTo34t": 205,
+    "terminal": "Usti nad Labem",
+    "objIndex": 342
+  },
+  {
+    "city": "Libstat",
+    "zipcode": 51203,
+    "weightTo27t": 510,
+    "weightTo34t": 555,
+    "terminal": "Usti nad Labem",
+    "objIndex": 343
+  },
+  {
+    "city": "Libun",
+    "zipcode": 50715,
+    "weightTo27t": 505,
+    "weightTo34t": 549,
+    "terminal": "Usti nad Labem",
+    "objIndex": 344
+  },
+  {
+    "city": "Libusin",
+    "zipcode": 27306,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Usti nad Labem",
+    "objIndex": 345
+  },
+  {
+    "city": "Lichoceves",
+    "zipcode": 25264,
+    "weightTo27t": 258,
+    "weightTo34t": 282,
+    "terminal": "Usti nad Labem",
+    "objIndex": 346
+  },
+  {
+    "city": "Line",
+    "zipcode": 33021,
+    "weightTo27t": 561,
+    "weightTo34t": 609,
+    "terminal": "Usti nad Labem",
+    "objIndex": 347
+  },
+  {
+    "city": "Lipova",
+    "zipcode": 40781,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Usti nad Labem",
+    "objIndex": 348
+  },
+  {
+    "city": "Lipova",
+    "zipcode": 35002,
+    "weightTo27t": 471,
+    "weightTo34t": 516,
+    "terminal": "Usti nad Labem",
+    "objIndex": 349
+  },
+  {
+    "city": "Lisna",
+    "zipcode": 33808,
+    "weightTo27t": 440,
+    "weightTo34t": 479,
+    "terminal": "Usti nad Labem",
+    "objIndex": 350
+  },
+  {
+    "city": "Liten",
+    "zipcode": 26727,
+    "weightTo27t": 412,
+    "weightTo34t": 449,
+    "terminal": "Usti nad Labem",
+    "objIndex": 351
+  },
+  {
+    "city": "Litomerice",
+    "zipcode": 41201,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 352
+  },
+  {
+    "city": "Litvinov",
+    "zipcode": 43601,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 353
+  },
+  {
+    "city": "Litvinov/Zaluzi",
+    "zipcode": 43601,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 354
+  },
+  {
+    "city": "Lobec",
+    "zipcode": 27736,
+    "weightTo27t": 285,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 355
+  },
+  {
+    "city": "Lodenice",
+    "zipcode": 26712,
+    "weightTo27t": 362,
+    "weightTo34t": 394,
+    "terminal": "Usti nad Labem",
+    "objIndex": 356
+  },
+  {
+    "city": "Loket",
+    "zipcode": 35733,
+    "weightTo27t": 361,
+    "weightTo34t": 397,
+    "terminal": "Usti nad Labem",
+    "objIndex": 357
+  },
+  {
+    "city": "Lom",
+    "zipcode": 43511,
+    "weightTo27t": 202,
+    "weightTo34t": 222,
+    "terminal": "Usti nad Labem",
+    "objIndex": 358
+  },
+  {
+    "city": "Lom u Tachova",
+    "zipcode": 34701,
+    "weightTo27t": 512,
+    "weightTo34t": 561,
+    "terminal": "Usti nad Labem",
+    "objIndex": 359
+  },
+  {
+    "city": "Lomnice",
+    "zipcode": 35601,
+    "weightTo27t": 385,
+    "weightTo34t": 423,
+    "terminal": "Usti nad Labem",
+    "objIndex": 360
+  },
+  {
+    "city": "Lomnice nad Popelkou",
+    "zipcode": 51251,
+    "weightTo27t": 500,
+    "weightTo34t": 544,
+    "terminal": "Usti nad Labem",
+    "objIndex": 361
+  },
+  {
+    "city": "Losina",
+    "zipcode": 33204,
+    "weightTo27t": 544,
+    "weightTo34t": 591,
+    "terminal": "Usti nad Labem",
+    "objIndex": 362
+  },
+  {
+    "city": "Louka u Litvinova",
+    "zipcode": 43533,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 363
+  },
+  {
+    "city": "Loukov",
+    "zipcode": 29411,
+    "weightTo27t": 446,
+    "weightTo34t": 485,
+    "terminal": "Usti nad Labem",
+    "objIndex": 364
+  },
+  {
+    "city": "Louny",
+    "zipcode": 44001,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Usti nad Labem",
+    "objIndex": 365
+  },
+  {
+    "city": "Loveckovice",
+    "zipcode": 41145,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Usti nad Labem",
+    "objIndex": 366
+  },
+  {
+    "city": "Lovosice",
+    "zipcode": 41002,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Usti nad Labem",
+    "objIndex": 367
+  },
+  {
+    "city": "Lubna",
+    "zipcode": 27036,
+    "weightTo27t": 346,
+    "weightTo34t": 377,
+    "terminal": "Usti nad Labem",
+    "objIndex": 368
+  },
+  {
+    "city": "Luby",
+    "zipcode": 35137,
+    "weightTo27t": 455,
+    "weightTo34t": 499,
+    "terminal": "Usti nad Labem",
+    "objIndex": 369
+  },
+  {
+    "city": "Lucany nad Nisou",
+    "zipcode": 46871,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 370
+  },
+  {
+    "city": "Lustenice",
+    "zipcode": 29442,
+    "weightTo27t": 379,
+    "weightTo34t": 412,
+    "terminal": "Usti nad Labem",
+    "objIndex": 371
+  },
+  {
+    "city": "Luzec nad Vltavou",
+    "zipcode": 27706,
+    "weightTo27t": 236,
+    "weightTo34t": 257,
+    "terminal": "Usti nad Labem",
+    "objIndex": 372
+  },
+  {
+    "city": "Male Brezno",
+    "zipcode": 43401,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Usti nad Labem",
+    "objIndex": 373
+  },
+  {
+    "city": "Male Svatonovice",
+    "zipcode": 54234,
+    "weightTo27t": 635,
+    "weightTo34t": 691,
+    "terminal": "Usti nad Labem",
+    "objIndex": 374
+  },
+  {
+    "city": "Malkov",
+    "zipcode": 43001,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 375
+  },
+  {
+    "city": "Malsovice",
+    "zipcode": 40502,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Usti nad Labem",
+    "objIndex": 376
+  },
+  {
+    "city": "Maly Ujezd",
+    "zipcode": 27731,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Usti nad Labem",
+    "objIndex": 377
+  },
+  {
+    "city": "Manetin",
+    "zipcode": 33162,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 378
+  },
+  {
+    "city": "Marenice",
+    "zipcode": 47156,
+    "weightTo27t": 217,
+    "weightTo34t": 239,
+    "terminal": "Usti nad Labem",
+    "objIndex": 379
+  },
+  {
+    "city": "Marianske Lazne",
+    "zipcode": 35301,
+    "weightTo27t": 479,
+    "weightTo34t": 525,
+    "terminal": "Usti nad Labem",
+    "objIndex": 380
+  },
+  {
+    "city": "Markvartice",
+    "zipcode": 40742,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 381
+  },
+  {
+    "city": "Markvartice",
+    "zipcode": 50742,
+    "weightTo27t": 465,
+    "weightTo34t": 506,
+    "terminal": "Usti nad Labem",
+    "objIndex": 382
+  },
+  {
+    "city": "Martineves",
+    "zipcode": 41119,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 383
+  },
+  {
+    "city": "Martinice v Krkonosich",
+    "zipcode": 51232,
+    "weightTo27t": 543,
+    "weightTo34t": 591,
+    "terminal": "Usti nad Labem",
+    "objIndex": 384
+  },
+  {
+    "city": "Medonosy",
+    "zipcode": 27721,
+    "weightTo27t": 277,
+    "weightTo34t": 302,
+    "terminal": "Usti nad Labem",
+    "objIndex": 385
+  },
+  {
+    "city": "Mechenice",
+    "zipcode": 25206,
+    "weightTo27t": 407,
+    "weightTo34t": 444,
+    "terminal": "Usti nad Labem",
+    "objIndex": 386
+  },
+  {
+    "city": "Melnik",
+    "zipcode": 27601,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Usti nad Labem",
+    "objIndex": 387
+  },
+  {
+    "city": "Merklin",
+    "zipcode": 36234,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 388
+  },
+  {
+    "city": "Merunice",
+    "zipcode": 41804,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 389
+  },
+  {
+    "city": "Mesice",
+    "zipcode": 25064,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 390
+  },
+  {
+    "city": "Mesto Touskov",
+    "zipcode": 33033,
+    "weightTo27t": 423,
+    "weightTo34t": 465,
+    "terminal": "Usti nad Labem",
+    "objIndex": 391
+  },
+  {
+    "city": "Mezibori",
+    "zipcode": 43513,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 392
+  },
+  {
+    "city": "Mikulasovice",
+    "zipcode": 40779,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 393
+  },
+  {
+    "city": "Miletin",
+    "zipcode": 50771,
+    "weightTo27t": 593,
+    "weightTo34t": 645,
+    "terminal": "Usti nad Labem",
+    "objIndex": 394
+  },
+  {
+    "city": "Mimon",
+    "zipcode": 47124,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 395
+  },
+  {
+    "city": "Mirosov",
+    "zipcode": 33843,
+    "weightTo27t": 515,
+    "weightTo34t": 560,
+    "terminal": "Usti nad Labem",
+    "objIndex": 396
+  },
+  {
+    "city": "Mirova",
+    "zipcode": 35735,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 397
+  },
+  {
+    "city": "Mirova pod Kozakovem",
+    "zipcode": 51101,
+    "weightTo27t": 482,
+    "weightTo34t": 524,
+    "terminal": "Usti nad Labem",
+    "objIndex": 398
+  },
+  {
+    "city": "Misto",
+    "zipcode": 43158,
+    "weightTo27t": 239,
+    "weightTo34t": 263,
+    "terminal": "Usti nad Labem",
+    "objIndex": 399
+  },
+  {
+    "city": "Mlada Boleslav",
+    "zipcode": 29301,
+    "weightTo27t": 407,
+    "weightTo34t": 443,
+    "terminal": "Usti nad Labem",
+    "objIndex": 400
+  },
+  {
+    "city": "Mlade Buky",
+    "zipcode": 54223,
+    "weightTo27t": 644,
+    "weightTo34t": 701,
+    "terminal": "Usti nad Labem",
+    "objIndex": 401
+  },
+  {
+    "city": "Mladejov",
+    "zipcode": 50745,
+    "weightTo27t": 453,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 402
+  },
+  {
+    "city": "Mlazovice",
+    "zipcode": 50758,
+    "weightTo27t": 512,
+    "weightTo34t": 557,
+    "terminal": "Usti nad Labem",
+    "objIndex": 403
+  },
+  {
+    "city": "Mnichov",
+    "zipcode": 35301,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 404
+  },
+  {
+    "city": "Mnichovo Hradiste",
+    "zipcode": 29501,
+    "weightTo27t": 433,
+    "weightTo34t": 471,
+    "terminal": "Usti nad Labem",
+    "objIndex": 405
+  },
+  {
+    "city": "Mnisek",
+    "zipcode": 46331,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Usti nad Labem",
+    "objIndex": 406
+  },
+  {
+    "city": "Mnisek pod Brdy",
+    "zipcode": 25210,
+    "weightTo27t": 461,
+    "weightTo34t": 502,
+    "terminal": "Usti nad Labem",
+    "objIndex": 407
+  },
+  {
+    "city": "Modlany",
+    "zipcode": 41713,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 408
+  },
+  {
+    "city": "Modrisice",
+    "zipcode": 51101,
+    "weightTo27t": 456,
+    "weightTo34t": 496,
+    "terminal": "Usti nad Labem",
+    "objIndex": 409
+  },
+  {
+    "city": "Mochov",
+    "zipcode": 25087,
+    "weightTo27t": 325,
+    "weightTo34t": 354,
+    "terminal": "Usti nad Labem",
+    "objIndex": 410
+  },
+  {
+    "city": "Moravska Trebova",
+    "zipcode": 57101,
+    "weightTo27t": 711,
+    "weightTo34t": 773,
+    "terminal": "Usti nad Labem",
+    "objIndex": 411
+  },
+  {
+    "city": "Most",
+    "zipcode": 43401,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 412
+  },
+  {
+    "city": "Most/Cepirohy",
+    "zipcode": 43401,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 413
+  },
+  {
+    "city": "Most/Komorany",
+    "zipcode": 43401,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 414
+  },
+  {
+    "city": "Mratin",
+    "zipcode": 25063,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 415
+  },
+  {
+    "city": "Msene lazne",
+    "zipcode": 41119,
+    "weightTo27t": 216,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 416
+  },
+  {
+    "city": "Mseno",
+    "zipcode": 27735,
+    "weightTo27t": 277,
+    "weightTo34t": 302,
+    "terminal": "Usti nad Labem",
+    "objIndex": 417
+  },
+  {
+    "city": "Mutejovice",
+    "zipcode": 27007,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Usti nad Labem",
+    "objIndex": 418
+  },
+  {
+    "city": "Myslinka",
+    "zipcode": 33023,
+    "weightTo27t": 583,
+    "weightTo34t": 633,
+    "terminal": "Usti nad Labem",
+    "objIndex": 419
+  },
+  {
+    "city": "Myto",
+    "zipcode": 33805,
+    "weightTo27t": 468,
+    "weightTo34t": 509,
+    "terminal": "Usti nad Labem",
+    "objIndex": 420
+  },
+  {
+    "city": "Nachod",
+    "zipcode": 54701,
+    "weightTo27t": 620,
+    "weightTo34t": 674,
+    "terminal": "Usti nad Labem",
+    "objIndex": 421
+  },
+  {
+    "city": "Nebanice",
+    "zipcode": 35002,
+    "weightTo27t": 434,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 422
+  },
+  {
+    "city": "Nectiny",
+    "zipcode": 33163,
+    "weightTo27t": 359,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 423
+  },
+  {
+    "city": "Nehvizdy",
+    "zipcode": 25081,
+    "weightTo27t": 315,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 424
+  },
+  {
+    "city": "Nejdek",
+    "zipcode": 36221,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 425
+  },
+  {
+    "city": "Nelahozeves",
+    "zipcode": 27751,
+    "weightTo27t": 229,
+    "weightTo34t": 250,
+    "terminal": "Usti nad Labem",
+    "objIndex": 426
+  },
+  {
+    "city": "Nemojov",
+    "zipcode": 54461,
+    "weightTo27t": 612,
+    "weightTo34t": 666,
+    "terminal": "Usti nad Labem",
+    "objIndex": 427
+  },
+  {
+    "city": "Neprevazka",
+    "zipcode": 29301,
+    "weightTo27t": 416,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 428
+  },
+  {
+    "city": "Neratovice",
+    "zipcode": 27711,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 429
+  },
+  {
+    "city": "Neratovice/Hornatky",
+    "zipcode": 27711,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 430
+  },
+  {
+    "city": "Nezbavetice",
+    "zipcode": 33204,
+    "weightTo27t": 544,
+    "weightTo34t": 591,
+    "terminal": "Usti nad Labem",
+    "objIndex": 431
+  },
+  {
+    "city": "Nezvestice",
+    "zipcode": 33204,
+    "weightTo27t": 554,
+    "weightTo34t": 602,
+    "terminal": "Usti nad Labem",
+    "objIndex": 432
+  },
+  {
+    "city": "Nizbor",
+    "zipcode": 26705,
+    "weightTo27t": 399,
+    "weightTo34t": 435,
+    "terminal": "Usti nad Labem",
+    "objIndex": 433
+  },
+  {
+    "city": "Nova Paka",
+    "zipcode": 50901,
+    "weightTo27t": 522,
+    "weightTo34t": 568,
+    "terminal": "Usti nad Labem",
+    "objIndex": 434
+  },
+  {
+    "city": "Nova Role",
+    "zipcode": 36225,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 435
+  },
+  {
+    "city": "Nova Ves",
+    "zipcode": 46331,
+    "weightTo27t": 260,
+    "weightTo34t": 286,
+    "terminal": "Usti nad Labem",
+    "objIndex": 436
+  },
+  {
+    "city": "Nova Ves",
+    "zipcode": 27752,
+    "weightTo27t": 229,
+    "weightTo34t": 250,
+    "terminal": "Usti nad Labem",
+    "objIndex": 437
+  },
+  {
+    "city": "Nova Ves",
+    "zipcode": 25063,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 438
+  },
+  {
+    "city": "Nova Ves nad Nisou",
+    "zipcode": 46827,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 439
+  },
+  {
+    "city": "Nove Dvory",
+    "zipcode": 41301,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 440
+  },
+  {
+    "city": "Nove Hamry",
+    "zipcode": 36221,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 441
+  },
+  {
+    "city": "Nove Mesto pod Smrkem",
+    "zipcode": 46365,
+    "weightTo27t": 312,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 442
+  },
+  {
+    "city": "Nove Sedlo",
+    "zipcode": 35734,
+    "weightTo27t": 350,
+    "weightTo34t": 384,
+    "terminal": "Usti nad Labem",
+    "objIndex": 443
+  },
+  {
+    "city": "Nove Straseci",
+    "zipcode": 27101,
+    "weightTo27t": 299,
+    "weightTo34t": 326,
+    "terminal": "Usti nad Labem",
+    "objIndex": 444
+  },
+  {
+    "city": "Novosedlice",
+    "zipcode": 41731,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Usti nad Labem",
+    "objIndex": 445
+  },
+  {
+    "city": "Novy Bor",
+    "zipcode": 47301,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 446
+  },
+  {
+    "city": "Novy Bydzov",
+    "zipcode": 50401,
+    "weightTo27t": 503,
+    "weightTo34t": 547,
+    "terminal": "Usti nad Labem",
+    "objIndex": 447
+  },
+  {
+    "city": "Novy Dum",
+    "zipcode": 26901,
+    "weightTo27t": 333,
+    "weightTo34t": 363,
+    "terminal": "Usti nad Labem",
+    "objIndex": 448
+  },
+  {
+    "city": "Novy Kostel",
+    "zipcode": 35134,
+    "weightTo27t": 444,
+    "weightTo34t": 487,
+    "terminal": "Usti nad Labem",
+    "objIndex": 449
+  },
+  {
+    "city": "Nucice",
+    "zipcode": 25216,
+    "weightTo27t": 351,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 450
+  },
+  {
+    "city": "Nupaky",
+    "zipcode": 25101,
+    "weightTo27t": 348,
+    "weightTo34t": 379,
+    "terminal": "Usti nad Labem",
+    "objIndex": 451
+  },
+  {
+    "city": "Nymburk",
+    "zipcode": 28802,
+    "weightTo27t": 403,
+    "weightTo34t": 439,
+    "terminal": "Usti nad Labem",
+    "objIndex": 452
+  },
+  {
+    "city": "Nyrany",
+    "zipcode": 33023,
+    "weightTo27t": 573,
+    "weightTo34t": 622,
+    "terminal": "Usti nad Labem",
+    "objIndex": 453
+  },
+  {
+    "city": "Obristvi",
+    "zipcode": 27742,
+    "weightTo27t": 261,
+    "weightTo34t": 285,
+    "terminal": "Usti nad Labem",
+    "objIndex": 454
+  },
+  {
+    "city": "Obrnice",
+    "zipcode": 43521,
+    "weightTo27t": 202,
+    "weightTo34t": 222,
+    "terminal": "Usti nad Labem",
+    "objIndex": 455
+  },
+  {
+    "city": "Odolena Voda",
+    "zipcode": 25070,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Usti nad Labem",
+    "objIndex": 456
+  },
+  {
+    "city": "Odrava",
+    "zipcode": 35002,
+    "weightTo27t": 414,
+    "weightTo34t": 454,
+    "terminal": "Usti nad Labem",
+    "objIndex": 457
+  },
+  {
+    "city": "Ohrazenice",
+    "zipcode": 51101,
+    "weightTo27t": 471,
+    "weightTo34t": 512,
+    "terminal": "Usti nad Labem",
+    "objIndex": 458
+  },
+  {
+    "city": "Okrouhla",
+    "zipcode": 47301,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 459
+  },
+  {
+    "city": "Okrouhla",
+    "zipcode": 35002,
+    "weightTo27t": 437,
+    "weightTo34t": 479,
+    "terminal": "Usti nad Labem",
+    "objIndex": 460
+  },
+  {
+    "city": "Okrouhlo",
+    "zipcode": 25401,
+    "weightTo27t": 385,
+    "weightTo34t": 419,
+    "terminal": "Usti nad Labem",
+    "objIndex": 461
+  },
+  {
+    "city": "Olomouc",
+    "zipcode": 77200,
+    "weightTo27t": 810,
+    "weightTo34t": 880,
+    "terminal": "Usti nad Labem",
+    "objIndex": 462
+  },
+  {
+    "city": "Olovi",
+    "zipcode": 35707,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 463
+  },
+  {
+    "city": "Olsany",
+    "zipcode": 78962,
+    "weightTo27t": 736,
+    "weightTo34t": 802,
+    "terminal": "Usti nad Labem",
+    "objIndex": 464
+  },
+  {
+    "city": "Oracov",
+    "zipcode": 27032,
+    "weightTo27t": 293,
+    "weightTo34t": 322,
+    "terminal": "Usti nad Labem",
+    "objIndex": 465
+  },
+  {
+    "city": "Orech",
+    "zipcode": 25225,
+    "weightTo27t": 351,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 466
+  },
+  {
+    "city": "Osek",
+    "zipcode": 50743,
+    "weightTo27t": 442,
+    "weightTo34t": 481,
+    "terminal": "Usti nad Labem",
+    "objIndex": 467
+  },
+  {
+    "city": "Osek",
+    "zipcode": 33821,
+    "weightTo27t": 505,
+    "weightTo34t": 549,
+    "terminal": "Usti nad Labem",
+    "objIndex": 468
+  },
+  {
+    "city": "Osek",
+    "zipcode": 41705,
+    "weightTo27t": 199,
+    "weightTo34t": 219,
+    "terminal": "Usti nad Labem",
+    "objIndex": 469
+  },
+  {
+    "city": "Osov",
+    "zipcode": 26725,
+    "weightTo27t": 437,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 470
+  },
+  {
+    "city": "Ostromer",
+    "zipcode": 50752,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 471
+  },
+  {
+    "city": "Ostrov",
+    "zipcode": 36301,
+    "weightTo27t": 304,
+    "weightTo34t": 334,
+    "terminal": "Usti nad Labem",
+    "objIndex": 472
+  },
+  {
+    "city": "Ostruzno",
+    "zipcode": 50601,
+    "weightTo27t": 466,
+    "weightTo34t": 507,
+    "terminal": "Usti nad Labem",
+    "objIndex": 473
+  },
+  {
+    "city": "Otovice",
+    "zipcode": 36001,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 474
+  },
+  {
+    "city": "Otvice",
+    "zipcode": 43111,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Usti nad Labem",
+    "objIndex": 475
+  },
+  {
+    "city": "Otvovice",
+    "zipcode": 27327,
+    "weightTo27t": 248,
+    "weightTo34t": 271,
+    "terminal": "Usti nad Labem",
+    "objIndex": 476
+  },
+  {
+    "city": "Ovcary",
+    "zipcode": 28002,
+    "weightTo27t": 431,
+    "weightTo34t": 469,
+    "terminal": "Usti nad Labem",
+    "objIndex": 477
+  },
+  {
+    "city": "Ovcary",
+    "zipcode": 27714,
+    "weightTo27t": 277,
+    "weightTo34t": 302,
+    "terminal": "Usti nad Labem",
+    "objIndex": 478
+  },
+  {
+    "city": "Panensky Tynec",
+    "zipcode": 43905,
+    "weightTo27t": 235,
+    "weightTo34t": 258,
+    "terminal": "Usti nad Labem",
+    "objIndex": 479
+  },
+  {
+    "city": "Pardubice",
+    "zipcode": 53002,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 480
+  },
+  {
+    "city": "Paseky nad Jizerou",
+    "zipcode": 51247,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 481
+  },
+  {
+    "city": "Pavlov",
+    "zipcode": 27351,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Usti nad Labem",
+    "objIndex": 482
+  },
+  {
+    "city": "Pencin",
+    "zipcode": 46821,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 483
+  },
+  {
+    "city": "Perstejn",
+    "zipcode": 43163,
+    "weightTo27t": 263,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 484
+  },
+  {
+    "city": "Pertoltice pod Ralskem",
+    "zipcode": 47124,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 485
+  },
+  {
+    "city": "Peruc",
+    "zipcode": 43907,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 486
+  },
+  {
+    "city": "Pchery",
+    "zipcode": 27308,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Usti nad Labem",
+    "objIndex": 487
+  },
+  {
+    "city": "Pilnikov",
+    "zipcode": 54242,
+    "weightTo27t": 565,
+    "weightTo34t": 615,
+    "terminal": "Usti nad Labem",
+    "objIndex": 488
+  },
+  {
+    "city": "Pisek",
+    "zipcode": 39701,
+    "weightTo27t": 603,
+    "weightTo34t": 657,
+    "terminal": "Usti nad Labem",
+    "objIndex": 489
+  },
+  {
+    "city": "Plana",
+    "zipcode": 34815,
+    "weightTo27t": 500,
+    "weightTo34t": 548,
+    "terminal": "Usti nad Labem",
+    "objIndex": 490
+  },
+  {
+    "city": "Plasy",
+    "zipcode": 33101,
+    "weightTo27t": 348,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 491
+  },
+  {
+    "city": "Plavy",
+    "zipcode": 46846,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 492
+  },
+  {
+    "city": "Plazy",
+    "zipcode": 29301,
+    "weightTo27t": 407,
+    "weightTo34t": 443,
+    "terminal": "Usti nad Labem",
+    "objIndex": 493
+  },
+  {
+    "city": "Plesna",
+    "zipcode": 35135,
+    "weightTo27t": 482,
+    "weightTo34t": 528,
+    "terminal": "Usti nad Labem",
+    "objIndex": 494
+  },
+  {
+    "city": "Pleteny Ujezd",
+    "zipcode": 27351,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 495
+  },
+  {
+    "city": "Pluzna",
+    "zipcode": 29423,
+    "weightTo27t": 240,
+    "weightTo34t": 264,
+    "terminal": "Usti nad Labem",
+    "objIndex": 496
+  },
+  {
+    "city": "Plzen",
+    "zipcode": 30100,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 497
+  },
+  {
+    "city": "Plzen/Krimice",
+    "zipcode": 32200,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 498
+  },
+  {
+    "city": "Plzen/Nova Hospoda",
+    "zipcode": 31400,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 499
+  },
+  {
+    "city": "Pnetluky",
+    "zipcode": 44001,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Usti nad Labem",
+    "objIndex": 500
+  },
+  {
+    "city": "Pnovany",
+    "zipcode": 33033,
+    "weightTo27t": 604,
+    "weightTo34t": 657,
+    "terminal": "Usti nad Labem",
+    "objIndex": 501
+  },
+  {
+    "city": "Podborany",
+    "zipcode": 44101,
+    "weightTo27t": 263,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 502
+  },
+  {
+    "city": "Podebrady",
+    "zipcode": 29001,
+    "weightTo27t": 392,
+    "weightTo34t": 426,
+    "terminal": "Usti nad Labem",
+    "objIndex": 503
+  },
+  {
+    "city": "Podhradi",
+    "zipcode": 50601,
+    "weightTo27t": 477,
+    "weightTo34t": 519,
+    "terminal": "Usti nad Labem",
+    "objIndex": 504
+  },
+  {
+    "city": "Pohori",
+    "zipcode": 25401,
+    "weightTo27t": 396,
+    "weightTo34t": 432,
+    "terminal": "Usti nad Labem",
+    "objIndex": 505
+  },
+  {
+    "city": "Polepy",
+    "zipcode": 41147,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Usti nad Labem",
+    "objIndex": 506
+  },
+  {
+    "city": "Polerady",
+    "zipcode": 25063,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Usti nad Labem",
+    "objIndex": 507
+  },
+  {
+    "city": "Polevsko",
+    "zipcode": 47116,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 508
+  },
+  {
+    "city": "Ponikla",
+    "zipcode": 51242,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 509
+  },
+  {
+    "city": "Postoloprty",
+    "zipcode": 43942,
+    "weightTo27t": 233,
+    "weightTo34t": 256,
+    "terminal": "Usti nad Labem",
+    "objIndex": 510
+  },
+  {
+    "city": "Postoloprty/Rvenice",
+    "zipcode": 44001,
+    "weightTo27t": 233,
+    "weightTo34t": 256,
+    "terminal": "Usti nad Labem",
+    "objIndex": 511
+  },
+  {
+    "city": "Postrizin",
+    "zipcode": 25070,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Usti nad Labem",
+    "objIndex": 512
+  },
+  {
+    "city": "Povrly",
+    "zipcode": 40332,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 513
+  },
+  {
+    "city": "Praha",
+    "zipcode": "1xxxx",
+    "weightTo27t": 291,
+    "weightTo34t": 317,
+    "terminal": "Usti nad Labem",
+    "objIndex": 514
+  },
+  {
+    "city": "Praha/Hostivar",
+    "zipcode": 10200,
+    "weightTo27t": 291,
+    "weightTo34t": 317,
+    "terminal": "Usti nad Labem",
+    "objIndex": 515
+  },
+  {
+    "city": "Predboj",
+    "zipcode": 25072,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Usti nad Labem",
+    "objIndex": 516
+  },
+  {
+    "city": "Predmerice nad Jizerou",
+    "zipcode": 29474,
+    "weightTo27t": 341,
+    "weightTo34t": 371,
+    "terminal": "Usti nad Labem",
+    "objIndex": 517
+  },
+  {
+    "city": "Prehysov",
+    "zipcode": 33023,
+    "weightTo27t": 597,
+    "weightTo34t": 649,
+    "terminal": "Usti nad Labem",
+    "objIndex": 518
+  },
+  {
+    "city": "Prelouc",
+    "zipcode": 53501,
+    "weightTo27t": 503,
+    "weightTo34t": 547,
+    "terminal": "Usti nad Labem",
+    "objIndex": 519
+  },
+  {
+    "city": "Prepere",
+    "zipcode": 51261,
+    "weightTo27t": 471,
+    "weightTo34t": 512,
+    "terminal": "Usti nad Labem",
+    "objIndex": 520
+  },
+  {
+    "city": "Prestanov",
+    "zipcode": 40317,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Usti nad Labem",
+    "objIndex": 521
+  },
+  {
+    "city": "Prestice",
+    "zipcode": 33401,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Usti nad Labem",
+    "objIndex": 522
+  },
+  {
+    "city": "Prezletice",
+    "zipcode": 25073,
+    "weightTo27t": 283,
+    "weightTo34t": 308,
+    "terminal": "Usti nad Labem",
+    "objIndex": 523
+  },
+  {
+    "city": "Pribram",
+    "zipcode": 26101,
+    "weightTo27t": 511,
+    "weightTo34t": 556,
+    "terminal": "Usti nad Labem",
+    "objIndex": 524
+  },
+  {
+    "city": "Primda",
+    "zipcode": 34806,
+    "weightTo27t": 685,
+    "weightTo34t": 744,
+    "terminal": "Usti nad Labem",
+    "objIndex": 525
+  },
+  {
+    "city": "Prisovice",
+    "zipcode": 46346,
+    "weightTo27t": 458,
+    "weightTo34t": 498,
+    "terminal": "Usti nad Labem",
+    "objIndex": 526
+  },
+  {
+    "city": "Probostov",
+    "zipcode": 41712,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 527
+  },
+  {
+    "city": "Provodin",
+    "zipcode": 47167,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 528
+  },
+  {
+    "city": "Pruhonice",
+    "zipcode": 25243,
+    "weightTo27t": 337,
+    "weightTo34t": 367,
+    "terminal": "Usti nad Labem",
+    "objIndex": 529
+  },
+  {
+    "city": "Psary",
+    "zipcode": 25244,
+    "weightTo27t": 374,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 530
+  },
+  {
+    "city": "Psary/Dolni Jircany",
+    "zipcode": 25244,
+    "weightTo27t": 374,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 531
+  },
+  {
+    "city": "Psov",
+    "zipcode": 36452,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 532
+  },
+  {
+    "city": "Ptice",
+    "zipcode": 25218,
+    "weightTo27t": 362,
+    "weightTo34t": 394,
+    "terminal": "Usti nad Labem",
+    "objIndex": 533
+  },
+  {
+    "city": "Pulecny",
+    "zipcode": 46802,
+    "weightTo27t": 317,
+    "weightTo34t": 348,
+    "terminal": "Usti nad Labem",
+    "objIndex": 534
+  },
+  {
+    "city": "Racice",
+    "zipcode": 41108,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Usti nad Labem",
+    "objIndex": 535
+  },
+  {
+    "city": "Racice",
+    "zipcode": 27024,
+    "weightTo27t": 350,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 536
+  },
+  {
+    "city": "Racineves",
+    "zipcode": 41301,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Usti nad Labem",
+    "objIndex": 537
+  },
+  {
+    "city": "Radim",
+    "zipcode": 50712,
+    "weightTo27t": 501,
+    "weightTo34t": 545,
+    "terminal": "Usti nad Labem",
+    "objIndex": 538
+  },
+  {
+    "city": "Radnice",
+    "zipcode": 33828,
+    "weightTo27t": 485,
+    "weightTo34t": 528,
+    "terminal": "Usti nad Labem",
+    "objIndex": 539
+  },
+  {
+    "city": "Radonice",
+    "zipcode": 25073,
+    "weightTo27t": 292,
+    "weightTo34t": 318,
+    "terminal": "Usti nad Labem",
+    "objIndex": 540
+  },
+  {
+    "city": "Radovesice",
+    "zipcode": 41002,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Usti nad Labem",
+    "objIndex": 541
+  },
+  {
+    "city": "Radvanec",
+    "zipcode": 47301,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 542
+  },
+  {
+    "city": "Rakovnik",
+    "zipcode": 26901,
+    "weightTo27t": 335,
+    "weightTo34t": 365,
+    "terminal": "Usti nad Labem",
+    "objIndex": 543
+  },
+  {
+    "city": "Ralsko",
+    "zipcode": 47124,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 544
+  },
+  {
+    "city": "Raspenava",
+    "zipcode": 46401,
+    "weightTo27t": 301,
+    "weightTo34t": 331,
+    "terminal": "Usti nad Labem",
+    "objIndex": 545
+  },
+  {
+    "city": "Repov",
+    "zipcode": 29301,
+    "weightTo27t": 407,
+    "weightTo34t": 443,
+    "terminal": "Usti nad Labem",
+    "objIndex": 546
+  },
+  {
+    "city": "Revnice",
+    "zipcode": 25230,
+    "weightTo27t": 434,
+    "weightTo34t": 473,
+    "terminal": "Usti nad Labem",
+    "objIndex": 547
+  },
+  {
+    "city": "Revnicov",
+    "zipcode": 27054,
+    "weightTo27t": 312,
+    "weightTo34t": 340,
+    "terminal": "Usti nad Labem",
+    "objIndex": 548
+  },
+  {
+    "city": "Ricany",
+    "zipcode": 25101,
+    "weightTo27t": 334,
+    "weightTo34t": 364,
+    "terminal": "Usti nad Labem",
+    "objIndex": 549
+  },
+  {
+    "city": "Risuty",
+    "zipcode": 27378,
+    "weightTo27t": 256,
+    "weightTo34t": 281,
+    "terminal": "Usti nad Labem",
+    "objIndex": 550
+  },
+  {
+    "city": "Ritka",
+    "zipcode": 25203,
+    "weightTo27t": 426,
+    "weightTo34t": 464,
+    "terminal": "Usti nad Labem",
+    "objIndex": 551
+  },
+  {
+    "city": "Roblin",
+    "zipcode": 25226,
+    "weightTo27t": 373,
+    "weightTo34t": 406,
+    "terminal": "Usti nad Labem",
+    "objIndex": 552
+  },
+  {
+    "city": "Rokycany",
+    "zipcode": 33701,
+    "weightTo27t": 505,
+    "weightTo34t": 549,
+    "terminal": "Usti nad Labem",
+    "objIndex": 553
+  },
+  {
+    "city": "Rokytnice nad Jizerou",
+    "zipcode": 51244,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 554
+  },
+  {
+    "city": "Rotava",
+    "zipcode": 35701,
+    "weightTo27t": 412,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 555
+  },
+  {
+    "city": "Roudnice nad Labem",
+    "zipcode": 41301,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Usti nad Labem",
+    "objIndex": 556
+  },
+  {
+    "city": "Rovensko pod Troskami",
+    "zipcode": 51263,
+    "weightTo27t": 504,
+    "weightTo34t": 548,
+    "terminal": "Usti nad Labem",
+    "objIndex": 557
+  },
+  {
+    "city": "Roztoky",
+    "zipcode": 25263,
+    "weightTo27t": 265,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 558
+  },
+  {
+    "city": "Roztoky",
+    "zipcode": 27023,
+    "weightTo27t": 339,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 559
+  },
+  {
+    "city": "Rozvadov",
+    "zipcode": 34806,
+    "weightTo27t": 699,
+    "weightTo34t": 759,
+    "terminal": "Usti nad Labem",
+    "objIndex": 560
+  },
+  {
+    "city": "Rtyne nad Bilinou",
+    "zipcode": 41762,
+    "weightTo27t": 170,
+    "weightTo34t": 187,
+    "terminal": "Usti nad Labem",
+    "objIndex": 561
+  },
+  {
+    "city": "Rtyne nad Bilinou/Velvety",
+    "zipcode": 41501,
+    "weightTo27t": 170,
+    "weightTo34t": 187,
+    "terminal": "Usti nad Labem",
+    "objIndex": 562
+  },
+  {
+    "city": "Rtyne v Podkrkonosi",
+    "zipcode": 54233,
+    "weightTo27t": 625,
+    "weightTo34t": 680,
+    "terminal": "Usti nad Labem",
+    "objIndex": 563
+  },
+  {
+    "city": "Rudna",
+    "zipcode": 25219,
+    "weightTo27t": 349,
+    "weightTo34t": 380,
+    "terminal": "Usti nad Labem",
+    "objIndex": 564
+  },
+  {
+    "city": "Rudnik",
+    "zipcode": 54372,
+    "weightTo27t": 576,
+    "weightTo34t": 628,
+    "terminal": "Usti nad Labem",
+    "objIndex": 565
+  },
+  {
+    "city": "Rumburk",
+    "zipcode": 40801,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Usti nad Labem",
+    "objIndex": 566
+  },
+  {
+    "city": "Ruzova",
+    "zipcode": 40502,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 567
+  },
+  {
+    "city": "Rybniste",
+    "zipcode": 40751,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 568
+  },
+  {
+    "city": "Rychnov nad Kneznou",
+    "zipcode": 51601,
+    "weightTo27t": 619,
+    "weightTo34t": 674,
+    "terminal": "Usti nad Labem",
+    "objIndex": 569
+  },
+  {
+    "city": "Rychnov u Jablonce nad Nisou",
+    "zipcode": 46802,
+    "weightTo27t": 306,
+    "weightTo34t": 336,
+    "terminal": "Usti nad Labem",
+    "objIndex": 570
+  },
+  {
+    "city": "Rynholec",
+    "zipcode": 27062,
+    "weightTo27t": 310,
+    "weightTo34t": 338,
+    "terminal": "Usti nad Labem",
+    "objIndex": 571
+  },
+  {
+    "city": "Rynoltice",
+    "zipcode": 46353,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Usti nad Labem",
+    "objIndex": 572
+  },
+  {
+    "city": "Sadov",
+    "zipcode": 36001,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Usti nad Labem",
+    "objIndex": 573
+  },
+  {
+    "city": "Sanov",
+    "zipcode": 27031,
+    "weightTo27t": 368,
+    "weightTo34t": 401,
+    "terminal": "Usti nad Labem",
+    "objIndex": 574
+  },
+  {
+    "city": "Sarovcova Lhota",
+    "zipcode": 50759,
+    "weightTo27t": 593,
+    "weightTo34t": 645,
+    "terminal": "Usti nad Labem",
+    "objIndex": 575
+  },
+  {
+    "city": "Sazena",
+    "zipcode": 27324,
+    "weightTo27t": 241,
+    "weightTo34t": 263,
+    "terminal": "Usti nad Labem",
+    "objIndex": 576
+  },
+  {
+    "city": "Semcice",
+    "zipcode": 29446,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 577
+  },
+  {
+    "city": "Semily",
+    "zipcode": 51301,
+    "weightTo27t": 524,
+    "weightTo34t": 570,
+    "terminal": "Usti nad Labem",
+    "objIndex": 578
+  },
+  {
+    "city": "Semnice",
+    "zipcode": 36272,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 579
+  },
+  {
+    "city": "Senomaty",
+    "zipcode": 27031,
+    "weightTo27t": 346,
+    "weightTo34t": 377,
+    "terminal": "Usti nad Labem",
+    "objIndex": 580
+  },
+  {
+    "city": "Sestajovice",
+    "zipcode": 25092,
+    "weightTo27t": 315,
+    "weightTo34t": 343,
+    "terminal": "Usti nad Labem",
+    "objIndex": 581
+  },
+  {
+    "city": "Sibrina",
+    "zipcode": 25084,
+    "weightTo27t": 313,
+    "weightTo34t": 341,
+    "terminal": "Usti nad Labem",
+    "objIndex": 582
+  },
+  {
+    "city": "Skalice u Ceske Lipy",
+    "zipcode": 47117,
+    "weightTo27t": 212,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 583
+  },
+  {
+    "city": "Skalna",
+    "zipcode": 35134,
+    "weightTo27t": 461,
+    "weightTo34t": 505,
+    "terminal": "Usti nad Labem",
+    "objIndex": 584
+  },
+  {
+    "city": "Skalsko",
+    "zipcode": 29426,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Usti nad Labem",
+    "objIndex": 585
+  },
+  {
+    "city": "Skorkov",
+    "zipcode": 29474,
+    "weightTo27t": 341,
+    "weightTo34t": 371,
+    "terminal": "Usti nad Labem",
+    "objIndex": 586
+  },
+  {
+    "city": "Skvorec",
+    "zipcode": 25083,
+    "weightTo27t": 323,
+    "weightTo34t": 352,
+    "terminal": "Usti nad Labem",
+    "objIndex": 587
+  },
+  {
+    "city": "Slany",
+    "zipcode": 27401,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Usti nad Labem",
+    "objIndex": 588
+  },
+  {
+    "city": "Slany/Zelevcice",
+    "zipcode": 27401,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Usti nad Labem",
+    "objIndex": 589
+  },
+  {
+    "city": "Slapanice",
+    "zipcode": 27372,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Usti nad Labem",
+    "objIndex": 590
+  },
+  {
+    "city": "Slapy",
+    "zipcode": 25208,
+    "weightTo27t": 480,
+    "weightTo34t": 523,
+    "terminal": "Usti nad Labem",
+    "objIndex": 591
+  },
+  {
+    "city": "Slavetin",
+    "zipcode": 43909,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 592
+  },
+  {
+    "city": "Sluknov",
+    "zipcode": 40777,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Usti nad Labem",
+    "objIndex": 593
+  },
+  {
+    "city": "Slunecna",
+    "zipcode": 47301,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 594
+  },
+  {
+    "city": "Smrzovka",
+    "zipcode": 46851,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 595
+  },
+  {
+    "city": "Sobcice",
+    "zipcode": 50801,
+    "weightTo27t": 523,
+    "weightTo34t": 569,
+    "terminal": "Usti nad Labem",
+    "objIndex": 596
+  },
+  {
+    "city": "Sobotka",
+    "zipcode": 50743,
+    "weightTo27t": 443,
+    "weightTo34t": 482,
+    "terminal": "Usti nad Labem",
+    "objIndex": 597
+  },
+  {
+    "city": "Sokolov",
+    "zipcode": 35601,
+    "weightTo27t": 375,
+    "weightTo34t": 412,
+    "terminal": "Usti nad Labem",
+    "objIndex": 598
+  },
+  {
+    "city": "Sporice",
+    "zipcode": 43101,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 599
+  },
+  {
+    "city": "Stahlavy",
+    "zipcode": 33203,
+    "weightTo27t": 528,
+    "weightTo34t": 574,
+    "terminal": "Usti nad Labem",
+    "objIndex": 600
+  },
+  {
+    "city": "Stankovice",
+    "zipcode": 43949,
+    "weightTo27t": 231,
+    "weightTo34t": 254,
+    "terminal": "Usti nad Labem",
+    "objIndex": 601
+  },
+  {
+    "city": "Stankovice/Tvrsice",
+    "zipcode": 43801,
+    "weightTo27t": 231,
+    "weightTo34t": 254,
+    "terminal": "Usti nad Labem",
+    "objIndex": 602
+  },
+  {
+    "city": "Stara Paka",
+    "zipcode": 50791,
+    "weightTo27t": 532,
+    "weightTo34t": 579,
+    "terminal": "Usti nad Labem",
+    "objIndex": 603
+  },
+  {
+    "city": "Stara Voda",
+    "zipcode": 35301,
+    "weightTo27t": 458,
+    "weightTo34t": 502,
+    "terminal": "Usti nad Labem",
+    "objIndex": 604
+  },
+  {
+    "city": "Stare Krecany",
+    "zipcode": 40761,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Usti nad Labem",
+    "objIndex": 605
+  },
+  {
+    "city": "Stare Sedliste",
+    "zipcode": 34801,
+    "weightTo27t": 685,
+    "weightTo34t": 744,
+    "terminal": "Usti nad Labem",
+    "objIndex": 606
+  },
+  {
+    "city": "Stary Plzenec",
+    "zipcode": 33202,
+    "weightTo27t": 528,
+    "weightTo34t": 574,
+    "terminal": "Usti nad Labem",
+    "objIndex": 607
+  },
+  {
+    "city": "Statenice",
+    "zipcode": 25262,
+    "weightTo27t": 265,
+    "weightTo34t": 289,
+    "terminal": "Usti nad Labem",
+    "objIndex": 608
+  },
+  {
+    "city": "Stedra",
+    "zipcode": 36452,
+    "weightTo27t": 362,
+    "weightTo34t": 398,
+    "terminal": "Usti nad Labem",
+    "objIndex": 609
+  },
+  {
+    "city": "Stehelceves",
+    "zipcode": 27342,
+    "weightTo27t": 267,
+    "weightTo34t": 291,
+    "terminal": "Usti nad Labem",
+    "objIndex": 610
+  },
+  {
+    "city": "Stechovice",
+    "zipcode": 25207,
+    "weightTo27t": 417,
+    "weightTo34t": 455,
+    "terminal": "Usti nad Labem",
+    "objIndex": 611
+  },
+  {
+    "city": "Steti",
+    "zipcode": 41108,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Usti nad Labem",
+    "objIndex": 612
+  },
+  {
+    "city": "Stochov",
+    "zipcode": 27303,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 613
+  },
+  {
+    "city": "Strakonice",
+    "zipcode": 38601,
+    "weightTo27t": 622,
+    "weightTo34t": 678,
+    "terminal": "Usti nad Labem",
+    "objIndex": 614
+  },
+  {
+    "city": "Strasice",
+    "zipcode": 33845,
+    "weightTo27t": 489,
+    "weightTo34t": 532,
+    "terminal": "Usti nad Labem",
+    "objIndex": 615
+  },
+  {
+    "city": "Straz nad Nisou",
+    "zipcode": 46303,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Usti nad Labem",
+    "objIndex": 616
+  },
+  {
+    "city": "Straz pod Ralskem",
+    "zipcode": 47127,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Usti nad Labem",
+    "objIndex": 617
+  },
+  {
+    "city": "Stredokluky",
+    "zipcode": 25268,
+    "weightTo27t": 313,
+    "weightTo34t": 341,
+    "terminal": "Usti nad Labem",
+    "objIndex": 618
+  },
+  {
+    "city": "Stremy",
+    "zipcode": 27734,
+    "weightTo27t": 261,
+    "weightTo34t": 285,
+    "terminal": "Usti nad Labem",
+    "objIndex": 619
+  },
+  {
+    "city": "Strenice",
+    "zipcode": 29430,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Usti nad Labem",
+    "objIndex": 620
+  },
+  {
+    "city": "Stribro",
+    "zipcode": 34901,
+    "weightTo27t": 621,
+    "weightTo34t": 675,
+    "terminal": "Usti nad Labem",
+    "objIndex": 621
+  },
+  {
+    "city": "Strupcice",
+    "zipcode": 43114,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Usti nad Labem",
+    "objIndex": 622
+  },
+  {
+    "city": "Struzna",
+    "zipcode": 36471,
+    "weightTo27t": 351,
+    "weightTo34t": 385,
+    "terminal": "Usti nad Labem",
+    "objIndex": 623
+  },
+  {
+    "city": "Struznice",
+    "zipcode": 47002,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 624
+  },
+  {
+    "city": "Studenec",
+    "zipcode": 51233,
+    "weightTo27t": 533,
+    "weightTo34t": 580,
+    "terminal": "Usti nad Labem",
+    "objIndex": 625
+  },
+  {
+    "city": "Studeneves",
+    "zipcode": 27379,
+    "weightTo27t": 271,
+    "weightTo34t": 295,
+    "terminal": "Usti nad Labem",
+    "objIndex": 626
+  },
+  {
+    "city": "Stvolinky",
+    "zipcode": 47102,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 627
+  },
+  {
+    "city": "Sudovo Hlavno",
+    "zipcode": 29476,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Usti nad Labem",
+    "objIndex": 628
+  },
+  {
+    "city": "Suchovrsice",
+    "zipcode": 54232,
+    "weightTo27t": 654,
+    "weightTo34t": 712,
+    "terminal": "Usti nad Labem",
+    "objIndex": 629
+  },
+  {
+    "city": "Sukorady",
+    "zipcode": 50801,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Usti nad Labem",
+    "objIndex": 630
+  },
+  {
+    "city": "Sukorady",
+    "zipcode": 29406,
+    "weightTo27t": 419,
+    "weightTo34t": 456,
+    "terminal": "Usti nad Labem",
+    "objIndex": 631
+  },
+  {
+    "city": "Sulejovice",
+    "zipcode": 41111,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Usti nad Labem",
+    "objIndex": 632
+  },
+  {
+    "city": "Sumperk",
+    "zipcode": 78701,
+    "weightTo27t": 753,
+    "weightTo34t": 821,
+    "terminal": "Usti nad Labem",
+    "objIndex": 633
+  },
+  {
+    "city": "Svata",
+    "zipcode": 26751,
+    "weightTo27t": 403,
+    "weightTo34t": 439,
+    "terminal": "Usti nad Labem",
+    "objIndex": 634
+  },
+  {
+    "city": "Svatava",
+    "zipcode": 35703,
+    "weightTo27t": 375,
+    "weightTo34t": 412,
+    "terminal": "Usti nad Labem",
+    "objIndex": 635
+  },
+  {
+    "city": "Svemyslice",
+    "zipcode": 25091,
+    "weightTo27t": 301,
+    "weightTo34t": 328,
+    "terminal": "Usti nad Labem",
+    "objIndex": 636
+  },
+  {
+    "city": "Svetla nad Sazavou",
+    "zipcode": 58291,
+    "weightTo27t": 589,
+    "weightTo34t": 641,
+    "terminal": "Usti nad Labem",
+    "objIndex": 637
+  },
+  {
+    "city": "Svijansky Ujezd",
+    "zipcode": 46345,
+    "weightTo27t": 458,
+    "weightTo34t": 498,
+    "terminal": "Usti nad Labem",
+    "objIndex": 638
+  },
+  {
+    "city": "Svijany",
+    "zipcode": 46346,
+    "weightTo27t": 458,
+    "weightTo34t": 498,
+    "terminal": "Usti nad Labem",
+    "objIndex": 639
+  },
+  {
+    "city": "Svoboda nad Upou",
+    "zipcode": 54224,
+    "weightTo27t": 644,
+    "weightTo34t": 701,
+    "terminal": "Usti nad Labem",
+    "objIndex": 640
+  },
+  {
+    "city": "Svor",
+    "zipcode": 47151,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Usti nad Labem",
+    "objIndex": 641
+  },
+  {
+    "city": "Sychrov",
+    "zipcode": 46344,
+    "weightTo27t": 330,
+    "weightTo34t": 362,
+    "terminal": "Usti nad Labem",
+    "objIndex": 642
+  },
+  {
+    "city": "Syrenov",
+    "zipcode": 51251,
+    "weightTo27t": 499,
+    "weightTo34t": 543,
+    "terminal": "Usti nad Labem",
+    "objIndex": 643
+  },
+  {
+    "city": "Tabor",
+    "zipcode": 39001,
+    "weightTo27t": 532,
+    "weightTo34t": 579,
+    "terminal": "Usti nad Labem",
+    "objIndex": 644
+  },
+  {
+    "city": "Tachlovice",
+    "zipcode": 25217,
+    "weightTo27t": 362,
+    "weightTo34t": 394,
+    "terminal": "Usti nad Labem",
+    "objIndex": 645
+  },
+  {
+    "city": "Tachov",
+    "zipcode": 34701,
+    "weightTo27t": 512,
+    "weightTo34t": 561,
+    "terminal": "Usti nad Labem",
+    "objIndex": 646
+  },
+  {
+    "city": "Tanvald",
+    "zipcode": 46841,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 647
+  },
+  {
+    "city": "Tasov",
+    "zipcode": 40002,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 648
+  },
+  {
+    "city": "Tasov",
+    "zipcode": 67579,
+    "weightTo27t": 709,
+    "weightTo34t": 770,
+    "terminal": "Usti nad Labem",
+    "objIndex": 649
+  },
+  {
+    "city": "Tatobity",
+    "zipcode": 51253,
+    "weightTo27t": 492,
+    "weightTo34t": 535,
+    "terminal": "Usti nad Labem",
+    "objIndex": 650
+  },
+  {
+    "city": "Tepla",
+    "zipcode": 36461,
+    "weightTo27t": 433,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 651
+  },
+  {
+    "city": "Teplice",
+    "zipcode": 41501,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Usti nad Labem",
+    "objIndex": 652
+  },
+  {
+    "city": "Teplice/Retenice",
+    "zipcode": 41503,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Usti nad Labem",
+    "objIndex": 653
+  },
+  {
+    "city": "Terezin",
+    "zipcode": 41155,
+    "weightTo27t": 199,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 654
+  },
+  {
+    "city": "Teskov",
+    "zipcode": 33701,
+    "weightTo27t": 468,
+    "weightTo34t": 509,
+    "terminal": "Usti nad Labem",
+    "objIndex": 655
+  },
+  {
+    "city": "Tisice",
+    "zipcode": 27715,
+    "weightTo27t": 268,
+    "weightTo34t": 292,
+    "terminal": "Usti nad Labem",
+    "objIndex": 656
+  },
+  {
+    "city": "Tisova",
+    "zipcode": 34801,
+    "weightTo27t": 671,
+    "weightTo34t": 729,
+    "terminal": "Usti nad Labem",
+    "objIndex": 657
+  },
+  {
+    "city": "Tlucna",
+    "zipcode": 33026,
+    "weightTo27t": 573,
+    "weightTo34t": 622,
+    "terminal": "Usti nad Labem",
+    "objIndex": 658
+  },
+  {
+    "city": "Tlustice",
+    "zipcode": 26801,
+    "weightTo27t": 429,
+    "weightTo34t": 467,
+    "terminal": "Usti nad Labem",
+    "objIndex": 659
+  },
+  {
+    "city": "Tman",
+    "zipcode": 26721,
+    "weightTo27t": 403,
+    "weightTo34t": 439,
+    "terminal": "Usti nad Labem",
+    "objIndex": 660
+  },
+  {
+    "city": "Touzim",
+    "zipcode": 36401,
+    "weightTo27t": 412,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 661
+  },
+  {
+    "city": "Travcice",
+    "zipcode": 41201,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 662
+  },
+  {
+    "city": "Treben",
+    "zipcode": 35134,
+    "weightTo27t": 450,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 663
+  },
+  {
+    "city": "Treben/Lesina",
+    "zipcode": 35134,
+    "weightTo27t": 450,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 664
+  },
+  {
+    "city": "Trebenice",
+    "zipcode": 41113,
+    "weightTo27t": 199,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 665
+  },
+  {
+    "city": "Trebivlice",
+    "zipcode": 41115,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 666
+  },
+  {
+    "city": "Trebiz",
+    "zipcode": 27375,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Usti nad Labem",
+    "objIndex": 667
+  },
+  {
+    "city": "Trebusin",
+    "zipcode": 41201,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 668
+  },
+  {
+    "city": "Tremosna",
+    "zipcode": 33011,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 669
+  },
+  {
+    "city": "Trmice",
+    "zipcode": 40004,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 670
+  },
+  {
+    "city": "Trnovany",
+    "zipcode": 41201,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Usti nad Labem",
+    "objIndex": 671
+  },
+  {
+    "city": "Trpisty",
+    "zipcode": 34972,
+    "weightTo27t": 465,
+    "weightTo34t": 511,
+    "terminal": "Usti nad Labem",
+    "objIndex": 672
+  },
+  {
+    "city": "Trutnov",
+    "zipcode": 54101,
+    "weightTo27t": 623,
+    "weightTo34t": 678,
+    "terminal": "Usti nad Labem",
+    "objIndex": 673
+  },
+  {
+    "city": "Tuchlovice",
+    "zipcode": 27302,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 674
+  },
+  {
+    "city": "Tuchomerice",
+    "zipcode": 25267,
+    "weightTo27t": 314,
+    "weightTo34t": 342,
+    "terminal": "Usti nad Labem",
+    "objIndex": 675
+  },
+  {
+    "city": "Tuklaty",
+    "zipcode": 25082,
+    "weightTo27t": 323,
+    "weightTo34t": 352,
+    "terminal": "Usti nad Labem",
+    "objIndex": 676
+  },
+  {
+    "city": "Turany",
+    "zipcode": 35002,
+    "weightTo27t": 412,
+    "weightTo34t": 452,
+    "terminal": "Usti nad Labem",
+    "objIndex": 677
+  },
+  {
+    "city": "Turnov",
+    "zipcode": 51101,
+    "weightTo27t": 471,
+    "weightTo34t": 512,
+    "terminal": "Usti nad Labem",
+    "objIndex": 678
+  },
+  {
+    "city": "Tursko",
+    "zipcode": 25265,
+    "weightTo27t": 248,
+    "weightTo34t": 271,
+    "terminal": "Usti nad Labem",
+    "objIndex": 679
+  },
+  {
+    "city": "Tymakov",
+    "zipcode": 33201,
+    "weightTo27t": 517,
+    "weightTo34t": 562,
+    "terminal": "Usti nad Labem",
+    "objIndex": 680
+  },
+  {
+    "city": "Uherce",
+    "zipcode": 44001,
+    "weightTo27t": 245,
+    "weightTo34t": 269,
+    "terminal": "Usti nad Labem",
+    "objIndex": 681
+  },
+  {
+    "city": "Uherce",
+    "zipcode": 33023,
+    "weightTo27t": 573,
+    "weightTo34t": 622,
+    "terminal": "Usti nad Labem",
+    "objIndex": 682
+  },
+  {
+    "city": "Uhonice",
+    "zipcode": 25218,
+    "weightTo27t": 362,
+    "weightTo34t": 394,
+    "terminal": "Usti nad Labem",
+    "objIndex": 683
+  },
+  {
+    "city": "Ujezd pod Troskami",
+    "zipcode": 51263,
+    "weightTo27t": 504,
+    "weightTo34t": 548,
+    "terminal": "Usti nad Labem",
+    "objIndex": 684
+  },
+  {
+    "city": "Ujezdecek",
+    "zipcode": 41501,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Usti nad Labem",
+    "objIndex": 685
+  },
+  {
+    "city": "Ujkovice",
+    "zipcode": 29404,
+    "weightTo27t": 440,
+    "weightTo34t": 479,
+    "terminal": "Usti nad Labem",
+    "objIndex": 686
+  },
+  {
+    "city": "Ulice",
+    "zipcode": 33033,
+    "weightTo27t": 594,
+    "weightTo34t": 646,
+    "terminal": "Usti nad Labem",
+    "objIndex": 687
+  },
+  {
+    "city": "Unesov",
+    "zipcode": 33038,
+    "weightTo27t": 433,
+    "weightTo34t": 476,
+    "terminal": "Usti nad Labem",
+    "objIndex": 688
+  },
+  {
+    "city": "Unhost",
+    "zipcode": 27351,
+    "weightTo27t": 307,
+    "weightTo34t": 335,
+    "terminal": "Usti nad Labem",
+    "objIndex": 689
+  },
+  {
+    "city": "Upice",
+    "zipcode": 54232,
+    "weightTo27t": 635,
+    "weightTo34t": 691,
+    "terminal": "Usti nad Labem",
+    "objIndex": 690
+  },
+  {
+    "city": "Ustek",
+    "zipcode": 41145,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Usti nad Labem",
+    "objIndex": 691
+  },
+  {
+    "city": "Usti nad Labem",
+    "zipcode": 40001,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 692
+  },
+  {
+    "city": "Usti nad Labem vaha",
+    "zipcode": 40001,
+    "weightTo27t": 22,
+    "weightTo34t": 22,
+    "terminal": "Usti nad Labem",
+    "objIndex": 693
+  },
+  {
+    "city": "Usti nad Labem/Krasne Brezno",
+    "zipcode": 40007,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 694
+  },
+  {
+    "city": "Usti nad Labem/Strekov",
+    "zipcode": 40003,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 695
+  },
+  {
+    "city": "Utery",
+    "zipcode": 33041,
+    "weightTo27t": 454,
+    "weightTo34t": 499,
+    "terminal": "Usti nad Labem",
+    "objIndex": 696
+  },
+  {
+    "city": "Uvaly",
+    "zipcode": 25082,
+    "weightTo27t": 313,
+    "weightTo34t": 341,
+    "terminal": "Usti nad Labem",
+    "objIndex": 697
+  },
+  {
+    "city": "Uzice",
+    "zipcode": 27745,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Usti nad Labem",
+    "objIndex": 698
+  },
+  {
+    "city": "Valec",
+    "zipcode": 36453,
+    "weightTo27t": 293,
+    "weightTo34t": 322,
+    "terminal": "Usti nad Labem",
+    "objIndex": 699
+  },
+  {
+    "city": "Varnsdorf",
+    "zipcode": 40747,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 700
+  },
+  {
+    "city": "Vedomice",
+    "zipcode": 41301,
+    "weightTo27t": 221,
+    "weightTo34t": 241,
+    "terminal": "Usti nad Labem",
+    "objIndex": 701
+  },
+  {
+    "city": "Vejprnice",
+    "zipcode": 33027,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Usti nad Labem",
+    "objIndex": 702
+  },
+  {
+    "city": "Vejprty",
+    "zipcode": 43191,
+    "weightTo27t": 283,
+    "weightTo34t": 311,
+    "terminal": "Usti nad Labem",
+    "objIndex": 703
+  },
+  {
+    "city": "Velemin",
+    "zipcode": 41131,
+    "weightTo27t": 199,
+    "weightTo34t": 218,
+    "terminal": "Usti nad Labem",
+    "objIndex": 704
+  },
+  {
+    "city": "Velemysleves",
+    "zipcode": 43801,
+    "weightTo27t": 210,
+    "weightTo34t": 231,
+    "terminal": "Usti nad Labem",
+    "objIndex": 705
+  },
+  {
+    "city": "Velemysleves/Minice",
+    "zipcode": 43801,
+    "weightTo27t": 210,
+    "weightTo34t": 231,
+    "terminal": "Usti nad Labem",
+    "objIndex": 706
+  },
+  {
+    "city": "Velen",
+    "zipcode": 25063,
+    "weightTo27t": 283,
+    "weightTo34t": 308,
+    "terminal": "Usti nad Labem",
+    "objIndex": 707
+  },
+  {
+    "city": "Velika Ves",
+    "zipcode": 25070,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Usti nad Labem",
+    "objIndex": 708
+  },
+  {
+    "city": "Velka Bukova",
+    "zipcode": 27023,
+    "weightTo27t": 339,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 709
+  },
+  {
+    "city": "Velka Bukovina",
+    "zipcode": 40729,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Usti nad Labem",
+    "objIndex": 710
+  },
+  {
+    "city": "Velka Dobra",
+    "zipcode": 27361,
+    "weightTo27t": 312,
+    "weightTo34t": 340,
+    "terminal": "Usti nad Labem",
+    "objIndex": 711
+  },
+  {
+    "city": "Velka Hledsebe",
+    "zipcode": 35301,
+    "weightTo27t": 468,
+    "weightTo34t": 513,
+    "terminal": "Usti nad Labem",
+    "objIndex": 712
+  },
+  {
+    "city": "Velke Brezno",
+    "zipcode": 40323,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 713
+  },
+  {
+    "city": "Velke Hamry",
+    "zipcode": 46845,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Usti nad Labem",
+    "objIndex": 714
+  },
+  {
+    "city": "Velke Chvojno",
+    "zipcode": 40334,
+    "weightTo27t": 172,
+    "weightTo34t": 189,
+    "terminal": "Usti nad Labem",
+    "objIndex": 715
+  },
+  {
+    "city": "Velke Prilepy",
+    "zipcode": 25264,
+    "weightTo27t": 258,
+    "weightTo34t": 282,
+    "terminal": "Usti nad Labem",
+    "objIndex": 716
+  },
+  {
+    "city": "Velke Pritocno",
+    "zipcode": 27351,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Usti nad Labem",
+    "objIndex": 717
+  },
+  {
+    "city": "Velke Vselisy",
+    "zipcode": 29427,
+    "weightTo27t": 298,
+    "weightTo34t": 325,
+    "terminal": "Usti nad Labem",
+    "objIndex": 718
+  },
+  {
+    "city": "Velky Borek",
+    "zipcode": 27731,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Usti nad Labem",
+    "objIndex": 719
+  },
+  {
+    "city": "Velky Senov",
+    "zipcode": 40778,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Usti nad Labem",
+    "objIndex": 720
+  },
+  {
+    "city": "Veltrusy",
+    "zipcode": 27746,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Usti nad Labem",
+    "objIndex": 721
+  },
+  {
+    "city": "Velvary",
+    "zipcode": 27324,
+    "weightTo27t": 236,
+    "weightTo34t": 257,
+    "terminal": "Usti nad Labem",
+    "objIndex": 722
+  },
+  {
+    "city": "Verusicky",
+    "zipcode": 36452,
+    "weightTo27t": 328,
+    "weightTo34t": 360,
+    "terminal": "Usti nad Labem",
+    "objIndex": 723
+  },
+  {
+    "city": "Vesela",
+    "zipcode": 51252,
+    "weightTo27t": 504,
+    "weightTo34t": 548,
+    "terminal": "Usti nad Labem",
+    "objIndex": 724
+  },
+  {
+    "city": "Vesele",
+    "zipcode": 40502,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Usti nad Labem",
+    "objIndex": 725
+  },
+  {
+    "city": "Vestec",
+    "zipcode": 25242,
+    "weightTo27t": 374,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 726
+  },
+  {
+    "city": "Vichova nad Jizerou",
+    "zipcode": 51241,
+    "weightTo27t": 401,
+    "weightTo34t": 441,
+    "terminal": "Usti nad Labem",
+    "objIndex": 727
+  },
+  {
+    "city": "Vilemov",
+    "zipcode": 40780,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Usti nad Labem",
+    "objIndex": 728
+  },
+  {
+    "city": "Vinarice",
+    "zipcode": 27307,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Usti nad Labem",
+    "objIndex": 729
+  },
+  {
+    "city": "Vinarice",
+    "zipcode": 43915,
+    "weightTo27t": 234,
+    "weightTo34t": 257,
+    "terminal": "Usti nad Labem",
+    "objIndex": 730
+  },
+  {
+    "city": "Vintirov",
+    "zipcode": 35735,
+    "weightTo27t": 359,
+    "weightTo34t": 395,
+    "terminal": "Usti nad Labem",
+    "objIndex": 731
+  },
+  {
+    "city": "Visnova",
+    "zipcode": 46401,
+    "weightTo27t": 301,
+    "weightTo34t": 331,
+    "terminal": "Usti nad Labem",
+    "objIndex": 732
+  },
+  {
+    "city": "Vitezna",
+    "zipcode": 54462,
+    "weightTo27t": 612,
+    "weightTo34t": 666,
+    "terminal": "Usti nad Labem",
+    "objIndex": 733
+  },
+  {
+    "city": "Vitkovice",
+    "zipcode": 51238,
+    "weightTo27t": 412,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 734
+  },
+  {
+    "city": "Vlcice",
+    "zipcode": 54241,
+    "weightTo27t": 576,
+    "weightTo34t": 628,
+    "terminal": "Usti nad Labem",
+    "objIndex": 735
+  },
+  {
+    "city": "Vodochody",
+    "zipcode": 25069,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Usti nad Labem",
+    "objIndex": 736
+  },
+  {
+    "city": "Vojkovice",
+    "zipcode": 36273,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 737
+  },
+  {
+    "city": "Vojkovice",
+    "zipcode": 27744,
+    "weightTo27t": 240,
+    "weightTo34t": 262,
+    "terminal": "Usti nad Labem",
+    "objIndex": 738
+  },
+  {
+    "city": "Volduchy",
+    "zipcode": 33822,
+    "weightTo27t": 489,
+    "weightTo34t": 532,
+    "terminal": "Usti nad Labem",
+    "objIndex": 739
+  },
+  {
+    "city": "Vonoklasy",
+    "zipcode": 25228,
+    "weightTo27t": 386,
+    "weightTo34t": 420,
+    "terminal": "Usti nad Labem",
+    "objIndex": 740
+  },
+  {
+    "city": "Vranany",
+    "zipcode": 27707,
+    "weightTo27t": 241,
+    "weightTo34t": 263,
+    "terminal": "Usti nad Labem",
+    "objIndex": 741
+  },
+  {
+    "city": "Vrane nad Vltavou",
+    "zipcode": 25246,
+    "weightTo27t": 399,
+    "weightTo34t": 435,
+    "terminal": "Usti nad Labem",
+    "objIndex": 742
+  },
+  {
+    "city": "Vraz",
+    "zipcode": 26711,
+    "weightTo27t": 377,
+    "weightTo34t": 410,
+    "terminal": "Usti nad Labem",
+    "objIndex": 743
+  },
+  {
+    "city": "Vresova",
+    "zipcode": 35735,
+    "weightTo27t": 370,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 744
+  },
+  {
+    "city": "Vrchlabi",
+    "zipcode": 54301,
+    "weightTo27t": 411,
+    "weightTo34t": 452,
+    "terminal": "Usti nad Labem",
+    "objIndex": 745
+  },
+  {
+    "city": "Vrskman",
+    "zipcode": 43115,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Usti nad Labem",
+    "objIndex": 746
+  },
+  {
+    "city": "Vrutice",
+    "zipcode": 41147,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Usti nad Labem",
+    "objIndex": 747
+  },
+  {
+    "city": "Vsenory",
+    "zipcode": 25231,
+    "weightTo27t": 423,
+    "weightTo34t": 461,
+    "terminal": "Usti nad Labem",
+    "objIndex": 748
+  },
+  {
+    "city": "Vseruby",
+    "zipcode": 33016,
+    "weightTo27t": 391,
+    "weightTo34t": 430,
+    "terminal": "Usti nad Labem",
+    "objIndex": 749
+  },
+  {
+    "city": "Vsetaty",
+    "zipcode": 27716,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Usti nad Labem",
+    "objIndex": 750
+  },
+  {
+    "city": "Vyskov",
+    "zipcode": 44001,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Usti nad Labem",
+    "objIndex": 751
+  },
+  {
+    "city": "Vysluni",
+    "zipcode": 43183,
+    "weightTo27t": 246,
+    "weightTo34t": 270,
+    "terminal": "Usti nad Labem",
+    "objIndex": 752
+  },
+  {
+    "city": "Vysoke nad Jizerou",
+    "zipcode": 51211,
+    "weightTo27t": 370,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 753
+  },
+  {
+    "city": "Vysoke Veseli",
+    "zipcode": 50703,
+    "weightTo27t": 491,
+    "weightTo34t": 535,
+    "terminal": "Usti nad Labem",
+    "objIndex": 754
+  },
+  {
+    "city": "Zabovresky nad Ohri",
+    "zipcode": 41002,
+    "weightTo27t": 216,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 755
+  },
+  {
+    "city": "Zacler",
+    "zipcode": 54201,
+    "weightTo27t": 675,
+    "weightTo34t": 735,
+    "terminal": "Usti nad Labem",
+    "objIndex": 756
+  },
+  {
+    "city": "Zakupy",
+    "zipcode": 47123,
+    "weightTo27t": 217,
+    "weightTo34t": 239,
+    "terminal": "Usti nad Labem",
+    "objIndex": 757
+  },
+  {
+    "city": "Zalany",
+    "zipcode": 41763,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Usti nad Labem",
+    "objIndex": 758
+  },
+  {
+    "city": "Zalhostice",
+    "zipcode": 41101,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Usti nad Labem",
+    "objIndex": 759
+  },
+  {
+    "city": "Zandov",
+    "zipcode": 47107,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Usti nad Labem",
+    "objIndex": 760
+  },
+  {
+    "city": "Zapy",
+    "zipcode": 25001,
+    "weightTo27t": 304,
+    "weightTo34t": 331,
+    "terminal": "Usti nad Labem",
+    "objIndex": 761
+  },
+  {
+    "city": "Zaryby",
+    "zipcode": 27713,
+    "weightTo27t": 290,
+    "weightTo34t": 316,
+    "terminal": "Usti nad Labem",
+    "objIndex": 762
+  },
+  {
+    "city": "Zasada",
+    "zipcode": 46825,
+    "weightTo27t": 326,
+    "weightTo34t": 358,
+    "terminal": "Usti nad Labem",
+    "objIndex": 763
+  },
+  {
+    "city": "Zatec",
+    "zipcode": 43801,
+    "weightTo27t": 229,
+    "weightTo34t": 252,
+    "terminal": "Usti nad Labem",
+    "objIndex": 764
+  },
+  {
+    "city": "Zbiroh",
+    "zipcode": 33808,
+    "weightTo27t": 453,
+    "weightTo34t": 493,
+    "terminal": "Usti nad Labem",
+    "objIndex": 765
+  },
+  {
+    "city": "Zbuch",
+    "zipcode": 33022,
+    "weightTo27t": 573,
+    "weightTo34t": 622,
+    "terminal": "Usti nad Labem",
+    "objIndex": 766
+  },
+  {
+    "city": "Zbuzany",
+    "zipcode": 25225,
+    "weightTo27t": 351,
+    "weightTo34t": 382,
+    "terminal": "Usti nad Labem",
+    "objIndex": 767
+  },
+  {
+    "city": "Zdar",
+    "zipcode": 29412,
+    "weightTo27t": 446,
+    "weightTo34t": 485,
+    "terminal": "Usti nad Labem",
+    "objIndex": 768
+  },
+  {
+    "city": "Zdetin",
+    "zipcode": 29471,
+    "weightTo27t": 366,
+    "weightTo34t": 398,
+    "terminal": "Usti nad Labem",
+    "objIndex": 769
+  },
+  {
+    "city": "Zdiby",
+    "zipcode": 25066,
+    "weightTo27t": 274,
+    "weightTo34t": 298,
+    "terminal": "Usti nad Labem",
+    "objIndex": 770
+  },
+  {
+    "city": "Zdice",
+    "zipcode": 26751,
+    "weightTo27t": 416,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 771
+  },
+  {
+    "city": "Zdice/Cernin",
+    "zipcode": 26751,
+    "weightTo27t": 416,
+    "weightTo34t": 453,
+    "terminal": "Usti nad Labem",
+    "objIndex": 772
+  },
+  {
+    "city": "Zebrak",
+    "zipcode": 26753,
+    "weightTo27t": 429,
+    "weightTo34t": 467,
+    "terminal": "Usti nad Labem",
+    "objIndex": 773
+  },
+  {
+    "city": "Zelenec",
+    "zipcode": 25091,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Usti nad Labem",
+    "objIndex": 774
+  },
+  {
+    "city": "Zelenec/Mstetice",
+    "zipcode": 25091,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Usti nad Labem",
+    "objIndex": 775
+  },
+  {
+    "city": "Zelezny Brod",
+    "zipcode": 46822,
+    "weightTo27t": 503,
+    "weightTo34t": 547,
+    "terminal": "Usti nad Labem",
+    "objIndex": 776
+  },
+  {
+    "city": "Zidneves",
+    "zipcode": 29406,
+    "weightTo27t": 407,
+    "weightTo34t": 443,
+    "terminal": "Usti nad Labem",
+    "objIndex": 777
+  },
+  {
+    "city": "Zidovice",
+    "zipcode": 41183,
+    "weightTo27t": 216,
+    "weightTo34t": 236,
+    "terminal": "Usti nad Labem",
+    "objIndex": 778
+  },
+  {
+    "city": "Zichovec",
+    "zipcode": 27374,
+    "weightTo27t": 246,
+    "weightTo34t": 270,
+    "terminal": "Usti nad Labem",
+    "objIndex": 779
+  },
+  {
+    "city": "Zilov",
+    "zipcode": 33011,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 780
+  },
+  {
+    "city": "Zitenice",
+    "zipcode": 41141,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Usti nad Labem",
+    "objIndex": 781
+  },
+  {
+    "city": "Zizice",
+    "zipcode": 27401,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Usti nad Labem",
+    "objIndex": 782
+  },
+  {
+    "city": "Zlata",
+    "zipcode": 25083,
+    "weightTo27t": 323,
+    "weightTo34t": 352,
+    "terminal": "Usti nad Labem",
+    "objIndex": 783
+  },
+  {
+    "city": "Zlatniky Hodkovice",
+    "zipcode": 25241,
+    "weightTo27t": 374,
+    "weightTo34t": 407,
+    "terminal": "Usti nad Labem",
+    "objIndex": 784
+  },
+  {
+    "city": "Zlonice",
+    "zipcode": 27371,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Usti nad Labem",
+    "objIndex": 785
+  },
+  {
+    "city": "Zlosyn",
+    "zipcode": 27744,
+    "weightTo27t": 235,
+    "weightTo34t": 256,
+    "terminal": "Usti nad Labem",
+    "objIndex": 786
+  },
+  {
+    "city": "Zlutice",
+    "zipcode": 36452,
+    "weightTo27t": 340,
+    "weightTo34t": 373,
+    "terminal": "Usti nad Labem",
+    "objIndex": 787
+  },
+  {
+    "city": "Zruc Senec",
+    "zipcode": 33008,
+    "weightTo27t": 380,
+    "weightTo34t": 418,
+    "terminal": "Usti nad Labem",
+    "objIndex": 788
+  },
+  {
+    "city": "Zubrnice",
+    "zipcode": 40002,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Usti nad Labem",
+    "objIndex": 789
+  },
+  {
+    "city": "Zvole",
+    "zipcode": 25245,
+    "weightTo27t": 388,
+    "weightTo34t": 422,
+    "terminal": "Usti nad Labem",
+    "objIndex": 790
+  },
+  {
+    "city": "Zvoleneves",
+    "zipcode": 27325,
+    "weightTo27t": 250,
+    "weightTo34t": 273,
+    "terminal": "Usti nad Labem",
+    "objIndex": 791
+  }
+]

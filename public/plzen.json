@@ -1,0 +1,5474 @@
+[
+  {
+    "city": "Abertamy",
+    "zipcode": 36235,
+    "weightTo27t": 311,
+    "weightTo34t": 342,
+    "terminal": "Plzen",
+    "objIndex": 0
+  },
+  {
+    "city": "Albrechtice nad Vltavou",
+    "zipcode": 39816,
+    "weightTo27t": 325,
+    "weightTo34t": 355,
+    "terminal": "Plzen",
+    "objIndex": 1
+  },
+  {
+    "city": "As",
+    "zipcode": 35201,
+    "weightTo27t": 329,
+    "weightTo34t": 360,
+    "terminal": "Plzen",
+    "objIndex": 2
+  },
+  {
+    "city": "Bavoryne",
+    "zipcode": 26751,
+    "weightTo27t": 246,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 3
+  },
+  {
+    "city": "Becice",
+    "zipcode": 37501,
+    "weightTo27t": 369,
+    "weightTo34t": 403,
+    "terminal": "Plzen",
+    "objIndex": 4
+  },
+  {
+    "city": "Becov",
+    "zipcode": 43526,
+    "weightTo27t": 337,
+    "weightTo34t": 370,
+    "terminal": "Plzen",
+    "objIndex": 5
+  },
+  {
+    "city": "Bednarec",
+    "zipcode": 37842,
+    "weightTo27t": 505,
+    "weightTo34t": 553,
+    "terminal": "Plzen",
+    "objIndex": 6
+  },
+  {
+    "city": "Bechyne",
+    "zipcode": 39165,
+    "weightTo27t": 368,
+    "weightTo34t": 402,
+    "terminal": "Plzen",
+    "objIndex": 7
+  },
+  {
+    "city": "Bela nad Radbuzou",
+    "zipcode": 34526,
+    "weightTo27t": 225,
+    "weightTo34t": 246,
+    "terminal": "Plzen",
+    "objIndex": 8
+  },
+  {
+    "city": "Belcice",
+    "zipcode": 38743,
+    "weightTo27t": 242,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 9
+  },
+  {
+    "city": "Belec",
+    "zipcode": 39143,
+    "weightTo27t": 554,
+    "weightTo34t": 602,
+    "terminal": "Plzen",
+    "objIndex": 10
+  },
+  {
+    "city": "Belusice",
+    "zipcode": 43401,
+    "weightTo27t": 473,
+    "weightTo34t": 515,
+    "terminal": "Plzen",
+    "objIndex": 11
+  },
+  {
+    "city": "Benesov",
+    "zipcode": 25601,
+    "weightTo27t": 461,
+    "weightTo34t": 501,
+    "terminal": "Plzen",
+    "objIndex": 12
+  },
+  {
+    "city": "Bernartice",
+    "zipcode": 39843,
+    "weightTo27t": 335,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 13
+  },
+  {
+    "city": "Beroun",
+    "zipcode": 26601,
+    "weightTo27t": 268,
+    "weightTo34t": 292,
+    "terminal": "Plzen",
+    "objIndex": 14
+  },
+  {
+    "city": "Besiny",
+    "zipcode": 33901,
+    "weightTo27t": 249,
+    "weightTo34t": 273,
+    "terminal": "Plzen",
+    "objIndex": 15
+  },
+  {
+    "city": "Bezdedovice",
+    "zipcode": 38801,
+    "weightTo27t": 244,
+    "weightTo34t": 267,
+    "terminal": "Plzen",
+    "objIndex": 16
+  },
+  {
+    "city": "Bezdekov",
+    "zipcode": 33901,
+    "weightTo27t": 220,
+    "weightTo34t": 241,
+    "terminal": "Plzen",
+    "objIndex": 17
+  },
+  {
+    "city": "Bezdruzice",
+    "zipcode": 34953,
+    "weightTo27t": 198,
+    "weightTo34t": 218,
+    "terminal": "Plzen",
+    "objIndex": 18
+  },
+  {
+    "city": "Bezverov",
+    "zipcode": 33041,
+    "weightTo27t": 198,
+    "weightTo34t": 218,
+    "terminal": "Plzen",
+    "objIndex": 19
+  },
+  {
+    "city": "Bilina",
+    "zipcode": 41801,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 20
+  },
+  {
+    "city": "Birkov",
+    "zipcode": 33401,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Plzen",
+    "objIndex": 21
+  },
+  {
+    "city": "Bitozeves",
+    "zipcode": 44001,
+    "weightTo27t": 304,
+    "weightTo34t": 334,
+    "terminal": "Plzen",
+    "objIndex": 22
+  },
+  {
+    "city": "Bitozeves/Tatinna",
+    "zipcode": 43801,
+    "weightTo27t": 304,
+    "weightTo34t": 334,
+    "terminal": "Plzen",
+    "objIndex": 23
+  },
+  {
+    "city": "Blatna",
+    "zipcode": 38801,
+    "weightTo27t": 244,
+    "weightTo34t": 267,
+    "terminal": "Plzen",
+    "objIndex": 24
+  },
+  {
+    "city": "Blatnice",
+    "zipcode": 33025,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 25
+  },
+  {
+    "city": "Blovice",
+    "zipcode": 33601,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Plzen",
+    "objIndex": 26
+  },
+  {
+    "city": "Bohostice",
+    "zipcode": 26231,
+    "weightTo27t": 278,
+    "weightTo34t": 305,
+    "terminal": "Plzen",
+    "objIndex": 27
+  },
+  {
+    "city": "Bohumilice",
+    "zipcode": 38481,
+    "weightTo27t": 356,
+    "weightTo34t": 389,
+    "terminal": "Plzen",
+    "objIndex": 28
+  },
+  {
+    "city": "Bohutin",
+    "zipcode": 26241,
+    "weightTo27t": 235,
+    "weightTo34t": 258,
+    "terminal": "Plzen",
+    "objIndex": 29
+  },
+  {
+    "city": "Bochov",
+    "zipcode": 36471,
+    "weightTo27t": 217,
+    "weightTo34t": 239,
+    "terminal": "Plzen",
+    "objIndex": 30
+  },
+  {
+    "city": "Bor",
+    "zipcode": 34802,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 31
+  },
+  {
+    "city": "Bor/Nova Hospoda",
+    "zipcode": 34802,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 32
+  },
+  {
+    "city": "Borek",
+    "zipcode": 37367,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 33
+  },
+  {
+    "city": "Boretin",
+    "zipcode": 37853,
+    "weightTo27t": 517,
+    "weightTo34t": 566,
+    "terminal": "Plzen",
+    "objIndex": 34
+  },
+  {
+    "city": "Borislav",
+    "zipcode": 41501,
+    "weightTo27t": 552,
+    "weightTo34t": 600,
+    "terminal": "Plzen",
+    "objIndex": 35
+  },
+  {
+    "city": "Borotice",
+    "zipcode": 26215,
+    "weightTo27t": 308,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 36
+  },
+  {
+    "city": "Borotin",
+    "zipcode": 39135,
+    "weightTo27t": 543,
+    "weightTo34t": 590,
+    "terminal": "Plzen",
+    "objIndex": 37
+  },
+  {
+    "city": "Borovany",
+    "zipcode": 37312,
+    "weightTo27t": 454,
+    "weightTo34t": 496,
+    "terminal": "Plzen",
+    "objIndex": 38
+  },
+  {
+    "city": "Borsov nad Vltavou",
+    "zipcode": 37382,
+    "weightTo27t": 432,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 39
+  },
+  {
+    "city": "Bosice",
+    "zipcode": 38481,
+    "weightTo27t": 378,
+    "weightTo34t": 414,
+    "terminal": "Plzen",
+    "objIndex": 40
+  },
+  {
+    "city": "Bozetice",
+    "zipcode": 39901,
+    "weightTo27t": 321,
+    "weightTo34t": 352,
+    "terminal": "Plzen",
+    "objIndex": 41
+  },
+  {
+    "city": "Bozi Dar",
+    "zipcode": 36301,
+    "weightTo27t": 311,
+    "weightTo34t": 342,
+    "terminal": "Plzen",
+    "objIndex": 42
+  },
+  {
+    "city": "Bozicany",
+    "zipcode": 36225,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Plzen",
+    "objIndex": 43
+  },
+  {
+    "city": "Branany",
+    "zipcode": 43522,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 44
+  },
+  {
+    "city": "Brandov",
+    "zipcode": 43547,
+    "weightTo27t": 395,
+    "weightTo34t": 434,
+    "terminal": "Plzen",
+    "objIndex": 45
+  },
+  {
+    "city": "Branov",
+    "zipcode": 27023,
+    "weightTo27t": 288,
+    "weightTo34t": 314,
+    "terminal": "Plzen",
+    "objIndex": 46
+  },
+  {
+    "city": "Brasy",
+    "zipcode": 33824,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 47
+  },
+  {
+    "city": "Breznice",
+    "zipcode": 26272,
+    "weightTo27t": 235,
+    "weightTo34t": 258,
+    "terminal": "Plzen",
+    "objIndex": 48
+  },
+  {
+    "city": "Breznice",
+    "zipcode": 39171,
+    "weightTo27t": 369,
+    "weightTo34t": 403,
+    "terminal": "Plzen",
+    "objIndex": 49
+  },
+  {
+    "city": "Brezova",
+    "zipcode": 26751,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 50
+  },
+  {
+    "city": "Brezova",
+    "zipcode": 35601,
+    "weightTo27t": 312,
+    "weightTo34t": 341,
+    "terminal": "Plzen",
+    "objIndex": 51
+  },
+  {
+    "city": "Brloh",
+    "zipcode": 38206,
+    "weightTo27t": 417,
+    "weightTo34t": 456,
+    "terminal": "Plzen",
+    "objIndex": 52
+  },
+  {
+    "city": "Brno",
+    "zipcode": 60200,
+    "weightTo27t": 827,
+    "weightTo34t": 896,
+    "terminal": "Plzen",
+    "objIndex": 53
+  },
+  {
+    "city": "Broumov",
+    "zipcode": 34815,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 54
+  },
+  {
+    "city": "Budiskovice",
+    "zipcode": 37891,
+    "weightTo27t": 769,
+    "weightTo34t": 835,
+    "terminal": "Plzen",
+    "objIndex": 55
+  },
+  {
+    "city": "Buk",
+    "zipcode": 38301,
+    "weightTo27t": 378,
+    "weightTo34t": 414,
+    "terminal": "Plzen",
+    "objIndex": 56
+  },
+  {
+    "city": "Bukovnik",
+    "zipcode": 34201,
+    "weightTo27t": 289,
+    "weightTo34t": 316,
+    "terminal": "Plzen",
+    "objIndex": 57
+  },
+  {
+    "city": "Bystrany",
+    "zipcode": 41761,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 58
+  },
+  {
+    "city": "Bzova",
+    "zipcode": 26743,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 59
+  },
+  {
+    "city": "Cep",
+    "zipcode": 37901,
+    "weightTo27t": 489,
+    "weightTo34t": 534,
+    "terminal": "Plzen",
+    "objIndex": 60
+  },
+  {
+    "city": "Ceradice",
+    "zipcode": 43801,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Plzen",
+    "objIndex": 61
+  },
+  {
+    "city": "Cerhovice",
+    "zipcode": 26761,
+    "weightTo27t": 229,
+    "weightTo34t": 250,
+    "terminal": "Plzen",
+    "objIndex": 62
+  },
+  {
+    "city": "Cerna v Posumavi",
+    "zipcode": 38223,
+    "weightTo27t": 507,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 63
+  },
+  {
+    "city": "Cerncice",
+    "zipcode": 43901,
+    "weightTo27t": 441,
+    "weightTo34t": 480,
+    "terminal": "Plzen",
+    "objIndex": 64
+  },
+  {
+    "city": "Cernosin",
+    "zipcode": 34958,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 65
+  },
+  {
+    "city": "Cerveny Hradek",
+    "zipcode": 38001,
+    "weightTo27t": 737,
+    "weightTo34t": 800,
+    "terminal": "Plzen",
+    "objIndex": 66
+  },
+  {
+    "city": "Ceska Kubice",
+    "zipcode": 34532,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Plzen",
+    "objIndex": 67
+  },
+  {
+    "city": "Ceska Lipa",
+    "zipcode": 47001,
+    "weightTo27t": 564,
+    "weightTo34t": 614,
+    "terminal": "Plzen",
+    "objIndex": 68
+  },
+  {
+    "city": "Ceske Budejovice",
+    "zipcode": 37001,
+    "weightTo27t": 411,
+    "weightTo34t": 449,
+    "terminal": "Plzen",
+    "objIndex": 69
+  },
+  {
+    "city": "Ceske Velenice",
+    "zipcode": 37810,
+    "weightTo27t": 533,
+    "weightTo34t": 582,
+    "terminal": "Plzen",
+    "objIndex": 70
+  },
+  {
+    "city": "Cesky Jiretin",
+    "zipcode": 43601,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 71
+  },
+  {
+    "city": "Cesky Krumlov",
+    "zipcode": 38101,
+    "weightTo27t": 454,
+    "weightTo34t": 496,
+    "terminal": "Plzen",
+    "objIndex": 72
+  },
+  {
+    "city": "Cesky Rudolec",
+    "zipcode": 37883,
+    "weightTo27t": 538,
+    "weightTo34t": 590,
+    "terminal": "Plzen",
+    "objIndex": 73
+  },
+  {
+    "city": "Cestice",
+    "zipcode": 38719,
+    "weightTo27t": 326,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 74
+  },
+  {
+    "city": "Cicenice",
+    "zipcode": 38771,
+    "weightTo27t": 340,
+    "weightTo34t": 371,
+    "terminal": "Plzen",
+    "objIndex": 75
+  },
+  {
+    "city": "Cim",
+    "zipcode": 26203,
+    "weightTo27t": 318,
+    "weightTo34t": 347,
+    "terminal": "Plzen",
+    "objIndex": 76
+  },
+  {
+    "city": "Cimelice",
+    "zipcode": 39804,
+    "weightTo27t": 269,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 77
+  },
+  {
+    "city": "Citice",
+    "zipcode": 35601,
+    "weightTo27t": 311,
+    "weightTo34t": 340,
+    "terminal": "Plzen",
+    "objIndex": 78
+  },
+  {
+    "city": "Citoliby",
+    "zipcode": 43902,
+    "weightTo27t": 441,
+    "weightTo34t": 480,
+    "terminal": "Plzen",
+    "objIndex": 79
+  },
+  {
+    "city": "Cizkov",
+    "zipcode": 33564,
+    "weightTo27t": 219,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 80
+  },
+  {
+    "city": "Cizova",
+    "zipcode": 39831,
+    "weightTo27t": 273,
+    "weightTo34t": 298,
+    "terminal": "Plzen",
+    "objIndex": 81
+  },
+  {
+    "city": "Ckyne",
+    "zipcode": 38481,
+    "weightTo27t": 345,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 82
+  },
+  {
+    "city": "Dacice",
+    "zipcode": 38001,
+    "weightTo27t": 767,
+    "weightTo34t": 833,
+    "terminal": "Plzen",
+    "objIndex": 83
+  },
+  {
+    "city": "Dalovice",
+    "zipcode": 36263,
+    "weightTo27t": 268,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 84
+  },
+  {
+    "city": "Decin",
+    "zipcode": 40502,
+    "weightTo27t": 630,
+    "weightTo34t": 685,
+    "terminal": "Plzen",
+    "objIndex": 85
+  },
+  {
+    "city": "Desna",
+    "zipcode": 37873,
+    "weightTo27t": 792,
+    "weightTo34t": 860,
+    "terminal": "Plzen",
+    "objIndex": 86
+  },
+  {
+    "city": "Destna",
+    "zipcode": 37825,
+    "weightTo27t": 450,
+    "weightTo34t": 493,
+    "terminal": "Plzen",
+    "objIndex": 87
+  },
+  {
+    "city": "Dirna",
+    "zipcode": 39127,
+    "weightTo27t": 440,
+    "weightTo34t": 482,
+    "terminal": "Plzen",
+    "objIndex": 88
+  },
+  {
+    "city": "Dlouha Lhota",
+    "zipcode": 26301,
+    "weightTo27t": 285,
+    "weightTo34t": 311,
+    "terminal": "Plzen",
+    "objIndex": 89
+  },
+  {
+    "city": "Dnesice",
+    "zipcode": 33443,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 90
+  },
+  {
+    "city": "Dobra Voda u Ceskych Budejovic",
+    "zipcode": 37316,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 91
+  },
+  {
+    "city": "Dobrany",
+    "zipcode": 33441,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 92
+  },
+  {
+    "city": "Dobris",
+    "zipcode": 26301,
+    "weightTo27t": 288,
+    "weightTo34t": 314,
+    "terminal": "Plzen",
+    "objIndex": 93
+  },
+  {
+    "city": "Dobromerice",
+    "zipcode": 44001,
+    "weightTo27t": 451,
+    "weightTo34t": 491,
+    "terminal": "Plzen",
+    "objIndex": 94
+  },
+  {
+    "city": "Dobroviz",
+    "zipcode": 25261,
+    "weightTo27t": 334,
+    "weightTo34t": 363,
+    "terminal": "Plzen",
+    "objIndex": 95
+  },
+  {
+    "city": "Dolni Horice",
+    "zipcode": 39155,
+    "weightTo27t": 414,
+    "weightTo34t": 454,
+    "terminal": "Plzen",
+    "objIndex": 96
+  },
+  {
+    "city": "Dolni Hrachovice",
+    "zipcode": 39143,
+    "weightTo27t": 389,
+    "weightTo34t": 427,
+    "terminal": "Plzen",
+    "objIndex": 97
+  },
+  {
+    "city": "Dolni Novosedly",
+    "zipcode": 39701,
+    "weightTo27t": 303,
+    "weightTo34t": 331,
+    "terminal": "Plzen",
+    "objIndex": 98
+  },
+  {
+    "city": "Dolni Pena",
+    "zipcode": 37701,
+    "weightTo27t": 506,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 99
+  },
+  {
+    "city": "Dolni Rychnov",
+    "zipcode": 35604,
+    "weightTo27t": 324,
+    "weightTo34t": 354,
+    "terminal": "Plzen",
+    "objIndex": 100
+  },
+  {
+    "city": "Dolni Trebonin",
+    "zipcode": 38201,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 101
+  },
+  {
+    "city": "Dolni Zandov",
+    "zipcode": 35493,
+    "weightTo27t": 250,
+    "weightTo34t": 274,
+    "terminal": "Plzen",
+    "objIndex": 102
+  },
+  {
+    "city": "Domazlice",
+    "zipcode": 34401,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Plzen",
+    "objIndex": 103
+  },
+  {
+    "city": "Drahenice",
+    "zipcode": 26285,
+    "weightTo27t": 245,
+    "weightTo34t": 269,
+    "terminal": "Plzen",
+    "objIndex": 104
+  },
+  {
+    "city": "Drahonice",
+    "zipcode": 38901,
+    "weightTo27t": 313,
+    "weightTo34t": 342,
+    "terminal": "Plzen",
+    "objIndex": 105
+  },
+  {
+    "city": "Drahov",
+    "zipcode": 39181,
+    "weightTo27t": 473,
+    "weightTo34t": 518,
+    "terminal": "Plzen",
+    "objIndex": 106
+  },
+  {
+    "city": "Drasov",
+    "zipcode": 26101,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 107
+  },
+  {
+    "city": "Drazenov",
+    "zipcode": 34401,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Plzen",
+    "objIndex": 108
+  },
+  {
+    "city": "Drazice",
+    "zipcode": 39131,
+    "weightTo27t": 344,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 109
+  },
+  {
+    "city": "Drhovice",
+    "zipcode": 39131,
+    "weightTo27t": 344,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 110
+  },
+  {
+    "city": "Driten",
+    "zipcode": 37351,
+    "weightTo27t": 349,
+    "weightTo34t": 381,
+    "terminal": "Plzen",
+    "objIndex": 111
+  },
+  {
+    "city": "Drouzkovice",
+    "zipcode": 43144,
+    "weightTo27t": 317,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 112
+  },
+  {
+    "city": "Dubenec",
+    "zipcode": 26101,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 113
+  },
+  {
+    "city": "Dubi",
+    "zipcode": 41701,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 114
+  },
+  {
+    "city": "Dublovice",
+    "zipcode": 26251,
+    "weightTo27t": 299,
+    "weightTo34t": 328,
+    "terminal": "Plzen",
+    "objIndex": 115
+  },
+  {
+    "city": "Dubne",
+    "zipcode": 37384,
+    "weightTo27t": 400,
+    "weightTo34t": 437,
+    "terminal": "Plzen",
+    "objIndex": 116
+  },
+  {
+    "city": "Dubno",
+    "zipcode": 26101,
+    "weightTo27t": 252,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 117
+  },
+  {
+    "city": "Duchcov",
+    "zipcode": 41901,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 118
+  },
+  {
+    "city": "Dysina",
+    "zipcode": 33002,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Plzen",
+    "objIndex": 119
+  },
+  {
+    "city": "Ejpovice",
+    "zipcode": 33701,
+    "weightTo27t": 196,
+    "weightTo34t": 214,
+    "terminal": "Plzen",
+    "objIndex": 120
+  },
+  {
+    "city": "Erpuzice",
+    "zipcode": 34901,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 121
+  },
+  {
+    "city": "Frantiskovy Lazne",
+    "zipcode": 35101,
+    "weightTo27t": 286,
+    "weightTo34t": 313,
+    "terminal": "Plzen",
+    "objIndex": 122
+  },
+  {
+    "city": "Habartov",
+    "zipcode": 35709,
+    "weightTo27t": 307,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 123
+  },
+  {
+    "city": "Haj u Duchcova",
+    "zipcode": 41722,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 124
+  },
+  {
+    "city": "Haje",
+    "zipcode": 26101,
+    "weightTo27t": 252,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 125
+  },
+  {
+    "city": "Hatin",
+    "zipcode": 37701,
+    "weightTo27t": 484,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 126
+  },
+  {
+    "city": "Havran",
+    "zipcode": 43501,
+    "weightTo27t": 313,
+    "weightTo34t": 344,
+    "terminal": "Plzen",
+    "objIndex": 127
+  },
+  {
+    "city": "Herink",
+    "zipcode": 25101,
+    "weightTo27t": 385,
+    "weightTo34t": 418,
+    "terminal": "Plzen",
+    "objIndex": 128
+  },
+  {
+    "city": "Herman",
+    "zipcode": 39811,
+    "weightTo27t": 313,
+    "weightTo34t": 342,
+    "terminal": "Plzen",
+    "objIndex": 129
+  },
+  {
+    "city": "Hermanec",
+    "zipcode": 37853,
+    "weightTo27t": 527,
+    "weightTo34t": 577,
+    "terminal": "Plzen",
+    "objIndex": 130
+  },
+  {
+    "city": "Hermanova Hut",
+    "zipcode": 33024,
+    "weightTo27t": 170,
+    "weightTo34t": 187,
+    "terminal": "Plzen",
+    "objIndex": 131
+  },
+  {
+    "city": "Hlincova Hora",
+    "zipcode": 37371,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 132
+  },
+  {
+    "city": "Hlohovice",
+    "zipcode": 33808,
+    "weightTo27t": 220,
+    "weightTo34t": 241,
+    "terminal": "Plzen",
+    "objIndex": 133
+  },
+  {
+    "city": "Hluboka nad Vltavou",
+    "zipcode": 37341,
+    "weightTo27t": 410,
+    "weightTo34t": 448,
+    "terminal": "Plzen",
+    "objIndex": 134
+  },
+  {
+    "city": "Holoubkov",
+    "zipcode": 33801,
+    "weightTo27t": 220,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 135
+  },
+  {
+    "city": "Holubov",
+    "zipcode": 38203,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 136
+  },
+  {
+    "city": "Holysov",
+    "zipcode": 34562,
+    "weightTo27t": 170,
+    "weightTo34t": 187,
+    "terminal": "Plzen",
+    "objIndex": 137
+  },
+  {
+    "city": "Homole",
+    "zipcode": 37001,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 138
+  },
+  {
+    "city": "Horazdovice",
+    "zipcode": 34101,
+    "weightTo27t": 274,
+    "weightTo34t": 299,
+    "terminal": "Plzen",
+    "objIndex": 139
+  },
+  {
+    "city": "Horesedly",
+    "zipcode": 27004,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 140
+  },
+  {
+    "city": "Horni Briza",
+    "zipcode": 33012,
+    "weightTo27t": 192,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 141
+  },
+  {
+    "city": "Horni Jiretin",
+    "zipcode": 43543,
+    "weightTo27t": 368,
+    "weightTo34t": 405,
+    "terminal": "Plzen",
+    "objIndex": 142
+  },
+  {
+    "city": "Horni Plana",
+    "zipcode": 38226,
+    "weightTo27t": 473,
+    "weightTo34t": 518,
+    "terminal": "Plzen",
+    "objIndex": 143
+  },
+  {
+    "city": "Horni Slavkov",
+    "zipcode": 35731,
+    "weightTo27t": 225,
+    "weightTo34t": 248,
+    "terminal": "Plzen",
+    "objIndex": 144
+  },
+  {
+    "city": "Horni Vltavice",
+    "zipcode": 38491,
+    "weightTo27t": 399,
+    "weightTo34t": 437,
+    "terminal": "Plzen",
+    "objIndex": 145
+  },
+  {
+    "city": "Hornosin",
+    "zipcode": 38742,
+    "weightTo27t": 242,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 146
+  },
+  {
+    "city": "Horovice",
+    "zipcode": 26801,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 147
+  },
+  {
+    "city": "Horska Kvilda",
+    "zipcode": 38501,
+    "weightTo27t": 342,
+    "weightTo34t": 374,
+    "terminal": "Plzen",
+    "objIndex": 148
+  },
+  {
+    "city": "Horsovsky Tyn",
+    "zipcode": 34601,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 149
+  },
+  {
+    "city": "Hosin",
+    "zipcode": 37341,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 150
+  },
+  {
+    "city": "Hostka",
+    "zipcode": 34806,
+    "weightTo27t": 228,
+    "weightTo34t": 249,
+    "terminal": "Plzen",
+    "objIndex": 151
+  },
+  {
+    "city": "Hostomice",
+    "zipcode": 26724,
+    "weightTo27t": 271,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 152
+  },
+  {
+    "city": "Hostomice",
+    "zipcode": 41752,
+    "weightTo27t": 368,
+    "weightTo34t": 405,
+    "terminal": "Plzen",
+    "objIndex": 153
+  },
+  {
+    "city": "Hradec Kralove",
+    "zipcode": 50002,
+    "weightTo27t": 688,
+    "weightTo34t": 747,
+    "terminal": "Plzen",
+    "objIndex": 154
+  },
+  {
+    "city": "Hradek",
+    "zipcode": 33842,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Plzen",
+    "objIndex": 155
+  },
+  {
+    "city": "Hracholusky",
+    "zipcode": 38301,
+    "weightTo27t": 385,
+    "weightTo34t": 421,
+    "terminal": "Plzen",
+    "objIndex": 156
+  },
+  {
+    "city": "Hranice",
+    "zipcode": 35124,
+    "weightTo27t": 362,
+    "weightTo34t": 396,
+    "terminal": "Plzen",
+    "objIndex": 157
+  },
+  {
+    "city": "Hredle",
+    "zipcode": 27008,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Plzen",
+    "objIndex": 158
+  },
+  {
+    "city": "Hrob",
+    "zipcode": 41704,
+    "weightTo27t": 399,
+    "weightTo34t": 439,
+    "terminal": "Plzen",
+    "objIndex": 159
+  },
+  {
+    "city": "Hrobcice",
+    "zipcode": 41757,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 160
+  },
+  {
+    "city": "Hromnice",
+    "zipcode": 33011,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Plzen",
+    "objIndex": 161
+  },
+  {
+    "city": "Hroznetin",
+    "zipcode": 36233,
+    "weightTo27t": 289,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 162
+  },
+  {
+    "city": "Hudlice",
+    "zipcode": 26703,
+    "weightTo27t": 273,
+    "weightTo34t": 297,
+    "terminal": "Plzen",
+    "objIndex": 163
+  },
+  {
+    "city": "Hury",
+    "zipcode": 37371,
+    "weightTo27t": 433,
+    "weightTo34t": 473,
+    "terminal": "Plzen",
+    "objIndex": 164
+  },
+  {
+    "city": "Husinec",
+    "zipcode": 38421,
+    "weightTo27t": 367,
+    "weightTo34t": 401,
+    "terminal": "Plzen",
+    "objIndex": 165
+  },
+  {
+    "city": "Hyskov",
+    "zipcode": 26706,
+    "weightTo27t": 275,
+    "weightTo34t": 299,
+    "terminal": "Plzen",
+    "objIndex": 166
+  },
+  {
+    "city": "Chanovice",
+    "zipcode": 34101,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 167
+  },
+  {
+    "city": "Cheb",
+    "zipcode": 35002,
+    "weightTo27t": 286,
+    "weightTo34t": 313,
+    "terminal": "Plzen",
+    "objIndex": 168
+  },
+  {
+    "city": "Chelcice",
+    "zipcode": 38901,
+    "weightTo27t": 351,
+    "weightTo34t": 383,
+    "terminal": "Plzen",
+    "objIndex": 169
+  },
+  {
+    "city": "Chlum u Trebone",
+    "zipcode": 37804,
+    "weightTo27t": 500,
+    "weightTo34t": 546,
+    "terminal": "Plzen",
+    "objIndex": 170
+  },
+  {
+    "city": "Chlumcany",
+    "zipcode": 43903,
+    "weightTo27t": 441,
+    "weightTo34t": 480,
+    "terminal": "Plzen",
+    "objIndex": 171
+  },
+  {
+    "city": "Chlumcany",
+    "zipcode": 33442,
+    "weightTo27t": 189,
+    "weightTo34t": 207,
+    "terminal": "Plzen",
+    "objIndex": 172
+  },
+  {
+    "city": "Chocenice",
+    "zipcode": 33601,
+    "weightTo27t": 229,
+    "weightTo34t": 249,
+    "terminal": "Plzen",
+    "objIndex": 173
+  },
+  {
+    "city": "Chodov",
+    "zipcode": 34533,
+    "weightTo27t": 214,
+    "weightTo34t": 234,
+    "terminal": "Plzen",
+    "objIndex": 174
+  },
+  {
+    "city": "Chodov",
+    "zipcode": 35735,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Plzen",
+    "objIndex": 175
+  },
+  {
+    "city": "Chodova Plana",
+    "zipcode": 34813,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Plzen",
+    "objIndex": 176
+  },
+  {
+    "city": "Chodska Lhota",
+    "zipcode": 34506,
+    "weightTo27t": 231,
+    "weightTo34t": 253,
+    "terminal": "Plzen",
+    "objIndex": 177
+  },
+  {
+    "city": "Chomutov",
+    "zipcode": 43001,
+    "weightTo27t": 341,
+    "weightTo34t": 374,
+    "terminal": "Plzen",
+    "objIndex": 178
+  },
+  {
+    "city": "Chotesov",
+    "zipcode": 33214,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 179
+  },
+  {
+    "city": "Chotikov",
+    "zipcode": 33017,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Plzen",
+    "objIndex": 180
+  },
+  {
+    "city": "Chotilsko",
+    "zipcode": 26203,
+    "weightTo27t": 318,
+    "weightTo34t": 347,
+    "terminal": "Plzen",
+    "objIndex": 181
+  },
+  {
+    "city": "Chotoviny",
+    "zipcode": 39137,
+    "weightTo27t": 381,
+    "weightTo34t": 418,
+    "terminal": "Plzen",
+    "objIndex": 182
+  },
+  {
+    "city": "Chotycany",
+    "zipcode": 37362,
+    "weightTo27t": 435,
+    "weightTo34t": 475,
+    "terminal": "Plzen",
+    "objIndex": 183
+  },
+  {
+    "city": "Choustnik",
+    "zipcode": 39118,
+    "weightTo27t": 413,
+    "weightTo34t": 453,
+    "terminal": "Plzen",
+    "objIndex": 184
+  },
+  {
+    "city": "Chozov",
+    "zipcode": 43922,
+    "weightTo27t": 451,
+    "weightTo34t": 491,
+    "terminal": "Plzen",
+    "objIndex": 185
+  },
+  {
+    "city": "Chrast",
+    "zipcode": 33003,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Plzen",
+    "objIndex": 186
+  },
+  {
+    "city": "Chrastavice",
+    "zipcode": 34401,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 187
+  },
+  {
+    "city": "Chrustenice",
+    "zipcode": 26712,
+    "weightTo27t": 286,
+    "weightTo34t": 311,
+    "terminal": "Plzen",
+    "objIndex": 188
+  },
+  {
+    "city": "Chudenin",
+    "zipcode": 34022,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 189
+  },
+  {
+    "city": "Chynava",
+    "zipcode": 26707,
+    "weightTo27t": 292,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 190
+  },
+  {
+    "city": "Chynov",
+    "zipcode": 39155,
+    "weightTo27t": 392,
+    "weightTo34t": 430,
+    "terminal": "Plzen",
+    "objIndex": 191
+  },
+  {
+    "city": "Chyse",
+    "zipcode": 36453,
+    "weightTo27t": 206,
+    "weightTo34t": 227,
+    "terminal": "Plzen",
+    "objIndex": 192
+  },
+  {
+    "city": "Jablonna",
+    "zipcode": 26263,
+    "weightTo27t": 269,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 193
+  },
+  {
+    "city": "Jachymov",
+    "zipcode": 36251,
+    "weightTo27t": 289,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 194
+  },
+  {
+    "city": "Janovice nad Uhlavou",
+    "zipcode": 34021,
+    "weightTo27t": 226,
+    "weightTo34t": 247,
+    "terminal": "Plzen",
+    "objIndex": 195
+  },
+  {
+    "city": "Jarosov nad Nezarkou",
+    "zipcode": 37841,
+    "weightTo27t": 495,
+    "weightTo34t": 542,
+    "terminal": "Plzen",
+    "objIndex": 196
+  },
+  {
+    "city": "Jenec",
+    "zipcode": 25261,
+    "weightTo27t": 334,
+    "weightTo34t": 363,
+    "terminal": "Plzen",
+    "objIndex": 197
+  },
+  {
+    "city": "Jenikov",
+    "zipcode": 41724,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 198
+  },
+  {
+    "city": "Jenisov",
+    "zipcode": 36001,
+    "weightTo27t": 242,
+    "weightTo34t": 266,
+    "terminal": "Plzen",
+    "objIndex": 199
+  },
+  {
+    "city": "Jesenice",
+    "zipcode": 26401,
+    "weightTo27t": 332,
+    "weightTo34t": 364,
+    "terminal": "Plzen",
+    "objIndex": 200
+  },
+  {
+    "city": "Jesenice",
+    "zipcode": 27033,
+    "weightTo27t": 219,
+    "weightTo34t": 241,
+    "terminal": "Plzen",
+    "objIndex": 201
+  },
+  {
+    "city": "Jetetice",
+    "zipcode": 39848,
+    "weightTo27t": 335,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 202
+  },
+  {
+    "city": "Jezovy",
+    "zipcode": 34012,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Plzen",
+    "objIndex": 203
+  },
+  {
+    "city": "Jihlava",
+    "zipcode": 58601,
+    "weightTo27t": 657,
+    "weightTo34t": 713,
+    "terminal": "Plzen",
+    "objIndex": 204
+  },
+  {
+    "city": "Jince",
+    "zipcode": 26223,
+    "weightTo27t": 261,
+    "weightTo34t": 285,
+    "terminal": "Plzen",
+    "objIndex": 205
+  },
+  {
+    "city": "Jindrichovice",
+    "zipcode": 35801,
+    "weightTo27t": 368,
+    "weightTo34t": 402,
+    "terminal": "Plzen",
+    "objIndex": 206
+  },
+  {
+    "city": "Jindrichuv Hradec",
+    "zipcode": 37701,
+    "weightTo27t": 484,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 207
+  },
+  {
+    "city": "Jirkov",
+    "zipcode": 43111,
+    "weightTo27t": 352,
+    "weightTo34t": 386,
+    "terminal": "Plzen",
+    "objIndex": 208
+  },
+  {
+    "city": "Jistebnice",
+    "zipcode": 39133,
+    "weightTo27t": 343,
+    "weightTo34t": 376,
+    "terminal": "Plzen",
+    "objIndex": 209
+  },
+  {
+    "city": "Kadan",
+    "zipcode": 43201,
+    "weightTo27t": 302,
+    "weightTo34t": 332,
+    "terminal": "Plzen",
+    "objIndex": 210
+  },
+  {
+    "city": "Kadan/Prunerov",
+    "zipcode": 43201,
+    "weightTo27t": 302,
+    "weightTo34t": 332,
+    "terminal": "Plzen",
+    "objIndex": 211
+  },
+  {
+    "city": "Kadov",
+    "zipcode": 38733,
+    "weightTo27t": 234,
+    "weightTo34t": 256,
+    "terminal": "Plzen",
+    "objIndex": 212
+  },
+  {
+    "city": "Kajov",
+    "zipcode": 38221,
+    "weightTo27t": 464,
+    "weightTo34t": 507,
+    "terminal": "Plzen",
+    "objIndex": 213
+  },
+  {
+    "city": "Kamenny Malikov",
+    "zipcode": 37842,
+    "weightTo27t": 505,
+    "weightTo34t": 553,
+    "terminal": "Plzen",
+    "objIndex": 214
+  },
+  {
+    "city": "Kamenny Ujezd",
+    "zipcode": 37381,
+    "weightTo27t": 432,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 215
+  },
+  {
+    "city": "Kamenny Ujezd",
+    "zipcode": 33701,
+    "weightTo27t": 209,
+    "weightTo34t": 229,
+    "terminal": "Plzen",
+    "objIndex": 216
+  },
+  {
+    "city": "Kamyk nad Vltavou",
+    "zipcode": 26263,
+    "weightTo27t": 289,
+    "weightTo34t": 317,
+    "terminal": "Plzen",
+    "objIndex": 217
+  },
+  {
+    "city": "Kaplice",
+    "zipcode": 38241,
+    "weightTo27t": 475,
+    "weightTo34t": 519,
+    "terminal": "Plzen",
+    "objIndex": 218
+  },
+  {
+    "city": "Kardasova Recice",
+    "zipcode": 37821,
+    "weightTo27t": 452,
+    "weightTo34t": 495,
+    "terminal": "Plzen",
+    "objIndex": 219
+  },
+  {
+    "city": "Karez",
+    "zipcode": 33808,
+    "weightTo27t": 223,
+    "weightTo34t": 243,
+    "terminal": "Plzen",
+    "objIndex": 220
+  },
+  {
+    "city": "Karlovy Vary",
+    "zipcode": 36001,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 221
+  },
+  {
+    "city": "Kasejovice",
+    "zipcode": 33544,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Plzen",
+    "objIndex": 222
+  },
+  {
+    "city": "Kasperske Hory",
+    "zipcode": 34192,
+    "weightTo27t": 309,
+    "weightTo34t": 338,
+    "terminal": "Plzen",
+    "objIndex": 223
+  },
+  {
+    "city": "Katovice",
+    "zipcode": 38711,
+    "weightTo27t": 294,
+    "weightTo34t": 321,
+    "terminal": "Plzen",
+    "objIndex": 224
+  },
+  {
+    "city": "Kaznejov",
+    "zipcode": 33151,
+    "weightTo27t": 192,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 225
+  },
+  {
+    "city": "Kdyne",
+    "zipcode": 34506,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Plzen",
+    "objIndex": 226
+  },
+  {
+    "city": "Kladno",
+    "zipcode": 27201,
+    "weightTo27t": 359,
+    "weightTo34t": 390,
+    "terminal": "Plzen",
+    "objIndex": 227
+  },
+  {
+    "city": "Kladruby",
+    "zipcode": 41501,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 228
+  },
+  {
+    "city": "Klasterec nad Ohri",
+    "zipcode": 43151,
+    "weightTo27t": 333,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 229
+  },
+  {
+    "city": "Klatovy",
+    "zipcode": 33901,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Plzen",
+    "objIndex": 230
+  },
+  {
+    "city": "Klenci pod Cerchovem",
+    "zipcode": 34534,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 231
+  },
+  {
+    "city": "Kliny",
+    "zipcode": 43601,
+    "weightTo27t": 368,
+    "weightTo34t": 405,
+    "terminal": "Plzen",
+    "objIndex": 232
+  },
+  {
+    "city": "Klucenice",
+    "zipcode": 26256,
+    "weightTo27t": 310,
+    "weightTo34t": 340,
+    "terminal": "Plzen",
+    "objIndex": 233
+  },
+  {
+    "city": "Kolinec",
+    "zipcode": 34142,
+    "weightTo27t": 273,
+    "weightTo34t": 299,
+    "terminal": "Plzen",
+    "objIndex": 234
+  },
+  {
+    "city": "Kolova",
+    "zipcode": 36001,
+    "weightTo27t": 235,
+    "weightTo34t": 259,
+    "terminal": "Plzen",
+    "objIndex": 235
+  },
+  {
+    "city": "Kolovec",
+    "zipcode": 34543,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Plzen",
+    "objIndex": 236
+  },
+  {
+    "city": "Komarice",
+    "zipcode": 37314,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 237
+  },
+  {
+    "city": "Komarov",
+    "zipcode": 26762,
+    "weightTo27t": 225,
+    "weightTo34t": 246,
+    "terminal": "Plzen",
+    "objIndex": 238
+  },
+  {
+    "city": "Kornatice",
+    "zipcode": 33843,
+    "weightTo27t": 199,
+    "weightTo34t": 218,
+    "terminal": "Plzen",
+    "objIndex": 239
+  },
+  {
+    "city": "Korozluky",
+    "zipcode": 43401,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Plzen",
+    "objIndex": 240
+  },
+  {
+    "city": "Korozluky/Sedlec",
+    "zipcode": 43401,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Plzen",
+    "objIndex": 241
+  },
+  {
+    "city": "Kosice",
+    "zipcode": 39117,
+    "weightTo27t": 403,
+    "weightTo34t": 442,
+    "terminal": "Plzen",
+    "objIndex": 242
+  },
+  {
+    "city": "Kosova Hora",
+    "zipcode": 26291,
+    "weightTo27t": 321,
+    "weightTo34t": 352,
+    "terminal": "Plzen",
+    "objIndex": 243
+  },
+  {
+    "city": "Kostany",
+    "zipcode": 41723,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 244
+  },
+  {
+    "city": "Kostelec",
+    "zipcode": 34901,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 245
+  },
+  {
+    "city": "Kostelec/Ostrov u Stribra",
+    "zipcode": 34901,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 246
+  },
+  {
+    "city": "Kout na Sumave",
+    "zipcode": 34502,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Plzen",
+    "objIndex": 247
+  },
+  {
+    "city": "Kovarov",
+    "zipcode": 39855,
+    "weightTo27t": 289,
+    "weightTo34t": 317,
+    "terminal": "Plzen",
+    "objIndex": 248
+  },
+  {
+    "city": "Kovarska",
+    "zipcode": 43186,
+    "weightTo27t": 333,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 249
+  },
+  {
+    "city": "Kozarovice",
+    "zipcode": 26284,
+    "weightTo27t": 269,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 250
+  },
+  {
+    "city": "Kozlany",
+    "zipcode": 33144,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Plzen",
+    "objIndex": 251
+  },
+  {
+    "city": "Kozojedy",
+    "zipcode": 27054,
+    "weightTo27t": 293,
+    "weightTo34t": 322,
+    "terminal": "Plzen",
+    "objIndex": 252
+  },
+  {
+    "city": "Krajkova",
+    "zipcode": 35709,
+    "weightTo27t": 318,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 253
+  },
+  {
+    "city": "Kralovice",
+    "zipcode": 33141,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Plzen",
+    "objIndex": 254
+  },
+  {
+    "city": "Kraluv Dvur",
+    "zipcode": 26701,
+    "weightTo27t": 256,
+    "weightTo34t": 279,
+    "terminal": "Plzen",
+    "objIndex": 255
+  },
+  {
+    "city": "Kraslice",
+    "zipcode": 35801,
+    "weightTo27t": 405,
+    "weightTo34t": 444,
+    "terminal": "Plzen",
+    "objIndex": 256
+  },
+  {
+    "city": "Krasna Hora nad Vltavou",
+    "zipcode": 26256,
+    "weightTo27t": 310,
+    "weightTo34t": 340,
+    "terminal": "Plzen",
+    "objIndex": 257
+  },
+  {
+    "city": "Kremze",
+    "zipcode": 38203,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 258
+  },
+  {
+    "city": "Krenovice",
+    "zipcode": 39843,
+    "weightTo27t": 335,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 259
+  },
+  {
+    "city": "Kresin",
+    "zipcode": 26223,
+    "weightTo27t": 251,
+    "weightTo34t": 274,
+    "terminal": "Plzen",
+    "objIndex": 260
+  },
+  {
+    "city": "Krivoklat",
+    "zipcode": 27023,
+    "weightTo27t": 288,
+    "weightTo34t": 314,
+    "terminal": "Plzen",
+    "objIndex": 261
+  },
+  {
+    "city": "Krupka",
+    "zipcode": 41741,
+    "weightTo27t": 399,
+    "weightTo34t": 439,
+    "terminal": "Plzen",
+    "objIndex": 262
+  },
+  {
+    "city": "Krupka/Nove Modlany",
+    "zipcode": 41742,
+    "weightTo27t": 399,
+    "weightTo34t": 439,
+    "terminal": "Plzen",
+    "objIndex": 263
+  },
+  {
+    "city": "Krusovice",
+    "zipcode": 27053,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Plzen",
+    "objIndex": 264
+  },
+  {
+    "city": "Kryry",
+    "zipcode": 43981,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 265
+  },
+  {
+    "city": "Krystofovy Hamry",
+    "zipcode": 43191,
+    "weightTo27t": 395,
+    "weightTo34t": 434,
+    "terminal": "Plzen",
+    "objIndex": 266
+  },
+  {
+    "city": "Ktis",
+    "zipcode": 38403,
+    "weightTo27t": 406,
+    "weightTo34t": 444,
+    "terminal": "Plzen",
+    "objIndex": 267
+  },
+  {
+    "city": "Kunzak",
+    "zipcode": 37862,
+    "weightTo27t": 506,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 268
+  },
+  {
+    "city": "Kvetov",
+    "zipcode": 39901,
+    "weightTo27t": 299,
+    "weightTo34t": 328,
+    "terminal": "Plzen",
+    "objIndex": 269
+  },
+  {
+    "city": "Kynsperk nad Ohri",
+    "zipcode": 35751,
+    "weightTo27t": 286,
+    "weightTo34t": 313,
+    "terminal": "Plzen",
+    "objIndex": 270
+  },
+  {
+    "city": "Kyselka",
+    "zipcode": 36272,
+    "weightTo27t": 253,
+    "weightTo34t": 278,
+    "terminal": "Plzen",
+    "objIndex": 271
+  },
+  {
+    "city": "Kysice",
+    "zipcode": 33001,
+    "weightTo27t": 202,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 272
+  },
+  {
+    "city": "Lahost",
+    "zipcode": 41725,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 273
+  },
+  {
+    "city": "Lany",
+    "zipcode": 27061,
+    "weightTo27t": 398,
+    "weightTo34t": 432,
+    "terminal": "Plzen",
+    "objIndex": 274
+  },
+  {
+    "city": "Lcovice",
+    "zipcode": 38481,
+    "weightTo27t": 345,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 275
+  },
+  {
+    "city": "Ledce",
+    "zipcode": 33014,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Plzen",
+    "objIndex": 276
+  },
+  {
+    "city": "Ledenice",
+    "zipcode": 37311,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 277
+  },
+  {
+    "city": "Ledvice",
+    "zipcode": 41772,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 278
+  },
+  {
+    "city": "Lenesice",
+    "zipcode": 43923,
+    "weightTo27t": 328,
+    "weightTo34t": 360,
+    "terminal": "Plzen",
+    "objIndex": 279
+  },
+  {
+    "city": "Lenora",
+    "zipcode": 38442,
+    "weightTo27t": 410,
+    "weightTo34t": 449,
+    "terminal": "Plzen",
+    "objIndex": 280
+  },
+  {
+    "city": "Lesna",
+    "zipcode": 34701,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 281
+  },
+  {
+    "city": "Lestkov",
+    "zipcode": 34953,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 282
+  },
+  {
+    "city": "Letiny",
+    "zipcode": 33601,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Plzen",
+    "objIndex": 283
+  },
+  {
+    "city": "Letkov",
+    "zipcode": 32600,
+    "weightTo27t": 202,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 284
+  },
+  {
+    "city": "Lety",
+    "zipcode": 39804,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 285
+  },
+  {
+    "city": "Lhenice",
+    "zipcode": 38402,
+    "weightTo27t": 385,
+    "weightTo34t": 421,
+    "terminal": "Plzen",
+    "objIndex": 286
+  },
+  {
+    "city": "Lhota pod Radcem",
+    "zipcode": 33701,
+    "weightTo27t": 223,
+    "weightTo34t": 243,
+    "terminal": "Plzen",
+    "objIndex": 287
+  },
+  {
+    "city": "Lhota u Pribrame",
+    "zipcode": 26101,
+    "weightTo27t": 252,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 288
+  },
+  {
+    "city": "Liba",
+    "zipcode": 35131,
+    "weightTo27t": 307,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 289
+  },
+  {
+    "city": "Libavske Udoli",
+    "zipcode": 35751,
+    "weightTo27t": 297,
+    "weightTo34t": 325,
+    "terminal": "Plzen",
+    "objIndex": 290
+  },
+  {
+    "city": "Libceves",
+    "zipcode": 43926,
+    "weightTo27t": 473,
+    "weightTo34t": 515,
+    "terminal": "Plzen",
+    "objIndex": 291
+  },
+  {
+    "city": "Liberec",
+    "zipcode": 46001,
+    "weightTo27t": 685,
+    "weightTo34t": 744,
+    "terminal": "Plzen",
+    "objIndex": 292
+  },
+  {
+    "city": "Libocany",
+    "zipcode": 43975,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 293
+  },
+  {
+    "city": "Line",
+    "zipcode": 33021,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Plzen",
+    "objIndex": 294
+  },
+  {
+    "city": "Lipno nad Vltavou",
+    "zipcode": 38278,
+    "weightTo27t": 539,
+    "weightTo34t": 589,
+    "terminal": "Plzen",
+    "objIndex": 295
+  },
+  {
+    "city": "Lipova",
+    "zipcode": 35002,
+    "weightTo27t": 307,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 296
+  },
+  {
+    "city": "Lisna",
+    "zipcode": 33808,
+    "weightTo27t": 235,
+    "weightTo34t": 256,
+    "terminal": "Plzen",
+    "objIndex": 297
+  },
+  {
+    "city": "Lisov",
+    "zipcode": 37372,
+    "weightTo27t": 434,
+    "weightTo34t": 474,
+    "terminal": "Plzen",
+    "objIndex": 298
+  },
+  {
+    "city": "Liten",
+    "zipcode": 26727,
+    "weightTo27t": 284,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 299
+  },
+  {
+    "city": "Litomerice",
+    "zipcode": 41201,
+    "weightTo27t": 530,
+    "weightTo34t": 576,
+    "terminal": "Plzen",
+    "objIndex": 300
+  },
+  {
+    "city": "Litvinov",
+    "zipcode": 43601,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 301
+  },
+  {
+    "city": "Litvinov/Zaluzi",
+    "zipcode": 43601,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 302
+  },
+  {
+    "city": "Litvinovice",
+    "zipcode": 37001,
+    "weightTo27t": 411,
+    "weightTo34t": 449,
+    "terminal": "Plzen",
+    "objIndex": 303
+  },
+  {
+    "city": "Lnare",
+    "zipcode": 38742,
+    "weightTo27t": 229,
+    "weightTo34t": 250,
+    "terminal": "Plzen",
+    "objIndex": 304
+  },
+  {
+    "city": "Lodenice",
+    "zipcode": 26712,
+    "weightTo27t": 286,
+    "weightTo34t": 311,
+    "terminal": "Plzen",
+    "objIndex": 305
+  },
+  {
+    "city": "Loket",
+    "zipcode": 35733,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Plzen",
+    "objIndex": 306
+  },
+  {
+    "city": "Lom",
+    "zipcode": 43511,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 307
+  },
+  {
+    "city": "Lom u Tachova",
+    "zipcode": 34701,
+    "weightTo27t": 219,
+    "weightTo34t": 239,
+    "terminal": "Plzen",
+    "objIndex": 308
+  },
+  {
+    "city": "Lomnice",
+    "zipcode": 35601,
+    "weightTo27t": 335,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 309
+  },
+  {
+    "city": "Lomnice nad Luznici",
+    "zipcode": 37816,
+    "weightTo27t": 479,
+    "weightTo34t": 523,
+    "terminal": "Plzen",
+    "objIndex": 310
+  },
+  {
+    "city": "Losina",
+    "zipcode": 33204,
+    "weightTo27t": 191,
+    "weightTo34t": 209,
+    "terminal": "Plzen",
+    "objIndex": 311
+  },
+  {
+    "city": "Louka u Litvinova",
+    "zipcode": 43533,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 312
+  },
+  {
+    "city": "Louny",
+    "zipcode": 44001,
+    "weightTo27t": 451,
+    "weightTo34t": 491,
+    "terminal": "Plzen",
+    "objIndex": 313
+  },
+  {
+    "city": "Lubna",
+    "zipcode": 27036,
+    "weightTo27t": 227,
+    "weightTo34t": 250,
+    "terminal": "Plzen",
+    "objIndex": 314
+  },
+  {
+    "city": "Luby",
+    "zipcode": 35137,
+    "weightTo27t": 340,
+    "weightTo34t": 372,
+    "terminal": "Plzen",
+    "objIndex": 315
+  },
+  {
+    "city": "Luzany",
+    "zipcode": 33454,
+    "weightTo27t": 200,
+    "weightTo34t": 219,
+    "terminal": "Plzen",
+    "objIndex": 316
+  },
+  {
+    "city": "Mackov",
+    "zipcode": 38801,
+    "weightTo27t": 244,
+    "weightTo34t": 267,
+    "terminal": "Plzen",
+    "objIndex": 317
+  },
+  {
+    "city": "Male Brezno",
+    "zipcode": 43401,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 318
+  },
+  {
+    "city": "Malenice",
+    "zipcode": 38706,
+    "weightTo27t": 345,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 319
+  },
+  {
+    "city": "Malkov",
+    "zipcode": 43001,
+    "weightTo27t": 341,
+    "weightTo34t": 374,
+    "terminal": "Plzen",
+    "objIndex": 320
+  },
+  {
+    "city": "Malovice",
+    "zipcode": 38411,
+    "weightTo27t": 352,
+    "weightTo34t": 384,
+    "terminal": "Plzen",
+    "objIndex": 321
+  },
+  {
+    "city": "Malsice",
+    "zipcode": 39175,
+    "weightTo27t": 400,
+    "weightTo34t": 438,
+    "terminal": "Plzen",
+    "objIndex": 322
+  },
+  {
+    "city": "Malsin",
+    "zipcode": 38273,
+    "weightTo27t": 507,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 323
+  },
+  {
+    "city": "Manetin",
+    "zipcode": 33162,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Plzen",
+    "objIndex": 324
+  },
+  {
+    "city": "Marianske Lazne",
+    "zipcode": 35301,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 325
+  },
+  {
+    "city": "Mazice",
+    "zipcode": 39181,
+    "weightTo27t": 496,
+    "weightTo34t": 541,
+    "terminal": "Plzen",
+    "objIndex": 326
+  },
+  {
+    "city": "Mecin",
+    "zipcode": 34012,
+    "weightTo27t": 211,
+    "weightTo34t": 231,
+    "terminal": "Plzen",
+    "objIndex": 327
+  },
+  {
+    "city": "Mecholupy",
+    "zipcode": 33551,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Plzen",
+    "objIndex": 328
+  },
+  {
+    "city": "Melnik",
+    "zipcode": 27601,
+    "weightTo27t": 468,
+    "weightTo34t": 509,
+    "terminal": "Plzen",
+    "objIndex": 329
+  },
+  {
+    "city": "Merklin",
+    "zipcode": 36234,
+    "weightTo27t": 289,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 330
+  },
+  {
+    "city": "Merunice",
+    "zipcode": 41804,
+    "weightTo27t": 483,
+    "weightTo34t": 526,
+    "terminal": "Plzen",
+    "objIndex": 331
+  },
+  {
+    "city": "Mesto Touskov",
+    "zipcode": 33033,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 332
+  },
+  {
+    "city": "Mezibori",
+    "zipcode": 43513,
+    "weightTo27t": 357,
+    "weightTo34t": 393,
+    "terminal": "Plzen",
+    "objIndex": 333
+  },
+  {
+    "city": "Mezirici",
+    "zipcode": 39131,
+    "weightTo27t": 344,
+    "weightTo34t": 377,
+    "terminal": "Plzen",
+    "objIndex": 334
+  },
+  {
+    "city": "Milec",
+    "zipcode": 33501,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 335
+  },
+  {
+    "city": "Milevsko",
+    "zipcode": 39901,
+    "weightTo27t": 310,
+    "weightTo34t": 340,
+    "terminal": "Plzen",
+    "objIndex": 336
+  },
+  {
+    "city": "Milin",
+    "zipcode": 26231,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 337
+  },
+  {
+    "city": "Milinov",
+    "zipcode": 33204,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Plzen",
+    "objIndex": 338
+  },
+  {
+    "city": "Mirosov",
+    "zipcode": 33843,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 339
+  },
+  {
+    "city": "Mirotice",
+    "zipcode": 39801,
+    "weightTo27t": 293,
+    "weightTo34t": 320,
+    "terminal": "Plzen",
+    "objIndex": 340
+  },
+  {
+    "city": "Mirova",
+    "zipcode": 35735,
+    "weightTo27t": 251,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 341
+  },
+  {
+    "city": "Mirovice",
+    "zipcode": 39806,
+    "weightTo27t": 252,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 342
+  },
+  {
+    "city": "Misov",
+    "zipcode": 33563,
+    "weightTo27t": 214,
+    "weightTo34t": 234,
+    "terminal": "Plzen",
+    "objIndex": 343
+  },
+  {
+    "city": "Misto",
+    "zipcode": 43158,
+    "weightTo27t": 352,
+    "weightTo34t": 386,
+    "terminal": "Plzen",
+    "objIndex": 344
+  },
+  {
+    "city": "Mlada Vozice",
+    "zipcode": 39143,
+    "weightTo27t": 551,
+    "weightTo34t": 599,
+    "terminal": "Plzen",
+    "objIndex": 345
+  },
+  {
+    "city": "Mladosovice",
+    "zipcode": 37901,
+    "weightTo27t": 479,
+    "weightTo34t": 523,
+    "terminal": "Plzen",
+    "objIndex": 346
+  },
+  {
+    "city": "Mnichov",
+    "zipcode": 35301,
+    "weightTo27t": 257,
+    "weightTo34t": 281,
+    "terminal": "Plzen",
+    "objIndex": 347
+  },
+  {
+    "city": "Mnichov",
+    "zipcode": 38601,
+    "weightTo27t": 304,
+    "weightTo34t": 332,
+    "terminal": "Plzen",
+    "objIndex": 348
+  },
+  {
+    "city": "Modlany",
+    "zipcode": 41713,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 349
+  },
+  {
+    "city": "Mokrovraty",
+    "zipcode": 26203,
+    "weightTo27t": 297,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 350
+  },
+  {
+    "city": "Morina",
+    "zipcode": 26717,
+    "weightTo27t": 296,
+    "weightTo34t": 322,
+    "terminal": "Plzen",
+    "objIndex": 351
+  },
+  {
+    "city": "Most",
+    "zipcode": 43401,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 352
+  },
+  {
+    "city": "Most/Cepirohy",
+    "zipcode": 43401,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 353
+  },
+  {
+    "city": "Most/Komorany",
+    "zipcode": 43401,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 354
+  },
+  {
+    "city": "Mutejovice",
+    "zipcode": 27007,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Plzen",
+    "objIndex": 355
+  },
+  {
+    "city": "Mutenin",
+    "zipcode": 34525,
+    "weightTo27t": 213,
+    "weightTo34t": 234,
+    "terminal": "Plzen",
+    "objIndex": 356
+  },
+  {
+    "city": "Myslinka",
+    "zipcode": 33023,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 357
+  },
+  {
+    "city": "Myto",
+    "zipcode": 33805,
+    "weightTo27t": 220,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 358
+  },
+  {
+    "city": "Nadejkov",
+    "zipcode": 39852,
+    "weightTo27t": 343,
+    "weightTo34t": 376,
+    "terminal": "Plzen",
+    "objIndex": 359
+  },
+  {
+    "city": "Nalzovske Hory",
+    "zipcode": 34101,
+    "weightTo27t": 245,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 360
+  },
+  {
+    "city": "Nebanice",
+    "zipcode": 35002,
+    "weightTo27t": 307,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 361
+  },
+  {
+    "city": "Nectiny",
+    "zipcode": 33163,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Plzen",
+    "objIndex": 362
+  },
+  {
+    "city": "Nejdek",
+    "zipcode": 36221,
+    "weightTo27t": 266,
+    "weightTo34t": 266,
+    "terminal": "Plzen",
+    "objIndex": 363
+  },
+  {
+    "city": "Nemanice",
+    "zipcode": 34401,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Plzen",
+    "objIndex": 364
+  },
+  {
+    "city": "Nemcice",
+    "zipcode": 34506,
+    "weightTo27t": 224,
+    "weightTo34t": 245,
+    "terminal": "Plzen",
+    "objIndex": 365
+  },
+  {
+    "city": "Nemcovice",
+    "zipcode": 33824,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Plzen",
+    "objIndex": 366
+  },
+  {
+    "city": "Nemetice",
+    "zipcode": 38701,
+    "weightTo27t": 323,
+    "weightTo34t": 353,
+    "terminal": "Plzen",
+    "objIndex": 367
+  },
+  {
+    "city": "Nemysl",
+    "zipcode": 39143,
+    "weightTo27t": 543,
+    "weightTo34t": 590,
+    "terminal": "Plzen",
+    "objIndex": 368
+  },
+  {
+    "city": "Nenacovice",
+    "zipcode": 26601,
+    "weightTo27t": 286,
+    "weightTo34t": 311,
+    "terminal": "Plzen",
+    "objIndex": 369
+  },
+  {
+    "city": "Nepomuk",
+    "zipcode": 33501,
+    "weightTo27t": 216,
+    "weightTo34t": 236,
+    "terminal": "Plzen",
+    "objIndex": 370
+  },
+  {
+    "city": "Nerestce",
+    "zipcode": 39804,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 371
+  },
+  {
+    "city": "Netolice",
+    "zipcode": 38411,
+    "weightTo27t": 363,
+    "weightTo34t": 396,
+    "terminal": "Plzen",
+    "objIndex": 372
+  },
+  {
+    "city": "Neumetely",
+    "zipcode": 26724,
+    "weightTo27t": 264,
+    "weightTo34t": 288,
+    "terminal": "Plzen",
+    "objIndex": 373
+  },
+  {
+    "city": "Neurazy",
+    "zipcode": 33555,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Plzen",
+    "objIndex": 374
+  },
+  {
+    "city": "Nevezice",
+    "zipcode": 39804,
+    "weightTo27t": 278,
+    "weightTo34t": 305,
+    "terminal": "Plzen",
+    "objIndex": 375
+  },
+  {
+    "city": "Nevid",
+    "zipcode": 33701,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Plzen",
+    "objIndex": 376
+  },
+  {
+    "city": "Nezbavetice",
+    "zipcode": 33204,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 377
+  },
+  {
+    "city": "Nezdice na Sumave",
+    "zipcode": 34201,
+    "weightTo27t": 299,
+    "weightTo34t": 327,
+    "terminal": "Plzen",
+    "objIndex": 378
+  },
+  {
+    "city": "Nezvestice",
+    "zipcode": 33204,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 379
+  },
+  {
+    "city": "Nisovice",
+    "zipcode": 38701,
+    "weightTo27t": 334,
+    "weightTo34t": 365,
+    "terminal": "Plzen",
+    "objIndex": 380
+  },
+  {
+    "city": "Nizbor",
+    "zipcode": 26705,
+    "weightTo27t": 284,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 381
+  },
+  {
+    "city": "Nova Bystrice",
+    "zipcode": 37833,
+    "weightTo27t": 526,
+    "weightTo34t": 574,
+    "terminal": "Plzen",
+    "objIndex": 382
+  },
+  {
+    "city": "Nova Olesna",
+    "zipcode": 37853,
+    "weightTo27t": 506,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 383
+  },
+  {
+    "city": "Nova Pec",
+    "zipcode": 38462,
+    "weightTo27t": 463,
+    "weightTo34t": 507,
+    "terminal": "Plzen",
+    "objIndex": 384
+  },
+  {
+    "city": "Nova Role",
+    "zipcode": 36225,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Plzen",
+    "objIndex": 385
+  },
+  {
+    "city": "Nova Vcelnice",
+    "zipcode": 37842,
+    "weightTo27t": 687,
+    "weightTo34t": 746,
+    "terminal": "Plzen",
+    "objIndex": 386
+  },
+  {
+    "city": "Nova Ves",
+    "zipcode": 37315,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 387
+  },
+  {
+    "city": "Nove Hamry",
+    "zipcode": 36221,
+    "weightTo27t": 289,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 388
+  },
+  {
+    "city": "Nove Hrady",
+    "zipcode": 37333,
+    "weightTo27t": 485,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 389
+  },
+  {
+    "city": "Nove Mitrovice",
+    "zipcode": 33563,
+    "weightTo27t": 211,
+    "weightTo34t": 231,
+    "terminal": "Plzen",
+    "objIndex": 390
+  },
+  {
+    "city": "Nove Sedlo",
+    "zipcode": 35734,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Plzen",
+    "objIndex": 391
+  },
+  {
+    "city": "Nove Straseci",
+    "zipcode": 27101,
+    "weightTo27t": 401,
+    "weightTo34t": 435,
+    "terminal": "Plzen",
+    "objIndex": 392
+  },
+  {
+    "city": "Novosedlice",
+    "zipcode": 41731,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 393
+  },
+  {
+    "city": "Novy Dum",
+    "zipcode": 26901,
+    "weightTo27t": 308,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 394
+  },
+  {
+    "city": "Novy Knin",
+    "zipcode": 26203,
+    "weightTo27t": 308,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 395
+  },
+  {
+    "city": "Novy Kostel",
+    "zipcode": 35134,
+    "weightTo27t": 318,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 396
+  },
+  {
+    "city": "Novy Kramolin",
+    "zipcode": 34401,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Plzen",
+    "objIndex": 397
+  },
+  {
+    "city": "Nupaky",
+    "zipcode": 25101,
+    "weightTo27t": 410,
+    "weightTo34t": 446,
+    "terminal": "Plzen",
+    "objIndex": 398
+  },
+  {
+    "city": "Nyrany",
+    "zipcode": 33023,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 399
+  },
+  {
+    "city": "Nyrany vaha",
+    "zipcode": 33023,
+    "weightTo27t": 22,
+    "weightTo34t": 22,
+    "terminal": "Plzen",
+    "objIndex": 400
+  },
+  {
+    "city": "Nyrsko",
+    "zipcode": 34022,
+    "weightTo27t": 231,
+    "weightTo34t": 253,
+    "terminal": "Plzen",
+    "objIndex": 401
+  },
+  {
+    "city": "Obecnice",
+    "zipcode": 26221,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 402
+  },
+  {
+    "city": "Obrnice",
+    "zipcode": 43521,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Plzen",
+    "objIndex": 403
+  },
+  {
+    "city": "Odrava",
+    "zipcode": 35002,
+    "weightTo27t": 276,
+    "weightTo34t": 302,
+    "terminal": "Plzen",
+    "objIndex": 404
+  },
+  {
+    "city": "Okrouhla",
+    "zipcode": 35002,
+    "weightTo27t": 257,
+    "weightTo34t": 281,
+    "terminal": "Plzen",
+    "objIndex": 405
+  },
+  {
+    "city": "Okrouhla",
+    "zipcode": 39843,
+    "weightTo27t": 321,
+    "weightTo34t": 352,
+    "terminal": "Plzen",
+    "objIndex": 406
+  },
+  {
+    "city": "Okrouhla Radoun",
+    "zipcode": 37842,
+    "weightTo27t": 698,
+    "weightTo34t": 758,
+    "terminal": "Plzen",
+    "objIndex": 407
+  },
+  {
+    "city": "Olesnice",
+    "zipcode": 37331,
+    "weightTo27t": 464,
+    "weightTo34t": 507,
+    "terminal": "Plzen",
+    "objIndex": 408
+  },
+  {
+    "city": "Olovi",
+    "zipcode": 35707,
+    "weightTo27t": 390,
+    "weightTo34t": 427,
+    "terminal": "Plzen",
+    "objIndex": 409
+  },
+  {
+    "city": "Olsany",
+    "zipcode": 34101,
+    "weightTo27t": 226,
+    "weightTo34t": 247,
+    "terminal": "Plzen",
+    "objIndex": 410
+  },
+  {
+    "city": "Oparany",
+    "zipcode": 39161,
+    "weightTo27t": 357,
+    "weightTo34t": 390,
+    "terminal": "Plzen",
+    "objIndex": 411
+  },
+  {
+    "city": "Oracov",
+    "zipcode": 27032,
+    "weightTo27t": 227,
+    "weightTo34t": 250,
+    "terminal": "Plzen",
+    "objIndex": 412
+  },
+  {
+    "city": "Osecany",
+    "zipcode": 26401,
+    "weightTo27t": 332,
+    "weightTo34t": 364,
+    "terminal": "Plzen",
+    "objIndex": 413
+  },
+  {
+    "city": "Osek",
+    "zipcode": 26762,
+    "weightTo27t": 243,
+    "weightTo34t": 265,
+    "terminal": "Plzen",
+    "objIndex": 414
+  },
+  {
+    "city": "Osek",
+    "zipcode": 33821,
+    "weightTo27t": 209,
+    "weightTo34t": 229,
+    "terminal": "Plzen",
+    "objIndex": 415
+  },
+  {
+    "city": "Osek",
+    "zipcode": 38601,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 416
+  },
+  {
+    "city": "Osek",
+    "zipcode": 41705,
+    "weightTo27t": 368,
+    "weightTo34t": 405,
+    "terminal": "Plzen",
+    "objIndex": 417
+  },
+  {
+    "city": "Oselce",
+    "zipcode": 33546,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Plzen",
+    "objIndex": 418
+  },
+  {
+    "city": "Oslov",
+    "zipcode": 39835,
+    "weightTo27t": 324,
+    "weightTo34t": 354,
+    "terminal": "Plzen",
+    "objIndex": 419
+  },
+  {
+    "city": "Osov",
+    "zipcode": 26725,
+    "weightTo27t": 271,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 420
+  },
+  {
+    "city": "Ostrov",
+    "zipcode": 36301,
+    "weightTo27t": 279,
+    "weightTo34t": 307,
+    "terminal": "Plzen",
+    "objIndex": 421
+  },
+  {
+    "city": "Osvracin",
+    "zipcode": 34561,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Plzen",
+    "objIndex": 422
+  },
+  {
+    "city": "Otesice",
+    "zipcode": 33401,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Plzen",
+    "objIndex": 423
+  },
+  {
+    "city": "Otovice",
+    "zipcode": 36001,
+    "weightTo27t": 259,
+    "weightTo34t": 285,
+    "terminal": "Plzen",
+    "objIndex": 424
+  },
+  {
+    "city": "Otvice",
+    "zipcode": 43111,
+    "weightTo27t": 352,
+    "weightTo34t": 386,
+    "terminal": "Plzen",
+    "objIndex": 425
+  },
+  {
+    "city": "Oubenice",
+    "zipcode": 26301,
+    "weightTo27t": 269,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 426
+  },
+  {
+    "city": "Pacejov",
+    "zipcode": 34101,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 427
+  },
+  {
+    "city": "Panensky Tynec",
+    "zipcode": 43905,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Plzen",
+    "objIndex": 428
+  },
+  {
+    "city": "Pardubice",
+    "zipcode": 53002,
+    "weightTo27t": 667,
+    "weightTo34t": 725,
+    "terminal": "Plzen",
+    "objIndex": 429
+  },
+  {
+    "city": "Paseky",
+    "zipcode": 39811,
+    "weightTo27t": 314,
+    "weightTo34t": 343,
+    "terminal": "Plzen",
+    "objIndex": 430
+  },
+  {
+    "city": "Pec",
+    "zipcode": 34401,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Plzen",
+    "objIndex": 431
+  },
+  {
+    "city": "Pelhrimov",
+    "zipcode": 39301,
+    "weightTo27t": 618,
+    "weightTo34t": 671,
+    "terminal": "Plzen",
+    "objIndex": 432
+  },
+  {
+    "city": "Perstejn",
+    "zipcode": 43163,
+    "weightTo27t": 311,
+    "weightTo34t": 342,
+    "terminal": "Plzen",
+    "objIndex": 433
+  },
+  {
+    "city": "Peruc",
+    "zipcode": 43907,
+    "weightTo27t": 417,
+    "weightTo34t": 454,
+    "terminal": "Plzen",
+    "objIndex": 434
+  },
+  {
+    "city": "Pisecne",
+    "zipcode": 37872,
+    "weightTo27t": 599,
+    "weightTo34t": 655,
+    "terminal": "Plzen",
+    "objIndex": 435
+  },
+  {
+    "city": "Pisek",
+    "zipcode": 39701,
+    "weightTo27t": 283,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 436
+  },
+  {
+    "city": "Pistin",
+    "zipcode": 37346,
+    "weightTo27t": 376,
+    "weightTo34t": 410,
+    "terminal": "Plzen",
+    "objIndex": 437
+  },
+  {
+    "city": "Plana",
+    "zipcode": 37001,
+    "weightTo27t": 411,
+    "weightTo34t": 449,
+    "terminal": "Plzen",
+    "objIndex": 438
+  },
+  {
+    "city": "Plana",
+    "zipcode": 34815,
+    "weightTo27t": 219,
+    "weightTo34t": 239,
+    "terminal": "Plzen",
+    "objIndex": 439
+  },
+  {
+    "city": "Plana nad Luznici",
+    "zipcode": 39111,
+    "weightTo27t": 392,
+    "weightTo34t": 430,
+    "terminal": "Plzen",
+    "objIndex": 440
+  },
+  {
+    "city": "Planice",
+    "zipcode": 34034,
+    "weightTo27t": 226,
+    "weightTo34t": 247,
+    "terminal": "Plzen",
+    "objIndex": 441
+  },
+  {
+    "city": "Plasy",
+    "zipcode": 33101,
+    "weightTo27t": 197,
+    "weightTo34t": 217,
+    "terminal": "Plzen",
+    "objIndex": 442
+  },
+  {
+    "city": "Plavsko",
+    "zipcode": 37802,
+    "weightTo27t": 525,
+    "weightTo34t": 573,
+    "terminal": "Plzen",
+    "objIndex": 443
+  },
+  {
+    "city": "Plesna",
+    "zipcode": 35135,
+    "weightTo27t": 318,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 444
+  },
+  {
+    "city": "Pluhuv Zdar",
+    "zipcode": 37824,
+    "weightTo27t": 463,
+    "weightTo34t": 507,
+    "terminal": "Plzen",
+    "objIndex": 445
+  },
+  {
+    "city": "Plzen",
+    "zipcode": 30100,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Plzen",
+    "objIndex": 446
+  },
+  {
+    "city": "Plzen Panasonic shuttle",
+    "zipcode": 30100,
+    "weightTo27t": 92,
+    "weightTo34t": 92,
+    "terminal": "Plzen",
+    "objIndex": 447
+  },
+  {
+    "city": "Plzen/Krimice",
+    "zipcode": 32200,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Plzen",
+    "objIndex": 448
+  },
+  {
+    "city": "Plzen/Nova Hospoda",
+    "zipcode": 31400,
+    "weightTo27t": 169,
+    "weightTo34t": 186,
+    "terminal": "Plzen",
+    "objIndex": 449
+  },
+  {
+    "city": "Pnetluky",
+    "zipcode": 44001,
+    "weightTo27t": 291,
+    "weightTo34t": 320,
+    "terminal": "Plzen",
+    "objIndex": 450
+  },
+  {
+    "city": "Pnovany",
+    "zipcode": 33033,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 451
+  },
+  {
+    "city": "Pobezovice",
+    "zipcode": 34522,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Plzen",
+    "objIndex": 452
+  },
+  {
+    "city": "Pocepice",
+    "zipcode": 26255,
+    "weightTo27t": 332,
+    "weightTo34t": 364,
+    "terminal": "Plzen",
+    "objIndex": 453
+  },
+  {
+    "city": "Pocinovice",
+    "zipcode": 34509,
+    "weightTo27t": 239,
+    "weightTo34t": 262,
+    "terminal": "Plzen",
+    "objIndex": 454
+  },
+  {
+    "city": "Podborany",
+    "zipcode": 44101,
+    "weightTo27t": 253,
+    "weightTo34t": 278,
+    "terminal": "Plzen",
+    "objIndex": 455
+  },
+  {
+    "city": "Podmokly",
+    "zipcode": 33808,
+    "weightTo27t": 258,
+    "weightTo34t": 282,
+    "terminal": "Plzen",
+    "objIndex": 456
+  },
+  {
+    "city": "Pohnanec",
+    "zipcode": 39143,
+    "weightTo27t": 400,
+    "weightTo34t": 439,
+    "terminal": "Plzen",
+    "objIndex": 457
+  },
+  {
+    "city": "Pojbuky",
+    "zipcode": 39143,
+    "weightTo27t": 425,
+    "weightTo34t": 466,
+    "terminal": "Plzen",
+    "objIndex": 458
+  },
+  {
+    "city": "Popelin",
+    "zipcode": 37855,
+    "weightTo27t": 506,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 459
+  },
+  {
+    "city": "Postoloprty",
+    "zipcode": 43942,
+    "weightTo27t": 317,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 460
+  },
+  {
+    "city": "Postoloprty/Rvenice",
+    "zipcode": 44001,
+    "weightTo27t": 317,
+    "weightTo34t": 348,
+    "terminal": "Plzen",
+    "objIndex": 461
+  },
+  {
+    "city": "Pradlo",
+    "zipcode": 33501,
+    "weightTo27t": 211,
+    "weightTo34t": 231,
+    "terminal": "Plzen",
+    "objIndex": 462
+  },
+  {
+    "city": "Praha",
+    "zipcode": "1xxxx",
+    "weightTo27t": 436,
+    "weightTo34t": 474,
+    "terminal": "Plzen",
+    "objIndex": 463
+  },
+  {
+    "city": "Prachatice",
+    "zipcode": 38301,
+    "weightTo27t": 395,
+    "weightTo34t": 432,
+    "terminal": "Plzen",
+    "objIndex": 464
+  },
+  {
+    "city": "Predotice",
+    "zipcode": 39701,
+    "weightTo27t": 273,
+    "weightTo34t": 298,
+    "terminal": "Plzen",
+    "objIndex": 465
+  },
+  {
+    "city": "Prehysov",
+    "zipcode": 33023,
+    "weightTo27t": 170,
+    "weightTo34t": 187,
+    "terminal": "Plzen",
+    "objIndex": 466
+  },
+  {
+    "city": "Prestice",
+    "zipcode": 33401,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 467
+  },
+  {
+    "city": "Pribram",
+    "zipcode": 26101,
+    "weightTo27t": 252,
+    "weightTo34t": 276,
+    "terminal": "Plzen",
+    "objIndex": 468
+  },
+  {
+    "city": "Primda",
+    "zipcode": 34806,
+    "weightTo27t": 220,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 469
+  },
+  {
+    "city": "Probostov",
+    "zipcode": 41712,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 470
+  },
+  {
+    "city": "Protivin",
+    "zipcode": 39811,
+    "weightTo27t": 316,
+    "weightTo34t": 345,
+    "terminal": "Plzen",
+    "objIndex": 471
+  },
+  {
+    "city": "Psov",
+    "zipcode": 36452,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Plzen",
+    "objIndex": 472
+  },
+  {
+    "city": "Ptenin",
+    "zipcode": 33452,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Plzen",
+    "objIndex": 473
+  },
+  {
+    "city": "Racice",
+    "zipcode": 27024,
+    "weightTo27t": 280,
+    "weightTo34t": 305,
+    "terminal": "Plzen",
+    "objIndex": 474
+  },
+  {
+    "city": "Radenin",
+    "zipcode": 39120,
+    "weightTo27t": 403,
+    "weightTo34t": 442,
+    "terminal": "Plzen",
+    "objIndex": 475
+  },
+  {
+    "city": "Radhostice",
+    "zipcode": 38481,
+    "weightTo27t": 367,
+    "weightTo34t": 401,
+    "terminal": "Plzen",
+    "objIndex": 476
+  },
+  {
+    "city": "Radkov",
+    "zipcode": 39131,
+    "weightTo27t": 355,
+    "weightTo34t": 389,
+    "terminal": "Plzen",
+    "objIndex": 477
+  },
+  {
+    "city": "Radnice",
+    "zipcode": 33828,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 478
+  },
+  {
+    "city": "Radosovice",
+    "zipcode": 38601,
+    "weightTo27t": 312,
+    "weightTo34t": 341,
+    "terminal": "Plzen",
+    "objIndex": 479
+  },
+  {
+    "city": "Rakovnik",
+    "zipcode": 26901,
+    "weightTo27t": 237,
+    "weightTo34t": 261,
+    "terminal": "Plzen",
+    "objIndex": 480
+  },
+  {
+    "city": "Ratiborske Hory",
+    "zipcode": 39142,
+    "weightTo27t": 389,
+    "weightTo34t": 427,
+    "terminal": "Plzen",
+    "objIndex": 481
+  },
+  {
+    "city": "Remicov",
+    "zipcode": 39143,
+    "weightTo27t": 551,
+    "weightTo34t": 599,
+    "terminal": "Plzen",
+    "objIndex": 482
+  },
+  {
+    "city": "Repec",
+    "zipcode": 39161,
+    "weightTo27t": 343,
+    "weightTo34t": 376,
+    "terminal": "Plzen",
+    "objIndex": 483
+  },
+  {
+    "city": "Repice",
+    "zipcode": 38601,
+    "weightTo27t": 290,
+    "weightTo34t": 317,
+    "terminal": "Plzen",
+    "objIndex": 484
+  },
+  {
+    "city": "Revnicov",
+    "zipcode": 27054,
+    "weightTo27t": 272,
+    "weightTo34t": 299,
+    "terminal": "Plzen",
+    "objIndex": 485
+  },
+  {
+    "city": "Ricany",
+    "zipcode": 25101,
+    "weightTo27t": 410,
+    "weightTo34t": 446,
+    "terminal": "Plzen",
+    "objIndex": 486
+  },
+  {
+    "city": "Rimov",
+    "zipcode": 37324,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 487
+  },
+  {
+    "city": "Rodna",
+    "zipcode": 39143,
+    "weightTo27t": 410,
+    "weightTo34t": 450,
+    "terminal": "Plzen",
+    "objIndex": 488
+  },
+  {
+    "city": "Rokycany",
+    "zipcode": 33701,
+    "weightTo27t": 209,
+    "weightTo34t": 229,
+    "terminal": "Plzen",
+    "objIndex": 489
+  },
+  {
+    "city": "Rosovice",
+    "zipcode": 26211,
+    "weightTo27t": 277,
+    "weightTo34t": 302,
+    "terminal": "Plzen",
+    "objIndex": 490
+  },
+  {
+    "city": "Rotava",
+    "zipcode": 35701,
+    "weightTo27t": 390,
+    "weightTo34t": 427,
+    "terminal": "Plzen",
+    "objIndex": 491
+  },
+  {
+    "city": "Roudna",
+    "zipcode": 39201,
+    "weightTo27t": 403,
+    "weightTo34t": 442,
+    "terminal": "Plzen",
+    "objIndex": 492
+  },
+  {
+    "city": "Roudne",
+    "zipcode": 37007,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 493
+  },
+  {
+    "city": "Rovna",
+    "zipcode": 38601,
+    "weightTo27t": 290,
+    "weightTo34t": 317,
+    "terminal": "Plzen",
+    "objIndex": 494
+  },
+  {
+    "city": "Rozmital pod Tremsinem",
+    "zipcode": 26242,
+    "weightTo27t": 222,
+    "weightTo34t": 243,
+    "terminal": "Plzen",
+    "objIndex": 495
+  },
+  {
+    "city": "Roztoky",
+    "zipcode": 27023,
+    "weightTo27t": 288,
+    "weightTo34t": 314,
+    "terminal": "Plzen",
+    "objIndex": 496
+  },
+  {
+    "city": "Rozvadov",
+    "zipcode": 34806,
+    "weightTo27t": 228,
+    "weightTo34t": 249,
+    "terminal": "Plzen",
+    "objIndex": 497
+  },
+  {
+    "city": "Rtyne nad Bilinou",
+    "zipcode": 41762,
+    "weightTo27t": 552,
+    "weightTo34t": 600,
+    "terminal": "Plzen",
+    "objIndex": 498
+  },
+  {
+    "city": "Rtyne nad Bilinou/Velvety",
+    "zipcode": 41501,
+    "weightTo27t": 552,
+    "weightTo34t": 600,
+    "terminal": "Plzen",
+    "objIndex": 499
+  },
+  {
+    "city": "Rudna",
+    "zipcode": 25219,
+    "weightTo27t": 298,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 500
+  },
+  {
+    "city": "Rudolfov",
+    "zipcode": 37371,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 501
+  },
+  {
+    "city": "Rybnik",
+    "zipcode": 34525,
+    "weightTo27t": 219,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 502
+  },
+  {
+    "city": "Rybniky",
+    "zipcode": 26301,
+    "weightTo27t": 297,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 503
+  },
+  {
+    "city": "Rychnov u Jablonce nad Nisou",
+    "zipcode": 46802,
+    "weightTo27t": 662,
+    "weightTo34t": 719,
+    "terminal": "Plzen",
+    "objIndex": 504
+  },
+  {
+    "city": "Rynholec",
+    "zipcode": 27062,
+    "weightTo27t": 398,
+    "weightTo34t": 432,
+    "terminal": "Plzen",
+    "objIndex": 505
+  },
+  {
+    "city": "Sadov",
+    "zipcode": 36001,
+    "weightTo27t": 268,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 506
+  },
+  {
+    "city": "Sanov",
+    "zipcode": 27031,
+    "weightTo27t": 227,
+    "weightTo34t": 250,
+    "terminal": "Plzen",
+    "objIndex": 507
+  },
+  {
+    "city": "Sec",
+    "zipcode": 33601,
+    "weightTo27t": 201,
+    "weightTo34t": 220,
+    "terminal": "Plzen",
+    "objIndex": 508
+  },
+  {
+    "city": "Sedlcany",
+    "zipcode": 26401,
+    "weightTo27t": 321,
+    "weightTo34t": 352,
+    "terminal": "Plzen",
+    "objIndex": 509
+  },
+  {
+    "city": "Sedlec Prcice",
+    "zipcode": 25791,
+    "weightTo27t": 343,
+    "weightTo34t": 376,
+    "terminal": "Plzen",
+    "objIndex": 510
+  },
+  {
+    "city": "Sedlecko u Sobeslave",
+    "zipcode": 39201,
+    "weightTo27t": 429,
+    "weightTo34t": 470,
+    "terminal": "Plzen",
+    "objIndex": 511
+  },
+  {
+    "city": "Semnice",
+    "zipcode": 36272,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Plzen",
+    "objIndex": 512
+  },
+  {
+    "city": "Senomaty",
+    "zipcode": 27031,
+    "weightTo27t": 237,
+    "weightTo34t": 261,
+    "terminal": "Plzen",
+    "objIndex": 513
+  },
+  {
+    "city": "Sepekov",
+    "zipcode": 39851,
+    "weightTo27t": 321,
+    "weightTo34t": 352,
+    "terminal": "Plzen",
+    "objIndex": 514
+  },
+  {
+    "city": "Sevetin",
+    "zipcode": 37363,
+    "weightTo27t": 449,
+    "weightTo34t": 490,
+    "terminal": "Plzen",
+    "objIndex": 515
+  },
+  {
+    "city": "Sezimovo Usti",
+    "zipcode": 39101,
+    "weightTo27t": 379,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 516
+  },
+  {
+    "city": "Skalna",
+    "zipcode": 35134,
+    "weightTo27t": 307,
+    "weightTo34t": 336,
+    "terminal": "Plzen",
+    "objIndex": 517
+  },
+  {
+    "city": "Skaly",
+    "zipcode": 38601,
+    "weightTo27t": 335,
+    "weightTo34t": 366,
+    "terminal": "Plzen",
+    "objIndex": 518
+  },
+  {
+    "city": "Skomelno",
+    "zipcode": 33828,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 519
+  },
+  {
+    "city": "Slapy",
+    "zipcode": 39176,
+    "weightTo27t": 413,
+    "weightTo34t": 453,
+    "terminal": "Plzen",
+    "objIndex": 520
+  },
+  {
+    "city": "Slavetin",
+    "zipcode": 43909,
+    "weightTo27t": 427,
+    "weightTo34t": 465,
+    "terminal": "Plzen",
+    "objIndex": 521
+  },
+  {
+    "city": "Slavonice",
+    "zipcode": 37881,
+    "weightTo27t": 578,
+    "weightTo34t": 632,
+    "terminal": "Plzen",
+    "objIndex": 522
+  },
+  {
+    "city": "Smilovy Hory",
+    "zipcode": 39152,
+    "weightTo27t": 552,
+    "weightTo34t": 600,
+    "terminal": "Plzen",
+    "objIndex": 523
+  },
+  {
+    "city": "Smolotely",
+    "zipcode": 26263,
+    "weightTo27t": 278,
+    "weightTo34t": 305,
+    "terminal": "Plzen",
+    "objIndex": 524
+  },
+  {
+    "city": "Sobeslav",
+    "zipcode": 39201,
+    "weightTo27t": 442,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 525
+  },
+  {
+    "city": "Sokolov",
+    "zipcode": 35601,
+    "weightTo27t": 325,
+    "weightTo34t": 355,
+    "terminal": "Plzen",
+    "objIndex": 526
+  },
+  {
+    "city": "Spalene Porici",
+    "zipcode": 33561,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Plzen",
+    "objIndex": 527
+  },
+  {
+    "city": "Sporice",
+    "zipcode": 43101,
+    "weightTo27t": 330,
+    "weightTo34t": 362,
+    "terminal": "Plzen",
+    "objIndex": 528
+  },
+  {
+    "city": "Srby",
+    "zipcode": 33501,
+    "weightTo27t": 214,
+    "weightTo34t": 234,
+    "terminal": "Plzen",
+    "objIndex": 529
+  },
+  {
+    "city": "Srni",
+    "zipcode": 34192,
+    "weightTo27t": 314,
+    "weightTo34t": 344,
+    "terminal": "Plzen",
+    "objIndex": 530
+  },
+  {
+    "city": "Srubec",
+    "zipcode": 37006,
+    "weightTo27t": 432,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 531
+  },
+  {
+    "city": "Stahlavy",
+    "zipcode": 33203,
+    "weightTo27t": 193,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 532
+  },
+  {
+    "city": "Stachy",
+    "zipcode": 38473,
+    "weightTo27t": 320,
+    "weightTo34t": 350,
+    "terminal": "Plzen",
+    "objIndex": 533
+  },
+  {
+    "city": "Stankov",
+    "zipcode": 34561,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Plzen",
+    "objIndex": 534
+  },
+  {
+    "city": "Stankovice",
+    "zipcode": 43949,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Plzen",
+    "objIndex": 535
+  },
+  {
+    "city": "Stankovice/Tvrsice",
+    "zipcode": 43801,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Plzen",
+    "objIndex": 536
+  },
+  {
+    "city": "Stara Hut",
+    "zipcode": 26202,
+    "weightTo27t": 297,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 537
+  },
+  {
+    "city": "Stara Voda",
+    "zipcode": 35301,
+    "weightTo27t": 240,
+    "weightTo34t": 263,
+    "terminal": "Plzen",
+    "objIndex": 538
+  },
+  {
+    "city": "Stare Sedliste",
+    "zipcode": 34801,
+    "weightTo27t": 223,
+    "weightTo34t": 243,
+    "terminal": "Plzen",
+    "objIndex": 539
+  },
+  {
+    "city": "Stary Plzenec",
+    "zipcode": 33202,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Plzen",
+    "objIndex": 540
+  },
+  {
+    "city": "Stedra",
+    "zipcode": 36452,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Plzen",
+    "objIndex": 541
+  },
+  {
+    "city": "Stechovice",
+    "zipcode": 25207,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Plzen",
+    "objIndex": 542
+  },
+  {
+    "city": "Stenovice",
+    "zipcode": 33209,
+    "weightTo27t": 165,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 543
+  },
+  {
+    "city": "Stepanovice",
+    "zipcode": 37373,
+    "weightTo27t": 445,
+    "weightTo34t": 486,
+    "terminal": "Plzen",
+    "objIndex": 544
+  },
+  {
+    "city": "Stod",
+    "zipcode": 33301,
+    "weightTo27t": 168,
+    "weightTo34t": 185,
+    "terminal": "Plzen",
+    "objIndex": 545
+  },
+  {
+    "city": "Stozec",
+    "zipcode": 38444,
+    "weightTo27t": 431,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 546
+  },
+  {
+    "city": "Strakonice",
+    "zipcode": 38601,
+    "weightTo27t": 302,
+    "weightTo34t": 330,
+    "terminal": "Plzen",
+    "objIndex": 547
+  },
+  {
+    "city": "Strasice",
+    "zipcode": 33845,
+    "weightTo27t": 218,
+    "weightTo34t": 238,
+    "terminal": "Plzen",
+    "objIndex": 548
+  },
+  {
+    "city": "Strasin",
+    "zipcode": 34201,
+    "weightTo27t": 300,
+    "weightTo34t": 328,
+    "terminal": "Plzen",
+    "objIndex": 549
+  },
+  {
+    "city": "Strazkovice",
+    "zipcode": 37401,
+    "weightTo27t": 432,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 550
+  },
+  {
+    "city": "Strazny",
+    "zipcode": 38443,
+    "weightTo27t": 420,
+    "weightTo34t": 460,
+    "terminal": "Plzen",
+    "objIndex": 551
+  },
+  {
+    "city": "Strelske Hostice",
+    "zipcode": 38715,
+    "weightTo27t": 283,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 552
+  },
+  {
+    "city": "Stribro",
+    "zipcode": 34901,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 553
+  },
+  {
+    "city": "Stritez",
+    "zipcode": 38232,
+    "weightTo27t": 464,
+    "weightTo34t": 507,
+    "terminal": "Plzen",
+    "objIndex": 554
+  },
+  {
+    "city": "Strizovice",
+    "zipcode": 37853,
+    "weightTo27t": 506,
+    "weightTo34t": 554,
+    "terminal": "Plzen",
+    "objIndex": 555
+  },
+  {
+    "city": "Strmilov",
+    "zipcode": 37853,
+    "weightTo27t": 517,
+    "weightTo34t": 566,
+    "terminal": "Plzen",
+    "objIndex": 556
+  },
+  {
+    "city": "Strupcice",
+    "zipcode": 43114,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Plzen",
+    "objIndex": 557
+  },
+  {
+    "city": "Struzna",
+    "zipcode": 36471,
+    "weightTo27t": 226,
+    "weightTo34t": 249,
+    "terminal": "Plzen",
+    "objIndex": 558
+  },
+  {
+    "city": "Studena",
+    "zipcode": 37856,
+    "weightTo27t": 527,
+    "weightTo34t": 577,
+    "terminal": "Plzen",
+    "objIndex": 559
+  },
+  {
+    "city": "Sudomerice u Bechyne",
+    "zipcode": 39172,
+    "weightTo27t": 379,
+    "weightTo34t": 415,
+    "terminal": "Plzen",
+    "objIndex": 560
+  },
+  {
+    "city": "Sudomerice u Tabora",
+    "zipcode": 39136,
+    "weightTo27t": 532,
+    "weightTo34t": 578,
+    "terminal": "Plzen",
+    "objIndex": 561
+  },
+  {
+    "city": "Suchdol nad Luznici",
+    "zipcode": 37806,
+    "weightTo27t": 500,
+    "weightTo34t": 546,
+    "terminal": "Plzen",
+    "objIndex": 562
+  },
+  {
+    "city": "Suchodol",
+    "zipcode": 26101,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 563
+  },
+  {
+    "city": "Susice",
+    "zipcode": 34201,
+    "weightTo27t": 271,
+    "weightTo34t": 296,
+    "terminal": "Plzen",
+    "objIndex": 564
+  },
+  {
+    "city": "Svata",
+    "zipcode": 26751,
+    "weightTo27t": 254,
+    "weightTo34t": 277,
+    "terminal": "Plzen",
+    "objIndex": 565
+  },
+  {
+    "city": "Svata Mari",
+    "zipcode": 38501,
+    "weightTo27t": 367,
+    "weightTo34t": 401,
+    "terminal": "Plzen",
+    "objIndex": 566
+  },
+  {
+    "city": "Svatava",
+    "zipcode": 35703,
+    "weightTo27t": 324,
+    "weightTo34t": 354,
+    "terminal": "Plzen",
+    "objIndex": 567
+  },
+  {
+    "city": "Svate Pole",
+    "zipcode": 26301,
+    "weightTo27t": 297,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 568
+  },
+  {
+    "city": "Svate Pole/Budinek",
+    "zipcode": 26301,
+    "weightTo27t": 297,
+    "weightTo34t": 324,
+    "terminal": "Plzen",
+    "objIndex": 569
+  },
+  {
+    "city": "Svetla nad Sazavou",
+    "zipcode": 58291,
+    "weightTo27t": 625,
+    "weightTo34t": 679,
+    "terminal": "Plzen",
+    "objIndex": 570
+  },
+  {
+    "city": "Svetlik",
+    "zipcode": 38216,
+    "weightTo27t": 496,
+    "weightTo34t": 542,
+    "terminal": "Plzen",
+    "objIndex": 571
+  },
+  {
+    "city": "Svihov",
+    "zipcode": 34012,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Plzen",
+    "objIndex": 572
+  },
+  {
+    "city": "Svinare",
+    "zipcode": 26728,
+    "weightTo27t": 292,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 573
+  },
+  {
+    "city": "Tabor",
+    "zipcode": 39001,
+    "weightTo27t": 368,
+    "weightTo34t": 404,
+    "terminal": "Plzen",
+    "objIndex": 574
+  },
+  {
+    "city": "Tachov",
+    "zipcode": 34701,
+    "weightTo27t": 219,
+    "weightTo34t": 239,
+    "terminal": "Plzen",
+    "objIndex": 575
+  },
+  {
+    "city": "Temelin",
+    "zipcode": 37301,
+    "weightTo27t": 347,
+    "weightTo34t": 379,
+    "terminal": "Plzen",
+    "objIndex": 576
+  },
+  {
+    "city": "Tepla",
+    "zipcode": 36461,
+    "weightTo27t": 212,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 577
+  },
+  {
+    "city": "Teplice",
+    "zipcode": 41501,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 578
+  },
+  {
+    "city": "Teplice/Retenice",
+    "zipcode": 41503,
+    "weightTo27t": 378,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 579
+  },
+  {
+    "city": "Teresov",
+    "zipcode": 33808,
+    "weightTo27t": 248,
+    "weightTo34t": 271,
+    "terminal": "Plzen",
+    "objIndex": 580
+  },
+  {
+    "city": "Teskov",
+    "zipcode": 33701,
+    "weightTo27t": 220,
+    "weightTo34t": 240,
+    "terminal": "Plzen",
+    "objIndex": 581
+  },
+  {
+    "city": "Tesovice",
+    "zipcode": 38301,
+    "weightTo27t": 384,
+    "weightTo34t": 420,
+    "terminal": "Plzen",
+    "objIndex": 582
+  },
+  {
+    "city": "Tchorovice",
+    "zipcode": 38801,
+    "weightTo27t": 235,
+    "weightTo34t": 257,
+    "terminal": "Plzen",
+    "objIndex": 583
+  },
+  {
+    "city": "Tisova",
+    "zipcode": 34801,
+    "weightTo27t": 213,
+    "weightTo34t": 233,
+    "terminal": "Plzen",
+    "objIndex": 584
+  },
+  {
+    "city": "Tlucna",
+    "zipcode": 33026,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 585
+  },
+  {
+    "city": "Tlustice",
+    "zipcode": 26801,
+    "weightTo27t": 238,
+    "weightTo34t": 259,
+    "terminal": "Plzen",
+    "objIndex": 586
+  },
+  {
+    "city": "Tman",
+    "zipcode": 26721,
+    "weightTo27t": 266,
+    "weightTo34t": 290,
+    "terminal": "Plzen",
+    "objIndex": 587
+  },
+  {
+    "city": "Tochovice",
+    "zipcode": 26281,
+    "weightTo27t": 245,
+    "weightTo34t": 269,
+    "terminal": "Plzen",
+    "objIndex": 588
+  },
+  {
+    "city": "Tojice",
+    "zipcode": 33501,
+    "weightTo27t": 220,
+    "weightTo34t": 241,
+    "terminal": "Plzen",
+    "objIndex": 589
+  },
+  {
+    "city": "Touzim",
+    "zipcode": 36401,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Plzen",
+    "objIndex": 590
+  },
+  {
+    "city": "Treben",
+    "zipcode": 35134,
+    "weightTo27t": 297,
+    "weightTo34t": 325,
+    "terminal": "Plzen",
+    "objIndex": 591
+  },
+  {
+    "city": "Treben/Lesina",
+    "zipcode": 35134,
+    "weightTo27t": 297,
+    "weightTo34t": 325,
+    "terminal": "Plzen",
+    "objIndex": 592
+  },
+  {
+    "city": "Trebetice",
+    "zipcode": 38001,
+    "weightTo27t": 773,
+    "weightTo34t": 839,
+    "terminal": "Plzen",
+    "objIndex": 593
+  },
+  {
+    "city": "Trebon",
+    "zipcode": 37901,
+    "weightTo27t": 458,
+    "weightTo34t": 500,
+    "terminal": "Plzen",
+    "objIndex": 594
+  },
+  {
+    "city": "Tremosna",
+    "zipcode": 33011,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Plzen",
+    "objIndex": 595
+  },
+  {
+    "city": "Trhanov",
+    "zipcode": 34533,
+    "weightTo27t": 214,
+    "weightTo34t": 234,
+    "terminal": "Plzen",
+    "objIndex": 596
+  },
+  {
+    "city": "Trhove Sviny",
+    "zipcode": 37401,
+    "weightTo27t": 454,
+    "weightTo34t": 496,
+    "terminal": "Plzen",
+    "objIndex": 597
+  },
+  {
+    "city": "Trpisty",
+    "zipcode": 34972,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 598
+  },
+  {
+    "city": "Tuchomerice",
+    "zipcode": 25267,
+    "weightTo27t": 333,
+    "weightTo34t": 362,
+    "terminal": "Plzen",
+    "objIndex": 599
+  },
+  {
+    "city": "Tuklaty",
+    "zipcode": 25082,
+    "weightTo27t": 468,
+    "weightTo34t": 509,
+    "terminal": "Plzen",
+    "objIndex": 600
+  },
+  {
+    "city": "Turany",
+    "zipcode": 35002,
+    "weightTo27t": 266,
+    "weightTo34t": 291,
+    "terminal": "Plzen",
+    "objIndex": 601
+  },
+  {
+    "city": "Turovec",
+    "zipcode": 39121,
+    "weightTo27t": 392,
+    "weightTo34t": 430,
+    "terminal": "Plzen",
+    "objIndex": 602
+  },
+  {
+    "city": "Tymakov",
+    "zipcode": 33201,
+    "weightTo27t": 202,
+    "weightTo34t": 221,
+    "terminal": "Plzen",
+    "objIndex": 603
+  },
+  {
+    "city": "Tyn nad Vltavou",
+    "zipcode": 37501,
+    "weightTo27t": 347,
+    "weightTo34t": 379,
+    "terminal": "Plzen",
+    "objIndex": 604
+  },
+  {
+    "city": "Uherce",
+    "zipcode": 44001,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Plzen",
+    "objIndex": 605
+  },
+  {
+    "city": "Uherce",
+    "zipcode": 33023,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 606
+  },
+  {
+    "city": "Ujezd u Svateho Krize",
+    "zipcode": 33824,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Plzen",
+    "objIndex": 607
+  },
+  {
+    "city": "Ujezdecek",
+    "zipcode": 41501,
+    "weightTo27t": 389,
+    "weightTo34t": 428,
+    "terminal": "Plzen",
+    "objIndex": 608
+  },
+  {
+    "city": "Ulice",
+    "zipcode": 33033,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 609
+  },
+  {
+    "city": "Unesov",
+    "zipcode": 33038,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Plzen",
+    "objIndex": 610
+  },
+  {
+    "city": "Usti nad Labem",
+    "zipcode": 40001,
+    "weightTo27t": 573,
+    "weightTo34t": 622,
+    "terminal": "Plzen",
+    "objIndex": 611
+  },
+  {
+    "city": "Utery",
+    "zipcode": 33041,
+    "weightTo27t": 198,
+    "weightTo34t": 218,
+    "terminal": "Plzen",
+    "objIndex": 612
+  },
+  {
+    "city": "Utusice",
+    "zipcode": 33209,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Plzen",
+    "objIndex": 613
+  },
+  {
+    "city": "Vacov",
+    "zipcode": 38486,
+    "weightTo27t": 367,
+    "weightTo34t": 401,
+    "terminal": "Plzen",
+    "objIndex": 614
+  },
+  {
+    "city": "Valec",
+    "zipcode": 36453,
+    "weightTo27t": 273,
+    "weightTo34t": 300,
+    "terminal": "Plzen",
+    "objIndex": 615
+  },
+  {
+    "city": "Varvazov",
+    "zipcode": 39701,
+    "weightTo27t": 304,
+    "weightTo34t": 332,
+    "terminal": "Plzen",
+    "objIndex": 616
+  },
+  {
+    "city": "Vcelna",
+    "zipcode": 37382,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 617
+  },
+  {
+    "city": "Vejprnice",
+    "zipcode": 33027,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 618
+  },
+  {
+    "city": "Vejprty",
+    "zipcode": 43191,
+    "weightTo27t": 344,
+    "weightTo34t": 378,
+    "terminal": "Plzen",
+    "objIndex": 619
+  },
+  {
+    "city": "Velemysleves",
+    "zipcode": 43801,
+    "weightTo27t": 291,
+    "weightTo34t": 320,
+    "terminal": "Plzen",
+    "objIndex": 620
+  },
+  {
+    "city": "Velemysleves/Minice",
+    "zipcode": 43801,
+    "weightTo27t": 291,
+    "weightTo34t": 320,
+    "terminal": "Plzen",
+    "objIndex": 621
+  },
+  {
+    "city": "Velesin",
+    "zipcode": 38232,
+    "weightTo27t": 443,
+    "weightTo34t": 484,
+    "terminal": "Plzen",
+    "objIndex": 622
+  },
+  {
+    "city": "Velka Bukova",
+    "zipcode": 27023,
+    "weightTo27t": 288,
+    "weightTo34t": 314,
+    "terminal": "Plzen",
+    "objIndex": 623
+  },
+  {
+    "city": "Velka Hledsebe",
+    "zipcode": 35301,
+    "weightTo27t": 232,
+    "weightTo34t": 254,
+    "terminal": "Plzen",
+    "objIndex": 624
+  },
+  {
+    "city": "Velky Ratmirov",
+    "zipcode": 37701,
+    "weightTo27t": 484,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 625
+  },
+  {
+    "city": "Verusicky",
+    "zipcode": 36452,
+    "weightTo27t": 275,
+    "weightTo34t": 302,
+    "terminal": "Plzen",
+    "objIndex": 626
+  },
+  {
+    "city": "Veseli nad Luznici",
+    "zipcode": 39181,
+    "weightTo27t": 486,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 627
+  },
+  {
+    "city": "Vesin",
+    "zipcode": 26243,
+    "weightTo27t": 216,
+    "weightTo34t": 237,
+    "terminal": "Plzen",
+    "objIndex": 628
+  },
+  {
+    "city": "Vetrni",
+    "zipcode": 38211,
+    "weightTo27t": 475,
+    "weightTo34t": 519,
+    "terminal": "Plzen",
+    "objIndex": 629
+  },
+  {
+    "city": "Vilice",
+    "zipcode": 39143,
+    "weightTo27t": 544,
+    "weightTo34t": 591,
+    "terminal": "Plzen",
+    "objIndex": 630
+  },
+  {
+    "city": "Vimperk",
+    "zipcode": 38501,
+    "weightTo27t": 367,
+    "weightTo34t": 401,
+    "terminal": "Plzen",
+    "objIndex": 631
+  },
+  {
+    "city": "Vinarice",
+    "zipcode": 43915,
+    "weightTo27t": 293,
+    "weightTo34t": 322,
+    "terminal": "Plzen",
+    "objIndex": 632
+  },
+  {
+    "city": "Vintirov",
+    "zipcode": 35735,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Plzen",
+    "objIndex": 633
+  },
+  {
+    "city": "Visnova",
+    "zipcode": 26261,
+    "weightTo27t": 269,
+    "weightTo34t": 295,
+    "terminal": "Plzen",
+    "objIndex": 634
+  },
+  {
+    "city": "Vlachovo Brezi",
+    "zipcode": 38422,
+    "weightTo27t": 356,
+    "weightTo34t": 389,
+    "terminal": "Plzen",
+    "objIndex": 635
+  },
+  {
+    "city": "Vlkanov",
+    "zipcode": 34522,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Plzen",
+    "objIndex": 636
+  },
+  {
+    "city": "Vodice",
+    "zipcode": 39153,
+    "weightTo27t": 414,
+    "weightTo34t": 454,
+    "terminal": "Plzen",
+    "objIndex": 637
+  },
+  {
+    "city": "Vodnany",
+    "zipcode": 38901,
+    "weightTo27t": 340,
+    "weightTo34t": 371,
+    "terminal": "Plzen",
+    "objIndex": 638
+  },
+  {
+    "city": "Vojkovice",
+    "zipcode": 36273,
+    "weightTo27t": 289,
+    "weightTo34t": 318,
+    "terminal": "Plzen",
+    "objIndex": 639
+  },
+  {
+    "city": "Vojnikov",
+    "zipcode": 39701,
+    "weightTo27t": 303,
+    "weightTo34t": 331,
+    "terminal": "Plzen",
+    "objIndex": 640
+  },
+  {
+    "city": "Volary",
+    "zipcode": 38451,
+    "weightTo27t": 431,
+    "weightTo34t": 472,
+    "terminal": "Plzen",
+    "objIndex": 641
+  },
+  {
+    "city": "Volduchy",
+    "zipcode": 33822,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Plzen",
+    "objIndex": 642
+  },
+  {
+    "city": "Volyne",
+    "zipcode": 38701,
+    "weightTo27t": 334,
+    "weightTo34t": 365,
+    "terminal": "Plzen",
+    "objIndex": 643
+  },
+  {
+    "city": "Voznice",
+    "zipcode": 26301,
+    "weightTo27t": 410,
+    "weightTo34t": 446,
+    "terminal": "Plzen",
+    "objIndex": 644
+  },
+  {
+    "city": "Vrato",
+    "zipcode": 37001,
+    "weightTo27t": 422,
+    "weightTo34t": 461,
+    "terminal": "Plzen",
+    "objIndex": 645
+  },
+  {
+    "city": "Vraz",
+    "zipcode": 26711,
+    "weightTo27t": 277,
+    "weightTo34t": 301,
+    "terminal": "Plzen",
+    "objIndex": 646
+  },
+  {
+    "city": "Vresova",
+    "zipcode": 35735,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 647
+  },
+  {
+    "city": "Vrskman",
+    "zipcode": 43115,
+    "weightTo27t": 363,
+    "weightTo34t": 399,
+    "terminal": "Plzen",
+    "objIndex": 648
+  },
+  {
+    "city": "Vsenice",
+    "zipcode": 33824,
+    "weightTo27t": 197,
+    "weightTo34t": 217,
+    "terminal": "Plzen",
+    "objIndex": 649
+  },
+  {
+    "city": "Vseradice",
+    "zipcode": 26726,
+    "weightTo27t": 282,
+    "weightTo34t": 307,
+    "terminal": "Plzen",
+    "objIndex": 650
+  },
+  {
+    "city": "Vseruby",
+    "zipcode": 34507,
+    "weightTo27t": 226,
+    "weightTo34t": 248,
+    "terminal": "Plzen",
+    "objIndex": 651
+  },
+  {
+    "city": "Vseruby",
+    "zipcode": 33016,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 652
+  },
+  {
+    "city": "Vyskov",
+    "zipcode": 44001,
+    "weightTo27t": 315,
+    "weightTo34t": 346,
+    "terminal": "Plzen",
+    "objIndex": 653
+  },
+  {
+    "city": "Vysluni",
+    "zipcode": 43183,
+    "weightTo27t": 363,
+    "weightTo34t": 399,
+    "terminal": "Plzen",
+    "objIndex": 654
+  },
+  {
+    "city": "Vysoky Chlumec",
+    "zipcode": 26252,
+    "weightTo27t": 332,
+    "weightTo34t": 364,
+    "terminal": "Plzen",
+    "objIndex": 655
+  },
+  {
+    "city": "Vysoky Ujezd",
+    "zipcode": 26716,
+    "weightTo27t": 296,
+    "weightTo34t": 322,
+    "terminal": "Plzen",
+    "objIndex": 656
+  },
+  {
+    "city": "Vyssi Brod",
+    "zipcode": 38273,
+    "weightTo27t": 517,
+    "weightTo34t": 565,
+    "terminal": "Plzen",
+    "objIndex": 657
+  },
+  {
+    "city": "Zahori",
+    "zipcode": 39818,
+    "weightTo27t": 303,
+    "weightTo34t": 331,
+    "terminal": "Plzen",
+    "objIndex": 658
+  },
+  {
+    "city": "Zakava",
+    "zipcode": 33204,
+    "weightTo27t": 205,
+    "weightTo34t": 225,
+    "terminal": "Plzen",
+    "objIndex": 659
+  },
+  {
+    "city": "Zalany",
+    "zipcode": 41763,
+    "weightTo27t": 552,
+    "weightTo34t": 600,
+    "terminal": "Plzen",
+    "objIndex": 660
+  },
+  {
+    "city": "Zalsi",
+    "zipcode": 39181,
+    "weightTo27t": 380,
+    "weightTo34t": 416,
+    "terminal": "Plzen",
+    "objIndex": 661
+  },
+  {
+    "city": "Zaluzany",
+    "zipcode": 26284,
+    "weightTo27t": 261,
+    "weightTo34t": 286,
+    "terminal": "Plzen",
+    "objIndex": 662
+  },
+  {
+    "city": "Zar",
+    "zipcode": 37401,
+    "weightTo27t": 475,
+    "weightTo34t": 519,
+    "terminal": "Plzen",
+    "objIndex": 663
+  },
+  {
+    "city": "Zatec",
+    "zipcode": 43801,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Plzen",
+    "objIndex": 664
+  },
+  {
+    "city": "Zbiroh",
+    "zipcode": 33808,
+    "weightTo27t": 235,
+    "weightTo34t": 256,
+    "terminal": "Plzen",
+    "objIndex": 665
+  },
+  {
+    "city": "Zborovy",
+    "zipcode": 34034,
+    "weightTo27t": 226,
+    "weightTo34t": 247,
+    "terminal": "Plzen",
+    "objIndex": 666
+  },
+  {
+    "city": "Zbuch",
+    "zipcode": 33022,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Plzen",
+    "objIndex": 667
+  },
+  {
+    "city": "Zdar",
+    "zipcode": 39811,
+    "weightTo27t": 316,
+    "weightTo34t": 345,
+    "terminal": "Plzen",
+    "objIndex": 668
+  },
+  {
+    "city": "Zdemyslice",
+    "zipcode": 33601,
+    "weightTo27t": 200,
+    "weightTo34t": 219,
+    "terminal": "Plzen",
+    "objIndex": 669
+  },
+  {
+    "city": "Zdice",
+    "zipcode": 26751,
+    "weightTo27t": 254,
+    "weightTo34t": 277,
+    "terminal": "Plzen",
+    "objIndex": 670
+  },
+  {
+    "city": "Zdice/Cernin",
+    "zipcode": 26751,
+    "weightTo27t": 254,
+    "weightTo34t": 277,
+    "terminal": "Plzen",
+    "objIndex": 671
+  },
+  {
+    "city": "Zebrak",
+    "zipcode": 26753,
+    "weightTo27t": 238,
+    "weightTo34t": 259,
+    "terminal": "Plzen",
+    "objIndex": 672
+  },
+  {
+    "city": "Zelec",
+    "zipcode": 39174,
+    "weightTo27t": 403,
+    "weightTo34t": 442,
+    "terminal": "Plzen",
+    "objIndex": 673
+  },
+  {
+    "city": "Zelezna",
+    "zipcode": 26601,
+    "weightTo27t": 284,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 674
+  },
+  {
+    "city": "Zelezna Ruda",
+    "zipcode": 34004,
+    "weightTo27t": 282,
+    "weightTo34t": 309,
+    "terminal": "Plzen",
+    "objIndex": 675
+  },
+  {
+    "city": "Zihobce",
+    "zipcode": 34201,
+    "weightTo27t": 289,
+    "weightTo34t": 316,
+    "terminal": "Plzen",
+    "objIndex": 676
+  },
+  {
+    "city": "Zilov",
+    "zipcode": 33011,
+    "weightTo27t": 192,
+    "weightTo34t": 211,
+    "terminal": "Plzen",
+    "objIndex": 677
+  },
+  {
+    "city": "Zimutice",
+    "zipcode": 37366,
+    "weightTo27t": 369,
+    "weightTo34t": 403,
+    "terminal": "Plzen",
+    "objIndex": 678
+  },
+  {
+    "city": "Zisov",
+    "zipcode": 39181,
+    "weightTo27t": 486,
+    "weightTo34t": 530,
+    "terminal": "Plzen",
+    "objIndex": 679
+  },
+  {
+    "city": "Zliv",
+    "zipcode": 37344,
+    "weightTo27t": 388,
+    "weightTo34t": 424,
+    "terminal": "Plzen",
+    "objIndex": 680
+  },
+  {
+    "city": "Zlutice",
+    "zipcode": 36452,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Plzen",
+    "objIndex": 681
+  },
+  {
+    "city": "Zruc Senec",
+    "zipcode": 33008,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Plzen",
+    "objIndex": 682
+  },
+  {
+    "city": "Zverotice",
+    "zipcode": 39201,
+    "weightTo27t": 418,
+    "weightTo34t": 458,
+    "terminal": "Plzen",
+    "objIndex": 683
+  }
+]

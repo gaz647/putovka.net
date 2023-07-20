@@ -1,0 +1,4066 @@
+[
+  {
+    "city": "Adamov",
+    "zipcode": 67904,
+    "weightTo27t": 496,
+    "weightTo34t": 540,
+    "terminal": "Ostrava",
+    "objIndex": 0
+  },
+  {
+    "city": "Albrechtice",
+    "zipcode": 73543,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 1
+  },
+  {
+    "city": "Alojzov",
+    "zipcode": 79804,
+    "weightTo27t": 404,
+    "weightTo34t": 440,
+    "terminal": "Ostrava",
+    "objIndex": 2
+  },
+  {
+    "city": "Babice",
+    "zipcode": 68703,
+    "weightTo27t": 399,
+    "weightTo34t": 435,
+    "terminal": "Ostrava",
+    "objIndex": 3
+  },
+  {
+    "city": "Banov",
+    "zipcode": 68754,
+    "weightTo27t": 467,
+    "weightTo34t": 509,
+    "terminal": "Ostrava",
+    "objIndex": 4
+  },
+  {
+    "city": "Baska",
+    "zipcode": 73901,
+    "weightTo27t": 196,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 5
+  },
+  {
+    "city": "Bedihost",
+    "zipcode": 79821,
+    "weightTo27t": 367,
+    "weightTo34t": 399,
+    "terminal": "Ostrava",
+    "objIndex": 6
+  },
+  {
+    "city": "Belkovice Lastany",
+    "zipcode": 78315,
+    "weightTo27t": 335,
+    "weightTo34t": 365,
+    "terminal": "Ostrava",
+    "objIndex": 7
+  },
+  {
+    "city": "Belotin",
+    "zipcode": 75364,
+    "weightTo27t": 231,
+    "weightTo34t": 252,
+    "terminal": "Ostrava",
+    "objIndex": 8
+  },
+  {
+    "city": "Bernartice nad Odrou",
+    "zipcode": 74101,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 9
+  },
+  {
+    "city": "Bilov",
+    "zipcode": 74301,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 10
+  },
+  {
+    "city": "Bilovec",
+    "zipcode": 74301,
+    "weightTo27t": 195,
+    "weightTo34t": 214,
+    "terminal": "Ostrava",
+    "objIndex": 11
+  },
+  {
+    "city": "Bilovice",
+    "zipcode": 68712,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 12
+  },
+  {
+    "city": "Biskupice",
+    "zipcode": 76341,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 13
+  },
+  {
+    "city": "Blansko",
+    "zipcode": 67801,
+    "weightTo27t": 506,
+    "weightTo34t": 551,
+    "terminal": "Ostrava",
+    "objIndex": 14
+  },
+  {
+    "city": "Bludov",
+    "zipcode": 78961,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 15
+  },
+  {
+    "city": "Bocanovice",
+    "zipcode": 73991,
+    "weightTo27t": 209,
+    "weightTo34t": 229,
+    "terminal": "Ostrava",
+    "objIndex": 16
+  },
+  {
+    "city": "Bohdalice Pavlovice",
+    "zipcode": 68341,
+    "weightTo27t": 443,
+    "weightTo34t": 482,
+    "terminal": "Ostrava",
+    "objIndex": 17
+  },
+  {
+    "city": "Bohumin",
+    "zipcode": 73581,
+    "weightTo27t": 187,
+    "weightTo34t": 205,
+    "terminal": "Ostrava",
+    "objIndex": 18
+  },
+  {
+    "city": "Bohumin/Pudlov",
+    "zipcode": 73551,
+    "weightTo27t": 187,
+    "weightTo34t": 205,
+    "terminal": "Ostrava",
+    "objIndex": 19
+  },
+  {
+    "city": "Bohunovice",
+    "zipcode": 78314,
+    "weightTo27t": 335,
+    "weightTo34t": 365,
+    "terminal": "Ostrava",
+    "objIndex": 20
+  },
+  {
+    "city": "Bohuslavice",
+    "zipcode": 54906,
+    "weightTo27t": 659,
+    "weightTo34t": 719,
+    "terminal": "Ostrava",
+    "objIndex": 21
+  },
+  {
+    "city": "Bohuslavice",
+    "zipcode": 74719,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 22
+  },
+  {
+    "city": "Bohuslavice",
+    "zipcode": 79856,
+    "weightTo27t": 413,
+    "weightTo34t": 450,
+    "terminal": "Ostrava",
+    "objIndex": 23
+  },
+  {
+    "city": "Bohuslavice nad Vlari",
+    "zipcode": 76321,
+    "weightTo27t": 357,
+    "weightTo34t": 391,
+    "terminal": "Ostrava",
+    "objIndex": 24
+  },
+  {
+    "city": "Bochor",
+    "zipcode": 75002,
+    "weightTo27t": 333,
+    "weightTo34t": 363,
+    "terminal": "Ostrava",
+    "objIndex": 25
+  },
+  {
+    "city": "Bojkovice",
+    "zipcode": 68771,
+    "weightTo27t": 379,
+    "weightTo34t": 416,
+    "terminal": "Ostrava",
+    "objIndex": 26
+  },
+  {
+    "city": "Bolatice",
+    "zipcode": 74723,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 27
+  },
+  {
+    "city": "Bordovice",
+    "zipcode": 74401,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 28
+  },
+  {
+    "city": "Borsice",
+    "zipcode": 68709,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 29
+  },
+  {
+    "city": "Boskovice",
+    "zipcode": 68001,
+    "weightTo27t": 453,
+    "weightTo34t": 494,
+    "terminal": "Ostrava",
+    "objIndex": 30
+  },
+  {
+    "city": "Bouzov",
+    "zipcode": 78325,
+    "weightTo27t": 416,
+    "weightTo34t": 453,
+    "terminal": "Ostrava",
+    "objIndex": 31
+  },
+  {
+    "city": "Branky",
+    "zipcode": 75645,
+    "weightTo27t": 248,
+    "weightTo34t": 272,
+    "terminal": "Ostrava",
+    "objIndex": 32
+  },
+  {
+    "city": "Brantice",
+    "zipcode": 79393,
+    "weightTo27t": 237,
+    "weightTo34t": 261,
+    "terminal": "Ostrava",
+    "objIndex": 33
+  },
+  {
+    "city": "Breclav",
+    "zipcode": 69002,
+    "weightTo27t": 638,
+    "weightTo34t": 693,
+    "terminal": "Ostrava",
+    "objIndex": 34
+  },
+  {
+    "city": "Brezina",
+    "zipcode": 79805,
+    "weightTo27t": 453,
+    "weightTo34t": 493,
+    "terminal": "Ostrava",
+    "objIndex": 35
+  },
+  {
+    "city": "Breznice",
+    "zipcode": 76001,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 36
+  },
+  {
+    "city": "Brezolupy",
+    "zipcode": 68713,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 37
+  },
+  {
+    "city": "Brezova",
+    "zipcode": 74744,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 38
+  },
+  {
+    "city": "Brezova",
+    "zipcode": 76315,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 39
+  },
+  {
+    "city": "Bridlicna",
+    "zipcode": 79351,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Ostrava",
+    "objIndex": 40
+  },
+  {
+    "city": "Brno",
+    "zipcode": 60200,
+    "weightTo27t": 529,
+    "weightTo34t": 575,
+    "terminal": "Ostrava",
+    "objIndex": 41
+  },
+  {
+    "city": "Brodek u Prerova",
+    "zipcode": 75103,
+    "weightTo27t": 311,
+    "weightTo34t": 339,
+    "terminal": "Ostrava",
+    "objIndex": 42
+  },
+  {
+    "city": "Brodek u Prostejova",
+    "zipcode": 79807,
+    "weightTo27t": 394,
+    "weightTo34t": 428,
+    "terminal": "Ostrava",
+    "objIndex": 43
+  },
+  {
+    "city": "Brumov Bylnice",
+    "zipcode": 76331,
+    "weightTo27t": 346,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 44
+  },
+  {
+    "city": "Brumovice",
+    "zipcode": 69111,
+    "weightTo27t": 549,
+    "weightTo34t": 597,
+    "terminal": "Ostrava",
+    "objIndex": 45
+  },
+  {
+    "city": "Bruntal",
+    "zipcode": 79201,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Ostrava",
+    "objIndex": 46
+  },
+  {
+    "city": "Brusne",
+    "zipcode": 76861,
+    "weightTo27t": 288,
+    "weightTo34t": 315,
+    "terminal": "Ostrava",
+    "objIndex": 47
+  },
+  {
+    "city": "Brusperk",
+    "zipcode": 73944,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 48
+  },
+  {
+    "city": "Bruzovice",
+    "zipcode": 73936,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 49
+  },
+  {
+    "city": "Budisov nad Budisovkou",
+    "zipcode": 74787,
+    "weightTo27t": 236,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 50
+  },
+  {
+    "city": "Buchlovice",
+    "zipcode": 68708,
+    "weightTo27t": 431,
+    "weightTo34t": 470,
+    "terminal": "Ostrava",
+    "objIndex": 51
+  },
+  {
+    "city": "Bukova",
+    "zipcode": 79848,
+    "weightTo27t": 421,
+    "weightTo34t": 459,
+    "terminal": "Ostrava",
+    "objIndex": 52
+  },
+  {
+    "city": "Busin",
+    "zipcode": 78962,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 53
+  },
+  {
+    "city": "Bystrice",
+    "zipcode": 73995,
+    "weightTo27t": 196,
+    "weightTo34t": 216,
+    "terminal": "Ostrava",
+    "objIndex": 54
+  },
+  {
+    "city": "Bystrice pod Hostynem",
+    "zipcode": 76861,
+    "weightTo27t": 279,
+    "weightTo34t": 305,
+    "terminal": "Ostrava",
+    "objIndex": 55
+  },
+  {
+    "city": "Bystrovany",
+    "zipcode": 77900,
+    "weightTo27t": 314,
+    "weightTo34t": 342,
+    "terminal": "Ostrava",
+    "objIndex": 56
+  },
+  {
+    "city": "Castolovice",
+    "zipcode": 51750,
+    "weightTo27t": 607,
+    "weightTo34t": 662,
+    "terminal": "Ostrava",
+    "objIndex": 57
+  },
+  {
+    "city": "Cechy",
+    "zipcode": 75115,
+    "weightTo27t": 311,
+    "weightTo34t": 339,
+    "terminal": "Ostrava",
+    "objIndex": 58
+  },
+  {
+    "city": "Celadna",
+    "zipcode": 73912,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Ostrava",
+    "objIndex": 59
+  },
+  {
+    "city": "Celcice",
+    "zipcode": 79823,
+    "weightTo27t": 390,
+    "weightTo34t": 424,
+    "terminal": "Ostrava",
+    "objIndex": 60
+  },
+  {
+    "city": "Cervenka",
+    "zipcode": 78401,
+    "weightTo27t": 391,
+    "weightTo34t": 425,
+    "terminal": "Ostrava",
+    "objIndex": 61
+  },
+  {
+    "city": "Ceska Ves",
+    "zipcode": 79081,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Ostrava",
+    "objIndex": 62
+  },
+  {
+    "city": "Cesky Tesin",
+    "zipcode": 73701,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 63
+  },
+  {
+    "city": "Dehylov",
+    "zipcode": 74794,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 64
+  },
+  {
+    "city": "Detmarovice",
+    "zipcode": 73571,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 65
+  },
+  {
+    "city": "Detrichov nad Bystrici",
+    "zipcode": 79303,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Ostrava",
+    "objIndex": 66
+  },
+  {
+    "city": "Divci Hrad",
+    "zipcode": 79399,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Ostrava",
+    "objIndex": 67
+  },
+  {
+    "city": "Dlouha Loucka",
+    "zipcode": 78386,
+    "weightTo27t": 379,
+    "weightTo34t": 413,
+    "terminal": "Ostrava",
+    "objIndex": 68
+  },
+  {
+    "city": "Dobra",
+    "zipcode": 73951,
+    "weightTo27t": 125,
+    "weightTo34t": 186,
+    "terminal": "Ostrava",
+    "objIndex": 69
+  },
+  {
+    "city": "Dolany",
+    "zipcode": 78316,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 70
+  },
+  {
+    "city": "Dolni Becva",
+    "zipcode": 75655,
+    "weightTo27t": 236,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 71
+  },
+  {
+    "city": "Dolni Benesov",
+    "zipcode": 74722,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 72
+  },
+  {
+    "city": "Dolni Lhota",
+    "zipcode": 74766,
+    "weightTo27t": 190,
+    "weightTo34t": 209,
+    "terminal": "Ostrava",
+    "objIndex": 73
+  },
+  {
+    "city": "Dolni Lhota",
+    "zipcode": 76323,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 74
+  },
+  {
+    "city": "Dolni Lutyne",
+    "zipcode": 73553,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 75
+  },
+  {
+    "city": "Dolni Nemci",
+    "zipcode": 68762,
+    "weightTo27t": 440,
+    "weightTo34t": 480,
+    "terminal": "Ostrava",
+    "objIndex": 76
+  },
+  {
+    "city": "Dolni Ujezd",
+    "zipcode": 75123,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Ostrava",
+    "objIndex": 77
+  },
+  {
+    "city": "Dolni Zivotice",
+    "zipcode": 74756,
+    "weightTo27t": 208,
+    "weightTo34t": 229,
+    "terminal": "Ostrava",
+    "objIndex": 78
+  },
+  {
+    "city": "Domazelice",
+    "zipcode": 75115,
+    "weightTo27t": 311,
+    "weightTo34t": 339,
+    "terminal": "Ostrava",
+    "objIndex": 79
+  },
+  {
+    "city": "Doubrava",
+    "zipcode": 73533,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 80
+  },
+  {
+    "city": "Drevohostice",
+    "zipcode": 75114,
+    "weightTo27t": 295,
+    "weightTo34t": 322,
+    "terminal": "Ostrava",
+    "objIndex": 81
+  },
+  {
+    "city": "Drnovice",
+    "zipcode": 76325,
+    "weightTo27t": 346,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 82
+  },
+  {
+    "city": "Drslavice",
+    "zipcode": 68733,
+    "weightTo27t": 442,
+    "weightTo34t": 482,
+    "terminal": "Ostrava",
+    "objIndex": 83
+  },
+  {
+    "city": "Drzovice",
+    "zipcode": 79607,
+    "weightTo27t": 366,
+    "weightTo34t": 398,
+    "terminal": "Ostrava",
+    "objIndex": 84
+  },
+  {
+    "city": "Dubicko",
+    "zipcode": 78972,
+    "weightTo27t": 439,
+    "weightTo34t": 478,
+    "terminal": "Ostrava",
+    "objIndex": 85
+  },
+  {
+    "city": "Dvorce",
+    "zipcode": 79368,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Ostrava",
+    "objIndex": 86
+  },
+  {
+    "city": "Francova Lhota",
+    "zipcode": 75614,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 87
+  },
+  {
+    "city": "Frenstat pod Radhostem",
+    "zipcode": 74401,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 88
+  },
+  {
+    "city": "Frycovice",
+    "zipcode": 73945,
+    "weightTo27t": 194,
+    "weightTo34t": 213,
+    "terminal": "Ostrava",
+    "objIndex": 89
+  },
+  {
+    "city": "Frydek Mistek",
+    "zipcode": 73801,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 90
+  },
+  {
+    "city": "Frydek Mistek/Chlebovice",
+    "zipcode": 73942,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 91
+  },
+  {
+    "city": "Frydlant nad Ostravici",
+    "zipcode": 73911,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Ostrava",
+    "objIndex": 92
+  },
+  {
+    "city": "Frystak",
+    "zipcode": 76316,
+    "weightTo27t": 370,
+    "weightTo34t": 403,
+    "terminal": "Ostrava",
+    "objIndex": 93
+  },
+  {
+    "city": "Fulnek",
+    "zipcode": 74245,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Ostrava",
+    "objIndex": 94
+  },
+  {
+    "city": "Grygov",
+    "zipcode": 78373,
+    "weightTo27t": 303,
+    "weightTo34t": 330,
+    "terminal": "Ostrava",
+    "objIndex": 95
+  },
+  {
+    "city": "Haj ve Slezsku",
+    "zipcode": 74792,
+    "weightTo27t": 191,
+    "weightTo34t": 210,
+    "terminal": "Ostrava",
+    "objIndex": 96
+  },
+  {
+    "city": "Halenkov",
+    "zipcode": 75603,
+    "weightTo27t": 285,
+    "weightTo34t": 313,
+    "terminal": "Ostrava",
+    "objIndex": 97
+  },
+  {
+    "city": "Hanovice",
+    "zipcode": 78321,
+    "weightTo27t": 380,
+    "weightTo34t": 413,
+    "terminal": "Ostrava",
+    "objIndex": 98
+  },
+  {
+    "city": "Hanusovice",
+    "zipcode": 78833,
+    "weightTo27t": 513,
+    "weightTo34t": 559,
+    "terminal": "Ostrava",
+    "objIndex": 99
+  },
+  {
+    "city": "Hat",
+    "zipcode": 74716,
+    "weightTo27t": 190,
+    "weightTo34t": 209,
+    "terminal": "Ostrava",
+    "objIndex": 100
+  },
+  {
+    "city": "Havirov",
+    "zipcode": 73601,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 101
+  },
+  {
+    "city": "Havirov/Prostredni Sucha",
+    "zipcode": 73564,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 102
+  },
+  {
+    "city": "Havlickuv Brod",
+    "zipcode": 58001,
+    "weightTo27t": 760,
+    "weightTo34t": 825,
+    "terminal": "Ostrava",
+    "objIndex": 103
+  },
+  {
+    "city": "Hermanky",
+    "zipcode": 74235,
+    "weightTo27t": 227,
+    "weightTo34t": 248,
+    "terminal": "Ostrava",
+    "objIndex": 104
+  },
+  {
+    "city": "Hlubocky",
+    "zipcode": 78361,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Ostrava",
+    "objIndex": 105
+  },
+  {
+    "city": "Hlubocky/Marianske Udoli",
+    "zipcode": 78365,
+    "weightTo27t": 296,
+    "weightTo34t": 323,
+    "terminal": "Ostrava",
+    "objIndex": 106
+  },
+  {
+    "city": "Hlucin",
+    "zipcode": 74801,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 107
+  },
+  {
+    "city": "Hluchov",
+    "zipcode": 79841,
+    "weightTo27t": 400,
+    "weightTo34t": 436,
+    "terminal": "Ostrava",
+    "objIndex": 108
+  },
+  {
+    "city": "Hluk",
+    "zipcode": 68725,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 109
+  },
+  {
+    "city": "Hnevotin",
+    "zipcode": 78347,
+    "weightTo27t": 328,
+    "weightTo34t": 357,
+    "terminal": "Ostrava",
+    "objIndex": 110
+  },
+  {
+    "city": "Hnojnik",
+    "zipcode": 73953,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 111
+  },
+  {
+    "city": "Hodonin",
+    "zipcode": 69501,
+    "weightTo27t": 505,
+    "weightTo34t": 551,
+    "terminal": "Ostrava",
+    "objIndex": 112
+  },
+  {
+    "city": "Hodslavice",
+    "zipcode": 74271,
+    "weightTo27t": 225,
+    "weightTo34t": 246,
+    "terminal": "Ostrava",
+    "objIndex": 113
+  },
+  {
+    "city": "Holasovice",
+    "zipcode": 74774,
+    "weightTo27t": 208,
+    "weightTo34t": 229,
+    "terminal": "Ostrava",
+    "objIndex": 114
+  },
+  {
+    "city": "Holcovice",
+    "zipcode": 79371,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Ostrava",
+    "objIndex": 115
+  },
+  {
+    "city": "Holesov",
+    "zipcode": 76901,
+    "weightTo27t": 348,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 116
+  },
+  {
+    "city": "Holesov/Vsetuly",
+    "zipcode": 76901,
+    "weightTo27t": 348,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 117
+  },
+  {
+    "city": "Horka nad Moravou",
+    "zipcode": 78335,
+    "weightTo27t": 352,
+    "weightTo34t": 383,
+    "terminal": "Ostrava",
+    "objIndex": 118
+  },
+  {
+    "city": "Horni Becva",
+    "zipcode": 75657,
+    "weightTo27t": 241,
+    "weightTo34t": 265,
+    "terminal": "Ostrava",
+    "objIndex": 119
+  },
+  {
+    "city": "Horni Benesov",
+    "zipcode": 79312,
+    "weightTo27t": 227,
+    "weightTo34t": 250,
+    "terminal": "Ostrava",
+    "objIndex": 120
+  },
+  {
+    "city": "Horni Bludovice",
+    "zipcode": 73937,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 121
+  },
+  {
+    "city": "Horni Lhota",
+    "zipcode": 76323,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 122
+  },
+  {
+    "city": "Horni Lidec",
+    "zipcode": 75612,
+    "weightTo27t": 324,
+    "weightTo34t": 355,
+    "terminal": "Ostrava",
+    "objIndex": 123
+  },
+  {
+    "city": "Horni Nemci",
+    "zipcode": 68764,
+    "weightTo27t": 462,
+    "weightTo34t": 504,
+    "terminal": "Ostrava",
+    "objIndex": 124
+  },
+  {
+    "city": "Horni Stepanov",
+    "zipcode": 79847,
+    "weightTo27t": 432,
+    "weightTo34t": 471,
+    "terminal": "Ostrava",
+    "objIndex": 125
+  },
+  {
+    "city": "Horni Sucha",
+    "zipcode": 73535,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 126
+  },
+  {
+    "city": "Horni Tosanovice",
+    "zipcode": 73953,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 127
+  },
+  {
+    "city": "Hostalkova",
+    "zipcode": 75622,
+    "weightTo27t": 272,
+    "weightTo34t": 298,
+    "terminal": "Ostrava",
+    "objIndex": 128
+  },
+  {
+    "city": "Hovezi",
+    "zipcode": 75601,
+    "weightTo27t": 292,
+    "weightTo34t": 320,
+    "terminal": "Ostrava",
+    "objIndex": 129
+  },
+  {
+    "city": "Hrabova",
+    "zipcode": 78901,
+    "weightTo27t": 439,
+    "weightTo34t": 478,
+    "terminal": "Ostrava",
+    "objIndex": 130
+  },
+  {
+    "city": "Hradcovice",
+    "zipcode": 68733,
+    "weightTo27t": 442,
+    "weightTo34t": 482,
+    "terminal": "Ostrava",
+    "objIndex": 131
+  },
+  {
+    "city": "Hradec Kralove",
+    "zipcode": 50002,
+    "weightTo27t": 677,
+    "weightTo34t": 737,
+    "terminal": "Ostrava",
+    "objIndex": 132
+  },
+  {
+    "city": "Hradec nad Moravici",
+    "zipcode": 74741,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Ostrava",
+    "objIndex": 133
+  },
+  {
+    "city": "Hradek",
+    "zipcode": 67127,
+    "weightTo27t": 668,
+    "weightTo34t": 727,
+    "terminal": "Ostrava",
+    "objIndex": 134
+  },
+  {
+    "city": "Hranice",
+    "zipcode": 75301,
+    "weightTo27t": 237,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 135
+  },
+  {
+    "city": "Hrobice",
+    "zipcode": 76315,
+    "weightTo27t": 346,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 136
+  },
+  {
+    "city": "Hukvaldy",
+    "zipcode": 73946,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Ostrava",
+    "objIndex": 137
+  },
+  {
+    "city": "Hulin",
+    "zipcode": 76824,
+    "weightTo27t": 336,
+    "weightTo34t": 366,
+    "terminal": "Ostrava",
+    "objIndex": 138
+  },
+  {
+    "city": "Huslenky",
+    "zipcode": 75602,
+    "weightTo27t": 295,
+    "weightTo34t": 324,
+    "terminal": "Ostrava",
+    "objIndex": 139
+  },
+  {
+    "city": "Hustenovice",
+    "zipcode": 68703,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 140
+  },
+  {
+    "city": "Hutisko Solanec",
+    "zipcode": 75662,
+    "weightTo27t": 246,
+    "weightTo34t": 270,
+    "terminal": "Ostrava",
+    "objIndex": 141
+  },
+  {
+    "city": "Hvozd",
+    "zipcode": 79855,
+    "weightTo27t": 413,
+    "weightTo34t": 450,
+    "terminal": "Ostrava",
+    "objIndex": 142
+  },
+  {
+    "city": "Chomutov",
+    "zipcode": 43001,
+    "weightTo27t": 1231,
+    "weightTo34t": 1335,
+    "terminal": "Ostrava",
+    "objIndex": 143
+  },
+  {
+    "city": "Chropyne",
+    "zipcode": 76811,
+    "weightTo27t": 333,
+    "weightTo34t": 363,
+    "terminal": "Ostrava",
+    "objIndex": 144
+  },
+  {
+    "city": "Chrudim",
+    "zipcode": 53701,
+    "weightTo27t": 636,
+    "weightTo34t": 693,
+    "terminal": "Ostrava",
+    "objIndex": 145
+  },
+  {
+    "city": "Chuchelna",
+    "zipcode": 74724,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Ostrava",
+    "objIndex": 146
+  },
+  {
+    "city": "Ivancice",
+    "zipcode": 66491,
+    "weightTo27t": 571,
+    "weightTo34t": 620,
+    "terminal": "Ostrava",
+    "objIndex": 147
+  },
+  {
+    "city": "Jablunka",
+    "zipcode": 75623,
+    "weightTo27t": 264,
+    "weightTo34t": 289,
+    "terminal": "Ostrava",
+    "objIndex": 148
+  },
+  {
+    "city": "Jablunkov",
+    "zipcode": 73991,
+    "weightTo27t": 209,
+    "weightTo34t": 229,
+    "terminal": "Ostrava",
+    "objIndex": 149
+  },
+  {
+    "city": "Jakubcovice nad Odrou",
+    "zipcode": 74236,
+    "weightTo27t": 227,
+    "weightTo34t": 248,
+    "terminal": "Ostrava",
+    "objIndex": 150
+  },
+  {
+    "city": "Jasenna",
+    "zipcode": 76313,
+    "weightTo27t": 302,
+    "weightTo34t": 331,
+    "terminal": "Ostrava",
+    "objIndex": 151
+  },
+  {
+    "city": "Javornik",
+    "zipcode": 79070,
+    "weightTo27t": 431,
+    "weightTo34t": 474,
+    "terminal": "Ostrava",
+    "objIndex": 152
+  },
+  {
+    "city": "Jedli",
+    "zipcode": 78901,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 153
+  },
+  {
+    "city": "Jesenik",
+    "zipcode": 79001,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Ostrava",
+    "objIndex": 154
+  },
+  {
+    "city": "Jesenik nad Odrou",
+    "zipcode": 74233,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Ostrava",
+    "objIndex": 155
+  },
+  {
+    "city": "Jevicko",
+    "zipcode": 56943,
+    "weightTo27t": 426,
+    "weightTo34t": 465,
+    "terminal": "Ostrava",
+    "objIndex": 156
+  },
+  {
+    "city": "Jihlava",
+    "zipcode": 58601,
+    "weightTo27t": 738,
+    "weightTo34t": 801,
+    "terminal": "Ostrava",
+    "objIndex": 157
+  },
+  {
+    "city": "Jindrichov",
+    "zipcode": 78823,
+    "weightTo27t": 524,
+    "weightTo34t": 571,
+    "terminal": "Ostrava",
+    "objIndex": 158
+  },
+  {
+    "city": "Jindrichuv Hradec",
+    "zipcode": 37701,
+    "weightTo27t": 869,
+    "weightTo34t": 943,
+    "terminal": "Ostrava",
+    "objIndex": 159
+  },
+  {
+    "city": "Jivova",
+    "zipcode": 78316,
+    "weightTo27t": 346,
+    "weightTo34t": 377,
+    "terminal": "Ostrava",
+    "objIndex": 160
+  },
+  {
+    "city": "Kamenna",
+    "zipcode": 78974,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 161
+  },
+  {
+    "city": "Kanovice",
+    "zipcode": 76341,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 162
+  },
+  {
+    "city": "Karlovice",
+    "zipcode": 79323,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Ostrava",
+    "objIndex": 163
+  },
+  {
+    "city": "Karolinka",
+    "zipcode": 75605,
+    "weightTo27t": 265,
+    "weightTo34t": 291,
+    "terminal": "Ostrava",
+    "objIndex": 164
+  },
+  {
+    "city": "Karvina",
+    "zipcode": 73301,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 165
+  },
+  {
+    "city": "Katerinice",
+    "zipcode": 74258,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Ostrava",
+    "objIndex": 166
+  },
+  {
+    "city": "Katerinice",
+    "zipcode": 75621,
+    "weightTo27t": 272,
+    "weightTo34t": 298,
+    "terminal": "Ostrava",
+    "objIndex": 167
+  },
+  {
+    "city": "Kelc",
+    "zipcode": 75643,
+    "weightTo27t": 255,
+    "weightTo34t": 279,
+    "terminal": "Ostrava",
+    "objIndex": 168
+  },
+  {
+    "city": "Kelniky",
+    "zipcode": 76307,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 169
+  },
+  {
+    "city": "Kladky",
+    "zipcode": 79854,
+    "weightTo27t": 423,
+    "weightTo34t": 461,
+    "terminal": "Ostrava",
+    "objIndex": 170
+  },
+  {
+    "city": "Klenovice na Hane",
+    "zipcode": 79823,
+    "weightTo27t": 332,
+    "weightTo34t": 362,
+    "terminal": "Ostrava",
+    "objIndex": 171
+  },
+  {
+    "city": "Klimkovice",
+    "zipcode": 74283,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 172
+  },
+  {
+    "city": "Klopina",
+    "zipcode": 78973,
+    "weightTo27t": 449,
+    "weightTo34t": 489,
+    "terminal": "Ostrava",
+    "objIndex": 173
+  },
+  {
+    "city": "Koberice",
+    "zipcode": 74727,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 174
+  },
+  {
+    "city": "Kojetin",
+    "zipcode": 75201,
+    "weightTo27t": 363,
+    "weightTo34t": 395,
+    "terminal": "Ostrava",
+    "objIndex": 175
+  },
+  {
+    "city": "Kokory",
+    "zipcode": 75105,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Ostrava",
+    "objIndex": 176
+  },
+  {
+    "city": "Komna",
+    "zipcode": 68771,
+    "weightTo27t": 490,
+    "weightTo34t": 534,
+    "terminal": "Ostrava",
+    "objIndex": 177
+  },
+  {
+    "city": "Konice",
+    "zipcode": 79852,
+    "weightTo27t": 383,
+    "weightTo34t": 417,
+    "terminal": "Ostrava",
+    "objIndex": 178
+  },
+  {
+    "city": "Koprivnice",
+    "zipcode": 74221,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Ostrava",
+    "objIndex": 179
+  },
+  {
+    "city": "Korycany",
+    "zipcode": 76805,
+    "weightTo27t": 426,
+    "weightTo34t": 465,
+    "terminal": "Ostrava",
+    "objIndex": 180
+  },
+  {
+    "city": "Kostelany nad Moravou",
+    "zipcode": 68601,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 181
+  },
+  {
+    "city": "Kostelec na Hane",
+    "zipcode": 79841,
+    "weightTo27t": 378,
+    "weightTo34t": 411,
+    "terminal": "Ostrava",
+    "objIndex": 182
+  },
+  {
+    "city": "Kostelec u Holesova",
+    "zipcode": 76843,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Ostrava",
+    "objIndex": 183
+  },
+  {
+    "city": "Kozlovice",
+    "zipcode": 73947,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Ostrava",
+    "objIndex": 184
+  },
+  {
+    "city": "Kozmice",
+    "zipcode": 74711,
+    "weightTo27t": 190,
+    "weightTo34t": 209,
+    "terminal": "Ostrava",
+    "objIndex": 185
+  },
+  {
+    "city": "Kozusany Tazaly",
+    "zipcode": 78375,
+    "weightTo27t": 314,
+    "weightTo34t": 342,
+    "terminal": "Ostrava",
+    "objIndex": 186
+  },
+  {
+    "city": "Kralice na Hane",
+    "zipcode": 79812,
+    "weightTo27t": 367,
+    "weightTo34t": 399,
+    "terminal": "Ostrava",
+    "objIndex": 187
+  },
+  {
+    "city": "Krasensko",
+    "zipcode": 68304,
+    "weightTo27t": 475,
+    "weightTo34t": 517,
+    "terminal": "Ostrava",
+    "objIndex": 188
+  },
+  {
+    "city": "Kravare",
+    "zipcode": 74721,
+    "weightTo27t": 200,
+    "weightTo34t": 220,
+    "terminal": "Ostrava",
+    "objIndex": 189
+  },
+  {
+    "city": "Krhova",
+    "zipcode": 75663,
+    "weightTo27t": 238,
+    "weightTo34t": 261,
+    "terminal": "Ostrava",
+    "objIndex": 190
+  },
+  {
+    "city": "Krmelin",
+    "zipcode": 73924,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 191
+  },
+  {
+    "city": "Krnov",
+    "zipcode": 79401,
+    "weightTo27t": 227,
+    "weightTo34t": 250,
+    "terminal": "Ostrava",
+    "objIndex": 192
+  },
+  {
+    "city": "Kromeriz",
+    "zipcode": 76701,
+    "weightTo27t": 349,
+    "weightTo34t": 380,
+    "terminal": "Ostrava",
+    "objIndex": 193
+  },
+  {
+    "city": "Krtomil",
+    "zipcode": 75114,
+    "weightTo27t": 295,
+    "weightTo34t": 322,
+    "terminal": "Ostrava",
+    "objIndex": 194
+  },
+  {
+    "city": "Kudlovice",
+    "zipcode": 68703,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 195
+  },
+  {
+    "city": "Kuncice pod Ondrejnikem",
+    "zipcode": 73913,
+    "weightTo27t": 210,
+    "weightTo34t": 230,
+    "terminal": "Ostrava",
+    "objIndex": 196
+  },
+  {
+    "city": "Kunin",
+    "zipcode": 74253,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Ostrava",
+    "objIndex": 197
+  },
+  {
+    "city": "Kunovice",
+    "zipcode": 68604,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 198
+  },
+  {
+    "city": "Kunovice",
+    "zipcode": 75644,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Ostrava",
+    "objIndex": 199
+  },
+  {
+    "city": "Kvasice",
+    "zipcode": 76821,
+    "weightTo27t": 358,
+    "weightTo34t": 390,
+    "terminal": "Ostrava",
+    "objIndex": 200
+  },
+  {
+    "city": "Kyjov",
+    "zipcode": 69701,
+    "weightTo27t": 494,
+    "weightTo34t": 539,
+    "terminal": "Ostrava",
+    "objIndex": 201
+  },
+  {
+    "city": "Lanzhot",
+    "zipcode": 69151,
+    "weightTo27t": 648,
+    "weightTo34t": 704,
+    "terminal": "Ostrava",
+    "objIndex": 202
+  },
+  {
+    "city": "Laskov",
+    "zipcode": 79857,
+    "weightTo27t": 372,
+    "weightTo34t": 405,
+    "terminal": "Ostrava",
+    "objIndex": 203
+  },
+  {
+    "city": "Leskovec",
+    "zipcode": 75611,
+    "weightTo27t": 281,
+    "weightTo34t": 308,
+    "terminal": "Ostrava",
+    "objIndex": 204
+  },
+  {
+    "city": "Lesna",
+    "zipcode": 75641,
+    "weightTo27t": 233,
+    "weightTo34t": 255,
+    "terminal": "Ostrava",
+    "objIndex": 205
+  },
+  {
+    "city": "Lhota u Vsetina",
+    "zipcode": 75501,
+    "weightTo27t": 281,
+    "weightTo34t": 308,
+    "terminal": "Ostrava",
+    "objIndex": 206
+  },
+  {
+    "city": "Liberec",
+    "zipcode": 46001,
+    "weightTo27t": 883,
+    "weightTo34t": 961,
+    "terminal": "Ostrava",
+    "objIndex": 207
+  },
+  {
+    "city": "Libina",
+    "zipcode": 78805,
+    "weightTo27t": 434,
+    "weightTo34t": 473,
+    "terminal": "Ostrava",
+    "objIndex": 208
+  },
+  {
+    "city": "Libos",
+    "zipcode": 78313,
+    "weightTo27t": 357,
+    "weightTo34t": 389,
+    "terminal": "Ostrava",
+    "objIndex": 209
+  },
+  {
+    "city": "Lichnov",
+    "zipcode": 74275,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 210
+  },
+  {
+    "city": "Lipa",
+    "zipcode": 76311,
+    "weightTo27t": 324,
+    "weightTo34t": 355,
+    "terminal": "Ostrava",
+    "objIndex": 211
+  },
+  {
+    "city": "Lipnik nad Becvou",
+    "zipcode": 75131,
+    "weightTo27t": 261,
+    "weightTo34t": 285,
+    "terminal": "Ostrava",
+    "objIndex": 212
+  },
+  {
+    "city": "Lipova",
+    "zipcode": 79845,
+    "weightTo27t": 411,
+    "weightTo34t": 448,
+    "terminal": "Ostrava",
+    "objIndex": 213
+  },
+  {
+    "city": "Lipova lazne",
+    "zipcode": 79061,
+    "weightTo27t": 346,
+    "weightTo34t": 380,
+    "terminal": "Ostrava",
+    "objIndex": 214
+  },
+  {
+    "city": "Liptal",
+    "zipcode": 75501,
+    "weightTo27t": 292,
+    "weightTo34t": 320,
+    "terminal": "Ostrava",
+    "objIndex": 215
+  },
+  {
+    "city": "Litencice",
+    "zipcode": 76813,
+    "weightTo27t": 411,
+    "weightTo34t": 448,
+    "terminal": "Ostrava",
+    "objIndex": 216
+  },
+  {
+    "city": "Litovel",
+    "zipcode": 78401,
+    "weightTo27t": 380,
+    "weightTo34t": 413,
+    "terminal": "Ostrava",
+    "objIndex": 217
+  },
+  {
+    "city": "Lobodice",
+    "zipcode": 75101,
+    "weightTo27t": 332,
+    "weightTo34t": 362,
+    "terminal": "Ostrava",
+    "objIndex": 218
+  },
+  {
+    "city": "Lomnice",
+    "zipcode": 79302,
+    "weightTo27t": 270,
+    "weightTo34t": 297,
+    "terminal": "Ostrava",
+    "objIndex": 219
+  },
+  {
+    "city": "Lostice",
+    "zipcode": 78983,
+    "weightTo27t": 405,
+    "weightTo34t": 441,
+    "terminal": "Ostrava",
+    "objIndex": 220
+  },
+  {
+    "city": "Loucka",
+    "zipcode": 75644,
+    "weightTo27t": 264,
+    "weightTo34t": 289,
+    "terminal": "Ostrava",
+    "objIndex": 221
+  },
+  {
+    "city": "Loucna nad Desnou",
+    "zipcode": 78811,
+    "weightTo27t": 502,
+    "weightTo34t": 547,
+    "terminal": "Ostrava",
+    "objIndex": 222
+  },
+  {
+    "city": "Lubenice",
+    "zipcode": 78346,
+    "weightTo27t": 339,
+    "weightTo34t": 369,
+    "terminal": "Ostrava",
+    "objIndex": 223
+  },
+  {
+    "city": "Ludgerovice",
+    "zipcode": 74714,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 224
+  },
+  {
+    "city": "Ludkovice",
+    "zipcode": 76341,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 225
+  },
+  {
+    "city": "Ludslavice",
+    "zipcode": 76852,
+    "weightTo27t": 348,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 226
+  },
+  {
+    "city": "Luhacovice",
+    "zipcode": 76326,
+    "weightTo27t": 440,
+    "weightTo34t": 480,
+    "terminal": "Ostrava",
+    "objIndex": 227
+  },
+  {
+    "city": "Luka",
+    "zipcode": 78324,
+    "weightTo27t": 402,
+    "weightTo34t": 438,
+    "terminal": "Ostrava",
+    "objIndex": 228
+  },
+  {
+    "city": "Lukavice",
+    "zipcode": 78901,
+    "weightTo27t": 428,
+    "weightTo34t": 466,
+    "terminal": "Ostrava",
+    "objIndex": 229
+  },
+  {
+    "city": "Lukov",
+    "zipcode": 76317,
+    "weightTo27t": 381,
+    "weightTo34t": 415,
+    "terminal": "Ostrava",
+    "objIndex": 230
+  },
+  {
+    "city": "Lukovecek",
+    "zipcode": 76316,
+    "weightTo27t": 359,
+    "weightTo34t": 391,
+    "terminal": "Ostrava",
+    "objIndex": 231
+  },
+  {
+    "city": "Lutin",
+    "zipcode": 78349,
+    "weightTo27t": 339,
+    "weightTo34t": 369,
+    "terminal": "Ostrava",
+    "objIndex": 232
+  },
+  {
+    "city": "Machova",
+    "zipcode": 76301,
+    "weightTo27t": 375,
+    "weightTo34t": 408,
+    "terminal": "Ostrava",
+    "objIndex": 233
+  },
+  {
+    "city": "Malenovice",
+    "zipcode": 73911,
+    "weightTo27t": 204,
+    "weightTo34t": 224,
+    "terminal": "Ostrava",
+    "objIndex": 234
+  },
+  {
+    "city": "Maletin",
+    "zipcode": 78901,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 235
+  },
+  {
+    "city": "Malhotice",
+    "zipcode": 75353,
+    "weightTo27t": 255,
+    "weightTo34t": 279,
+    "terminal": "Ostrava",
+    "objIndex": 236
+  },
+  {
+    "city": "Mankovice",
+    "zipcode": 74235,
+    "weightTo27t": 219,
+    "weightTo34t": 239,
+    "terminal": "Ostrava",
+    "objIndex": 237
+  },
+  {
+    "city": "Markvartovice",
+    "zipcode": 74714,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 238
+  },
+  {
+    "city": "Medlov",
+    "zipcode": 78391,
+    "weightTo27t": 413,
+    "weightTo34t": 450,
+    "terminal": "Ostrava",
+    "objIndex": 239
+  },
+  {
+    "city": "Mesto Albrechtice",
+    "zipcode": 79395,
+    "weightTo27t": 253,
+    "weightTo34t": 278,
+    "terminal": "Ostrava",
+    "objIndex": 240
+  },
+  {
+    "city": "Mikulovice",
+    "zipcode": 79084,
+    "weightTo27t": 346,
+    "weightTo34t": 380,
+    "terminal": "Ostrava",
+    "objIndex": 241
+  },
+  {
+    "city": "Mikuluvka",
+    "zipcode": 75624,
+    "weightTo27t": 255,
+    "weightTo34t": 279,
+    "terminal": "Ostrava",
+    "objIndex": 242
+  },
+  {
+    "city": "Mirov",
+    "zipcode": 78901,
+    "weightTo27t": 428,
+    "weightTo34t": 466,
+    "terminal": "Ostrava",
+    "objIndex": 243
+  },
+  {
+    "city": "Mladec",
+    "zipcode": 78321,
+    "weightTo27t": 381,
+    "weightTo34t": 414,
+    "terminal": "Ostrava",
+    "objIndex": 244
+  },
+  {
+    "city": "Mladejovice",
+    "zipcode": 78501,
+    "weightTo27t": 357,
+    "weightTo34t": 389,
+    "terminal": "Ostrava",
+    "objIndex": 245
+  },
+  {
+    "city": "Mohelnice",
+    "zipcode": 78985,
+    "weightTo27t": 418,
+    "weightTo34t": 455,
+    "terminal": "Ostrava",
+    "objIndex": 246
+  },
+  {
+    "city": "Moravicany",
+    "zipcode": 78982,
+    "weightTo27t": 416,
+    "weightTo34t": 453,
+    "terminal": "Ostrava",
+    "objIndex": 247
+  },
+  {
+    "city": "Moravsky Beroun",
+    "zipcode": 79305,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Ostrava",
+    "objIndex": 248
+  },
+  {
+    "city": "Morkov",
+    "zipcode": 74272,
+    "weightTo27t": 230,
+    "weightTo34t": 252,
+    "terminal": "Ostrava",
+    "objIndex": 249
+  },
+  {
+    "city": "Morkovice Slizany",
+    "zipcode": 76833,
+    "weightTo27t": 400,
+    "weightTo34t": 436,
+    "terminal": "Ostrava",
+    "objIndex": 250
+  },
+  {
+    "city": "Mosnov",
+    "zipcode": 74251,
+    "weightTo27t": 192,
+    "weightTo34t": 211,
+    "terminal": "Ostrava",
+    "objIndex": 251
+  },
+  {
+    "city": "Mostkovice",
+    "zipcode": 79802,
+    "weightTo27t": 378,
+    "weightTo34t": 411,
+    "terminal": "Ostrava",
+    "objIndex": 252
+  },
+  {
+    "city": "Mosty u Jablunkova",
+    "zipcode": 73998,
+    "weightTo27t": 211,
+    "weightTo34t": 232,
+    "terminal": "Ostrava",
+    "objIndex": 253
+  },
+  {
+    "city": "Nachod",
+    "zipcode": 54701,
+    "weightTo27t": 680,
+    "weightTo34t": 742,
+    "terminal": "Ostrava",
+    "objIndex": 254
+  },
+  {
+    "city": "Namest na Hane",
+    "zipcode": 78344,
+    "weightTo27t": 361,
+    "weightTo34t": 393,
+    "terminal": "Ostrava",
+    "objIndex": 255
+  },
+  {
+    "city": "Napajedla",
+    "zipcode": 76361,
+    "weightTo27t": 376,
+    "weightTo34t": 409,
+    "terminal": "Ostrava",
+    "objIndex": 256
+  },
+  {
+    "city": "Navsi",
+    "zipcode": 73992,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Ostrava",
+    "objIndex": 257
+  },
+  {
+    "city": "Nedakonice",
+    "zipcode": 68738,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 258
+  },
+  {
+    "city": "Nemcice nad Hanou",
+    "zipcode": 79827,
+    "weightTo27t": 389,
+    "weightTo34t": 423,
+    "terminal": "Ostrava",
+    "objIndex": 259
+  },
+  {
+    "city": "Neubuz",
+    "zipcode": 76315,
+    "weightTo27t": 302,
+    "weightTo34t": 331,
+    "terminal": "Ostrava",
+    "objIndex": 260
+  },
+  {
+    "city": "Niva",
+    "zipcode": 79861,
+    "weightTo27t": 421,
+    "weightTo34t": 459,
+    "terminal": "Ostrava",
+    "objIndex": 261
+  },
+  {
+    "city": "Nivnice",
+    "zipcode": 68751,
+    "weightTo27t": 465,
+    "weightTo34t": 507,
+    "terminal": "Ostrava",
+    "objIndex": 262
+  },
+  {
+    "city": "Nizni Lhoty",
+    "zipcode": 73951,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 263
+  },
+  {
+    "city": "Nosovice",
+    "zipcode": 73951,
+    "weightTo27t": 125,
+    "weightTo34t": 186,
+    "terminal": "Ostrava",
+    "objIndex": 264
+  },
+  {
+    "city": "Nove Herminovy",
+    "zipcode": 79201,
+    "weightTo27t": 253,
+    "weightTo34t": 278,
+    "terminal": "Ostrava",
+    "objIndex": 265
+  },
+  {
+    "city": "Novy Hrozenkov",
+    "zipcode": 75604,
+    "weightTo27t": 274,
+    "weightTo34t": 301,
+    "terminal": "Ostrava",
+    "objIndex": 266
+  },
+  {
+    "city": "Novy Jicin",
+    "zipcode": 74101,
+    "weightTo27t": 219,
+    "weightTo34t": 240,
+    "terminal": "Ostrava",
+    "objIndex": 267
+  },
+  {
+    "city": "Novy Malin",
+    "zipcode": 78803,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 268
+  },
+  {
+    "city": "Nydek",
+    "zipcode": 73995,
+    "weightTo27t": 196,
+    "weightTo34t": 216,
+    "terminal": "Ostrava",
+    "objIndex": 269
+  },
+  {
+    "city": "Odry",
+    "zipcode": 74235,
+    "weightTo27t": 221,
+    "weightTo34t": 242,
+    "terminal": "Ostrava",
+    "objIndex": 270
+  },
+  {
+    "city": "Olomouc",
+    "zipcode": 77200,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 271
+  },
+  {
+    "city": "Olomouc/Holice",
+    "zipcode": 78371,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 272
+  },
+  {
+    "city": "Olomouc/Nedvezi",
+    "zipcode": 77900,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 273
+  },
+  {
+    "city": "Olomouc/Slavonin",
+    "zipcode": 78301,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 274
+  },
+  {
+    "city": "Olsany",
+    "zipcode": 78962,
+    "weightTo27t": 471,
+    "weightTo34t": 513,
+    "terminal": "Ostrava",
+    "objIndex": 275
+  },
+  {
+    "city": "Olsany u Prostejova",
+    "zipcode": 79814,
+    "weightTo27t": 341,
+    "weightTo34t": 371,
+    "terminal": "Ostrava",
+    "objIndex": 276
+  },
+  {
+    "city": "Opava",
+    "zipcode": 74601,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 277
+  },
+  {
+    "city": "Opava/Komarov",
+    "zipcode": 74770,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 278
+  },
+  {
+    "city": "Opava/Podvihov",
+    "zipcode": 74706,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 279
+  },
+  {
+    "city": "Opava/Suche Lazce",
+    "zipcode": 74795,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 280
+  },
+  {
+    "city": "Orechov",
+    "zipcode": 68737,
+    "weightTo27t": 440,
+    "weightTo34t": 480,
+    "terminal": "Ostrava",
+    "objIndex": 281
+  },
+  {
+    "city": "Orlova",
+    "zipcode": 73511,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 282
+  },
+  {
+    "city": "Osek nad Becvou",
+    "zipcode": 75122,
+    "weightTo27t": 269,
+    "weightTo34t": 293,
+    "terminal": "Ostrava",
+    "objIndex": 283
+  },
+  {
+    "city": "Oskava",
+    "zipcode": 78801,
+    "weightTo27t": 411,
+    "weightTo34t": 449,
+    "terminal": "Ostrava",
+    "objIndex": 284
+  },
+  {
+    "city": "Osoblaha",
+    "zipcode": 79399,
+    "weightTo27t": 291,
+    "weightTo34t": 320,
+    "terminal": "Ostrava",
+    "objIndex": 285
+  },
+  {
+    "city": "Ostrata",
+    "zipcode": 76311,
+    "weightTo27t": 346,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 286
+  },
+  {
+    "city": "Ostrava",
+    "zipcode": 70200,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 287
+  },
+  {
+    "city": "Ostrava/Hermanice",
+    "zipcode": 71300,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 288
+  },
+  {
+    "city": "Ostrava/Hrabova",
+    "zipcode": 72000,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 289
+  },
+  {
+    "city": "Ostrava/Kuncice",
+    "zipcode": 71900,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 290
+  },
+  {
+    "city": "Ostrava/Kuncicky",
+    "zipcode": 71800,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 291
+  },
+  {
+    "city": "Ostrava/Polanka nad Odrou",
+    "zipcode": 72525,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 292
+  },
+  {
+    "city": "Ostrava/Trebovice",
+    "zipcode": 72200,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 293
+  },
+  {
+    "city": "Ostrava/Vitkovice",
+    "zipcode": 70300,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 294
+  },
+  {
+    "city": "Ostravice",
+    "zipcode": 73914,
+    "weightTo27t": 207,
+    "weightTo34t": 227,
+    "terminal": "Ostrava",
+    "objIndex": 295
+  },
+  {
+    "city": "Ostrozska Lhota",
+    "zipcode": 68723,
+    "weightTo27t": 440,
+    "weightTo34t": 480,
+    "terminal": "Ostrava",
+    "objIndex": 296
+  },
+  {
+    "city": "Ostrozska Nova Ves",
+    "zipcode": 68722,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 297
+  },
+  {
+    "city": "Osvetimany",
+    "zipcode": 68742,
+    "weightTo27t": 472,
+    "weightTo34t": 515,
+    "terminal": "Ostrava",
+    "objIndex": 298
+  },
+  {
+    "city": "Otaslavice",
+    "zipcode": 79806,
+    "weightTo27t": 393,
+    "weightTo34t": 427,
+    "terminal": "Ostrava",
+    "objIndex": 299
+  },
+  {
+    "city": "Otice",
+    "zipcode": 74781,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Ostrava",
+    "objIndex": 300
+  },
+  {
+    "city": "Otrokovice",
+    "zipcode": 76502,
+    "weightTo27t": 365,
+    "weightTo34t": 397,
+    "terminal": "Ostrava",
+    "objIndex": 301
+  },
+  {
+    "city": "Otrokovice/Kvitkovice",
+    "zipcode": 76502,
+    "weightTo27t": 365,
+    "weightTo34t": 397,
+    "terminal": "Ostrava",
+    "objIndex": 302
+  },
+  {
+    "city": "Palkovice",
+    "zipcode": 73941,
+    "weightTo27t": 196,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 303
+  },
+  {
+    "city": "Pardubice",
+    "zipcode": 53002,
+    "weightTo27t": 649,
+    "weightTo34t": 707,
+    "terminal": "Ostrava",
+    "objIndex": 304
+  },
+  {
+    "city": "Paskov",
+    "zipcode": 73921,
+    "weightTo27t": 101,
+    "weightTo34t": 151,
+    "terminal": "Ostrava",
+    "objIndex": 305
+  },
+  {
+    "city": "Pavlovice u Prerova",
+    "zipcode": 75112,
+    "weightTo27t": 278,
+    "weightTo34t": 303,
+    "terminal": "Ostrava",
+    "objIndex": 306
+  },
+  {
+    "city": "Pelhrimov",
+    "zipcode": 39301,
+    "weightTo27t": 793,
+    "weightTo34t": 860,
+    "terminal": "Ostrava",
+    "objIndex": 307
+  },
+  {
+    "city": "Petrov nad Desnou",
+    "zipcode": 78814,
+    "weightTo27t": 492,
+    "weightTo34t": 536,
+    "terminal": "Ostrava",
+    "objIndex": 308
+  },
+  {
+    "city": "Petrovice u Karvine",
+    "zipcode": 73572,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 309
+  },
+  {
+    "city": "Petrvald",
+    "zipcode": 73541,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 310
+  },
+  {
+    "city": "Petrvald",
+    "zipcode": 74260,
+    "weightTo27t": 185,
+    "weightTo34t": 203,
+    "terminal": "Ostrava",
+    "objIndex": 311
+  },
+  {
+    "city": "Pisecna",
+    "zipcode": 79082,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Ostrava",
+    "objIndex": 312
+  },
+  {
+    "city": "Pisek",
+    "zipcode": 73984,
+    "weightTo27t": 211,
+    "weightTo34t": 232,
+    "terminal": "Ostrava",
+    "objIndex": 313
+  },
+  {
+    "city": "Pist",
+    "zipcode": 74718,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 314
+  },
+  {
+    "city": "Pitin",
+    "zipcode": 68771,
+    "weightTo27t": 368,
+    "weightTo34t": 404,
+    "terminal": "Ostrava",
+    "objIndex": 315
+  },
+  {
+    "city": "Plumlov",
+    "zipcode": 79803,
+    "weightTo27t": 389,
+    "weightTo34t": 423,
+    "terminal": "Ostrava",
+    "objIndex": 316
+  },
+  {
+    "city": "Podivin",
+    "zipcode": 69145,
+    "weightTo27t": 614,
+    "weightTo34t": 667,
+    "terminal": "Ostrava",
+    "objIndex": 317
+  },
+  {
+    "city": "Podoli",
+    "zipcode": 75116,
+    "weightTo27t": 311,
+    "weightTo34t": 339,
+    "terminal": "Ostrava",
+    "objIndex": 318
+  },
+  {
+    "city": "Podoli",
+    "zipcode": 68604,
+    "weightTo27t": 432,
+    "weightTo34t": 471,
+    "terminal": "Ostrava",
+    "objIndex": 319
+  },
+  {
+    "city": "Polesovice",
+    "zipcode": 68737,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 320
+  },
+  {
+    "city": "Policka",
+    "zipcode": 57201,
+    "weightTo27t": 537,
+    "weightTo34t": 584,
+    "terminal": "Ostrava",
+    "objIndex": 321
+  },
+  {
+    "city": "Popovice",
+    "zipcode": 68604,
+    "weightTo27t": 432,
+    "weightTo34t": 471,
+    "terminal": "Ostrava",
+    "objIndex": 322
+  },
+  {
+    "city": "Popuvky",
+    "zipcode": 66441,
+    "weightTo27t": 546,
+    "weightTo34t": 593,
+    "terminal": "Ostrava",
+    "objIndex": 323
+  },
+  {
+    "city": "Postrelmov",
+    "zipcode": 78969,
+    "weightTo27t": 449,
+    "weightTo34t": 489,
+    "terminal": "Ostrava",
+    "objIndex": 324
+  },
+  {
+    "city": "Potstat",
+    "zipcode": 75362,
+    "weightTo27t": 245,
+    "weightTo34t": 268,
+    "terminal": "Ostrava",
+    "objIndex": 325
+  },
+  {
+    "city": "Praha",
+    "zipcode": "1xxxx",
+    "weightTo27t": 986,
+    "weightTo34t": 1069,
+    "terminal": "Ostrava",
+    "objIndex": 326
+  },
+  {
+    "city": "Praksice",
+    "zipcode": 68756,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 327
+  },
+  {
+    "city": "Praslavice",
+    "zipcode": 78354,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Ostrava",
+    "objIndex": 328
+  },
+  {
+    "city": "Prazmo",
+    "zipcode": 73904,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Ostrava",
+    "objIndex": 329
+  },
+  {
+    "city": "Premyslovice",
+    "zipcode": 79851,
+    "weightTo27t": 400,
+    "weightTo34t": 436,
+    "terminal": "Ostrava",
+    "objIndex": 330
+  },
+  {
+    "city": "Prerov",
+    "zipcode": 75002,
+    "weightTo27t": 291,
+    "weightTo34t": 317,
+    "terminal": "Ostrava",
+    "objIndex": 331
+  },
+  {
+    "city": "Pribor",
+    "zipcode": 74258,
+    "weightTo27t": 208,
+    "weightTo34t": 228,
+    "terminal": "Ostrava",
+    "objIndex": 332
+  },
+  {
+    "city": "Prikazy",
+    "zipcode": 78333,
+    "weightTo27t": 352,
+    "weightTo34t": 383,
+    "terminal": "Ostrava",
+    "objIndex": 333
+  },
+  {
+    "city": "Prlov",
+    "zipcode": 75611,
+    "weightTo27t": 302,
+    "weightTo34t": 331,
+    "terminal": "Ostrava",
+    "objIndex": 334
+  },
+  {
+    "city": "Prosenice",
+    "zipcode": 75121,
+    "weightTo27t": 279,
+    "weightTo34t": 304,
+    "terminal": "Ostrava",
+    "objIndex": 335
+  },
+  {
+    "city": "Prostejov",
+    "zipcode": 79601,
+    "weightTo27t": 367,
+    "weightTo34t": 399,
+    "terminal": "Ostrava",
+    "objIndex": 336
+  },
+  {
+    "city": "Protivanov",
+    "zipcode": 79848,
+    "weightTo27t": 421,
+    "weightTo34t": 459,
+    "terminal": "Ostrava",
+    "objIndex": 337
+  },
+  {
+    "city": "Przno",
+    "zipcode": 73911,
+    "weightTo27t": 201,
+    "weightTo34t": 221,
+    "terminal": "Ostrava",
+    "objIndex": 338
+  },
+  {
+    "city": "Pteni",
+    "zipcode": 79843,
+    "weightTo27t": 400,
+    "weightTo34t": 436,
+    "terminal": "Ostrava",
+    "objIndex": 339
+  },
+  {
+    "city": "Radslavice",
+    "zipcode": 75111,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Ostrava",
+    "objIndex": 340
+  },
+  {
+    "city": "Radvanice",
+    "zipcode": 75121,
+    "weightTo27t": 278,
+    "weightTo34t": 303,
+    "terminal": "Ostrava",
+    "objIndex": 341
+  },
+  {
+    "city": "Rajec Jestrebi",
+    "zipcode": 67902,
+    "weightTo27t": 464,
+    "weightTo34t": 506,
+    "terminal": "Ostrava",
+    "objIndex": 342
+  },
+  {
+    "city": "Rajnochovice",
+    "zipcode": 76871,
+    "weightTo27t": 271,
+    "weightTo34t": 296,
+    "terminal": "Ostrava",
+    "objIndex": 343
+  },
+  {
+    "city": "Rapotin",
+    "zipcode": 78814,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 344
+  },
+  {
+    "city": "Raskovice",
+    "zipcode": 73907,
+    "weightTo27t": 186,
+    "weightTo34t": 204,
+    "terminal": "Ostrava",
+    "objIndex": 345
+  },
+  {
+    "city": "Ratibor",
+    "zipcode": 75621,
+    "weightTo27t": 264,
+    "weightTo34t": 289,
+    "terminal": "Ostrava",
+    "objIndex": 346
+  },
+  {
+    "city": "Razova",
+    "zipcode": 79201,
+    "weightTo27t": 237,
+    "weightTo34t": 261,
+    "terminal": "Ostrava",
+    "objIndex": 347
+  },
+  {
+    "city": "Rohle",
+    "zipcode": 78974,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 348
+  },
+  {
+    "city": "Rokytnice",
+    "zipcode": 76321,
+    "weightTo27t": 357,
+    "weightTo34t": 391,
+    "terminal": "Ostrava",
+    "objIndex": 349
+  },
+  {
+    "city": "Rovensko",
+    "zipcode": 78901,
+    "weightTo27t": 449,
+    "weightTo34t": 489,
+    "terminal": "Ostrava",
+    "objIndex": 350
+  },
+  {
+    "city": "Roznov pod Radhostem",
+    "zipcode": 75661,
+    "weightTo27t": 236,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 351
+  },
+  {
+    "city": "Ruda nad Moravou",
+    "zipcode": 78963,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 352
+  },
+  {
+    "city": "Rudice",
+    "zipcode": 68732,
+    "weightTo27t": 487,
+    "weightTo34t": 531,
+    "terminal": "Ostrava",
+    "objIndex": 353
+  },
+  {
+    "city": "Rudna",
+    "zipcode": 25219,
+    "weightTo27t": 1013,
+    "weightTo34t": 1098,
+    "terminal": "Ostrava",
+    "objIndex": 354
+  },
+  {
+    "city": "Ruzdka",
+    "zipcode": 75625,
+    "weightTo27t": 264,
+    "weightTo34t": 289,
+    "terminal": "Ostrava",
+    "objIndex": 355
+  },
+  {
+    "city": "Rychnov nad Kneznou",
+    "zipcode": 51601,
+    "weightTo27t": 607,
+    "weightTo34t": 662,
+    "terminal": "Ostrava",
+    "objIndex": 356
+  },
+  {
+    "city": "Rychvald",
+    "zipcode": 73532,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 357
+  },
+  {
+    "city": "Rymarov",
+    "zipcode": 79501,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Ostrava",
+    "objIndex": 358
+  },
+  {
+    "city": "Ryzoviste",
+    "zipcode": 79356,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Ostrava",
+    "objIndex": 359
+  },
+  {
+    "city": "Sardice",
+    "zipcode": 69613,
+    "weightTo27t": 549,
+    "weightTo34t": 597,
+    "terminal": "Ostrava",
+    "objIndex": 360
+  },
+  {
+    "city": "Sedliste",
+    "zipcode": 73936,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 361
+  },
+  {
+    "city": "Sedlnice",
+    "zipcode": 74256,
+    "weightTo27t": 197,
+    "weightTo34t": 217,
+    "terminal": "Ostrava",
+    "objIndex": 362
+  },
+  {
+    "city": "Senice na Hane",
+    "zipcode": 78345,
+    "weightTo27t": 377,
+    "weightTo34t": 410,
+    "terminal": "Ostrava",
+    "objIndex": 363
+  },
+  {
+    "city": "Senov",
+    "zipcode": 73934,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 364
+  },
+  {
+    "city": "Senov CFS A1",
+    "zipcode": 73934,
+    "weightTo27t": 50,
+    "weightTo34t": 50,
+    "terminal": "Ostrava",
+    "objIndex": 365
+  },
+  {
+    "city": "Senov vaha",
+    "zipcode": 73934,
+    "weightTo27t": 22,
+    "weightTo34t": 22,
+    "terminal": "Ostrava",
+    "objIndex": 366
+  },
+  {
+    "city": "Senov u Noveho Jicina",
+    "zipcode": 74242,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Ostrava",
+    "objIndex": 367
+  },
+  {
+    "city": "Skastice",
+    "zipcode": 76701,
+    "weightTo27t": 334,
+    "weightTo34t": 364,
+    "terminal": "Ostrava",
+    "objIndex": 368
+  },
+  {
+    "city": "Skorosice",
+    "zipcode": 79066,
+    "weightTo27t": 463,
+    "weightTo34t": 509,
+    "terminal": "Ostrava",
+    "objIndex": 369
+  },
+  {
+    "city": "Skotnice",
+    "zipcode": 74259,
+    "weightTo27t": 193,
+    "weightTo34t": 212,
+    "terminal": "Ostrava",
+    "objIndex": 370
+  },
+  {
+    "city": "Skrben",
+    "zipcode": 78335,
+    "weightTo27t": 352,
+    "weightTo34t": 383,
+    "terminal": "Ostrava",
+    "objIndex": 371
+  },
+  {
+    "city": "Slatinice",
+    "zipcode": 78342,
+    "weightTo27t": 350,
+    "weightTo34t": 381,
+    "terminal": "Ostrava",
+    "objIndex": 372
+  },
+  {
+    "city": "Slavicin",
+    "zipcode": 76321,
+    "weightTo27t": 357,
+    "weightTo34t": 391,
+    "terminal": "Ostrava",
+    "objIndex": 373
+  },
+  {
+    "city": "Slavkov",
+    "zipcode": 74757,
+    "weightTo27t": 206,
+    "weightTo34t": 226,
+    "terminal": "Ostrava",
+    "objIndex": 374
+  },
+  {
+    "city": "Slavkov",
+    "zipcode": 68764,
+    "weightTo27t": 451,
+    "weightTo34t": 492,
+    "terminal": "Ostrava",
+    "objIndex": 375
+  },
+  {
+    "city": "Slusovice",
+    "zipcode": 76315,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 376
+  },
+  {
+    "city": "Smirice",
+    "zipcode": 50303,
+    "weightTo27t": 717,
+    "weightTo34t": 780,
+    "terminal": "Ostrava",
+    "objIndex": 377
+  },
+  {
+    "city": "Smrzice",
+    "zipcode": 79817,
+    "weightTo27t": 352,
+    "weightTo34t": 383,
+    "terminal": "Ostrava",
+    "objIndex": 378
+  },
+  {
+    "city": "Sobesovice",
+    "zipcode": 73938,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 379
+  },
+  {
+    "city": "Sobotin",
+    "zipcode": 78816,
+    "weightTo27t": 492,
+    "weightTo34t": 536,
+    "terminal": "Ostrava",
+    "objIndex": 380
+  },
+  {
+    "city": "Spytihnev",
+    "zipcode": 76364,
+    "weightTo27t": 387,
+    "weightTo34t": 421,
+    "terminal": "Ostrava",
+    "objIndex": 381
+  },
+  {
+    "city": "Stara Ves nad Ondrejnici",
+    "zipcode": 73923,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 382
+  },
+  {
+    "city": "Stare Mesto",
+    "zipcode": 79201,
+    "weightTo27t": 253,
+    "weightTo34t": 278,
+    "terminal": "Ostrava",
+    "objIndex": 383
+  },
+  {
+    "city": "Stare Mesto",
+    "zipcode": 73801,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 384
+  },
+  {
+    "city": "Stare Mesto",
+    "zipcode": 78832,
+    "weightTo27t": 534,
+    "weightTo34t": 582,
+    "terminal": "Ostrava",
+    "objIndex": 385
+  },
+  {
+    "city": "Stare Mesto",
+    "zipcode": 68603,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 386
+  },
+  {
+    "city": "Staric",
+    "zipcode": 73943,
+    "weightTo27t": 101,
+    "weightTo34t": 151,
+    "terminal": "Ostrava",
+    "objIndex": 387
+  },
+  {
+    "city": "Stary Jicin",
+    "zipcode": 74231,
+    "weightTo27t": 220,
+    "weightTo34t": 241,
+    "terminal": "Ostrava",
+    "objIndex": 388
+  },
+  {
+    "city": "Stepankovice",
+    "zipcode": 74728,
+    "weightTo27t": 200,
+    "weightTo34t": 220,
+    "terminal": "Ostrava",
+    "objIndex": 389
+  },
+  {
+    "city": "Stepanov",
+    "zipcode": 78313,
+    "weightTo27t": 346,
+    "weightTo34t": 377,
+    "terminal": "Ostrava",
+    "objIndex": 390
+  },
+  {
+    "city": "Sternberk",
+    "zipcode": 78501,
+    "weightTo27t": 346,
+    "weightTo34t": 377,
+    "terminal": "Ostrava",
+    "objIndex": 391
+  },
+  {
+    "city": "Stitina",
+    "zipcode": 74791,
+    "weightTo27t": 197,
+    "weightTo34t": 217,
+    "terminal": "Ostrava",
+    "objIndex": 392
+  },
+  {
+    "city": "Stitna nad Vlari Popov",
+    "zipcode": 76333,
+    "weightTo27t": 357,
+    "weightTo34t": 391,
+    "terminal": "Ostrava",
+    "objIndex": 393
+  },
+  {
+    "city": "Stity",
+    "zipcode": 78991,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 394
+  },
+  {
+    "city": "Stramberk",
+    "zipcode": 74266,
+    "weightTo27t": 215,
+    "weightTo34t": 235,
+    "terminal": "Ostrava",
+    "objIndex": 395
+  },
+  {
+    "city": "Strani",
+    "zipcode": 68765,
+    "weightTo27t": 472,
+    "weightTo34t": 515,
+    "terminal": "Ostrava",
+    "objIndex": 396
+  },
+  {
+    "city": "Strelna",
+    "zipcode": 75612,
+    "weightTo27t": 324,
+    "weightTo34t": 355,
+    "terminal": "Ostrava",
+    "objIndex": 397
+  },
+  {
+    "city": "Stribrnice",
+    "zipcode": 68709,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 398
+  },
+  {
+    "city": "Strilky",
+    "zipcode": 76804,
+    "weightTo27t": 405,
+    "weightTo34t": 442,
+    "terminal": "Ostrava",
+    "objIndex": 399
+  },
+  {
+    "city": "Stritez nad Ludinou",
+    "zipcode": 75363,
+    "weightTo27t": 237,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 400
+  },
+  {
+    "city": "Studenka",
+    "zipcode": 74213,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 401
+  },
+  {
+    "city": "Stupava",
+    "zipcode": 68601,
+    "weightTo27t": 426,
+    "weightTo34t": 465,
+    "terminal": "Ostrava",
+    "objIndex": 402
+  },
+  {
+    "city": "Subirov",
+    "zipcode": 79852,
+    "weightTo27t": 405,
+    "weightTo34t": 442,
+    "terminal": "Ostrava",
+    "objIndex": 403
+  },
+  {
+    "city": "Sudkov",
+    "zipcode": 78821,
+    "weightTo27t": 460,
+    "weightTo34t": 501,
+    "terminal": "Ostrava",
+    "objIndex": 404
+  },
+  {
+    "city": "Suchdol nad Odrou",
+    "zipcode": 74201,
+    "weightTo27t": 212,
+    "weightTo34t": 232,
+    "terminal": "Ostrava",
+    "objIndex": 405
+  },
+  {
+    "city": "Sumperk",
+    "zipcode": 78701,
+    "weightTo27t": 471,
+    "weightTo34t": 513,
+    "terminal": "Ostrava",
+    "objIndex": 406
+  },
+  {
+    "city": "Sumvald",
+    "zipcode": 78385,
+    "weightTo27t": 324,
+    "weightTo34t": 356,
+    "terminal": "Ostrava",
+    "objIndex": 407
+  },
+  {
+    "city": "Supikovice",
+    "zipcode": 79051,
+    "weightTo27t": 335,
+    "weightTo34t": 368,
+    "terminal": "Ostrava",
+    "objIndex": 408
+  },
+  {
+    "city": "Svarov",
+    "zipcode": 68712,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 409
+  },
+  {
+    "city": "Svatonovice",
+    "zipcode": 74787,
+    "weightTo27t": 236,
+    "weightTo34t": 259,
+    "terminal": "Ostrava",
+    "objIndex": 410
+  },
+  {
+    "city": "Svesedlice",
+    "zipcode": 78354,
+    "weightTo27t": 287,
+    "weightTo34t": 313,
+    "terminal": "Ostrava",
+    "objIndex": 411
+  },
+  {
+    "city": "Sviadnov",
+    "zipcode": 73925,
+    "weightTo27t": 188,
+    "weightTo34t": 206,
+    "terminal": "Ostrava",
+    "objIndex": 412
+  },
+  {
+    "city": "Svitavy",
+    "zipcode": 56802,
+    "weightTo27t": 501,
+    "weightTo34t": 545,
+    "terminal": "Ostrava",
+    "objIndex": 413
+  },
+  {
+    "city": "Svobodne Hermanice",
+    "zipcode": 79313,
+    "weightTo27t": 219,
+    "weightTo34t": 241,
+    "terminal": "Ostrava",
+    "objIndex": 414
+  },
+  {
+    "city": "Tachlovice",
+    "zipcode": 25217,
+    "weightTo27t": 1012,
+    "weightTo34t": 1097,
+    "terminal": "Ostrava",
+    "objIndex": 415
+  },
+  {
+    "city": "Tecovice",
+    "zipcode": 76302,
+    "weightTo27t": 386,
+    "weightTo34t": 420,
+    "terminal": "Ostrava",
+    "objIndex": 416
+  },
+  {
+    "city": "Terlicko",
+    "zipcode": 73542,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 417
+  },
+  {
+    "city": "Ticha",
+    "zipcode": 74274,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 418
+  },
+  {
+    "city": "Tlumacov",
+    "zipcode": 76362,
+    "weightTo27t": 347,
+    "weightTo34t": 378,
+    "terminal": "Ostrava",
+    "objIndex": 419
+  },
+  {
+    "city": "Topolna",
+    "zipcode": 68711,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 420
+  },
+  {
+    "city": "Tovacov",
+    "zipcode": 75101,
+    "weightTo27t": 321,
+    "weightTo34t": 350,
+    "terminal": "Ostrava",
+    "objIndex": 421
+  },
+  {
+    "city": "Tover",
+    "zipcode": 78316,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 422
+  },
+  {
+    "city": "Tranovice",
+    "zipcode": 73953,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 423
+  },
+  {
+    "city": "Trebic",
+    "zipcode": 67401,
+    "weightTo27t": 633,
+    "weightTo34t": 689,
+    "terminal": "Ostrava",
+    "objIndex": 424
+  },
+  {
+    "city": "Trinec",
+    "zipcode": 73961,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 425
+  },
+  {
+    "city": "Trojanovice",
+    "zipcode": 74401,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Ostrava",
+    "objIndex": 426
+  },
+  {
+    "city": "Troubelice",
+    "zipcode": 78383,
+    "weightTo27t": 423,
+    "weightTo34t": 461,
+    "terminal": "Ostrava",
+    "objIndex": 427
+  },
+  {
+    "city": "Troubky",
+    "zipcode": 75102,
+    "weightTo27t": 321,
+    "weightTo34t": 350,
+    "terminal": "Ostrava",
+    "objIndex": 428
+  },
+  {
+    "city": "Troubsko",
+    "zipcode": 66441,
+    "weightTo27t": 546,
+    "weightTo34t": 593,
+    "terminal": "Ostrava",
+    "objIndex": 429
+  },
+  {
+    "city": "Tupesy",
+    "zipcode": 68707,
+    "weightTo27t": 419,
+    "weightTo34t": 457,
+    "terminal": "Ostrava",
+    "objIndex": 430
+  },
+  {
+    "city": "Uherske Hradiste",
+    "zipcode": 68601,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 431
+  },
+  {
+    "city": "Uhersky Brod",
+    "zipcode": 68801,
+    "weightTo27t": 455,
+    "weightTo34t": 496,
+    "terminal": "Ostrava",
+    "objIndex": 432
+  },
+  {
+    "city": "Uhersky Ostroh",
+    "zipcode": 68724,
+    "weightTo27t": 430,
+    "weightTo34t": 469,
+    "terminal": "Ostrava",
+    "objIndex": 433
+  },
+  {
+    "city": "Uhrice",
+    "zipcode": 76833,
+    "weightTo27t": 389,
+    "weightTo34t": 423,
+    "terminal": "Ostrava",
+    "objIndex": 434
+  },
+  {
+    "city": "Ujezd",
+    "zipcode": 76325,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 435
+  },
+  {
+    "city": "Unicov",
+    "zipcode": 78391,
+    "weightTo27t": 379,
+    "weightTo34t": 413,
+    "terminal": "Ostrava",
+    "objIndex": 436
+  },
+  {
+    "city": "Usobrno",
+    "zipcode": 67939,
+    "weightTo27t": 426,
+    "weightTo34t": 465,
+    "terminal": "Ostrava",
+    "objIndex": 437
+  },
+  {
+    "city": "Usov",
+    "zipcode": 78973,
+    "weightTo27t": 413,
+    "weightTo34t": 450,
+    "terminal": "Ostrava",
+    "objIndex": 438
+  },
+  {
+    "city": "Usti",
+    "zipcode": 75501,
+    "weightTo27t": 281,
+    "weightTo34t": 308,
+    "terminal": "Ostrava",
+    "objIndex": 439
+  },
+  {
+    "city": "Usti nad Orlici",
+    "zipcode": 56201,
+    "weightTo27t": 555,
+    "weightTo34t": 604,
+    "terminal": "Ostrava",
+    "objIndex": 440
+  },
+  {
+    "city": "Uvalno",
+    "zipcode": 79391,
+    "weightTo27t": 214,
+    "weightTo34t": 235,
+    "terminal": "Ostrava",
+    "objIndex": 441
+  },
+  {
+    "city": "Vaclavovice",
+    "zipcode": 73934,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 442
+  },
+  {
+    "city": "Valasska Bystrice",
+    "zipcode": 75627,
+    "weightTo27t": 246,
+    "weightTo34t": 270,
+    "terminal": "Ostrava",
+    "objIndex": 443
+  },
+  {
+    "city": "Valasska Polanka",
+    "zipcode": 75611,
+    "weightTo27t": 292,
+    "weightTo34t": 320,
+    "terminal": "Ostrava",
+    "objIndex": 444
+  },
+  {
+    "city": "Valasske Klobouky",
+    "zipcode": 76601,
+    "weightTo27t": 335,
+    "weightTo34t": 367,
+    "terminal": "Ostrava",
+    "objIndex": 445
+  },
+  {
+    "city": "Valasske Mezirici",
+    "zipcode": 75701,
+    "weightTo27t": 238,
+    "weightTo34t": 261,
+    "terminal": "Ostrava",
+    "objIndex": 446
+  },
+  {
+    "city": "Valasske Mezirici/Krasno nad Becvou",
+    "zipcode": 75706,
+    "weightTo27t": 238,
+    "weightTo34t": 261,
+    "terminal": "Ostrava",
+    "objIndex": 447
+  },
+  {
+    "city": "Valsov",
+    "zipcode": 79201,
+    "weightTo27t": 261,
+    "weightTo34t": 287,
+    "terminal": "Ostrava",
+    "objIndex": 448
+  },
+  {
+    "city": "Vapenice",
+    "zipcode": 68774,
+    "weightTo27t": 514,
+    "weightTo34t": 560,
+    "terminal": "Ostrava",
+    "objIndex": 449
+  },
+  {
+    "city": "Vapenna",
+    "zipcode": 79064,
+    "weightTo27t": 463,
+    "weightTo34t": 509,
+    "terminal": "Ostrava",
+    "objIndex": 450
+  },
+  {
+    "city": "Velemysleves",
+    "zipcode": 43801,
+    "weightTo27t": 1193,
+    "weightTo34t": 1294,
+    "terminal": "Ostrava",
+    "objIndex": 451
+  },
+  {
+    "city": "Veletiny",
+    "zipcode": 68733,
+    "weightTo27t": 432,
+    "weightTo34t": 471,
+    "terminal": "Ostrava",
+    "objIndex": 452
+  },
+  {
+    "city": "Velka Bystrice",
+    "zipcode": 78353,
+    "weightTo27t": 324,
+    "weightTo34t": 353,
+    "terminal": "Ostrava",
+    "objIndex": 453
+  },
+  {
+    "city": "Velka Kras",
+    "zipcode": 79058,
+    "weightTo27t": 410,
+    "weightTo34t": 451,
+    "terminal": "Ostrava",
+    "objIndex": 454
+  },
+  {
+    "city": "Velka nad Velickou",
+    "zipcode": 69674,
+    "weightTo27t": 473,
+    "weightTo34t": 516,
+    "terminal": "Ostrava",
+    "objIndex": 455
+  },
+  {
+    "city": "Velka Polom",
+    "zipcode": 74764,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 456
+  },
+  {
+    "city": "Velka Stahle",
+    "zipcode": 79351,
+    "weightTo27t": 281,
+    "weightTo34t": 309,
+    "terminal": "Ostrava",
+    "objIndex": 457
+  },
+  {
+    "city": "Velke Albrechtice",
+    "zipcode": 74291,
+    "weightTo27t": 195,
+    "weightTo34t": 214,
+    "terminal": "Ostrava",
+    "objIndex": 458
+  },
+  {
+    "city": "Velke Hostice",
+    "zipcode": 74731,
+    "weightTo27t": 203,
+    "weightTo34t": 223,
+    "terminal": "Ostrava",
+    "objIndex": 459
+  },
+  {
+    "city": "Velke Karlovice",
+    "zipcode": 75606,
+    "weightTo27t": 257,
+    "weightTo34t": 282,
+    "terminal": "Ostrava",
+    "objIndex": 460
+  },
+  {
+    "city": "Velke Losiny",
+    "zipcode": 78815,
+    "weightTo27t": 492,
+    "weightTo34t": 536,
+    "terminal": "Ostrava",
+    "objIndex": 461
+  },
+  {
+    "city": "Velky Orechov",
+    "zipcode": 76307,
+    "weightTo27t": 409,
+    "weightTo34t": 446,
+    "terminal": "Ostrava",
+    "objIndex": 462
+  },
+  {
+    "city": "Velky Tynec",
+    "zipcode": 78372,
+    "weightTo27t": 303,
+    "weightTo34t": 330,
+    "terminal": "Ostrava",
+    "objIndex": 463
+  },
+  {
+    "city": "Vendryne",
+    "zipcode": 73994,
+    "weightTo27t": 195,
+    "weightTo34t": 215,
+    "terminal": "Ostrava",
+    "objIndex": 464
+  },
+  {
+    "city": "Verovany",
+    "zipcode": 78375,
+    "weightTo27t": 311,
+    "weightTo34t": 339,
+    "terminal": "Ostrava",
+    "objIndex": 465
+  },
+  {
+    "city": "Verovice",
+    "zipcode": 74273,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 466
+  },
+  {
+    "city": "Vesela",
+    "zipcode": 76315,
+    "weightTo27t": 339,
+    "weightTo34t": 371,
+    "terminal": "Ostrava",
+    "objIndex": 467
+  },
+  {
+    "city": "Vetrkovice",
+    "zipcode": 74743,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 468
+  },
+  {
+    "city": "Vicemerice",
+    "zipcode": 79826,
+    "weightTo27t": 389,
+    "weightTo34t": 423,
+    "terminal": "Ostrava",
+    "objIndex": 469
+  },
+  {
+    "city": "Vidce",
+    "zipcode": 75653,
+    "weightTo27t": 255,
+    "weightTo34t": 279,
+    "terminal": "Ostrava",
+    "objIndex": 470
+  },
+  {
+    "city": "Vikyrovice",
+    "zipcode": 78813,
+    "weightTo27t": 481,
+    "weightTo34t": 524,
+    "terminal": "Ostrava",
+    "objIndex": 471
+  },
+  {
+    "city": "Vilemov",
+    "zipcode": 78322,
+    "weightTo27t": 388,
+    "weightTo34t": 422,
+    "terminal": "Ostrava",
+    "objIndex": 472
+  },
+  {
+    "city": "Vitkov",
+    "zipcode": 74901,
+    "weightTo27t": 223,
+    "weightTo34t": 244,
+    "terminal": "Ostrava",
+    "objIndex": 473
+  },
+  {
+    "city": "Vitonice",
+    "zipcode": 76861,
+    "weightTo27t": 262,
+    "weightTo34t": 286,
+    "terminal": "Ostrava",
+    "objIndex": 474
+  },
+  {
+    "city": "Vizovice",
+    "zipcode": 76312,
+    "weightTo27t": 313,
+    "weightTo34t": 343,
+    "terminal": "Ostrava",
+    "objIndex": 475
+  },
+  {
+    "city": "Vlachovice",
+    "zipcode": 76324,
+    "weightTo27t": 346,
+    "weightTo34t": 379,
+    "terminal": "Ostrava",
+    "objIndex": 476
+  },
+  {
+    "city": "Vlcnov",
+    "zipcode": 68761,
+    "weightTo27t": 442,
+    "weightTo34t": 482,
+    "terminal": "Ostrava",
+    "objIndex": 477
+  },
+  {
+    "city": "Vlkos",
+    "zipcode": 75119,
+    "weightTo27t": 322,
+    "weightTo34t": 351,
+    "terminal": "Ostrava",
+    "objIndex": 478
+  },
+  {
+    "city": "Vranovice Kelcice",
+    "zipcode": 79808,
+    "weightTo27t": 382,
+    "weightTo34t": 415,
+    "terminal": "Ostrava",
+    "objIndex": 479
+  },
+  {
+    "city": "Vratimov",
+    "zipcode": 73932,
+    "weightTo27t": 167,
+    "weightTo34t": 184,
+    "terminal": "Ostrava",
+    "objIndex": 480
+  },
+  {
+    "city": "Vrbatky",
+    "zipcode": 79813,
+    "weightTo27t": 341,
+    "weightTo34t": 371,
+    "terminal": "Ostrava",
+    "objIndex": 481
+  },
+  {
+    "city": "Vrbno pod Pradedem",
+    "zipcode": 79326,
+    "weightTo27t": 291,
+    "weightTo34t": 320,
+    "terminal": "Ostrava",
+    "objIndex": 482
+  },
+  {
+    "city": "Vresina",
+    "zipcode": 74285,
+    "weightTo27t": 182,
+    "weightTo34t": 200,
+    "terminal": "Ostrava",
+    "objIndex": 483
+  },
+  {
+    "city": "Vsechovice",
+    "zipcode": 75353,
+    "weightTo27t": 255,
+    "weightTo34t": 279,
+    "terminal": "Ostrava",
+    "objIndex": 484
+  },
+  {
+    "city": "Vsemina",
+    "zipcode": 76315,
+    "weightTo27t": 302,
+    "weightTo34t": 331,
+    "terminal": "Ostrava",
+    "objIndex": 485
+  },
+  {
+    "city": "Vsetin",
+    "zipcode": 75501,
+    "weightTo27t": 272,
+    "weightTo34t": 298,
+    "terminal": "Ostrava",
+    "objIndex": 486
+  },
+  {
+    "city": "Vyskov",
+    "zipcode": 68201,
+    "weightTo27t": 432,
+    "weightTo34t": 470,
+    "terminal": "Ostrava",
+    "objIndex": 487
+  },
+  {
+    "city": "Vysni Lhoty",
+    "zipcode": 73951,
+    "weightTo27t": 184,
+    "weightTo34t": 202,
+    "terminal": "Ostrava",
+    "objIndex": 488
+  },
+  {
+    "city": "Zaben",
+    "zipcode": 73925,
+    "weightTo27t": 185,
+    "weightTo34t": 203,
+    "terminal": "Ostrava",
+    "objIndex": 489
+  },
+  {
+    "city": "Zabreh",
+    "zipcode": 78901,
+    "weightTo27t": 439,
+    "weightTo34t": 478,
+    "terminal": "Ostrava",
+    "objIndex": 490
+  },
+  {
+    "city": "Zadverice Rakova",
+    "zipcode": 76312,
+    "weightTo27t": 324,
+    "weightTo34t": 355,
+    "terminal": "Ostrava",
+    "objIndex": 491
+  },
+  {
+    "city": "Zasova",
+    "zipcode": 75651,
+    "weightTo27t": 248,
+    "weightTo34t": 272,
+    "terminal": "Ostrava",
+    "objIndex": 492
+  },
+  {
+    "city": "Zastrizly",
+    "zipcode": 76805,
+    "weightTo27t": 405,
+    "weightTo34t": 442,
+    "terminal": "Ostrava",
+    "objIndex": 493
+  },
+  {
+    "city": "Zator",
+    "zipcode": 79316,
+    "weightTo27t": 244,
+    "weightTo34t": 268,
+    "terminal": "Ostrava",
+    "objIndex": 494
+  },
+  {
+    "city": "Zborovice",
+    "zipcode": 76832,
+    "weightTo27t": 385,
+    "weightTo34t": 419,
+    "terminal": "Ostrava",
+    "objIndex": 495
+  },
+  {
+    "city": "Zdar nad Sazavou",
+    "zipcode": 59101,
+    "weightTo27t": 684,
+    "weightTo34t": 744,
+    "terminal": "Ostrava",
+    "objIndex": 496
+  },
+  {
+    "city": "Zdounky",
+    "zipcode": 76802,
+    "weightTo27t": 372,
+    "weightTo34t": 405,
+    "terminal": "Ostrava",
+    "objIndex": 497
+  },
+  {
+    "city": "Zelatovice",
+    "zipcode": 75116,
+    "weightTo27t": 300,
+    "weightTo34t": 327,
+    "terminal": "Ostrava",
+    "objIndex": 498
+  },
+  {
+    "city": "Zelechovice nad Drevnici",
+    "zipcode": 76311,
+    "weightTo27t": 398,
+    "weightTo34t": 434,
+    "terminal": "Ostrava",
+    "objIndex": 499
+  },
+  {
+    "city": "Zenklava",
+    "zipcode": 74267,
+    "weightTo27t": 217,
+    "weightTo34t": 238,
+    "terminal": "Ostrava",
+    "objIndex": 500
+  },
+  {
+    "city": "Zlate Hory",
+    "zipcode": 79376,
+    "weightTo27t": 302,
+    "weightTo34t": 332,
+    "terminal": "Ostrava",
+    "objIndex": 501
+  },
+  {
+    "city": "Zlin",
+    "zipcode": 76001,
+    "weightTo27t": 387,
+    "weightTo34t": 421,
+    "terminal": "Ostrava",
+    "objIndex": 502
+  },
+  {
+    "city": "Zlin/Louky",
+    "zipcode": 76302,
+    "weightTo27t": 387,
+    "weightTo34t": 421,
+    "terminal": "Ostrava",
+    "objIndex": 503
+  },
+  {
+    "city": "Zlin/Malenovice",
+    "zipcode": 76302,
+    "weightTo27t": 387,
+    "weightTo34t": 421,
+    "terminal": "Ostrava",
+    "objIndex": 504
+  },
+  {
+    "city": "Znojmo",
+    "zipcode": 66902,
+    "weightTo27t": 658,
+    "weightTo34t": 716,
+    "terminal": "Ostrava",
+    "objIndex": 505
+  },
+  {
+    "city": "Zubri",
+    "zipcode": 75654,
+    "weightTo27t": 246,
+    "weightTo34t": 270,
+    "terminal": "Ostrava",
+    "objIndex": 506
+  },
+  {
+    "city": "Zulova",
+    "zipcode": 79065,
+    "weightTo27t": 452,
+    "weightTo34t": 497,
+    "terminal": "Ostrava",
+    "objIndex": 507
+  }
+]

@@ -1,0 +1,90 @@
+.settings-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.settings-header-title {
+  color: whitesmoke;
+  margin-bottom: 1.3rem;
+}
+
+.settings-header-container-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.settings-header-user-email {
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.settings-header-user-btns {
+  display: block;
+  font-size: 0.9rem;
+  color: whitesmoke;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.7rem;
+}
+
+.settings-form {
+  margin-top: 2rem;
+}
+
+.settings-form-item-password-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.settings-form-item-password-fields-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.settings-form-item-password-container-input {
+  height: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.settings-form-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.settings-form-item-container-label {
+  color: whitesmoke;
+}
+
+.settings-form-item-container-input {
+  height: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  min-width: 50%;
+  max-width: 50%;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: none;
+}
+
+.current-password {
+  margin-top: 1rem;
+}

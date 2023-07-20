@@ -1,0 +1,33 @@
+.dashboard-summary-invoicing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto 0.5rem auto;
+}
+
+.dashboard-summary-invoicing-left {
+  width: 48%;
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+.dashboard-summary-invoicing-right {
+  width: 48%;
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+.dashboard-summary-counts {
+  width: 100%;
+  height: 1.5rem;
+  background-color: yellow;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.dashboard-jobs {
+  margin-top: 1rem;
+}

@@ -1,0 +1,98 @@
+html {
+  min-height: 100%;
+  min-height: --webkit-fill-available;
+  /* background: rgb(0, 35, 105);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 35, 105, 1) 0%,
+    rgb(237, 237, 237) 100%
+  ); */
+  background: rgb(0, 35, 105);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 35, 105, 1) 0%,
+    rgba(172, 198, 250, 1) 100%
+  );
+  touch-action: pan-y;
+}
+
+body {
+  min-height: 100%;
+  min-height: --webkit-fill-available;
+  touch-action: pan-y;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 90%;
+  height: 100%;
+  max-width: 450px;
+  margin: 2rem auto 4rem auto;
+
+  /* background-color: yellow; */
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Styly pro confirm a decline buttons */
+/*  */
+.confirm-decline-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0 auto;
+}
+
+.confirm-btn {
+  display: block;
+  margin-right: 1rem;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  background-color: rgb(120, 199, 2);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.decline-btn {
+  display: block;
+  margin-left: 1rem;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  background-color: rgb(236, 8, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.sent-message-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sent-message {
+  color: whitesmoke;
+  margin-bottom: 2rem;
+}
