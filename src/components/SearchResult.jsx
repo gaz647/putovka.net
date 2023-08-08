@@ -3,6 +3,15 @@ import "./SearchResult.css";
 import AddJobButton from "../assets/icons/add-button.svg";
 
 const SearchResult = (props) => {
+  const handleAddClick = () => {
+    console.log(
+      props.city,
+      String(props.zipcode),
+      props.weightTo27t,
+      props.weightTo34t
+    );
+  };
+
   return (
     <ul>
       <li className="result-container">
@@ -27,6 +36,7 @@ const SearchResult = (props) => {
                 className="add-button-img"
                 src={AddJobButton}
                 alt="add-job-button"
+                onClick={handleAddClick}
               />
             </div>
           </div>
