@@ -6,12 +6,6 @@ import { db } from "../firebase/config";
 import { onSnapshot, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
-const jobDetails = {
-  day: "Po",
-  date: "19.06.2023",
-  price: "300 €",
-};
-
 const Dashboard = () => {
   const [currentJobs, setCurrentJobs] = useState([]);
 
@@ -51,10 +45,9 @@ const Dashboard = () => {
         </div>
       </section>
       <section className="dashboard-jobs wrapper">
-        <Job jobDetails={jobDetails} />
-        <Job jobDetails={jobDetails} />
         {currentJobs.map((oneJob) => {
-          return <p key={oneJob.city}>{oneJob.city}</p>;
+          console.log(oneJob);
+          return <Job key={oneJob.city} jobDetails={oneJob} />;
         })}
         <Link to={"/test"}>Test page</Link>
       </section>

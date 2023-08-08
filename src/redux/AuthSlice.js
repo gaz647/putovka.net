@@ -55,9 +55,7 @@ export const register = createAsyncThunk(
       );
       console.log("aktuální user: ", user.user.email);
 
-      await sendEmailVerification(auth.currentUser, {
-        url: "http://localhost:5173/login",
-      });
+      await sendEmailVerification(auth.currentUser);
 
       await createUserData(user.user);
     } catch (error) {
@@ -148,9 +146,7 @@ export const changeEmail = createAsyncThunk(
       );
       await reauthenticateWithCredential(auth.currentUser, credential);
       await updateEmail(auth.currentUser, newEmail);
-      await sendEmailVerification(auth.currentUser, {
-        url: "http://localhost:5173/login",
-      });
+      await sendEmailVerification(auth.currentUser);
       await signOut(auth);
       localStorage.removeItem("emailVerified");
     } catch (error) {
@@ -187,9 +183,7 @@ export const passwordReset = createAsyncThunk(
   "auth/passwordReset",
   async (email) => {
     try {
-      await sendPasswordResetEmail(auth, email, {
-        url: "http://localhost:5173/login",
-      });
+      await sendPasswordResetEmail(auth, email);
     } catch (error) {
       throw error.message;
     }

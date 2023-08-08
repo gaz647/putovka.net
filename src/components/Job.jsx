@@ -3,20 +3,20 @@ import "./Job.css";
 // eslint-disable-next-line react/prop-types
 const Job = ({ jobDetails }) => {
   // eslint-disable-next-line react/prop-types
-  const { day, date, price } = jobDetails;
+  const { day, date, price, cmr, city, zip } = jobDetails;
 
   return (
     <div className="one-job">
       <div className="one-job-header">
         <div>{day}</div>
         <div>{date}</div>
-        <div>{price}</div>
+        <div>{price + " eur"}</div>
         <div>o</div>
       </div>
       <div className="one-job-details">
-        <div className="one-job-cmr">CTR2023000003</div>
-        <div className="one-job-city">Veverska Bityska</div>
-        <div className="one-job-zip">66471</div>
+        <div className="one-job-cmr">{cmr}</div>
+        <div className="one-job-city">{city}</div>
+        <div className="one-job-zip">{zip}</div>
       </div>
     </div>
   );
