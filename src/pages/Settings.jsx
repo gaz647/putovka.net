@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import { logout } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { setLoadingFalse } from "../redux/AuthSlice";
 import Spinner from "../components/Spinner";
 
 const Settings = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const loggedInUserEmail = useSelector(
     (state) => state.auth.loggedInUserEmail
@@ -40,6 +42,10 @@ const Settings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("click");
+  };
+
+  const handleDecline = () => {
+    navigate("/");
   };
 
   return (
@@ -141,7 +147,11 @@ const Settings = () => {
                 <button className="confirm-btn" type="submit">
                   uložit
                 </button>
-                <button className="decline-btn" type="submit">
+                <button
+                  className="decline-btn"
+                  type="button"
+                  onClick={handleDecline}
+                >
                   zrušit
                 </button>
               </div>
