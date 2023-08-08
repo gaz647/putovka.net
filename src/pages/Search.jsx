@@ -47,6 +47,7 @@ const Search = () => {
         console.log("spuštěň default");
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [terminal]);
 
   const [json, setJson] = useState([]);
@@ -157,13 +158,14 @@ const Search = () => {
           value={inputText}
           onChange={handleChange}
         />
-
-        <img
-          className="search-bar-img"
-          src={cross_button}
-          alt="clear-text-button"
-          onClick={deleteInputText}
-        />
+        {inputText !== "" && (
+          <img
+            className="search-bar-img"
+            src={cross_button}
+            alt="clear-text-button"
+            onClick={deleteInputText}
+          />
+        )}
       </div>
       <ul>
         {searchResults.map((result) => (
