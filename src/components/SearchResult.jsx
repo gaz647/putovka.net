@@ -1,15 +1,27 @@
 /* eslint-disable react/prop-types */
 import "./SearchResult.css";
 import AddJobButton from "../assets/icons/add-button.svg";
+import { useDispatch } from "react-redux";
+import { setJobToAdd } from "../redux/JobsSlice";
+import { useNavigate } from "react-router-dom";
 
 const SearchResult = (props) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleAddClick = () => {
-    console.log(
-      props.city,
-      String(props.zipcode),
-      props.weightTo27t,
-      props.weightTo34t
-    );
+    // console.log(
+    //   props.weightTo27t,
+    //   props.weightTo34t
+    // );
+    const jobToAdd = {
+      city: props.city,
+      zipcode: String(props.zipcode),
+      terminal: props.terminal,
+      // price: props.price,
+    };
+    dispatch(setJobToAdd(jobToAdd));
+    navigate("/add-job");
   };
 
   return (

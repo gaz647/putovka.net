@@ -173,6 +173,7 @@ const Search = () => {
             key={result.objIndex}
             city={result.city}
             zipcode={result.zipcode}
+            terminal={terminal}
             weightTo27t={result.weightTo27t}
             weightTo34t={result.weightTo34t}
           />
