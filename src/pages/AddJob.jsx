@@ -31,10 +31,6 @@ const AddJob = () => {
     useSelector((state) => state.jobs.jobToAdd.weight)
   );
 
-  const [terminal, setTerminal] = useState(
-    useSelector((state) => state.jobs.jobToAdd.terminal)
-  );
-
   const [price, setPrice] = useState(
     useSelector((state) => state.jobs.jobToAdd.price)
   );
@@ -51,21 +47,13 @@ const AddJob = () => {
     useSelector((state) => state.jobs.jobToAdd.note)
   );
 
+  const [terminal, setTerminal] = useState(
+    useSelector((state) => state.jobs.jobToAdd.terminal)
+  );
+
   return (
     <section className="add-job wrapper">
       <form className="add-job-form">
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Terminál
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={terminal}
-            onChange={(e) => setTerminal(e.target.value)}
-          />
-        </div>
-
         <div className="add-job-form-container-item">
           <label className="add-job-form-label" htmlFor="">
             Datum
@@ -147,6 +135,18 @@ const AddJob = () => {
             Poznámka
           </label>
           <input className="add-job-form-field" type="text" />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Terminál
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={terminal}
+            onChange={(e) => setTerminal(e.target.value)}
+          />
         </div>
 
         <button className="add-job-delete-all-fields-btn" type="button">

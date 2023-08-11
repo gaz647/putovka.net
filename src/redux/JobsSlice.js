@@ -9,11 +9,11 @@ export const jobsSlice = createSlice({
       zipcode: "",
       cmr: "",
       weight: "",
-      terminal: "",
       price: 0,
       isSecondJob: "",
       waiting: 0,
       note: "",
+      terminal: "",
     },
   },
   reducers: {
