@@ -17,11 +17,11 @@ const AddJob = () => {
     getCurrentDate()
   );
 
-  const [cmr, setCmr] = useState("");
-
   const [city, setCity] = useState(
     useSelector((state) => state.jobs.jobToAdd.city)
   );
+
+  const [cmr, setCmr] = useState("");
 
   const [zipcode, setZipcode] = useState(
     useSelector((state) => state.jobs.jobToAdd.zipcode)
