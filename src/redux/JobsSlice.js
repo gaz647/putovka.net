@@ -7,12 +7,6 @@ import { db } from "../firebase/config";
 export const addJobToDatabase = createAsyncThunk(
   "jobs/addJobToDatabase",
   async (payload) => {
-    // try {
-    //   const userJobsRef = doc(db, "users", payload.userUid); // Získání reference na uživatelský dokument
-
-    //   await updateDoc(userJobsRef, {
-    //     currentJobs: arrayUnion(payload.jobDetails),
-    //   });
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -21,6 +15,11 @@ export const addJobToDatabase = createAsyncThunk(
         if (userDocSnapshot.exists()) {
           const currentJobs = userDocSnapshot.data().currentJobs || [];
           currentJobs.unshift(payload.jobDetails);
+          currentJobs.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB - dateA;
+          });
 
           transaction.update(userDocRef, {
             currentJobs: currentJobs,
