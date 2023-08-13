@@ -24,3 +24,7 @@
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
+
+.delete-job-btn {
+  cursor: pointer;
+}

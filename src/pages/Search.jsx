@@ -19,27 +19,27 @@ const Search = () => {
     switch (terminal) {
       case "ceska_trebova":
         setJson(ceska_trebova);
-        console.log("ceska trebova");
+        console.log("terminál Česká Třebová");
         break;
       case "ostrava":
         setJson(ostrava);
-        console.log(json);
+        console.log("terminál Ostrava");
         break;
       case "plzen":
         setJson(plzen);
-        console.log(json);
+        console.log("terminál Plzeň");
         break;
       case "praha":
         setJson(praha);
-        console.log("praha");
+        console.log("terminál Praha");
         break;
       case "usti_nad_labem":
         setJson(usti_nad_labem);
-        console.log(json);
+        console.log("terminál Ústí nad Labem");
         break;
       case "zlin":
         setJson(zlin);
-        console.log(json);
+        console.log("terminál Zlín");
         break;
 
       default:

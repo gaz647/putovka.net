@@ -46,8 +46,7 @@ const Dashboard = () => {
       </section>
       <section className="dashboard-jobs wrapper">
         {currentJobs.map((oneJob) => {
-          console.log(oneJob);
-          return <Job key={oneJob.city} jobDetails={oneJob} />;
+          return <Job key={oneJob.id} jobDetails={oneJob} />;
         })}
         <Link to={"/test"}>Test page</Link>
       </section>
