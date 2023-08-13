@@ -1,30 +1,117 @@
 .one-job {
-  margin-bottom: 0.5rem;
-  background-color: whitesmoke;
+  margin-bottom: 0.7rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(87, 87, 87);
   border-radius: 5px;
 }
 
 .one-job-header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 0;
+  padding: 0.2rem 0.5rem 0.5rem 0.5rem;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  border-bottom: 1px solid rgb(187, 187, 187);
-  margin-bottom: 0.2rem;
-  background-color: yellow;
+  /* border-bottom: 1px solid rgb(187, 187, 187); */
+  background: linear-gradient(
+    180deg,
+    rgb(201, 201, 201) 0%,
+    rgba(255, 255, 255, 0.7903361173570991) 100%
+  );
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.delete-job-btn {
+  cursor: pointer;
+}
+
+/* JOB'S HEADER */
+
+.one-job-body-preview-item-city {
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+.one-job-body-preview-item-zipcode {
+  /* font-weight: bold; */
+  font-size: 0.9rem;
 }
 
 .one-job-details {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
 
-.delete-job-btn {
-  cursor: pointer;
+.one-job-body-preview {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.expand-btn {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 50%;
+}
+
+.opened {
+  transform: scaleY(-1);
+}
+
+/* JOB'S BODY */
+
+.one-job-body-content {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.one-job-body-content-item-cmr {
+  color: #7f7f7f;
+  font-size: 0.85rem;
+}
+
+.one-job-body-content-item-terminal {
+  color: #7f7f7f;
+  font-size: 0.85rem;
+}
+
+.note {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* JOB'S FOOTER */
+
+.one-job-footer {
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one-job-footer-second-job-icon {
+  font-size: 1.2rem;
+  color: #ff0000;
+}
+
+.one-job-footer-weight {
+  font-size: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+.one-job-footer-waiting-icon {
+  color: #ff0000;
+  font-size: 1.1rem;
+  font-weight: bold;
 }

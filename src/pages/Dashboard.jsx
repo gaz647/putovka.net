@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { db } from "../firebase/config";
 import { onSnapshot, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 
 const Dashboard = () => {
   const [currentJobs, setCurrentJobs] = useState([]);
@@ -28,20 +29,29 @@ const Dashboard = () => {
       <section className="dashboard wrapper">
         <div className="dashboard-summary-invoicing">
           <div className="dashboard-summary-invoicing-left">
-            <p>p</p>
+            <p>Fakturace €</p>
             <br />
-            <p>p</p>
+            <p>Fakturace CZK</p>
           </div>
           <div className="dashboard-summary-invoicing-right">
-            <p>p</p>
+            <p>Výplata</p>
             <br />
-            <p>p</p>
+            <p>38 600 Kč</p>
           </div>
         </div>
         <div className="dashboard-summary-counts">
-          <div>o</div>
-          <div>o</div>
-          <div>o</div>
+          <div className="dashboard-summary-counts-container">
+            <PiTruck className="dashboard-summary-counts-icon" />
+            <div>20</div>
+          </div>
+          <div className="dashboard-summary-counts-container">
+            <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
+            <div>3</div>
+          </div>
+          <div className="dashboard-summary-counts-container">
+            <PiClockBold className="dashboard-summary-counts-icon" />
+            <div>5</div>
+          </div>
         </div>
       </section>
       <section className="dashboard-jobs wrapper">
