@@ -58,8 +58,26 @@ const AddJob = () => {
   const [note, setNote] = useState("");
 
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.jobs.jobToAdd.terminal)
+    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
+
+  const displayProperTerminalName = (value) => {
+    if (value === "ceska_trebova") {
+      return "Česká Třebová";
+    } else if (value === "ostrava") {
+      return "Ostrava";
+    } else if (value === "plzen") {
+      return "Plzeň";
+    } else if (value === "praha") {
+      return "Praha";
+    } else if (value === "usti_nad_labem") {
+      return "Ústí nad Labem";
+    } else if (value === "zlin") {
+      return "Zlín";
+    } else {
+      return value;
+    }
+  };
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
@@ -73,7 +91,7 @@ const AddJob = () => {
       isSecondJob,
       note,
       price,
-      terminal,
+      terminal: displayProperTerminalName(terminal),
       waiting,
       weight,
       zipcode,
@@ -201,7 +219,7 @@ const AddJob = () => {
           <input
             className="add-job-form-field"
             type="text"
-            value={terminal}
+            value={displayProperTerminalName(terminal)}
             onChange={(e) => setTerminal(e.target.value)}
           />
         </div>

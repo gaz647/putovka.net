@@ -15,6 +15,24 @@ const Search = () => {
     (state) => state.auth.loggedInUserData.userSettings.terminal
   );
 
+  const displayProperTerminalName = (value) => {
+    if (value === "ceska_trebova") {
+      return "Česká Třebová";
+    } else if (value === "ostrava") {
+      return "Ostrava";
+    } else if (value === "plzen") {
+      return "Plzeň";
+    } else if (value === "praha") {
+      return "Praha";
+    } else if (value === "usti_nad_labem") {
+      return "Ústí nad Labem";
+    } else if (value === "zlin") {
+      return "Zlín";
+    } else {
+      return value;
+    }
+  };
+
   useEffect(() => {
     switch (terminal) {
       case "ceska_trebova":
@@ -148,7 +166,7 @@ const Search = () => {
 
   return (
     <section className="search-bar wrapper">
-      <p>{"terminál: " + terminal}</p>
+      <p>{"terminál: " + displayProperTerminalName(terminal)}</p>
       <div className="search-bar-container">
         <input
           className="search-bar-input"

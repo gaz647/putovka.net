@@ -7,6 +7,7 @@ import { db } from "../firebase/config";
 export const addJobToDatabase = createAsyncThunk(
   "jobs/addJobToDatabase",
   async (payload) => {
+    console.log(payload);
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -79,7 +80,6 @@ export const jobsSlice = createSlice({
       state.jobToAdd.zipcode = action.payload.zipcode;
       state.jobToAdd.weight = action.payload.weight;
       state.jobToAdd.price = action.payload.price;
-      state.jobToAdd.terminal = action.payload.terminal;
     },
   },
   extraReducers: (builder) => {
@@ -94,8 +94,8 @@ export const jobsSlice = createSlice({
         state.jobToAdd.weight = 0;
         state.jobToAdd.price = 0;
       })
-      .addCase(addJobToDatabase.rejected, (action) => {
-        console.log("addJobToDatabase SELHAL", action.error.message);
+      .addCase(addJobToDatabase.rejected, () => {
+        console.log("addJobToDatabase SELHAL");
       })
       .addCase(deleteJobFromDatabase.pending, () => {
         console.log("deleteJobFromDatabase PROBÍHÁ");
@@ -103,8 +103,8 @@ export const jobsSlice = createSlice({
       .addCase(deleteJobFromDatabase.fulfilled, () => {
         console.log("deleteJobFromDatabase ÚSPĚŠNĚ DOKONČEN");
       })
-      .addCase(deleteJobFromDatabase.rejected, (action) => {
-        console.log("deleteJobFromDatabase SELHAL", action.error.message);
+      .addCase(deleteJobFromDatabase.rejected, () => {
+        console.log("deleteJobFromDatabase SELHAL");
       });
   },
 });

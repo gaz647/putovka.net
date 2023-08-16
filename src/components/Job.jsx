@@ -54,16 +54,18 @@ const Job = ({ jobDetails }) => {
         <div>{day}</div>
         <div>{displayCZdateFormat(date)}</div>
         <div>{price + " €"}</div>
-        <BsTrash3 onClick={deleteJob} />
+        <div className="delete-job-btn-container">
+          <BsTrash3 onClick={deleteJob} />
+          <FcExpand
+            className={`expand-btn ${showDetails ? "opened" : ""}`}
+            onClick={handleShow}
+          />
+        </div>
       </div>
       <div className="one-job-details">
         <div className="one-job-body-preview">
           <div className="one-job-body-preview-item-city">{city}</div>
           <div className="one-job-body-preview-item-zipcode">{zipcode}</div>
-          <FcExpand
-            className={`expand-btn ${showDetails ? "opened" : ""}`}
-            onClick={handleShow}
-          />
         </div>
         {showDetails && (
           <div className="one-job-body-content">
@@ -71,7 +73,7 @@ const Job = ({ jobDetails }) => {
             <div className="one-job-body-content-item-terminal">
               {"terminál: " + terminal}
             </div>
-            <div className="one-job-body-content-item note">
+            <div className="one-job-body-content-item-note">
               {note !== "" ? <div>&#40;{note}&#41;</div> : ""}
             </div>
           </div>

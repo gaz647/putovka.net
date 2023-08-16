@@ -1,7 +1,6 @@
 .one-job {
   margin-bottom: 0.7rem;
   background-color: rgb(255, 255, 255);
-  color: rgb(87, 87, 87);
   border-radius: 5px;
 }
 
@@ -22,11 +21,34 @@
   font-weight: bold;
 }
 
+.delete-job-btn-container {
+  position: relative;
+}
+
 .delete-job-btn {
   cursor: pointer;
 }
 
+.expand-btn {
+  position: absolute;
+  right: 0rem;
+  bottom: -1rem;
+}
+
+.opened {
+  transform: scaleY(-1);
+}
+
 /* JOB'S HEADER */
+.one-job-header {
+  color: rgb(92, 92, 92);
+}
+
+/* JOB'S BODY PREVIEW */
+
+.one-job-body-preview {
+  color: rgb(65, 65, 65);
+}
 
 .one-job-body-preview-item-city {
   font-weight: bold;
@@ -36,7 +58,7 @@
 }
 
 .one-job-body-preview-item-zipcode {
-  /* font-weight: bold; */
+  font-weight: bold;
   font-size: 0.9rem;
 }
 
@@ -57,20 +79,10 @@
   position: relative;
 }
 
-.expand-btn {
-  position: absolute;
-  right: 0.5rem;
-  bottom: 50%;
-}
-
-.opened {
-  transform: scaleY(-1);
-}
-
 /* JOB'S BODY */
 
 .one-job-body-content {
-  /* display: none; */
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,16 +91,20 @@
 .one-job-body-content-item-cmr {
   color: #7f7f7f;
   font-size: 0.85rem;
+  margin-bottom: 0.3rem;
 }
 
 .one-job-body-content-item-terminal {
   color: #7f7f7f;
   font-size: 0.85rem;
+  margin-bottom: 0.3rem;
 }
 
-.note {
+.one-job-body-content-item-note {
   font-style: italic;
-  font-size: 0.8rem;
+  color: #7f7f7f;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
 }
 
 /* JOB'S FOOTER */
@@ -107,6 +123,8 @@
 
 .one-job-footer-weight {
   font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(65, 65, 65);
   padding-bottom: 0.3rem;
 }
 
