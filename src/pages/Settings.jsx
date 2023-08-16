@@ -1,5 +1,6 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
+import { changeSettings } from "../redux/AuthSlice";
 import { logout } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -23,12 +24,17 @@ const Settings = () => {
     dispatch(logout());
   };
 
-  const [terminal, setTerminal] = useState(
-    loggedInUserData.userSettings.terminal
-  );
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+
   const [baseMoney, setBaseMoney] = useState(
     loggedInUserData.userSettings.baseMoney
   );
+  const email = useSelector((state) => state.auth.loggedInUserEmail);
+
+  const [terminal, setTerminal] = useState(
+    loggedInUserData.userSettings.terminal
+  );
+
   const [percentage, setPercentage] = useState(
     loggedInUserData.userSettings.percentage
   );
@@ -41,7 +47,19 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("click");
+    const payload = {
+      userUid,
+      userSettings: {
+        baseMoney: Number(baseMoney),
+        email,
+        percentage: Number(percentage),
+        secondJobBenefit: Number(secondJobBenefit),
+        terminal,
+        waitingBenefit: Number(waitingBenefit),
+      },
+    };
+    dispatch(changeSettings(payload));
+    navigate("/");
   };
 
   const handleDecline = () => {
@@ -144,7 +162,11 @@ const Settings = () => {
               </div>
               <br />
               <div className="confirm-decline-buttons-container">
-                <button className="confirm-btn" type="submit">
+                <button
+                  className="confirm-btn"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   uložit
                 </button>
                 <button

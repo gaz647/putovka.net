@@ -11,7 +11,13 @@ import {
   updateEmail,
   updatePassword,
 } from "firebase/auth";
-import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  runTransaction,
+} from "firebase/firestore";
 import { db } from "../firebase/config";
 
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
@@ -190,6 +196,31 @@ export const passwordReset = createAsyncThunk(
   }
 );
 
+//  CHANGE SETTINGS
+//
+export const changeSettings = createAsyncThunk(
+  "auth/changeSettings",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            userSettings: payload.userSettings,
+          });
+        }
+      });
+      return payload.userSettings;
+    } catch (error) {
+      // Chyba při přidávání práce do databáze
+      console.log("kokot");
+      throw error.message;
+    }
+  }
+);
+
 // -------------------------------------------------------------------------------------
 
 export const authSlice = createSlice({
@@ -342,6 +373,24 @@ export const authSlice = createSlice({
       })
       .addCase(changePassword.rejected, (action) => {
         console.log("changePassword selhal", action.error.message);
+      })
+      .addCase(changeSettings.pending, () => {
+        console.log("changeSettings SPUŠTĚN");
+      })
+      .addCase(changeSettings.fulfilled, (state, action) => {
+        state.loggedInUserData.userSettings.baseMoney =
+          action.payload.baseMoney;
+        state.loggedInUserData.userSettings.percentage =
+          action.payload.percentage;
+        state.loggedInUserData.userSettings.secondJobBenefit =
+          action.payload.secondJobBenefit;
+        state.loggedInUserData.userSettings.terminal = action.payload.terminal;
+        state.loggedInUserData.userSettings.waitingBenefit =
+          action.payload.waitingBenefit;
+        console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
+      })
+      .addCase(changeSettings.rejected, (action) => {
+        console.log("changeSettings SELHAL", action.error.message);
       });
   },
 });
