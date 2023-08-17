@@ -1,0 +1,245 @@
+import "./EditJob.css";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { editJobInDatabase } from "../redux/JobsSlice";
+import { useNavigate } from "react-router-dom";
+
+const EditJob = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [date, setDate] = useState(
+    useSelector((state) => state.jobs.jobToEdit.date)
+  );
+
+  const getCurrentDayCZ = (dateVariable) => {
+    const dateTransformed = new Date(dateVariable);
+    const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
+    return daysOfTheWeek[dateTransformed.getDay()];
+  };
+
+  useEffect(() => {
+    setDay(getCurrentDayCZ(date));
+  }, [date]);
+
+  const [day, setDay] = useState(
+    useSelector((state) => state.jobs.jobToEdit.day)
+  );
+
+  console.log(day);
+
+  const [city, setCity] = useState(
+    useSelector((state) => state.jobs.jobToEdit.city)
+  );
+
+  const [cmr, setCmr] = useState(
+    useSelector((state) => state.jobs.jobToEdit.cmr)
+  );
+
+  const [zipcode, setZipcode] = useState(
+    useSelector((state) => state.jobs.jobToEdit.zipcode)
+  );
+
+  const [weight, setWeight] = useState(
+    useSelector((state) => state.jobs.jobToEdit.weight)
+  );
+
+  const [price, setPrice] = useState(
+    useSelector((state) => state.jobs.jobToEdit.price)
+  );
+
+  const [isSecondJob, setIsSecondJob] = useState(
+    useSelector((state) => state.jobs.jobToEdit.isSecondJob)
+  );
+
+  const [waiting, setWaiting] = useState(
+    useSelector((state) => state.jobs.jobToEdit.waiting)
+  );
+
+  const [note, setNote] = useState(
+    useSelector((state) => state.jobs.jobToEdit.note)
+  );
+
+  const [terminal, setTerminal] = useState(
+    useSelector((state) => state.jobs.jobToEdit.terminal)
+  );
+
+  const id = useSelector((state) => state.jobs.jobToEdit.id);
+
+  const displayProperTerminalName = (value) => {
+    if (value === "ceska_trebova") {
+      return "Česká Třebová";
+    } else if (value === "ostrava") {
+      return "Ostrava";
+    } else if (value === "plzen") {
+      return "Plzeň";
+    } else if (value === "praha") {
+      return "Praha";
+    } else if (value === "usti_nad_labem") {
+      return "Ústí nad Labem";
+    } else if (value === "zlin") {
+      return "Zlín";
+    } else {
+      return value;
+    }
+  };
+
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+
+  const editJob = () => {
+    const jobDetails = {
+      city,
+      cmr,
+      date,
+      day,
+      id,
+      isSecondJob,
+      note,
+      price,
+      terminal: displayProperTerminalName(terminal),
+      waiting,
+      weight,
+      zipcode,
+    };
+    const payload = { userUid, jobDetails };
+    dispatch(editJobInDatabase(payload));
+    navigate("/");
+  };
+
+  return (
+    <section className="add-job wrapper">
+      <form className="add-job-form">
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Datum
+          </label>
+          <input
+            className="add-job-form-field"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Město
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            PSČ
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={zipcode}
+            onChange={(e) => setZipcode(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Váha (t)
+          </label>
+          <input
+            className="add-job-form-field"
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Cena
+          </label>
+          <input
+            className="add-job-form-field"
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            CMR
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={cmr}
+            onChange={(e) => setCmr(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Druhá práce
+          </label>
+          <input
+            className="add-job-form-field-checkbox"
+            type="checkbox"
+            checked={isSecondJob}
+            onChange={(e) => setIsSecondJob(e.target.checked)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Čekání
+          </label>
+          <input
+            className="add-job-form-field"
+            type="number"
+            value={waiting}
+            onChange={(e) => setWaiting(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Poznámka
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+          />
+        </div>
+
+        <div className="add-job-form-container-item">
+          <label className="add-job-form-label" htmlFor="">
+            Terminál
+          </label>
+          <input
+            className="add-job-form-field"
+            type="text"
+            value={displayProperTerminalName(terminal)}
+            onChange={(e) => setTerminal(e.target.value)}
+          />
+        </div>
+
+        <button
+          className="add-job-delete-all-fields-btn"
+          type="button"
+          onClick={editJob}
+        >
+          ULOŽIT ZMĚNY
+        </button>
+      </form>
+    </section>
+  );
+};
+
+export default EditJob;

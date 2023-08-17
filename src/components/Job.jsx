@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteJobFromDatabase } from "../redux/JobsSlice";
+import { deleteJobFromDatabase, setJobToEdit } from "../redux/JobsSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 import { FcExpand } from "react-icons/fc";
 import { PiNumberSquareTwoBold } from "react-icons/pi";
 import "./Job.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Job = ({ jobDetails }) => {
   const {
@@ -26,6 +27,7 @@ const Job = ({ jobDetails }) => {
   } = jobDetails;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
@@ -35,6 +37,26 @@ const Job = ({ jobDetails }) => {
     if (confirm("Smazat práci?")) {
       dispatch(deleteJobFromDatabase(payload));
     }
+  };
+
+  const editJobNavigate = () => {
+    const jobToEdit = {
+      city,
+      cmr,
+      date,
+      day,
+      id,
+      isSecondJob,
+      note,
+      price,
+      terminal,
+      waiting: Number(waiting),
+      weight,
+      zipcode,
+    };
+    console.log("jobToEdit", jobToEdit);
+    dispatch(setJobToEdit(jobToEdit));
+    navigate("/edit-job");
   };
 
   const displayCZdateFormat = (date) => {
@@ -50,19 +72,16 @@ const Job = ({ jobDetails }) => {
   return (
     <div className="one-job">
       <div className="one-job-header">
-        <BsPencil />
+        <BsPencil onClick={editJobNavigate} />
         <div>{day}</div>
         <div>{displayCZdateFormat(date)}</div>
         <div>{price + " €"}</div>
         <div className="delete-job-btn-container">
           <BsTrash3 onClick={deleteJob} />
-          <FcExpand
-            className={`expand-btn ${showDetails ? "opened" : ""}`}
-            onClick={handleShow}
-          />
+          <FcExpand className={`expand-btn ${showDetails ? "opened" : ""}`} />
         </div>
       </div>
-      <div className="one-job-details">
+      <div className="one-job-details" onClick={handleShow}>
         <div className="one-job-body-preview">
           <div className="one-job-body-preview-item-city">{city}</div>
           <div className="one-job-body-preview-item-zipcode">{zipcode}</div>

@@ -11,7 +11,6 @@ const Dashboard = () => {
   const [currentJobs, setCurrentJobs] = useState([]);
 
   const loggedInUserUid = useSelector((state) => state.auth.loggedInUserUid);
-  console.log(loggedInUserUid);
 
   const [totalEur, setTotalEur] = useState(0);
   const [totalCzk, setTotalCzk] = useState(0);

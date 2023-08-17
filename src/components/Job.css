@@ -32,7 +32,8 @@
 .expand-btn {
   position: absolute;
   right: 0rem;
-  bottom: -1rem;
+  bottom: -100%;
+  cursor: pointer;
 }
 
 .opened {
@@ -111,6 +112,7 @@
 
 .one-job-footer {
   padding: 0 0.5rem;
+  height: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
