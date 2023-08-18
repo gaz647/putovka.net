@@ -19,6 +19,35 @@
   border-radius: 5px;
 }
 
+.add-job-form-container-item-weight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2.5rem;
+  width: 100%;
+  background-color: transparent;
+  margin: 0 auto 2rem auto;
+  cursor: pointer;
+}
+
+.add-job-form-field-weight {
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weight {
+  margin: 0;
+  padding: 0;
+}
+
+.clicked {
+  background-color: gold;
+}
+
 .add-job-form-label {
   font-size: 0.75rem;
   position: absolute;

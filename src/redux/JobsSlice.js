@@ -39,7 +39,6 @@ export const addJobToDatabase = createAsyncThunk(
 export const editJobInDatabase = createAsyncThunk(
   "jobs/editJobInDatabase",
   async (payload) => {
-    console.log("payload.jobDetails.id", payload.jobDetails.id);
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -47,12 +46,10 @@ export const editJobInDatabase = createAsyncThunk(
 
         if (userDocSnapshot.exists()) {
           const currentJobs = userDocSnapshot.data().currentJobs || [];
-          console.log(currentJobs);
-          console.log("currentJobs.lenght = ", currentJobs.length);
+
           const indexOfJobToBeEdited = currentJobs.findIndex(
             (job) => job.id === payload.jobDetails.id
           );
-          console.log("indexOfJobToBeEdited", indexOfJobToBeEdited);
 
           if (indexOfJobToBeEdited !== -1) {
             currentJobs[indexOfJobToBeEdited] = payload.jobDetails;
@@ -107,48 +104,59 @@ export const jobsSlice = createSlice({
   name: "jobs",
   initialState: {
     jobToAdd: {
-      date: "",
       city: "",
-      zipcode: "",
-      weight: 0,
-      price: 0,
+      isCustomJob: true,
       terminal: "",
+      weightTo27t: 0,
+      weightTo34t: 0,
+      zipcode: "",
     },
+    isEditing: false,
     jobToEdit: {
-      date: "",
-      day: "",
       city: "",
-      zipcode: "",
-      weight: 0,
-      price: 0,
       cmr: "",
-      isSecondJob: false,
-      waiting: 0,
-      note: "",
-      terminal: "",
+      date: "",
       id: "",
+      isCustomJob: "",
+      isSecondJob: false,
+      note: "",
+      price: 0,
+      terminal: "",
+      waiting: 0,
+      weight: 0,
+      weightTo27t: 0,
+      weightTo34t: 0,
+      zipcode: "",
     },
   },
   reducers: {
     setJobToAdd: (state, action) => {
-      state.jobToAdd.date = action.payload.date;
+      console.log(action.payload);
       state.jobToAdd.city = action.payload.city;
+      state.jobToAdd.isCustomJob = action.payload.isCustomJob;
+      state.jobToAdd.terminal = action.payload.terminal;
+      state.jobToAdd.weightTo27t = action.payload.weightTo27t;
+      state.jobToAdd.weightTo34t = action.payload.weightTo34t;
       state.jobToAdd.zipcode = action.payload.zipcode;
-      state.jobToAdd.weight = action.payload.weight;
-      state.jobToAdd.price = action.payload.price;
     },
     setJobToEdit: (state, action) => {
-      state.jobToEdit.date = action.payload.date;
       state.jobToEdit.city = action.payload.city;
-      state.jobToEdit.zipcode = action.payload.zipcode;
-      state.jobToEdit.weight = action.payload.weight;
-      state.jobToEdit.price = action.payload.price;
       state.jobToEdit.cmr = action.payload.cmr;
-      state.jobToEdit.isSecondJob = action.payload.isSecondJob;
-      state.jobToEdit.waiting = action.payload.waiting;
-      state.jobToEdit.note = action.payload.note;
-      state.jobToEdit.terminal = action.payload.terminal;
+      state.jobToEdit.date = action.payload.date;
       state.jobToEdit.id = action.payload.id;
+      state.jobToEdit.isCustomJob = action.payload.isCustomJob;
+      state.jobToEdit.isSecondJob = action.payload.isSecondJob;
+      state.jobToEdit.note = action.payload.note;
+      state.jobToEdit.price = action.payload.price;
+      state.jobToEdit.terminal = action.payload.terminal;
+      state.jobToEdit.waiting = action.payload.waiting;
+      state.jobToEdit.weight = action.payload.weight;
+      state.jobToEdit.weightTo27t = action.payload.weightTo27t;
+      state.jobToEdit.weightTo34t = action.payload.weightTo34t;
+      state.jobToEdit.zipcode = action.payload.zipcode;
+    },
+    setEditing: (state, action) => {
+      state.isEditing = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -159,12 +167,39 @@ export const jobsSlice = createSlice({
       .addCase(addJobToDatabase.fulfilled, (state) => {
         console.log("addJobToDatabase ÚSPĚŠNĚ DOKONČEN");
         state.jobToAdd.city = "";
-        state.jobToAdd.zipcode = "";
-        state.jobToAdd.weight = 0;
         state.jobToAdd.price = 0;
+        state.jobToAdd.terminal = "";
+        state.jobToAdd.weight = 0;
+        state.jobToAdd.weightTo27t = 0;
+        state.jobToAdd.weightTo34t = 0;
+        state.jobToAdd.zipcode = "";
       })
       .addCase(addJobToDatabase.rejected, () => {
         console.log("addJobToDatabase SELHAL");
+      })
+      .addCase(editJobInDatabase.pending, () => {
+        console.log("editJobInDatabase PROBÍHÁ");
+      })
+      .addCase(editJobInDatabase.fulfilled, (state) => {
+        console.log("editJobInDatabase ÚSPĚŠNĚ DOKONČEN");
+        state.jobToEdit.city = "";
+        state.jobToEdit.cmr = "";
+        state.jobToEdit.date = "";
+        state.jobToEdit.day = "";
+        state.jobToEdit.id = "";
+        state.jobToEdit.isCustomJob = "";
+        state.jobToEdit.isSecondJob = false;
+        state.jobToEdit.note = "";
+        state.jobToEdit.price = 0;
+        state.jobToEdit.terminal = "";
+        state.jobToEdit.waiting = 0;
+        state.jobToEdit.weight = 0;
+        state.jobToEdit.weightTo27t = 0;
+        state.jobToEdit.weightTo34t = 0;
+        state.jobToEdit.zipcode = "";
+      })
+      .addCase(editJobInDatabase.rejected, () => {
+        console.log("editJobInDatabase SELHAL");
       })
       .addCase(deleteJobFromDatabase.pending, () => {
         console.log("deleteJobFromDatabase PROBÍHÁ");
@@ -178,6 +213,6 @@ export const jobsSlice = createSlice({
   },
 });
 
-export const { setJobToAdd, setJobToEdit } = jobsSlice.actions;
+export const { setJobToAdd, setJobToEdit, setEditing } = jobsSlice.actions;
 
 export default jobsSlice.reducer;

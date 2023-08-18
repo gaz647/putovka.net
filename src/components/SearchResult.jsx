@@ -3,30 +3,20 @@ import "./SearchResult.css";
 import { useDispatch } from "react-redux";
 import { setJobToAdd } from "../redux/JobsSlice";
 import { useNavigate } from "react-router-dom";
+import AddButton from "../assets/icons/add-button.svg";
 
 const SearchResult = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddClick27 = () => {
+  const handleAddJob = () => {
     const jobToAdd = {
       city: props.city,
       zipcode: String(props.zipcode),
       terminal: props.terminal,
-      weight: 27,
-      price: props.weightTo27t,
-    };
-    dispatch(setJobToAdd(jobToAdd));
-    navigate("/add-job");
-  };
-
-  const handleAddClick34 = () => {
-    const jobToAdd = {
-      city: props.city,
-      zipcode: String(props.zipcode),
-      terminal: props.terminal,
-      weight: 34,
-      price: props.weightTo34t,
+      weightTo27t: props.weightTo27t,
+      weightTo34t: props.weightTo34t,
+      isCustomJob: false,
     };
     dispatch(setJobToAdd(jobToAdd));
     navigate("/add-job");
@@ -44,20 +34,21 @@ const SearchResult = (props) => {
 
         <div className="result-second-line">
           <div className="result-second-line-item-left">
-            <div
-              className="result-second-line-item-upTo27t"
-              onClick={handleAddClick27}
-            >
+            <div className="result-second-line-item-upTo27t">
               <p className="weight">&lt;27t</p>
               <p className="price">{props.weightTo27t + "€"}</p>
             </div>
           </div>
 
+          <div
+            className="result-second-line-item-middle"
+            onClick={handleAddJob}
+          >
+            <img src={AddButton} alt="add-own-done-job-button" />
+          </div>
+
           <div className="result-second-line-item-right">
-            <div
-              className="result-second-line-item-upTo34t"
-              onClick={handleAddClick34}
-            >
+            <div className="result-second-line-item-upTo34t">
               <p className="weight">&lt;34t</p>
               <p className="price">{props.weightTo34t + "€"}</p>
             </div>

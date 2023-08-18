@@ -52,15 +52,10 @@ ul {
   background-color: rgb(255, 255, 255);
   padding: 0.5rem;
   border-bottom-left-radius: 5px;
-  cursor: pointer;
   border-right: 1px solid #dadada;
 }
 
-.result-second-line-item-left:hover {
-  background-color: gold;
-}
-
-/* .result-second-line-item-middle {
+.result-second-line-item-middle {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -69,9 +64,6 @@ ul {
   padding: 0.5rem;
   border-right: 1px solid rgb(231, 231, 231);
   border-left: 1px solid rgb(231, 231, 231);
-} */
-
-.add-button-img {
   cursor: pointer;
 }
 
@@ -84,11 +76,7 @@ ul {
   padding: 0.5rem;
   border: none;
   border-bottom-right-radius: 5px;
-  cursor: pointer;
-}
-
-.result-second-line-item-right:hover {
-  background-color: gold;
+  border-left: 1px solid #dadada;
 }
 
 .weight {

@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteJobFromDatabase, setJobToEdit } from "../redux/JobsSlice";
+import {
+  deleteJobFromDatabase,
+  setEditing,
+  setJobToEdit,
+} from "../redux/JobsSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 import { FcExpand } from "react-icons/fc";
@@ -17,12 +21,15 @@ const Job = ({ jobDetails }) => {
     date,
     day,
     id,
+    isCustomJob,
     isSecondJob,
     note,
     price,
     terminal,
     waiting,
     weight,
+    weightTo27t,
+    weightTo34t,
     zipcode,
   } = jobDetails;
 
@@ -46,17 +53,26 @@ const Job = ({ jobDetails }) => {
       date,
       day,
       id,
+      isCustomJob,
       isSecondJob,
       note,
       price,
       terminal,
       waiting: Number(waiting),
       weight,
+      weightTo27t,
+      weightTo34t,
       zipcode,
     };
-    console.log("jobToEdit", jobToEdit);
+
     dispatch(setJobToEdit(jobToEdit));
-    navigate("/edit-job");
+    dispatch(setEditing(true));
+
+    if (jobToEdit.isCustomJob === true) {
+      navigate("/edit-custom-job");
+    } else {
+      navigate("/edit-job");
+    }
   };
 
   const displayCZdateFormat = (date) => {

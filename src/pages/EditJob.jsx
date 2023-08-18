@@ -2,7 +2,7 @@ import "./EditJob.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { editJobInDatabase } from "../redux/JobsSlice";
+import { editJobInDatabase, setEditing } from "../redux/JobsSlice";
 import { useNavigate } from "react-router-dom";
 
 const EditJob = () => {
@@ -27,8 +27,6 @@ const EditJob = () => {
     useSelector((state) => state.jobs.jobToEdit.day)
   );
 
-  console.log(day);
-
   const [city, setCity] = useState(
     useSelector((state) => state.jobs.jobToEdit.city)
   );
@@ -41,13 +39,36 @@ const EditJob = () => {
     useSelector((state) => state.jobs.jobToEdit.zipcode)
   );
 
+  const weightTo27t = useSelector((state) => state.jobs.jobToEdit.weightTo27t);
+
+  const weightTo34t = useSelector((state) => state.jobs.jobToEdit.weightTo34t);
+
   const [weight, setWeight] = useState(
     useSelector((state) => state.jobs.jobToEdit.weight)
   );
 
+  const [clicked27, setClicked27] = useState(weight === 27 ? true : false);
+  const [clicked34, setClicked34] = useState(weight === 34 ? true : false);
+
+  const click27 = () => {
+    setClicked27(true);
+    setClicked34(false);
+    setWeight(27);
+    setPrice(weightTo27t);
+  };
+
+  const click34 = () => {
+    setClicked34(true);
+    setClicked27(false);
+    setWeight(34);
+    setPrice(weightTo34t);
+  };
+
   const [price, setPrice] = useState(
     useSelector((state) => state.jobs.jobToEdit.price)
   );
+
+  const isCustomJob = useSelector((state) => state.jobs.jobToEdit.isCustomJob);
 
   const [isSecondJob, setIsSecondJob] = useState(
     useSelector((state) => state.jobs.jobToEdit.isSecondJob)
@@ -94,16 +115,20 @@ const EditJob = () => {
       date,
       day,
       id,
+      isCustomJob,
       isSecondJob,
       note,
       price,
       terminal: displayProperTerminalName(terminal),
       waiting,
       weight,
+      weightTo27t,
+      weightTo34t,
       zipcode,
     };
     const payload = { userUid, jobDetails };
     dispatch(editJobInDatabase(payload));
+    dispatch(setEditing(false));
     navigate("/");
   };
 
@@ -146,16 +171,23 @@ const EditJob = () => {
           />
         </div>
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Váha (t)
-          </label>
-          <input
-            className="add-job-form-field"
-            type="number"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-          />
+        <div className="add-job-form-container-item-weight">
+          <div
+            className={`add-job-form-field-weight ${
+              clicked27 ? "clicked" : ""
+            }`}
+            onClick={click27}
+          >
+            <div className="weight">&lt;27t</div>
+          </div>
+          <div
+            className={`add-job-form-field-weight ${
+              clicked34 ? "clicked" : ""
+            }`}
+            onClick={click34}
+          >
+            <div className="weight">&lt;34t</div>
+          </div>
         </div>
 
         <div className="add-job-form-container-item">

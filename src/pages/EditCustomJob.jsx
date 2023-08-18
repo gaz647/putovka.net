@@ -1,25 +1,17 @@
+import "./EditJob.css";
 import { useState, useEffect } from "react";
-import "./AddJob.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addJobToDatabase } from "../redux/JobsSlice";
+import { editJobInDatabase, setEditing } from "../redux/JobsSlice";
 import { useNavigate } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 
-const AddJob = () => {
+const EditCustomJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const getCurrentDate = () => {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, "0");
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const yyyy = today.getFullYear();
-    const currentDate = yyyy + "-" + mm + "-" + dd;
-    return currentDate;
-  };
-
-  const [date, setDate] = useState(getCurrentDate());
+  const [date, setDate] = useState(
+    useSelector((state) => state.jobs.jobToEdit.date)
+  );
 
   const getCurrentDayCZ = (dateVariable) => {
     const dateTransformed = new Date(dateVariable);
@@ -31,54 +23,68 @@ const AddJob = () => {
     setDay(getCurrentDayCZ(date));
   }, [date]);
 
-  const [day, setDay] = useState(getCurrentDayCZ(date));
-
-  const [city, setCity] = useState(
-    useSelector((state) => state.jobs.jobToAdd.city)
+  const [day, setDay] = useState(
+    useSelector((state) => state.jobs.jobToEdit.day)
   );
 
-  const [cmr, setCmr] = useState("");
+  const [city, setCity] = useState(
+    useSelector((state) => state.jobs.jobToEdit.city)
+  );
+
+  const [cmr, setCmr] = useState(
+    useSelector((state) => state.jobs.jobToEdit.cmr)
+  );
 
   const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.jobs.jobToAdd.zipcode)
+    useSelector((state) => state.jobs.jobToEdit.zipcode)
   );
 
   const weightTo27t = useSelector((state) => state.jobs.jobToAdd.weightTo27t);
 
   const weightTo34t = useSelector((state) => state.jobs.jobToAdd.weightTo34t);
 
-  const [weight, setWeight] = useState(27);
+  const [weight, setWeight] = useState(
+    useSelector((state) => state.jobs.jobToEdit.weight)
+  );
 
-  const [clicked27, setClicked27] = useState(true);
-  const [clicked34, setClicked34] = useState(false);
+  const [clicked27, setClicked27] = useState(weight === 27 ? true : false);
+  const [clicked34, setClicked34] = useState(weight === 34 ? true : false);
 
   const click27 = () => {
     setClicked27(true);
     setClicked34(false);
     setWeight(27);
-    setPrice(weightTo27t);
   };
 
   const click34 = () => {
     setClicked34(true);
     setClicked27(false);
     setWeight(34);
-    setPrice(weightTo34t);
   };
 
-  const [price, setPrice] = useState(weightTo27t);
+  const [price, setPrice] = useState(
+    useSelector((state) => state.jobs.jobToEdit.price)
+  );
 
-  const isCustomJob = useSelector((state) => state.jobs.jobToAdd.isCustomJob);
+  const isCustomJob = useSelector((state) => state.jobs.jobToEdit.isCustomJob);
 
-  const [isSecondJob, setIsSecondJob] = useState(false);
+  const [isSecondJob, setIsSecondJob] = useState(
+    useSelector((state) => state.jobs.jobToEdit.isSecondJob)
+  );
 
-  const [waiting, setWaiting] = useState(0);
+  const [waiting, setWaiting] = useState(
+    useSelector((state) => state.jobs.jobToEdit.waiting)
+  );
 
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState(
+    useSelector((state) => state.jobs.jobToEdit.note)
+  );
 
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+    useSelector((state) => state.jobs.jobToEdit.terminal)
   );
+
+  const id = useSelector((state) => state.jobs.jobToEdit.id);
 
   const displayProperTerminalName = (value) => {
     if (value === "ceska_trebova") {
@@ -100,13 +106,13 @@ const AddJob = () => {
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
-  const addJob = () => {
+  const editJob = () => {
     const jobDetails = {
       city,
       cmr,
       date,
       day,
-      id: uuidv4(),
+      id,
       isCustomJob,
       isSecondJob,
       note,
@@ -119,7 +125,8 @@ const AddJob = () => {
       zipcode,
     };
     const payload = { userUid, jobDetails };
-    dispatch(addJobToDatabase(payload));
+    dispatch(editJobInDatabase(payload));
+    dispatch(setEditing(false));
     navigate("/");
   };
 
@@ -256,13 +263,13 @@ const AddJob = () => {
         <button
           className="add-job-delete-all-fields-btn"
           type="button"
-          onClick={addJob}
+          onClick={editJob}
         >
-          PŘIDAT
+          ULOŽIT ZMĚNY
         </button>
       </form>
     </section>
   );
 };
 
-export default AddJob;
+export default EditCustomJob;
