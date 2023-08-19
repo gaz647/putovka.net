@@ -185,7 +185,6 @@ export const jobsSlice = createSlice({
         state.jobToEdit.city = "";
         state.jobToEdit.cmr = "";
         state.jobToEdit.date = "";
-        state.jobToEdit.day = "";
         state.jobToEdit.id = "";
         state.jobToEdit.isCustomJob = "";
         state.jobToEdit.isSecondJob = false;

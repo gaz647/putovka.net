@@ -67,12 +67,7 @@ const Job = ({ jobDetails }) => {
 
     dispatch(setJobToEdit(jobToEdit));
     dispatch(setEditing(true));
-
-    if (jobToEdit.isCustomJob === true) {
-      navigate("/edit-custom-job");
-    } else {
-      navigate("/edit-job");
-    }
+    navigate("/edit-job");
   };
 
   const displayCZdateFormat = (date) => {

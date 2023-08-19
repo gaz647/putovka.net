@@ -8,7 +8,6 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import EditJob from "./pages/EditJob";
-import EditCustomJob from "./pages/EditCustomJob";
 import EmailVerificationSent from "./pages/EmailVerificationSent";
 import ForgottenPassword from "./pages/ForgottenPassword";
 import ForgottenPasswordSent from "./pages/ForgottenPasswordSent";
@@ -93,7 +92,6 @@ const App = () => {
             <Route path="/change-email" element={<ChangeEmail />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/edit-job" element={<EditJob />} />
-            <Route path="/edit-custom-job" element={<EditCustomJob />} />
             <Route path="/test" element={<Test />} />
             <Route path="*" element={<Error404 />} />
           </Route>

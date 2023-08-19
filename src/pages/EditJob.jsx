@@ -9,6 +9,8 @@ const EditJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const isCustomJob = useSelector((state) => state.jobs.jobToEdit.isCustomJob);
+
   const [date, setDate] = useState(
     useSelector((state) => state.jobs.jobToEdit.date)
   );
@@ -23,9 +25,7 @@ const EditJob = () => {
     setDay(getCurrentDayCZ(date));
   }, [date]);
 
-  const [day, setDay] = useState(
-    useSelector((state) => state.jobs.jobToEdit.day)
-  );
+  const [day, setDay] = useState("");
 
   const [city, setCity] = useState(
     useSelector((state) => state.jobs.jobToEdit.city)
@@ -54,21 +54,23 @@ const EditJob = () => {
     setClicked27(true);
     setClicked34(false);
     setWeight(27);
-    setPrice(weightTo27t);
+    if (!isCustomJob) {
+      setPrice(weightTo27t);
+    }
   };
 
   const click34 = () => {
     setClicked34(true);
     setClicked27(false);
     setWeight(34);
-    setPrice(weightTo34t);
+    if (!isCustomJob) {
+      setPrice(weightTo34t);
+    }
   };
 
   const [price, setPrice] = useState(
     useSelector((state) => state.jobs.jobToEdit.price)
   );
-
-  const isCustomJob = useSelector((state) => state.jobs.jobToEdit.isCustomJob);
 
   const [isSecondJob, setIsSecondJob] = useState(
     useSelector((state) => state.jobs.jobToEdit.isSecondJob)
