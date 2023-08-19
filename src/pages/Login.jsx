@@ -33,26 +33,28 @@ const Login = () => {
       {isLoading ? (
         <Spinner />
       ) : (
-        <section className="login">
-          <form className="login-form" onSubmit={handleLogIn}>
-            <h1 className="login-form-heading">Přihlášení</h1>
-            <div className="login-form-item">
-              <h2>Email</h2>
+        <section className="login-register">
+          <form className="login-register-form" onSubmit={handleLogIn}>
+            <h1 className="login-registerform-heading">Přihlášení</h1>
+            <div className="login-register-form-item">
               <input
+                className="login-register-form-input"
                 type="email"
+                placeholder="email"
                 onChange={(e) => setLoginEmail(e.target.value)}
                 value={loginEmail}
               />
             </div>
-            <div className="login-form-item">
-              <h2>Heslo</h2>
+            <div className="login-register-form-item">
               <input
+                className="login-register-form-input"
                 type="password"
+                placeholder="heslo"
                 onChange={(e) => setLoginPassword(e.target.value)}
                 value={loginPassword}
               />
             </div>
-            <div className="login-form-item">
+            <div className="login-register-form-item">
               <button type="button" onClick={() => handleLogIn()}>
                 Přihlásit
               </button>

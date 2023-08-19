@@ -1,4 +1,4 @@
-import "./Register.css";
+import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -35,33 +35,35 @@ const Register = () => {
       {isLoading ? (
         <Spinner />
       ) : (
-        <section className="register">
-          <form className="register-form" onSubmit={handleRegister}>
-            <h1 className="register-form-heading">Registrace</h1>
-            <div className="register-form-item">
-              <h2>Email</h2>
+        <section className="login-register">
+          <form className="login-register-form" onSubmit={handleRegister}>
+            <h1 className="login-register-form-heading">Registrace</h1>
+            <div className="login-register-form-item">
               <input
+                className="login-register-form-input"
                 type="email"
+                placeholder="email"
                 onChange={(e) => setRegisterEmail(e.target.value)}
                 value={registerEmail}
               />
             </div>
-            <div className="register-form-item">
-              <h2>Heslo</h2>
-              <input
-                type="password"
-                placeholder="zadejte heslo"
-                onChange={(e) => setRegisterPasword(e.target.value)}
-                value={registerPassword}
-              />
-              <input
-                type="password"
-                placeholder="zadejte stejné heslo"
-                onChange={(e) => setRegisterPasword2(e.target.value)}
-                value={registerPassword2}
-              />
-            </div>
-            <div className="register-form-item">
+
+            <input
+              className="login-register-form-input"
+              type="password"
+              placeholder="zadejte heslo"
+              onChange={(e) => setRegisterPasword(e.target.value)}
+              value={registerPassword}
+            />
+            <input
+              className="login-register-form-input"
+              type="password"
+              placeholder="zadejte stejné heslo"
+              onChange={(e) => setRegisterPasword2(e.target.value)}
+              value={registerPassword2}
+            />
+
+            <div className="login-register-form-item">
               <button type="submit">Registrovat</button>
             </div>
 

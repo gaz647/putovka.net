@@ -1,4 +1,4 @@
-.login {
+.login-register {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -6,17 +6,28 @@
   align-items: center;
 }
 
-.login-form {
+.login-register-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.login-form-heading {
+.login-register-form-heading {
   margin-bottom: 2rem;
 }
 
-.login-form-item {
+.login-register-form-item {
+  margin-bottom: 1rem;
+}
+
+.login-register-form-input {
+  height: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 13rem;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: none;
   margin-bottom: 1rem;
 }
