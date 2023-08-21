@@ -1,0 +1,74 @@
+.modal-background {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  min-height: 100%;
+  touch-action: pan-y;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: rgb(255, 255, 255);
+  width: 92%;
+  max-width: 450px;
+  /* max-height: 70vh; */
+  /* overflow: scroll; */
+  border-radius: 5px;
+  border: solid 1px rgb(203, 203, 203);
+  margin: 1.5rem auto 1rem auto;
+  padding: 0.7rem;
+}
+
+.modal-heading {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1rem auto 1rem auto;
+}
+
+.modal-text {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.modal-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1rem 0;
+}
+
+.modal-buttons {
+  margin: 0rem 0.7rem 0rem 0.7rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-green {
+  background-color: #00c94d;
+  color: white;
+  border: none;
+}
+
+button.submit-green::before {
+  content: "POTVRDIT";
+  font-weight: bold;
+}
+
+.decline-red {
+  background-color: #e64d66;
+  color: white;
+  border: none;
+}
+
+button.decline-red::before {
+  content: "ZRUŠIT";
+  font-weight: bold;
+}

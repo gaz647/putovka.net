@@ -1,4 +1,5 @@
 import "./Dashboard.css";
+import ModalPrompt from "../components/ModalPrompt";
 import Job from "../components/Job";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -82,9 +83,34 @@ const Dashboard = () => {
     waitingBenefit,
   ]);
 
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
+
+  const archiveModalHeading =
+    "Archivovat práce z posledního měsíce ve Vašem výpisu? ";
+
+  const archiveModalText = "tento krok nelze vrátit";
+
+  const handleArchiveJobs = () => {
+    console.log("archivovat");
+    setShowArchiveModal(!showArchiveModal);
+  };
+
+  const handleArchiveModalVisibility = () => {
+    setShowArchiveModal(!showArchiveModal);
+  };
+
   return (
-    <>
-      <section className="dashboard wrapper">
+    <section className="wrapper relative">
+      <section className="dashboard">
+        {showArchiveModal && (
+          <ModalPrompt
+            heading={archiveModalHeading}
+            text={archiveModalText}
+            clbFunction={handleArchiveJobs}
+            closeModal={handleArchiveModalVisibility}
+          />
+        )}
+
         <div className="dashboard-summary-invoicing">
           <div className="dashboard-summary-invoicing-left">
             <div>{totalEur + " €"}</div>
@@ -112,14 +138,20 @@ const Dashboard = () => {
             <div>{totalWaiting}</div>
           </div>
         </div>
+        <button
+          className="dashboard-archive-btn"
+          onClick={() => setShowArchiveModal(true)}
+        >
+          Archivovat nejstarší měsíc
+        </button>
       </section>
-      <section className="dashboard-jobs wrapper">
+      <section className="dashboard-jobs">
         {currentJobs.map((oneJob) => {
           return <Job key={oneJob.id} jobDetails={oneJob} />;
         })}
         <Link to={"/test"}>Test page</Link>
       </section>
-    </>
+    </section>
   );
 };
 

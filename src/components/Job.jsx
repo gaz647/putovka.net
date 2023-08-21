@@ -13,6 +13,7 @@ import { PiNumberSquareTwoBold } from "react-icons/pi";
 import "./Job.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ModalPrompt from "./ModalPrompt";
 
 const Job = ({ jobDetails }) => {
   const {
@@ -41,9 +42,7 @@ const Job = ({ jobDetails }) => {
   const deleteJob = () => {
     const jobId = id;
     const payload = { userUid, jobId };
-    if (confirm("Smazat práci?")) {
-      dispatch(deleteJobFromDatabase(payload));
-    }
+    dispatch(deleteJobFromDatabase(payload));
   };
 
   const editJobNavigate = () => {
@@ -80,15 +79,31 @@ const Job = ({ jobDetails }) => {
     setShowDetails(!showDetails);
   };
 
+  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
+
+  const deleteJobModalHeading = "Odstranit vybranou práci?";
+
+  const handleDeleteJobModalVisibility = () => {
+    setShowDeleteJobModal(!showDeleteJobModal);
+  };
+
   return (
     <div className="one-job">
+      {showDeleteJobModal && (
+        <ModalPrompt
+          heading={deleteJobModalHeading}
+          text={""}
+          clbFunction={deleteJob}
+          closeModal={handleDeleteJobModalVisibility}
+        />
+      )}
       <div className="one-job-header">
         <BsPencil onClick={editJobNavigate} />
         <div>{day}</div>
         <div>{displayCZdateFormat(date)}</div>
         <div>{price + " €"}</div>
         <div className="delete-job-btn-container">
-          <BsTrash3 onClick={deleteJob} />
+          <BsTrash3 onClick={handleDeleteJobModalVisibility} />
           <FcExpand className={`expand-btn ${showDetails ? "opened" : ""}`} />
         </div>
       </div>
