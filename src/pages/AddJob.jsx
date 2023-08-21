@@ -112,6 +112,7 @@ const AddJob = () => {
       note,
       price,
       terminal: displayProperTerminalName(terminal),
+      timestamp: new Date().getTime(),
       waiting,
       weight,
       weightTo27t,

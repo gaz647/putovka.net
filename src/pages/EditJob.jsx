@@ -35,6 +35,8 @@ const EditJob = () => {
     useSelector((state) => state.jobs.jobToEdit.cmr)
   );
 
+  const timestamp = useSelector((state) => state.jobs.jobToEdit.timestamp);
+
   const [zipcode, setZipcode] = useState(
     useSelector((state) => state.jobs.jobToEdit.zipcode)
   );
@@ -122,6 +124,7 @@ const EditJob = () => {
       note,
       price,
       terminal: displayProperTerminalName(terminal),
+      timestamp,
       waiting,
       weight,
       weightTo27t,

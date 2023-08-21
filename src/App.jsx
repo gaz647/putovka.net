@@ -14,7 +14,6 @@ import ForgottenPasswordSent from "./pages/ForgottenPasswordSent";
 import Error404 from "./pages/Error404";
 import ChangeEmail from "./pages/ChangeEmail";
 import ChangePassword from "./pages/ChangePassword";
-import Test from "./pages/Test";
 import SharedLayout from "./pages/SharedLayout";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
@@ -92,7 +91,6 @@ const App = () => {
             <Route path="/change-email" element={<ChangeEmail />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/edit-job" element={<EditJob />} />
-            <Route path="/test" element={<Test />} />
             <Route path="*" element={<Error404 />} />
           </Route>
         </Route>

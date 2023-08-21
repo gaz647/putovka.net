@@ -27,6 +27,7 @@ const Job = ({ jobDetails }) => {
     note,
     price,
     terminal,
+    timestamp,
     waiting,
     weight,
     weightTo27t,
@@ -57,6 +58,7 @@ const Job = ({ jobDetails }) => {
       note,
       price,
       terminal,
+      timestamp,
       waiting: Number(waiting),
       weight,
       weightTo27t,
@@ -101,6 +103,7 @@ const Job = ({ jobDetails }) => {
         <BsPencil onClick={editJobNavigate} />
         <div>{day}</div>
         <div>{displayCZdateFormat(date)}</div>
+        <div>{weight + "t"}</div>
         <div>{price + " €"}</div>
         <div className="delete-job-btn-container">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
@@ -109,9 +112,11 @@ const Job = ({ jobDetails }) => {
       </div>
       <div className="one-job-details" onClick={handleShow}>
         <div className="one-job-body-preview">
+          {/* <div>{timestamp}</div> */}
           <div className="one-job-body-preview-item-city">{city}</div>
           <div className="one-job-body-preview-item-zipcode">{zipcode}</div>
         </div>
+
         {showDetails && (
           <div className="one-job-body-content">
             <div className="one-job-body-content-item-cmr">{cmr}</div>
@@ -132,7 +137,7 @@ const Job = ({ jobDetails }) => {
             ""
           )}
         </div>
-        <div className="one-job-footer-weight">{weight + "t"}</div>
+        {/* <div className="one-job-footer-weight">{weight + "t"}</div> */}
         <div>
           {waiting > 0 ? (
             <div className="one-job-footer-waiting-icon">{waiting}</div>

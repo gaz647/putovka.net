@@ -15,11 +15,27 @@ export const addJobToDatabase = createAsyncThunk(
 
         if (userDocSnapshot.exists()) {
           const currentJobs = userDocSnapshot.data().currentJobs || [];
+
           currentJobs.unshift(payload.jobDetails);
+
           currentJobs.sort((a, b) => {
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
-            return dateB - dateA;
+
+            // Porovnání dle data
+            if (dateA > dateB) return -1;
+            if (dateA < dateB) return 1;
+
+            // Pokud jsou data stejná, porovnává klíč isSecondJob
+            if (a.isSecondJob && !b.isSecondJob) return -1;
+            if (!a.isSecondJob && b.isSecondJob) return 1;
+
+            // Pokud jsou i isSecondJob stejná nebo žádné z objektů nemá isSecondJob: true,
+            // porovnává klíč timestamp
+            if (a.timestamp > b.timestamp) return -1;
+            if (a.timestamp < b.timestamp) return 1;
+
+            return 0;
           });
 
           transaction.update(userDocRef, {
@@ -54,14 +70,28 @@ export const editJobInDatabase = createAsyncThunk(
           if (indexOfJobToBeEdited !== -1) {
             currentJobs[indexOfJobToBeEdited] = payload.jobDetails;
 
-            const sortedCurrentJobs = currentJobs.sort((a, b) => {
+            currentJobs.sort((a, b) => {
               const dateA = new Date(a.date);
               const dateB = new Date(b.date);
-              return dateB - dateA;
+
+              // Porovnání dle data
+              if (dateA > dateB) return -1;
+              if (dateA < dateB) return 1;
+
+              // Pokud jsou data stejná, porovnává klíč isSecondJob
+              if (a.isSecondJob && !b.isSecondJob) return -1;
+              if (!a.isSecondJob && b.isSecondJob) return 1;
+
+              // Pokud jsou i isSecondJob stejná nebo žádné z objektů nemá isSecondJob: true,
+              // porovnává klíč timestamp
+              // if (a.timestamp > b.timestamp) return -1;
+              // if (a.timestamp < b.timestamp) return 1;
+
+              return 0;
             });
 
             transaction.update(userDocRef, {
-              currentJobs: sortedCurrentJobs,
+              currentJobs: currentJobs,
             });
           }
         }
@@ -149,6 +179,7 @@ export const jobsSlice = createSlice({
       state.jobToEdit.note = action.payload.note;
       state.jobToEdit.price = action.payload.price;
       state.jobToEdit.terminal = action.payload.terminal;
+      state.jobToEdit.timestamp = action.payload.timestamp;
       state.jobToEdit.waiting = action.payload.waiting;
       state.jobToEdit.weight = action.payload.weight;
       state.jobToEdit.weightTo27t = action.payload.weightTo27t;

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { db } from "../firebase/config";
 import { onSnapshot, doc } from "firebase/firestore";
-import { Link } from "react-router-dom";
 import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 
 const Dashboard = () => {
@@ -149,7 +148,6 @@ const Dashboard = () => {
         {currentJobs.map((oneJob) => {
           return <Job key={oneJob.id} jobDetails={oneJob} />;
         })}
-        <Link to={"/test"}>Test page</Link>
       </section>
     </section>
   );
