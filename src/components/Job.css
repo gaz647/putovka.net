@@ -46,98 +46,51 @@
   color: rgb(92, 92, 92);
 }
 
-/* JOB'S BODY PREVIEW */
-
-.one-job-body-preview {
-  color: rgb(65, 65, 65);
-}
-
-.one-job-body-preview-item-city {
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0 0.5rem;
-  text-align: center;
-}
-
-.one-job-body-preview-item-zipcode {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.one-job-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-}
-
-.one-job-body-preview {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
 /* JOB'S BODY */
 
-.one-job-body-content {
-  margin-top: 0.5rem;
+.one-job-body-container {
+  position: relative;
+  color: rgb(65, 65, 65);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.one-job-body-content-item-cmr {
-  color: #7f7f7f;
-  font-size: 0.85rem;
+.one-job-body-item {
   margin-bottom: 0.3rem;
 }
 
-.one-job-body-content-item-terminal {
-  color: #7f7f7f;
-  font-size: 0.85rem;
-  margin-bottom: 0.3rem;
+.one-job-body-city {
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.one-job-body-content-item-note {
-  font-style: italic;
-  color: #7f7f7f;
-  font-size: 0.85rem;
+.one-job-body-zipcode {
+  font-weight: bold;
+  font-size: 0.87rem;
+}
+
+.one-job-body-hidden-item {
   margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  color: #7f7f7f;
 }
 
 /* JOB'S FOOTER */
 
-.one-job-footer {
-  padding: 0 0.5rem;
-  height: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.one-job-footer-second-job-icon {
-  font-size: 1.2rem;
+.one-job-body-second-job-icon {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.5rem;
+  font-size: 1rem;
   color: #ff0000;
 }
 
-.one-job-footer-weight {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: rgb(65, 65, 65);
-  padding-bottom: 0.3rem;
-}
-
-.one-job-footer-waiting-icon {
+.one-job-body-waiting-icon {
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.5rem;
   color: #ff0000;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: bold;
-}
-
-.dis-hidden {
-  visibility: hidden;
-  /* display: none; */
 }

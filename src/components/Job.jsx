@@ -110,41 +110,41 @@ const Job = ({ jobDetails }) => {
           <FcExpand className={`expand-btn ${showDetails ? "opened" : ""}`} />
         </div>
       </div>
-      <div className="one-job-details" onClick={handleShow}>
-        <div className="one-job-body-preview">
-          {/* <div>{timestamp}</div> */}
-          <div className="one-job-body-preview-item-city">{city}</div>
-          <div className="one-job-body-preview-item-zipcode">{zipcode}</div>
-        </div>
+
+      <div className="one-job-body-container" onClick={handleShow}>
+        <div className="one-job-body-item one-job-body-city">{city}</div>
+        <div className="one-job-body-item one-job-body-zipcode">{zipcode}</div>
 
         {showDetails && (
-          <div className="one-job-body-content">
-            <div className="one-job-body-content-item-cmr">{cmr}</div>
-            <div className="one-job-body-content-item-terminal">
+          <>
+            {cmr !== "" ? (
+              <div className="one-job-body-hidden-item one-job-body-cmr">
+                {cmr}
+              </div>
+            ) : null}
+
+            <div className="one-job-body-hidden-item one-job-body-terminal">
               {"terminál: " + terminal}
             </div>
-            <div className="one-job-body-content-item-note">
-              {note !== "" ? <div>&#40;{note}&#41;</div> : ""}
-            </div>
-          </div>
+            {note !== "" ? (
+              <div className="one-job-body-hidden-item one-job-body-note">
+                {note}
+              </div>
+            ) : null}
+          </>
         )}
-      </div>
-      <div className="one-job-footer">
-        <div>
-          {isSecondJob ? (
-            <PiNumberSquareTwoBold className="one-job-footer-second-job-icon" />
-          ) : (
-            ""
-          )}
-        </div>
-        {/* <div className="one-job-footer-weight">{weight + "t"}</div> */}
-        <div>
-          {waiting > 0 ? (
-            <div className="one-job-footer-waiting-icon">{waiting}</div>
-          ) : (
-            ""
-          )}
-        </div>
+
+        {isSecondJob ? (
+          <PiNumberSquareTwoBold className="one-job-body-second-job-icon" />
+        ) : (
+          ""
+        )}
+
+        {waiting > 0 ? (
+          <div className="one-job-body-waiting-icon">{waiting}</div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
