@@ -2,21 +2,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem auto 0.5rem auto;
+  margin-bottom: 1rem;
 }
 
-.dashboard-summary-invoicing-left {
+.dashboard-summary-invoicing-container {
   width: 48%;
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 0.3rem;
+  text-align: center;
 }
 
-.dashboard-summary-invoicing-right {
-  width: 48%;
-  background-color: whitesmoke;
-  border-radius: 5px;
-  padding: 0.3rem;
+.dashboard-summary-invoicing-heading {
+  font-weight: bold;
+  margin: 0.5rem auto 1rem auto;
+}
+
+.dashboard-summary-invoicing-count {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
 .dashboard-summary-counts {
@@ -26,7 +31,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* margin-bottom: 1rem; */
+  margin-bottom: 1.5rem;
   padding: 0.3rem;
   border-radius: 5px;
 }
@@ -46,7 +51,6 @@
   border: none;
   display: block;
   width: 100%;
-  margin-top: 0.5rem;
   border-radius: 5px;
   height: 2rem;
   color: whitesmoke;
@@ -57,5 +61,5 @@
 }
 
 .dashboard-jobs {
-  margin: 2rem auto 5rem auto;
+  margin: 1.5rem auto 5rem auto;
 }

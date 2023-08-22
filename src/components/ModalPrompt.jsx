@@ -7,7 +7,7 @@ const ModalPrompt = ({ heading, text, clbFunction, closeModal }) => {
       <div className="modal-container">
         <div className="modal-heading">{heading}</div>
         {text !== "" ? (
-          <div className="modal-text">{"( " + text + " )"}</div>
+          <div className="modal-text">{"(" + text + ")"}</div>
         ) : null}
 
         <div className="modal-buttons-container">

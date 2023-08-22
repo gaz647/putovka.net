@@ -1,6 +1,5 @@
 .one-job {
-  /* width: 100%; */
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
 }
@@ -12,7 +11,6 @@
   padding: 0.2rem 0.5rem 0.5rem 0.5rem;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  /* border-bottom: 1px solid rgb(187, 187, 187); */
   background: linear-gradient(
     180deg,
     rgb(201, 201, 201) 0%,

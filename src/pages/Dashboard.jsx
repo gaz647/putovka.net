@@ -111,16 +111,22 @@ const Dashboard = () => {
         )}
 
         <div className="dashboard-summary-invoicing">
-          <div className="dashboard-summary-invoicing-left">
-            <div>{totalEur + " €"}</div>
-            <br />
+          <div className="dashboard-summary-invoicing-container">
+            <div className="dashboard-summary-invoicing-heading">Fakturace</div>
 
-            <div>{totalCzk + " Kč"}</div>
+            <div className="dashboard-summary-invoicing-count">
+              {totalEur + " € "}
+            </div>
+            <div className="dashboard-summary-invoicing-count">
+              {totalCzk + " Kč"}
+            </div>
           </div>
-          <div className="dashboard-summary-invoicing-right">
-            <p>Výplata</p>
+          <div className="dashboard-summary-invoicing-container">
+            <div className="dashboard-summary-invoicing-heading">Výplata</div>
             <br />
-            <div>{salary + " Kč"}</div>
+            <div className="dashboard-summary-invoicing-count">
+              {salary + " Kč"}
+            </div>
           </div>
         </div>
         <div className="dashboard-summary-counts">
