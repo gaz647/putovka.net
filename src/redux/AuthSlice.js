@@ -340,11 +340,11 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.loggedInUserEmail = auth.currentUser.email;
-        state.isLoading = false;
         state.loggedInUserUid = auth.currentUser.uid;
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
+        state.isLoading = false;
         console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
       })
       .addCase(login.rejected, (state, action) => {
