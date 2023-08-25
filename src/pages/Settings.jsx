@@ -18,7 +18,6 @@ const Settings = () => {
   );
   // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const isLoading = useSelector((state) => state.auth.isLoading);
-  const loggedInUserData = useSelector((state) => state.auth.loggedInUserData);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -27,22 +26,31 @@ const Settings = () => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const [baseMoney, setBaseMoney] = useState(
-    loggedInUserData.userSettings.baseMoney
+    useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
   );
+
   const email = useSelector((state) => state.auth.loggedInUserEmail);
 
+  const eurCzkRate = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
+  );
+
   const [terminal, setTerminal] = useState(
-    loggedInUserData.userSettings.terminal
+    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
 
   const [percentage, setPercentage] = useState(
-    loggedInUserData.userSettings.percentage
+    useSelector((state) => state.auth.loggedInUserData.userSettings.percentage)
   );
   const [secondJobBenefit, setSecondJobBenefit] = useState(
-    loggedInUserData.userSettings.secondJobBenefit
+    useSelector(
+      (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
+    )
   );
   const [waitingBenefit, setWaitingBenefit] = useState(
-    loggedInUserData.userSettings.waitingBenefit
+    useSelector(
+      (state) => state.auth.loggedInUserData.userSettings.waitingBenefit
+    )
   );
 
   const handleSubmit = (e) => {
@@ -52,6 +60,7 @@ const Settings = () => {
       userSettings: {
         baseMoney: Number(baseMoney),
         email,
+        eurCzkRate,
         percentage: Number(percentage),
         secondJobBenefit: Number(secondJobBenefit),
         terminal,

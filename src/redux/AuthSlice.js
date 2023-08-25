@@ -19,6 +19,7 @@ import {
   runTransaction,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
+import axios from "axios";
 
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
@@ -30,13 +31,23 @@ const createUserData = async (userAuth) => {
   const usersCollectionRef = collection(db, "users");
 
   // Funkce pro vytvoření databázové struktury uživatele
+  const API_KEY = "82514d87dee3023eb8c649dc";
+  const FROM_CURRENCY = "EUR";
+  const TO_CURRENCY = "CZK";
+  const AMOUNT = 1;
+
   try {
+    const response = await axios.get(
+      `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${FROM_CURRENCY}/${TO_CURRENCY}/${AMOUNT}`
+    );
+    console.log(response);
     await setDoc(doc(usersCollectionRef, uid), {
       currentJobs: [],
       archivedJobs: [],
       userSettings: {
         baseMoney: 0,
         email: email,
+        eurCzkRate: response.data.conversion_rate,
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "ceska_trebova",
@@ -91,9 +102,21 @@ export const login = createAsyncThunk(
         console.log("login Uživatelův email je verified");
         console.log("login Ukládám tuto informaci do local storage");
         localStorage.setItem("emailVerified", "true");
+
+        const uid = auth.currentUser.uid;
+        const userRef = doc(db, "users", uid);
+
+        try {
+          const userData = await getDoc(userRef);
+
+          if (userData.exists()) {
+            return userData.data();
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
       } else {
         console.log("login Uživatelův email nebyl verified");
-
         localStorage.removeItem("emailVerified");
         try {
           console.log("login signOut(auth) Odhlašuji...");
@@ -237,6 +260,7 @@ export const authSlice = createSlice({
       userSettings: {
         baseMoney: 0,
         email: "",
+        eurCzkRate: 0,
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "",
@@ -263,10 +287,12 @@ export const authSlice = createSlice({
       console.log("logoutOnAuth SPUŠTĚN");
       state.isLoggedIn = false;
       state.loggedInUserEmail = null;
+      state.loggedInUserUid = null;
       state.loggedInUserData.archivedJobs = [];
       state.loggedInUserData.currentJobs = [];
       state.loggedInUserData.userSettings.baseMoney = 0;
       state.loggedInUserData.userSettings.email = "";
+      state.loggedInUserData.userSettings.eurCzkRate = 0;
       state.loggedInUserData.userSettings.percentage = 0;
       state.loggedInUserData.userSettings.secondJobBenefit = 0;
       state.loggedInUserData.userSettings.terminal = "";
@@ -291,6 +317,10 @@ export const authSlice = createSlice({
       state.loggedInUserData.userSettings.waitingBenefit =
         action.payload.userSettings.waitingBenefit;
     },
+    // setEurCzkRate(state, action) {
+    //   console.log("setEurCzkRate SPUŠTĚN");
+    //   state.loggedInUserData.userSettings.eurCzkRate = action.payload;
+    // },
   },
   extraReducers: (builder) => {
     builder
@@ -307,11 +337,15 @@ export const authSlice = createSlice({
         console.log("login PROBÍHÁ");
         state.isLoading = true;
       })
-      .addCase(login.fulfilled, (state) => {
-        console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
+      .addCase(login.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.loggedInUserEmail = auth.currentUser.email;
         state.isLoading = false;
+        state.loggedInUserUid = auth.currentUser.uid;
+        state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
+        state.loggedInUserData.currentJobs = action.payload.currentJobs;
+        state.loggedInUserData.userSettings = action.payload.userSettings;
+        console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
       })
       .addCase(login.rejected, (state, action) => {
         console.log("login SELHAL", action.error.message);
@@ -340,18 +374,7 @@ export const authSlice = createSlice({
         console.log("loadUserData ÚSPĚŠNĚ DOKONČEN", action.payload);
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
-        state.loggedInUserData.userSettings.baseMoney =
-          action.payload.userSettings.baseMoney;
-        state.loggedInUserData.userSettings.email =
-          action.payload.userSettings.email;
-        state.loggedInUserData.userSettings.percentage =
-          action.payload.userSettings.percentage;
-        state.loggedInUserData.userSettings.secondJobBenefit =
-          action.payload.userSettings.secondJobBenefit;
-        state.loggedInUserData.userSettings.terminal =
-          action.payload.userSettings.terminal;
-        state.loggedInUserData.userSettings.waitingBenefit =
-          action.payload.userSettings.waitingBenefit;
+        state.loggedInUserData.userSettings = action.payload.userSettings;
       })
       .addCase(loadUserData.rejected, (action) => {
         console.log("loadUserData SELHAL", action.error.message);
@@ -388,9 +411,6 @@ export const authSlice = createSlice({
         state.loggedInUserData.userSettings.waitingBenefit =
           action.payload.waitingBenefit;
         console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
-      })
-      .addCase(changeSettings.rejected, (action) => {
-        console.log("changeSettings SELHAL", action.error.message);
       });
   },
 });

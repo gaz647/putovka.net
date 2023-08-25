@@ -28,7 +28,6 @@ import {
 } from "./redux/AuthSlice";
 
 const App = () => {
-  // console.log("kokot", import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY);
   const dispatch = useDispatch();
   dispatch(setLoadingTrue());
 
@@ -40,7 +39,7 @@ const App = () => {
         try {
           console.log("lsEmailVerified NALEZEN v localStorage");
           console.log("loadUserData SPUŠTĚN dispatch v App.jsx");
-          await dispatch(loadUserData(user.uid));
+          dispatch(loadUserData(user.uid));
           console.log("loginOnAuth SPUŠTĚN dispatch v App.jsx");
           dispatch(loginOnAuth({ email: user.email, uid: user.uid }));
           console.log("setLoadingFalse SPUŠTĚN dispatch v App.jsx");

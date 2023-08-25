@@ -23,6 +23,10 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.userSettings.baseMoney
   );
 
+  const eurCzkRate = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
+  );
+
   const percentage = useSelector(
     (state) => state.auth.loggedInUserData.userSettings.percentage
   );
@@ -42,7 +46,6 @@ const Dashboard = () => {
     return () => {
       unsub();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -60,7 +63,7 @@ const Dashboard = () => {
         return acc + Number(oneJob.price);
       }, 0)
     );
-    setTotalCzk(totalEur * 27);
+    setTotalCzk(parseInt(totalEur * eurCzkRate));
 
     setSalary(
       parseInt(
@@ -72,6 +75,7 @@ const Dashboard = () => {
     );
   }, [
     currentJobs,
+    eurCzkRate,
     totalEur,
     baseMoney,
     totalCzk,
@@ -97,6 +101,21 @@ const Dashboard = () => {
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
+
+  // const archiveMonthTemplate = {
+  //   month: "08-2023",
+  //   jobs: [],
+  //   summary: {
+  //     jobs: 0,
+  //     eur: 0,
+  //     czk: 0,
+  //     secondJobs: 0,
+  //     waiting: 0,
+  //     eurCzkRate: 0,
+  //     percentage: 0,
+  //     salary: 0,
+  //   },
+  // };
 
   return (
     <section className="wrapper relative">
