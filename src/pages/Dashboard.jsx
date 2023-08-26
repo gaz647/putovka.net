@@ -6,11 +6,16 @@ import { useSelector } from "react-redux";
 import { db } from "../firebase/config";
 import { onSnapshot, doc } from "firebase/firestore";
 import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
+import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 
 const Dashboard = () => {
   const [currentJobs, setCurrentJobs] = useState([]);
 
-  const loggedInUserUid = useSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
+  );
+
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const [totalEur, setTotalEur] = useState(0);
   const [totalCzk, setTotalCzk] = useState(0);
@@ -40,7 +45,7 @@ const Dashboard = () => {
   );
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, `users/${loggedInUserUid}`), (doc) => {
+    const unsub = onSnapshot(doc(db, `users/${userUid}`), (doc) => {
       setCurrentJobs(doc.data().currentJobs);
     });
     return () => {
@@ -94,35 +99,126 @@ const Dashboard = () => {
 
   const archiveModalText = "tento krok nelze vrátit";
 
-  const handleArchiveJobs = () => {
-    console.log("archivovat");
+  //
+  //
+  //
+  const archiveJobs = () => {
     setShowArchiveModal(!showArchiveModal);
-    const dateForArchiving = currentJobs[currentJobs.length - 1].date;
-    console.log(
-      "dateForArchiving - datum poslední práce v currentJobs",
-      dateForArchiving
+
+    const tempArchivedJobs = [...archivedJobs];
+
+    const dateForArchiving =
+      currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
+
+    const jobsToBeArchived = currentJobs.filter(
+      (oneJob) =>
+        getDateForComparing(oneJob.date) ===
+        getDateForComparing(dateForArchiving)
     );
-    const transformedDateForArchiving = dateForArchiving.slice(0, -2) + "01";
-    console.log(
-      "transformedDateForArchivin - upravené datum poslední práce v currentJobs",
-      transformedDateForArchiving
+
+    const summaryJobs = jobsToBeArchived.length;
+
+    const summarySecondJobs = jobsToBeArchived.reduce((acc, job) => {
+      return job.isSecondJob ? acc + 1 : acc;
+    }, 0);
+
+    const summaryWaiting = jobsToBeArchived.reduce((acc, job) => {
+      return acc + job.waiting;
+    }, 0);
+
+    const summaryEur = jobsToBeArchived.reduce((acc, job) => {
+      return acc + job.price;
+    }, 0);
+
+    const summaryEurCzkRate = eurCzkRate;
+
+    const summaryCzk = parseInt(summaryEur * summaryEurCzkRate);
+
+    const summaryBaseMoney = baseMoney;
+
+    const summaryPercentage = percentage;
+
+    const summarySecondJobBenefit = secondJobBenefit;
+
+    const summaryWaitingBenefit = waitingBenefit;
+
+    const summarySalary = parseInt(
+      summaryBaseMoney +
+        summaryCzk * (summaryPercentage * 0.01) +
+        summarySecondJobs * summarySecondJobBenefit +
+        summaryWaiting * summaryWaitingBenefit
     );
+
+    const monthToArchive = {
+      date: dateForArchiving,
+      jobs: jobsToBeArchived,
+      summary: {
+        jobs: summaryJobs,
+        secondJobs: summarySecondJobs,
+        waiting: summaryWaiting,
+        eur: summaryEur,
+        eurCzkRate: summaryEurCzkRate,
+        czk: summaryCzk,
+        baseMoney: summaryBaseMoney,
+        percentage: summaryPercentage,
+        salary: summarySalary,
+      },
+    };
+    console.log("payload", monthToArchive);
+
+    // Pokud je archiv prázdný
+    //
+    if (tempArchivedJobs.length === 0) {
+      console.log("archiv je prázdný");
+      console.log("první ukládání do archivu");
+      const payload = { userUid, monthToArchive };
+      console.log(payload);
+      // dispatch(archiveDoneJobsFirstTime(payload))
+    }
+    // Pokud archív NENÍ prázdný
+    //
+    else {
+      console.log("archiv není prázdný");
+
+      const indexOfMonthToPutJobs = tempArchivedJobs.findIndex(
+        (oneMonth) =>
+          getDateForComparing(oneMonth.date) ===
+          getDateForComparing(dateForArchiving)
+      );
+
+      // Když měsíc v archivu neexistuje
+      //
+      if (indexOfMonthToPutJobs === -1) {
+        console.log("měsíc v archivu neexistuje");
+        console.log("kód pro přidání nového měsíce do archivu");
+      }
+      // Když měsíc v archivu existuje
+      //
+      else {
+        console.log("měsíc v archivu existuje");
+        console.log("index měsíce v archivu je: ", indexOfMonthToPutJobs);
+        console.log("kód pro přidání prací do existujícího měsíce v archivu");
+      }
+    }
   };
+  //
+  //
+  //
 
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
 
   // const archiveMonthTemplate = {
-  //   month: "08-2023",
-  //   jobs: [],
+  //   date: "2023-08-01",
+  //   jobs: [{}, {}, {}],
   //   summary: {
   //     jobs: 0,
   //     eur: 0,
   //     czk: 0,
   //     secondJobs: 0,
   //     waiting: 0,
-  //     eurCzkRate: 0,
+  //     eurCzkRate: 23.751,
   //     percentage: 0,
   //     salary: 0,
   //   },
@@ -135,7 +231,7 @@ const Dashboard = () => {
           <ModalPrompt
             heading={archiveModalHeading}
             text={archiveModalText}
-            clbFunction={handleArchiveJobs}
+            clbFunction={archiveJobs}
             closeModal={handleArchiveModalVisibility}
           />
         )}

@@ -2,17 +2,22 @@ import "./EditJob.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { editJobInDatabase, setEditing } from "../redux/JobsSlice";
+import { editJobInDatabase, setEditing } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
+import sortJobs from "../customFunctionsAndHooks/sortJobs";
 
 const EditJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isCustomJob = useSelector((state) => state.jobs.jobToEdit.isCustomJob);
+  const currentJobs = useSelector(
+    (state) => state.auth.loggedInUserData.currentJobs
+  );
+
+  const isCustomJob = useSelector((state) => state.auth.jobToEdit.isCustomJob);
 
   const [date, setDate] = useState(
-    useSelector((state) => state.jobs.jobToEdit.date)
+    useSelector((state) => state.auth.jobToEdit.date)
   );
 
   const getCurrentDayCZ = (dateVariable) => {
@@ -28,25 +33,25 @@ const EditJob = () => {
   const [day, setDay] = useState("");
 
   const [city, setCity] = useState(
-    useSelector((state) => state.jobs.jobToEdit.city)
+    useSelector((state) => state.auth.jobToEdit.city)
   );
 
   const [cmr, setCmr] = useState(
-    useSelector((state) => state.jobs.jobToEdit.cmr)
+    useSelector((state) => state.auth.jobToEdit.cmr)
   );
 
-  const timestamp = useSelector((state) => state.jobs.jobToEdit.timestamp);
+  const timestamp = useSelector((state) => state.auth.jobToEdit.timestamp);
 
   const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.jobs.jobToEdit.zipcode)
+    useSelector((state) => state.auth.jobToEdit.zipcode)
   );
 
-  const weightTo27t = useSelector((state) => state.jobs.jobToEdit.weightTo27t);
+  const weightTo27t = useSelector((state) => state.auth.jobToEdit.weightTo27t);
 
-  const weightTo34t = useSelector((state) => state.jobs.jobToEdit.weightTo34t);
+  const weightTo34t = useSelector((state) => state.auth.jobToEdit.weightTo34t);
 
   const [weight, setWeight] = useState(
-    useSelector((state) => state.jobs.jobToEdit.weight)
+    useSelector((state) => state.auth.jobToEdit.weight)
   );
 
   const [clicked27, setClicked27] = useState(weight === 27 ? true : false);
@@ -71,26 +76,26 @@ const EditJob = () => {
   };
 
   const [price, setPrice] = useState(
-    useSelector((state) => state.jobs.jobToEdit.price)
+    useSelector((state) => state.auth.jobToEdit.price)
   );
 
   const [isSecondJob, setIsSecondJob] = useState(
-    useSelector((state) => state.jobs.jobToEdit.isSecondJob)
+    useSelector((state) => state.auth.jobToEdit.isSecondJob)
   );
 
   const [waiting, setWaiting] = useState(
-    useSelector((state) => state.jobs.jobToEdit.waiting)
+    useSelector((state) => state.auth.jobToEdit.waiting)
   );
 
   const [note, setNote] = useState(
-    useSelector((state) => state.jobs.jobToEdit.note)
+    useSelector((state) => state.auth.jobToEdit.note)
   );
 
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.jobs.jobToEdit.terminal)
+    useSelector((state) => state.auth.jobToEdit.terminal)
   );
 
-  const id = useSelector((state) => state.jobs.jobToEdit.id);
+  const id = useSelector((state) => state.auth.jobToEdit.id);
 
   // const displayProperTerminalName = (value) => {
   //   if (value === "ceska_trebova") {
@@ -113,7 +118,9 @@ const EditJob = () => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const editJob = () => {
-    const jobDetails = {
+    const tempCurrentJobs = [...currentJobs];
+
+    const editedJob = {
       city,
       cmr,
       date,
@@ -125,16 +132,28 @@ const EditJob = () => {
       price,
       terminal,
       timestamp,
-      waiting,
+      waiting: Number(waiting),
       weight,
       weightTo27t,
       weightTo34t,
       zipcode,
     };
-    const payload = { userUid, jobDetails };
-    dispatch(editJobInDatabase(payload));
-    dispatch(setEditing(false));
-    navigate("/");
+
+    const indexOfJobToBeEdited = tempCurrentJobs.findIndex(
+      (job) => job.id === editedJob.id
+    );
+
+    if (indexOfJobToBeEdited !== -1) {
+      tempCurrentJobs[indexOfJobToBeEdited] = editedJob;
+
+      const sortedCurrentJobsEdit = sortJobs(tempCurrentJobs);
+
+      const payload = { userUid, sortedCurrentJobsEdit };
+
+      dispatch(editJobInDatabase(payload));
+      dispatch(setEditing(false));
+      navigate("/");
+    }
   };
 
   return (

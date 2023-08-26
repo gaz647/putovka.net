@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./SearchResult.css";
 import { useDispatch } from "react-redux";
-import { setJobToAdd } from "../redux/JobsSlice";
+import { setJobToAdd } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import AddButton from "../assets/icons/add-button.svg";
 

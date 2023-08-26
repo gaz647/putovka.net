@@ -20,6 +20,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 import axios from "axios";
+import sortJobs from "../customFunctionsAndHooks/sortJobs";
 
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
@@ -244,6 +245,96 @@ export const changeSettings = createAsyncThunk(
   }
 );
 
+//  ADD JOB
+//
+export const addJobToDatabase = createAsyncThunk(
+  "jobs/addJobToDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            currentJobs: payload.sortedCurrentJobs,
+          });
+        }
+      });
+      return payload.sortedCurrentJobs;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  EDIT JOB
+//
+export const editJobInDatabase = createAsyncThunk(
+  "jobs/editJobInDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            currentJobs: payload.sortedCurrentJobsEdit,
+          });
+        }
+      });
+      return payload.sortedCurrentJobsEdit;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+// DELETE JOB
+//
+export const deleteJobFromDatabase = createAsyncThunk(
+  "jobs/deleteJobFromDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            currentJobs: payload.filteredCurrentJobs,
+          });
+        }
+      });
+      return payload.filteredCurrentJobs;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  ARCHIVE DONE JOBS - FIRST TIME
+export const archiveDoneJobsFirstTime = createAsyncThunk(
+  "jobs/archiveDoneJobsFirstTime",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobsJobs: payload.monthToArchive,
+          });
+        }
+      });
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
 // -------------------------------------------------------------------------------------
 
 export const authSlice = createSlice({
@@ -267,22 +358,50 @@ export const authSlice = createSlice({
         waitingBenefit: 0,
       },
     },
+    jobToAdd: {
+      city: "",
+      isCustomJob: true,
+      terminal: "",
+      weightTo27t: 0,
+      weightTo34t: 0,
+      zipcode: "",
+    },
+    isEditing: false,
+    jobToEdit: {
+      city: "",
+      cmr: "",
+      date: "",
+      id: "",
+      isCustomJob: "",
+      isSecondJob: false,
+      note: "",
+      price: 0,
+      terminal: "",
+      waiting: 0,
+      weight: 0,
+      weightTo27t: 0,
+      weightTo34t: 0,
+      zipcode: "",
+    },
   },
   reducers: {
     setLoadingTrue(state) {
       console.log("setLoadingTrue SPUŠTĚN");
       state.isLoading = true;
     },
+
     setLoadingFalse(state) {
       console.log("setLoadingFalse SPUŠTĚN");
       state.isLoading = false;
     },
+
     loginOnAuth(state, action) {
       console.log("loginOnAuth SPUŠTĚN");
       state.isLoggedIn = true;
       state.loggedInUserEmail = action.payload.email;
       state.loggedInUserUid = action.payload.uid;
     },
+
     logoutOnAuth(state) {
       console.log("logoutOnAuth SPUŠTĚN");
       state.isLoggedIn = false;
@@ -317,10 +436,37 @@ export const authSlice = createSlice({
       state.loggedInUserData.userSettings.waitingBenefit =
         action.payload.userSettings.waitingBenefit;
     },
-    // setEurCzkRate(state, action) {
-    //   console.log("setEurCzkRate SPUŠTĚN");
-    //   state.loggedInUserData.userSettings.eurCzkRate = action.payload;
-    // },
+
+    setJobToAdd: (state, action) => {
+      state.jobToAdd.city = action.payload.city;
+      state.jobToAdd.isCustomJob = action.payload.isCustomJob;
+      state.jobToAdd.terminal = action.payload.terminal;
+      state.jobToAdd.weightTo27t = action.payload.weightTo27t;
+      state.jobToAdd.weightTo34t = action.payload.weightTo34t;
+      state.jobToAdd.zipcode = action.payload.zipcode;
+    },
+
+    setJobToEdit: (state, action) => {
+      state.jobToEdit.city = action.payload.city;
+      state.jobToEdit.cmr = action.payload.cmr;
+      state.jobToEdit.date = action.payload.date;
+      state.jobToEdit.id = action.payload.id;
+      state.jobToEdit.isCustomJob = action.payload.isCustomJob;
+      state.jobToEdit.isSecondJob = action.payload.isSecondJob;
+      state.jobToEdit.note = action.payload.note;
+      state.jobToEdit.price = action.payload.price;
+      state.jobToEdit.terminal = action.payload.terminal;
+      state.jobToEdit.timestamp = action.payload.timestamp;
+      state.jobToEdit.waiting = action.payload.waiting;
+      state.jobToEdit.weight = action.payload.weight;
+      state.jobToEdit.weightTo27t = action.payload.weightTo27t;
+      state.jobToEdit.weightTo34t = action.payload.weightTo34t;
+      state.jobToEdit.zipcode = action.payload.zipcode;
+    },
+
+    setEditing: (state, action) => {
+      state.isEditing = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -411,6 +557,57 @@ export const authSlice = createSlice({
         state.loggedInUserData.userSettings.waitingBenefit =
           action.payload.waitingBenefit;
         console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
+      })
+      .addCase(addJobToDatabase.pending, () => {
+        console.log("addJobToDatabase PROBÍHÁ");
+      })
+      .addCase(addJobToDatabase.fulfilled, (state, action) => {
+        console.log("addJobToDatabase ÚSPĚŠNĚ DOKONČEN");
+        state.jobToAdd.city = "";
+        state.jobToAdd.price = 0;
+        state.jobToAdd.terminal = "";
+        state.jobToAdd.weight = 0;
+        state.jobToAdd.weightTo27t = 0;
+        state.jobToAdd.weightTo34t = 0;
+        state.jobToAdd.zipcode = "";
+        state.loggedInUserData.currentJobs = action.payload;
+      })
+      .addCase(addJobToDatabase.rejected, () => {
+        console.log("addJobToDatabase SELHAL");
+      })
+      .addCase(editJobInDatabase.pending, () => {
+        console.log("editJobInDatabase PROBÍHÁ");
+      })
+      .addCase(editJobInDatabase.fulfilled, (state, action) => {
+        console.log("editJobInDatabase ÚSPĚŠNĚ DOKONČEN");
+        state.jobToEdit.city = "";
+        state.jobToEdit.cmr = "";
+        state.jobToEdit.date = "";
+        state.jobToEdit.id = "";
+        state.jobToEdit.isCustomJob = "";
+        state.jobToEdit.isSecondJob = false;
+        state.jobToEdit.note = "";
+        state.jobToEdit.price = 0;
+        state.jobToEdit.terminal = "";
+        state.jobToEdit.waiting = 0;
+        state.jobToEdit.weight = 0;
+        state.jobToEdit.weightTo27t = 0;
+        state.jobToEdit.weightTo34t = 0;
+        state.jobToEdit.zipcode = "";
+        state.loggedInUserData.currentJobs = action.payload;
+      })
+      .addCase(editJobInDatabase.rejected, () => {
+        console.log("editJobInDatabase SELHAL");
+      })
+      .addCase(deleteJobFromDatabase.pending, () => {
+        console.log("deleteJobFromDatabase PROBÍHÁ");
+      })
+      .addCase(deleteJobFromDatabase.fulfilled, (state, action) => {
+        state.loggedInUserData.currentJobs = action.payload;
+        console.log("deleteJobFromDatabase ÚSPĚŠNĚ DOKONČEN");
+      })
+      .addCase(deleteJobFromDatabase.rejected, () => {
+        console.log("deleteJobFromDatabase SELHAL");
       });
   },
 });
@@ -421,6 +618,9 @@ export const {
   loginOnAuth,
   logoutOnAuth,
   setLoadedUserData,
+  setJobToAdd,
+  setJobToEdit,
+  setEditing,
 } = authSlice.actions;
 
 export default authSlice.reducer;

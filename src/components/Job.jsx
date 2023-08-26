@@ -5,7 +5,7 @@ import {
   deleteJobFromDatabase,
   setEditing,
   setJobToEdit,
-} from "../redux/JobsSlice";
+} from "../redux/AuthSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 import { FcExpand } from "react-icons/fc";
@@ -17,6 +17,10 @@ import ModalPrompt from "./ModalPrompt";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 
 const Job = ({ jobDetails }) => {
+  const currentJobs = useSelector(
+    (state) => state.auth.loggedInUserData.currentJobs
+  );
+
   const {
     city,
     cmr,
@@ -42,8 +46,15 @@ const Job = ({ jobDetails }) => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const deleteJob = () => {
+    const tempCurrentJobs = [...currentJobs];
+
     const jobId = id;
-    const payload = { userUid, jobId };
+
+    const filteredCurrentJobs = tempCurrentJobs.filter(
+      (oneJob) => oneJob.id !== jobId
+    );
+
+    const payload = { userUid, filteredCurrentJobs };
     dispatch(deleteJobFromDatabase(payload));
   };
 

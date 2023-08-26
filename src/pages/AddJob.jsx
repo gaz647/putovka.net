@@ -2,24 +2,30 @@ import { useState, useEffect } from "react";
 import "./AddJob.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addJobToDatabase } from "../redux/JobsSlice";
+import { addJobToDatabase } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
+import getCurrentDate from "../customFunctionsAndHooks/getCurrentDate";
 import getProperTerminalName from "../customFunctionsAndHooks/getProperTerminalName";
+import sortJobs from "../customFunctionsAndHooks/sortJobs";
 
 const AddJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const getCurrentDate = () => {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, "0");
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const yyyy = today.getFullYear();
-    const currentDate = yyyy + "-" + mm + "-" + dd;
-    return currentDate;
-  };
+  const currentJobs = useSelector(
+    (state) => state.auth.loggedInUserData.currentJobs
+  );
+
+  // const getCurrentDate = () => {
+  //   const today = new Date();
+  //   const dd = String(today.getDate()).padStart(2, "0");
+  //   const mm = String(today.getMonth() + 1).padStart(2, "0");
+  //   const yyyy = today.getFullYear();
+  //   const currentDate = yyyy + "-" + mm + "-" + dd;
+  //   return currentDate;
+  // };
 
   const [date, setDate] = useState(getCurrentDate());
 
@@ -36,18 +42,18 @@ const AddJob = () => {
   const [day, setDay] = useState(getCzDayFromDate(date));
 
   const [city, setCity] = useState(
-    useSelector((state) => state.jobs.jobToAdd.city)
+    useSelector((state) => state.auth.jobToAdd.city)
   );
 
   const [cmr, setCmr] = useState("");
 
   const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.jobs.jobToAdd.zipcode)
+    useSelector((state) => state.auth.jobToAdd.zipcode)
   );
 
-  const weightTo27t = useSelector((state) => state.jobs.jobToAdd.weightTo27t);
+  const weightTo27t = useSelector((state) => state.auth.jobToAdd.weightTo27t);
 
-  const weightTo34t = useSelector((state) => state.jobs.jobToAdd.weightTo34t);
+  const weightTo34t = useSelector((state) => state.auth.jobToAdd.weightTo34t);
 
   const [weight, setWeight] = useState(27);
 
@@ -70,7 +76,7 @@ const AddJob = () => {
 
   const [price, setPrice] = useState(weightTo27t);
 
-  const isCustomJob = useSelector((state) => state.jobs.jobToAdd.isCustomJob);
+  const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
 
   const [isSecondJob, setIsSecondJob] = useState(false);
 
@@ -103,7 +109,9 @@ const AddJob = () => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const addJob = () => {
-    const jobDetails = {
+    const tempCurrentJobs = [...currentJobs];
+
+    const newJob = {
       city,
       cmr,
       date,
@@ -115,13 +123,19 @@ const AddJob = () => {
       price,
       terminal: getProperTerminalName(terminal),
       timestamp: new Date().getTime(),
-      waiting,
+      waiting: Number(waiting),
       weight,
       weightTo27t,
       weightTo34t,
       zipcode,
     };
-    const payload = { userUid, jobDetails };
+
+    tempCurrentJobs.unshift(newJob);
+
+    const sortedCurrentJobs = sortJobs(tempCurrentJobs);
+
+    const payload = { userUid, sortedCurrentJobs };
+
     dispatch(addJobToDatabase(payload));
     navigate("/");
   };

@@ -8,10 +8,10 @@ import { FiSettings } from "react-icons/fi";
 import { BsPencil } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setEditing } from "../redux/JobsSlice";
+import { setEditing } from "../redux/AuthSlice";
 
 const Navbar = () => {
-  const isEditing = useSelector((state) => state.jobs.isEditing);
+  const isEditing = useSelector((state) => state.auth.isEditing);
 
   const dispatch = useDispatch();
 
