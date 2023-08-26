@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { addJobToDatabase } from "../redux/JobsSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
+import getProperTerminalName from "../customFunctionsAndHooks/getProperTerminalName";
 
 const AddJob = () => {
   const dispatch = useDispatch();
@@ -21,17 +23,17 @@ const AddJob = () => {
 
   const [date, setDate] = useState(getCurrentDate());
 
-  const getCurrentDayCZ = (dateVariable) => {
-    const dateTransformed = new Date(dateVariable);
-    const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
-    return daysOfTheWeek[dateTransformed.getDay()];
-  };
+  // const getCurrentDayCz = (dateVariable) => {
+  //   const dateTransformed = new Date(dateVariable);
+  //   const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
+  //   return daysOfTheWeek[dateTransformed.getDay()];
+  // };
 
   useEffect(() => {
-    setDay(getCurrentDayCZ(date));
+    setDay(getCzDayFromDate(date));
   }, [date]);
 
-  const [day, setDay] = useState(getCurrentDayCZ(date));
+  const [day, setDay] = useState(getCzDayFromDate(date));
 
   const [city, setCity] = useState(
     useSelector((state) => state.jobs.jobToAdd.city)
@@ -80,23 +82,23 @@ const AddJob = () => {
     useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
 
-  const displayProperTerminalName = (value) => {
-    if (value === "ceska_trebova") {
-      return "Česká Třebová";
-    } else if (value === "ostrava") {
-      return "Ostrava";
-    } else if (value === "plzen") {
-      return "Plzeň";
-    } else if (value === "praha") {
-      return "Praha";
-    } else if (value === "usti_nad_labem") {
-      return "Ústí nad Labem";
-    } else if (value === "zlin") {
-      return "Zlín";
-    } else {
-      return value;
-    }
-  };
+  // const displayProperTerminalName = (value) => {
+  //   if (value === "ceska_trebova") {
+  //     return "Česká Třebová";
+  //   } else if (value === "ostrava") {
+  //     return "Ostrava";
+  //   } else if (value === "plzen") {
+  //     return "Plzeň";
+  //   } else if (value === "praha") {
+  //     return "Praha";
+  //   } else if (value === "usti_nad_labem") {
+  //     return "Ústí nad Labem";
+  //   } else if (value === "zlin") {
+  //     return "Zlín";
+  //   } else {
+  //     return value;
+  //   }
+  // };
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
@@ -111,7 +113,7 @@ const AddJob = () => {
       isSecondJob,
       note,
       price,
-      terminal: displayProperTerminalName(terminal),
+      terminal: getProperTerminalName(terminal),
       timestamp: new Date().getTime(),
       waiting,
       weight,
@@ -249,7 +251,7 @@ const AddJob = () => {
           <input
             className="add-job-form-field"
             type="text"
-            value={displayProperTerminalName(terminal)}
+            value={getProperTerminalName(terminal)}
             onChange={(e) => setTerminal(e.target.value)}
           />
         </div>

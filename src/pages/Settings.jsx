@@ -16,7 +16,7 @@ const Settings = () => {
   const loggedInUserEmail = useSelector(
     (state) => state.auth.loggedInUserEmail
   );
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   const isLoading = useSelector((state) => state.auth.isLoading);
 
   const handleLogout = () => {

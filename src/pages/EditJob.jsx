@@ -92,23 +92,23 @@ const EditJob = () => {
 
   const id = useSelector((state) => state.jobs.jobToEdit.id);
 
-  const displayProperTerminalName = (value) => {
-    if (value === "ceska_trebova") {
-      return "Česká Třebová";
-    } else if (value === "ostrava") {
-      return "Ostrava";
-    } else if (value === "plzen") {
-      return "Plzeň";
-    } else if (value === "praha") {
-      return "Praha";
-    } else if (value === "usti_nad_labem") {
-      return "Ústí nad Labem";
-    } else if (value === "zlin") {
-      return "Zlín";
-    } else {
-      return value;
-    }
-  };
+  // const displayProperTerminalName = (value) => {
+  //   if (value === "ceska_trebova") {
+  //     return "Česká Třebová";
+  //   } else if (value === "ostrava") {
+  //     return "Ostrava";
+  //   } else if (value === "plzen") {
+  //     return "Plzeň";
+  //   } else if (value === "praha") {
+  //     return "Praha";
+  //   } else if (value === "usti_nad_labem") {
+  //     return "Ústí nad Labem";
+  //   } else if (value === "zlin") {
+  //     return "Zlín";
+  //   } else {
+  //     return value;
+  //   }
+  // };
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
@@ -123,7 +123,7 @@ const EditJob = () => {
       isSecondJob,
       note,
       price,
-      terminal: displayProperTerminalName(terminal),
+      terminal,
       timestamp,
       waiting,
       weight,
@@ -262,7 +262,7 @@ const EditJob = () => {
           <input
             className="add-job-form-field"
             type="text"
-            value={displayProperTerminalName(terminal)}
+            value={terminal}
             onChange={(e) => setTerminal(e.target.value)}
           />
         </div>

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { runTransaction, doc } from "firebase/firestore";
 import { db } from "../firebase/config";
+import sortJobs from "../customFunctionsAndHooks/sortJobs";
 
 //  ADD JOB
 //
@@ -18,28 +19,10 @@ export const addJobToDatabase = createAsyncThunk(
 
           currentJobs.unshift(payload.jobDetails);
 
-          currentJobs.sort((a, b) => {
-            const dateA = new Date(a.date);
-            const dateB = new Date(b.date);
-
-            // Porovnání dle data
-            if (dateA > dateB) return -1;
-            if (dateA < dateB) return 1;
-
-            // Pokud jsou data stejná, porovnává klíč isSecondJob
-            if (a.isSecondJob && !b.isSecondJob) return -1;
-            if (!a.isSecondJob && b.isSecondJob) return 1;
-
-            // Pokud jsou i isSecondJob stejná nebo žádné z objektů nemá isSecondJob: true,
-            // porovnává klíč timestamp
-            if (a.timestamp > b.timestamp) return -1;
-            if (a.timestamp < b.timestamp) return 1;
-
-            return 0;
-          });
+          const sortedCurrentJobs = sortJobs(currentJobs);
 
           transaction.update(userDocRef, {
-            currentJobs: currentJobs,
+            currentJobs: sortedCurrentJobs,
           });
         }
       });
@@ -70,28 +53,10 @@ export const editJobInDatabase = createAsyncThunk(
           if (indexOfJobToBeEdited !== -1) {
             currentJobs[indexOfJobToBeEdited] = payload.jobDetails;
 
-            currentJobs.sort((a, b) => {
-              const dateA = new Date(a.date);
-              const dateB = new Date(b.date);
-
-              // Porovnání dle data
-              if (dateA > dateB) return -1;
-              if (dateA < dateB) return 1;
-
-              // Pokud jsou data stejná, porovnává klíč isSecondJob
-              if (a.isSecondJob && !b.isSecondJob) return -1;
-              if (!a.isSecondJob && b.isSecondJob) return 1;
-
-              // Pokud jsou i isSecondJob stejná nebo žádné z objektů nemá isSecondJob: true,
-              // porovnává klíč timestamp
-              // if (a.timestamp > b.timestamp) return -1;
-              // if (a.timestamp < b.timestamp) return 1;
-
-              return 0;
-            });
+            const sortedCurrentJobsEdit = sortJobs(currentJobs);
 
             transaction.update(userDocRef, {
-              currentJobs: currentJobs,
+              currentJobs: sortedCurrentJobsEdit,
             });
           }
         }

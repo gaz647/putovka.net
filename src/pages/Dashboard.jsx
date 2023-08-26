@@ -46,6 +46,7 @@ const Dashboard = () => {
     return () => {
       unsub();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -96,6 +97,16 @@ const Dashboard = () => {
   const handleArchiveJobs = () => {
     console.log("archivovat");
     setShowArchiveModal(!showArchiveModal);
+    const dateForArchiving = currentJobs[currentJobs.length - 1].date;
+    console.log(
+      "dateForArchiving - datum poslední práce v currentJobs",
+      dateForArchiving
+    );
+    const transformedDateForArchiving = dateForArchiving.slice(0, -2) + "01";
+    console.log(
+      "transformedDateForArchivin - upravené datum poslední práce v currentJobs",
+      transformedDateForArchiving
+    );
   };
 
   const handleArchiveModalVisibility = () => {

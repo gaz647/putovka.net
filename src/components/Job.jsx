@@ -14,6 +14,7 @@ import "./Job.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
+import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 
 const Job = ({ jobDetails }) => {
   const {
@@ -71,10 +72,6 @@ const Job = ({ jobDetails }) => {
     navigate("/edit-job");
   };
 
-  const displayCZdateFormat = (date) => {
-    return date.split("-").reverse().join(".");
-  };
-
   const [showDetails, setShowDetails] = useState(false);
 
   const handleShow = () => {
@@ -102,7 +99,7 @@ const Job = ({ jobDetails }) => {
       <div className="one-job-header">
         <BsPencil onClick={editJobNavigate} />
         <div>{day}</div>
-        <div>{displayCZdateFormat(date)}</div>
+        <div>{getCzDateFormat(date)}</div>
         <div>{weight + "t"}</div>
         <div>{price + " €"}</div>
         <div className="delete-job-btn-container">
