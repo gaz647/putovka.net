@@ -7,6 +7,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
   return (
     <section>
       <h3>{getCzDateFormat(date)}</h3>
+      <button>delete JOB</button>
       <p>{city}</p>
       <p>{zipcode}</p>
       <p>{price}</p>

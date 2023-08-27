@@ -9,13 +9,6 @@ import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 const ArchiveMonth = ({ oneMonthData }) => {
   const { date, userSettings, jobs } = oneMonthData;
 
-  //   const [summaryEur, setSummaryEur] = useState(0);
-  //   const [summaryCzk, setSummaryCzk] = useState(0);
-  //   const [summarySecondJobs, setSummarySecondJobs] = useState(0);
-  //   const [summaryWaiting, setSummaryWaiting] = useState();
-  //   const [summarySalary, setSummarySalary] = useState(0);
-  //   const [summaryJobs, setSummaryJobs] = useState(0);
-
   const [summaryData, setSummaryData] = useState({});
 
   const getSummary = () => {
@@ -59,7 +52,10 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
   return (
     <section>
-      <h3>{getArchiveDate(date)}</h3>
+      <h2>{getArchiveDate(date)}</h2>
+      <button>delete MONTH</button>
+      <br />
+      <br />
       <br />
       {jobs.map((oneJob) => {
         return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
