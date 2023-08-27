@@ -20,7 +20,6 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 import axios from "axios";
-import sortJobs from "../customFunctionsAndHooks/sortJobs";
 
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //

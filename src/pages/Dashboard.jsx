@@ -105,7 +105,7 @@ const Dashboard = () => {
   const archiveJobs = () => {
     setShowArchiveModal(!showArchiveModal);
 
-    const tempArchivedJobs = [...archivedJobs];
+    const jobsForArchiving = [...archivedJobs];
 
     const dateForArchiving =
       currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
@@ -116,62 +116,30 @@ const Dashboard = () => {
         getDateForComparing(dateForArchiving)
     );
 
-    const summaryJobs = jobsToBeArchived.length;
-
-    const summarySecondJobs = jobsToBeArchived.reduce((acc, job) => {
-      return job.isSecondJob ? acc + 1 : acc;
-    }, 0);
-
-    const summaryWaiting = jobsToBeArchived.reduce((acc, job) => {
-      return acc + job.waiting;
-    }, 0);
-
-    const summaryEur = jobsToBeArchived.reduce((acc, job) => {
-      return acc + job.price;
-    }, 0);
-
-    const summaryEurCzkRate = eurCzkRate;
-
-    const summaryCzk = parseInt(summaryEur * summaryEurCzkRate);
-
-    const summaryBaseMoney = baseMoney;
-
-    const summaryPercentage = percentage;
-
-    const summarySecondJobBenefit = secondJobBenefit;
-
-    const summaryWaitingBenefit = waitingBenefit;
-
-    const summarySalary = parseInt(
-      summaryBaseMoney +
-        summaryCzk * (summaryPercentage * 0.01) +
-        summarySecondJobs * summarySecondJobBenefit +
-        summaryWaiting * summaryWaitingBenefit
+    const filteredCurrentJobs = currentJobs.filter(
+      (oneJob) =>
+        getDateForComparing(oneJob.date) !==
+        getDateForComparing(dateForArchiving)
     );
 
     const monthToArchive = {
       date: dateForArchiving,
       jobs: jobsToBeArchived,
-      summary: {
-        jobs: summaryJobs,
-        secondJobs: summarySecondJobs,
-        waiting: summaryWaiting,
-        eur: summaryEur,
-        eurCzkRate: summaryEurCzkRate,
-        czk: summaryCzk,
-        baseMoney: summaryBaseMoney,
-        percentage: summaryPercentage,
-        salary: summarySalary,
+      userSettings: {
+        baseMoney,
+        eurCzkRate,
+        percentage,
+        secondJobBenefit,
+        waitingBenefit,
       },
     };
-    console.log("payload", monthToArchive);
 
     // Pokud je archiv prázdný
     //
-    if (tempArchivedJobs.length === 0) {
+    if (jobsForArchiving.length === 0) {
       console.log("archiv je prázdný");
       console.log("první ukládání do archivu");
-      const payload = { userUid, monthToArchive };
+      const payload = { userUid, monthToArchive, filteredCurrentJobs };
       console.log(payload);
       // dispatch(archiveDoneJobsFirstTime(payload))
     }
@@ -180,7 +148,7 @@ const Dashboard = () => {
     else {
       console.log("archiv není prázdný");
 
-      const indexOfMonthToPutJobs = tempArchivedJobs.findIndex(
+      const indexOfMonthToPutJobs = jobsForArchiving.findIndex(
         (oneMonth) =>
           getDateForComparing(oneMonth.date) ===
           getDateForComparing(dateForArchiving)
@@ -208,21 +176,6 @@ const Dashboard = () => {
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
-
-  // const archiveMonthTemplate = {
-  //   date: "2023-08-01",
-  //   jobs: [{}, {}, {}],
-  //   summary: {
-  //     jobs: 0,
-  //     eur: 0,
-  //     czk: 0,
-  //     secondJobs: 0,
-  //     waiting: 0,
-  //     eurCzkRate: 23.751,
-  //     percentage: 0,
-  //     salary: 0,
-  //   },
-  // };
 
   return (
     <section className="wrapper relative">
