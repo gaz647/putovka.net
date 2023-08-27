@@ -314,6 +314,7 @@ export const deleteJobFromDatabase = createAsyncThunk(
 );
 
 //  ARCHIVE DONE JOBS - FIRST TIME
+//
 export const archiveDoneJobsFirstTime = createAsyncThunk(
   "jobs/archiveDoneJobsFirstTime",
   async (payload) => {
@@ -324,10 +325,60 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
 
         if (userDocSnapshot.exists()) {
           transaction.update(userDocRef, {
-            archivedJobsJobs: payload.monthToArchive,
+            archivedJobs: payload.monthToArchive,
+            currentJobs: payload.filteredCurrentJobs,
           });
         }
       });
+      return payload;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  ARCHIVE DONE JOBS - NEW MONTH
+//
+export const archiveDoneJobsNewMonth = createAsyncThunk(
+  "jobs/archiveDoneJobsNewMonth",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.newMonthToArchive,
+            currentJobs: payload.filteredCurrentJobs,
+          });
+        }
+      });
+      return payload;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  ARCHIVE DONE JOBS - NEW MONTH
+//
+export const archiveDoneJobsExistingMonth = createAsyncThunk(
+  "jobs/archiveDoneJobsExistingMonth",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.updatedArchivedJobs,
+            currentJobs: payload.filteredCurrentJobs,
+          });
+        }
+      });
+      return payload;
     } catch (error) {
       throw error.message;
     }
@@ -607,6 +658,43 @@ export const authSlice = createSlice({
       })
       .addCase(deleteJobFromDatabase.rejected, () => {
         console.log("deleteJobFromDatabase SELHAL");
+      })
+      .addCase(archiveDoneJobsFirstTime.pending, () => {
+        console.log("archiveDoneJobsFirstTime PROBÍHÁ");
+      })
+      .addCase(archiveDoneJobsFirstTime.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsFirstTime ÚSPĚŠNĚ DOKONČEN");
+        console.log(action.payload);
+        state.loggedInUserData.archivedJobs = action.payload.monthToArchive;
+        state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+      })
+      .addCase(archiveDoneJobsFirstTime.rejected, () => {
+        console.log("archiveDoneJobsFirstTime SELHAL");
+      })
+      .addCase(archiveDoneJobsNewMonth.pending, () => {
+        console.log("archiveDoneJobsNewMonth PROBÍHÁ");
+      })
+      .addCase(archiveDoneJobsNewMonth.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsNewMonth ÚSPĚŠNĚ DOKONČEN");
+        console.log(action.payload);
+        state.loggedInUserData.archivedJobs = action.payload.newMonthToArchive;
+        state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+      })
+      .addCase(archiveDoneJobsNewMonth.rejected, () => {
+        console.log("archiveDoneJobsNewMonth SELHAL");
+      })
+      .addCase(archiveDoneJobsExistingMonth.pending, () => {
+        console.log("archiveDoneJobsExistingMonth PROBÍHÁ");
+      })
+      .addCase(archiveDoneJobsExistingMonth.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsExistingMonth ÚSPĚŠNĚ DOKONČEN");
+        console.log(action.payload);
+        state.loggedInUserData.archivedJobs =
+          action.payload.updatedArchivedJobs;
+        state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+      })
+      .addCase(archiveDoneJobsExistingMonth.rejected, () => {
+        console.log("archiveDoneJobsExistingMonth SELHAL");
       });
   },
 });

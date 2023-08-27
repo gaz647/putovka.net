@@ -4,6 +4,7 @@ import ArchiveMonthJob from "./ArchiveMonthJob";
 import ArchiveMonthSummary from "./ArchiveMonthSummary";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 
 const ArchiveMonth = ({ oneMonthData }) => {
   const { date, userSettings, jobs } = oneMonthData;
@@ -58,7 +59,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
   return (
     <section>
-      <h3>{date}</h3>
+      <h3>{getArchiveDate(date)}</h3>
       <br />
       {jobs.map((oneJob) => {
         return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;

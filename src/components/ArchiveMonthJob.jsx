@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./ArchiveMonthJob.css";
+import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 
 const ArchiveMonthJob = ({ oneJobData }) => {
   const { date, city, zipcode, price, isSecondJob, waiting } = oneJobData;
   return (
     <section>
-      <h3>{date}</h3>
+      <h3>{getCzDateFormat(date)}</h3>
       <p>{city}</p>
       <p>{zipcode}</p>
       <p>{price}</p>

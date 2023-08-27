@@ -2,13 +2,22 @@ import "./Dashboard.css";
 import ModalPrompt from "../components/ModalPrompt";
 import Job from "../components/Job";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  archiveDoneJobsFirstTime,
+  archiveDoneJobsNewMonth,
+  archiveDoneJobsExistingMonth,
+} from "../redux/AuthSlice";
 import { db } from "../firebase/config";
 import { onSnapshot, doc } from "firebase/firestore";
 import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
+import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
+import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+
   const [currentJobs, setCurrentJobs] = useState([]);
 
   const archivedJobs = useSelector(
@@ -105,7 +114,9 @@ const Dashboard = () => {
   const archiveJobs = () => {
     setShowArchiveModal(!showArchiveModal);
 
-    const jobsForArchiving = [...archivedJobs];
+    const currentArchivedJobs =
+      archivedJobs.length > 0 ? [...archivedJobs] : [];
+    console.log("currentArchivedJobs", currentArchivedJobs);
 
     const dateForArchiving =
       currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
@@ -115,6 +126,8 @@ const Dashboard = () => {
         getDateForComparing(oneJob.date) ===
         getDateForComparing(dateForArchiving)
     );
+
+    console.log("jobsToBeArchived", jobsToBeArchived);
 
     const filteredCurrentJobs = currentJobs.filter(
       (oneJob) =>
@@ -136,36 +149,88 @@ const Dashboard = () => {
 
     // Pokud je archiv prázdný
     //
-    if (jobsForArchiving.length === 0) {
+    if (currentArchivedJobs.length === 0) {
       console.log("archiv je prázdný");
       console.log("první ukládání do archivu");
-      const payload = { userUid, monthToArchive, filteredCurrentJobs };
+      const payload = {
+        userUid,
+        monthToArchive: [{ ...monthToArchive }],
+        filteredCurrentJobs,
+      };
       console.log(payload);
-      // dispatch(archiveDoneJobsFirstTime(payload))
+      dispatch(archiveDoneJobsFirstTime(payload));
     }
     // Pokud archív NENÍ prázdný
     //
     else {
       console.log("archiv není prázdný");
 
-      const indexOfMonthToPutJobs = jobsForArchiving.findIndex(
+      const indexOfMonthToPutJobs = currentArchivedJobs.findIndex(
         (oneMonth) =>
           getDateForComparing(oneMonth.date) ===
           getDateForComparing(dateForArchiving)
       );
-
+      //
+      //
       // Když měsíc v archivu neexistuje
+      //
+      //
+      //
       //
       if (indexOfMonthToPutJobs === -1) {
         console.log("měsíc v archivu neexistuje");
         console.log("kód pro přidání nového měsíce do archivu");
+
+        const newMonthToArchive = sortArchiveMonthJobsAscending(
+          sortArchiveMonthsDescending([...archivedJobs, monthToArchive])
+        );
+
+        console.log("newMonthToArchive", newMonthToArchive);
+
+        // console.log("filteredCurrentJobs", filteredCurrentJobs);
+
+        const payload = {
+          userUid,
+          newMonthToArchive,
+          filteredCurrentJobs,
+        };
+        console.log(payload);
+        dispatch(archiveDoneJobsNewMonth(payload));
       }
+      //
+      //
       // Když měsíc v archivu existuje
+      //
+      //
       //
       else {
         console.log("měsíc v archivu existuje");
         console.log("index měsíce v archivu je: ", indexOfMonthToPutJobs);
         console.log("kód pro přidání prací do existujícího měsíce v archivu");
+
+        const updatedArchivedJobs = sortArchiveMonthJobsAscending(
+          currentArchivedJobs.map((archivedMonth, index) => {
+            if (index === indexOfMonthToPutJobs) {
+              return {
+                ...archivedMonth,
+                jobs: [...archivedMonth.jobs, ...jobsToBeArchived],
+              };
+            }
+            return archivedMonth;
+          })
+        );
+
+        console.log(filteredCurrentJobs);
+
+        console.log(updatedArchivedJobs);
+
+        const payload = {
+          userUid,
+          updatedArchivedJobs,
+          filteredCurrentJobs,
+        };
+
+        dispatch(archiveDoneJobsExistingMonth(payload));
       }
     }
   };
