@@ -12,20 +12,44 @@ const ArchiveMonthSummary = ({ summary }) => {
   } = summary;
 
   return (
-    <section>
-      <div>____________________________</div>
-      <h1>Souhrn</h1>
-      <p>{"Eur: " + summaryEur}</p>
-      <p>{"Kč: " + summaryCzk}</p>
-      <p>{"Prací: " + summaryJobs}</p>
-      <p>{"Dvojek: " + summarySecondJobs}</p>
-      <p>{"Čekání: " + summaryWaiting}</p>
-      <p>{"Výplata: " + summarySalary}</p>
-      <div>____________________________</div>
-      <br />
-      <br />
-      <br />
-      <br />
+    <section className="archive-month-summary">
+      <div className="archive-month-summary-container">
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Fakturace</div>
+          <div className="archive-month-summary-item">
+            {summaryEur + " €"}
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+          </div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div></div>
+          <div className="archive-month-summary-item">{summaryCzk + " Kč"}</div>
+        </div>
+        <br />
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Výplata</div>
+          <div className="archive-month-summary-item">
+            {summarySalary + " Kč"}
+          </div>
+        </div>
+        <br />
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Prací:</div>
+          <div className="archive-month-summary-item">{summaryJobs}</div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Druhých prací</div>
+          <div className="archive-month-summary-item">{summarySecondJobs}</div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Čekání</div>
+          <div className="archive-month-summary-item">{summaryWaiting}</div>
+        </div>
+      </div>
     </section>
   );
 };

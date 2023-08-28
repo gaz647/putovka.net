@@ -1,0 +1,17 @@
+.archive-month-summary {
+  padding: 0.5rem;
+}
+
+.archive-month-summary-container {
+  background-color: lightgray;
+  padding: 0.5rem;
+}
+
+.archive-month-summary-one-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.archive-month-summary-item {
+  font-size: 0.9rem;
+}

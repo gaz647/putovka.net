@@ -1,0 +1,11 @@
+.archive-month {
+  background-color: whitesmoke;
+  margin-bottom: 1rem;
+}
+
+.archive-month-month {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
