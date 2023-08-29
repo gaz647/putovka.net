@@ -3,6 +3,7 @@ import "./ArchiveMonth.css";
 import ArchiveMonthJob from "./ArchiveMonthJob";
 import ArchiveMonthSummary from "./ArchiveMonthSummary";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 
@@ -50,10 +51,21 @@ const ArchiveMonth = ({ oneMonthData }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
+  );
+
+  const deleteArchiveMonth = (date) => {
+    const filteredArchivedJobs = archivedJobs.filter((oneMonth) => {
+      return oneMonth.date !== date;
+    });
+    console.log(filteredArchivedJobs);
+  };
+
   return (
     <section>
       <h2>{getArchiveDate(date)}</h2>
-      <button>delete MONTH</button>
+      <button onClick={() => deleteArchiveMonth(date)}>delete MONTH</button>
       <br />
       <br />
       <br />
