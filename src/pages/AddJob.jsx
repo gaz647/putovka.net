@@ -104,6 +104,7 @@ const AddJob = () => {
     const payload = { userUid, sortedCurrentJobs };
 
     dispatch(addJobToDatabase(payload));
+
     navigate("/");
   };
 

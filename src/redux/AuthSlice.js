@@ -460,6 +460,11 @@ export const editArchiveJobInDatabase = createAsyncThunk(
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
+    toast: {
+      isVisible: false,
+      message: "",
+      style: "",
+    },
     isLoggedIn: false,
     isLoading: false,
     loggedInUserEmail: null,
@@ -507,6 +512,19 @@ export const authSlice = createSlice({
     },
   },
   reducers: {
+    runToast(state, action) {
+      console.log(action.payload);
+      state.toast.isVisible = true;
+      state.toast.message = action.payload.message;
+      state.toast.style = action.payload.style;
+    },
+
+    resetToast(state) {
+      state.toast.isVisible = false;
+      state.toast.message = "";
+      state.toast.style = "";
+    },
+
     setLoadingTrue(state) {
       console.log("setLoadingTrue SPUŠTĚN");
       state.isLoading = true;
@@ -835,6 +853,8 @@ export const authSlice = createSlice({
 });
 
 export const {
+  runToast,
+  resetToast,
   setLoadingTrue,
   setLoadingFalse,
   loginOnAuth,
