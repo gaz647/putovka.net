@@ -1,0 +1,10 @@
+.archive-month-job {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.archive-month-job-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightgray;
+}

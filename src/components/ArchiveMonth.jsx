@@ -63,12 +63,9 @@ const ArchiveMonth = ({ oneMonthData }) => {
   };
 
   return (
-    <section>
-      <h2>{getArchiveDate(date)}</h2>
-      <button onClick={() => deleteArchiveMonth(date)}>delete MONTH</button>
-      <br />
-      <br />
-      <br />
+    <section className="archive-month">
+      <div className="archive-month-month">{getArchiveDate(date)}</div>
+      <button>x</button>
       {jobs.map((oneJob) => {
         return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
       })}

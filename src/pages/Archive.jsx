@@ -10,8 +10,6 @@ const Archive = () => {
 
   return (
     <section className="wrapper">
-      <h1>Archivované práce</h1>
-      <br />
       {archivedJobs.map((oneMonth) => {
         return <ArchiveMonth key={uuidv4()} oneMonthData={oneMonth} />;
       })}
