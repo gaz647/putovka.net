@@ -15,15 +15,11 @@ const SharedLayout = () => {
 
   const toastStyle = useSelector((state) => state.auth.toast.style);
 
-  const notification = () => {
-    toastStyle === "success" ? toast.success(`${toastMessage}`) : null;
-  };
-
   useEffect(() => {
     if (toastVisible) {
-      notification();
+      toastStyle === "success" ? toast.success(`${toastMessage}`) : null;
     }
-  }, [toastVisible]);
+  }, [toastVisible, toastMessage, toastStyle]);
 
   return (
     <>
