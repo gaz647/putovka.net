@@ -2,9 +2,16 @@ import "./EditJob.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { editJobInDatabase, setEditing } from "../redux/AuthSlice";
+import {
+  editJobInDatabase,
+  editArchiveJobInDatabase,
+  setEditing,
+  setIsEditingArchivedJob,
+  resetJobToEditValues,
+} from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
+import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 
 const EditJob = () => {
   const dispatch = useDispatch();
@@ -97,29 +104,17 @@ const EditJob = () => {
 
   const id = useSelector((state) => state.auth.jobToEdit.id);
 
-  // const displayProperTerminalName = (value) => {
-  //   if (value === "ceska_trebova") {
-  //     return "Česká Třebová";
-  //   } else if (value === "ostrava") {
-  //     return "Ostrava";
-  //   } else if (value === "plzen") {
-  //     return "Plzeň";
-  //   } else if (value === "praha") {
-  //     return "Praha";
-  //   } else if (value === "usti_nad_labem") {
-  //     return "Ústí nad Labem";
-  //   } else if (value === "zlin") {
-  //     return "Zlín";
-  //   } else {
-  //     return value;
-  //   }
-  // };
-
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
-  const editJob = () => {
-    const tempCurrentJobs = [...currentJobs];
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
+  );
 
+  const isEditingArchivedJob = useSelector(
+    (state) => state.auth.isEditingArchivedJob
+  );
+
+  const editJob = () => {
     const editedJob = {
       city,
       cmr,
@@ -129,30 +124,70 @@ const EditJob = () => {
       isCustomJob,
       isSecondJob,
       note,
-      price,
+      price: Number(price),
       terminal,
-      timestamp,
+      timestamp: Number(timestamp),
       waiting: Number(waiting),
-      weight,
-      weightTo27t,
-      weightTo34t,
+      weight: Number(weight),
+      weightTo27t: Number(weightTo27t),
+      weightTo34t: Number(weightTo34t),
       zipcode,
     };
 
-    const indexOfJobToBeEdited = tempCurrentJobs.findIndex(
-      (job) => job.id === editedJob.id
-    );
+    if (!isEditingArchivedJob) {
+      console.log("editována práce z currentJobs");
 
-    if (indexOfJobToBeEdited !== -1) {
-      tempCurrentJobs[indexOfJobToBeEdited] = editedJob;
+      const tempCurrentJobs = [...currentJobs];
 
-      const sortedCurrentJobsEdit = sortJobs(tempCurrentJobs);
+      const indexOfJobToBeEdited = tempCurrentJobs.findIndex(
+        (job) => job.id === editedJob.id
+      );
 
-      const payload = { userUid, sortedCurrentJobsEdit };
+      if (indexOfJobToBeEdited !== -1) {
+        tempCurrentJobs[indexOfJobToBeEdited] = editedJob;
 
-      dispatch(editJobInDatabase(payload));
+        const sortedCurrentJobsEdit = sortJobs(tempCurrentJobs);
+
+        const payload = { userUid, sortedCurrentJobsEdit };
+
+        dispatch(editJobInDatabase(payload));
+        dispatch(setEditing(false));
+        dispatch(resetJobToEditValues());
+        navigate("/");
+      }
+    } else if (isEditingArchivedJob) {
+      console.log("bude upravena práce z archivu");
+
+      const tempArchivedJobs = [...archivedJobs];
+
+      const updatedArchivedJobs = tempArchivedJobs.map((oneMonth) => {
+        if (oneMonth.jobs.some((job) => job.id === id)) {
+          const updatedJobs = oneMonth.jobs.map((job) =>
+            job.id === id ? editedJob : job
+          );
+          return {
+            ...oneMonth,
+            jobs: updatedJobs,
+          };
+        }
+        return oneMonth;
+      });
+
+      const sortedUpdatedArchivedJobs =
+        sortArchiveMonthJobsAscending(updatedArchivedJobs);
+
+      const payload = {
+        userUid,
+        sortedUpdatedArchivedJobs,
+      };
+
+      console.log(payload);
+      dispatch(resetJobToEditValues());
+      dispatch(editArchiveJobInDatabase(payload));
+
       dispatch(setEditing(false));
-      navigate("/");
+      dispatch(setIsEditingArchivedJob(false));
+      navigate("/archive");
     }
   };
 
@@ -286,13 +321,16 @@ const EditJob = () => {
           />
         </div>
 
-        <button
-          className="add-job-delete-all-fields-btn"
-          type="button"
-          onClick={editJob}
-        >
-          ULOŽIT ZMĚNY
-        </button>
+        <div className="modal-buttons-container">
+          <button
+            className="modal-buttons submit-green"
+            onClick={editJob}
+          ></button>
+          <button
+            className="modal-buttons decline-red"
+            onClick={() => dispatch(resetJobToEditValues)}
+          ></button>
+        </div>
       </form>
     </section>
   );

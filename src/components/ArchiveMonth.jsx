@@ -3,11 +3,17 @@ import "./ArchiveMonth.css";
 import ArchiveMonthJob from "./ArchiveMonthJob";
 import ArchiveMonthSummary from "./ArchiveMonthSummary";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
+import ModalPrompt from "./ModalPrompt";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteArchiveMonthFromDatabase } from "../redux/AuthSlice";
 
 const ArchiveMonth = ({ oneMonthData }) => {
+  const dispatch = useDispatch();
+
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+
   const { date, userSettings, jobs } = oneMonthData;
 
   const [summaryData, setSummaryData] = useState({});
@@ -55,17 +61,45 @@ const ArchiveMonth = ({ oneMonthData }) => {
     (state) => state.auth.loggedInUserData.archivedJobs
   );
 
-  const deleteArchiveMonth = (date) => {
-    const filteredArchivedJobs = archivedJobs.filter((oneMonth) => {
-      return oneMonth.date !== date;
-    });
-    console.log(filteredArchivedJobs);
+  const deleteArchiveMonth = (dateOfMonth) => {
+    // setShowArchiveModal(!showArchiveModal);
+    const tempArchivedJobs = [...archivedJobs];
+
+    const filteredArchivedJobs = tempArchivedJobs.filter(
+      (oneMonth) => oneMonth.date !== dateOfMonth
+    );
+
+    const payload = {
+      userUid,
+      filteredArchivedJobs,
+    };
+
+    dispatch(deleteArchiveMonthFromDatabase(payload));
+  };
+
+  const archiveModalHeading = "Smazat vybraný měsíc z archivu?";
+
+  const archiveModalText = "tuto akci nelze vzít zpět";
+
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
+
+  const handleArchiveModalVisibility = () => {
+    setShowArchiveModal(!showArchiveModal);
   };
 
   return (
     <section className="archive-month">
+      {showArchiveModal && (
+        <ModalPrompt
+          heading={archiveModalHeading}
+          text={archiveModalText}
+          clbFunction={() => deleteArchiveMonth(date)}
+          closeModal={handleArchiveModalVisibility}
+        />
+      )}
       <div className="archive-month-month">{getArchiveDate(date)}</div>
-      <button>x</button>
+      <button onClick={() => setShowArchiveModal(true)}>x</button>
+
       {jobs.map((oneJob) => {
         return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
       })}

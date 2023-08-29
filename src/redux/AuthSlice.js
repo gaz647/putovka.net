@@ -54,6 +54,7 @@ const createUserData = async (userAuth) => {
         waitingBenefit: 0,
       },
     });
+    console.log("stáhnut kurz");
   } catch (error) {
     console.log(error.message);
   }
@@ -247,7 +248,7 @@ export const changeSettings = createAsyncThunk(
 //  ADD JOB
 //
 export const addJobToDatabase = createAsyncThunk(
-  "jobs/addJobToDatabase",
+  "auth/addJobToDatabase",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -270,7 +271,7 @@ export const addJobToDatabase = createAsyncThunk(
 //  EDIT JOB
 //
 export const editJobInDatabase = createAsyncThunk(
-  "jobs/editJobInDatabase",
+  "auth/editJobInDatabase",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -293,7 +294,7 @@ export const editJobInDatabase = createAsyncThunk(
 // DELETE JOB
 //
 export const deleteJobFromDatabase = createAsyncThunk(
-  "jobs/deleteJobFromDatabase",
+  "auth/deleteJobFromDatabase",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -316,7 +317,7 @@ export const deleteJobFromDatabase = createAsyncThunk(
 //  ARCHIVE DONE JOBS - FIRST TIME
 //
 export const archiveDoneJobsFirstTime = createAsyncThunk(
-  "jobs/archiveDoneJobsFirstTime",
+  "auth/archiveDoneJobsFirstTime",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -340,7 +341,7 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
 //  ARCHIVE DONE JOBS - NEW MONTH
 //
 export const archiveDoneJobsNewMonth = createAsyncThunk(
-  "jobs/archiveDoneJobsNewMonth",
+  "auth/archiveDoneJobsNewMonth",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -364,7 +365,7 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
 //  ARCHIVE DONE JOBS - NEW MONTH
 //
 export const archiveDoneJobsExistingMonth = createAsyncThunk(
-  "jobs/archiveDoneJobsExistingMonth",
+  "auth/archiveDoneJobsExistingMonth",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -379,6 +380,75 @@ export const archiveDoneJobsExistingMonth = createAsyncThunk(
         }
       });
       return payload;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  DELETE ARCHIVE MONTH
+//
+export const deleteArchiveMonthFromDatabase = createAsyncThunk(
+  "auth/deleteArchiveMonthFromDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.filteredArchivedJobs,
+          });
+        }
+      });
+      return payload.filteredArchivedJobs;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  DELETE ARCHIVE MONTH JOB
+//
+export const deleteArchiveMonthJobFromDatabase = createAsyncThunk(
+  "auth/deleteArchiveMonthJobFromDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.filteredArchivedJobs,
+          });
+        }
+      });
+      return payload.filteredArchivedJobs;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+//  EDIT ARCHIVE MONTH JOB
+//
+export const editArchiveJobInDatabase = createAsyncThunk(
+  "auth/editArchiveJobInDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.sortedUpdatedArchivedJobs,
+          });
+        }
+      });
+      return payload.sortedUpdatedArchivedJobs;
     } catch (error) {
       throw error.message;
     }
@@ -417,6 +487,7 @@ export const authSlice = createSlice({
       zipcode: "",
     },
     isEditing: false,
+    isEditingArchivedJob: false,
     jobToEdit: {
       city: "",
       cmr: "",
@@ -427,6 +498,7 @@ export const authSlice = createSlice({
       note: "",
       price: 0,
       terminal: "",
+      timestamp: "",
       waiting: 0,
       weight: 0,
       weightTo27t: 0,
@@ -496,6 +568,15 @@ export const authSlice = createSlice({
       state.jobToAdd.zipcode = action.payload.zipcode;
     },
 
+    resetJobToAddValues: (state) => {
+      state.jobToAdd.city = "";
+      state.jobToAdd.isCustomJob = true;
+      state.jobToAdd.terminal = "";
+      state.jobToAdd.weightTo27t = 0;
+      state.jobToAdd.weightTo34t = 0;
+      state.jobToAdd.zipcode = "";
+    },
+
     setJobToEdit: (state, action) => {
       state.jobToEdit.city = action.payload.city;
       state.jobToEdit.cmr = action.payload.cmr;
@@ -513,9 +594,33 @@ export const authSlice = createSlice({
       state.jobToEdit.weightTo34t = action.payload.weightTo34t;
       state.jobToEdit.zipcode = action.payload.zipcode;
     },
+    setIsEditingArchivedJob: (state, action) => {
+      state.isEditingArchivedJob = action.payload;
+    },
 
     setEditing: (state, action) => {
       state.isEditing = action.payload;
+    },
+
+    resetJobToEditValues: (state) => {
+      console.log("jobToEdit hodnoty RESETOVÁNY");
+      state.isEditingArchivedJob = true;
+
+      state.jobToEdit.city = "";
+      state.jobToEdit.cmr = "";
+      state.jobToEdit.date = "";
+      state.jobToEdit.id = "";
+      state.jobToEdit.isCustomJob = false;
+      state.jobToEdit.isSecondJob = false;
+      state.jobToEdit.note = "";
+      state.jobToEdit.price = 0;
+      state.jobToEdit.terminal = "";
+      state.jobToEdit.timestamp = "";
+      state.jobToEdit.waiting = 0;
+      state.jobToEdit.weight = 0;
+      state.jobToEdit.weightTo27t = 0;
+      state.jobToEdit.weightTo34t = 0;
+      state.jobToEdit.zipcode = "";
     },
   },
   extraReducers: (builder) => {
@@ -567,7 +672,7 @@ export const authSlice = createSlice({
         console.log("loadUserData PROBÍHÁ");
       })
       .addCase(loadUserData.fulfilled, (state, action) => {
-        console.log("loadUserData ÚSPĚŠNĚ DOKONČEN", action.payload);
+        console.log("loadUserData ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
@@ -695,6 +800,36 @@ export const authSlice = createSlice({
       })
       .addCase(archiveDoneJobsExistingMonth.rejected, () => {
         console.log("archiveDoneJobsExistingMonth SELHAL");
+      })
+      .addCase(deleteArchiveMonthFromDatabase.pending, () => {
+        console.log("deleteArchiveMonth PROBÍHÁ");
+      })
+      .addCase(deleteArchiveMonthFromDatabase.fulfilled, (state, action) => {
+        console.log("deleteArchiveMonth ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.archivedJobs = action.payload;
+      })
+      .addCase(deleteArchiveMonthFromDatabase.rejected, () => {
+        console.log("deleteArchiveMonth SELHAL");
+      })
+      .addCase(deleteArchiveMonthJobFromDatabase.pending, () => {
+        console.log("deleteArchiveMonthJob PROBÍHÁ");
+      })
+      .addCase(deleteArchiveMonthJobFromDatabase.fulfilled, (state, action) => {
+        console.log("deleteArchiveMonthJob ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.archivedJobs = action.payload;
+      })
+      .addCase(deleteArchiveMonthJobFromDatabase.rejected, () => {
+        console.log("deleteArchiveMonthJob SELHAL");
+      })
+      .addCase(editArchiveJobInDatabase.pending, () => {
+        console.log("editArchiveJobInDatabase PROBÍHÁ");
+      })
+      .addCase(editArchiveJobInDatabase.fulfilled, (state, action) => {
+        console.log("editArchiveJobInDatabase ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.archivedJobs = action.payload;
+      })
+      .addCase(editArchiveJobInDatabase.rejected, () => {
+        console.log("editArchiveJobInDatabase SELHAL");
       });
   },
 });
@@ -706,8 +841,12 @@ export const {
   logoutOnAuth,
   setLoadedUserData,
   setJobToAdd,
+  resetJobToAddValues,
   setJobToEdit,
+  setIsEditingArchivedJob,
+  setArchivedJobToEdit,
   setEditing,
+  resetJobToEditValues,
 } = authSlice.actions;
 
 export default authSlice.reducer;

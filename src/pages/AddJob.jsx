@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./AddJob.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addJobToDatabase } from "../redux/AuthSlice";
+import { addJobToDatabase, resetJobToAddValues } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
@@ -18,22 +18,7 @@ const AddJob = () => {
     (state) => state.auth.loggedInUserData.currentJobs
   );
 
-  // const getCurrentDate = () => {
-  //   const today = new Date();
-  //   const dd = String(today.getDate()).padStart(2, "0");
-  //   const mm = String(today.getMonth() + 1).padStart(2, "0");
-  //   const yyyy = today.getFullYear();
-  //   const currentDate = yyyy + "-" + mm + "-" + dd;
-  //   return currentDate;
-  // };
-
   const [date, setDate] = useState(getCurrentDate());
-
-  // const getCurrentDayCz = (dateVariable) => {
-  //   const dateTransformed = new Date(dateVariable);
-  //   const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
-  //   return daysOfTheWeek[dateTransformed.getDay()];
-  // };
 
   useEffect(() => {
     setDay(getCzDayFromDate(date));
@@ -88,24 +73,6 @@ const AddJob = () => {
     useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
 
-  // const displayProperTerminalName = (value) => {
-  //   if (value === "ceska_trebova") {
-  //     return "Česká Třebová";
-  //   } else if (value === "ostrava") {
-  //     return "Ostrava";
-  //   } else if (value === "plzen") {
-  //     return "Plzeň";
-  //   } else if (value === "praha") {
-  //     return "Praha";
-  //   } else if (value === "usti_nad_labem") {
-  //     return "Ústí nad Labem";
-  //   } else if (value === "zlin") {
-  //     return "Zlín";
-  //   } else {
-  //     return value;
-  //   }
-  // };
-
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const addJob = () => {
@@ -120,13 +87,13 @@ const AddJob = () => {
       isCustomJob,
       isSecondJob,
       note,
-      price,
+      price: Number(price),
       terminal: getProperTerminalName(terminal),
       timestamp: new Date().getTime(),
       waiting: Number(waiting),
-      weight,
-      weightTo27t,
-      weightTo34t,
+      weight: Number(weight),
+      weightTo27t: Number(weightTo27t),
+      weightTo34t: Number(weightTo34t),
       zipcode,
     };
 
@@ -137,6 +104,11 @@ const AddJob = () => {
     const payload = { userUid, sortedCurrentJobs };
 
     dispatch(addJobToDatabase(payload));
+    navigate("/");
+  };
+
+  const handleDecline = () => {
+    dispatch(resetJobToAddValues());
     navigate("/");
   };
 
@@ -270,13 +242,16 @@ const AddJob = () => {
           />
         </div>
 
-        <button
-          className="add-job-delete-all-fields-btn"
-          type="button"
-          onClick={addJob}
-        >
-          PŘIDAT
-        </button>
+        <div className="modal-buttons-container">
+          <button
+            className="modal-buttons submit-green"
+            onClick={addJob}
+          ></button>
+          <button
+            className="modal-buttons decline-red"
+            onClick={handleDecline}
+          ></button>
+        </div>
       </form>
     </section>
   );

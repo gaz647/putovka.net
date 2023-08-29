@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
   deleteJobFromDatabase,
+  setIsEditingArchivedJob,
   setEditing,
   setJobToEdit,
 } from "../redux/AuthSlice";
@@ -77,7 +78,7 @@ const Job = ({ jobDetails }) => {
       weightTo34t,
       zipcode,
     };
-
+    dispatch(setIsEditingArchivedJob(false));
     dispatch(setJobToEdit(jobToEdit));
     dispatch(setEditing(true));
     navigate("/edit-job");

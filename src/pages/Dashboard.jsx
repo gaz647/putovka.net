@@ -8,8 +8,8 @@ import {
   archiveDoneJobsNewMonth,
   archiveDoneJobsExistingMonth,
 } from "../redux/AuthSlice";
-import { db } from "../firebase/config";
-import { onSnapshot, doc } from "firebase/firestore";
+// import { db } from "../firebase/config";
+// import { onSnapshot, doc } from "firebase/firestore";
 import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
@@ -18,7 +18,11 @@ import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiv
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const [currentJobs, setCurrentJobs] = useState([]);
+  // const [currentJobs, setCurrentJobs] = useState([]);
+
+  const currentJobs = useSelector(
+    (state) => state.auth.loggedInUserData.currentJobs
+  );
 
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
@@ -53,15 +57,15 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.userSettings.waitingBenefit
   );
 
-  useEffect(() => {
-    const unsub = onSnapshot(doc(db, `users/${userUid}`), (doc) => {
-      setCurrentJobs(doc.data().currentJobs);
-    });
-    return () => {
-      unsub();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const unsub = onSnapshot(doc(db, `users/${userUid}`), (doc) => {
+  //     setCurrentJobs(doc.data().currentJobs);
+  //   });
+  //   return () => {
+  //     unsub();
+  //   };
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   useEffect(() => {
     setTotalJobs(currentJobs.length);
@@ -186,8 +190,6 @@ const Dashboard = () => {
         );
 
         console.log("newMonthToArchive", newMonthToArchive);
-
-        // console.log("filteredCurrentJobs", filteredCurrentJobs);
 
         const payload = {
           userUid,
