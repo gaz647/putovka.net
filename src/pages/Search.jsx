@@ -3,12 +3,12 @@ import cross_button from "../assets/icons/cross_button.svg";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SearchResult from "../components/SearchResult";
-import ceska_trebova from "../../public/ceska_trebova.json";
-import ostrava from "../../public/ostrava.json";
-import plzen from "../../public/plzen.json";
-import praha from "../../public/praha.json";
-import usti_nad_labem from "../../public/usti_nad_labem.json";
-import zlin from "../../public/zlin.json";
+import ceska_trebova from "../assets/prices/ceska_trebova.json";
+import ostrava from "../assets/prices/ostrava.json";
+import plzen from "../assets/prices/plzen.json";
+import praha from "../assets/prices/praha.json";
+import usti_nad_labem from "../assets/prices/usti_nad_labem.json";
+import zlin from "../assets/prices/zlin.json";
 
 const Search = () => {
   const terminal = useSelector(

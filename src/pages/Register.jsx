@@ -1,11 +1,13 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { register } from "../redux/AuthSlice";
+import { register, runToast } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import { resetToast } from "../redux/AuthSlice";
 
 const Register = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -21,14 +23,48 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (registerPassword !== registerPassword2) {
-      alert("Zadaná hesla nejsou stejná");
+      dispatch(
+        runToast({ message: "Hesla se neshodují!", style: "error", time: 5000 })
+      );
       return;
     } else {
       let registerCredentials = { registerEmail, registerPassword };
       dispatch(register(registerCredentials));
-      navigate("/email-verification-pending");
     }
   };
+
+  const isRegisterSuccess = useSelector(
+    (state) => state.auth.isRegisterSuccess
+  );
+
+  useEffect(() => {
+    if (isRegisterSuccess) {
+      navigate("/email-verification-sent");
+    }
+  }, [isRegisterSuccess, navigate]);
+
+  const toastRedux = useSelector((state) => state.auth.toast);
+
+  useEffect(() => {
+    if (toastRedux.isVisible) {
+      console.log("toast SPUŠTĚN");
+      toastRedux.style === "success"
+        ? toast.success(`${toastRedux.message}`)
+        : toastRedux.style === "error"
+        ? toast.error(`${toastRedux.message}`)
+        : null;
+    }
+  }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
+
+  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+
+  useEffect(() => {
+    if (resetToastRedux) {
+      setTimeout(() => {
+        dispatch(resetToast());
+      }, 500);
+    }
+  }, [resetToastRedux, dispatch]);
 
   return (
     <>
@@ -36,6 +72,19 @@ const Register = () => {
         <Spinner />
       ) : (
         <section className="login-register">
+          <ToastContainer
+            transition={Flip}
+            position="top-center"
+            autoClose={toastRedux.time}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
           <form className="login-register-form" onSubmit={handleRegister}>
             <h1 className="login-register-form-heading">Registrace</h1>
             <div className="login-register-form-item">

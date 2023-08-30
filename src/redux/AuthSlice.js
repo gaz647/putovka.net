@@ -77,7 +77,7 @@ export const register = createAsyncThunk(
 
       await createUserData(user.user);
     } catch (error) {
-      // Chyba při registraci
+      console.log("register TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
   }
@@ -115,6 +115,7 @@ export const login = createAsyncThunk(
           }
         } catch (error) {
           console.log(error.message);
+          throw error.message;
         }
       } else {
         console.log("login Uživatelův email nebyl verified");
@@ -148,7 +149,7 @@ export const loadUserData = createAsyncThunk(
         return userData.data();
       }
     } catch (error) {
-      console.log(error.message);
+      throw error.message;
     }
   }
 );
@@ -238,8 +239,6 @@ export const changeSettings = createAsyncThunk(
       });
       return payload.userSettings;
     } catch (error) {
-      // Chyba při přidávání práce do databáze
-      console.log("kokot");
       throw error.message;
     }
   }
@@ -464,7 +463,10 @@ export const authSlice = createSlice({
       isVisible: false,
       message: "",
       style: "",
+      time: 0,
+      resetToast: false,
     },
+    isRegisterSuccess: false,
     isLoggedIn: false,
     isLoading: false,
     loggedInUserEmail: null,
@@ -513,16 +515,20 @@ export const authSlice = createSlice({
   },
   reducers: {
     runToast(state, action) {
-      console.log(action.payload);
       state.toast.isVisible = true;
       state.toast.message = action.payload.message;
       state.toast.style = action.payload.style;
+      state.toast.time = action.payload.time;
+      state.toast.resetToast = true;
     },
 
     resetToast(state) {
       state.toast.isVisible = false;
       state.toast.message = "";
       state.toast.style = "";
+      state.toast.time = 0;
+      state.toast.resetToast = false;
+      console.log("toast RESETOVÁN");
     },
 
     setLoadingTrue(state) {
@@ -646,11 +652,31 @@ export const authSlice = createSlice({
       .addCase(register.pending, () => {
         console.log("register PROBÍHÁ");
       })
-      .addCase(register.fulfilled, () => {
+      .addCase(register.fulfilled, (state) => {
         console.log("register ÚSPĚŠNĚ DOKONČEN");
+        state.isRegisterSuccess = true;
+        // state.toast.isVisible = true;
+        // state.toast.message =
+        //   "Registrace proběhla úspěšně! Nyní běžte na Váš email a regisraci potvrďte!";
+        // state.toast.style = "success";
+        // state.toast.time = 20000;
+        // state.toast.resetToast = true;
       })
-      .addCase(register.rejected, (action) => {
+      .addCase(register.rejected, (state, action) => {
         console.log("registr SELHAL", action.error.message);
+
+        state.toast.isVisible = true;
+        state.toast.message =
+          action.error.message ===
+          "Firebase: Error (auth/email-already-in-use)."
+            ? "Email je již registrován"
+            : action.error.message ===
+              "Firebase: Password should be at least 6 characters (auth/weak-password)."
+            ? "Heslo musí mít alespoň 6 znaků"
+            : action.error.message;
+        state.toast.style = "error";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(login.pending, (state) => {
         console.log("login PROBÍHÁ");
@@ -671,6 +697,16 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.loggedInUserEmail = null;
         state.isLoading = false;
+
+        state.toast.isVisible = true;
+        state.toast.message =
+          action.error.message === "Firebase: Error (auth/user-not-found)."
+            ? "Email není registrován!"
+            : action.error.message === "Firebase: Error (auth/wrong-password)."
+            ? "Špatné heslo"
+            : action.error.message;
+        state.toast.style = "error";
+        state.toast.resetToast = true;
       })
       .addCase(logout.pending, (state) => {
         console.log("logout PROBÍHÁ");
@@ -730,6 +766,21 @@ export const authSlice = createSlice({
         state.loggedInUserData.userSettings.waitingBenefit =
           action.payload.waitingBenefit;
         console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
+
+        state.toast.isVisible = true;
+        state.toast.message = "Změny uloženy";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
+      })
+      .addCase(changeSettings.rejected, (state) => {
+        console.log("changeSettings SELHAL");
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se nepovedlo";
+        state.toast.style = "error";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(addJobToDatabase.pending, () => {
         console.log("addJobToDatabase PROBÍHÁ");
@@ -744,6 +795,12 @@ export const authSlice = createSlice({
         state.jobToAdd.weightTo34t = 0;
         state.jobToAdd.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Práce přidána";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(addJobToDatabase.rejected, () => {
         console.log("addJobToDatabase SELHAL");
@@ -768,6 +825,12 @@ export const authSlice = createSlice({
         state.jobToEdit.weightTo34t = 0;
         state.jobToEdit.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Práce upravena";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(editJobInDatabase.rejected, () => {
         console.log("editJobInDatabase SELHAL");
@@ -778,6 +841,12 @@ export const authSlice = createSlice({
       .addCase(deleteJobFromDatabase.fulfilled, (state, action) => {
         state.loggedInUserData.currentJobs = action.payload;
         console.log("deleteJobFromDatabase ÚSPĚŠNĚ DOKONČEN");
+
+        state.toast.isVisible = true;
+        state.toast.message = "Práce smazána";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(deleteJobFromDatabase.rejected, () => {
         console.log("deleteJobFromDatabase SELHAL");
@@ -790,6 +859,12 @@ export const authSlice = createSlice({
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.monthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Archivováno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsFirstTime.rejected, () => {
         console.log("archiveDoneJobsFirstTime SELHAL");
@@ -802,6 +877,12 @@ export const authSlice = createSlice({
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.newMonthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Archivováno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsNewMonth.rejected, () => {
         console.log("archiveDoneJobsNewMonth SELHAL");
@@ -815,6 +896,12 @@ export const authSlice = createSlice({
         state.loggedInUserData.archivedJobs =
           action.payload.updatedArchivedJobs;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Archivováno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsExistingMonth.rejected, () => {
         console.log("archiveDoneJobsExistingMonth SELHAL");
@@ -825,6 +912,12 @@ export const authSlice = createSlice({
       .addCase(deleteArchiveMonthFromDatabase.fulfilled, (state, action) => {
         console.log("deleteArchiveMonth ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Smazáno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(deleteArchiveMonthFromDatabase.rejected, () => {
         console.log("deleteArchiveMonth SELHAL");
@@ -835,6 +928,12 @@ export const authSlice = createSlice({
       .addCase(deleteArchiveMonthJobFromDatabase.fulfilled, (state, action) => {
         console.log("deleteArchiveMonthJob ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Smazáno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(deleteArchiveMonthJobFromDatabase.rejected, () => {
         console.log("deleteArchiveMonthJob SELHAL");
@@ -845,6 +944,12 @@ export const authSlice = createSlice({
       .addCase(editArchiveJobInDatabase.fulfilled, (state, action) => {
         console.log("editArchiveJobInDatabase ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Upraveno";
+        state.toast.style = "success";
+        state.toast.time = 5000;
+        state.toast.resetToast = true;
       })
       .addCase(editArchiveJobInDatabase.rejected, () => {
         console.log("editArchiveJobInDatabase SELHAL");

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Spinner from "../components/Spinner";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import { resetToast } from "../redux/AuthSlice";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -28,12 +30,48 @@ const Login = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
+  const toastRedux = useSelector((state) => state.auth.toast);
+
+  useEffect(() => {
+    if (toastRedux.isVisible) {
+      console.log("toast SPUŠTĚN");
+      toastRedux.style === "success"
+        ? toast.success(`${toastRedux.message}`)
+        : toastRedux.style === "error"
+        ? toast.error(`${toastRedux.message}`)
+        : null;
+    }
+  }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
+
+  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+
+  useEffect(() => {
+    if (resetToastRedux) {
+      setTimeout(() => {
+        dispatch(resetToast());
+      }, 500);
+    }
+  }, [resetToastRedux, dispatch]);
+
   return (
     <>
       {isLoading ? (
         <Spinner />
       ) : (
         <section className="login-register">
+          <ToastContainer
+            transition={Flip}
+            position="top-center"
+            autoClose={toastRedux.time}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
           <form className="login-register-form" onSubmit={handleLogIn}>
             <h1 className="login-registerform-heading">Přihlášení</h1>
             <div className="login-register-form-item">

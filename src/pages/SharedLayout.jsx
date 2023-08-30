@@ -3,23 +3,38 @@ import Navbar from "../components/Navbar";
 import Spinner from "..//components/Spinner";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { resetToast } from "../redux/AuthSlice";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast, Flip } from "react-toastify";
 
 const SharedLayout = () => {
+  const dispatch = useDispatch();
+
   const isLoading = useSelector((state) => state.auth.isLoading);
 
-  const toastVisible = useSelector((state) => state.auth.toast.isVisible);
-
-  const toastMessage = useSelector((state) => state.auth.toast.message);
-
-  const toastStyle = useSelector((state) => state.auth.toast.style);
+  const toastRedux = useSelector((state) => state.auth.toast);
 
   useEffect(() => {
-    if (toastVisible) {
-      toastStyle === "success" ? toast.success(`${toastMessage}`) : null;
+    if (toastRedux.isVisible) {
+      console.log("toast SPUŠTĚN");
+      toastRedux.style === "success"
+        ? toast.success(`${toastRedux.message}`)
+        : toastRedux.style === "error"
+        ? toast.error(`${toastRedux.message}`)
+        : null;
     }
-  }, [toastVisible, toastMessage, toastStyle]);
+  }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
+
+  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+
+  useEffect(() => {
+    if (resetToastRedux) {
+      setTimeout(() => {
+        dispatch(resetToast());
+      }, 500);
+    }
+  }, [resetToastRedux, dispatch]);
 
   return (
     <>
@@ -30,7 +45,7 @@ const SharedLayout = () => {
           <ToastContainer
             transition={Flip}
             position="top-center"
-            autoClose={3000}
+            autoClose={toastRedux.time}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

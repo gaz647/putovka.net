@@ -7,8 +7,6 @@ import {
   archiveDoneJobsFirstTime,
   archiveDoneJobsNewMonth,
   archiveDoneJobsExistingMonth,
-  runToast,
-  resetToast,
 } from "../redux/AuthSlice";
 // import { db } from "../firebase/config";
 // import { onSnapshot, doc } from "firebase/firestore";
@@ -246,14 +244,6 @@ const Dashboard = () => {
     setShowArchiveModal(!showArchiveModal);
   };
 
-  const handleToast = () => {
-    console.log("click");
-    dispatch(runToast({ message: "Kokoti", style: "success" }));
-    setTimeout(() => {
-      dispatch(resetToast());
-    }, 500);
-  };
-
   return (
     <section className="wrapper relative">
       <section className="dashboard">
@@ -265,7 +255,6 @@ const Dashboard = () => {
             closeModal={handleArchiveModalVisibility}
           />
         )}
-        <button onClick={handleToast}>o</button>
         <div className="dashboard-summary-invoicing">
           <div className="dashboard-summary-invoicing-container">
             <div className="dashboard-summary-invoicing-heading">Fakturace</div>
