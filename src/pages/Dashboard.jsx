@@ -14,6 +14,7 @@ import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
+import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -185,8 +186,10 @@ const Dashboard = () => {
         console.log("měsíc v archivu neexistuje");
         console.log("kód pro přidání nového měsíce do archivu");
 
-        const newMonthToArchive = sortArchiveMonthJobsAscending(
-          sortArchiveMonthsDescending([...archivedJobs, monthToArchive])
+        const newMonthToArchive = trimArchiveOver13months(
+          sortArchiveMonthJobsAscending(
+            sortArchiveMonthsDescending([...archivedJobs, monthToArchive])
+          )
         );
 
         console.log("newMonthToArchive", newMonthToArchive);
@@ -221,7 +224,6 @@ const Dashboard = () => {
             return archivedMonth;
           })
         );
-
         console.log(filteredCurrentJobs);
 
         console.log(updatedArchivedJobs);

@@ -675,7 +675,7 @@ export const authSlice = createSlice({
             ? "Heslo musí mít alespoň 6 znaků"
             : action.error.message;
         state.toast.style = "error";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(login.pending, (state) => {
@@ -770,7 +770,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Změny uloženy";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(changeSettings.rejected, (state) => {
@@ -779,7 +779,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Něco se nepovedlo";
         state.toast.style = "error";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(addJobToDatabase.pending, () => {
@@ -799,7 +799,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Práce přidána";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(addJobToDatabase.rejected, () => {
@@ -829,7 +829,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Práce upravena";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(editJobInDatabase.rejected, () => {
@@ -845,7 +845,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Práce smazána";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(deleteJobFromDatabase.rejected, () => {
@@ -863,7 +863,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsFirstTime.rejected, () => {
@@ -881,7 +881,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsNewMonth.rejected, () => {
@@ -900,7 +900,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(archiveDoneJobsExistingMonth.rejected, () => {
@@ -916,7 +916,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Smazáno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(deleteArchiveMonthFromDatabase.rejected, () => {
@@ -932,7 +932,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Smazáno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(deleteArchiveMonthJobFromDatabase.rejected, () => {
@@ -948,7 +948,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message = "Upraveno";
         state.toast.style = "success";
-        state.toast.time = 5000;
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(editArchiveJobInDatabase.rejected, () => {
