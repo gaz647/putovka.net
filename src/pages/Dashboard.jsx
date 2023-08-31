@@ -15,6 +15,7 @@ import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing"
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
+import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,10 @@ const Dashboard = () => {
   const [totalJobs, setTotalJobs] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
   const [totalWaiting, setTotalWaiting] = useState(0);
+
+  const userSettings = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings
+  );
 
   const baseMoney = useSelector(
     (state) => state.auth.loggedInUserData.userSettings.baseMoney
@@ -113,10 +118,29 @@ const Dashboard = () => {
 
   const archiveModalText = "tento krok nelze vrátit";
 
+  // Funkce archiveJobs2 která nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs
+  //
+  //
+  const archiveJobs2 = async () => {
+    // ... (existující části kódu)
+
+    try {
+      const renewedEurCzkRate = await getEurCzkCurrencyRate(); // Počká na dokončení asynchronní funkce
+      // ... (zbytek kódu, který závisí na hodnotě eurCzkRate)
+      //
+      //
+      archiveJobs(renewedEurCzkRate);
+      //
+      //
+      //
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
   //
   //
   //
-  const archiveJobs = () => {
+  const archiveJobs = (newEurCzkRate) => {
     setShowArchiveModal(!showArchiveModal);
 
     const currentArchivedJobs =
@@ -131,8 +155,6 @@ const Dashboard = () => {
         getDateForComparing(oneJob.date) ===
         getDateForComparing(dateForArchiving)
     );
-
-    console.log("jobsToBeArchived", jobsToBeArchived);
 
     const filteredCurrentJobs = currentJobs.filter(
       (oneJob) =>
@@ -153,6 +175,8 @@ const Dashboard = () => {
     };
 
     // Pokud je archiv prázdný
+    // ARCHIVE DONE JOBS FIRST TIME
+    // (poslat nový kurz)
     //
     if (currentArchivedJobs.length === 0) {
       console.log("archiv je prázdný");
@@ -161,6 +185,8 @@ const Dashboard = () => {
         userUid,
         monthToArchive: [{ ...monthToArchive }],
         filteredCurrentJobs,
+        userSettings,
+        newEurCzkRate,
       };
       console.log(payload);
       dispatch(archiveDoneJobsFirstTime(payload));
@@ -178,7 +204,8 @@ const Dashboard = () => {
       //
       //
       // Když měsíc v archivu neexistuje
-      //
+      // ARCHIVE DONE JOBS NEW MONTH
+      // (poslat nový kurz)
       //
       //
       //
@@ -198,6 +225,8 @@ const Dashboard = () => {
           userUid,
           newMonthToArchive,
           filteredCurrentJobs,
+          userSettings,
+          newEurCzkRate,
         };
         console.log(payload);
         dispatch(archiveDoneJobsNewMonth(payload));
@@ -205,7 +234,7 @@ const Dashboard = () => {
       //
       //
       // Když měsíc v archivu existuje
-      //
+      // ARCHIVE DONE JOBS FIRST TIME
       //
       //
       else {
@@ -232,6 +261,7 @@ const Dashboard = () => {
           userUid,
           updatedArchivedJobs,
           filteredCurrentJobs,
+          userSettings,
         };
 
         dispatch(archiveDoneJobsExistingMonth(payload));
@@ -253,10 +283,11 @@ const Dashboard = () => {
           <ModalPrompt
             heading={archiveModalHeading}
             text={archiveModalText}
-            clbFunction={archiveJobs}
+            clbFunction={archiveJobs2}
             closeModal={handleArchiveModalVisibility}
           />
         )}
+        <div>{eurCzkRate}</div>
         <div className="dashboard-summary-invoicing">
           <div className="dashboard-summary-invoicing-container">
             <div className="dashboard-summary-invoicing-heading">Fakturace</div>
@@ -290,6 +321,7 @@ const Dashboard = () => {
             <div>{totalWaiting}</div>
           </div>
         </div>
+
         <button
           className="dashboard-archive-btn"
           onClick={() => setShowArchiveModal(true)}

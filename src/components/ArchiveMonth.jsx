@@ -40,6 +40,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
         summaryWaiting * userSettings.waitingBenefit
     );
 
+    const summaryEurCzkRate = userSettings.eurCzkRate;
+
     const summaryJobs = jobs.length;
 
     setSummaryData({
@@ -49,6 +51,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
       summaryWaiting,
       summarySalary,
       summaryJobs,
+      summaryEurCzkRate,
     });
   };
 

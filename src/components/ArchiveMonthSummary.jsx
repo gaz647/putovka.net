@@ -9,6 +9,7 @@ const ArchiveMonthSummary = ({ summary }) => {
     summaryWaiting,
     summarySalary,
     summaryJobs,
+    summaryEurCzkRate,
   } = summary;
 
   return (
@@ -36,7 +37,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
         <br />
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Prací:</div>
+          <div className="archive-month-summary-item">Prací</div>
           <div className="archive-month-summary-item">{summaryJobs}</div>
         </div>
 
@@ -48,6 +49,13 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Čekání</div>
           <div className="archive-month-summary-item">{summaryWaiting}</div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">
+            Kurz (ze začátku měsíce)
+          </div>
+          <div className="archive-month-summary-item">{summaryEurCzkRate}</div>
         </div>
       </div>
     </section>

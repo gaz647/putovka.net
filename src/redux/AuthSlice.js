@@ -30,7 +30,6 @@ const createUserData = async (userAuth) => {
   // Vytvoření reference kolekce USERS
   const usersCollectionRef = collection(db, "users");
 
-  // Funkce pro vytvoření databázové struktury uživatele
   const API_KEY = "82514d87dee3023eb8c649dc";
   const FROM_CURRENCY = "EUR";
   const TO_CURRENCY = "CZK";
@@ -319,6 +318,16 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
   "auth/archiveDoneJobsFirstTime",
   async (payload) => {
     try {
+      const userSetingsNewCurrencyRate = {
+        baseMoney: payload.userSettings.baseMoney,
+        email: payload.userSettings.email,
+        eurCzkRate: payload.newEurCzkRate,
+        percentage: payload.userSettings.percentage,
+        secondJobBenefit: payload.userSettings.secondJobBenefit,
+        terminal: payload.userSettings.terminal,
+        waitingBenefit: payload.userSettings.waitingBenefit,
+      };
+
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
         const userDocSnapshot = await transaction.get(userDocRef);
@@ -327,11 +336,14 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
           transaction.update(userDocRef, {
             archivedJobs: payload.monthToArchive,
             currentJobs: payload.filteredCurrentJobs,
+            userSettings: userSetingsNewCurrencyRate,
           });
         }
       });
+
       return payload;
     } catch (error) {
+      console.log(error.message);
       throw error.message;
     }
   }
@@ -343,6 +355,16 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
   "auth/archiveDoneJobsNewMonth",
   async (payload) => {
     try {
+      const userSetingsNewCurrencyRate = {
+        baseMoney: payload.userSettings.baseMoney,
+        email: payload.userSettings.email,
+        eurCzkRate: payload.newEurCzkRate,
+        percentage: payload.userSettings.percentage,
+        secondJobBenefit: payload.userSettings.secondJobBenefit,
+        terminal: payload.userSettings.terminal,
+        waitingBenefit: payload.userSettings.waitingBenefit,
+      };
+
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
         const userDocSnapshot = await transaction.get(userDocRef);
@@ -351,6 +373,7 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
           transaction.update(userDocRef, {
             archivedJobs: payload.newMonthToArchive,
             currentJobs: payload.filteredCurrentJobs,
+            userSettings: userSetingsNewCurrencyRate,
           });
         }
       });
@@ -361,7 +384,7 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
   }
 );
 
-//  ARCHIVE DONE JOBS - NEW MONTH
+//  ARCHIVE DONE JOBS - EXISTING MONTH
 //
 export const archiveDoneJobsExistingMonth = createAsyncThunk(
   "auth/archiveDoneJobsExistingMonth",
@@ -859,6 +882,8 @@ export const authSlice = createSlice({
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.monthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+        state.loggedInUserData.userSettings.eurCzkRate =
+          action.payload.newEurCzkRate;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -877,6 +902,8 @@ export const authSlice = createSlice({
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.newMonthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
+        state.loggedInUserData.userSettings.eurCzkRate =
+          action.payload.newEurCzkRate;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
