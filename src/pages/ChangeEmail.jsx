@@ -1,12 +1,23 @@
 import "./ChangeEmail.css";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { changeEmail } from "../redux/AuthSlice";
+import { changeEmail, logout } from "../redux/AuthSlice";
+import resetIsAccountDisabled from "../redux/AuthSlice";
 
 const ChangeEmail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isEmailChangedSuccess = useSelector(
+    (state) => state.auth.isEmailChangedSuccess
+  );
+
+  const isAccountDisabled = useSelector(
+    (state) => state.auth.isAccountDisabled
+  );
+
+  console.log("isAccountDisabled", isAccountDisabled);
 
   const [newEmail1, setNewEmail1] = useState("");
   const [newEmail2, setNewEmail2] = useState("");
@@ -21,7 +32,6 @@ const ChangeEmail = () => {
         "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
       );
       dispatch(changeEmail({ currentPassword, newEmail: newEmail1 }));
-      navigate("/email-changed");
     } else {
       console.log(
         "ChangeEmailPassword - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
@@ -29,9 +39,24 @@ const ChangeEmail = () => {
     }
   };
 
+  useEffect(() => {
+    if (isEmailChangedSuccess) {
+      navigate("/change-email-sent");
+    }
+  }, [isEmailChangedSuccess, navigate]);
+
   const handleDecline = () => {
     navigate("/settings");
   };
+
+  useEffect(() => {
+    if (isAccountDisabled === true) {
+      console.log("isAccountDisabled", isAccountDisabled);
+      console.log("mrdkens");
+      dispatch(resetIsAccountDisabled);
+      dispatch(logout());
+    }
+  }, [dispatch, isAccountDisabled]);
 
   return (
     <section className="wrapper">

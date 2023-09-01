@@ -53,8 +53,8 @@ const ChangeEmail = () => {
             <div className="change-email-password-form-item-container-password">
               <input
                 className="change-email-password-form-item-container-input"
-                type="text"
-                placeholder="nové heslo"
+                type="password"
+                placeholder="současné heslo"
                 value={currentPassword}
                 onChange={(e) => setCurrentPassword1(e.target.value)}
               />
@@ -83,14 +83,14 @@ const ChangeEmail = () => {
             <div className="change-email-password-form-item-container-password">
               <input
                 className="change-email-password-form-item-container-input"
-                type="text"
+                type="password"
                 placeholder="nové heslo"
                 value={newPassword1}
                 onChange={(e) => setNewPassword1(e.target.value)}
               />
               <input
                 className="change-email-password-form-item-container-input"
-                type="text"
+                type="password"
                 placeholder="nové heslo znovu"
                 value={newPassword2}
                 onChange={(e) => setNewPassword2(e.target.value)}

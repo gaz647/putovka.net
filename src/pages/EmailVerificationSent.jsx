@@ -1,6 +1,6 @@
 import "./EmailVerificationSent.css";
 
-const EmailVerificationPending = () => {
+const EmailVerificationSent = () => {
   return (
     <section className="wrapper">
       <div className="sent-message-container">
@@ -15,4 +15,4 @@ const EmailVerificationPending = () => {
   );
 };
 
-export default EmailVerificationPending;
+export default EmailVerificationSent;

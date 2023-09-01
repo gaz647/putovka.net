@@ -52,9 +52,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">
-            Kurz (ze začátku měsíce)
-          </div>
+          <div className="archive-month-summary-item">Kurz (cca)</div>
           <div className="archive-month-summary-item">{summaryEurCzkRate}</div>
         </div>
       </div>

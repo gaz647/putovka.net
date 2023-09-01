@@ -177,8 +177,8 @@ export const changeEmail = createAsyncThunk(
       await reauthenticateWithCredential(auth.currentUser, credential);
       await updateEmail(auth.currentUser, newEmail);
       await sendEmailVerification(auth.currentUser);
-      await signOut(auth);
-      localStorage.removeItem("emailVerified");
+      // await signOut(auth);
+      // localStorage.removeItem("emailVerified");
     } catch (error) {
       throw error.message;
     }
@@ -489,12 +489,14 @@ export const authSlice = createSlice({
       time: 0,
       resetToast: false,
     },
-    isRegisterSuccess: false,
+
     isLoggedIn: false,
     isLoading: false,
     loggedInUserEmail: null,
     loggedInUserUid: null,
-    emailChangedSuccess: false,
+    isRegisterSuccess: false,
+    isEmailChangedSuccess: false,
+    isAccountDisabled: false,
     loggedInUserData: {
       archivedJobs: [],
       currentJobs: [],
@@ -552,6 +554,14 @@ export const authSlice = createSlice({
       state.toast.time = 0;
       state.toast.resetToast = false;
       console.log("toast RESETOVÁN");
+    },
+
+    resetIsEmailChangedSuccess(state) {
+      state.isEmailChangedSuccess = false;
+    },
+
+    resetIsAccountDisabled(state) {
+      state.isAccountDisabled = false;
     },
 
     setLoadingTrue(state) {
@@ -706,6 +716,7 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(login.fulfilled, (state, action) => {
+        console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
         state.isLoggedIn = true;
         state.loggedInUserEmail = auth.currentUser.email;
         state.loggedInUserUid = auth.currentUser.uid;
@@ -713,7 +724,7 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
         state.isLoading = false;
-        console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
+        state.isAccountDisabled = false;
       })
       .addCase(login.rejected, (state, action) => {
         console.log("login SELHAL", action.error.message);
@@ -726,7 +737,10 @@ export const authSlice = createSlice({
           action.error.message === "Firebase: Error (auth/user-not-found)."
             ? "Email není registrován!"
             : action.error.message === "Firebase: Error (auth/wrong-password)."
-            ? "Špatné heslo"
+            ? "Zadali jste špatné heslo"
+            : action.error.message ===
+              "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+            ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
             : action.error.message;
         state.toast.style = "error";
         state.toast.resetToast = true;
@@ -760,20 +774,55 @@ export const authSlice = createSlice({
       .addCase(changeEmail.pending, () => {
         console.log("changeEmail SPUŠTĚN");
       })
-      .addCase(changeEmail.fulfilled, () => {
+      .addCase(changeEmail.fulfilled, (state) => {
         console.log("changeEmail ÚSPĚŠNĚ DOKONČEN");
+        state.isEmailChangedSuccess = true;
       })
-      .addCase(changeEmail.rejected, (action) => {
+      .addCase(changeEmail.rejected, (state, action) => {
         console.log("changeEmail selhal", action.error.message);
+
+        state.toast.isVisible = true;
+        state.toast.message =
+          action.error.message === "Firebase: Error (auth/wrong-password)."
+            ? "Zadali jste špatné heslo"
+            : action.error.message ===
+              "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+            ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
+            : action.error.message;
+        state.toast.style = "error";
+        state.toast.time = 3000;
+
+        state.isAccountDisabled =
+          action.error.message ===
+          "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
+            ? true
+            : false;
+
+        state.toast.resetToast = true;
       })
       .addCase(changePassword.pending, () => {
         console.log("changePassword SPUŠTĚN");
       })
-      .addCase(changePassword.fulfilled, () => {
+      .addCase(changePassword.fulfilled, (state) => {
         console.log("changePassword ÚSPĚŠNĚ DOKONČEN");
+
+        state.toast.isVisible = true;
+        state.toast.message = "Heslo změněno";
+        state.toast.style = "success";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
-      .addCase(changePassword.rejected, (action) => {
+      .addCase(changePassword.rejected, (state, action) => {
         console.log("changePassword selhal", action.error.message);
+
+        state.toast.isVisible = true;
+        state.toast.message =
+          action.error.message === "Firebase: Error (auth/wrong-password)."
+            ? "Zadali jste špatné heslo"
+            : "Něco se pokazilo";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       .addCase(changeSettings.pending, () => {
         console.log("changeSettings SPUŠTĚN");
@@ -800,7 +849,7 @@ export const authSlice = createSlice({
         console.log("changeSettings SELHAL");
 
         state.toast.isVisible = true;
-        state.toast.message = "Něco se nepovedlo";
+        state.toast.message = "Něco se pokazilo";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -987,6 +1036,8 @@ export const authSlice = createSlice({
 export const {
   runToast,
   resetToast,
+  resetIsEmailChangedSuccess,
+  resetIsAccountDisabled,
   setLoadingTrue,
   setLoadingFalse,
   loginOnAuth,

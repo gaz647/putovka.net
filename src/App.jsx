@@ -13,6 +13,7 @@ import ForgottenPassword from "./pages/ForgottenPassword";
 import ForgottenPasswordSent from "./pages/ForgottenPasswordSent";
 import Error404 from "./pages/Error404";
 import ChangeEmail from "./pages/ChangeEmail";
+import ChangeEmailSent from "./pages/ChangeEmaiSent";
 import ChangePassword from "./pages/ChangePassword";
 import SharedLayout from "./pages/SharedLayout";
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -74,6 +75,7 @@ const App = () => {
           path="/email-verification-sent"
           element={<EmailVerificationSent />}
         />
+        <Route path="/change-email-sent" element={<ChangeEmailSent />} />
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
         <Route
           path="/forgotten-password-sent"
