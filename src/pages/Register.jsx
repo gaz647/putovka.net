@@ -39,7 +39,14 @@ const Register = () => {
 
   useEffect(() => {
     if (isRegisterSuccess) {
-      navigate("/email-verification-sent");
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage:
+            "Email s odkazem pro potvrzení registrace byl úspěšně odeslán!",
+          secondMessage: "Zkontrolujte Vaši emailovou schránku.",
+        },
+      });
     }
   }, [isRegisterSuccess, navigate]);
 

@@ -197,7 +197,7 @@ export const changePassword = createAsyncThunk(
       );
       await reauthenticateWithCredential(auth.currentUser, credential);
       await updatePassword(auth.currentUser, newPassword);
-      await signOut(auth);
+      // await signOut(auth);
       console.log(
         "reauthenticateWithCredential i updatePassword by mělo být hotovo"
       );
@@ -496,6 +496,7 @@ export const authSlice = createSlice({
     loggedInUserUid: null,
     isRegisterSuccess: false,
     isEmailChangedSuccess: false,
+    isPasswordChangedSuccess: false,
     isAccountDisabled: false,
     loggedInUserData: {
       archivedJobs: [],
@@ -558,6 +559,10 @@ export const authSlice = createSlice({
 
     resetIsEmailChangedSuccess(state) {
       state.isEmailChangedSuccess = false;
+    },
+
+    resetIsPasswordChangedSuccess(state) {
+      state.isPasswordChangedSuccess = false;
     },
 
     resetIsAccountDisabled(state) {
@@ -806,6 +811,8 @@ export const authSlice = createSlice({
       .addCase(changePassword.fulfilled, (state) => {
         console.log("changePassword ÚSPĚŠNĚ DOKONČEN");
 
+        state.isPasswordChangedSuccess = true;
+
         state.toast.isVisible = true;
         state.toast.message = "Heslo změněno";
         state.toast.style = "success";
@@ -828,6 +835,7 @@ export const authSlice = createSlice({
         console.log("changeSettings SPUŠTĚN");
       })
       .addCase(changeSettings.fulfilled, (state, action) => {
+        state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.baseMoney =
           action.payload.baseMoney;
         state.loggedInUserData.userSettings.percentage =
@@ -1037,6 +1045,7 @@ export const {
   runToast,
   resetToast,
   resetIsEmailChangedSuccess,
+  resetIsPasswordChangedSuccess,
   resetIsAccountDisabled,
   setLoadingTrue,
   setLoadingFalse,

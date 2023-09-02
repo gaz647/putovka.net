@@ -1,11 +1,16 @@
-import "./EmailVerificationSent.css";
+/* eslint-disable react/prop-types */
+import "./ChangeVerification.css";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/AuthSlice";
-import { resetIsEmailChangedSuccess } from "../redux/AuthSlice";
+import {
+  resetIsEmailChangedSuccess,
+  resetIsPasswordChangedSuccess,
+} from "../redux/AuthSlice";
 
-const ChangeEmailSent = () => {
+const ChangeVerification = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,6 +28,7 @@ const ChangeEmailSent = () => {
     setTimeout(() => {
       dispatch(logout());
       dispatch(resetIsEmailChangedSuccess());
+      dispatch(resetIsPasswordChangedSuccess());
       navigate("/login");
       clearInterval(interval); // Zrušení intervalu
     }, 15000);
@@ -36,17 +42,18 @@ const ChangeEmailSent = () => {
   return (
     <section className="wrapper">
       <div className="sent-message-container">
-        <h3 className="sent-message">Váš email byl změněn!</h3>
+        <h3 className="sent-message">{location.state.firstMessage}</h3>
         <br />
-        <h3 className="sent-message">
-          Zkontrolujte Vaši emailovou schránku a změnu potvrďte.
-        </h3>
-        <h4>
-          Budete přesměrování na přihlašovací obrazovku za {secondsRemaining}.
-        </h4>
+        {location.state.secondMessage !== "" ? (
+          <h3 className="sent-message">{location.state.secondMessage}</h3>
+        ) : null}
+
+        <h4>Nyní budete přesměrování na přihlašovací obrazovku.</h4>
+        <br />
+        <h3>{secondsRemaining}</h3>
       </div>
     </section>
   );
 };
 
-export default ChangeEmailSent;
+export default ChangeVerification;

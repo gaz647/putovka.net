@@ -41,7 +41,14 @@ const ChangeEmail = () => {
 
   useEffect(() => {
     if (isEmailChangedSuccess) {
-      navigate("/change-email-sent");
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Váš email byl změněn!",
+          secondMessage:
+            "Zkontrolujte Vaši emailovou schránku a změnu potvrďte.",
+        },
+      });
     }
   }, [isEmailChangedSuccess, navigate]);
 

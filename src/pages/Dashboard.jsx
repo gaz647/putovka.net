@@ -7,6 +7,7 @@ import {
   archiveDoneJobsFirstTime,
   archiveDoneJobsNewMonth,
   archiveDoneJobsExistingMonth,
+  changeSettings,
 } from "../redux/AuthSlice";
 // import { db } from "../firebase/config";
 // import { onSnapshot, doc } from "firebase/firestore";
@@ -21,6 +22,14 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   // const [currentJobs, setCurrentJobs] = useState([]);
+
+  const loggedInUserSettings = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings
+  );
+
+  const loggedInUserEmail = useSelector(
+    (state) => state.auth.loggedInUserEmail
+  );
 
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
@@ -110,6 +119,39 @@ const Dashboard = () => {
     totalWaiting,
     waitingBenefit,
   ]);
+
+  const email = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.email
+  );
+
+  useEffect(() => {
+    if (email && loggedInUserEmail) {
+      if (email !== loggedInUserEmail) {
+        console.log(
+          "email byl změněn --> spouštím dispatch pro změnu userSettings"
+        );
+        console.log(email);
+        console.log(loggedInUserEmail);
+
+        const payload = {
+          userUid,
+          userSettings: {
+            baseMoney: Number(loggedInUserSettings.baseMoney),
+            email: loggedInUserEmail,
+            eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
+            percentage: Number(loggedInUserSettings.percentage),
+            secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
+            terminal: loggedInUserSettings.terminal,
+            waitingBenefit: Number(loggedInUserSettings.waitingBenefit),
+          },
+        };
+        console.log(payload);
+        dispatch(changeSettings(payload));
+      } else if (email && loggedInUserEmail) {
+        console.log(email === loggedInUserEmail);
+      }
+    }
+  }, [email, loggedInUserEmail]);
 
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 

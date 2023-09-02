@@ -14,7 +14,13 @@ const ForgottenPassword = () => {
     e.preventDefault();
     if (email) {
       dispatch(passwordReset(email));
-      navigate("/forgotten-password-sent");
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Email s odkazem pro obnovu hesla byl úspěšně odeslán!",
+          secondMessage: "Zkontrolujte Vaši emailovou schránku.",
+        },
+      });
     } else {
       alert("Zadejte Váš email");
     }

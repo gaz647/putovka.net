@@ -1,12 +1,16 @@
 import "./ChangePassword.css";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePassword } from "../redux/AuthSlice";
 
 const ChangeEmail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isPasswordChangedSucces = useSelector(
+    (state) => state.auth.isPasswordChangedSucces
+  );
 
   const [currentPassword, setCurrentPassword1] = useState("");
   const [newPassword1, setNewPassword1] = useState("");
@@ -38,6 +42,18 @@ const ChangeEmail = () => {
   const handleDecline = () => {
     navigate("/settings");
   };
+
+  useEffect(() => {
+    if (isPasswordChangedSucces) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Vaše heslo bylo změněno!",
+          secondMessage: "",
+        },
+      });
+    }
+  }, [isPasswordChangedSucces]);
 
   return (
     <section className="wrapper">

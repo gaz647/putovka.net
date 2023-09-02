@@ -8,13 +8,11 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import EditJob from "./pages/EditJob";
-import EmailVerificationSent from "./pages/EmailVerificationSent";
 import ForgottenPassword from "./pages/ForgottenPassword";
-import ForgottenPasswordSent from "./pages/ForgottenPasswordSent";
 import Error404 from "./pages/Error404";
 import ChangeEmail from "./pages/ChangeEmail";
-import ChangeEmailSent from "./pages/ChangeEmaiSent";
 import ChangePassword from "./pages/ChangePassword";
+import ChangeVerification from "./components/ChangeVerification";
 import SharedLayout from "./pages/SharedLayout";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
@@ -70,17 +68,12 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/email-verification-sent"
-          element={<EmailVerificationSent />}
-        />
-        <Route path="/change-email-sent" element={<ChangeEmailSent />} />
+
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
-        <Route
-          path="/forgotten-password-sent"
-          element={<ForgottenPasswordSent />}
-        />
+
+        <Route path="/change-verification" element={<ChangeVerification />} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<SharedLayout />}>
