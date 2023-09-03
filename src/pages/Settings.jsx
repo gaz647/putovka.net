@@ -104,6 +104,12 @@ const Settings = () => {
               >
                 změnit heslo
               </Link>
+              <Link
+                className="settings-header-user-btns"
+                to={"/delete-account"}
+              >
+                smazat účet
+              </Link>
             </div>
           </header>
           <main>

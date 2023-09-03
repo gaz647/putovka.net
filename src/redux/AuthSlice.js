@@ -498,6 +498,7 @@ export const authSlice = createSlice({
     isEmailChangedSuccess: false,
     isPasswordChangedSuccess: false,
     isAccountDisabled: false,
+    isAccountDeleted: false,
     loggedInUserData: {
       archivedJobs: [],
       currentJobs: [],
@@ -572,6 +573,10 @@ export const authSlice = createSlice({
 
     resetIsAccountDisabled(state) {
       state.isAccountDisabled = false;
+    },
+
+    resetIsAccountDeleted(state) {
+      state.isAccountDeleted = false;
     },
 
     setLoadingTrue(state) {
@@ -1065,6 +1070,7 @@ export const {
   resetIsEmailChangedSuccess,
   resetIsPasswordChangedSuccess,
   resetIsAccountDisabled,
+  resetIsAccountDeleted,
   setLoadingTrue,
   setLoadingFalse,
   loginOnAuth,

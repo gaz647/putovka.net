@@ -19,14 +19,13 @@ import { useEffect } from "react";
 import { auth } from "./firebase/config";
 import { useDispatch } from "react-redux";
 import {
-  runToast,
-  resetToast,
   loginOnAuth,
   logoutOnAuth,
   setLoadingTrue,
   loadUserData,
   setLoadingFalse,
 } from "./redux/AuthSlice";
+import DeleteAccount from "./pages/DeleteAccount";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -94,6 +93,7 @@ const App = () => {
             <Route path="/settings" lazy element={<Settings />} />
             <Route path="/change-email" element={<ChangeEmail />} />
             <Route path="/change-password" element={<ChangePassword />} />
+            <Route path="/delete-account" element={<DeleteAccount />} />
             <Route path="/edit-job" element={<EditJob />} />
             <Route path="*" element={<Error404 />} />
           </Route>

@@ -8,6 +8,7 @@ import {
   resetIsRegisterSuccess,
   resetIsEmailChangedSuccess,
   resetIsPasswordChangedSuccess,
+  resetIsAccountDeleted,
 } from "../redux/AuthSlice";
 
 const ChangeVerification = () => {
@@ -31,6 +32,7 @@ const ChangeVerification = () => {
       dispatch(resetIsRegisterSuccess());
       dispatch(resetIsEmailChangedSuccess());
       dispatch(resetIsPasswordChangedSuccess());
+      dispatch(resetIsAccountDeleted());
       navigate("/login");
       clearInterval(interval); // Zrušení intervalu
     }, 15000);
