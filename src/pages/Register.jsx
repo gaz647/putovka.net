@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     if (registerPassword !== registerPassword2) {
       dispatch(
-        runToast({ message: "Hesla se neshodují!", style: "error", time: 5000 })
+        runToast({ message: "Hesla se neshodují!", style: "error", time: 3000 })
       );
       return;
     } else {
@@ -61,7 +61,7 @@ const Register = () => {
         ? toast.error(`${toastRedux.message}`)
         : null;
     }
-  }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
+  }, [toastRedux]);
 
   const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
 

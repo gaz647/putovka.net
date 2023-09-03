@@ -19,6 +19,8 @@ import { useEffect } from "react";
 import { auth } from "./firebase/config";
 import { useDispatch } from "react-redux";
 import {
+  runToast,
+  resetToast,
   loginOnAuth,
   logoutOnAuth,
   setLoadingTrue,
@@ -51,11 +53,19 @@ const App = () => {
           dispatch(setLoadingFalse());
         }
       } else {
+        // dispatch(
+        //   runToast({
+        //     message: "Nejdříve potvrďte registraci ve vašem emailu",
+        //     style: "error",
+        //     time: 3000,
+        //   })
+        // );
         console.log("lsEmailVerified NE-NALEZEN v localStorage");
         console.log("logouthOnAuth SPUŠTĚN dispatch z else v App.jsx");
         dispatch(logoutOnAuth());
         console.log("setLoadingFalse SPUŠTĚN dispatch z else v App.jsx");
         dispatch(setLoadingFalse());
+        // dispatch(resetToast());
       }
     });
 

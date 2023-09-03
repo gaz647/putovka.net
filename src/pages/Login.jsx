@@ -18,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogIn = () => {
-    let loginCredentials = { loginEmail, loginPassword };
+    const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
     dispatch(login(loginCredentials));
   };
@@ -41,7 +41,7 @@ const Login = () => {
         ? toast.error(`${toastRedux.message}`)
         : null;
     }
-  }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
+  }, [toastRedux]);
 
   const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
 

@@ -1,8 +1,9 @@
 import "./ForgottenPassword.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { passwordReset } from "../redux/AuthSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { passwordReset, runToast, resetToast } from "../redux/AuthSlice";
+import { ToastContainer, toast, Flip } from "react-toastify";
 
 const ForgottenPassword = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const ForgottenPassword = () => {
         },
       });
     } else {
-      alert("Zadejte Váš email");
+      // alert("Zadejte Váš email");
+      dispatch(
+        runToast({ message: "Zadejte email", style: "error", time: 3000 })
+      );
     }
   };
 
@@ -30,8 +34,43 @@ const ForgottenPassword = () => {
     navigate("/login");
   };
 
+  const toastRedux = useSelector((state) => state.auth.toast);
+
+  useEffect(() => {
+    if (toastRedux.isVisible) {
+      toastRedux.style === "success"
+        ? toast.success(`${toastRedux.message}`)
+        : toastRedux.style === "error"
+        ? toast.error(`${toastRedux.message}`)
+        : null;
+    }
+  }, [toastRedux]);
+
+  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+
+  useEffect(() => {
+    if (resetToastRedux) {
+      setTimeout(() => {
+        dispatch(resetToast());
+      }, 500);
+    }
+  }, [resetToastRedux, dispatch]);
+
   return (
     <section className="wrapper">
+      <ToastContainer
+        transition={Flip}
+        position="top-center"
+        autoClose={toastRedux.time}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <header className="forgotten-password-header">
         <h1 className="forgotten-password-title">Obnovit heslo</h1>
       </header>

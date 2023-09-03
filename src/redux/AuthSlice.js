@@ -541,6 +541,7 @@ export const authSlice = createSlice({
   },
   reducers: {
     runToast(state, action) {
+      console.log("toast SPUŠTĚN");
       state.toast.isVisible = true;
       state.toast.message = action.payload.message;
       state.toast.style = action.payload.style;
@@ -549,12 +550,12 @@ export const authSlice = createSlice({
     },
 
     resetToast(state) {
+      console.log("toast RESETOVÁN");
       state.toast.isVisible = false;
       state.toast.message = "";
       state.toast.style = "";
       state.toast.time = 0;
       state.toast.resetToast = false;
-      console.log("toast RESETOVÁN");
     },
 
     resetIsRegisterSuccess(state) {
@@ -747,6 +748,8 @@ export const authSlice = createSlice({
             ? "Email není registrován!"
             : action.error.message === "Firebase: Error (auth/wrong-password)."
             ? "Zadali jste špatné heslo"
+            : action.error.message === "Firebase: Error (auth/invalid-email)."
+            ? "Neplatný email"
             : action.error.message ===
               "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
@@ -834,6 +837,16 @@ export const authSlice = createSlice({
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
+      })
+      .addCase(passwordReset.pending, () => {
+        console.log("passwordReset SPUŠTĚN");
+      })
+      .addCase(passwordReset.fulfilled, () => {
+        console.log("passwordReset ÚSPĚŠNĚ DOKONČEN");
+      })
+      .addCase(passwordReset.rejected, (action) => {
+        console.log("passwordReset SELHAL");
+        console.log(action.error.message);
       })
       .addCase(changeSettings.pending, () => {
         console.log("changeSettings SPUŠTĚN");
