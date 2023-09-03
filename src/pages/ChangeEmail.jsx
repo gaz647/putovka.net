@@ -59,7 +59,6 @@ const ChangeEmail = () => {
   useEffect(() => {
     if (isAccountDisabled === true) {
       console.log("isAccountDisabled", isAccountDisabled);
-      console.log("mrdkens");
       dispatch(resetIsAccountDisabled);
       dispatch(logout());
     }

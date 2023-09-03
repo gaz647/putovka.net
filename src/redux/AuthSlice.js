@@ -557,6 +557,10 @@ export const authSlice = createSlice({
       console.log("toast RESETOVÁN");
     },
 
+    resetIsRegisterSuccess(state) {
+      state.isRegisterSuccess = false;
+    },
+
     resetIsEmailChangedSuccess(state) {
       state.isEmailChangedSuccess = false;
     },
@@ -1044,6 +1048,7 @@ export const authSlice = createSlice({
 export const {
   runToast,
   resetToast,
+  resetIsRegisterSuccess,
   resetIsEmailChangedSuccess,
   resetIsPasswordChangedSuccess,
   resetIsAccountDisabled,

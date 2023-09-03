@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/AuthSlice";
 import {
+  resetIsRegisterSuccess,
   resetIsEmailChangedSuccess,
   resetIsPasswordChangedSuccess,
 } from "../redux/AuthSlice";
@@ -27,6 +28,7 @@ const ChangeVerification = () => {
     // Po uplynutí timeoutu provedeme potřebné akce a zrušíme interval
     setTimeout(() => {
       dispatch(logout());
+      dispatch(resetIsRegisterSuccess());
       dispatch(resetIsEmailChangedSuccess());
       dispatch(resetIsPasswordChangedSuccess());
       navigate("/login");

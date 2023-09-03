@@ -147,11 +147,9 @@ const Dashboard = () => {
         };
         console.log(payload);
         dispatch(changeSettings(payload));
-      } else if (email && loggedInUserEmail) {
-        console.log(email === loggedInUserEmail);
       }
     }
-  }, [email, loggedInUserEmail]);
+  }, [dispatch, email, loggedInUserEmail, loggedInUserSettings, userUid]);
 
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 

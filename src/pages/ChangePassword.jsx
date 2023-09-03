@@ -1,16 +1,18 @@
 import "./ChangePassword.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePassword } from "../redux/AuthSlice";
 
-const ChangeEmail = () => {
+const ChangePassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isPasswordChangedSucces = useSelector(
-    (state) => state.auth.isPasswordChangedSucces
+  const isPasswordChangedSuccess = useSelector(
+    (state) => state.auth.isPasswordChangedSuccess
   );
+
+  console.log("isPasswordChangedSuccess", isPasswordChangedSuccess);
 
   const [currentPassword, setCurrentPassword1] = useState("");
   const [newPassword1, setNewPassword1] = useState("");
@@ -44,7 +46,7 @@ const ChangeEmail = () => {
   };
 
   useEffect(() => {
-    if (isPasswordChangedSucces) {
+    if (isPasswordChangedSuccess) {
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -53,7 +55,7 @@ const ChangeEmail = () => {
         },
       });
     }
-  }, [isPasswordChangedSucces]);
+  }, [isPasswordChangedSuccess, navigate]);
 
   return (
     <section className="wrapper">
@@ -148,4 +150,4 @@ const ChangeEmail = () => {
   );
 };
 
-export default ChangeEmail;
+export default ChangePassword;
