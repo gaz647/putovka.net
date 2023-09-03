@@ -149,7 +149,8 @@ const Dashboard = () => {
         dispatch(changeSettings(payload));
       }
     }
-  }, [dispatch, email, loggedInUserEmail, loggedInUserSettings, userUid]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, email, loggedInUserEmail]);
 
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
