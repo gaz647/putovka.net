@@ -94,8 +94,8 @@
 }
 
 .delete-account-code {
-  color: red;
-  background-color: whitesmoke;
+  color: whitesmoke;
+  background-color: red;
   padding: 0.1rem 0.3rem;
   border-radius: 5px;
   letter-spacing: 0.3rem;

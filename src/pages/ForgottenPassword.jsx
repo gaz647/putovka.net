@@ -2,7 +2,7 @@ import "./ForgottenPassword.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { passwordReset, runToast, resetToast } from "../redux/AuthSlice";
+import { resetPassword, runToast, resetToast } from "../redux/AuthSlice";
 import { ToastContainer, toast, Flip } from "react-toastify";
 
 const ForgottenPassword = () => {
@@ -14,7 +14,7 @@ const ForgottenPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      dispatch(passwordReset(email));
+      dispatch(resetPassword(email));
       navigate("/change-verification", {
         replace: true,
         state: {

@@ -10,12 +10,14 @@ import {
   reauthenticateWithCredential,
   updateEmail,
   updatePassword,
+  deleteUser,
 } from "firebase/auth";
 import {
   collection,
   doc,
   getDoc,
   setDoc,
+  deleteDoc,
   runTransaction,
 } from "firebase/firestore";
 import { db } from "../firebase/config";
@@ -207,10 +209,10 @@ export const changePassword = createAsyncThunk(
   }
 );
 
-// PASSWORD RESET
+// RESET PASSWORD
 //
-export const passwordReset = createAsyncThunk(
-  "auth/passwordReset",
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
   async (email) => {
     try {
       await sendPasswordResetEmail(auth, email);
@@ -237,6 +239,28 @@ export const changeSettings = createAsyncThunk(
         }
       });
       return payload.userSettings;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
+// DELETE ACCOUNT FROM DATABASE
+//
+export const deleteAccountFromDatabase = createAsyncThunk(
+  "auth/deleteAccountFromDatabase",
+  async ({ currentPassword, userUid }) => {
+    // Vytvoření reference kolekce USERS
+    const usersCollectionRef = collection(db, "users");
+    try {
+      const credential = EmailAuthProvider.credential(
+        auth.currentUser.email,
+        currentPassword
+      );
+      await reauthenticateWithCredential(auth.currentUser, credential);
+      await deleteUser(auth.currentUser);
+      await deleteDoc(doc(usersCollectionRef, userUid));
+      //  localStorage.removeItem("emailVerified");
     } catch (error) {
       throw error.message;
     }
@@ -843,13 +867,13 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(passwordReset.pending, () => {
+      .addCase(resetPassword.pending, () => {
         console.log("passwordReset SPUŠTĚN");
       })
-      .addCase(passwordReset.fulfilled, () => {
+      .addCase(resetPassword.fulfilled, () => {
         console.log("passwordReset ÚSPĚŠNĚ DOKONČEN");
       })
-      .addCase(passwordReset.rejected, (action) => {
+      .addCase(resetPassword.rejected, (action) => {
         console.log("passwordReset SELHAL");
         console.log(action.error.message);
       })
@@ -880,6 +904,27 @@ export const authSlice = createSlice({
 
         state.toast.isVisible = true;
         state.toast.message = "Něco se pokazilo";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
+      })
+      .addCase(deleteAccountFromDatabase.pending, () => {
+        console.log("deleteAccountFromDatabase SPUŠTĚN");
+      })
+      .addCase(deleteAccountFromDatabase.fulfilled, (state) => {
+        console.log("deleteAccountFromDatabase ÚSPĚŠNĚ DOKONČEN");
+        state.toast.isVisible = true;
+        state.toast.message = "Účet smazán";
+        state.toast.style = "success";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
+
+        state.isAccountDeleted = true;
+      })
+      .addCase(deleteAccountFromDatabase.rejected, (state) => {
+        console.log("deleteAccountFromDatabase SELHAL");
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;

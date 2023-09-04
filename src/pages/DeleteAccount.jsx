@@ -1,41 +1,88 @@
 import "./DeleteAccount.css";
-
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { runToast, deleteAccountFromDatabase } from "../redux/AuthSlice";
+import ModalPrompt from "../components/ModalPrompt";
 
 const DeleteAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isAccountDeleted = useSelector((state) => state.auth.isAccountDeleted);
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const [currentPassword, setCurrentPassword] = useState("");
 
+  // eslint-disable-next-line no-unused-vars
+  const [deleteCode, setDeleteCode] = useState(uuidv4().substring(0, 8));
+
+  const [userConfirmationCode, setUserConfirmationCode] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dodělat asyncThunk pro smazání účtu (podívat se jestli je potřeba reauthenticate)
-    dispatch();
+    if (userConfirmationCode && currentPassword === "") {
+      dispatch(
+        runToast({ message: "Zadejte heslo", style: "error", time: 3000 })
+      );
+      return;
+    } else if (currentPassword && userConfirmationCode === "") {
+      dispatch(runToast({ message: "Opište kód", style: "error", time: 3000 }));
+      return;
+    } else if (
+      currentPassword &&
+      userConfirmationCode &&
+      userConfirmationCode !== deleteCode
+    ) {
+      dispatch(runToast({ message: "Špatný kód", style: "error", time: 3000 }));
+      return;
+    } else if (!currentPassword && !userConfirmationCode) {
+      dispatch(
+        runToast({
+          message: "Vyplňte požadová pole",
+          style: "error",
+          time: 3000,
+        })
+      );
+    } else {
+      // Vše vyplněné - nyní se otevře modal
+      handleDeleteJobModalVisibility();
+    }
   };
 
-  useEffect(() => {
-    if (isAccountDeleted) {
-      navigate("/change-verification", {
-        replace: true,
-        state: {
-          firstMessage: "Váš účet byl SMAZÁN!",
-          secondMessage: "",
-        },
-      });
-    }
-  }, [isAccountDeleted, navigate]);
+  const deleteAccount = () => {
+    dispatch(deleteAccountFromDatabase({ currentPassword, userUid }));
+    handleDeleteJobModalVisibility();
+    setCurrentPassword("");
+    setUserConfirmationCode("");
+    setDeleteCode(uuidv4().substring(0, 8));
+  };
 
   const handleDecline = () => {
     navigate("/settings");
   };
 
+  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
+
+  const deleteAccountModalHeading =
+    "Opravdu si přejete smazat Váš účet a všechna Vaše data?";
+
+  const deleteAccountModalText = "Tuto akci nelze vzít zpět";
+
+  const handleDeleteJobModalVisibility = () => {
+    setShowDeleteJobModal(!showDeleteJobModal);
+  };
+
   return (
     <section className="wrapper">
+      {showDeleteJobModal && (
+        <ModalPrompt
+          heading={deleteAccountModalHeading}
+          text={deleteAccountModalText}
+          clbFunction={deleteAccount}
+          closeModal={handleDeleteJobModalVisibility}
+        />
+      )}
       <header className="change-email-password-header">
         <div className="change-email-password-header-title">SMAZÁNÍ ÚČTU</div>
       </header>
@@ -66,15 +113,15 @@ const DeleteAccount = () => {
             <label className="change-email-password-form-item-container-label">
               opište následující kód:
               <br />
-              <span className="delete-account-code">kgwoetgjowg</span>
+              <span className="delete-account-code">{deleteCode}</span>
             </label>
             <div className="change-email-password-form-item-container-email">
               <input
                 className="change-email-password-form-item-container-input"
                 type="password"
-                placeholder="současné heslo"
-                value={currentPassword}
-                onChange={(e) => setCurrentPassword(e.target.value)}
+                placeholder="kód pro potvrzení"
+                value={userConfirmationCode}
+                onChange={(e) => setUserConfirmationCode(e.target.value)}
               />
               {/* <div className="warning-container">
                 {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
@@ -87,7 +134,11 @@ const DeleteAccount = () => {
           </div>
 
           <div className="confirm-decline-buttons-container">
-            <button className="confirm-btn" type="submit">
+            <button
+              className="confirm-btn"
+              type="submit"
+              onClick={handleSubmit}
+            >
               změnit
             </button>
             <button
