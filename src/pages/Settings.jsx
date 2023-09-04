@@ -82,35 +82,25 @@ const Settings = () => {
       ) : (
         <section className="wrapper">
           <header className="settings-header">
-            <div className="settings-header-container-left">
-              <h1 className="settings-header-title">Nastavení</h1>
+            <h1 className="settings-header-title">Nastavení</h1>
+            <div className="settings-header-user-email">
+              {loggedInUserEmail}
             </div>
-            <div className="settings-header-container-right">
-              <div className="settings-header-user-email">
-                {loggedInUserEmail}
-              </div>
-              <button
-                className="settings-header-user-btns"
-                onClick={() => handleLogout()}
-              >
-                odhlásit
-              </button>
-              <Link className="settings-header-user-btns" to={"/change-email"}>
-                změnit email
-              </Link>
-              <Link
-                className="settings-header-user-btns"
-                to={"/change-password"}
-              >
-                změnit heslo
-              </Link>
-              <Link
-                className="settings-header-user-btns"
-                to={"/delete-account"}
-              >
-                smazat účet
-              </Link>
-            </div>
+            <button
+              className="settings-header-user-btns"
+              onClick={() => handleLogout()}
+            >
+              odhlásit
+            </button>
+            <Link className="settings-header-user-btns" to={"/change-email"}>
+              změnit email
+            </Link>
+            <Link className="settings-header-user-btns" to={"/change-password"}>
+              změnit heslo
+            </Link>
+            <Link className="settings-header-user-btns" to={"/delete-account"}>
+              smazat účet
+            </Link>
           </header>
           <main>
             <form className="settings-form" onSubmit={handleSubmit}>
