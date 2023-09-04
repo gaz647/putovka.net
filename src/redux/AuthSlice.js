@@ -260,7 +260,7 @@ export const deleteAccountFromDatabase = createAsyncThunk(
       await reauthenticateWithCredential(auth.currentUser, credential);
       await deleteUser(auth.currentUser);
       await deleteDoc(doc(usersCollectionRef, userUid));
-      //  localStorage.removeItem("emailVerified");
+      localStorage.removeItem("emailVerified");
     } catch (error) {
       throw error.message;
     }

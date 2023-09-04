@@ -64,7 +64,6 @@ const Job = ({ jobDetails }) => {
       city,
       cmr,
       date,
-      day,
       id,
       isCustomJob,
       isSecondJob,
@@ -116,7 +115,11 @@ const Job = ({ jobDetails }) => {
         <div>{price + " €"}</div>
         <div className="delete-job-btn-container">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
-          <FcExpand className={`expand-btn ${showDetails ? "opened" : ""}`} />
+          <FcExpand
+            className={`one-job-expand-btn ${
+              showDetails ? "one-job-expand-btn-opened" : ""
+            }`}
+          />
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 .archive-month-job {
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
+  margin: 1rem auto;
   font-size: 0.9rem;
 }
 
@@ -7,4 +8,6 @@
   display: flex;
   justify-content: space-between;
   background-color: lightgray;
+  padding: 0.2rem;
+  margin-bottom: 0.2rem;
 }

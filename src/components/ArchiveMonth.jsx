@@ -8,6 +8,8 @@ import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import ModalPrompt from "./ModalPrompt";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteArchiveMonthFromDatabase } from "../redux/AuthSlice";
+import { MdOutlineExpandCircleDown } from "react-icons/md";
+import { BsTrash3 } from "react-icons/bs";
 
 const ArchiveMonth = ({ oneMonthData }) => {
   const dispatch = useDispatch();
@@ -90,6 +92,12 @@ const ArchiveMonth = ({ oneMonthData }) => {
     setShowArchiveModal(!showArchiveModal);
   };
 
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleShow = () => {
+    setShowDetails(!showDetails);
+  };
+
   return (
     <section className="archive-month">
       {showArchiveModal && (
@@ -100,12 +108,32 @@ const ArchiveMonth = ({ oneMonthData }) => {
           closeModal={handleArchiveModalVisibility}
         />
       )}
-      <div className="archive-month-month">{getArchiveDate(date)}</div>
-      <button onClick={() => setShowArchiveModal(true)}>x</button>
+      <div className="archive-month-header">
+        <div className="archive-month-month-container">
+          <div className="archive-month-month">{getArchiveDate(date)}</div>
 
-      {jobs.map((oneJob) => {
-        return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
-      })}
+          <MdOutlineExpandCircleDown
+            className={`archive-month-header-expand-btn ${
+              showDetails ? "archive-month-header-expand-btn-opened" : ""
+            }`}
+            onClick={handleShow}
+          />
+        </div>
+
+        <BsTrash3
+          className="archive-month-header-delete-month-btn"
+          onClick={() => setShowArchiveModal(true)}
+        />
+      </div>
+
+      {showDetails && (
+        <>
+          {jobs.map((oneJob) => {
+            return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
+          })}
+        </>
+      )}
+
       <ArchiveMonthSummary summary={summaryData} />
     </section>
   );

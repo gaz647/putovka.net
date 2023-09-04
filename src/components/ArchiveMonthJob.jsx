@@ -11,6 +11,8 @@ import {
   deleteArchiveMonthJobFromDatabase,
   setEditing,
 } from "../redux/AuthSlice";
+import { BsPencil } from "react-icons/bs";
+import { BsTrash3 } from "react-icons/bs";
 
 const ArchiveMonthJob = ({ oneJobData }) => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
     city,
     cmr,
     date,
+    day,
     id,
     isCustomJob,
     isSecondJob,
@@ -57,6 +60,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       city,
       cmr,
       date,
+      day,
       id,
       isCustomJob,
       isSecondJob,
@@ -132,15 +136,17 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       )}
       <div className="archive-month-job-header">
         <div className="archive-month-job-header-item">
+          <BsPencil onClick={() => setShowArchiveJobEditModal(true)} />
+        </div>
+        <div className="archive-month-job-header-item">{day}</div>
+        <div className="archive-month-job-header-item">
           {getCzDateFormat(date)}
         </div>
         <div className="archive-month-job-header-item">{weight + "t"}</div>
         <div className="archive-month-job-header-item">{price + " €"}</div>
+
         <div className="archive-month-job-header-item">
-          <button onClick={() => setShowArchiveJobEditModal(true)}>edit</button>
-        </div>
-        <div className="archive-month-job-header-item">
-          <button onClick={() => setShowArchiveJobDeleteModal(true)}>x</button>
+          <BsTrash3 onClick={() => setShowArchiveJobDeleteModal(true)} />
         </div>
       </div>
 

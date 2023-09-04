@@ -14,6 +14,7 @@ const Login = () => {
 
   const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isAccountDeleted = useSelector((state) => state.auth.isAccountDeleted);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -73,6 +74,9 @@ const Login = () => {
             theme="colored"
           />
           <form className="login-register-form" onSubmit={handleLogIn}>
+            {isAccountDeleted && (
+              <h1 className="leaving-message">Bylo mi ctí sloužit!</h1>
+            )}
             <h1 className="login-registerform-heading">Přihlášení</h1>
             <div className="login-register-form-item">
               <input

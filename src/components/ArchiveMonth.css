@@ -1,11 +1,46 @@
 .archive-month {
+  padding: 0.5rem;
+}
+
+.archive-month-header {
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 1rem;
+  position: relative;
+}
+
+.archive-month-month-container {
+  position: relative;
+}
+
+.archive-month {
   background-color: whitesmoke;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+}
+
+.archive-month-header-expand-btn {
+  position: absolute;
+  top: -5%;
+  right: -1.7rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.archive-month-header-expand-btn-opened {
+  transform: rotate(180deg);
+}
+
+.archive-month-header-delete-month-btn {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  font-size: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .archive-month-month {
-  text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  padding: 1rem;
 }

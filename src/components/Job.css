@@ -28,14 +28,14 @@
   cursor: pointer;
 }
 
-.expand-btn {
+.one-job-expand-btn {
   position: absolute;
   right: 0rem;
   bottom: -100%;
   cursor: pointer;
 }
 
-.opened {
+.one-job-expand-btn-opened {
   transform: scaleY(-1);
 }
 
