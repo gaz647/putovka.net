@@ -52,7 +52,8 @@ const createUserData = async (userAuth) => {
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "ceska_trebova",
-        waitingBenefit: 0,
+        waitingBenefitEmployerCzk: 0,
+        waitingBenefitEur: 0,
       },
     });
     console.log("stáhnut kurz");
@@ -349,7 +350,9 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
         percentage: payload.userSettings.percentage,
         secondJobBenefit: payload.userSettings.secondJobBenefit,
         terminal: payload.userSettings.terminal,
-        waitingBenefit: payload.userSettings.waitingBenefit,
+        waitingBenefitEmployerCzk:
+          payload.userSettings.waitingBenefitEmployerCzk,
+        waitingBenefitEur: payload.userSettings.waitingBenefitEur,
       };
 
       await runTransaction(db, async (transaction) => {
@@ -386,7 +389,9 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
         percentage: payload.userSettings.percentage,
         secondJobBenefit: payload.userSettings.secondJobBenefit,
         terminal: payload.userSettings.terminal,
-        waitingBenefit: payload.userSettings.waitingBenefit,
+        waitingBenefitEmployerCzk:
+          payload.userSettings.waitingBenefitEmployerCzk,
+        waitingBenefitEur: payload.userSettings.waitingBenefitEur,
       };
 
       await runTransaction(db, async (transaction) => {
@@ -501,6 +506,29 @@ export const editArchiveJobInDatabase = createAsyncThunk(
   }
 );
 
+//  EDIT ARCHIVE MONTH SUMMARY SETTINGS
+//
+export const editArchiveMonthSummarySettingsInDatabase = createAsyncThunk(
+  "auth/editArchiveMonthSummarySettingsInDatabase",
+  async (payload) => {
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          transaction.update(userDocRef, {
+            archivedJobs: payload.updatedArchivedJobs,
+          });
+        }
+      });
+      return payload.updatedArchivedJobs;
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
+
 // -------------------------------------------------------------------------------------
 
 export const authSlice = createSlice({
@@ -533,7 +561,8 @@ export const authSlice = createSlice({
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "",
-        waitingBenefit: 0,
+        waitingBenefitEmployerCzk: 0,
+        waitingBenefitEur: 0,
       },
     },
     jobToAdd: {
@@ -562,6 +591,15 @@ export const authSlice = createSlice({
       weightTo27t: 0,
       weightTo34t: 0,
       zipcode: "",
+    },
+    archiveMonthSummarySettingsToEdit: {
+      date: "",
+      baseMoney: 0,
+      percentage: 0,
+      secondJobBenefit: 0,
+      waitingBenefitEmployerCzk: 0,
+      waitingBenefitEur: 0,
+      eurCzkRate: 0,
     },
   },
   reducers: {
@@ -633,7 +671,8 @@ export const authSlice = createSlice({
       state.loggedInUserData.userSettings.percentage = 0;
       state.loggedInUserData.userSettings.secondJobBenefit = 0;
       state.loggedInUserData.userSettings.terminal = "";
-      state.loggedInUserData.userSettings.waitingBenefit = 0;
+      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk = 0;
+      state.loggedInUserData.userSettings.waitingBenefitEur = 0;
       // state.isLoading = false;
     },
 
@@ -643,6 +682,8 @@ export const authSlice = createSlice({
       state.loggedInUserData.currentJobs = action.payload.currentJobs;
       state.loggedInUserData.userSettings.baseMoney =
         action.payload.userSettings.baseMoney;
+      state.loggedInUserData.userSettings.eurCzkRate =
+        action.payload.userSettings.eurCzkRate;
       state.loggedInUserData.userSettings.email =
         action.payload.userSettings.email;
       state.loggedInUserData.userSettings.percentage =
@@ -651,8 +692,10 @@ export const authSlice = createSlice({
         action.payload.userSettings.secondJobBenefit;
       state.loggedInUserData.userSettings.terminal =
         action.payload.userSettings.terminal;
-      state.loggedInUserData.userSettings.waitingBenefit =
-        action.payload.userSettings.waitingBenefit;
+      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
+        action.payload.userSettings.waitingBenefitEmployerCzk;
+      state.loggedInUserData.userSettings.waitingBenefitEur =
+        action.payload.userSettings.waitingBenefitEur;
     },
 
     setJobToAdd: (state, action) => {
@@ -692,6 +735,32 @@ export const authSlice = createSlice({
     },
     setIsEditingArchivedJob: (state, action) => {
       state.isEditingArchivedJob = action.payload;
+    },
+
+    setArchiveMonthSummarySettingsToEdit: (state, action) => {
+      state.archiveMonthSummarySettingsToEdit.date = action.payload.date;
+      state.archiveMonthSummarySettingsToEdit.baseMoney =
+        action.payload.baseMoney;
+      state.archiveMonthSummarySettingsToEdit.eurCzkRate =
+        action.payload.eurCzkRate;
+      state.archiveMonthSummarySettingsToEdit.percentage =
+        action.payload.percentage;
+      state.archiveMonthSummarySettingsToEdit.secondJobBenefit =
+        action.payload.secondJobBenefit;
+      (state.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk =
+        action.payload.waitingBenefitEmployerCzk),
+        (state.archiveMonthSummarySettingsToEdit.waitingBenefitEur =
+          action.payload.waitingBenefitEur);
+    },
+
+    resetArchiveMonthSummarySettingsToEdit: (state) => {
+      state.archiveMonthSummarySettingsToEdit.date = "";
+      state.archiveMonthSummarySettingsToEdit.baseMoney = 0;
+      state.archiveMonthSummarySettingsToEdit.eurCzkRate = 0;
+      state.archiveMonthSummarySettingsToEdit.percentage = 0;
+      state.archiveMonthSummarySettingsToEdit.secondJobBenefit = 0;
+      state.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk = 0;
+      state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
     },
 
     setEditing: (state, action) => {
@@ -881,17 +950,21 @@ export const authSlice = createSlice({
         console.log("changeSettings SPUŠTĚN");
       })
       .addCase(changeSettings.fulfilled, (state, action) => {
+        console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.baseMoney =
           action.payload.baseMoney;
+        state.loggedInUserData.userSettings.eurCzkRate =
+          action.payload.eurCzkRate;
         state.loggedInUserData.userSettings.percentage =
           action.payload.percentage;
         state.loggedInUserData.userSettings.secondJobBenefit =
           action.payload.secondJobBenefit;
         state.loggedInUserData.userSettings.terminal = action.payload.terminal;
-        state.loggedInUserData.userSettings.waitingBenefit =
-          action.payload.waitingBenefit;
-        console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
+          action.payload.waitingBenefitEmployerCzk;
+        state.loggedInUserData.userSettings.waitingBenefitEur =
+          action.payload.waitingBenefitEur;
 
         state.toast.isVisible = true;
         state.toast.message = "Změny uloženy";
@@ -1104,6 +1177,35 @@ export const authSlice = createSlice({
       })
       .addCase(editArchiveJobInDatabase.rejected, () => {
         console.log("editArchiveJobInDatabase SELHAL");
+      })
+      .addCase(editArchiveMonthSummarySettingsInDatabase.pending, () => {
+        console.log("editArchiveMonthSummarySettingsInDatabase PROBÍHÁ");
+      })
+      .addCase(
+        editArchiveMonthSummarySettingsInDatabase.fulfilled,
+        (state, action) => {
+          console.log(
+            "editArchiveMonthSummarySettingsInDatabase ÚSPĚŠNĚ DOKONČEN"
+          );
+          state.loggedInUserData.archivedJobs = action.payload;
+
+          state.archiveMonthSummarySettingsToEdit.date = "";
+          state.archiveMonthSummarySettingsToEdit.baseMoney = 0;
+          state.archiveMonthSummarySettingsToEdit.eurCzkRate = 0;
+          state.archiveMonthSummarySettingsToEdit.percentage = 0;
+          state.archiveMonthSummarySettingsToEdit.secondJobBenefit = 0;
+          state.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk = 0;
+          state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
+
+          state.toast.isVisible = true;
+          state.toast.message = "Upraveno";
+          state.toast.style = "success";
+          state.toast.time = 3000;
+          state.toast.resetToast = true;
+        }
+      )
+      .addCase(editArchiveMonthSummarySettingsInDatabase.rejected, () => {
+        console.log("editArchiveMonthSummarySettingsInDatabase SELHAL");
       });
   },
 });
@@ -1125,7 +1227,8 @@ export const {
   resetJobToAddValues,
   setJobToEdit,
   setIsEditingArchivedJob,
-  setArchivedJobToEdit,
+  setArchiveMonthSummarySettingsToEdit,
+  resetArchiveMonthSummarySettingsToEdit,
   setEditing,
   resetJobToEditValues,
 } = authSlice.actions;

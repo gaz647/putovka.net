@@ -1,85 +1,112 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
-import { changeSettings } from "../redux/AuthSlice";
-import { logout } from "../redux/AuthSlice";
+import {
+  editArchiveMonthSummarySettingsInDatabase,
+  resetArchiveMonthSummarySettingsToEdit,
+} from "../redux/AuthSlice";
+
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { setLoadingFalse } from "../redux/AuthSlice";
 import Spinner from "../components/Spinner";
 
-const Settings = () => {
+const EditArchiveMonthSummarySettings = () => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
-
-  const loggedInUserEmail = useSelector(
-    (state) => state.auth.loggedInUserEmail
-  );
 
   const isLoading = useSelector((state) => state.auth.isLoading);
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
-  const [baseMoney, setBaseMoney] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
   );
 
-  const email = useSelector((state) => state.auth.loggedInUserEmail);
+  const date = useSelector(
+    (state) => state.auth.archiveMonthSummarySettingsToEdit.date
+  );
 
-  const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+  const [baseMoney, setBaseMoney] = useState(
+    useSelector(
+      (state) => state.auth.archiveMonthSummarySettingsToEdit.baseMoney
+    )
+  );
+
+  const email = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.email
+  );
+
+  const [eurCzkRate, setEurCzkRate] = useState(
+    useSelector(
+      (state) => state.auth.archiveMonthSummarySettingsToEdit.eurCzkRate
+    )
   );
 
   const [percentage, setPercentage] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.percentage)
-  );
-  const [secondJobBenefit, setSecondJobBenefit] = useState(
     useSelector(
-      (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
+      (state) => state.auth.archiveMonthSummarySettingsToEdit.percentage
     )
   );
+
+  const [secondJobBenefit, setSecondJobBenefit] = useState(
+    useSelector(
+      (state) => state.auth.archiveMonthSummarySettingsToEdit.secondJobBenefit
+    )
+  );
+
+  const terminal = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.terminal
+  );
+
   const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
     useSelector(
       (state) =>
-        state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
+        state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk
     )
   );
 
   const [waitingBenefitEur, setWaitingBenefitEur] = useState(
     useSelector(
-      (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
+      (state) => state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEur
     )
-  );
-
-  const [eurCzkRate, setEurCzkRate] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
   );
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const tempArchivedJobs = [...archivedJobs];
+
+    const newArchiveMonthSummarySettings = {
+      baseMoney: Number(baseMoney),
+      email,
+      eurCzkRate: Number(eurCzkRate),
+      percentage: Number(percentage),
+      secondJobBenefit: Number(secondJobBenefit),
+      terminal,
+      waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
+      waitingBenefitEur: Number(waitingBenefitEur),
+    };
+
+    const updatedArchivedJobs = tempArchivedJobs.map((archive) => {
+      if (archive.date === date) {
+        return {
+          ...archive,
+          userSettings: newArchiveMonthSummarySettings,
+        };
+      }
+      return archive;
+    });
+
     const payload = {
       userUid,
-      userSettings: {
-        baseMoney: Number(baseMoney),
-        email,
-        eurCzkRate: Number(eurCzkRate),
-        percentage: Number(percentage),
-        secondJobBenefit: Number(secondJobBenefit),
-        terminal,
-        waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
-        waitingBenefitEur: Number(waitingBenefitEur),
-      },
+      updatedArchivedJobs,
     };
-    dispatch(changeSettings(payload));
-    navigate("/");
+    dispatch(editArchiveMonthSummarySettingsInDatabase(payload));
+    navigate("/archive");
   };
 
   const handleDecline = () => {
+    dispatch(resetArchiveMonthSummarySettingsToEdit());
     navigate("/");
   };
 
@@ -90,45 +117,12 @@ const Settings = () => {
       ) : (
         <section className="wrapper">
           <header className="settings-header">
-            <h1 className="settings-header-title">Nastavení</h1>
-            <div className="settings-header-user-email">
-              {loggedInUserEmail}
-            </div>
-            <button
-              className="settings-header-user-btns"
-              onClick={() => handleLogout()}
-            >
-              odhlásit
-            </button>
-            <Link className="settings-header-user-btns" to={"/change-email"}>
-              změnit email
-            </Link>
-            <Link className="settings-header-user-btns" to={"/change-password"}>
-              změnit heslo
-            </Link>
-            <Link className="settings-header-user-btns" to={"/delete-account"}>
-              smazat účet
-            </Link>
+            <h1 className="settings-header-title">
+              Změna nastavení archivovaného měsíce
+            </h1>
           </header>
           <main>
             <form className="settings-form" onSubmit={handleSubmit}>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  terminál
-                </label>
-                <select
-                  className="settings-form-item-container-input"
-                  value={terminal}
-                  onChange={(e) => setTerminal(e.target.value)}
-                >
-                  <option value="ceska_trebova">Česká Třebová</option>
-                  <option value="ostrava">Ostrava</option>
-                  <option value="plzen">Plzeň</option>
-                  <option value="praha">Praha</option>
-                  <option value="usti_nad_labem">Ústí nad Labem</option>
-                  <option value="zlin">Zlín</option>
-                </select>
-              </div>
               <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label">
                   základní mzda
@@ -227,4 +221,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default EditArchiveMonthSummarySettings;

@@ -69,6 +69,12 @@
   font-weight: 100;
 }
 
+.settings-form-item-container-label-info-text {
+  color: whitesmoke;
+  font-size: 0.75rem;
+  font-weight: 100;
+}
+
 .settings-form-item-container-input {
   height: 2rem;
   text-align: center;

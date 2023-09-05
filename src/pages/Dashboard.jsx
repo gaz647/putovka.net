@@ -68,8 +68,13 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
   );
 
-  const waitingBenefit = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.waitingBenefit
+  const waitingBenefitEmployerCzk = useSelector(
+    (state) =>
+      state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
+  );
+
+  const waitingBenefitEur = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
   // useEffect(() => {
@@ -104,7 +109,8 @@ const Dashboard = () => {
         baseMoney +
           totalCzk * (percentage * 0.01) +
           totalSecondJobs * secondJobBenefit +
-          totalWaiting * waitingBenefit
+          totalWaiting * waitingBenefitEmployerCzk +
+          totalWaiting * waitingBenefitEur * eurCzkRate
       )
     );
   }, [
@@ -117,7 +123,8 @@ const Dashboard = () => {
     totalSecondJobs,
     secondJobBenefit,
     totalWaiting,
-    waitingBenefit,
+    waitingBenefitEmployerCzk,
+    waitingBenefitEur,
   ]);
 
   const email = useSelector(
@@ -142,7 +149,10 @@ const Dashboard = () => {
             percentage: Number(loggedInUserSettings.percentage),
             secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
             terminal: loggedInUserSettings.terminal,
-            waitingBenefit: Number(loggedInUserSettings.waitingBenefit),
+            waitingBenefitEmployerCzk: Number(
+              loggedInUserSettings.waitingBenefitEmployerCzk
+            ),
+            waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
           },
         };
         console.log(payload);
@@ -211,7 +221,8 @@ const Dashboard = () => {
         eurCzkRate,
         percentage,
         secondJobBenefit,
-        waitingBenefit,
+        waitingBenefitEmployerCzk,
+        waitingBenefitEur,
       },
     };
 
@@ -328,7 +339,6 @@ const Dashboard = () => {
             closeModal={handleArchiveModalVisibility}
           />
         )}
-        <div>{eurCzkRate}</div>
         <div className="dashboard-summary-invoicing">
           <div className="dashboard-summary-invoicing-container">
             <div className="dashboard-summary-invoicing-heading">Fakturace</div>

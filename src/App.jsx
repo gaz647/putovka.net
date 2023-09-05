@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Search from "./pages/Search";
 import AddJob from "./pages/AddJob";
 import Archive from "./pages/Archive";
+import EditArchiveMonthSummarySettings from "./pages/EditArchiveMonthSummarySettings";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -90,6 +91,10 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/add-job" element={<AddJob />} />
             <Route path="/archive" element={<Archive />} />
+            <Route
+              path="/edit-archive-month-summary-settings"
+              element={<EditArchiveMonthSummarySettings />}
+            />
             <Route path="/settings" lazy element={<Settings />} />
             <Route path="/change-email" element={<ChangeEmail />} />
             <Route path="/change-password" element={<ChangePassword />} />

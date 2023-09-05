@@ -39,14 +39,29 @@ const ArchiveMonth = ({ oneMonthData }) => {
       userSettings.baseMoney +
         summaryCzk * (userSettings.percentage * 0.01) +
         summarySecondJobs * userSettings.secondJobBenefit +
-        summaryWaiting * userSettings.waitingBenefit
+        summaryWaiting * userSettings.waitingBenefitEmployerCzk +
+        summaryWaiting *
+          userSettings.waitingBenefitEur *
+          userSettings.eurCzkRate
     );
+
+    const summaryBaseMoney = userSettings.baseMoney;
+
+    const summaryPercentage = userSettings.percentage;
+
+    const summarySecondJobBenefit = userSettings.secondJobBenefit;
+
+    const summaryWaitingBenefitEmployerCzk =
+      userSettings.waitingBenefitEmployerCzk;
+
+    const summaryWaitingBenefitEur = userSettings.waitingBenefitEur;
 
     const summaryEurCzkRate = userSettings.eurCzkRate;
 
     const summaryJobs = jobs.length;
 
     setSummaryData({
+      date,
       summaryEur,
       summaryCzk,
       summarySecondJobs,
@@ -54,6 +69,11 @@ const ArchiveMonth = ({ oneMonthData }) => {
       summarySalary,
       summaryJobs,
       summaryEurCzkRate,
+      summaryBaseMoney,
+      summaryPercentage,
+      summarySecondJobBenefit,
+      summaryWaitingBenefitEmployerCzk,
+      summaryWaitingBenefitEur,
     });
   };
 
