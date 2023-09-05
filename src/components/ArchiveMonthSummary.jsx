@@ -69,7 +69,7 @@ const ArchiveMonthSummary = ({ summary }) => {
       )}
       <div className="archive-month-summary-container">
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Fakturace</div>
+          <div className="archive-month-summary-item">Fakturace:</div>
           <div className="archive-month-summary-item">
             {summaryEur + " €"}
             <span>&nbsp;</span>
@@ -83,24 +83,24 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
         <br />
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Výplata</div>
+          <div className="archive-month-summary-item">Výplata:</div>
           <div className="archive-month-summary-item">
             {summarySalary + " Kč"}
           </div>
         </div>
         <br />
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Prací</div>
+          <div className="archive-month-summary-item">Prací:</div>
           <div className="archive-month-summary-item">{summaryJobs}</div>
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Druhých prací</div>
+          <div className="archive-month-summary-item">Druhých prací:</div>
           <div className="archive-month-summary-item">{summarySecondJobs}</div>
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Čekání</div>
+          <div className="archive-month-summary-item">Čekání:</div>
           <div className="archive-month-summary-item">{summaryWaiting}</div>
         </div>
 
@@ -109,7 +109,7 @@ const ArchiveMonthSummary = ({ summary }) => {
           onClick={() => setShowArchiveMonthSummarySettingsEditModal(true)}
         />
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Základ</div>
+          <div className="archive-month-summary-item">Základ:</div>
 
           <div className="archive-month-summary-item">
             {summaryBaseMoney + " Kč"}
@@ -117,7 +117,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">% z fakturace</div>
+          <div className="archive-month-summary-item">% z fakturace:</div>
           <div className="archive-month-summary-item">
             {summaryPercentage + " %"}
             <span>&nbsp;</span>
@@ -125,7 +125,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Druhá práce</div>
+          <div className="archive-month-summary-item">Druhá práce:</div>
           <div className="archive-month-summary-item">
             {summarySecondJobBenefit + " Kč"}
           </div>
@@ -133,7 +133,7 @@ const ArchiveMonthSummary = ({ summary }) => {
 
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">
-            Čekání (zaměstnavatel Kč){" "}
+            Čekání - zaměstnavatel (Kč):
           </div>
           <div className="archive-month-summary-item">
             {summaryWaitingBenefitEmployerCzk + " Kč"}
@@ -141,7 +141,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Čekání (€) </div>
+          <div className="archive-month-summary-item">Čekání (€):</div>
           <div className="archive-month-summary-item">
             {summaryWaitingBenefitEur + " €"}
             <span>&nbsp;</span>
@@ -150,8 +150,10 @@ const ArchiveMonthSummary = ({ summary }) => {
         </div>
 
         <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Kurz (cca)</div>
-          <div className="archive-month-summary-item">{summaryEurCzkRate}</div>
+          <div className="archive-month-summary-item">Kurz Eur/Kč:</div>
+          <div className="archive-month-summary-item">
+            {summaryEurCzkRate + " Kč"}
+          </div>
         </div>
       </div>
     </section>
