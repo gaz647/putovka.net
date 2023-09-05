@@ -103,7 +103,7 @@ const ArchiveMonthSummary = ({ summary }) => {
           <div className="archive-month-summary-item">Čekání:</div>
           <div className="archive-month-summary-item">{summaryWaiting}</div>
         </div>
-
+        <br />
         <br />
         <BsPencil
           onClick={() => setShowArchiveMonthSummarySettingsEditModal(true)}
