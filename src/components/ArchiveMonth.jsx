@@ -18,6 +18,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
   const { date, userSettings, jobs } = oneMonthData;
 
+  console.log("jobs", jobs);
+
   const [summaryData, setSummaryData] = useState({});
 
   const getSummary = () => {
@@ -74,6 +76,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
       summarySecondJobBenefit,
       summaryWaitingBenefitEmployerCzk,
       summaryWaitingBenefitEur,
+      jobs,
     });
   };
 

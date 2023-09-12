@@ -15,3 +15,11 @@
 .archive-month-summary-item {
   font-size: 0.9rem;
 }
+
+.archive-month-summary-send-data-by-email {
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: rgb(32, 32, 252);
+}

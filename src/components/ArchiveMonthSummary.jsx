@@ -6,6 +6,8 @@ import "./ArchiveMonthSummary.css";
 import ModalPrompt from "./ModalPrompt";
 import { BsPencil } from "react-icons/bs";
 import { setArchiveMonthSummarySettingsToEdit } from "../redux/AuthSlice";
+import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
+import getCzDateArchiveJobEmailFormat from "../customFunctionsAndHooks/getCzDateArchiveJobEmailFormat";
 
 const ArchiveMonthSummary = ({ summary }) => {
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ const ArchiveMonthSummary = ({ summary }) => {
     summaryWaitingBenefitEmployerCzk,
     summaryWaitingBenefitEur,
     summaryEurCzkRate,
+    jobs,
   } = summary;
 
   const setEditArchiveMonthSummarySettings = () => {
@@ -55,6 +58,32 @@ const ArchiveMonthSummary = ({ summary }) => {
     setShowArchiveMonthSummarySettingsEditModal(
       !showArchiveMonthSummarySettingsEditModal
     );
+  };
+
+  const sendDataByEmail = () => {
+    const jobsData = jobs.map((oneJob) => {
+      return `${getCzDateArchiveJobEmailFormat(oneJob.date)}\u00A0\u00A0${
+        oneJob.cmr
+      }\u00A0\u00A0${oneJob.city}\u00A0\u00A0${oneJob.zipcode}\u00A0\u00A0${
+        oneJob.weight + "t"
+      }\u00A0\u00A0${oneJob.price + "€"}`;
+    });
+
+    const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk} Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}`;
+
+    const dataToSend = `${getArchiveDate(date)}\n\n${jobsData.join(
+      "\n"
+    )}\n\n${summaryData}`;
+
+    const encodedDataToSend = encodeURIComponent(dataToSend);
+
+    const subject = `Souhrn\u00A0prací\u00A0za\u00A0${getArchiveDate(date)}`;
+
+    const mailto = `mailto:?subject=${subject}&body=${encodedDataToSend}`;
+
+    window.location.href = mailto;
+
+    console.log(dataToSend);
   };
 
   return (
@@ -155,6 +184,14 @@ const ArchiveMonthSummary = ({ summary }) => {
             {summaryEurCzkRate + " Kč"}
           </div>
         </div>
+
+        <a
+          href="#"
+          className="archive-month-summary-send-data-by-email"
+          onClick={sendDataByEmail}
+        >
+          Odeslat souhrn emailem
+        </a>
       </div>
     </section>
   );
