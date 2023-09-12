@@ -6,6 +6,7 @@ import {
   setIsEditingArchivedJob,
   setEditing,
   setJobToEdit,
+  runToast,
 } from "../redux/AuthSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
@@ -97,6 +98,34 @@ const Job = ({ jobDetails }) => {
     setShowDeleteJobModal(!showDeleteJobModal);
   };
 
+  const copyToClipBoard = () => {
+    const textToCoppy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
+      weight + "t"
+    } ${price + "€"}`;
+
+    navigator.clipboard
+      .writeText(textToCoppy)
+      .then(() => {
+        dispatch(
+          runToast({
+            message: "Zkopírováno do schránky",
+            style: "success",
+            time: 3000,
+          })
+        );
+      })
+      .catch(() => {
+        dispatch(
+          runToast({
+            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
+            style: "error",
+            time: 3000,
+          })
+        );
+      });
+    console.log(textToCoppy);
+  };
+
   return (
     <div className="one-job">
       {showDeleteJobModal && (
@@ -108,12 +137,20 @@ const Job = ({ jobDetails }) => {
         />
       )}
       <div className="one-job-header">
-        <BsPencil onClick={editJobNavigate} />
-        <div>{day}</div>
-        <div>{getCzDateFormat(date)}</div>
-        <div>{weight + "t"}</div>
-        <div>{price + " €"}</div>
-        <div className="delete-job-btn-container">
+        <div className="one-job-header-edit-btn">
+          <BsPencil onClick={editJobNavigate} />
+        </div>
+        <div
+          className="one-job-header-copy-to-clipboard-container"
+          onClick={copyToClipBoard}
+        >
+          <div>{day}</div>
+          <div>{getCzDateFormat(date)}</div>
+          <div>{weight + "t"}</div>
+          <div>{price + " €"}</div>
+        </div>
+
+        <div className="one-job-header-delete-btn">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
           <FcExpand
             className={`one-job-expand-btn ${

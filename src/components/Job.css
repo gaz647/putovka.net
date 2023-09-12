@@ -4,6 +4,8 @@
   border-radius: 5px;
 }
 
+/* JOB'S HEADER */
+
 .one-job-header {
   display: flex;
   justify-content: space-between;
@@ -18,9 +20,29 @@
   );
   font-size: 0.85rem;
   font-weight: bold;
+  color: rgb(92, 92, 92);
+  font-size: 0.7rem;
 }
 
-.delete-job-btn-container {
+.one-job-header-copy-to-clipboard-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  cursor: pointer;
+}
+
+.one-job-header-edit-btn {
+  width: 1.5rem;
+  text-align: left;
+  /* background-color: rgba(172, 255, 47, 0.397); */
+  cursor: pointer;
+}
+
+.one-job-header-delete-btn {
+  width: 1.5rem;
+  text-align: right;
+  /* background-color: rgba(172, 255, 47, 0.397); */
+  cursor: pointer;
   position: relative;
 }
 
@@ -37,11 +59,6 @@
 
 .one-job-expand-btn-opened {
   transform: scaleY(-1);
-}
-
-/* JOB'S HEADER */
-.one-job-header {
-  color: rgb(92, 92, 92);
 }
 
 /* JOB'S BODY */
