@@ -32,7 +32,7 @@ const createUserData = async (userAuth) => {
   // Vytvoření reference kolekce USERS
   const usersCollectionRef = collection(db, "users");
 
-  const API_KEY = "82514d87dee3023eb8c649dc";
+  const API_KEY = import.meta.env.VITE_REACT_APP_EXCHANGE_RATE_API_KEY;
   const FROM_CURRENCY = "EUR";
   const TO_CURRENCY = "CZK";
   const AMOUNT = 1;
