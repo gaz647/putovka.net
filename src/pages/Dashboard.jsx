@@ -335,8 +335,8 @@ const Dashboard = () => {
           <ModalPrompt
             heading={archiveModalHeading}
             text={archiveModalText}
-            clbFunction={archiveJobs2}
-            closeModal={handleArchiveModalVisibility}
+            confirmFunction={archiveJobs2}
+            declineFunction={handleArchiveModalVisibility}
           />
         )}
         <div className="dashboard-summary-invoicing">

@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import "./ModalPrompt.css";
+// import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import ConfirmDeclineBtns from "./ConfirmDeclineBtns";
 
-const ModalPrompt = ({ heading, text, clbFunction, closeModal }) => {
+const ModalPrompt = ({ heading, text, confirmFunction, declineFunction }) => {
   return (
     <section className="modal-background">
       <div className="modal-container">
@@ -9,17 +11,10 @@ const ModalPrompt = ({ heading, text, clbFunction, closeModal }) => {
         {text !== "" ? (
           <div className="modal-text">{"(" + text + ")"}</div>
         ) : null}
-
-        <div className="modal-buttons-container">
-          <button
-            className="modal-buttons submit-green"
-            onClick={clbFunction}
-          ></button>
-          <button
-            className="modal-buttons decline-red"
-            onClick={closeModal}
-          ></button>
-        </div>
+        <ConfirmDeclineBtns
+          confirmFunction={confirmFunction}
+          declineFunction={declineFunction}
+        />
       </div>
     </section>
   );

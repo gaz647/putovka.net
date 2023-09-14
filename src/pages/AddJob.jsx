@@ -9,6 +9,7 @@ import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
 import getCurrentDate from "../customFunctionsAndHooks/getCurrentDate";
 import getProperTerminalName from "../customFunctionsAndHooks/getProperTerminalName";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const AddJob = () => {
   const dispatch = useDispatch();
@@ -243,16 +244,10 @@ const AddJob = () => {
           />
         </div>
 
-        <div className="modal-buttons-container">
-          <button
-            className="modal-buttons submit-green"
-            onClick={addJob}
-          ></button>
-          <button
-            className="modal-buttons decline-red"
-            onClick={handleDecline}
-          ></button>
-        </div>
+        <ConfirmDeclineBtns
+          confirmFunction={addJob}
+          declineFunction={handleDecline}
+        />
       </form>
     </section>
   );

@@ -132,8 +132,8 @@ const Job = ({ jobDetails }) => {
         <ModalPrompt
           heading={deleteJobModalHeading}
           text={""}
-          clbFunction={deleteJob}
-          closeModal={handleDeleteJobModalVisibility}
+          confirmFunction={deleteJob}
+          declineFunction={handleDeleteJobModalVisibility}
         />
       )}
       <div className="one-job-header">

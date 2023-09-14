@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { runToast, deleteAccountFromDatabase } from "../redux/AuthSlice";
 import ModalPrompt from "../components/ModalPrompt";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const DeleteAccount = () => {
   const dispatch = useDispatch();
@@ -79,8 +80,8 @@ const DeleteAccount = () => {
         <ModalPrompt
           heading={deleteAccountModalHeading}
           text={deleteAccountModalText}
-          clbFunction={deleteAccount}
-          closeModal={handleDeleteJobModalVisibility}
+          confirmFunction={deleteAccount}
+          declineFunction={handleDeleteJobModalVisibility}
         />
       )}
       <header className="change-email-password-header">
@@ -133,22 +134,10 @@ const DeleteAccount = () => {
             </div>
           </div>
 
-          <div className="confirm-decline-buttons-container">
-            <button
-              className="confirm-btn"
-              type="submit"
-              onClick={handleSubmit}
-            >
-              změnit
-            </button>
-            <button
-              className="decline-btn"
-              type="button"
-              onClick={handleDecline}
-            >
-              zrušit
-            </button>
-          </div>
+          <ConfirmDeclineBtns
+            confirmFunction={handleSubmit}
+            declineFunction={handleDecline}
+          />
         </form>
       </main>
     </section>

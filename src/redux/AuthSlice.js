@@ -169,8 +169,8 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 
 //  CHANGE EMAIL
 //
-export const changeEmail = createAsyncThunk(
-  "auth/changeEmail",
+export const changeEmailRedux = createAsyncThunk(
+  "auth/changeEmailRedux",
   async ({ currentPassword, newEmail }) => {
     try {
       const credential = EmailAuthProvider.credential(
@@ -190,8 +190,8 @@ export const changeEmail = createAsyncThunk(
 
 //  CHANGE PASSWORD
 
-export const changePassword = createAsyncThunk(
-  "auth/changePassword",
+export const changePasswordRedux = createAsyncThunk(
+  "auth/changePasswordRedux",
   async ({ currentPassword, newPassword }) => {
     try {
       const credential = EmailAuthProvider.credential(
@@ -767,7 +767,7 @@ export const authSlice = createSlice({
       state.isEditing = action.payload;
     },
 
-    resetJobToEditValues: (state) => {
+    resetJobToEditValuesRedux: (state) => {
       console.log("jobToEdit hodnoty RESETOVÁNY");
       state.isEditingArchivedJob = true;
 
@@ -881,15 +881,15 @@ export const authSlice = createSlice({
       .addCase(loadUserData.rejected, (action) => {
         console.log("loadUserData SELHAL", action.error.message);
       })
-      .addCase(changeEmail.pending, () => {
-        console.log("changeEmail SPUŠTĚN");
+      .addCase(changeEmailRedux.pending, () => {
+        console.log("changeEmailRedux SPUŠTĚN");
       })
-      .addCase(changeEmail.fulfilled, (state) => {
-        console.log("changeEmail ÚSPĚŠNĚ DOKONČEN");
+      .addCase(changeEmailRedux.fulfilled, (state) => {
+        console.log("changeEmailRedux ÚSPĚŠNĚ DOKONČEN");
         state.isEmailChangedSuccess = true;
       })
-      .addCase(changeEmail.rejected, (state, action) => {
-        console.log("changeEmail selhal", action.error.message);
+      .addCase(changeEmailRedux.rejected, (state, action) => {
+        console.log("changeEmailRedux selhal", action.error.message);
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -910,11 +910,11 @@ export const authSlice = createSlice({
 
         state.toast.resetToast = true;
       })
-      .addCase(changePassword.pending, () => {
-        console.log("changePassword SPUŠTĚN");
+      .addCase(changePasswordRedux.pending, () => {
+        console.log("changePasswordRedux SPUŠTĚN");
       })
-      .addCase(changePassword.fulfilled, (state) => {
-        console.log("changePassword ÚSPĚŠNĚ DOKONČEN");
+      .addCase(changePasswordRedux.fulfilled, (state) => {
+        console.log("changePasswordRedux ÚSPĚŠNĚ DOKONČEN");
 
         state.isPasswordChangedSuccess = true;
 
@@ -924,8 +924,8 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(changePassword.rejected, (state, action) => {
-        console.log("changePassword selhal", action.error.message);
+      .addCase(changePasswordRedux.rejected, (state, action) => {
+        console.log("changePasswordRedux selhal", action.error.message);
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -1230,7 +1230,7 @@ export const {
   setArchiveMonthSummarySettingsToEdit,
   resetArchiveMonthSummarySettingsToEdit,
   setEditing,
-  resetJobToEditValues,
+  resetJobToEditValuesRedux,
 } = authSlice.actions;
 
 export default authSlice.reducer;

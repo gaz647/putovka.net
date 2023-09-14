@@ -2,8 +2,9 @@ import "./ChangeEmail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { changeEmail, logout } from "../redux/AuthSlice";
+import { changeEmailRedux, logout } from "../redux/AuthSlice";
 import resetIsAccountDisabled from "../redux/AuthSlice";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const ChangeEmail = () => {
   const dispatch = useDispatch();
@@ -23,18 +24,17 @@ const ChangeEmail = () => {
   const [newEmail2, setNewEmail2] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const changeEmail = () => {
     console.log("click");
     // email email
     if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
       console.log(
         "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
       );
-      dispatch(changeEmail({ currentPassword, newEmail: newEmail1 }));
+      dispatch(changeEmailRedux({ currentPassword, newEmail: newEmail1 }));
     } else {
       console.log(
-        "ChangeEmailPassword - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
+        "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
       );
     }
   };
@@ -70,7 +70,7 @@ const ChangeEmail = () => {
         <div className="change-email-password-header-title">změna emailu</div>
       </header>
       <main>
-        <form className="change-email-password-form" onSubmit={handleSubmit}>
+        <form className="change-email-password-form">
           <div className="change-email-password-form-container">
             <label className="change-email-password-form-item-container-label">
               nový email
@@ -123,18 +123,10 @@ const ChangeEmail = () => {
             </div>
           </div>
 
-          <div className="confirm-decline-buttons-container">
-            <button className="confirm-btn" type="submit">
-              změnit
-            </button>
-            <button
-              className="decline-btn"
-              type="button"
-              onClick={handleDecline}
-            >
-              zrušit
-            </button>
-          </div>
+          <ConfirmDeclineBtns
+            confirmFunction={changeEmail}
+            declineFunction={handleDecline}
+          />
         </form>
       </main>
     </section>

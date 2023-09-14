@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { setLoadingFalse } from "../redux/AuthSlice";
 import Spinner from "../components/Spinner";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -203,22 +204,11 @@ const Settings = () => {
                 />
               </div>
               <br />
-              <div className="confirm-decline-buttons-container">
-                <button
-                  className="confirm-btn"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
-                  uložit
-                </button>
-                <button
-                  className="decline-btn"
-                  type="button"
-                  onClick={handleDecline}
-                >
-                  zrušit
-                </button>
-              </div>
+
+              <ConfirmDeclineBtns
+                confirmFunction={handleSubmit}
+                declineFunction={handleDecline}
+              />
             </form>
           </main>
         </section>

@@ -122,16 +122,16 @@ const ArchiveMonthJob = ({ oneJobData }) => {
         <ModalPrompt
           heading={archiveJobEditModalHeading}
           text={""}
-          clbFunction={editArchiveMonthJob}
-          closeModal={handleArchiveJobEditModalVisibility}
+          confirmFunction={editArchiveMonthJob}
+          declineFunction={handleArchiveJobEditModalVisibility}
         />
       )}
       {showArchiveJobDeleteModal && (
         <ModalPrompt
           heading={archiveJobDeleteModalHeading}
           text={archiveJobDeleteModalText}
-          clbFunction={() => deleteArchiveMonthJob(id)}
-          closeModal={handleArchiveJobDeleteModalVisibility}
+          confirmFunction={() => deleteArchiveMonthJob(id)}
+          declineFunction={handleArchiveJobDeleteModalVisibility}
         />
       )}
       <div className="archive-month-job-header">

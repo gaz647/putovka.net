@@ -35,38 +35,3 @@
   font-style: italic;
   margin-bottom: 1rem;
 }
-
-.modal-buttons-container {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 1rem 0;
-}
-
-.modal-buttons {
-  margin: 0rem 0.7rem 0rem 0.7rem;
-  padding: 0.5rem 0.7rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.submit-green {
-  background-color: #00c94d;
-  color: white;
-  border: none;
-}
-
-button.submit-green::before {
-  content: "POTVRDIT";
-  font-weight: bold;
-}
-
-.decline-red {
-  background-color: #e64d66;
-  color: white;
-  border: none;
-}
-
-button.decline-red::before {
-  content: "ZRUŠIT";
-  font-weight: bold;
-}

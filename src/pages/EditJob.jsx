@@ -7,11 +7,12 @@ import {
   editArchiveJobInDatabase,
   setEditing,
   setIsEditingArchivedJob,
-  resetJobToEditValues,
+  resetJobToEditValuesRedux,
 } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const EditJob = () => {
   const dispatch = useDispatch();
@@ -152,7 +153,7 @@ const EditJob = () => {
 
         dispatch(editJobInDatabase(payload));
         dispatch(setEditing(false));
-        dispatch(resetJobToEditValues());
+        dispatch(resetJobToEditValuesRedux());
         navigate("/");
       }
     } else if (isEditingArchivedJob) {
@@ -182,13 +183,18 @@ const EditJob = () => {
       };
 
       console.log(payload);
-      dispatch(resetJobToEditValues());
+      dispatch(resetJobToEditValuesRedux());
       dispatch(editArchiveJobInDatabase(payload));
 
       dispatch(setEditing(false));
       dispatch(setIsEditingArchivedJob(false));
       navigate("/archive");
     }
+  };
+
+  const handleDecline = () => {
+    dispatch(resetJobToEditValuesRedux());
+    navigate("/");
   };
 
   return (
@@ -321,16 +327,10 @@ const EditJob = () => {
           />
         </div>
 
-        <div className="modal-buttons-container">
-          <button
-            className="modal-buttons submit-green"
-            onClick={editJob}
-          ></button>
-          <button
-            className="modal-buttons decline-red"
-            onClick={() => dispatch(resetJobToEditValues)}
-          ></button>
-        </div>
+        <ConfirmDeclineBtns
+          confirmFunction={editJob}
+          declineFunction={handleDecline}
+        />
       </form>
     </section>
   );

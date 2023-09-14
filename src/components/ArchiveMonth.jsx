@@ -127,8 +127,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
         <ModalPrompt
           heading={archiveModalHeading}
           text={archiveModalText}
-          clbFunction={() => deleteArchiveMonth(date)}
-          closeModal={handleArchiveModalVisibility}
+          confirmFunction={() => deleteArchiveMonth(date)}
+          declineFunction={handleArchiveModalVisibility}
         />
       )}
       <div className="archive-month-header">
