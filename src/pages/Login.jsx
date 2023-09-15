@@ -1,12 +1,13 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { login } from "../redux/AuthSlice";
+import { loginRedux } from "../redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToast } from "../redux/AuthSlice";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -21,7 +22,7 @@ const Login = () => {
   const handleLogIn = () => {
     const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
-    dispatch(login(loginCredentials));
+    dispatch(loginRedux(loginCredentials));
   };
 
   useEffect(() => {
@@ -54,6 +55,11 @@ const Login = () => {
     }
   }, [resetToastRedux, dispatch]);
 
+  const handleDecline = () => {
+    setLoginEmail("");
+    setLoginPassword("");
+  };
+
   return (
     <>
       {isLoading ? (
@@ -73,7 +79,7 @@ const Login = () => {
             pauseOnHover
             theme="colored"
           />
-          <form className="login-register-form" onSubmit={handleLogIn}>
+          <form className="login-register-form">
             {isAccountDeleted && (
               <h1 className="leaving-message">Bylo mi ctí sloužit!</h1>
             )}
@@ -96,11 +102,11 @@ const Login = () => {
                 value={loginPassword}
               />
             </div>
-            <div className="login-register-form-item">
-              <button type="button" onClick={() => handleLogIn()}>
-                Přihlásit
-              </button>
-            </div>
+
+            <ConfirmDeclineBtns
+              confirmFunction={handleLogIn}
+              declineFunction={handleDecline}
+            />
 
             <p>
               Ještě nemáte účet? <Link to={"/register"}>Zaregistrujte se.</Link>

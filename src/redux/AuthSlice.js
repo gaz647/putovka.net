@@ -64,8 +64,8 @@ const createUserData = async (userAuth) => {
 
 // REGISTER
 //
-export const register = createAsyncThunk(
-  "auth/register",
+export const registerRedux = createAsyncThunk(
+  "auth/registerRedux",
   async (registerCredentials) => {
     try {
       const user = await createUserWithEmailAndPassword(
@@ -79,7 +79,7 @@ export const register = createAsyncThunk(
 
       await createUserData(user.user);
     } catch (error) {
-      console.log("register TRY část NE-ÚSPĚŠNÁ");
+      console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
   }
@@ -87,23 +87,23 @@ export const register = createAsyncThunk(
 
 // LOGIN
 //
-export const login = createAsyncThunk(
-  "auth/login",
+export const loginRedux = createAsyncThunk(
+  "auth/loginRedux",
   async (loginCredentials) => {
     try {
-      console.log("login TRY část signInWithEmailAndPassword SPUŠTĚNA");
+      console.log("loginRedux TRY část signInWithEmailAndPassword SPUŠTĚNA");
       await signInWithEmailAndPassword(
         auth,
         loginCredentials.loginEmail,
         loginCredentials.loginPassword
       );
       console.log(
-        "login TRY část signInWithEmailAndPassword ÚSPĚŠNĚ DOKONČENA"
+        "loginRedux TRY část signInWithEmailAndPassword ÚSPĚŠNĚ DOKONČENA"
       );
       const emailVerifiedTrue = auth.currentUser.emailVerified;
       if (emailVerifiedTrue) {
-        console.log("login Uživatelův email je verified");
-        console.log("login Ukládám tuto informaci do local storage");
+        console.log("loginRedux Uživatelův email je verified");
+        console.log("loginRedux Ukládám tuto informaci do local storage");
         localStorage.setItem("emailVerified", "true");
 
         const uid = auth.currentUser.uid;
@@ -120,19 +120,21 @@ export const login = createAsyncThunk(
           throw error.message;
         }
       } else {
-        console.log("login Uživatelův email nebyl verified");
+        console.log("loginRedux Uživatelův email nebyl verified");
         localStorage.removeItem("emailVerified");
         try {
-          console.log("login signOut(auth) Odhlašuji...");
+          console.log("loginRedux signOut(auth) Odhlašuji...");
           await signOut(auth);
-          console.log("login signOut(auth) Odhlášení ÚSPĚŠNĚ DOKONČENO...");
+          console.log(
+            "loginRedux signOut(auth) Odhlášení ÚSPĚŠNĚ DOKONČENO..."
+          );
         } catch (error) {
-          console.log("login signOut(auth) Odhlášení NE-ÚSPĚŠNÉ");
+          console.log("loginRedux signOut(auth) Odhlášení NE-ÚSPĚŠNÉ");
           throw error.message;
         }
       }
     } catch (error) {
-      console.log("login TRY část NE-ÚSPĚŠNÁ");
+      console.log("loginRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
   }
@@ -790,10 +792,10 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(register.pending, () => {
+      .addCase(registerRedux.pending, () => {
         console.log("register PROBÍHÁ");
       })
-      .addCase(register.fulfilled, (state) => {
+      .addCase(registerRedux.fulfilled, (state) => {
         console.log("register ÚSPĚŠNĚ DOKONČEN");
         state.isRegisterSuccess = true;
         // state.toast.isVisible = true;
@@ -803,7 +805,7 @@ export const authSlice = createSlice({
         // state.toast.time = 20000;
         // state.toast.resetToast = true;
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(registerRedux.rejected, (state, action) => {
         console.log("registr SELHAL", action.error.message);
 
         state.toast.isVisible = true;
@@ -819,12 +821,12 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(login.pending, (state) => {
-        console.log("login PROBÍHÁ");
+      .addCase(loginRedux.pending, (state) => {
+        console.log("loginRedux PROBÍHÁ");
         state.isLoading = true;
       })
-      .addCase(login.fulfilled, (state, action) => {
-        console.log("login ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
+      .addCase(loginRedux.fulfilled, (state, action) => {
+        console.log("loginRedux ÚSPĚŠNĚ DOKONČEN", state.loggedInUserEmail);
         state.isLoggedIn = true;
         state.loggedInUserEmail = auth.currentUser.email;
         state.loggedInUserUid = auth.currentUser.uid;
@@ -834,8 +836,8 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isAccountDisabled = false;
       })
-      .addCase(login.rejected, (state, action) => {
-        console.log("login SELHAL", action.error.message);
+      .addCase(loginRedux.rejected, (state, action) => {
+        console.log("loginRedux SELHAL", action.error.message);
         state.isLoggedIn = false;
         state.loggedInUserEmail = null;
         state.isLoading = false;
@@ -853,6 +855,7 @@ export const authSlice = createSlice({
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
             : action.error.message;
         state.toast.style = "error";
+        state.toast.time = 3000;
         state.toast.resetToast = true;
       })
       .addCase(logout.pending, (state) => {

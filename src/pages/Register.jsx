@@ -2,12 +2,13 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { register, runToast } from "../redux/AuthSlice";
+import { registerRedux, runToast } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToast } from "../redux/AuthSlice";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const Register = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -29,7 +30,7 @@ const Register = () => {
       return;
     } else {
       let registerCredentials = { registerEmail, registerPassword };
-      dispatch(register(registerCredentials));
+      dispatch(registerRedux(registerCredentials));
     }
   };
 
@@ -73,6 +74,10 @@ const Register = () => {
     }
   }, [resetToastRedux, dispatch]);
 
+  const handleDecline = () => {
+    navigate("/");
+  };
+
   return (
     <>
       {isLoading ? (
@@ -92,7 +97,7 @@ const Register = () => {
             pauseOnHover
             theme="colored"
           />
-          <form className="login-register-form" onSubmit={handleRegister}>
+          <form className="login-register-form">
             <h1 className="login-register-form-heading">Registrace</h1>
             <div className="login-register-form-item">
               <input
@@ -119,9 +124,10 @@ const Register = () => {
               value={registerPassword2}
             />
 
-            <div className="login-register-form-item">
-              <button type="submit">Registrovat</button>
-            </div>
+            <ConfirmDeclineBtns
+              confirmFunction={handleRegister}
+              declineFunction={handleDecline}
+            />
 
             <p>
               Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>{" "}
