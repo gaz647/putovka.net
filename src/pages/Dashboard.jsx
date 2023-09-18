@@ -352,7 +352,10 @@ const Dashboard = () => {
           </div>
           <div className="dashboard-summary-invoicing-container">
             <div className="dashboard-summary-invoicing-heading">Výplata</div>
-            <br />
+            <div className="dashboard-summary-invoicing-count vis-hidden">
+              =
+            </div>
+
             <div className="dashboard-summary-invoicing-count">
               {salary + " Kč"}
             </div>

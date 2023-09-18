@@ -1,18 +1,27 @@
+:root {
+  --dark-1: #1a1c28;
+  --dark-2: #252738;
+  --dark-3: #292b3d;
+  --green: #2dbd5d;
+  --red: #ff0000;
+  --yellow: #fed32c;
+  --blue: #007bfe;
+  --text-white: rgb(255, 242, 242);
+  --text-black: black;
+}
+
 html {
   min-height: 100%;
   min-height: --webkit-fill-available;
+
+  background-color: var(--dark-1);
+
   /* background: rgb(0, 35, 105);
   background: linear-gradient(
     180deg,
     rgba(0, 35, 105, 1) 0%,
-    rgb(237, 237, 237) 100%
-  ); */
-  background: rgb(0, 35, 105);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 35, 105, 1) 0%,
     rgba(172, 198, 250, 1) 100%
-  );
+  ); */
   touch-action: pan-y;
 }
 
@@ -26,7 +35,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.01rem;
 }
 
 a {

@@ -6,11 +6,12 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: rgb(2, 2, 204);
+  background-color: #22233d;
+  border-top: solid 1px rgb(78, 78, 78);
 }
 
 .navbar {
-  height: 3rem;
+  height: inherit;
   max-width: 450px;
   display: flex;
   flex-wrap: nowrap;
@@ -21,11 +22,12 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: rgb(2, 2, 204);
+  background-color: inherit;
+  border-top: inherit;
 }
 
 .link {
-  color: rgb(163, 163, 163);
+  color: rgba(163, 163, 163, 0.432);
   font-weight: bold;
 }
 

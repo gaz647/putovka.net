@@ -17,9 +17,9 @@
 }
 
 .confirm-circle-btn {
-  color: #00c94d;
+  color: var(--green);
 }
 
 .decline-circle-btn {
-  color: #e64d66;
+  color: var(--red);
 }

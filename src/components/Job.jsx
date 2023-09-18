@@ -11,7 +11,7 @@ import {
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 import { FcExpand } from "react-icons/fc";
-import { PiNumberSquareTwoBold } from "react-icons/pi";
+import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import "./Job.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -136,27 +136,38 @@ const Job = ({ jobDetails }) => {
           declineFunction={handleDeleteJobModalVisibility}
         />
       )}
+
       <div className="one-job-header">
         <div className="one-job-header-edit-btn">
           <BsPencil onClick={editJobNavigate} />
         </div>
+
+        <div className="one-job-header-delete-btn">
+          <BsTrash3 onClick={handleDeleteJobModalVisibility} />
+        </div>
+
+        <div className="one-job-header-expand-btn">
+          <FcExpand
+            className={` ${
+              showDetails ? "one-job-header-expand-btn-opened" : ""
+            }`}
+          />
+        </div>
+
         <div
           className="one-job-header-copy-to-clipboard-container"
           onClick={copyToClipBoard}
         >
-          <div>{day}</div>
-          <div>{getCzDateFormat(date)}</div>
-          <div>{weight + "t"}</div>
-          <div>{price + " €"}</div>
-        </div>
-
-        <div className="one-job-header-delete-btn">
-          <BsTrash3 onClick={handleDeleteJobModalVisibility} />
-          <FcExpand
-            className={`one-job-expand-btn ${
-              showDetails ? "one-job-expand-btn-opened" : ""
-            }`}
-          />
+          <div className="one-job-header-copy-to-clipboard-item">{day}</div>
+          <div className="one-job-header-copy-to-clipboard-item">
+            {getCzDateFormat(date)}
+          </div>
+          <div className="one-job-header-copy-to-clipboard-item">
+            {weight + "t"}
+          </div>
+          <div className="one-job-header-copy-to-clipboard-item">
+            {price + " €"}
+          </div>
         </div>
       </div>
 
@@ -190,7 +201,10 @@ const Job = ({ jobDetails }) => {
         )}
 
         {waiting > 0 ? (
-          <div className="one-job-body-waiting-icon">{waiting}</div>
+          <div className="one-job-body-waiting-container">
+            <PiClockBold className="one-job-body-waiting-icon" />
+            {waiting}
+          </div>
         ) : (
           ""
         )}
