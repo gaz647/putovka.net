@@ -4,10 +4,10 @@ import Job from "../components/Job";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  archiveDoneJobsFirstTime,
-  archiveDoneJobsNewMonth,
-  archiveDoneJobsExistingMonth,
-  changeSettings,
+  archiveDoneJobsFirstTimeRedux,
+  archiveDoneJobsNewMonthRedux,
+  archiveDoneJobsExistingMonthRedux,
+  changeSettingsRedux,
 } from "../redux/AuthSlice";
 // import { db } from "../firebase/config";
 // import { onSnapshot, doc } from "firebase/firestore";
@@ -156,7 +156,7 @@ const Dashboard = () => {
           },
         };
         console.log(payload);
-        dispatch(changeSettings(payload));
+        dispatch(changeSettingsRedux(payload));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -241,7 +241,7 @@ const Dashboard = () => {
         newEurCzkRate,
       };
       console.log(payload);
-      dispatch(archiveDoneJobsFirstTime(payload));
+      dispatch(archiveDoneJobsFirstTimeRedux(payload));
     }
     // Pokud archív NENÍ prázdný
     //
@@ -281,7 +281,7 @@ const Dashboard = () => {
           newEurCzkRate,
         };
         console.log(payload);
-        dispatch(archiveDoneJobsNewMonth(payload));
+        dispatch(archiveDoneJobsNewMonthRedux(payload));
       }
       //
       //
@@ -316,7 +316,7 @@ const Dashboard = () => {
           userSettings,
         };
 
-        dispatch(archiveDoneJobsExistingMonth(payload));
+        dispatch(archiveDoneJobsExistingMonthRedux(payload));
       }
     }
   };

@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
-  editJobInDatabase,
-  editArchiveJobInDatabase,
-  setEditing,
-  setIsEditingArchivedJob,
+  editJobRedux,
+  editArchiveJobRedux,
+  setEditingFalseRedux,
+  setIsEditingArchivedJobRedux,
   resetJobToEditValuesRedux,
 } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
@@ -151,8 +151,8 @@ const EditJob = () => {
 
         const payload = { userUid, sortedCurrentJobsEdit };
 
-        dispatch(editJobInDatabase(payload));
-        dispatch(setEditing(false));
+        dispatch(editJobRedux(payload));
+        dispatch(setEditingFalseRedux());
         dispatch(resetJobToEditValuesRedux());
         navigate("/");
       }
@@ -184,15 +184,16 @@ const EditJob = () => {
 
       console.log(payload);
       dispatch(resetJobToEditValuesRedux());
-      dispatch(editArchiveJobInDatabase(payload));
+      dispatch(editArchiveJobRedux(payload));
 
-      dispatch(setEditing(false));
-      dispatch(setIsEditingArchivedJob(false));
+      dispatch(setEditingFalseRedux());
+      dispatch(setIsEditingArchivedJobRedux(false));
       navigate("/archive");
     }
   };
 
   const handleDecline = () => {
+    dispatch(setEditingFalseRedux());
     dispatch(resetJobToEditValuesRedux());
     navigate("/");
   };

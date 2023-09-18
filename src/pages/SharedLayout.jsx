@@ -4,7 +4,7 @@ import Spinner from "..//components/Spinner";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { resetToast } from "../redux/AuthSlice";
+import { resetToastRedux } from "../redux/AuthSlice";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast, Flip } from "react-toastify";
 
@@ -26,15 +26,17 @@ const SharedLayout = () => {
     }
   }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);
 
-  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
 
   useEffect(() => {
-    if (resetToastRedux) {
+    if (resetToastStateRedux) {
       setTimeout(() => {
-        dispatch(resetToast());
+        dispatch(resetToastRedux());
       }, 500);
     }
-  }, [resetToastRedux, dispatch]);
+  }, [resetToastStateRedux, dispatch]);
 
   return (
     <>

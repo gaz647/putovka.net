@@ -3,12 +3,12 @@ import "./ChangeVerification.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/AuthSlice";
+import { logoutRedux } from "../redux/AuthSlice";
 import {
-  resetIsRegisterSuccess,
-  resetIsEmailChangedSuccess,
-  resetIsPasswordChangedSuccess,
-  resetIsAccountDeleted,
+  resetIsRegisterSuccessRedux,
+  resetIsEmailChangedSuccessRedux,
+  resetIsPasswordChangedSuccessRedux,
+  resetIsAccountDeletedRedux,
 } from "../redux/AuthSlice";
 
 const ChangeVerification = () => {
@@ -28,11 +28,11 @@ const ChangeVerification = () => {
 
     // Po uplynutí timeoutu provedeme potřebné akce a zrušíme interval
     setTimeout(() => {
-      dispatch(logout());
-      dispatch(resetIsRegisterSuccess());
-      dispatch(resetIsEmailChangedSuccess());
-      dispatch(resetIsPasswordChangedSuccess());
-      dispatch(resetIsAccountDeleted());
+      dispatch(logoutRedux());
+      dispatch(resetIsRegisterSuccessRedux());
+      dispatch(resetIsEmailChangedSuccessRedux());
+      dispatch(resetIsPasswordChangedSuccessRedux());
+      dispatch(resetIsAccountDeletedRedux());
       navigate("/login");
       clearInterval(interval); // Zrušení intervalu
     }, 15000);

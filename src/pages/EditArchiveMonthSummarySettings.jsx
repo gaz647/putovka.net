@@ -1,8 +1,8 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
 import {
-  editArchiveMonthSummarySettingsInDatabase,
-  resetArchiveMonthSummarySettingsToEdit,
+  editArchiveMonthSummarySettingsRedux,
+  resetArchiveMonthSummarySettingsToEditRedux,
 } from "../redux/AuthSlice";
 
 import { useSelector } from "react-redux";
@@ -101,12 +101,12 @@ const EditArchiveMonthSummarySettings = () => {
       userUid,
       updatedArchivedJobs,
     };
-    dispatch(editArchiveMonthSummarySettingsInDatabase(payload));
+    dispatch(editArchiveMonthSummarySettingsRedux(payload));
     navigate("/archive");
   };
 
   const handleDecline = () => {
-    dispatch(resetArchiveMonthSummarySettingsToEdit());
+    dispatch(resetArchiveMonthSummarySettingsToEditRedux());
     navigate("/");
   };
 

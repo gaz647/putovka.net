@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./SearchResult.css";
 import { useDispatch } from "react-redux";
-import { setJobToAdd } from "../redux/AuthSlice";
+import { setJobToAddRedux } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import AddButton from "../assets/icons/add-button.svg";
 
@@ -18,7 +18,7 @@ const SearchResult = (props) => {
       weightTo34t: props.weightTo34t,
       isCustomJob: false,
     };
-    dispatch(setJobToAdd(jobToAdd));
+    dispatch(setJobToAddRedux(jobToAdd));
     navigate("/add-job");
   };
 

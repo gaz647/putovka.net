@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import ModalPrompt from "./ModalPrompt";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteArchiveMonthFromDatabase } from "../redux/AuthSlice";
+import { deleteArchiveMonthRedux } from "../redux/AuthSlice";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { BsTrash3 } from "react-icons/bs";
 
@@ -17,8 +17,6 @@ const ArchiveMonth = ({ oneMonthData }) => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
   const { date, userSettings, jobs } = oneMonthData;
-
-  console.log("jobs", jobs);
 
   const [summaryData, setSummaryData] = useState({});
 
@@ -102,7 +100,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
       filteredArchivedJobs,
     };
 
-    dispatch(deleteArchiveMonthFromDatabase(payload));
+    dispatch(deleteArchiveMonthRedux(payload));
   };
 
   const archiveModalHeading = "Smazat vybraný měsíc z archivu?";

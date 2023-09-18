@@ -8,7 +8,7 @@ import { FiSettings } from "react-icons/fi";
 import { BsPencil } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setEditing } from "../redux/AuthSlice";
+import { setEditingFalseRedux } from "../redux/AuthSlice";
 
 const Navbar = () => {
   const isEditing = useSelector((state) => state.auth.isEditing);
@@ -16,7 +16,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const setIsEditinFalse = () => {
-    dispatch(setEditing(false));
+    dispatch(setEditingFalseRedux());
   };
 
   return (

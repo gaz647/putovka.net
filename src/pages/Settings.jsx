@@ -1,7 +1,7 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
-import { changeSettings } from "../redux/AuthSlice";
-import { logout } from "../redux/AuthSlice";
+import { changeSettingsRedux } from "../redux/AuthSlice";
+import { logoutRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -21,7 +21,7 @@ const Settings = () => {
   const isLoading = useSelector((state) => state.auth.isLoading);
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(logoutRedux());
   };
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
@@ -76,7 +76,7 @@ const Settings = () => {
         waitingBenefitEur: Number(waitingBenefitEur),
       },
     };
-    dispatch(changeSettings(payload));
+    dispatch(changeSettingsRedux(payload));
     navigate("/");
   };
 

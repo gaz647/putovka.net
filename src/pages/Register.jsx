@@ -2,12 +2,12 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { registerRedux, runToast } from "../redux/AuthSlice";
+import { registerRedux, runToastRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
-import { resetToast } from "../redux/AuthSlice";
+import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const Register = () => {
@@ -25,7 +25,11 @@ const Register = () => {
     e.preventDefault();
     if (registerPassword !== registerPassword2) {
       dispatch(
-        runToast({ message: "Hesla se neshodují!", style: "error", time: 3000 })
+        runToastRedux({
+          message: "Hesla se neshodují!",
+          style: "error",
+          time: 3000,
+        })
       );
       return;
     } else {
@@ -64,15 +68,17 @@ const Register = () => {
     }
   }, [toastRedux]);
 
-  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
 
   useEffect(() => {
-    if (resetToastRedux) {
+    if (resetToastStateRedux) {
       setTimeout(() => {
-        dispatch(resetToast());
+        dispatch(resetToastRedux());
       }, 500);
     }
-  }, [resetToastRedux, dispatch]);
+  }, [resetToastStateRedux, dispatch]);
 
   const handleDecline = () => {
     navigate("/");

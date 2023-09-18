@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
-import { resetToast } from "../redux/AuthSlice";
+import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const Login = () => {
@@ -45,15 +45,17 @@ const Login = () => {
     }
   }, [toastRedux]);
 
-  const resetToastRedux = useSelector((state) => state.auth.toast.resetToast);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
 
   useEffect(() => {
-    if (resetToastRedux) {
+    if (resetToastStateRedux) {
       setTimeout(() => {
-        dispatch(resetToast());
+        dispatch(resetToastRedux());
       }, 500);
     }
-  }, [resetToastRedux, dispatch]);
+  }, [resetToastStateRedux, dispatch]);
 
   const handleDecline = () => {
     setLoginEmail("");

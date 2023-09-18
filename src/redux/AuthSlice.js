@@ -142,8 +142,8 @@ export const loginRedux = createAsyncThunk(
 
 // LOAD USER DATA
 //
-export const loadUserData = createAsyncThunk(
-  "auth/loadUserData",
+export const loadUserDataRedux = createAsyncThunk(
+  "auth/loadUserDataRedux",
   async (userUid) => {
     const userRef = doc(db, "users", userUid);
     try {
@@ -160,7 +160,7 @@ export const loadUserData = createAsyncThunk(
 
 // LOGOUT
 //
-export const logout = createAsyncThunk("auth/logout", async () => {
+export const logoutRedux = createAsyncThunk("auth/logoutRedux", async () => {
   try {
     await signOut(auth);
     localStorage.removeItem("emailVerified");
@@ -203,9 +203,6 @@ export const changePasswordRedux = createAsyncThunk(
       await reauthenticateWithCredential(auth.currentUser, credential);
       await updatePassword(auth.currentUser, newPassword);
       // await signOut(auth);
-      console.log(
-        "reauthenticateWithCredential i updatePassword by mělo být hotovo"
-      );
     } catch (error) {
       throw error.message;
     }
@@ -214,8 +211,8 @@ export const changePasswordRedux = createAsyncThunk(
 
 // RESET PASSWORD
 //
-export const resetPassword = createAsyncThunk(
-  "auth/resetPassword",
+export const resetPasswordRedux = createAsyncThunk(
+  "auth/resetPasswordRedux",
   async (email) => {
     try {
       await sendPasswordResetEmail(auth, email);
@@ -227,8 +224,8 @@ export const resetPassword = createAsyncThunk(
 
 //  CHANGE SETTINGS
 //
-export const changeSettings = createAsyncThunk(
-  "auth/changeSettings",
+export const changeSettingsRedux = createAsyncThunk(
+  "auth/changeSettingsRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -250,8 +247,8 @@ export const changeSettings = createAsyncThunk(
 
 // DELETE ACCOUNT FROM DATABASE
 //
-export const deleteAccountFromDatabase = createAsyncThunk(
-  "auth/deleteAccountFromDatabase",
+export const deleteAccountRedux = createAsyncThunk(
+  "auth/deleteAccountRedux",
   async ({ currentPassword, userUid }) => {
     // Vytvoření reference kolekce USERS
     const usersCollectionRef = collection(db, "users");
@@ -272,8 +269,8 @@ export const deleteAccountFromDatabase = createAsyncThunk(
 
 //  ADD JOB
 //
-export const addJobToDatabase = createAsyncThunk(
-  "auth/addJobToDatabase",
+export const addJobRedux = createAsyncThunk(
+  "auth/addJobRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -295,8 +292,8 @@ export const addJobToDatabase = createAsyncThunk(
 
 //  EDIT JOB
 //
-export const editJobInDatabase = createAsyncThunk(
-  "auth/editJobInDatabase",
+export const editJobRedux = createAsyncThunk(
+  "auth/editJobRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -318,8 +315,8 @@ export const editJobInDatabase = createAsyncThunk(
 
 // DELETE JOB
 //
-export const deleteJobFromDatabase = createAsyncThunk(
-  "auth/deleteJobFromDatabase",
+export const deleteJobRedux = createAsyncThunk(
+  "auth/deleteJobRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -341,8 +338,8 @@ export const deleteJobFromDatabase = createAsyncThunk(
 
 //  ARCHIVE DONE JOBS - FIRST TIME
 //
-export const archiveDoneJobsFirstTime = createAsyncThunk(
-  "auth/archiveDoneJobsFirstTime",
+export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
+  "auth/archiveDoneJobsFirstTimeRedux",
   async (payload) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -380,8 +377,8 @@ export const archiveDoneJobsFirstTime = createAsyncThunk(
 
 //  ARCHIVE DONE JOBS - NEW MONTH
 //
-export const archiveDoneJobsNewMonth = createAsyncThunk(
-  "auth/archiveDoneJobsNewMonth",
+export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
+  "auth/archiveDoneJobsNewMonthRedux",
   async (payload) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -417,8 +414,8 @@ export const archiveDoneJobsNewMonth = createAsyncThunk(
 
 //  ARCHIVE DONE JOBS - EXISTING MONTH
 //
-export const archiveDoneJobsExistingMonth = createAsyncThunk(
-  "auth/archiveDoneJobsExistingMonth",
+export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
+  "auth/archiveDoneJobsExistingMonthRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -441,8 +438,8 @@ export const archiveDoneJobsExistingMonth = createAsyncThunk(
 
 //  DELETE ARCHIVE MONTH
 //
-export const deleteArchiveMonthFromDatabase = createAsyncThunk(
-  "auth/deleteArchiveMonthFromDatabase",
+export const deleteArchiveMonthRedux = createAsyncThunk(
+  "auth/deleteArchiveMonthRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -464,8 +461,8 @@ export const deleteArchiveMonthFromDatabase = createAsyncThunk(
 
 //  DELETE ARCHIVE MONTH JOB
 //
-export const deleteArchiveMonthJobFromDatabase = createAsyncThunk(
-  "auth/deleteArchiveMonthJobFromDatabase",
+export const deleteArchiveMonthJobRedux = createAsyncThunk(
+  "auth/deleteArchiveMonthJobRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -487,8 +484,8 @@ export const deleteArchiveMonthJobFromDatabase = createAsyncThunk(
 
 //  EDIT ARCHIVE MONTH JOB
 //
-export const editArchiveJobInDatabase = createAsyncThunk(
-  "auth/editArchiveJobInDatabase",
+export const editArchiveJobRedux = createAsyncThunk(
+  "auth/editArchiveJobRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -510,8 +507,8 @@ export const editArchiveJobInDatabase = createAsyncThunk(
 
 //  EDIT ARCHIVE MONTH SUMMARY SETTINGS
 //
-export const editArchiveMonthSummarySettingsInDatabase = createAsyncThunk(
-  "auth/editArchiveMonthSummarySettingsInDatabase",
+export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
+  "auth/editArchiveMonthSummarySettingsRedux",
   async (payload) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -605,7 +602,7 @@ export const authSlice = createSlice({
     },
   },
   reducers: {
-    runToast(state, action) {
+    runToastRedux(state, action) {
       console.log("toast SPUŠTĚN");
       state.toast.isVisible = true;
       state.toast.message = action.payload.message;
@@ -614,7 +611,7 @@ export const authSlice = createSlice({
       state.toast.resetToast = true;
     },
 
-    resetToast(state) {
+    resetToastRedux(state) {
       console.log("toast RESETOVÁN");
       state.toast.isVisible = false;
       state.toast.message = "";
@@ -623,45 +620,45 @@ export const authSlice = createSlice({
       state.toast.resetToast = false;
     },
 
-    resetIsRegisterSuccess(state) {
+    resetIsRegisterSuccessRedux(state) {
       state.isRegisterSuccess = false;
     },
 
-    resetIsEmailChangedSuccess(state) {
+    resetIsEmailChangedSuccessRedux(state) {
       state.isEmailChangedSuccess = false;
     },
 
-    resetIsPasswordChangedSuccess(state) {
+    resetIsPasswordChangedSuccessRedux(state) {
       state.isPasswordChangedSuccess = false;
     },
 
-    resetIsAccountDisabled(state) {
+    resetIsAccountDisabledRedux(state) {
       state.isAccountDisabled = false;
     },
 
-    resetIsAccountDeleted(state) {
+    resetIsAccountDeletedRedux(state) {
       state.isAccountDeleted = false;
     },
 
-    setLoadingTrue(state) {
-      console.log("setLoadingTrue SPUŠTĚN");
+    setLoadingTrueRedux(state) {
+      console.log("setLoadingTrueRedux SPUŠTĚN");
       state.isLoading = true;
     },
 
-    setLoadingFalse(state) {
-      console.log("setLoadingFalse SPUŠTĚN");
+    setLoadingFalseRedux(state) {
+      console.log("setLoadingFalseRedux SPUŠTĚN");
       state.isLoading = false;
     },
 
-    loginOnAuth(state, action) {
-      console.log("loginOnAuth SPUŠTĚN");
+    loginOnAuthRedux(state, action) {
+      console.log("loginOnAuthRedux SPUŠTĚN");
       state.isLoggedIn = true;
       state.loggedInUserEmail = action.payload.email;
       state.loggedInUserUid = action.payload.uid;
     },
 
-    logoutOnAuth(state) {
-      console.log("logoutOnAuth SPUŠTĚN");
+    logoutOnAuthRedux(state) {
+      console.log("logoutOnAuthRedux SPUŠTĚN");
       state.isLoggedIn = false;
       state.loggedInUserEmail = null;
       state.loggedInUserUid = null;
@@ -678,8 +675,8 @@ export const authSlice = createSlice({
       // state.isLoading = false;
     },
 
-    setLoadedUserData(state, action) {
-      console.log("setLoadedUserData SPUŠTĚN");
+    setLoadedUserDataRedux(state, action) {
+      console.log("setLoadedUsetLoadedUserDataReduxerData SPUŠTĚN");
       state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
       state.loggedInUserData.currentJobs = action.payload.currentJobs;
       state.loggedInUserData.userSettings.baseMoney =
@@ -700,7 +697,8 @@ export const authSlice = createSlice({
         action.payload.userSettings.waitingBenefitEur;
     },
 
-    setJobToAdd: (state, action) => {
+    setJobToAddRedux: (state, action) => {
+      console.log("setJobToAddRedux SPUŠTĚN");
       state.jobToAdd.city = action.payload.city;
       state.jobToAdd.isCustomJob = action.payload.isCustomJob;
       state.jobToAdd.terminal = action.payload.terminal;
@@ -709,7 +707,8 @@ export const authSlice = createSlice({
       state.jobToAdd.zipcode = action.payload.zipcode;
     },
 
-    resetJobToAddValues: (state) => {
+    resetJobToAddValuesRedux: (state) => {
+      console.log("resetJobToAddValuesRedux SPUŠTĚN");
       state.jobToAdd.city = "";
       state.jobToAdd.isCustomJob = true;
       state.jobToAdd.terminal = "";
@@ -718,7 +717,8 @@ export const authSlice = createSlice({
       state.jobToAdd.zipcode = "";
     },
 
-    setJobToEdit: (state, action) => {
+    setJobToEditRedux: (state, action) => {
+      console.log("setJobToEditRedux SPUŠTĚN");
       state.jobToEdit.city = action.payload.city;
       state.jobToEdit.cmr = action.payload.cmr;
       state.jobToEdit.date = action.payload.date;
@@ -735,11 +735,13 @@ export const authSlice = createSlice({
       state.jobToEdit.weightTo34t = action.payload.weightTo34t;
       state.jobToEdit.zipcode = action.payload.zipcode;
     },
-    setIsEditingArchivedJob: (state, action) => {
+    setIsEditingArchivedJobRedux: (state, action) => {
+      console.log("setIsEditingArchivedJobRedux SPUŠTĚN");
       state.isEditingArchivedJob = action.payload;
     },
 
-    setArchiveMonthSummarySettingsToEdit: (state, action) => {
+    setArchiveMonthSummarySettingsToEditRedux: (state, action) => {
+      console.log("setArchiveMonthSummarySettingsToEditRedux SPUŠTĚN");
       state.archiveMonthSummarySettingsToEdit.date = action.payload.date;
       state.archiveMonthSummarySettingsToEdit.baseMoney =
         action.payload.baseMoney;
@@ -755,7 +757,8 @@ export const authSlice = createSlice({
           action.payload.waitingBenefitEur);
     },
 
-    resetArchiveMonthSummarySettingsToEdit: (state) => {
+    resetArchiveMonthSummarySettingsToEditRedux: (state) => {
+      console.log("resetArchiveMonthSummarySettingsToEditRedux SPUŠTĚN");
       state.archiveMonthSummarySettingsToEdit.date = "";
       state.archiveMonthSummarySettingsToEdit.baseMoney = 0;
       state.archiveMonthSummarySettingsToEdit.eurCzkRate = 0;
@@ -765,12 +768,18 @@ export const authSlice = createSlice({
       state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
     },
 
-    setEditing: (state, action) => {
-      state.isEditing = action.payload;
+    setEditingTrueRedux: (state) => {
+      console.log("setEditingRedux SPUŠTĚN");
+      state.isEditing = true;
+    },
+
+    setEditingFalseRedux: (state) => {
+      console.log("setEditingRedux SPUŠTĚN");
+      state.isEditing = false;
     },
 
     resetJobToEditValuesRedux: (state) => {
-      console.log("jobToEdit hodnoty RESETOVÁNY");
+      console.log("resetJobToEditValuesRedux SPUŠTĚN");
       state.isEditingArchivedJob = true;
 
       state.jobToEdit.city = "";
@@ -793,10 +802,10 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerRedux.pending, () => {
-        console.log("register PROBÍHÁ");
+        console.log("registerRedux PROBÍHÁ");
       })
       .addCase(registerRedux.fulfilled, (state) => {
-        console.log("register ÚSPĚŠNĚ DOKONČEN");
+        console.log("registerRedux ÚSPĚŠNĚ DOKONČEN");
         state.isRegisterSuccess = true;
         // state.toast.isVisible = true;
         // state.toast.message =
@@ -806,7 +815,7 @@ export const authSlice = createSlice({
         // state.toast.resetToast = true;
       })
       .addCase(registerRedux.rejected, (state, action) => {
-        console.log("registr SELHAL", action.error.message);
+        console.log("registerRedux SELHAL", action.error.message);
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -858,31 +867,31 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(logout.pending, (state) => {
-        console.log("logout PROBÍHÁ");
+      .addCase(logoutRedux.pending, (state) => {
+        console.log("logoutRedux PROBÍHÁ");
         state.isLoading = true;
       })
-      .addCase(logout.fulfilled, (state) => {
-        console.log("logout ÚSPĚŠNĚ DOKONČEN");
+      .addCase(logoutRedux.fulfilled, (state) => {
+        console.log("logoutRedux ÚSPĚŠNĚ DOKONČEN");
         state.isLoggedIn = false;
         state.loggedInUserEmail = null;
         state.isLoading = false;
       })
-      .addCase(logout.rejected, (state, action) => {
-        console.log("logout SELHAL", action.error.message);
+      .addCase(logoutRedux.rejected, (state, action) => {
+        console.log("logoutRedux SELHAL", action.error.message);
         state.isLoading = false;
       })
-      .addCase(loadUserData.pending, () => {
-        console.log("loadUserData PROBÍHÁ");
+      .addCase(loadUserDataRedux.pending, () => {
+        console.log("loadUserDataRedux PROBÍHÁ");
       })
-      .addCase(loadUserData.fulfilled, (state, action) => {
-        console.log("loadUserData ÚSPĚŠNĚ DOKONČEN");
+      .addCase(loadUserDataRedux.fulfilled, (state, action) => {
+        console.log("loadUserDataRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
       })
-      .addCase(loadUserData.rejected, (action) => {
-        console.log("loadUserData SELHAL", action.error.message);
+      .addCase(loadUserDataRedux.rejected, (action) => {
+        console.log("loadUserDataRedux SELHAL", action.error.message);
       })
       .addCase(changeEmailRedux.pending, () => {
         console.log("changeEmailRedux SPUŠTĚN");
@@ -939,21 +948,21 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(resetPassword.pending, () => {
-        console.log("passwordReset SPUŠTĚN");
+      .addCase(resetPasswordRedux.pending, () => {
+        console.log("resetPasswordRedux SPUŠTĚN");
       })
-      .addCase(resetPassword.fulfilled, () => {
-        console.log("passwordReset ÚSPĚŠNĚ DOKONČEN");
+      .addCase(resetPasswordRedux.fulfilled, () => {
+        console.log("resetPasswordRedux ÚSPĚŠNĚ DOKONČEN");
       })
-      .addCase(resetPassword.rejected, (action) => {
-        console.log("passwordReset SELHAL");
+      .addCase(resetPasswordRedux.rejected, (action) => {
+        console.log("resetPasswordRedux SELHAL");
         console.log(action.error.message);
       })
-      .addCase(changeSettings.pending, () => {
-        console.log("changeSettings SPUŠTĚN");
+      .addCase(changeSettingsRedux.pending, () => {
+        console.log("changeSettingsRedux SPUŠTĚN");
       })
-      .addCase(changeSettings.fulfilled, (state, action) => {
-        console.log("changeSettings ÚSPĚŠNĚ DOKONČEN");
+      .addCase(changeSettingsRedux.fulfilled, (state, action) => {
+        console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.baseMoney =
           action.payload.baseMoney;
@@ -975,8 +984,8 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(changeSettings.rejected, (state) => {
-        console.log("changeSettings SELHAL");
+      .addCase(changeSettingsRedux.rejected, (state) => {
+        console.log("changeSettingsRedux SELHAL");
 
         state.toast.isVisible = true;
         state.toast.message = "Něco se pokazilo";
@@ -984,11 +993,11 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(deleteAccountFromDatabase.pending, () => {
-        console.log("deleteAccountFromDatabase SPUŠTĚN");
+      .addCase(deleteAccountRedux.pending, () => {
+        console.log("deleteAccountRedux SPUŠTĚN");
       })
-      .addCase(deleteAccountFromDatabase.fulfilled, (state) => {
-        console.log("deleteAccountFromDatabase ÚSPĚŠNĚ DOKONČEN");
+      .addCase(deleteAccountRedux.fulfilled, (state) => {
+        console.log("deleteAccountRedux ÚSPĚŠNĚ DOKONČEN");
         state.toast.isVisible = true;
         state.toast.message = "Účet smazán";
         state.toast.style = "success";
@@ -997,19 +1006,19 @@ export const authSlice = createSlice({
 
         state.isAccountDeleted = true;
       })
-      .addCase(deleteAccountFromDatabase.rejected, (state) => {
-        console.log("deleteAccountFromDatabase SELHAL");
+      .addCase(deleteAccountRedux.rejected, (state) => {
+        console.log("deleteAccountRedux SELHAL");
         state.toast.isVisible = true;
         state.toast.message = "Něco se pokazilo, zkuste to znovu";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(addJobToDatabase.pending, () => {
-        console.log("addJobToDatabase PROBÍHÁ");
+      .addCase(addJobRedux.pending, () => {
+        console.log("addJobRedux PROBÍHÁ");
       })
-      .addCase(addJobToDatabase.fulfilled, (state, action) => {
-        console.log("addJobToDatabase ÚSPĚŠNĚ DOKONČEN");
+      .addCase(addJobRedux.fulfilled, (state, action) => {
+        console.log("addJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.jobToAdd.city = "";
         state.jobToAdd.price = 0;
         state.jobToAdd.terminal = "";
@@ -1025,14 +1034,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(addJobToDatabase.rejected, () => {
-        console.log("addJobToDatabase SELHAL");
+      .addCase(addJobRedux.rejected, () => {
+        console.log("addJobRedux SELHAL");
       })
-      .addCase(editJobInDatabase.pending, () => {
-        console.log("editJobInDatabase PROBÍHÁ");
+      .addCase(editJobRedux.pending, () => {
+        console.log("editJobRedux PROBÍHÁ");
       })
-      .addCase(editJobInDatabase.fulfilled, (state, action) => {
-        console.log("editJobInDatabase ÚSPĚŠNĚ DOKONČEN");
+      .addCase(editJobRedux.fulfilled, (state, action) => {
+        console.log("editJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.jobToEdit.city = "";
         state.jobToEdit.cmr = "";
         state.jobToEdit.date = "";
@@ -1055,15 +1064,15 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(editJobInDatabase.rejected, () => {
-        console.log("editJobInDatabase SELHAL");
+      .addCase(editJobRedux.rejected, () => {
+        console.log("editJobRedux SELHAL");
       })
-      .addCase(deleteJobFromDatabase.pending, () => {
-        console.log("deleteJobFromDatabase PROBÍHÁ");
+      .addCase(deleteJobRedux.pending, () => {
+        console.log("deleteJobRedux PROBÍHÁ");
       })
-      .addCase(deleteJobFromDatabase.fulfilled, (state, action) => {
+      .addCase(deleteJobRedux.fulfilled, (state, action) => {
         state.loggedInUserData.currentJobs = action.payload;
-        console.log("deleteJobFromDatabase ÚSPĚŠNĚ DOKONČEN");
+        console.log("deleteJobRedux ÚSPĚŠNĚ DOKONČEN");
 
         state.toast.isVisible = true;
         state.toast.message = "Práce smazána";
@@ -1071,14 +1080,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(deleteJobFromDatabase.rejected, () => {
-        console.log("deleteJobFromDatabase SELHAL");
+      .addCase(deleteJobRedux.rejected, () => {
+        console.log("deleteJobRedux SELHAL");
       })
-      .addCase(archiveDoneJobsFirstTime.pending, () => {
-        console.log("archiveDoneJobsFirstTime PROBÍHÁ");
+      .addCase(archiveDoneJobsFirstTimeRedux.pending, () => {
+        console.log("archiveDoneJobsFirstTimeRedux PROBÍHÁ");
       })
-      .addCase(archiveDoneJobsFirstTime.fulfilled, (state, action) => {
-        console.log("archiveDoneJobsFirstTime ÚSPĚŠNĚ DOKONČEN");
+      .addCase(archiveDoneJobsFirstTimeRedux.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsFirstTimeRedux ÚSPĚŠNĚ DOKONČEN");
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.monthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
@@ -1091,14 +1100,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(archiveDoneJobsFirstTime.rejected, () => {
-        console.log("archiveDoneJobsFirstTime SELHAL");
+      .addCase(archiveDoneJobsFirstTimeRedux.rejected, () => {
+        console.log("archiveDoneJobsFirstTimeRedux SELHAL");
       })
-      .addCase(archiveDoneJobsNewMonth.pending, () => {
-        console.log("archiveDoneJobsNewMonth PROBÍHÁ");
+      .addCase(archiveDoneJobsNewMonthRedux.pending, () => {
+        console.log("archiveDoneJobsNewMonthRedux PROBÍHÁ");
       })
-      .addCase(archiveDoneJobsNewMonth.fulfilled, (state, action) => {
-        console.log("archiveDoneJobsNewMonth ÚSPĚŠNĚ DOKONČEN");
+      .addCase(archiveDoneJobsNewMonthRedux.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsNewMonthRedux ÚSPĚŠNĚ DOKONČEN");
         console.log(action.payload);
         state.loggedInUserData.archivedJobs = action.payload.newMonthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
@@ -1111,14 +1120,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(archiveDoneJobsNewMonth.rejected, () => {
-        console.log("archiveDoneJobsNewMonth SELHAL");
+      .addCase(archiveDoneJobsNewMonthRedux.rejected, () => {
+        console.log("archiveDoneJobsNewMonthRedux SELHAL");
       })
-      .addCase(archiveDoneJobsExistingMonth.pending, () => {
-        console.log("archiveDoneJobsExistingMonth PROBÍHÁ");
+      .addCase(archiveDoneJobsExistingMonthRedux.pending, () => {
+        console.log("archiveDoneJobsExistingMonthRedux PROBÍHÁ");
       })
-      .addCase(archiveDoneJobsExistingMonth.fulfilled, (state, action) => {
-        console.log("archiveDoneJobsExistingMonth ÚSPĚŠNĚ DOKONČEN");
+      .addCase(archiveDoneJobsExistingMonthRedux.fulfilled, (state, action) => {
+        console.log("archiveDoneJobsExistingMonthRedux ÚSPĚŠNĚ DOKONČEN");
         console.log(action.payload);
         state.loggedInUserData.archivedJobs =
           action.payload.updatedArchivedJobs;
@@ -1130,14 +1139,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(archiveDoneJobsExistingMonth.rejected, () => {
-        console.log("archiveDoneJobsExistingMonth SELHAL");
+      .addCase(archiveDoneJobsExistingMonthRedux.rejected, () => {
+        console.log("archiveDoneJobsExistingMonthRedux SELHAL");
       })
-      .addCase(deleteArchiveMonthFromDatabase.pending, () => {
-        console.log("deleteArchiveMonth PROBÍHÁ");
+      .addCase(deleteArchiveMonthRedux.pending, () => {
+        console.log("deleteArchiveMonthRedux PROBÍHÁ");
       })
-      .addCase(deleteArchiveMonthFromDatabase.fulfilled, (state, action) => {
-        console.log("deleteArchiveMonth ÚSPĚŠNĚ DOKONČEN");
+      .addCase(deleteArchiveMonthRedux.fulfilled, (state, action) => {
+        console.log("deleteArchiveMonthRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
 
         state.toast.isVisible = true;
@@ -1146,14 +1155,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(deleteArchiveMonthFromDatabase.rejected, () => {
-        console.log("deleteArchiveMonth SELHAL");
+      .addCase(deleteArchiveMonthRedux.rejected, () => {
+        console.log("deleteArchiveMonthRedux SELHAL");
       })
-      .addCase(deleteArchiveMonthJobFromDatabase.pending, () => {
-        console.log("deleteArchiveMonthJob PROBÍHÁ");
+      .addCase(deleteArchiveMonthJobRedux.pending, () => {
+        console.log("deleteArchiveMonthJobRedux PROBÍHÁ");
       })
-      .addCase(deleteArchiveMonthJobFromDatabase.fulfilled, (state, action) => {
-        console.log("deleteArchiveMonthJob ÚSPĚŠNĚ DOKONČEN");
+      .addCase(deleteArchiveMonthJobRedux.fulfilled, (state, action) => {
+        console.log("deleteArchiveMonthJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
 
         state.toast.isVisible = true;
@@ -1162,14 +1171,14 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(deleteArchiveMonthJobFromDatabase.rejected, () => {
-        console.log("deleteArchiveMonthJob SELHAL");
+      .addCase(deleteArchiveMonthJobRedux.rejected, () => {
+        console.log("deleteArchiveMonthJobRedux SELHAL");
       })
-      .addCase(editArchiveJobInDatabase.pending, () => {
-        console.log("editArchiveJobInDatabase PROBÍHÁ");
+      .addCase(editArchiveJobRedux.pending, () => {
+        console.log("editArchiveJobRedux PROBÍHÁ");
       })
-      .addCase(editArchiveJobInDatabase.fulfilled, (state, action) => {
-        console.log("editArchiveJobInDatabase ÚSPĚŠNĚ DOKONČEN");
+      .addCase(editArchiveJobRedux.fulfilled, (state, action) => {
+        console.log("editArchiveJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
 
         state.toast.isVisible = true;
@@ -1178,18 +1187,16 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(editArchiveJobInDatabase.rejected, () => {
-        console.log("editArchiveJobInDatabase SELHAL");
+      .addCase(editArchiveJobRedux.rejected, () => {
+        console.log("editArchiveJobRedux SELHAL");
       })
-      .addCase(editArchiveMonthSummarySettingsInDatabase.pending, () => {
-        console.log("editArchiveMonthSummarySettingsInDatabase PROBÍHÁ");
+      .addCase(editArchiveMonthSummarySettingsRedux.pending, () => {
+        console.log("editArchiveMonthSummarySettingsRedux PROBÍHÁ");
       })
       .addCase(
-        editArchiveMonthSummarySettingsInDatabase.fulfilled,
+        editArchiveMonthSummarySettingsRedux.fulfilled,
         (state, action) => {
-          console.log(
-            "editArchiveMonthSummarySettingsInDatabase ÚSPĚŠNĚ DOKONČEN"
-          );
+          console.log("editArchiveMonthSummarySettingsRedux ÚSPĚŠNĚ DOKONČEN");
           state.loggedInUserData.archivedJobs = action.payload;
 
           state.archiveMonthSummarySettingsToEdit.date = "";
@@ -1207,32 +1214,33 @@ export const authSlice = createSlice({
           state.toast.resetToast = true;
         }
       )
-      .addCase(editArchiveMonthSummarySettingsInDatabase.rejected, () => {
-        console.log("editArchiveMonthSummarySettingsInDatabase SELHAL");
+      .addCase(editArchiveMonthSummarySettingsRedux.rejected, () => {
+        console.log("editArchiveMonthSummarySettingsRedux SELHAL");
       });
   },
 });
 
 export const {
-  runToast,
-  resetToast,
-  resetIsRegisterSuccess,
-  resetIsEmailChangedSuccess,
-  resetIsPasswordChangedSuccess,
-  resetIsAccountDisabled,
-  resetIsAccountDeleted,
-  setLoadingTrue,
-  setLoadingFalse,
-  loginOnAuth,
-  logoutOnAuth,
-  setLoadedUserData,
-  setJobToAdd,
-  resetJobToAddValues,
-  setJobToEdit,
-  setIsEditingArchivedJob,
-  setArchiveMonthSummarySettingsToEdit,
-  resetArchiveMonthSummarySettingsToEdit,
-  setEditing,
+  runToastRedux,
+  resetToastRedux,
+  resetIsRegisterSuccessRedux,
+  resetIsEmailChangedSuccessRedux,
+  resetIsPasswordChangedSuccessRedux,
+  resetIsAccountDisabledRedux,
+  resetIsAccountDeletedRedux,
+  setLoadingTrueRedux,
+  setLoadingFalseRedux,
+  loginOnAuthRedux,
+  logoutOnAuthRedux,
+  setLoadedUserDataRedux,
+  setJobToAddRedux,
+  resetJobToAddValuesRedux,
+  setJobToEditRedux,
+  setIsEditingArchivedJobRedux,
+  setArchiveMonthSummarySettingsToEditRedux,
+  resetArchiveMonthSummarySettingsToEditRedux,
+  setEditingTrueRedux,
+  setEditingFalseRedux,
   resetJobToEditValuesRedux,
 } = authSlice.actions;
 

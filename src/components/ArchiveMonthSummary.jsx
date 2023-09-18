@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./ArchiveMonthSummary.css";
 import ModalPrompt from "./ModalPrompt";
 import { BsPencil } from "react-icons/bs";
-import { setArchiveMonthSummarySettingsToEdit } from "../redux/AuthSlice";
+import { setArchiveMonthSummarySettingsToEditRedux } from "../redux/AuthSlice";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import getCzDateArchiveJobEmailFormat from "../customFunctionsAndHooks/getCzDateArchiveJobEmailFormat";
 
@@ -41,7 +41,7 @@ const ArchiveMonthSummary = ({ summary }) => {
       eurCzkRate: summaryEurCzkRate,
     };
     // dispatch(setIsEditingArchivedJob(true));
-    dispatch(setArchiveMonthSummarySettingsToEdit(payload));
+    dispatch(setArchiveMonthSummarySettingsToEditRedux(payload));
     setShowArchiveMonthSummarySettingsEditModal(false);
     navigate("/edit-archive-month-summary-settings");
   };

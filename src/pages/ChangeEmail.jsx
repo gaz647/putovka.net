@@ -2,7 +2,7 @@ import "./ChangeEmail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { changeEmailRedux, logout } from "../redux/AuthSlice";
+import { changeEmailRedux, logoutRedux } from "../redux/AuthSlice";
 import resetIsAccountDisabled from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
@@ -60,7 +60,7 @@ const ChangeEmail = () => {
     if (isAccountDisabled === true) {
       console.log("isAccountDisabled", isAccountDisabled);
       dispatch(resetIsAccountDisabled);
-      dispatch(logout());
+      dispatch(logoutRedux());
     }
   }, [dispatch, isAccountDisabled]);
 

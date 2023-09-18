@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { runToast, deleteAccountFromDatabase } from "../redux/AuthSlice";
+import { runToastRedux, deleteAccountRedux } from "../redux/AuthSlice";
 import ModalPrompt from "../components/ModalPrompt";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
@@ -24,22 +24,26 @@ const DeleteAccount = () => {
     e.preventDefault();
     if (userConfirmationCode && currentPassword === "") {
       dispatch(
-        runToast({ message: "Zadejte heslo", style: "error", time: 3000 })
+        runToastRedux({ message: "Zadejte heslo", style: "error", time: 3000 })
       );
       return;
     } else if (currentPassword && userConfirmationCode === "") {
-      dispatch(runToast({ message: "Opište kód", style: "error", time: 3000 }));
+      dispatch(
+        runToastRedux({ message: "Opište kód", style: "error", time: 3000 })
+      );
       return;
     } else if (
       currentPassword &&
       userConfirmationCode &&
       userConfirmationCode !== deleteCode
     ) {
-      dispatch(runToast({ message: "Špatný kód", style: "error", time: 3000 }));
+      dispatch(
+        runToastRedux({ message: "Špatný kód", style: "error", time: 3000 })
+      );
       return;
     } else if (!currentPassword && !userConfirmationCode) {
       dispatch(
-        runToast({
+        runToastRedux({
           message: "Vyplňte požadová pole",
           style: "error",
           time: 3000,
@@ -52,7 +56,7 @@ const DeleteAccount = () => {
   };
 
   const deleteAccount = () => {
-    dispatch(deleteAccountFromDatabase({ currentPassword, userUid }));
+    dispatch(deleteAccountRedux({ currentPassword, userUid }));
     handleDeleteJobModalVisibility();
     setCurrentPassword("");
     setUserConfirmationCode("");

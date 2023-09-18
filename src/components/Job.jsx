@@ -2,11 +2,11 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
-  deleteJobFromDatabase,
-  setIsEditingArchivedJob,
-  setEditing,
-  setJobToEdit,
-  runToast,
+  deleteJobRedux,
+  setIsEditingArchivedJobRedux,
+  setEditingTrueRedux,
+  setJobToEditRedux,
+  runToastRedux,
 } from "../redux/AuthSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
@@ -57,7 +57,7 @@ const Job = ({ jobDetails }) => {
     );
 
     const payload = { userUid, filteredCurrentJobs };
-    dispatch(deleteJobFromDatabase(payload));
+    dispatch(deleteJobRedux(payload));
   };
 
   const editJobNavigate = () => {
@@ -78,9 +78,9 @@ const Job = ({ jobDetails }) => {
       weightTo34t,
       zipcode,
     };
-    dispatch(setIsEditingArchivedJob(false));
-    dispatch(setJobToEdit(jobToEdit));
-    dispatch(setEditing(true));
+    dispatch(setIsEditingArchivedJobRedux(false));
+    dispatch(setJobToEditRedux(jobToEdit));
+    dispatch(setEditingTrueRedux());
     navigate("/edit-job");
   };
 
@@ -107,7 +107,7 @@ const Job = ({ jobDetails }) => {
       .writeText(textToCoppy)
       .then(() => {
         dispatch(
-          runToast({
+          runToastRedux({
             message: "Zkopírováno do schránky",
             style: "success",
             time: 3000,
@@ -116,7 +116,7 @@ const Job = ({ jobDetails }) => {
       })
       .catch(() => {
         dispatch(
-          runToast({
+          runToastRedux({
             message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
             style: "error",
             time: 3000,

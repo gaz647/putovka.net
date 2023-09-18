@@ -20,17 +20,17 @@ import { useEffect } from "react";
 import { auth } from "./firebase/config";
 import { useDispatch } from "react-redux";
 import {
-  loginOnAuth,
-  logoutOnAuth,
-  setLoadingTrue,
-  loadUserData,
-  setLoadingFalse,
+  loginOnAuthRedux,
+  logoutOnAuthRedux,
+  setLoadingTrueRedux,
+  loadUserDataRedux,
+  setLoadingFalseRedux,
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
 
 const App = () => {
   const dispatch = useDispatch();
-  dispatch(setLoadingTrue());
+  dispatch(setLoadingTrueRedux());
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -39,18 +39,18 @@ const App = () => {
       if (lsEmailVerified === "true" && user) {
         try {
           console.log("lsEmailVerified NALEZEN v localStorage");
-          console.log("loadUserData SPUŠTĚN dispatch v App.jsx");
-          dispatch(loadUserData(user.uid));
-          console.log("loginOnAuth SPUŠTĚN dispatch v App.jsx");
-          dispatch(loginOnAuth({ email: user.email, uid: user.uid }));
-          console.log("setLoadingFalse SPUŠTĚN dispatch v App.jsx");
-          dispatch(setLoadingFalse());
+          console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
+          dispatch(loadUserDataRedux(user.uid));
+          console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
+          dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+          console.log("setLoadingFalseRedux SPUŠTĚN dispatch v App.jsx");
+          dispatch(setLoadingFalseRedux());
         } catch (error) {
           console.log(error.message);
           console.log(
-            "setLoadingFalse SPUŠTĚN dispatch z catch(error) v App.jsx"
+            "setLoadingFalseRedux SPUŠTĚN dispatch z catch(error) v App.jsx"
           );
-          dispatch(setLoadingFalse());
+          dispatch(setLoadingFalseRedux());
         }
       } else {
         // dispatch(
@@ -61,10 +61,10 @@ const App = () => {
         //   })
         // );
         console.log("lsEmailVerified NE-NALEZEN v localStorage");
-        console.log("logouthOnAuth SPUŠTĚN dispatch z else v App.jsx");
-        dispatch(logoutOnAuth());
-        console.log("setLoadingFalse SPUŠTĚN dispatch z else v App.jsx");
-        dispatch(setLoadingFalse());
+        console.log("logoutOnAuthRedux SPUŠTĚN dispatch z else v App.jsx");
+        dispatch(logoutOnAuthRedux());
+        console.log("setLoadingFalseRedux SPUŠTĚN dispatch z else v App.jsx");
+        dispatch(setLoadingFalseRedux());
         // dispatch(resetToast());
       }
     });

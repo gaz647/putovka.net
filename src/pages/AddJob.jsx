@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./AddJob.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addJobToDatabase, resetJobToAddValues } from "../redux/AuthSlice";
+import { addJobRedux, resetJobToAddValuesRedux } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
@@ -104,13 +104,13 @@ const AddJob = () => {
 
     const payload = { userUid, sortedCurrentJobs };
 
-    dispatch(addJobToDatabase(payload));
+    dispatch(addJobRedux(payload));
 
     navigate("/");
   };
 
   const handleDecline = () => {
-    dispatch(resetJobToAddValues());
+    dispatch(resetJobToAddValuesRedux());
     navigate("/");
   };
 
