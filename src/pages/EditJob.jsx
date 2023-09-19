@@ -198,7 +198,6 @@ const EditJob = () => {
         <InputField
           label={"Datum"}
           type={"date"}
-          placeholder={"Datum"}
           value={date}
           onDateChange={(e) => setDate(e)}
         />
@@ -206,7 +205,6 @@ const EditJob = () => {
         <InputField
           label={"Město"}
           type={"text"}
-          placeholder={"Město"}
           value={city}
           onTextChange={(e) => setCity(e)}
         />
@@ -214,7 +212,6 @@ const EditJob = () => {
         <InputField
           label={"PSČ"}
           type={"text"}
-          placeholder={"PSČ"}
           value={zipcode}
           onTextChange={(e) => setZipcode(e)}
         />
@@ -222,7 +219,6 @@ const EditJob = () => {
         <InputField
           label={""}
           type={"weight"}
-          placeholder={""}
           value={weight}
           onWeightChange={(e) => handleWeightChange(e)}
         />
@@ -230,7 +226,6 @@ const EditJob = () => {
         <InputField
           label={"Cena"}
           type={"number"}
-          placeholder={"Cena"}
           value={price}
           onNumberChange={(e) => setPrice(e)}
         />
@@ -238,7 +233,6 @@ const EditJob = () => {
         <InputField
           label={"CMR"}
           type={"text"}
-          placeholder={"CMR"}
           value={cmr}
           onTextChange={(e) => setCmr(e)}
         />
@@ -246,7 +240,6 @@ const EditJob = () => {
         <InputField
           label={"Druhá práce"}
           type={"checkbox"}
-          placeholder={"Druhá práce"}
           value={isSecondJob}
           onCheckboxChange={(e) => setIsSecondJob(e)}
         />
@@ -254,7 +247,6 @@ const EditJob = () => {
         <InputField
           label={"Čekání"}
           type={"number"}
-          placeholder={"Čekání"}
           value={waiting}
           onNumberChange={(e) => setWaiting(e)}
         />
@@ -262,7 +254,6 @@ const EditJob = () => {
         <InputField
           label={"Poznámka"}
           type={"text"}
-          placeholder={"Poznámka"}
           value={note}
           onTextChange={(e) => setNote(e)}
         />
@@ -270,7 +261,6 @@ const EditJob = () => {
         <InputField
           label={"Terminál"}
           type={"text"}
-          placeholder={"Terminál"}
           value={terminal}
           onTextChange={(e) => setTerminal(e)}
         />

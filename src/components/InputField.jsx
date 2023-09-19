@@ -5,7 +5,6 @@ import "./InputField.css";
 const InputField = ({
   label,
   type,
-  placeholder,
   value,
   onDateChange,
   onWeightChange,
@@ -40,13 +39,10 @@ const InputField = ({
     <>
       {type === "date" && (
         <div className="input-field-container">
-          <label className="input-field-label">
-            {value !== "" ? label : null}
-          </label>
+          <label className="input-field-label">{label}</label>
           <input
             className="input-field-field"
             type="date"
-            placeholder={placeholder}
             value={value}
             onChange={(e) => handleDateChange(e.target.value)}
           ></input>
@@ -54,13 +50,10 @@ const InputField = ({
       )}
       {type === "text" && (
         <div className="input-field-container">
-          <label className="input-field-label">
-            {value !== "" ? label : null}
-          </label>
+          <label className="input-field-label">{label}</label>
           <input
             className="input-field-field"
             type="text"
-            placeholder={placeholder}
             value={value}
             onChange={(e) => handleTextChange(e.target.value)}
           ></input>
@@ -68,13 +61,10 @@ const InputField = ({
       )}
       {type === "number" && (
         <div className="input-field-container">
-          <label className="input-field-label">
-            {value !== "" ? label : null}
-          </label>
+          <label className="input-field-label">{label}</label>
           <input
             className="input-field-field"
             type="number"
-            placeholder={placeholder}
             value={value}
             onChange={(e) => handleNumberChange(e.target.value)}
           ></input>
@@ -102,13 +92,10 @@ const InputField = ({
       )}
       {type === "checkbox" && (
         <div className="input-field-checkbox-container">
-          <label className="input-field-label">
-            {value !== "" ? label : null}
-          </label>
+          <label className="input-field-label">{label}</label>
           <input
             className="input-field-checkbox"
             type="checkbox"
-            placeholder={placeholder}
             checked={value}
             onChange={(e) => handleCheckboxChange(e.target.checked)}
           ></input>
