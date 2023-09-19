@@ -8,15 +8,19 @@ import { FiSettings } from "react-icons/fi";
 import { BsPencil } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setEditingFalseRedux } from "../redux/AuthSlice";
+import {
+  setIsEditingFalseRedux,
+  resetJobToAddValuesRedux,
+} from "../redux/AuthSlice";
 
 const Navbar = () => {
   const isEditing = useSelector((state) => state.auth.isEditing);
 
   const dispatch = useDispatch();
 
-  const setIsEditinFalse = () => {
-    dispatch(setEditingFalseRedux());
+  const reset = () => {
+    dispatch(setIsEditingFalseRedux());
+    dispatch(resetJobToAddValuesRedux());
   };
 
   return (
@@ -25,14 +29,14 @@ const Navbar = () => {
         <NavLink
           to={"/"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
-          onClick={setIsEditinFalse}
+          onClick={reset}
         >
           <BiSpreadsheet />
         </NavLink>
         <NavLink
           to={"/search"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
-          onClick={setIsEditinFalse}
+          onClick={reset}
         >
           <HiOutlineMagnifyingGlass />
         </NavLink>
@@ -58,14 +62,14 @@ const Navbar = () => {
         <NavLink
           to={"/archive"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
-          onClick={setIsEditinFalse}
+          onClick={reset}
         >
           <RiCharacterRecognitionLine />
         </NavLink>
         <NavLink
           to={"/settings"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
-          onClick={setIsEditinFalse}
+          onClick={reset}
         >
           <FiSettings />
         </NavLink>

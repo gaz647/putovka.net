@@ -6,10 +6,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
 import {
-  setIsEditingArchivedJobRedux,
+  setIsEditingArchivedJobTrueRedux,
   setJobToEditRedux,
   deleteArchiveMonthJobRedux,
-  setEditingTrueRedux,
+  setIsEditingTrueRedux,
 } from "../redux/AuthSlice";
 import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
@@ -74,10 +74,10 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       weightTo34t,
       zipcode,
     };
-    dispatch(setIsEditingArchivedJobRedux(true));
+    dispatch(setIsEditingArchivedJobTrueRedux());
     dispatch(setJobToEditRedux(archivedJobToEdit));
     setShowArchiveJobEditModal(false);
-    dispatch(setEditingTrueRedux());
+    dispatch(setIsEditingTrueRedux());
     navigate("/edit-job");
   };
 

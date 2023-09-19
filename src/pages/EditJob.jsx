@@ -5,14 +5,15 @@ import { useDispatch } from "react-redux";
 import {
   editJobRedux,
   editArchiveJobRedux,
-  setEditingFalseRedux,
-  setIsEditingArchivedJobRedux,
+  setIsEditingFalseRedux,
+  setIsEditingArchivedJobFalseRedux,
   resetJobToEditValuesRedux,
 } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import InputField from "../components/InputField";
 
 const EditJob = () => {
   const dispatch = useDispatch();
@@ -62,24 +63,17 @@ const EditJob = () => {
     useSelector((state) => state.auth.jobToEdit.weight)
   );
 
-  const [clicked27, setClicked27] = useState(weight === 27 ? true : false);
-  const [clicked34, setClicked34] = useState(weight === 34 ? true : false);
-
-  const click27 = () => {
-    setClicked27(true);
-    setClicked34(false);
-    setWeight(27);
-    if (!isCustomJob) {
-      setPrice(weightTo27t);
-    }
-  };
-
-  const click34 = () => {
-    setClicked34(true);
-    setClicked27(false);
-    setWeight(34);
-    if (!isCustomJob) {
-      setPrice(weightTo34t);
+  const handleWeightChange = (newWeight) => {
+    if (newWeight === 27) {
+      setWeight(27);
+      if (!isCustomJob) {
+        setPrice(weightTo27t);
+      }
+    } else if (newWeight === 34) {
+      setWeight(34);
+      if (!isCustomJob) {
+        setPrice(weightTo34t);
+      }
     }
   };
 
@@ -152,7 +146,7 @@ const EditJob = () => {
         const payload = { userUid, sortedCurrentJobsEdit };
 
         dispatch(editJobRedux(payload));
-        dispatch(setEditingFalseRedux());
+        dispatch(setIsEditingFalseRedux());
         dispatch(resetJobToEditValuesRedux());
         navigate("/");
       }
@@ -186,14 +180,14 @@ const EditJob = () => {
       dispatch(resetJobToEditValuesRedux());
       dispatch(editArchiveJobRedux(payload));
 
-      dispatch(setEditingFalseRedux());
-      dispatch(setIsEditingArchivedJobRedux(false));
+      dispatch(setIsEditingFalseRedux());
+      dispatch(setIsEditingArchivedJobFalseRedux());
       navigate("/archive");
     }
   };
 
   const handleDecline = () => {
-    dispatch(setEditingFalseRedux());
+    dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToEditValuesRedux());
     navigate("/");
   };
@@ -201,132 +195,85 @@ const EditJob = () => {
   return (
     <section className="add-job wrapper">
       <form className="add-job-form">
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Datum
-          </label>
-          <input
-            className="add-job-form-field"
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Datum"}
+          type={"date"}
+          placeholder={"Datum"}
+          value={date}
+          onDateChange={(e) => setDate(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Město
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Město"}
+          type={"text"}
+          placeholder={"Město"}
+          value={city}
+          onTextChange={(e) => setCity(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            PSČ
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={zipcode}
-            onChange={(e) => setZipcode(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"PSČ"}
+          type={"text"}
+          placeholder={"PSČ"}
+          value={zipcode}
+          onTextChange={(e) => setZipcode(e)}
+        />
 
-        <div className="add-job-form-container-item-weight">
-          <div
-            className={`add-job-form-field-weight ${
-              clicked27 ? "clicked" : ""
-            }`}
-            onClick={click27}
-          >
-            <div className="weight">&lt;27t</div>
-          </div>
-          <div
-            className={`add-job-form-field-weight ${
-              clicked34 ? "clicked" : ""
-            }`}
-            onClick={click34}
-          >
-            <div className="weight">&lt;34t</div>
-          </div>
-        </div>
+        <InputField
+          label={""}
+          type={"weight"}
+          placeholder={""}
+          value={weight}
+          onWeightChange={(e) => handleWeightChange(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Cena
-          </label>
-          <input
-            className="add-job-form-field"
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Cena"}
+          type={"number"}
+          placeholder={"Cena"}
+          value={price}
+          onNumberChange={(e) => setPrice(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            CMR
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={cmr}
-            onChange={(e) => setCmr(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"CMR"}
+          type={"text"}
+          placeholder={"CMR"}
+          value={cmr}
+          onTextChange={(e) => setCmr(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Druhá práce
-          </label>
-          <input
-            className="add-job-form-field-checkbox"
-            type="checkbox"
-            checked={isSecondJob}
-            onChange={(e) => setIsSecondJob(e.target.checked)}
-          />
-        </div>
+        <InputField
+          label={"Druhá práce"}
+          type={"checkbox"}
+          placeholder={"Druhá práce"}
+          value={isSecondJob}
+          onCheckboxChange={(e) => setIsSecondJob(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Čekání
-          </label>
-          <input
-            className="add-job-form-field"
-            type="number"
-            value={waiting}
-            onChange={(e) => setWaiting(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Čekání"}
+          type={"number"}
+          placeholder={"Čekání"}
+          value={waiting}
+          onNumberChange={(e) => setWaiting(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Poznámka
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Poznámka"}
+          type={"text"}
+          placeholder={"Poznámka"}
+          value={note}
+          onTextChange={(e) => setNote(e)}
+        />
 
-        <div className="add-job-form-container-item">
-          <label className="add-job-form-label" htmlFor="">
-            Terminál
-          </label>
-          <input
-            className="add-job-form-field"
-            type="text"
-            value={terminal}
-            onChange={(e) => setTerminal(e.target.value)}
-          />
-        </div>
+        <InputField
+          label={"Terminál"}
+          type={"text"}
+          placeholder={"Terminál"}
+          value={terminal}
+          onTextChange={(e) => setTerminal(e)}
+        />
 
         <ConfirmDeclineBtns
           confirmFunction={editJob}

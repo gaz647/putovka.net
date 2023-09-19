@@ -735,9 +735,15 @@ export const authSlice = createSlice({
       state.jobToEdit.weightTo34t = action.payload.weightTo34t;
       state.jobToEdit.zipcode = action.payload.zipcode;
     },
-    setIsEditingArchivedJobRedux: (state, action) => {
-      console.log("setIsEditingArchivedJobRedux SPUŠTĚN");
-      state.isEditingArchivedJob = action.payload;
+
+    setIsEditingArchivedJobTrueRedux: (state) => {
+      console.log("setIsEditingArchivedJobTrueRedux SPUŠTĚN");
+      state.isEditingArchivedJob = true;
+    },
+
+    setIsEditingArchivedJobFalseRedux: (state) => {
+      console.log("setIsEditingArchivedJobFalseRedux SPUŠTĚN");
+      state.isEditingArchivedJob = false;
     },
 
     setArchiveMonthSummarySettingsToEditRedux: (state, action) => {
@@ -768,13 +774,13 @@ export const authSlice = createSlice({
       state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
     },
 
-    setEditingTrueRedux: (state) => {
-      console.log("setEditingRedux SPUŠTĚN");
+    setIsEditingTrueRedux: (state) => {
+      console.log("setIsEditingTrueRedux SPUŠTĚN");
       state.isEditing = true;
     },
 
-    setEditingFalseRedux: (state) => {
-      console.log("setEditingRedux SPUŠTĚN");
+    setIsEditingFalseRedux: (state) => {
+      console.log("setIsEditingFalseRedux SPUŠTĚN");
       state.isEditing = false;
     },
 
@@ -1236,11 +1242,12 @@ export const {
   setJobToAddRedux,
   resetJobToAddValuesRedux,
   setJobToEditRedux,
-  setIsEditingArchivedJobRedux,
+  setIsEditingArchivedJobTrueRedux,
+  setIsEditingArchivedJobFalseRedux,
   setArchiveMonthSummarySettingsToEditRedux,
   resetArchiveMonthSummarySettingsToEditRedux,
-  setEditingTrueRedux,
-  setEditingFalseRedux,
+  setIsEditingTrueRedux,
+  setIsEditingFalseRedux,
   resetJobToEditValuesRedux,
 } = authSlice.actions;
 

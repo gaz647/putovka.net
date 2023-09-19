@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
   deleteJobRedux,
-  setIsEditingArchivedJobRedux,
-  setEditingTrueRedux,
+  setIsEditingArchivedJobFalseRedux,
+  setIsEditingTrueRedux,
   setJobToEditRedux,
   runToastRedux,
 } from "../redux/AuthSlice";
@@ -78,9 +78,9 @@ const Job = ({ jobDetails }) => {
       weightTo34t,
       zipcode,
     };
-    dispatch(setIsEditingArchivedJobRedux(false));
+    dispatch(setIsEditingArchivedJobFalseRedux());
     dispatch(setJobToEditRedux(jobToEdit));
-    dispatch(setEditingTrueRedux());
+    dispatch(setIsEditingTrueRedux());
     navigate("/edit-job");
   };
 

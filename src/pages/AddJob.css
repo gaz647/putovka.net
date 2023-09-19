@@ -45,7 +45,7 @@
 }
 
 .clicked {
-  background-color: gold;
+  background-color: var(--turquoise);
 }
 
 .add-job-form-label {
