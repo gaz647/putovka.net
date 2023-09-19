@@ -41,7 +41,7 @@ const InputField = ({
         <div className="input-field-container">
           <label className="input-field-label">{label}</label>
           <input
-            className="input-field-field"
+            className="input-field-field date"
             type="date"
             value={value}
             onChange={(e) => handleDateChange(e.target.value)}
