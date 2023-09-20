@@ -1,10 +1,12 @@
 :root {
+  --counts: #eeeeee;
+  --second-job-waiting: rgba(255, 255, 0, 0.719);
+  --inputs: rgb(62, 123, 255);
   --dark-1: #15161f;
   --dark-2: #252738;
   --dark-3: #303347;
   --green: #2dbd5d;
   --red: #ff0000;
-  --turquoise: #0df5e3;
   --blue: #007bfe;
   --text-white: rgb(255, 242, 242);
   --text-black: black;
@@ -73,4 +75,8 @@ input:focus {
 .sent-message {
   color: whitesmoke;
   margin-bottom: 2rem;
+}
+
+.vis-hidden {
+  visibility: hidden;
 }

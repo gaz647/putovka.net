@@ -142,6 +142,19 @@ const Job = ({ jobDetails }) => {
           <BsPencil onClick={editJobNavigate} />
         </div>
 
+        <div
+          className="one-job-header-copy-to-clipboard-container"
+          onClick={copyToClipBoard}
+        >
+          <div className="one-job-header-copy-to-clipboard-item">{day}</div>
+          <div className="one-job-header-copy-to-clipboard-item">
+            {getCzDateFormat(date)}
+          </div>
+          <div className="one-job-header-copy-to-clipboard-item">
+            {price + " €"}
+          </div>
+        </div>
+
         <div className="one-job-header-delete-btn">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
         </div>
@@ -153,48 +166,79 @@ const Job = ({ jobDetails }) => {
             }`}
           />
         </div>
-
-        <div
-          className="one-job-header-copy-to-clipboard-container"
-          onClick={copyToClipBoard}
-        >
-          <div className="one-job-header-copy-to-clipboard-item">{day}</div>
-          <div className="one-job-header-copy-to-clipboard-item">
-            {getCzDateFormat(date)}
-          </div>
-          <div className="one-job-header-copy-to-clipboard-item">
-            {weight + "t"}
-          </div>
-          <div className="one-job-header-copy-to-clipboard-item">
-            {price + " €"}
-          </div>
-        </div>
       </div>
 
       <div className="one-job-body-container" onClick={handleShow}>
         <div className="one-job-body-item one-job-body-city">{city}</div>
-        <div className="one-job-body-item one-job-body-zipcode">{zipcode}</div>
+        <div className="one-job-body-item one-job-body-item-smaller">
+          {zipcode}
+        </div>
+
+        <div className="one-job-body-bottom-line-container">
+          <div
+            className={`one-job-body-bottom-line-second-job-icon ${
+              showDetails && "vis-hidden"
+            }`}
+          >
+            <PiNumberSquareTwoBold
+              className={!isSecondJob ? "vis-hidden" : ""}
+            />
+          </div>
+
+          <div className="one-job-body-item one-job-body-item-smaller">
+            {weight + "t"}
+          </div>
+
+          <div
+            className={`one-job-body-bottom-line-waiting-container ${
+              showDetails && "vis-hidden"
+            }`}
+          >
+            <div className={waiting < 1 ? "vis-hidden" : ""}>
+              <div className="one-job-body-bottom-line-waiting-icon">
+                <PiClockBold />
+              </div>
+              {waiting}
+            </div>
+          </div>
+        </div>
 
         {showDetails && (
           <>
             {cmr !== "" ? (
-              <div className="one-job-body-hidden-item one-job-body-cmr">
+              <div className="one-job-body-item one-job-body-item-smaller">
                 {cmr}
               </div>
             ) : null}
 
-            <div className="one-job-body-hidden-item one-job-body-terminal">
+            <div className="one-job-body-item one-job-body-item-smaller">
               {"terminál: " + terminal}
             </div>
-            {note !== "" ? (
-              <div className="one-job-body-hidden-item one-job-body-note">
+
+            <div className="one-job-body-bottom-line-container">
+              <div className="one-job-body-bottom-line-second-job-icon">
+                <PiNumberSquareTwoBold
+                  className={!isSecondJob ? "vis-hidden" : ""}
+                />
+              </div>
+
+              <div className="one-job-body-item one-job-body-item-smaller">
                 {note}
               </div>
-            ) : null}
+
+              <div className="one-job-body-bottom-line-waiting-container">
+                <div className={waiting < 1 ? "vis-hidden" : ""}>
+                  <div className="one-job-body-bottom-line-waiting-icon">
+                    <PiClockBold />
+                  </div>
+                  {waiting}
+                </div>
+              </div>
+            </div>
           </>
         )}
 
-        {isSecondJob ? (
+        {/* {isSecondJob ? (
           <PiNumberSquareTwoBold className="one-job-body-second-job-icon" />
         ) : (
           ""
@@ -207,7 +251,7 @@ const Job = ({ jobDetails }) => {
           </div>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     </div>
   );

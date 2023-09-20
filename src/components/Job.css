@@ -1,6 +1,5 @@
 .one-job {
   margin-bottom: 1.5rem;
-  /* background-color: rgb(255, 255, 255); */
   background-color: var(--dark-3);
   border-radius: 5px;
   color: var(--text-white);
@@ -13,48 +12,52 @@
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   background-color: var(--dark-2);
-  font-size: 0.9rem;
-  font-weight: bold;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .one-job-header-copy-to-clipboard-container {
   display: flex;
-  justify-content: space-around;
+
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
+
   cursor: pointer;
-  padding: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .one-job-header-copy-to-clipboard-item {
-  padding: 0 0.2rem;
+  padding: 0.3rem 0.5rem;
 }
 
 .one-job-header-edit-btn {
-  position: absolute;
-  padding: 0 0.2rem 0 0.5rem;
-  left: 0.2rem;
-  text-align: center;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   font-size: 0.8rem;
   color: var(--blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-job-header-delete-btn {
-  position: absolute;
-  padding: 0 0.2rem 0 0.5rem;
-  right: 0.2rem;
-  text-align: center;
+  height: 1.5rem;
+  width: 1.5rem;
   cursor: pointer;
   font-size: 0.8rem;
   color: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-job-header-expand-btn {
   position: absolute;
-  display: flex;
   padding: 0 0.2rem 0 0.5rem;
   right: 0.2rem;
   bottom: -1.5rem;
@@ -80,46 +83,47 @@
 }
 
 .one-job-body-item {
-  margin-bottom: 0.3rem;
+  padding: 0.4rem;
+  font-weight: bold;
 }
 
 .one-job-body-city {
-  font-weight: bold;
   font-size: 1rem;
 }
 
-.one-job-body-zipcode {
-  font-weight: bold;
-  font-size: 0.87rem;
+.one-job-body-item-smaller {
+  font-size: 0.85rem;
 }
 
-.one-job-body-hidden-item {
-  margin-bottom: 0.3rem;
-  font-size: 0.8rem;
+.one-job-body-bottom-line-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* JOB'S FOOTER */
 
-.one-job-body-second-job-icon {
-  position: absolute;
-  bottom: 0.3rem;
-  left: 0.5rem;
-  font-size: 1rem;
-  color: var(--yellow);
-  font-size: 0.9rem;
-}
-
-.one-job-body-waiting-container {
-  position: absolute;
+.one-job-body-bottom-line-second-job-icon {
+  padding-left: 0.5rem;
   display: flex;
+  justify-content: center;
   align-items: center;
-  bottom: 0.2rem;
-  right: 0.7rem;
-  color: var(--yellow);
-  font-size: 0.8rem;
-  font-weight: bold;
+  color: var(--second-job-waiting);
 }
 
-.one-job-body-waiting-icon {
-  margin-right: 0.2rem;
+.one-job-body-bottom-line-waiting-container {
+  position: relative;
+  padding-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--second-job-waiting);
+}
+
+.one-job-body-bottom-line-waiting-icon {
+  position: absolute;
+  top: 0.05rem;
+  left: -1.15rem;
 }

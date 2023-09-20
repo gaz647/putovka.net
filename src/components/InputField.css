@@ -38,7 +38,7 @@ input[type="number"] {
   padding: 0 0.5rem;
   background-color: var(--dark-3);
   border: none;
-  border-bottom: 1px solid var(--turquoise);
+  border-bottom: 1px solid var(--inputs);
   color: var(--text-white);
   text-align: center;
   font-weight: bold;
@@ -50,7 +50,7 @@ input[type="number"] {
 }
 
 .input-field-field:focus {
-  border: solid 2px var(--turquoise);
+  border: solid 2px var(--inputs);
 }
 
 .input-field-field:invalid {
@@ -70,7 +70,7 @@ input[type="number"] {
   height: 100%;
   background-color: var(--dark-3);
   border: none;
-  border-bottom: 1px solid var(--turquoise);
+  border-bottom: 1px solid var(--inputs);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +80,7 @@ input[type="number"] {
 }
 
 .input-field-weight-clicked {
-  background-color: var(--turquoise);
+  background-color: var(--inputs);
 }
 
 .input-field-checkbox-container {
@@ -91,7 +91,7 @@ input[type="number"] {
   /* margin: 0.5rem auto; */
   background-color: var(--dark-3);
   border: none;
-  border-bottom: 1px solid var(--turquoise);
+  border-bottom: 1px solid var(--inputs);
   cursor: pointer;
   display: flex;
   justify-content: center;

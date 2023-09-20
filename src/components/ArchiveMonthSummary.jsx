@@ -92,8 +92,8 @@ const ArchiveMonthSummary = ({ summary }) => {
         <ModalPrompt
           heading={archiveMonthSummarySettingsEditModal}
           text={""}
-          clbFunction={setEditArchiveMonthSummarySettings}
-          closeModal={handleArchiveMonthSummarySettingsEditModalVisibility}
+          confirmFunction={setEditArchiveMonthSummarySettings}
+          declineFunction={handleArchiveMonthSummarySettingsEditModalVisibility}
         />
       )}
       <div className="archive-month-summary-container">
