@@ -65,7 +65,8 @@ const InputField = ({
           <input
             className="input-field-field"
             type="number"
-            value={value}
+            inputMode="numeric"
+            value={value === 0 ? "" : ""}
             onChange={(e) => handleNumberChange(e.target.value)}
           ></input>
         </div>
