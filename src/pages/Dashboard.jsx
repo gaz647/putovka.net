@@ -8,6 +8,7 @@ import {
   archiveDoneJobsNewMonthRedux,
   archiveDoneJobsExistingMonthRedux,
   changeSettingsRedux,
+  setLoadingFalseRedux,
 } from "../redux/AuthSlice";
 // import { db } from "../firebase/config";
 // import { onSnapshot, doc } from "firebase/firestore";
@@ -21,7 +22,13 @@ import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyR
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  // const [currentJobs, setCurrentJobs] = useState([]);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(setLoadingFalseRedux());
+    }
+  }, [isLoggedIn]);
 
   const loggedInUserSettings = useSelector(
     (state) => state.auth.loggedInUserData.userSettings
@@ -76,16 +83,6 @@ const Dashboard = () => {
   const waitingBenefitEur = useSelector(
     (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
-
-  // useEffect(() => {
-  //   const unsub = onSnapshot(doc(db, `users/${userUid}`), (doc) => {
-  //     setCurrentJobs(doc.data().currentJobs);
-  //   });
-  //   return () => {
-  //     unsub();
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   useEffect(() => {
     setTotalJobs(currentJobs.length);

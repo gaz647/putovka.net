@@ -30,6 +30,7 @@ import DeleteAccount from "./pages/DeleteAccount";
 
 const App = () => {
   const dispatch = useDispatch();
+
   dispatch(setLoadingTrueRedux());
 
   useEffect(() => {
@@ -38,13 +39,12 @@ const App = () => {
 
       if (lsEmailVerified === "true" && user) {
         try {
-          console.log("lsEmailVerified NALEZEN v localStorage");
+          console.log("lsEmailVerified NA-LEZEN v localStorage");
           console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
           dispatch(loadUserDataRedux(user.uid));
           console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
           dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
           console.log("setLoadingFalseRedux SPUŠTĚN dispatch v App.jsx");
-          dispatch(setLoadingFalseRedux());
         } catch (error) {
           console.log(error.message);
           console.log(
@@ -53,19 +53,9 @@ const App = () => {
           dispatch(setLoadingFalseRedux());
         }
       } else {
-        // dispatch(
-        //   runToast({
-        //     message: "Nejdříve potvrďte registraci ve vašem emailu",
-        //     style: "error",
-        //     time: 3000,
-        //   })
-        // );
         console.log("lsEmailVerified NE-NALEZEN v localStorage");
         console.log("logoutOnAuthRedux SPUŠTĚN dispatch z else v App.jsx");
         dispatch(logoutOnAuthRedux());
-        console.log("setLoadingFalseRedux SPUŠTĚN dispatch z else v App.jsx");
-        dispatch(setLoadingFalseRedux());
-        // dispatch(resetToast());
       }
     });
 
