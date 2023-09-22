@@ -9,6 +9,7 @@ import plzen from "../assets/prices/plzen.json";
 import praha from "../assets/prices/praha.json";
 import usti_nad_labem from "../assets/prices/usti_nad_labem.json";
 import zlin from "../assets/prices/zlin.json";
+import Spinner2 from "../components/Spinner2";
 
 const Search = () => {
   const terminal = useSelector(
@@ -72,6 +73,8 @@ const Search = () => {
 
   const [inputText, setInputText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const [searchResultsReady, setSearchResultsReady] = useState(true);
 
   const filterByUserInput = (arrayOfObjects, letter) => {
     let result = [];
@@ -146,17 +149,33 @@ const Search = () => {
         return 0;
       }
     });
-
     return result;
   };
 
+  useEffect(() => {
+    const delayTimer = setTimeout(() => {
+      const result = filterByUserInput(json, inputText);
+      setSearchResults(result);
+      if (inputText === "") {
+        setSearchResults([]);
+      }
+      setSearchResultsReady(true);
+    }, 500);
+
+    return () => clearTimeout(delayTimer);
+  }, [inputText, json]);
+
   const handleChange = (event) => {
+    setSearchResultsReady(false);
     setInputText(event.target.value);
-    const result = filterByUserInput(json, event.target.value);
-    setSearchResults(result);
-    if (event.target.value === "") {
-      setSearchResults([]);
-    }
+    // const result = filterByUserInput(json, inputText);
+    // setSearchResults(result);
+    // if (event.target.value === "") {
+    //   setSearchResults([]);
+    // }
+    // setTimeout(() => {
+    //   setSearchResultsReady(true);
+    // }, 100);
   };
 
   const deleteInputText = () => {
@@ -185,18 +204,34 @@ const Search = () => {
           />
         )}
       </div>
-      <ul>
-        {searchResults.map((result) => (
-          <SearchResult
-            key={result.objIndex}
-            city={result.city}
-            zipcode={result.zipcode}
-            weightTo27t={result.weightTo27t}
-            weightTo34t={result.weightTo34t}
-            terminal={terminal}
-          />
-        ))}
-      </ul>
+      {!searchResultsReady ? (
+        <Spinner2 />
+      ) : (
+        <ul>
+          {searchResults.map((result) => (
+            <SearchResult
+              key={result.objIndex}
+              city={result.city}
+              zipcode={result.zipcode}
+              weightTo27t={result.weightTo27t}
+              weightTo34t={result.weightTo34t}
+              terminal={terminal}
+            />
+          ))}
+        </ul>
+      )}
+      {/* <ul>
+            {searchResults.map((result) => (
+              <SearchResult
+                key={result.objIndex}
+                city={result.city}
+                zipcode={result.zipcode}
+                weightTo27t={result.weightTo27t}
+                weightTo34t={result.weightTo34t}
+                terminal={terminal}
+              />
+            ))}
+      </ul> */}
     </section>
   );
 };

@@ -3,8 +3,8 @@ import "./ChangeVerification.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logoutRedux } from "../redux/AuthSlice";
 import {
+  logoutRedux,
   resetIsRegisterSuccessRedux,
   resetIsEmailChangedSuccessRedux,
   resetIsPasswordChangedSuccessRedux,

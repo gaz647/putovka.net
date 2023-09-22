@@ -1,6 +1,6 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { loginRedux } from "../redux/AuthSlice";
+import { loginRedux, setIsLoadingTrueRedux } from "../redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -23,11 +23,13 @@ const Login = () => {
     const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
     dispatch(loginRedux(loginCredentials));
+    dispatch(setIsLoadingTrueRedux);
   };
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate("/");
+      console.log("isLoggedIn je true, teď má přijít přesměrování");
+      navigate("/login-success");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);

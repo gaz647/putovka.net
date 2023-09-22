@@ -7,6 +7,7 @@ import Archive from "./pages/Archive";
 import EditArchiveMonthSummarySettings from "./pages/EditArchiveMonthSummarySettings";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
+import LoginSuccess from "./components/LoginSuccess";
 import Register from "./pages/Register";
 import EditJob from "./pages/EditJob";
 import ForgottenPassword from "./pages/ForgottenPassword";
@@ -19,19 +20,18 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import { auth } from "./firebase/config";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import {
   loginOnAuthRedux,
   logoutOnAuthRedux,
-  setLoadingTrueRedux,
   loadUserDataRedux,
-  setLoadingFalseRedux,
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
 
 const App = () => {
   const dispatch = useDispatch();
 
-  dispatch(setLoadingTrueRedux());
+  const isLoginPending = useSelector((state) => state.auth.isLoginPending);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -39,18 +39,14 @@ const App = () => {
 
       if (lsEmailVerified === "true" && user) {
         try {
-          console.log("lsEmailVerified NA-LEZEN v localStorage");
+          console.log("App.jsx");
+          console.log("lsEmailVerified NA-LEZEN");
           console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
           dispatch(loadUserDataRedux(user.uid));
           console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
           dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-          console.log("setLoadingFalseRedux SPUŠTĚN dispatch v App.jsx");
         } catch (error) {
           console.log(error.message);
-          console.log(
-            "setLoadingFalseRedux SPUŠTĚN dispatch z catch(error) v App.jsx"
-          );
-          dispatch(setLoadingFalseRedux());
         }
       } else {
         console.log("lsEmailVerified NE-NALEZEN v localStorage");
@@ -62,7 +58,7 @@ const App = () => {
     return () => {
       unsubscribe();
     };
-  }, [dispatch]);
+  }, [dispatch, isLoginPending]);
 
   return (
     <BrowserRouter>
@@ -74,6 +70,8 @@ const App = () => {
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
 
         <Route path="/change-verification" element={<ChangeVerification />} />
+
+        <Route path="/login-success" element={<LoginSuccess />} />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<SharedLayout />}>

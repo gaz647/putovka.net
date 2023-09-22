@@ -8,27 +8,17 @@ import {
   archiveDoneJobsNewMonthRedux,
   archiveDoneJobsExistingMonthRedux,
   changeSettingsRedux,
-  setLoadingFalseRedux,
 } from "../redux/AuthSlice";
-// import { db } from "../firebase/config";
-// import { onSnapshot, doc } from "firebase/firestore";
 import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
+import Spinner2 from "../components/Spinner2";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(setLoadingFalseRedux());
-    }
-  }, [isLoggedIn]);
 
   const loggedInUserSettings = useSelector(
     (state) => state.auth.loggedInUserData.userSettings
@@ -325,6 +315,8 @@ const Dashboard = () => {
     setShowArchiveModal(!showArchiveModal);
   };
 
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+
   return (
     <section className="wrapper relative">
       <section className="dashboard">
@@ -381,9 +373,15 @@ const Dashboard = () => {
         </button>
       </section>
       <section className="dashboard-jobs">
-        {currentJobs.map((oneJob) => {
-          return <Job key={oneJob.id} jobDetails={oneJob} />;
-        })}
+        {isLoading2 ? (
+          <Spinner2 />
+        ) : (
+          <>
+            {currentJobs.map((oneJob) => {
+              return <Job key={oneJob.id} jobDetails={oneJob} />;
+            })}
+          </>
+        )}
       </section>
     </section>
   );
