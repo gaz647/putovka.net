@@ -26,10 +26,8 @@ import axios from "axios";
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
 const createUserData = async (userAuth) => {
-  // Získání ID a EMAILU uživatele
   const { email, uid } = userAuth;
 
-  // Vytvoření reference kolekce USERS
   const usersCollectionRef = collection(db, "users");
 
   const API_KEY = import.meta.env.VITE_REACT_APP_EXCHANGE_RATE_API_KEY;
@@ -76,8 +74,6 @@ export const registerRedux = createAsyncThunk(
       console.log("aktuální user: ", user.user.email);
 
       await sendEmailVerification(auth.currentUser);
-
-      await createUserData(user.user);
     } catch (error) {
       console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
@@ -97,42 +93,6 @@ export const loginRedux = createAsyncThunk(
         loginCredentials.loginEmail,
         loginCredentials.loginPassword
       );
-      console.log(
-        "loginRedux TRY část signInWithEmailAndPassword ÚSPĚŠNĚ DOKONČENA"
-      );
-      const emailVerifiedTrue = auth.currentUser.emailVerified;
-      if (emailVerifiedTrue) {
-        console.log("loginRedux Uživatelův email je verified");
-        console.log("loginRedux Ukládám tuto informaci do local storage");
-        localStorage.setItem("emailVerified", "true");
-
-        const uid = auth.currentUser.uid;
-        const userRef = doc(db, "users", uid);
-
-        try {
-          const userData = await getDoc(userRef);
-
-          if (userData.exists()) {
-            return userData.data();
-          }
-        } catch (error) {
-          console.log(error.message);
-          throw error.message;
-        }
-      } else {
-        console.log("loginRedux Uživatelův email nebyl verified");
-        // localStorage.removeItem("emailVerified");
-        try {
-          console.log("loginRedux signOut(auth) Odhlašuji...");
-          await signOut(auth);
-          console.log(
-            "loginRedux signOut(auth) Odhlášení ÚSPĚŠNĚ DOKONČENO..."
-          );
-        } catch (error) {
-          console.log("loginRedux signOut(auth) Odhlášení NE-ÚSPĚŠNÉ");
-          throw error.message;
-        }
-      }
     } catch (error) {
       console.log("loginRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
@@ -144,13 +104,24 @@ export const loginRedux = createAsyncThunk(
 //
 export const loadUserDataRedux = createAsyncThunk(
   "auth/loadUserDataRedux",
-  async (userUid) => {
-    const userRef = doc(db, "users", userUid);
+  async (userAuth) => {
+    // Získání ID a EMAILU uživatele
+    const { email, uid } = userAuth;
+    const userRef = doc(db, "users", uid);
     try {
       const userData = await getDoc(userRef);
+      let createdUserData;
 
       if (userData.exists()) {
+        console.log("userData existují, vracím je pro načtení do addCase");
         return userData.data();
+      } else {
+        console.log("userData neexistují, vytvářím je");
+        const userAuth = { email, uid };
+        await createUserData(userAuth);
+        console.log("userData vytvořeny, načítám je");
+        createdUserData = await getDoc(userRef);
+        return createdUserData.data();
       }
     } catch (error) {
       throw error.message;
@@ -260,7 +231,7 @@ export const deleteAccountRedux = createAsyncThunk(
       await reauthenticateWithCredential(auth.currentUser, credential);
       await deleteUser(auth.currentUser);
       await deleteDoc(doc(usersCollectionRef, userUid));
-      localStorage.removeItem("emailVerified");
+      await signOut(auth);
     } catch (error) {
       throw error.message;
     }
@@ -541,17 +512,23 @@ export const authSlice = createSlice({
       resetToast: false,
     },
 
-    isLoginPending: false,
-    isLoggedIn: false,
     isLoading: true,
     isLoading2: false,
-    loggedInUserEmail: null,
-    loggedInUserUid: null,
+    //
+    isLoginPending: false,
+    isLoggedIn: false,
+    //
+    isRegisterPending: false,
     isRegisterSuccess: false,
+    //
     isEmailChangedSuccess: false,
     isPasswordChangedSuccess: false,
+    //
     isAccountDisabled: false,
     isAccountDeleted: false,
+    //
+    loggedInUserEmail: null,
+    loggedInUserUid: null,
     loggedInUserData: {
       archivedJobs: [],
       currentJobs: [],
@@ -664,7 +641,7 @@ export const authSlice = createSlice({
 
     loginOnAuthRedux(state, action) {
       console.log("loginOnAuthRedux SPUŠTĚN");
-      state.isLoggedIn = true;
+      // state.isLoggedIn = true;
       state.loggedInUserEmail = action.payload.email;
       state.loggedInUserUid = action.payload.uid;
     },
@@ -821,6 +798,7 @@ export const authSlice = createSlice({
     builder
       .addCase(registerRedux.pending, (state) => {
         console.log("registerRedux PROBÍHÁ");
+        state.isRegisterPending = true;
         state.isLoading = true;
       })
       .addCase(registerRedux.fulfilled, (state) => {
@@ -829,7 +807,9 @@ export const authSlice = createSlice({
       })
       .addCase(registerRedux.rejected, (state, action) => {
         console.log("registerRedux SELHAL", action.error.message);
+        state.isRegisterPending = false;
         state.isLoading = false;
+
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message ===
@@ -849,19 +829,12 @@ export const authSlice = createSlice({
       .addCase(loginRedux.pending, (state) => {
         console.log("loginRedux PROBÍHÁ");
         state.isLoading = true;
-        state.isLoginPending = true;
+        // state.isLoginPending = true;
       })
-      .addCase(loginRedux.fulfilled, (state, action) => {
+      .addCase(loginRedux.fulfilled, (state) => {
         console.log("loginRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoggedIn = true;
         state.isLoading = false;
-        state.loggedInUserEmail = auth.currentUser.email;
-        state.loggedInUserUid = auth.currentUser.uid;
-        state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
-        state.loggedInUserData.currentJobs = action.payload.currentJobs;
-        state.loggedInUserData.userSettings = action.payload.userSettings;
 
-        state.isLoginPending = false;
         state.isAccountDisabled = false;
       })
       .addCase(loginRedux.rejected, (state, action) => {
@@ -914,8 +887,10 @@ export const authSlice = createSlice({
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
-        state.isLoading = false;
+        // state.isLoading = false;
         state.isLoading2 = false;
+
+        state.isLoggedIn = true;
       })
       .addCase(loadUserDataRedux.rejected, (state, action) => {
         console.log("loadUserDataRedux SELHAL", action.error.message);
@@ -1297,6 +1272,7 @@ export const authSlice = createSlice({
 export const {
   runToastRedux,
   resetToastRedux,
+  resetJobToEditValuesRedux,
   resetIsRegisterSuccessRedux,
   resetIsEmailChangedSuccessRedux,
   resetIsPasswordChangedSuccessRedux,
@@ -1318,7 +1294,6 @@ export const {
   resetArchiveMonthSummarySettingsToEditRedux,
   setIsEditingTrueRedux,
   setIsEditingFalseRedux,
-  resetJobToEditValuesRedux,
 } = authSlice.actions;
 
 export default authSlice.reducer;

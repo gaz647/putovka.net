@@ -24,7 +24,11 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import {
   loginOnAuthRedux,
   logoutOnAuthRedux,
+  logoutRedux,
   loadUserDataRedux,
+  // runToastRedux,
+  setIsLoadingTrueRedux,
+  setIsLoadingFalseRedux,
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
 
@@ -33,34 +37,46 @@ const App = () => {
 
   const isLoginPending = useSelector((state) => state.auth.isLoginPending);
 
+  const isRegisterPending = useSelector(
+    (state) => state.auth.isRegisterPending
+  );
+
+  console.log(auth.currentUser);
+
   useEffect(() => {
-    if (!isLoginPending) {
-      const unsubscribe = auth.onAuthStateChanged(async (user) => {
-        const lsEmailVerified = localStorage.getItem("emailVerified");
+    console.log("App.jsx");
+    console.log("!isLoginPending && !isRegisterPending ==> spuštěno");
 
-        if (lsEmailVerified === "true" && user) {
-          try {
-            console.log("App.jsx");
-            console.log("lsEmailVerified NA-LEZEN");
-            console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
-            dispatch(loadUserDataRedux(user.uid));
-            console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
-            dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-          } catch (error) {
-            console.log(error.message);
-          }
-        } else {
-          console.log("lsEmailVerified NE-NALEZEN v localStorage");
-          console.log("logoutOnAuthRedux SPUŠTĚN dispatch z else v App.jsx");
-          dispatch(logoutOnAuthRedux());
-        }
-      });
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      console.log("auth status se změnil");
+      dispatch(setIsLoadingTrueRedux());
 
-      return () => {
-        unsubscribe();
-      };
-    }
-  }, [dispatch, isLoginPending]);
+      const currentUser = auth.currentUser;
+      let emailVerified;
+
+      if (currentUser !== null) {
+        emailVerified = currentUser.emailVerified;
+      }
+
+      if (currentUser === null) {
+        console.log("karent jůsr je nul");
+        dispatch(setIsLoadingFalseRedux());
+      } else if (currentUser !== null && !emailVerified) {
+        console.log("karent jůsr není nul ale nepotvrdil email");
+        console.log("proto ho odhlašuji");
+        dispatch(logoutOnAuthRedux());
+        dispatch(logoutRedux());
+      } else if (currentUser !== null && emailVerified) {
+        console.log("karent jůsr není nul a potvrdil mail");
+
+        dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
+        dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch, isLoginPending, isRegisterPending]);
 
   return (
     <BrowserRouter>

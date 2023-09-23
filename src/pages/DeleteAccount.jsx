@@ -1,15 +1,39 @@
 import "./DeleteAccount.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { runToastRedux, deleteAccountRedux } from "../redux/AuthSlice";
+import {
+  runToastRedux,
+  deleteAccountRedux,
+  logoutOnAuthRedux,
+} from "../redux/AuthSlice";
 import ModalPrompt from "../components/ModalPrompt";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 
 const DeleteAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isAccountDeleted = useSelector((state) => state.auth.isAccountDeleted);
+
+  useEffect(() => {
+    if (isAccountDeleted) {
+      console.log("akount dylýtyd");
+      dispatch(logoutOnAuthRedux());
+    }
+  }, [dispatch, isAccountDeleted, navigate]);
+
+  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
+
+  const deleteAccountModalHeading =
+    "Opravdu si přejete smazat Váš účet a všechna Vaše data?";
+
+  const deleteAccountModalText = "Tuto akci nelze vzít zpět";
+
+  const handleDeleteJobModalVisibility = () => {
+    setShowDeleteJobModal(!showDeleteJobModal);
+  };
 
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
@@ -20,8 +44,7 @@ const DeleteAccount = () => {
 
   const [userConfirmationCode, setUserConfirmationCode] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (userConfirmationCode && currentPassword === "") {
       dispatch(
         runToastRedux({ message: "Zadejte heslo", style: "error", time: 3000 })
@@ -67,17 +90,6 @@ const DeleteAccount = () => {
     navigate("/settings");
   };
 
-  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
-
-  const deleteAccountModalHeading =
-    "Opravdu si přejete smazat Váš účet a všechna Vaše data?";
-
-  const deleteAccountModalText = "Tuto akci nelze vzít zpět";
-
-  const handleDeleteJobModalVisibility = () => {
-    setShowDeleteJobModal(!showDeleteJobModal);
-  };
-
   return (
     <section className="wrapper">
       {showDeleteJobModal && (
@@ -92,7 +104,7 @@ const DeleteAccount = () => {
         <div className="change-email-password-header-title">SMAZÁNÍ ÚČTU</div>
       </header>
       <main>
-        <form className="change-email-password-form" onSubmit={handleSubmit}>
+        <form className="change-email-password-form">
           <div className="change-email-password-form-container">
             <label className="change-email-password-form-item-container-label">
               současné heslo pro potvrzení
