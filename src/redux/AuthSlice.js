@@ -861,7 +861,7 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
 
-        state.isLoginPending = true;
+        state.isLoginPending = false;
         state.isAccountDisabled = false;
       })
       .addCase(loginRedux.rejected, (state, action) => {
@@ -870,6 +870,7 @@ export const authSlice = createSlice({
         state.loggedInUserEmail = null;
         state.isLoading = false;
         state.isLoginPending = false;
+
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/user-not-found)."

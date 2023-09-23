@@ -34,30 +34,32 @@ const App = () => {
   const isLoginPending = useSelector((state) => state.auth.isLoginPending);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      const lsEmailVerified = localStorage.getItem("emailVerified");
+    if (!isLoginPending) {
+      const unsubscribe = auth.onAuthStateChanged(async (user) => {
+        const lsEmailVerified = localStorage.getItem("emailVerified");
 
-      if (lsEmailVerified === "true" && user) {
-        try {
-          console.log("App.jsx");
-          console.log("lsEmailVerified NA-LEZEN");
-          console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
-          dispatch(loadUserDataRedux(user.uid));
-          console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
-          dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-        } catch (error) {
-          console.log(error.message);
+        if (lsEmailVerified === "true" && user) {
+          try {
+            console.log("App.jsx");
+            console.log("lsEmailVerified NA-LEZEN");
+            console.log("loadUserDataRedux SPUŠTĚN dispatch v App.jsx");
+            dispatch(loadUserDataRedux(user.uid));
+            console.log("loginOnAuthRedux SPUŠTĚN dispatch v App.jsx");
+            dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+          } catch (error) {
+            console.log(error.message);
+          }
+        } else {
+          console.log("lsEmailVerified NE-NALEZEN v localStorage");
+          console.log("logoutOnAuthRedux SPUŠTĚN dispatch z else v App.jsx");
+          dispatch(logoutOnAuthRedux());
         }
-      } else {
-        console.log("lsEmailVerified NE-NALEZEN v localStorage");
-        console.log("logoutOnAuthRedux SPUŠTĚN dispatch z else v App.jsx");
-        dispatch(logoutOnAuthRedux());
-      }
-    });
+      });
 
-    return () => {
-      unsubscribe();
-    };
+      return () => {
+        unsubscribe();
+      };
+    }
   }, [dispatch, isLoginPending]);
 
   return (
