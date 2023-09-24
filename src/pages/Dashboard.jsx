@@ -319,70 +319,80 @@ const Dashboard = () => {
 
   return (
     <section className="wrapper relative">
-      <section className="dashboard">
-        {showArchiveModal && (
-          <ModalPrompt
-            heading={archiveModalHeading}
-            text={archiveModalText}
-            confirmFunction={archiveJobs2}
-            declineFunction={handleArchiveModalVisibility}
-          />
-        )}
-        <div className="dashboard-summary-invoicing">
-          <div className="dashboard-summary-invoicing-container">
-            <div className="dashboard-summary-invoicing-heading">Fakturace</div>
+      {isLoading2 ? (
+        <Spinner2 />
+      ) : (
+        <>
+          <section className="dashboard">
+            {showArchiveModal && (
+              <ModalPrompt
+                heading={archiveModalHeading}
+                text={archiveModalText}
+                confirmFunction={archiveJobs2}
+                declineFunction={handleArchiveModalVisibility}
+              />
+            )}
+            <div className="dashboard-summary-invoicing">
+              <div className="dashboard-summary-invoicing-container">
+                <div className="dashboard-summary-invoicing-heading">
+                  Fakturace
+                </div>
 
-            <div className="dashboard-summary-invoicing-count">
-              {totalEur + " € "}
+                <div className="dashboard-summary-invoicing-count">
+                  {totalEur + " € "}
+                </div>
+                <div className="dashboard-summary-invoicing-count">
+                  {totalCzk + " Kč"}
+                </div>
+              </div>
+              <div className="dashboard-summary-invoicing-container">
+                <div className="dashboard-summary-invoicing-heading">
+                  Výplata
+                </div>
+                <div className="dashboard-summary-invoicing-count vis-hidden">
+                  =
+                </div>
+
+                <div className="dashboard-summary-invoicing-count">
+                  {salary + " Kč"}
+                </div>
+              </div>
             </div>
-            <div className="dashboard-summary-invoicing-count">
-              {totalCzk + " Kč"}
-            </div>
-          </div>
-          <div className="dashboard-summary-invoicing-container">
-            <div className="dashboard-summary-invoicing-heading">Výplata</div>
-            <div className="dashboard-summary-invoicing-count vis-hidden">
-              =
+            <div className="dashboard-summary-counts">
+              <div className="dashboard-summary-counts-container">
+                <PiTruck className="dashboard-summary-counts-icon" />
+                <div>{totalJobs}</div>
+              </div>
+              <div className="dashboard-summary-counts-container">
+                <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
+                <div>{totalSecondJobs}</div>
+              </div>
+              <div className="dashboard-summary-counts-container">
+                <PiClockBold className="dashboard-summary-counts-icon" />
+                <div>{totalWaiting}</div>
+              </div>
             </div>
 
-            <div className="dashboard-summary-invoicing-count">
-              {salary + " Kč"}
-            </div>
-          </div>
-        </div>
-        <div className="dashboard-summary-counts">
-          <div className="dashboard-summary-counts-container">
-            <PiTruck className="dashboard-summary-counts-icon" />
-            <div>{totalJobs}</div>
-          </div>
-          <div className="dashboard-summary-counts-container">
-            <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
-            <div>{totalSecondJobs}</div>
-          </div>
-          <div className="dashboard-summary-counts-container">
-            <PiClockBold className="dashboard-summary-counts-icon" />
-            <div>{totalWaiting}</div>
-          </div>
-        </div>
-
-        <button
-          className="dashboard-archive-btn"
-          onClick={() => setShowArchiveModal(true)}
-        >
-          Archivovat nejstarší měsíc
-        </button>
-      </section>
-      <section className="dashboard-jobs">
-        {isLoading2 ? (
-          <Spinner2 />
-        ) : (
-          <>
-            {currentJobs.map((oneJob) => {
-              return <Job key={oneJob.id} jobDetails={oneJob} />;
-            })}
-          </>
-        )}
-      </section>
+            <button
+              className="dashboard-archive-btn"
+              onClick={() => setShowArchiveModal(true)}
+            >
+              Archivovat nejstarší měsíc
+            </button>
+          </section>
+          <section className="dashboard-jobs">
+            {isLoading2 ? (
+              <Spinner2 />
+            ) : (
+              <>
+                {currentJobs.map((oneJob) => {
+                  return <Job key={oneJob.id} jobDetails={oneJob} />;
+                })}
+              </>
+            )}
+          </section>
+        </>
+      )}
     </section>
   );
 };

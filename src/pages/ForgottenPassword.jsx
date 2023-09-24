@@ -8,24 +8,30 @@ import {
   resetToastRedux,
 } from "../redux/AuthSlice";
 import { ToastContainer, toast, Flip } from "react-toastify";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import Spinner2 from "../components/Spinner2";
 
 const ForgottenPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // USE SELECTORS
+  const toastRedux = useSelector((state) => state.auth.toast);
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
+  const isPasswordResetSuccess = useSelector(
+    (state) => state.auth.isPasswordResetSuccess
+  );
+
+  // USE STATES
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // HANDLE SUBMIT
+  const handleSubmit = () => {
     if (email) {
       dispatch(resetPasswordRedux(email));
-      navigate("/change-verification", {
-        replace: true,
-        state: {
-          firstMessage: "Email s odkazem pro obnovu hesla byl úspěšně odeslán!",
-          secondMessage: "Zkontrolujte Vaši emailovou schránku.",
-        },
-      });
     } else {
       // alert("Zadejte Váš email");
       dispatch(
@@ -34,12 +40,12 @@ const ForgottenPassword = () => {
     }
   };
 
+  // HANDLE DECLINE
   const handleDecline = () => {
     navigate("/login");
   };
 
-  const toastRedux = useSelector((state) => state.auth.toast);
-
+  // USE EFFECTS
   useEffect(() => {
     if (toastRedux.isVisible) {
       toastRedux.style === "success"
@@ -50,10 +56,6 @@ const ForgottenPassword = () => {
     }
   }, [toastRedux]);
 
-  const resetToastStateRedux = useSelector(
-    (state) => state.auth.toast.resetToast
-  );
-
   useEffect(() => {
     if (resetToastStateRedux) {
       setTimeout(() => {
@@ -61,6 +63,18 @@ const ForgottenPassword = () => {
       }, 500);
     }
   }, [resetToastStateRedux, dispatch]);
+
+  useEffect(() => {
+    if (isPasswordResetSuccess) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Email pro obnovu Vašeho hesla byl odeslán!",
+          secondMessage: "Zkontrolujte Vaši emailovou schránku.",
+        },
+      });
+    }
+  }, [isPasswordResetSuccess, navigate]);
 
   return (
     <section className="wrapper">
@@ -77,33 +91,35 @@ const ForgottenPassword = () => {
         pauseOnHover
         theme="colored"
       />
-      <header className="forgotten-password-header">
-        <h1 className="forgotten-password-title">Obnovit heslo</h1>
-      </header>
-      <main>
-        <form className="forgotten-password-form" onSubmit={handleSubmit}>
-          <input
-            className="forgotten-password-input"
-            type="email"
-            placeholder="zadejte Váš email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+      {isLoading2 ? (
+        <>
+          <h1>Resetování hesla probíhá</h1>
+          <p>isLoading2</p>
+          <Spinner2 />
+        </>
+      ) : (
+        <>
+          <header className="forgotten-password-header">
+            <h1 className="forgotten-password-title">Obnovit heslo</h1>
+          </header>
+          <main>
+            <form className="forgotten-password-form">
+              <input
+                className="forgotten-password-input"
+                type="email"
+                placeholder="zadejte Váš email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-          <div className="confirm-decline-buttons-container">
-            <button className="confirm-btn" type="submit">
-              obnovit
-            </button>
-            <button
-              className="decline-btn"
-              type="submit"
-              onClick={handleDecline}
-            >
-              zrušit
-            </button>
-          </div>
-        </form>
-      </main>
+              <ConfirmDeclineBtns
+                confirmFunction={handleSubmit}
+                declineFunction={handleDecline}
+              />
+            </form>
+          </main>
+        </>
+      )}
     </section>
   );
 };

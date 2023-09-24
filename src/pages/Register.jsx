@@ -5,22 +5,31 @@ import { useDispatch } from "react-redux";
 import { registerRedux, runToastRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import Spinner2 from "../components/Spinner2";
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // USE SELECTORS
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isRegisterSuccess = useSelector(
+    (state) => state.auth.isRegisterSuccess
+  );
+  const toastRedux = useSelector((state) => state.auth.toast);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
+
+  // USE STATES
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPasword] = useState("");
   const [registerPassword2, setRegisterPasword2] = useState("");
 
-  const dispatch = useDispatch();
-
-  const isLoading = useSelector((state) => state.auth.isLoading);
-
-  const navigate = useNavigate();
-
+  // HANDLE REGISTER
   const handleRegister = (e) => {
     e.preventDefault();
     if (registerPassword !== registerPassword2) {
@@ -38,10 +47,12 @@ const Register = () => {
     }
   };
 
-  const isRegisterSuccess = useSelector(
-    (state) => state.auth.isRegisterSuccess
-  );
+  // HANDLE DECLINE
+  const handleDecline = () => {
+    navigate("/");
+  };
 
+  // USE EFFECTS
   useEffect(() => {
     if (isRegisterSuccess) {
       navigate("/change-verification", {
@@ -55,8 +66,6 @@ const Register = () => {
     }
   }, [isRegisterSuccess, navigate]);
 
-  const toastRedux = useSelector((state) => state.auth.toast);
-
   useEffect(() => {
     if (toastRedux.isVisible) {
       console.log("toast SPUŠTĚN");
@@ -68,10 +77,6 @@ const Register = () => {
     }
   }, [toastRedux]);
 
-  const resetToastStateRedux = useSelector(
-    (state) => state.auth.toast.resetToast
-  );
-
   useEffect(() => {
     if (resetToastStateRedux) {
       setTimeout(() => {
@@ -80,29 +85,29 @@ const Register = () => {
     }
   }, [resetToastStateRedux, dispatch]);
 
-  const handleDecline = () => {
-    navigate("/");
-  };
-
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <section className="login-register">
-          <ToastContainer
-            transition={Flip}
-            position="top-center"
-            autoClose={toastRedux.time}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
+      <section className="login-register">
+        <ToastContainer
+          transition={Flip}
+          position="top-center"
+          autoClose={toastRedux.time}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+        {isLoading2 ? (
+          <>
+            <h1>Registrace probíhá</h1>
+            <p>isLoading2</p>
+            <Spinner2 />
+          </>
+        ) : (
           <form className="login-register-form">
             <h1 className="login-register-form-heading">Registrace</h1>
             <div className="login-register-form-item">
@@ -139,8 +144,8 @@ const Register = () => {
               Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>{" "}
             </p>
           </form>
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
 };

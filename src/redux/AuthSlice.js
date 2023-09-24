@@ -39,7 +39,7 @@ const createUserData = async (userAuth) => {
     const response = await axios.get(
       `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${FROM_CURRENCY}/${TO_CURRENCY}/${AMOUNT}`
     );
-    console.log(response);
+
     await setDoc(doc(usersCollectionRef, uid), {
       currentJobs: [],
       archivedJobs: [],
@@ -139,6 +139,20 @@ export const logoutRedux = createAsyncThunk("auth/logoutRedux", async () => {
     throw error.message;
   }
 });
+
+// LOGOUT in settings
+//
+export const logoutInSettingsRedux = createAsyncThunk(
+  "auth/logoutInSettingsRedux",
+  async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("emailVerified");
+    } catch (error) {
+      throw error.message;
+    }
+  }
+);
 
 //  CHANGE EMAIL
 //
@@ -523,9 +537,12 @@ export const authSlice = createSlice({
     //
     isEmailChangedSuccess: false,
     isPasswordChangedSuccess: false,
+    isPasswordResetSuccess: false,
     //
+    isAccountLogoutSuccess: false,
+    isAccountDeletingPending: false,
     isAccountDisabled: false,
-    isAccountDeleted: false,
+    isAccountDeletedSuccess: false,
     //
     loggedInUserEmail: null,
     loggedInUserUid: null,
@@ -599,8 +616,13 @@ export const authSlice = createSlice({
       state.toast.resetToast = false;
     },
 
+    resetIsRegisterPending(state) {
+      state.isRegisterPending = false;
+    },
+
     resetIsRegisterSuccessRedux(state) {
       state.isRegisterSuccess = false;
+      state.isRegisterPending = false;
     },
 
     resetIsEmailChangedSuccessRedux(state) {
@@ -615,8 +637,13 @@ export const authSlice = createSlice({
       state.isAccountDisabled = false;
     },
 
-    resetIsAccountDeletedRedux(state) {
-      state.isAccountDeleted = false;
+    resetIsAccountDeletedSuccessRedux(state) {
+      state.isAccountDeletedSuccess = false;
+      state.isAccountDeletingPending = false;
+    },
+
+    resetIsAccountLogoutSuccess(state) {
+      state.isAccountLogoutSuccess = false;
     },
 
     setIsLoadingTrueRedux(state) {
@@ -697,7 +724,7 @@ export const authSlice = createSlice({
     },
 
     resetJobToAddValuesRedux: (state) => {
-      console.log("resetJobToAddValuesRedux SPUŠTĚN");
+      // console.log("resetJobToAddValuesRedux SPUŠTĚN");
       state.jobToAdd.city = "";
       state.jobToAdd.isCustomJob = true;
       state.jobToAdd.terminal = "";
@@ -799,16 +826,20 @@ export const authSlice = createSlice({
       .addCase(registerRedux.pending, (state) => {
         console.log("registerRedux PROBÍHÁ");
         state.isRegisterPending = true;
-        state.isLoading = true;
+        // state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(registerRedux.fulfilled, (state) => {
         console.log("registerRedux ÚSPĚŠNĚ DOKONČEN");
         state.isRegisterSuccess = true;
+        // state.isRegisterPending = false;
+        // state.isLoading2 = false;
       })
       .addCase(registerRedux.rejected, (state, action) => {
         console.log("registerRedux SELHAL", action.error.message);
         state.isRegisterPending = false;
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -824,16 +855,19 @@ export const authSlice = createSlice({
         state.toast.resetToast = true;
       })
       //
-      //
+      // -----------------------------------------------------------------------
       //
       .addCase(loginRedux.pending, (state) => {
         console.log("loginRedux PROBÍHÁ");
-        state.isLoading = true;
-        // state.isLoginPending = true;
+        // state.isLoading = true;
+        state.isLoading2 = true;
+        state.isLoginPending = true;
       })
       .addCase(loginRedux.fulfilled, (state) => {
         console.log("loginRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoginPending = false;
+        state.isLoading2 = false;
 
         state.isAccountDisabled = false;
       })
@@ -841,7 +875,8 @@ export const authSlice = createSlice({
         console.log("loginRedux SELHAL", action.error.message);
         state.isLoggedIn = false;
         state.loggedInUserEmail = null;
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoading2 = false;
         state.isLoginPending = false;
 
         state.toast.isVisible = true;
@@ -861,7 +896,7 @@ export const authSlice = createSlice({
         state.toast.resetToast = true;
       })
       //
-      //
+      // -----------------------------------------------------------------------
       //
       .addCase(logoutRedux.pending, (state) => {
         console.log("logoutRedux PROBÍHÁ");
@@ -869,14 +904,31 @@ export const authSlice = createSlice({
       })
       .addCase(logoutRedux.fulfilled, (state) => {
         console.log("logoutRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoggedIn = false;
-        state.loggedInUserEmail = null;
         state.isLoading = false;
       })
       .addCase(logoutRedux.rejected, (state, action) => {
         console.log("logoutRedux SELHAL", action.error.message);
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
+      .addCase(logoutInSettingsRedux.pending, (state) => {
+        console.log("logoutInSettingsRedux PROBÍHÁ");
+        state.isLoading = true;
+      })
+      .addCase(logoutInSettingsRedux.fulfilled, (state) => {
+        console.log("logoutInSettingsRedux ÚSPĚŠNĚ DOKONČEN");
+        state.isLoading = false;
+        state.isAccountLogoutSuccess = true;
+      })
+      .addCase(logoutInSettingsRedux.rejected, (state, action) => {
+        console.log("logoutInSettingsRedux SELHAL", action.error.message);
+        state.isLoading = false;
+      })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(loadUserDataRedux.pending, (state) => {
         console.log("loadUserDataRedux PROBÍHÁ");
         state.isLoading = true;
@@ -897,18 +949,23 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isLoading2 = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(changeEmailRedux.pending, (state) => {
         console.log("changeEmailRedux SPUŠTĚN");
-        state.isLoading = true;
+        // state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(changeEmailRedux.fulfilled, (state) => {
         console.log("changeEmailRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
+        // state.isLoading = false;
         state.isEmailChangedSuccess = true;
       })
       .addCase(changeEmailRedux.rejected, (state, action) => {
         console.log("changeEmailRedux selhal", action.error.message);
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -929,13 +986,17 @@ export const authSlice = createSlice({
 
         state.toast.resetToast = true;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(changePasswordRedux.pending, (state) => {
         console.log("changePasswordRedux SPUŠTĚN");
-        state.isLoading = true;
+        // state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(changePasswordRedux.fulfilled, (state) => {
         console.log("changePasswordRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
+        // state.isLoading = false;
 
         state.isPasswordChangedSuccess = true;
 
@@ -947,7 +1008,8 @@ export const authSlice = createSlice({
       })
       .addCase(changePasswordRedux.rejected, (state, action) => {
         console.log("changePasswordRedux selhal", action.error.message);
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message =
@@ -958,16 +1020,26 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
-      .addCase(resetPasswordRedux.pending, () => {
+      //
+      // -----------------------------------------------------------------------
+      //
+      .addCase(resetPasswordRedux.pending, (state) => {
         console.log("resetPasswordRedux SPUŠTĚN");
+        state.isLoading2 = true;
       })
-      .addCase(resetPasswordRedux.fulfilled, () => {
+      .addCase(resetPasswordRedux.fulfilled, (state) => {
         console.log("resetPasswordRedux ÚSPĚŠNĚ DOKONČEN");
+        state.isPasswordResetSuccess = true;
+        // state.isLoading2 = false;
       })
-      .addCase(resetPasswordRedux.rejected, (action) => {
+      .addCase(resetPasswordRedux.rejected, (state, action) => {
         console.log("resetPasswordRedux SELHAL");
         console.log(action.error.message);
+        state.isLoading2 = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(changeSettingsRedux.pending, (state) => {
         console.log("changeSettingsRedux SPUŠTĚN");
         state.isLoading = true;
@@ -1006,25 +1078,27 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(deleteAccountRedux.pending, (state) => {
         console.log("deleteAccountRedux SPUŠTĚN");
-        state.isLoading = true;
+        // state.isLoading = true;
+        state.isLoading2 = true;
+        state.isAccountDeletingPending = true;
       })
       .addCase(deleteAccountRedux.fulfilled, (state) => {
         console.log("deleteAccountRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
-
-        state.toast.isVisible = true;
-        state.toast.message = "Účet smazán";
-        state.toast.style = "success";
-        state.toast.time = 3000;
-        state.toast.resetToast = true;
-
-        state.isAccountDeleted = true;
+        // state.isLoading = false;
+        // state.isLoading2 = false;
+        state.isAccountDeletedSuccess = true;
       })
+
       .addCase(deleteAccountRedux.rejected, (state) => {
         console.log("deleteAccountRedux SELHAL");
-        state.isLoading = false;
+        // state.isLoading = false;
+        state.isLoading2 = false;
+        state.isAccountDeletingPending = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Něco se pokazilo, zkuste to znovu";
@@ -1032,6 +1106,9 @@ export const authSlice = createSlice({
         state.toast.time = 3000;
         state.toast.resetToast = true;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(addJobRedux.pending, (state) => {
         console.log("addJobRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1058,6 +1135,9 @@ export const authSlice = createSlice({
         console.log("addJobRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(editJobRedux.pending, (state) => {
         console.log("editJobRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1091,6 +1171,9 @@ export const authSlice = createSlice({
         console.log("editJobRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(deleteJobRedux.pending, (state) => {
         console.log("deleteJobRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1110,6 +1193,9 @@ export const authSlice = createSlice({
         console.log("deleteJobRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(archiveDoneJobsFirstTimeRedux.pending, (state) => {
         console.log("archiveDoneJobsFirstTimeRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1133,6 +1219,9 @@ export const authSlice = createSlice({
         console.log("archiveDoneJobsFirstTimeRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(archiveDoneJobsNewMonthRedux.pending, (state) => {
         console.log("archiveDoneJobsNewMonthRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1156,6 +1245,9 @@ export const authSlice = createSlice({
         console.log("archiveDoneJobsNewMonthRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(archiveDoneJobsExistingMonthRedux.pending, (state) => {
         console.log("archiveDoneJobsExistingMonthRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1178,6 +1270,9 @@ export const authSlice = createSlice({
         console.log("archiveDoneJobsExistingMonthRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(deleteArchiveMonthRedux.pending, (state) => {
         console.log("deleteArchiveMonthRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1197,6 +1292,9 @@ export const authSlice = createSlice({
         console.log("deleteArchiveMonthRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(deleteArchiveMonthJobRedux.pending, (state) => {
         console.log("deleteArchiveMonthJobRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1216,6 +1314,9 @@ export const authSlice = createSlice({
         console.log("deleteArchiveMonthJobRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(editArchiveJobRedux.pending, (state) => {
         console.log("editArchiveJobRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1235,6 +1336,9 @@ export const authSlice = createSlice({
         console.log("editArchiveJobRedux SELHAL");
         state.isLoading = false;
       })
+      //
+      // -----------------------------------------------------------------------
+      //
       .addCase(editArchiveMonthSummarySettingsRedux.pending, (state) => {
         console.log("editArchiveMonthSummarySettingsRedux PROBÍHÁ");
         state.isLoading = true;
@@ -1273,11 +1377,13 @@ export const {
   runToastRedux,
   resetToastRedux,
   resetJobToEditValuesRedux,
+  resetIsRegisterPending,
   resetIsRegisterSuccessRedux,
   resetIsEmailChangedSuccessRedux,
   resetIsPasswordChangedSuccessRedux,
   resetIsAccountDisabledRedux,
-  resetIsAccountDeletedRedux,
+  resetIsAccountDeletedSuccessRedux,
+  resetIsAccountLogoutSuccess,
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
   setIsLoading2TrueRedux,

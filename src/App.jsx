@@ -35,48 +35,55 @@ import DeleteAccount from "./pages/DeleteAccount";
 const App = () => {
   const dispatch = useDispatch();
 
+  // USE SELECTORS
   const isLoginPending = useSelector((state) => state.auth.isLoginPending);
-
   const isRegisterPending = useSelector(
     (state) => state.auth.isRegisterPending
   );
+  const isAccountDeletingPending = useSelector(
+    (state) => state.auth.isAccountDeletingPending
+  );
 
-  console.log(auth.currentUser);
-
+  // USE EFFECTS
   useEffect(() => {
     console.log("App.jsx");
-    console.log("!isLoginPending && !isRegisterPending ==> spuštěno");
+    console.log(
+      "!isLoginPending || !isAccountDeletingPending || !isRegisterPending ==> spuštěno"
+    );
 
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      console.log("auth status se změnil");
-      dispatch(setIsLoadingTrueRedux());
+    if (!isLoginPending && !isAccountDeletingPending && !isRegisterPending) {
+      console.log("SPUŠTĚN ON AUTH STATE CHANGED");
+      const unsubscribe = auth.onAuthStateChanged(async (user) => {
+        console.log("auth status se změnil");
+        dispatch(setIsLoadingTrueRedux());
 
-      const currentUser = auth.currentUser;
-      let emailVerified;
+        const currentUser = auth.currentUser;
+        let emailVerified;
 
-      if (currentUser !== null) {
-        emailVerified = currentUser.emailVerified;
-      }
+        if (currentUser !== null) {
+          emailVerified = currentUser.emailVerified;
+        }
 
-      if (currentUser === null) {
-        console.log("karent jůsr je nul");
-        dispatch(setIsLoadingFalseRedux());
-      } else if (currentUser !== null && !emailVerified) {
-        console.log("karent jůsr není nul ale nepotvrdil email");
-        console.log("proto ho odhlašuji");
-        dispatch(logoutOnAuthRedux());
-        dispatch(logoutRedux());
-      } else if (currentUser !== null && emailVerified) {
-        console.log("karent jůsr není nul a potvrdil mail");
+        if (currentUser === null) {
+          console.log("karent jůsr je nul");
+          dispatch(setIsLoadingFalseRedux());
+        } else if (currentUser !== null && !emailVerified) {
+          console.log("karent jůsr není nul ale nepotvrdil email");
+          console.log("proto ho odhlašuji");
+          dispatch(logoutOnAuthRedux());
+          dispatch(logoutRedux());
+        } else if (currentUser !== null && emailVerified) {
+          console.log("karent jůsr není nul a potvrdil mail");
 
-        dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
-        dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-      }
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, [dispatch, isLoginPending, isRegisterPending]);
+          dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
+          dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+        }
+      });
+      return () => {
+        unsubscribe();
+      };
+    }
+  }, [dispatch, isAccountDeletingPending, isLoginPending, isRegisterPending]);
 
   return (
     <BrowserRouter>

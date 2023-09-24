@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Spinner from "..//components/Spinner";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -10,8 +9,6 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 
 const SharedLayout = () => {
   const dispatch = useDispatch();
-
-  const isLoading = useSelector((state) => state.auth.isLoading);
 
   const toastRedux = useSelector((state) => state.auth.toast);
 
@@ -40,27 +37,21 @@ const SharedLayout = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <ToastContainer
-            transition={Flip}
-            position="top-center"
-            autoClose={toastRedux.time}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
-          <Outlet />
-          <Navbar />
-        </>
-      )}
+      <ToastContainer
+        transition={Flip}
+        position="top-center"
+        autoClose={toastRedux.time}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <Outlet />
+      <Navbar />
     </>
   );
 };

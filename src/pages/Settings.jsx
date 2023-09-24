@@ -1,41 +1,39 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
-import { changeSettingsRedux } from "../redux/AuthSlice";
-import { logoutRedux } from "../redux/AuthSlice";
+import { changeSettingsRedux, logoutInSettingsRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { setLoadingFalse } from "../redux/AuthSlice";
-import Spinner from "../components/Spinner";
+// import Spinner from "../components/Spinner";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import Spinner2 from "../components/Spinner2";
 
 const Settings = () => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
+  // USE SELECTOR
+  //
   const loggedInUserEmail = useSelector(
     (state) => state.auth.loggedInUserEmail
   );
-
-  const isLoading = useSelector((state) => state.auth.isLoading);
-
-  const handleLogout = () => {
-    dispatch(logoutRedux());
-  };
-
+  // const isLoading = useSelector((state) => state.auth.isLoading);
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isAccountLogoutSuccess = useSelector(
+    (state) => state.auth.isAccountLogoutSuccess
+  );
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const email = useSelector((state) => state.auth.loggedInUserEmail);
 
+  // USE STATE ---------------------------------------------------------------
+  //
   const [baseMoney, setBaseMoney] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
   );
-
-  const email = useSelector((state) => state.auth.loggedInUserEmail);
-
   const [terminal, setTerminal] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
-
   const [percentage, setPercentage] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.percentage)
   );
@@ -50,19 +48,39 @@ const Settings = () => {
         state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
     )
   );
-
   const [waitingBenefitEur, setWaitingBenefitEur] = useState(
     useSelector(
       (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
     )
   );
-
   const [eurCzkRate, setEurCzkRate] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
   );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // USE EFFECT
+  //
+  useEffect(() => {
+    if (isAccountLogoutSuccess) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Odhlášení proběhlo úspěšně",
+          secondMessage: "Nyní proběhne přesměrování na přihlašovací obrazovku",
+        },
+      });
+    }
+  }, [dispatch, isAccountLogoutSuccess, navigate]);
+
+  // HANDLE LOGOUT
+  //
+  const handleLogout = () => {
+    dispatch(logoutInSettingsRedux());
+    // dispatch(logoutOnAuthRedux());
+  };
+
+  // HANDLE SUBMIT
+  //
+  const handleSubmit = () => {
     const payload = {
       userUid,
       userSettings: {
@@ -80,16 +98,22 @@ const Settings = () => {
     navigate("/");
   };
 
+  // HANDLE DECLINE
+  //
   const handleDecline = () => {
     navigate("/");
   };
 
   return (
-    <>
-      {isLoading ? (
-        <Spinner />
+    <section className="wrapper">
+      {isLoading2 ? (
+        <>
+          <h1>Odstraňování účtu probíhá</h1>
+          <p>isLoading2</p>
+          <Spinner2 />
+        </>
       ) : (
-        <section className="wrapper">
+        <>
           <header className="settings-header">
             <h1 className="settings-header-title">Nastavení</h1>
             <div className="settings-header-user-email">
@@ -112,7 +136,7 @@ const Settings = () => {
             </Link>
           </header>
           <main>
-            <form className="settings-form" onSubmit={handleSubmit}>
+            <form className="settings-form">
               <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label">
                   terminál
@@ -211,9 +235,9 @@ const Settings = () => {
               />
             </form>
           </main>
-        </section>
+        </>
       )}
-    </>
+    </section>
   );
 };
 

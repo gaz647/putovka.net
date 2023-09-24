@@ -4,21 +4,29 @@ import { loginRedux, setIsLoadingTrueRedux } from "../redux/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Spinner from "../components/Spinner";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import Spinner2 from "../components/Spinner2";
 
 const Login = () => {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-
-  const isLoading = useSelector((state) => state.auth.isLoading);
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const isAccountDeleted = useSelector((state) => state.auth.isAccountDeleted);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // USE SELECTORS
+  const isLoading = useSelector((state) => state.auth.isLoading);
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const toastRedux = useSelector((state) => state.auth.toast);
+  const resetToastStateRedux = useSelector(
+    (state) => state.auth.toast.resetToast
+  );
+
+  // USE STATES
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  // HANDLE LOGIN
   const handleLogIn = () => {
     const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
@@ -26,6 +34,13 @@ const Login = () => {
     dispatch(setIsLoadingTrueRedux);
   };
 
+  // HANDLE DECLINE
+  const handleDecline = () => {
+    setLoginEmail("");
+    setLoginPassword("");
+  };
+
+  // USE EFFECTS
   useEffect(() => {
     if (isLoggedIn) {
       console.log("isLoggedIn je true, teď má přijít přesměrování");
@@ -33,8 +48,6 @@ const Login = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
-
-  const toastRedux = useSelector((state) => state.auth.toast);
 
   useEffect(() => {
     if (toastRedux.isVisible) {
@@ -47,10 +60,6 @@ const Login = () => {
     }
   }, [toastRedux]);
 
-  const resetToastStateRedux = useSelector(
-    (state) => state.auth.toast.resetToast
-  );
-
   useEffect(() => {
     if (resetToastStateRedux) {
       setTimeout(() => {
@@ -59,34 +68,29 @@ const Login = () => {
     }
   }, [resetToastStateRedux, dispatch]);
 
-  const handleDecline = () => {
-    setLoginEmail("");
-    setLoginPassword("");
-  };
-
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <section className="login-register">
-          <ToastContainer
-            transition={Flip}
-            position="top-center"
-            autoClose={toastRedux.time}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
+      <section className="login-register">
+        <ToastContainer
+          transition={Flip}
+          position="top-center"
+          autoClose={toastRedux.time}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+        {isLoading || isLoading2 ? (
+          <>
+            <p>isLoading2</p>
+            <Spinner2 />
+          </>
+        ) : (
           <form className="login-register-form">
-            {isAccountDeleted && (
-              <h1 className="leaving-message">Bylo mi ctí sloužit!</h1>
-            )}
             <h1 className="login-registerform-heading">Přihlášení</h1>
             <div className="login-register-form-item">
               <input
@@ -121,8 +125,8 @@ const Login = () => {
               <Link to={"/forgotten-password"}>Klikněte zde.</Link>
             </p>
           </form>
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
 };

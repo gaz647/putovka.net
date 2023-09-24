@@ -5,10 +5,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
   logoutRedux,
+  resetIsRegisterPending,
   resetIsRegisterSuccessRedux,
   resetIsEmailChangedSuccessRedux,
   resetIsPasswordChangedSuccessRedux,
-  resetIsAccountDeletedRedux,
+  resetIsAccountDeletedSuccessRedux,
+  resetIsAccountLogoutSuccess,
+  logoutOnAuthRedux,
+  setIsLoading2FalseRedux,
 } from "../redux/AuthSlice";
 
 const ChangeVerification = () => {
@@ -16,26 +20,32 @@ const ChangeVerification = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Nastavení počáteční hodnoty odpočítávání vteřin
-  const [secondsRemaining, setSecondsRemaining] = useState(15);
+  // USE STATE
+  //
+  const [secondsRemaining, setSecondsRemaining] = useState(5);
 
+  // USE EFFECT
+  //
   useEffect(() => {
+    dispatch(resetIsRegisterPending());
+    dispatch(resetIsRegisterSuccessRedux());
+    dispatch(resetIsEmailChangedSuccessRedux());
+    dispatch(resetIsPasswordChangedSuccessRedux());
+    dispatch(resetIsAccountDeletedSuccessRedux());
+    dispatch(resetIsAccountLogoutSuccess());
+    dispatch(setIsLoading2FalseRedux());
     // Vytvoření intervalu pro aktualizaci odpočítávání
     const interval = setInterval(() => {
-      // Odečteme jednu sekundu od zbývajícího času
       setSecondsRemaining((prevSeconds) => prevSeconds - 1);
-    }, 1000); // Interval 1000 ms (1 sekunda)
+    }, 1000);
 
     // Po uplynutí timeoutu provedeme potřebné akce a zrušíme interval
     setTimeout(() => {
       dispatch(logoutRedux());
-      dispatch(resetIsRegisterSuccessRedux());
-      dispatch(resetIsEmailChangedSuccessRedux());
-      dispatch(resetIsPasswordChangedSuccessRedux());
-      dispatch(resetIsAccountDeletedRedux());
+      dispatch(logoutOnAuthRedux());
       navigate("/login");
       clearInterval(interval); // Zrušení intervalu
-    }, 15000);
+    }, 5000);
 
     // Ukončení intervalu až při odmontování komponenty
     return () => {
