@@ -15,11 +15,10 @@
 }
 
 .modal-container {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--counts);
   width: 80%;
   max-width: 450px;
   border-radius: 5px;
-  border: solid 1px rgb(203, 203, 203);
   margin: 1.5rem auto 1rem auto;
   padding: 0.7rem;
 }
@@ -28,10 +27,5 @@
   text-align: center;
   font-size: 1.3rem;
   margin: 1rem auto 1rem auto;
-}
-
-.modal-text {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 1rem;
+  color: var(--text-black);
 }

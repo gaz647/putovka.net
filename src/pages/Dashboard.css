@@ -31,7 +31,6 @@
 
 .dashboard-summary-counts {
   width: 100%;
-  /* height: 2rem; */
   background-color: var(--counts);
   color: var(--text-black);
   display: flex;

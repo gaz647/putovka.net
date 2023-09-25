@@ -56,6 +56,8 @@ const Settings = () => {
   const [eurCzkRate, setEurCzkRate] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
   );
+  const [isConfirmDeclineBtnsVisible, setIsConfirmDeclineBtnsVisible] =
+    useState(false);
 
   // USE EFFECT
   //
@@ -144,7 +146,10 @@ const Settings = () => {
                 <select
                   className="settings-form-item-container-input"
                   value={terminal}
-                  onChange={(e) => setTerminal(e.target.value)}
+                  onChange={(e) => {
+                    setTerminal(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 >
                   <option value="ceska_trebova">Česká Třebová</option>
                   <option value="ostrava">Ostrava</option>
@@ -156,13 +161,17 @@ const Settings = () => {
               </div>
               <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label">
-                  základní mzda
+                  základní mzda (Kč)
                 </label>
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={baseMoney}
-                  onChange={(e) => setBaseMoney(e.target.value)}
+                  inputMode="numeric"
+                  value={baseMoney === 0 ? "" : baseMoney}
+                  onChange={(e) => {
+                    setBaseMoney(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <div className="settings-form-item-container">
@@ -172,8 +181,12 @@ const Settings = () => {
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={percentage}
-                  onChange={(e) => setPercentage(e.target.value)}
+                  inputMode="numeric"
+                  value={percentage === 0 ? "" : percentage}
+                  onChange={(e) => {
+                    setPercentage(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <div className="settings-form-item-container">
@@ -183,22 +196,34 @@ const Settings = () => {
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={secondJobBenefit}
-                  onChange={(e) => setSecondJobBenefit(e.target.value)}
+                  inputMode="numeric"
+                  value={secondJobBenefit === 0 ? "" : secondJobBenefit}
+                  onChange={(e) => {
+                    setSecondJobBenefit(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label">
                   příplatek za čekání - <br />{" "}
                   <span className="settings-form-item-container-label-info-text">
-                    (zaměstnavatel Kč)
+                    (zaměstnavatel - Kč)
                   </span>
                 </label>
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={waitingBenefitEmployerCzk}
-                  onChange={(e) => setWaitingBenefitEmployerCzk(e.target.value)}
+                  inputMode="numeric"
+                  value={
+                    waitingBenefitEmployerCzk === 0
+                      ? ""
+                      : waitingBenefitEmployerCzk
+                  }
+                  onChange={(e) => {
+                    setWaitingBenefitEmployerCzk(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <div className="settings-form-item-container">
@@ -208,13 +233,17 @@ const Settings = () => {
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={waitingBenefitEur}
-                  onChange={(e) => setWaitingBenefitEur(e.target.value)}
+                  inputMode="numeric"
+                  value={waitingBenefitEur === 0 ? "" : waitingBenefitEur}
+                  onChange={(e) => {
+                    setWaitingBenefitEur(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label">
-                  kurz Eur / Kč
+                  kurz Eur/Kč
                   <br />
                   <span className="settings-form-item-container-label-info-text">
                     (automaticky aktualizován po archivaci)
@@ -223,16 +252,21 @@ const Settings = () => {
                 <input
                   className="settings-form-item-container-input"
                   type="number"
-                  value={eurCzkRate}
-                  onChange={(e) => setEurCzkRate(e.target.value)}
+                  inputMode="numeric"
+                  value={eurCzkRate === 0 ? "" : eurCzkRate}
+                  onChange={(e) => {
+                    setEurCzkRate(e.target.value);
+                    setIsConfirmDeclineBtnsVisible(true);
+                  }}
                 />
               </div>
               <br />
-
-              <ConfirmDeclineBtns
-                confirmFunction={handleSubmit}
-                declineFunction={handleDecline}
-              />
+              {isConfirmDeclineBtnsVisible && (
+                <ConfirmDeclineBtns
+                  confirmFunction={handleSubmit}
+                  declineFunction={handleDecline}
+                />
+              )}
             </form>
           </main>
         </>

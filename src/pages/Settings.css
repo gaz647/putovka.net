@@ -27,7 +27,7 @@
 }
 
 .settings-form {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .settings-form-item-password-container {
@@ -79,11 +79,13 @@
   height: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  min-width: 50%;
-  max-width: 50%;
+  min-width: 40%;
+  max-width: 40%;
   border-radius: 5px;
   background-color: whitesmoke;
   border: none;
+  padding: 0 0.5rem;
+  margin-left: 0.3rem;
 }
 
 .current-password {
