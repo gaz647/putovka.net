@@ -34,6 +34,7 @@ const ChangeVerification = () => {
     dispatch(resetIsAccountDeletedSuccessRedux());
     dispatch(resetIsAccountLogoutSuccess());
     dispatch(setIsLoading2FalseRedux());
+
     // Vytvoření intervalu pro aktualizaci odpočítávání
     const interval = setInterval(() => {
       setSecondsRemaining((prevSeconds) => prevSeconds - 1);

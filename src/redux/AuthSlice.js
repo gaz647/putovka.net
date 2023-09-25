@@ -513,7 +513,9 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
   }
 );
 
-// -------------------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------
+//
 
 export const authSlice = createSlice({
   name: "auth",

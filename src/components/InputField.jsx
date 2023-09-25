@@ -12,7 +12,10 @@ const InputField = ({
   onTextChange,
   onCheckboxChange,
 }) => {
-  const [choosedWeight, setChoosedWeight] = useState(value !== "" ? value : 27);
+  const [choosedWeight, setChoosedWeight] = useState(
+    type === "weight" ? (value !== "" ? value : 27) : null
+  );
+  console.log("choosedWeight", choosedWeight);
 
   const handleWeightChange = (value) => {
     setChoosedWeight(value);
@@ -28,7 +31,11 @@ const InputField = ({
   };
 
   const handleNumberChange = (value) => {
-    onNumberChange(Number(value));
+    if (value < 0) {
+      return;
+    } else {
+      onNumberChange(Number(value));
+    }
   };
 
   const handleCheckboxChange = (value) => {
@@ -66,8 +73,9 @@ const InputField = ({
             className="input-field-field"
             type="number"
             inputMode="numeric"
-            value={value === 0 ? "" : ""}
+            value={value === 0 ? "" : value}
             onChange={(e) => handleNumberChange(e.target.value)}
+            min="0"
           ></input>
         </div>
       )}

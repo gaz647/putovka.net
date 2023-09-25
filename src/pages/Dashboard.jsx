@@ -9,7 +9,10 @@ import {
   archiveDoneJobsExistingMonthRedux,
   changeSettingsRedux,
 } from "../redux/AuthSlice";
-import { PiTruck, PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
+import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
+import { TbRoad } from "react-icons/tb";
+import { GiReceiveMoney } from "react-icons/gi";
+import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
@@ -20,60 +23,59 @@ import Spinner2 from "../components/Spinner2";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
+  // USE SELECTOR
+  //
   const loggedInUserSettings = useSelector(
     (state) => state.auth.loggedInUserData.userSettings
   );
-
   const loggedInUserEmail = useSelector(
     (state) => state.auth.loggedInUserEmail
   );
-
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const userSettings = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings
+  );
+  const baseMoney = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.baseMoney
+  );
+  const eurCzkRate = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
+  );
+  const percentage = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.percentage
+  );
+  const secondJobBenefit = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
+  );
+  const waitingBenefitEmployerCzk = useSelector(
+    (state) =>
+      state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
+  );
+  const waitingBenefitEur = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
+  );
+  const email = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.email
+  );
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
+  // USE STATE
+  //
   const [totalEur, setTotalEur] = useState(0);
   const [totalCzk, setTotalCzk] = useState(0);
   const [salary, setSalary] = useState(0);
   const [totalJobs, setTotalJobs] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
   const [totalWaiting, setTotalWaiting] = useState(0);
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
 
-  const userSettings = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings
-  );
-
-  const baseMoney = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.baseMoney
-  );
-
-  const eurCzkRate = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
-  );
-
-  const percentage = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.percentage
-  );
-
-  const secondJobBenefit = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
-  );
-
-  const waitingBenefitEmployerCzk = useSelector(
-    (state) =>
-      state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
-  );
-
-  const waitingBenefitEur = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
-  );
-
+  // USE EFFECT
   useEffect(() => {
     setTotalJobs(currentJobs.length);
     setTotalSecondJobs(
@@ -114,10 +116,6 @@ const Dashboard = () => {
     waitingBenefitEur,
   ]);
 
-  const email = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.email
-  );
-
   useEffect(() => {
     if (email && loggedInUserEmail) {
       if (email !== loggedInUserEmail) {
@@ -149,14 +147,12 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, email, loggedInUserEmail]);
 
-  const [showArchiveModal, setShowArchiveModal] = useState(false);
-
   const archiveModalHeading =
     "Archivovat práce z posledního měsíce ve Vašem výpisu? ";
 
   const archiveModalText = "tento krok nelze vrátit";
 
-  // Funkce archiveJobs2 která nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs
+  // ARCHIVE JOBS 2 - nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs
   //
   //
   const archiveJobs2 = async () => {
@@ -176,7 +172,8 @@ const Dashboard = () => {
     }
   };
   //
-  //
+
+  // ARCHIVE JOBS
   //
   const archiveJobs = (newEurCzkRate) => {
     setShowArchiveModal(!showArchiveModal);
@@ -311,11 +308,11 @@ const Dashboard = () => {
   //
   //
 
+  // HANDLE MODAL VISIBILITY
+  //
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
-
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
   return (
     <section className="wrapper relative">
@@ -335,7 +332,7 @@ const Dashboard = () => {
             <div className="dashboard-summary-invoicing">
               <div className="dashboard-summary-invoicing-container">
                 <div className="dashboard-summary-invoicing-heading">
-                  Fakturace
+                  <LiaFileInvoiceDollarSolid />
                 </div>
 
                 <div className="dashboard-summary-invoicing-count">
@@ -347,7 +344,7 @@ const Dashboard = () => {
               </div>
               <div className="dashboard-summary-invoicing-container">
                 <div className="dashboard-summary-invoicing-heading">
-                  Výplata
+                  <GiReceiveMoney />
                 </div>
                 <div className="dashboard-summary-invoicing-count vis-hidden">
                   =
@@ -360,7 +357,7 @@ const Dashboard = () => {
             </div>
             <div className="dashboard-summary-counts">
               <div className="dashboard-summary-counts-container">
-                <PiTruck className="dashboard-summary-counts-icon" />
+                <TbRoad className="dashboard-summary-counts-icon" />
                 <div>{totalJobs}</div>
               </div>
               <div className="dashboard-summary-counts-container">

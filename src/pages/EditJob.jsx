@@ -19,96 +19,92 @@ const EditJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // USE SELECTOR
+  //
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-
   const isCustomJob = useSelector((state) => state.auth.jobToEdit.isCustomJob);
+  const timestamp = useSelector((state) => state.auth.jobToEdit.timestamp);
+  const weightTo27t = useSelector((state) => state.auth.jobToEdit.weightTo27t);
+  const weightTo34t = useSelector((state) => state.auth.jobToEdit.weightTo34t);
+  const [price, setPrice] = useState(
+    useSelector((state) => state.auth.jobToEdit.price)
+  );
+  const [isSecondJob, setIsSecondJob] = useState(
+    useSelector((state) => state.auth.jobToEdit.isSecondJob)
+  );
+  const [waiting, setWaiting] = useState(
+    useSelector((state) => state.auth.jobToEdit.waiting)
+  );
+  const [note, setNote] = useState(
+    useSelector((state) => state.auth.jobToEdit.note)
+  );
+  const [terminal, setTerminal] = useState(
+    useSelector((state) => state.auth.jobToEdit.terminal)
+  );
+  const id = useSelector((state) => state.auth.jobToEdit.id);
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
+  );
+  const isEditingArchivedJob = useSelector(
+    (state) => state.auth.isEditingArchivedJob
+  );
 
+  //  USE STATE
+  //
   const [date, setDate] = useState(
     useSelector((state) => state.auth.jobToEdit.date)
   );
+  const [day, setDay] = useState("");
+  const [city, setCity] = useState(
+    useSelector((state) => state.auth.jobToEdit.city)
+  );
+  const [cmr, setCmr] = useState(
+    useSelector((state) => state.auth.jobToEdit.cmr)
+  );
+  const [zipcode, setZipcode] = useState(
+    useSelector((state) => state.auth.jobToEdit.zipcode)
+  );
+  const [weight, setWeight] = useState(
+    useSelector((state) => state.auth.jobToEdit.weight)
+  );
 
+  // USE EFFECT
+  //
+  useEffect(() => {
+    setDay(getCurrentDayCZ(date));
+  }, [date]);
+
+  // GET CURRENT DAY CZ
+  //
   const getCurrentDayCZ = (dateVariable) => {
     const dateTransformed = new Date(dateVariable);
     const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
     return daysOfTheWeek[dateTransformed.getDay()];
   };
 
-  useEffect(() => {
-    setDay(getCurrentDayCZ(date));
-  }, [date]);
-
-  const [day, setDay] = useState("");
-
-  const [city, setCity] = useState(
-    useSelector((state) => state.auth.jobToEdit.city)
-  );
-
-  const [cmr, setCmr] = useState(
-    useSelector((state) => state.auth.jobToEdit.cmr)
-  );
-
-  const timestamp = useSelector((state) => state.auth.jobToEdit.timestamp);
-
-  const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.auth.jobToEdit.zipcode)
-  );
-
-  const weightTo27t = useSelector((state) => state.auth.jobToEdit.weightTo27t);
-
-  const weightTo34t = useSelector((state) => state.auth.jobToEdit.weightTo34t);
-
-  const [weight, setWeight] = useState(
-    useSelector((state) => state.auth.jobToEdit.weight)
-  );
-
+  // HANDLE WEIGHT CHANGE
+  //
   const handleWeightChange = (newWeight) => {
     if (newWeight === 27) {
       setWeight(27);
       if (!isCustomJob) {
         setPrice(weightTo27t);
+        // console.log("weight:", weight, "price:", price);
       }
     } else if (newWeight === 34) {
       setWeight(34);
       if (!isCustomJob) {
         setPrice(weightTo34t);
+        // console.log("weight:", weight, "price:", price);
       }
     }
   };
 
-  const [price, setPrice] = useState(
-    useSelector((state) => state.auth.jobToEdit.price)
-  );
-
-  const [isSecondJob, setIsSecondJob] = useState(
-    useSelector((state) => state.auth.jobToEdit.isSecondJob)
-  );
-
-  const [waiting, setWaiting] = useState(
-    useSelector((state) => state.auth.jobToEdit.waiting)
-  );
-
-  const [note, setNote] = useState(
-    useSelector((state) => state.auth.jobToEdit.note)
-  );
-
-  const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.jobToEdit.terminal)
-  );
-
-  const id = useSelector((state) => state.auth.jobToEdit.id);
-
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
-  const archivedJobs = useSelector(
-    (state) => state.auth.loggedInUserData.archivedJobs
-  );
-
-  const isEditingArchivedJob = useSelector(
-    (state) => state.auth.isEditingArchivedJob
-  );
-
+  // EDIT JOB
+  //
   const editJob = () => {
     const editedJob = {
       city,
@@ -179,13 +175,14 @@ const EditJob = () => {
       console.log(payload);
       dispatch(resetJobToEditValuesRedux());
       dispatch(editArchiveJobRedux(payload));
-
       dispatch(setIsEditingFalseRedux());
       dispatch(setIsEditingArchivedJobFalseRedux());
       navigate("/archive");
     }
   };
 
+  // HANDLE DECLINE
+  //
   const handleDecline = () => {
     dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToEditValuesRedux());
