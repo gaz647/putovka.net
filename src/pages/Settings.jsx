@@ -117,30 +117,39 @@ const Settings = () => {
       ) : (
         <>
           <header className="settings-header">
-            <h1 className="settings-header-title">Nastavení</h1>
-            <div className="settings-header-user-email">
+            <h1 className="settings-header-title text-shadow">Nastavení</h1>
+            <div className="settings-header-user-email text-shadow">
               {loggedInUserEmail}
             </div>
             <button
-              className="settings-header-user-btns"
+              className="settings-header-user-btns text-shadow"
               onClick={() => handleLogout()}
             >
               odhlásit
             </button>
-            <Link className="settings-header-user-btns" to={"/change-email"}>
+            <Link
+              className="settings-header-user-btns text-shadow"
+              to={"/change-email"}
+            >
               změnit email
             </Link>
-            <Link className="settings-header-user-btns" to={"/change-password"}>
+            <Link
+              className="settings-header-user-btns text-shadow"
+              to={"/change-password"}
+            >
               změnit heslo
             </Link>
-            <Link className="settings-header-user-btns" to={"/delete-account"}>
+            <Link
+              className="settings-header-user-btns text-shadow"
+              to={"/delete-account"}
+            >
               smazat účet
             </Link>
           </header>
           <main>
             <form className="settings-form">
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   terminál
                 </label>
                 <select
@@ -160,7 +169,7 @@ const Settings = () => {
                 </select>
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   základní mzda (Kč)
                 </label>
                 <input
@@ -175,7 +184,7 @@ const Settings = () => {
                 />
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   % z fakturace
                 </label>
                 <input
@@ -190,7 +199,7 @@ const Settings = () => {
                 />
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   příplatek za druhou práci (Kč)
                 </label>
                 <input
@@ -205,7 +214,7 @@ const Settings = () => {
                 />
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   příplatek za čekání - <br />{" "}
                   <span className="settings-form-item-container-label-info-text">
                     (zaměstnavatel - Kč)
@@ -227,7 +236,7 @@ const Settings = () => {
                 />
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   příplatek za čekání (€)
                 </label>
                 <input
@@ -242,7 +251,7 @@ const Settings = () => {
                 />
               </div>
               <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
+                <label className="settings-form-item-container-label text-shadow">
                   kurz Eur/Kč
                   <br />
                   <span className="settings-form-item-container-label-info-text">

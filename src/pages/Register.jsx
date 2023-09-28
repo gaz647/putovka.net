@@ -109,7 +109,9 @@ const Register = () => {
           </>
         ) : (
           <form className="login-register-form">
-            <h1 className="login-register-form-heading">Registrace</h1>
+            <h1 className="login-register-form-heading text-shadow">
+              Registrace
+            </h1>
             <div className="login-register-form-item">
               <input
                 className="login-register-form-input"

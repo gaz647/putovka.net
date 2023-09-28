@@ -91,7 +91,9 @@ const Login = () => {
           </>
         ) : (
           <form className="login-register-form">
-            <h1 className="login-registerform-heading">Přihlášení</h1>
+            <h1 className="login-register-form-heading text-shadow">
+              Přihlášení
+            </h1>
             <div className="login-register-form-item">
               <input
                 className="login-register-form-input"

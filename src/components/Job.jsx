@@ -25,9 +25,12 @@ const Job = ({ jobDetails }) => {
   // USE SELECTOR
   //
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
+  );
+
+  const waitingBenefitEur = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
   // USE STATE
@@ -116,7 +119,7 @@ const Job = ({ jobDetails }) => {
   const copyToClipBoard = () => {
     const textToCoppy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
       weight + "t"
-    } ${price + "€"}`;
+    } ${price + waitingBenefitEur * waiting + "€"}`;
 
     navigator.clipboard
       .writeText(textToCoppy)
@@ -166,7 +169,7 @@ const Job = ({ jobDetails }) => {
             {getCzDateFormat(date)}
           </div>
           <div className="one-job-header-copy-to-clipboard-item">
-            {price + " €"}
+            {price + waitingBenefitEur * waiting + " €"}
           </div>
         </div>
 

@@ -16,34 +16,44 @@ const AddJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // USE SELECTOR
+  //
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
+  const weightTo27t = useSelector((state) => state.auth.jobToAdd.weightTo27t);
+  const weightTo34t = useSelector((state) => state.auth.jobToAdd.weightTo34t);
+  const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
 
+  // USE STATE
+  //
   const [date, setDate] = useState(getCurrentDate());
+  const [day, setDay] = useState(getCzDayFromDate(date));
+  const [city, setCity] = useState(
+    useSelector((state) => state.auth.jobToAdd.city)
+  );
+  const [cmr, setCmr] = useState("");
+  const [zipcode, setZipcode] = useState(
+    useSelector((state) => state.auth.jobToAdd.zipcode)
+  );
+  const [weight, setWeight] = useState(27);
+  const [price, setPrice] = useState(weightTo27t);
+  const [isSecondJob, setIsSecondJob] = useState(false);
+  const [waiting, setWaiting] = useState(0);
+  const [note, setNote] = useState("");
+  const [terminal, setTerminal] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+  );
 
+  // USE EFFECT
+  //
   useEffect(() => {
     setDay(getCzDayFromDate(date));
   }, [date]);
 
-  const [day, setDay] = useState(getCzDayFromDate(date));
-
-  const [city, setCity] = useState(
-    useSelector((state) => state.auth.jobToAdd.city)
-  );
-
-  const [cmr, setCmr] = useState("");
-
-  const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.auth.jobToAdd.zipcode)
-  );
-
-  const weightTo27t = useSelector((state) => state.auth.jobToAdd.weightTo27t);
-
-  const weightTo34t = useSelector((state) => state.auth.jobToAdd.weightTo34t);
-
-  const [weight, setWeight] = useState(27);
-
+  // HANDLE WEIGHT CHANGE
+  //
   const handleWeightChange = (newWeight) => {
     if (newWeight === 27) {
       setWeight(27);
@@ -54,22 +64,8 @@ const AddJob = () => {
     }
   };
 
-  const [price, setPrice] = useState(weightTo27t);
-
-  const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
-
-  const [isSecondJob, setIsSecondJob] = useState(false);
-
-  const [waiting, setWaiting] = useState(0);
-
-  const [note, setNote] = useState("");
-
-  const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
-  );
-
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
+  // ADD JOB
+  //
   const addJob = () => {
     const tempCurrentJobs = [...currentJobs];
 
@@ -93,16 +89,15 @@ const AddJob = () => {
     };
 
     tempCurrentJobs.unshift(newJob);
-
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
-
     const payload = { userUid, sortedCurrentJobs };
-
     dispatch(addJobRedux(payload));
 
     navigate("/");
   };
 
+  // HANDLE DECLINE
+  //
   const handleDecline = () => {
     dispatch(resetJobToAddValuesRedux());
     navigate("/");

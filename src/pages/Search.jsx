@@ -185,7 +185,7 @@ const Search = () => {
 
   return (
     <section className="search-bar wrapper">
-      <div className="terminal">
+      <div className="terminal text-shadow">
         {"terminál: " + displayProperTerminalName(terminal)}
       </div>
       <div className="search-bar-container">

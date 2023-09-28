@@ -19,6 +19,7 @@
 }
 
 .login-register-form-heading {
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -29,7 +30,8 @@
 .login-register-form-input {
   height: 2rem;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  color: var(--blue-2);
   width: 13rem;
   border-radius: 5px;
   background-color: whitesmoke;

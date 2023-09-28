@@ -52,7 +52,8 @@ input[type="number"] {
 }
 
 .input-field-field:focus {
-  border: solid 2px var(--inputs-focus);
+  box-shadow: 0 0 7px var(--green);
+  /* border: solid 2px var(--green); */
 }
 
 .input-field-field:invalid {
@@ -94,7 +95,7 @@ input[type="number"] {
 }
 
 .input-field-weight-clicked {
-  background-color: var(--inputs-focus);
+  background-color: var(--green);
   color: var(--white-2);
   font-size: 1rem;
 }
@@ -113,16 +114,4 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-input[type="checkbox"] {
-  background-color: #fff;
-  border: 2px solid #ccc;
-}
-
-/* Zaškrtnutý checkbox */
-input[type="checkbox"]:checked {
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  color: #fff;
 }

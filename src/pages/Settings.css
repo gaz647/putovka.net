@@ -5,12 +5,12 @@
 }
 
 .settings-header-title {
-  color: whitesmoke;
+  font-size: 2rem;
   margin-bottom: 1.3rem;
 }
 
 .settings-header-user-email {
-  color: whitesmoke;
+  color: var(--white-2);
   font-weight: bold;
   font-size: 0.9rem;
   margin: 0.5rem 0;
@@ -19,7 +19,7 @@
 .settings-header-user-btns {
   display: block;
   font-size: 0.9rem;
-  color: whitesmoke;
+  color: var(--white-2);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -64,13 +64,13 @@
 }
 
 .settings-form-item-container-label {
-  color: var(--white-brighter);
+  color: var(--white-2);
   font-size: 0.9rem;
   font-weight: bold;
 }
 
 .settings-form-item-container-label-info-text {
-  color: var(--white-brighter);
+  color: var(--white-2);
   font-size: 0.75rem;
   font-weight: 100;
 }

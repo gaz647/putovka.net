@@ -1,13 +1,11 @@
 :root {
   --counts: #eeeeee;
   --navbar: #2f2fee;
-  --second-job-waiting: rgba(255, 255, 0, 0.719);
-  --inputs-focus: #2dbd5d;
   --weight-focus: rgb(62, 123, 255);
   --dark-1: #272b30;
   --dark-2: #38304d;
   --dark-3: #1d1d1d;
-  --green: #2dbd5d;
+  --green: #2fe46b;
   --red: #e60b0b;
   --blue: #4e6cff;
   --blue-2: #15416e;
@@ -26,7 +24,6 @@ body {
   min-height: 100%;
   min-height: --webkit-fill-available;
   touch-action: pan-y;
-
   background: rgb(61, 177, 255);
 }
 
@@ -40,18 +37,6 @@ body {
   letter-spacing: 0.01rem;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  bottom: -3rem;
-  left: 0;
-  right: 0;
-
-  overflow: scroll;
-
-  /* padding-bottom: 15rem; */
-}
-
 .wrapper {
   width: 90%;
   max-width: 450px;
@@ -60,23 +45,9 @@ body {
   margin: 2rem auto 6rem auto;
 }
 
-.neumorphism-1 {
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(145deg, #2a2e33, #23272b);
-  box-shadow: 5px 5px 10px #101113, -5px -5px 10px #3e454d;
-}
-
-.neumorphism-2 {
-  border-radius: 5px;
-  background: linear-gradient(315deg, #2a2e33, #23272b);
-  box-shadow: -5px -5px 10px #101113, 5px 5px 10px #3e454d;
-}
-
-.neumorphism-red {
-  border-radius: 5px;
-  background: linear-gradient(145deg, #ff2146, #dc1c3b);
-  box-shadow: 21px 21px 41px #ef1e40, -21px -21px 41px #f92042;
+.text-shadow {
+  color: var(--white-2);
+  text-shadow: 1px 1px 2px rgb(87, 87, 87);
 }
 
 a {
