@@ -29,7 +29,7 @@ input[type="number"] {
   top: 0.7rem;
   left: 0.5rem;
   font-size: 0.85rem;
-  color: var(--text-white);
+  color: var(--text-black);
   opacity: 40%;
 }
 
@@ -38,13 +38,13 @@ input[type="number"] {
   max-width: 100%;
   height: 100%;
   padding: 0 0.5rem;
-  background-color: var(--dark-3);
   border: none;
-  border-bottom: 1px solid var(--inputs);
-  color: var(--text-white);
+  border-radius: 5px;
+  background-color: var(--white-2);
+  color: var(--blue-2);
+  font-size: 1rem;
   text-align: center;
   font-weight: bold;
-  border-radius: 0%;
 }
 
 .date {
@@ -52,7 +52,7 @@ input[type="number"] {
 }
 
 .input-field-field:focus {
-  border: solid 2px var(--inputs);
+  border: solid 2px var(--inputs-focus);
 }
 
 .input-field-field:invalid {
@@ -70,9 +70,13 @@ input[type="number"] {
 .input-field-weight {
   width: 40%;
   height: 100%;
-  background-color: var(--dark-3);
+
   border: none;
-  border-bottom: 1px solid var(--inputs);
+  border-radius: 5px;
+  background-color: var(--white-2);
+
+  color: var(--blue);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,8 +85,18 @@ input[type="number"] {
   font-size: 0.8rem;
 }
 
+.weight-text {
+  font-size: 0.7rem;
+}
+
+.weight-text-clicked {
+  font-size: 1rem;
+}
+
 .input-field-weight-clicked {
-  background-color: var(--inputs);
+  background-color: var(--inputs-focus);
+  color: var(--white-2);
+  font-size: 1rem;
 }
 
 .input-field-checkbox-container {
@@ -90,12 +104,25 @@ input[type="number"] {
   width: 100%;
   height: 2.5rem;
   margin-bottom: 2rem;
-  /* margin: 0.5rem auto; */
-  background-color: var(--dark-3);
+
   border: none;
-  border-bottom: 1px solid var(--inputs);
+  border-radius: 5px;
+  background-color: var(--white-2);
+
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+input[type="checkbox"] {
+  background-color: #fff;
+  border: 2px solid #ccc;
+}
+
+/* Zaškrtnutý checkbox */
+input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border: 2px solid #007bff;
+  color: #fff;
 }

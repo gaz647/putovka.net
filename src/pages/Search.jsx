@@ -185,7 +185,9 @@ const Search = () => {
 
   return (
     <section className="search-bar wrapper">
-      <p>{"terminál: " + displayProperTerminalName(terminal)}</p>
+      <div className="terminal">
+        {"terminál: " + displayProperTerminalName(terminal)}
+      </div>
       <div className="search-bar-container">
         <input
           className="search-bar-input"

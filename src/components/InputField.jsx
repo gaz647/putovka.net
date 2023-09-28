@@ -87,7 +87,15 @@ const InputField = ({
             }`}
             onClick={() => handleWeightChange(27)}
           >
-            <div className="weight">&lt;27t</div>
+            <div className="weight">
+              <span
+                className={`weight-text ${
+                  choosedWeight === 27 ? "weight-text-clicked" : ""
+                }`}
+              >
+                &lt;27t
+              </span>
+            </div>
           </div>
           <div
             className={`input-field-weight ${
@@ -95,7 +103,15 @@ const InputField = ({
             }`}
             onClick={() => handleWeightChange(34)}
           >
-            <div className="weight">&lt;34t</div>
+            <div className="weight">
+              <span
+                className={`weight-text ${
+                  choosedWeight === 34 ? "weight-text-clicked" : ""
+                }`}
+              >
+                &lt;34t
+              </span>
+            </div>
           </div>
         </div>
       )}

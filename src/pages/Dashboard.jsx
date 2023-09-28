@@ -320,7 +320,7 @@ const Dashboard = () => {
         <Spinner2 />
       ) : (
         <>
-          <section className="dashboard">
+          <section className="dashboard ">
             {showArchiveModal && (
               <ModalPrompt
                 heading={archiveModalHeading}
@@ -358,15 +358,19 @@ const Dashboard = () => {
             <div className="dashboard-summary-counts">
               <div className="dashboard-summary-counts-container">
                 <TbRoad className="dashboard-summary-counts-icon" />
-                <div>{totalJobs}</div>
+                <div className="dashboard-summary-counts-text">{totalJobs}</div>
               </div>
               <div className="dashboard-summary-counts-container">
                 <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
-                <div>{totalSecondJobs}</div>
+                <div className="dashboard-summary-counts-text">
+                  {totalSecondJobs}
+                </div>
               </div>
               <div className="dashboard-summary-counts-container">
                 <PiClockBold className="dashboard-summary-counts-icon" />
-                <div>{totalWaiting}</div>
+                <div className="dashboard-summary-counts-text">
+                  {totalWaiting}
+                </div>
               </div>
             </div>
 

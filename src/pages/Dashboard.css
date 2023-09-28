@@ -7,9 +7,8 @@
 
 .dashboard-summary-invoicing-container {
   width: 48%;
-  background-color: var(--counts);
-  color: var(--text-black);
-  border-radius: 5px;
+  background-color: var(--white-2);
+  border-radius: 10px;
   padding: 0.3rem;
   text-align: center;
 }
@@ -17,12 +16,14 @@
 .dashboard-summary-invoicing-heading {
   padding: 0.5rem;
   font-size: 1.5rem;
+  color: var(--blue-2);
 }
 
 .dashboard-summary-invoicing-count {
   font-weight: bold;
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
+  color: var(--blue-2);
 }
 
 .vis-hidden {
@@ -31,15 +32,15 @@
 
 .dashboard-summary-counts {
   width: 100%;
-  background-color: var(--counts);
-  color: var(--text-black);
+  background-color: var(--white-2);
+
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
   padding: 0.3rem;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .dashboard-summary-counts-container {
@@ -50,23 +51,29 @@
 .dashboard-summary-counts-icon {
   font-size: 1.15rem;
   margin-right: 0.4rem;
-  color: var(--text-black);
+  color: var(--blue-2);
+}
+
+.dashboard-summary-counts-text {
+  color: var(--blue-2);
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .dashboard-archive-btn {
-  background-color: #f41f41;
+  background-color: var(--red);
   border: none;
   display: block;
   width: 100%;
   padding: 0.5rem;
-  border-radius: 5px;
-  color: var(--text-white);
+  border-radius: 10px;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.85rem;
+  color: var(--white-brighter);
 }
 
 .dashboard-jobs {
-  margin: 1.5rem auto 5rem auto;
+  margin: 1.5rem auto 0 auto;
 }

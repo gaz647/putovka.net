@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .confirm-decline-btns {
@@ -27,7 +27,7 @@
 
 .confirm-btn-icon {
   font-size: 1.3rem;
-  color: var(--text-white);
+  color: var(--white-2);
 }
 
 .decline-btn {
@@ -37,5 +37,5 @@
 
 .decline-btn-icon {
   font-size: 1.3rem;
-  color: var(--text-white);
+  color: var(--white-2);
 }

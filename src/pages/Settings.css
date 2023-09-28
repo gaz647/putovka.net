@@ -30,30 +30,30 @@
   margin-top: 2.5rem;
 }
 
-.settings-form-item-password-container {
+/* .settings-form-item-password-container {
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
   margin-bottom: 1rem;
-}
+} */
 
-.settings-form-item-password-fields-container {
+/* .settings-form-item-password-fields-container {
   display: flex;
   flex-direction: column;
   width: 50%;
-}
+} */
 
-.settings-form-item-password-container-input {
+/* .settings-form-item-password-container-input {
   height: 2rem;
   text-align: center;
   font-size: 0.9rem;
   min-width: 100%;
   max-width: 100%;
   border-radius: 5px;
-  background-color: whitesmoke;
+
   border: none;
   margin-bottom: 1rem;
-}
+} */
 
 .settings-form-item-container {
   display: flex;
@@ -64,13 +64,13 @@
 }
 
 .settings-form-item-container-label {
-  color: whitesmoke;
+  color: var(--white-brighter);
   font-size: 0.9rem;
-  font-weight: 100;
+  font-weight: bold;
 }
 
 .settings-form-item-container-label-info-text {
-  color: whitesmoke;
+  color: var(--white-brighter);
   font-size: 0.75rem;
   font-weight: 100;
 }
@@ -81,13 +81,14 @@
   font-size: 0.9rem;
   min-width: 40%;
   max-width: 40%;
-  border-radius: 5px;
-  background-color: whitesmoke;
-  border: none;
+  color: var(--blue-2);
   padding: 0 0.5rem;
   margin-left: 0.3rem;
+  background-color: var(--white-2);
+  border-radius: 5px;
+  border: none;
 }
 
-.current-password {
+/* .current-password {
   margin-top: 1rem;
-}
+} */

@@ -19,10 +19,24 @@ import ModalPrompt from "./ModalPrompt";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 
 const Job = ({ jobDetails }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // USE SELECTOR
+  //
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
 
+  // USE STATE
+  //
+  const [showDetails, setShowDetails] = useState(false);
+  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
+
+  // PROPS DESTRUCTURING
+  //
   const {
     city,
     cmr,
@@ -42,11 +56,8 @@ const Job = ({ jobDetails }) => {
     zipcode,
   } = jobDetails;
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
+  // DELETE JOB
+  //
   const deleteJob = () => {
     const tempCurrentJobs = [...currentJobs];
 
@@ -60,6 +71,8 @@ const Job = ({ jobDetails }) => {
     dispatch(deleteJobRedux(payload));
   };
 
+  // EDIT JOB NAVIGATE
+  //
   const editJobNavigate = () => {
     const jobToEdit = {
       city,
@@ -84,20 +97,22 @@ const Job = ({ jobDetails }) => {
     navigate("/edit-job");
   };
 
-  const [showDetails, setShowDetails] = useState(false);
-
-  const handleShow = () => {
+  // HANDLE SHOW DETAILS
+  //
+  const handleShowDetails = () => {
     setShowDetails(!showDetails);
   };
 
-  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
-
+  // MODAL STUFF
+  //
   const deleteJobModalHeading = "Odstranit vybranou práci?";
 
   const handleDeleteJobModalVisibility = () => {
     setShowDeleteJobModal(!showDeleteJobModal);
   };
 
+  // COPY TO CLIPBOARD
+  //
   const copyToClipBoard = () => {
     const textToCoppy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
       weight + "t"
@@ -168,7 +183,7 @@ const Job = ({ jobDetails }) => {
         </div>
       </div>
 
-      <div className="one-job-body-container" onClick={handleShow}>
+      <div className="one-job-body-container" onClick={handleShowDetails}>
         <div className="one-job-body-item one-job-body-city">{city}</div>
         <div className="one-job-body-item one-job-body-item-smaller">
           {zipcode}

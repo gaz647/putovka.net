@@ -10,12 +10,14 @@ ul {
   margin: 1rem auto;
   text-align: center;
   border-radius: 5px;
+  background-color: var(--dark-1);
+  color: var(--blue-2);
 }
 
 .result-first-line {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: solid 1px rgb(218, 218, 218);
+  border-bottom: 2px solid rgb(228, 228, 228);
 }
 
 .city-zipcode-container {
@@ -23,7 +25,7 @@ ul {
   flex-direction: column;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background-color: rgb(214, 248, 253);
+  background-color: var(--white-2);
 }
 
 .city {
@@ -34,13 +36,13 @@ ul {
 
 .zipcode {
   font-size: 0.85rem;
-  color: rgb(56, 56, 56);
+
   margin: 0 auto 0.5rem auto;
 }
 
 .result-second-line {
   display: flex;
-  color: rgb(127, 118, 118);
+
   font-size: 0.8rem;
 }
 
@@ -49,10 +51,10 @@ ul {
   justify-content: space-around;
   align-items: center;
   width: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white-2);
   padding: 0.5rem;
   border-bottom-left-radius: 5px;
-  border-right: 1px solid #dadada;
+  border-right: 2px solid rgb(228, 228, 228);
 }
 
 .result-second-line-item-middle {
@@ -60,10 +62,10 @@ ul {
   justify-content: space-around;
   align-items: center;
   width: 14%;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white-2);
   padding: 0.5rem;
-  border-right: 1px solid rgb(231, 231, 231);
-  border-left: 1px solid rgb(231, 231, 231);
+  /* border-right: 1px solid rgba(0, 123, 254, 0.5);
+  border-left: 1px solid rgba(0, 123, 254, 0.5); */
   cursor: pointer;
 }
 
@@ -72,11 +74,11 @@ ul {
   justify-content: space-around;
   align-items: center;
   width: 50%;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white-2);
   padding: 0.5rem;
   border: none;
   border-bottom-right-radius: 5px;
-  border-left: 1px solid #dadada;
+  border-left: 2px solid rgb(228, 228, 228);
 }
 
 .weight {
@@ -86,5 +88,4 @@ ul {
 .price {
   font-weight: bold;
   font-size: 0.9rem;
-  color: rgb(62, 62, 62);
 }

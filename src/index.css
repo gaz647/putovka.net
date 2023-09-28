@@ -1,21 +1,24 @@
 :root {
   --counts: #eeeeee;
+  --navbar: #2f2fee;
   --second-job-waiting: rgba(255, 255, 0, 0.719);
-  --inputs: rgb(62, 123, 255);
-  --dark-1: #15161f;
-  --dark-2: #252738;
-  --dark-3: #303347;
+  --inputs-focus: #2dbd5d;
+  --weight-focus: rgb(62, 123, 255);
+  --dark-1: #272b30;
+  --dark-2: #38304d;
+  --dark-3: #1d1d1d;
   --green: #2dbd5d;
   --red: #e60b0b;
-  --blue: #007bfe;
-  --text-white: rgb(255, 242, 242);
+  --blue: #4e6cff;
+  --blue-2: #15416e;
+  --white-brighter: #ffffff;
+  --white-2: #f9fafe;
   --text-black: rgb(29, 29, 29);
 }
 
 html {
   min-height: 100%;
   min-height: --webkit-fill-available;
-  background-color: var(--dark-1);
   touch-action: pan-y;
 }
 
@@ -23,6 +26,8 @@ body {
   min-height: 100%;
   min-height: --webkit-fill-available;
   touch-action: pan-y;
+
+  background: rgb(61, 177, 255);
 }
 
 * {
@@ -31,21 +36,51 @@ body {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", "Roboto", Helvetica, Arial, sans-serif;
   letter-spacing: 0.01rem;
 }
 
-a {
-  text-decoration: none;
+.background {
+  position: absolute;
+  top: 0;
+  bottom: -3rem;
+  left: 0;
+  right: 0;
+
+  overflow: scroll;
+
+  /* padding-bottom: 15rem; */
 }
 
 .wrapper {
   width: 90%;
-  height: 100%;
   max-width: 450px;
-  margin: 2rem auto 3rem auto;
+  height: calc(100% - 10rem);
 
-  /* background-color: yellow; */
+  margin: 2rem auto 6rem auto;
+}
+
+.neumorphism-1 {
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #2a2e33, #23272b);
+  box-shadow: 5px 5px 10px #101113, -5px -5px 10px #3e454d;
+}
+
+.neumorphism-2 {
+  border-radius: 5px;
+  background: linear-gradient(315deg, #2a2e33, #23272b);
+  box-shadow: -5px -5px 10px #101113, 5px 5px 10px #3e454d;
+}
+
+.neumorphism-red {
+  border-radius: 5px;
+  background: linear-gradient(145deg, #ff2146, #dc1c3b);
+  box-shadow: 21px 21px 41px #ef1e40, -21px -21px 41px #f92042;
+}
+
+a {
+  text-decoration: none;
 }
 
 .relative {

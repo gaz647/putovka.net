@@ -104,84 +104,86 @@ const DeleteAccount = () => {
   };
 
   return (
-    <section className="wrapper">
-      {showDeleteJobModal && (
-        <ModalPrompt
-          heading={deleteAccountModalHeading}
-          text={deleteAccountModalText}
-          confirmFunction={deleteAccount}
-          declineFunction={handleDeleteJobModalVisibility}
-        />
-      )}
-      {isLoading2 ? (
-        <>
-          <h1>Odstraňování účtu probíhá</h1>
-          <p>isLoading2</p>
-          <Spinner2 />
-        </>
-      ) : (
-        <>
-          <header className="change-email-password-header">
-            <div className="change-email-password-header-title">
-              SMAZÁNÍ ÚČTU
-            </div>
-          </header>
-          <main>
-            <form className="change-email-password-form">
-              <div className="change-email-password-form-container">
-                <label className="change-email-password-form-item-container-label">
-                  současné heslo pro potvrzení
-                </label>
-                <div className="change-email-password-form-item-container-email">
-                  <input
-                    className="change-email-password-form-item-container-input"
-                    type="password"
-                    placeholder="současné heslo"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
-                  />
-                  {/* <div className="warning-container">
+    <div className="background">
+      <section className="wrapper">
+        {showDeleteJobModal && (
+          <ModalPrompt
+            heading={deleteAccountModalHeading}
+            text={deleteAccountModalText}
+            confirmFunction={deleteAccount}
+            declineFunction={handleDeleteJobModalVisibility}
+          />
+        )}
+        {isLoading2 ? (
+          <>
+            <h1>Odstraňování účtu probíhá</h1>
+            <p>isLoading2</p>
+            <Spinner2 />
+          </>
+        ) : (
+          <>
+            <header className="change-email-password-header">
+              <div className="change-email-password-header-title">
+                SMAZÁNÍ ÚČTU
+              </div>
+            </header>
+            <main>
+              <form className="change-email-password-form">
+                <div className="change-email-password-form-container">
+                  <label className="change-email-password-form-item-container-label">
+                    současné heslo pro potvrzení
+                  </label>
+                  <div className="change-email-password-form-item-container-email">
+                    <input
+                      className="change-email-password-form-item-container-input"
+                      type="password"
+                      placeholder="současné heslo"
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                    />
+                    {/* <div className="warning-container">
                 {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
                   <div className="warning-message">emaily se neshodují</div>
                 ) : (
                   ""
                 )}
               </div> */}
+                  </div>
                 </div>
-              </div>
-              <div className="change-email-password-form-container">
-                <label className="change-email-password-form-item-container-label">
-                  opište následující kód:
-                  <br />
-                  <span className="delete-account-code">{deleteCode}</span>
-                </label>
-                <div className="change-email-password-form-item-container-email">
-                  <input
-                    className="change-email-password-form-item-container-input"
-                    type="password"
-                    placeholder="kód pro potvrzení"
-                    value={userConfirmationCode}
-                    onChange={(e) => setUserConfirmationCode(e.target.value)}
-                  />
-                  {/* <div className="warning-container">
+                <div className="change-email-password-form-container">
+                  <label className="change-email-password-form-item-container-label">
+                    opište následující kód:
+                    <br />
+                    <span className="delete-account-code">{deleteCode}</span>
+                  </label>
+                  <div className="change-email-password-form-item-container-email">
+                    <input
+                      className="change-email-password-form-item-container-input"
+                      type="password"
+                      placeholder="kód pro potvrzení"
+                      value={userConfirmationCode}
+                      onChange={(e) => setUserConfirmationCode(e.target.value)}
+                    />
+                    {/* <div className="warning-container">
                 {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
                   <div className="warning-message">emaily se neshodují</div>
                 ) : (
                   ""
                 )}
               </div> */}
+                  </div>
                 </div>
-              </div>
 
-              <ConfirmDeclineBtns
-                confirmFunction={handleSubmit}
-                declineFunction={handleDecline}
-              />
-            </form>
-          </main>
-        </>
-      )}
-    </section>
+                <ConfirmDeclineBtns
+                  confirmFunction={handleSubmit}
+                  declineFunction={handleDecline}
+                />
+              </form>
+            </main>
+          </>
+        )}
+      </section>
+    </div>
   );
 };
 
