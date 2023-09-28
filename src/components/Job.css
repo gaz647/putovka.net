@@ -24,7 +24,6 @@
 
 .one-job-header-copy-to-clipboard-container {
   display: flex;
-
   align-items: center;
   flex-wrap: wrap;
 
@@ -127,6 +126,6 @@
 
 .one-job-body-bottom-line-waiting-icon {
   position: absolute;
-  top: 0.05rem;
+  top: 0.15rem;
   left: -1.15rem;
 }

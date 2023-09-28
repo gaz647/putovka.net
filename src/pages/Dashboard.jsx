@@ -34,6 +34,7 @@ const Dashboard = () => {
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
+
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
@@ -373,13 +374,14 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-
-            <button
-              className="dashboard-archive-btn"
-              onClick={() => setShowArchiveModal(true)}
-            >
-              Archivovat nejstarší měsíc
-            </button>
+            {currentJobs.length > 0 && (
+              <button
+                className="dashboard-archive-btn"
+                onClick={() => setShowArchiveModal(true)}
+              >
+                Archivovat nejstarší měsíc
+              </button>
+            )}
           </section>
           <section className="dashboard-jobs">
             {isLoading2 ? (

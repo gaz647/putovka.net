@@ -15,12 +15,16 @@
 }
 
 .modal-container {
-  background-color: var(--counts);
+  background-color: var(--white-2);
   width: 80%;
   max-width: 450px;
   border-radius: 5px;
   margin: 1.5rem auto 1rem auto;
   padding: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-heading {
@@ -28,4 +32,8 @@
   font-size: 1.3rem;
   margin: 1rem auto 1rem auto;
   color: var(--text-black);
+}
+
+.modal-text {
+  margin-bottom: 0.5rem;
 }

@@ -1,10 +1,9 @@
 .confirm-decline-btns-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* margin-bottom: 2rem; */
 }
 
 .confirm-decline-btns {
@@ -13,7 +12,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin: 1rem;
-  background-color: whitesmoke;
+  background-color: var(--white-2);
   display: flex;
   justify-content: center;
   align-items: center;

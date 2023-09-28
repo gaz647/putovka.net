@@ -798,7 +798,6 @@ export const authSlice = createSlice({
     },
 
     setIsEditingFalseRedux: (state) => {
-      console.log("setIsEditingFalseRedux SPUŠTĚN");
       state.isEditing = false;
     },
 

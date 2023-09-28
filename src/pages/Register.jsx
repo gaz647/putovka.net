@@ -112,15 +112,14 @@ const Register = () => {
             <h1 className="login-register-form-heading text-shadow">
               Registrace
             </h1>
-            <div className="login-register-form-item">
-              <input
-                className="login-register-form-input"
-                type="email"
-                placeholder="email"
-                onChange={(e) => setRegisterEmail(e.target.value)}
-                value={registerEmail}
-              />
-            </div>
+
+            <input
+              className="login-register-form-input"
+              type="email"
+              placeholder="email"
+              onChange={(e) => setRegisterEmail(e.target.value)}
+              value={registerEmail}
+            />
 
             <input
               className="login-register-form-input"

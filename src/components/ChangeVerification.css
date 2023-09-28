@@ -1,0 +1,22 @@
+.sent-message-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sent-message {
+  color: var(--white-2);
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+
+.sent-message-redirect-info {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sent-message-second-remaining {
+}

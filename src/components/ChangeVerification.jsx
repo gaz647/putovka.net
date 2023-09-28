@@ -38,7 +38,7 @@ const ChangeVerification = () => {
     // Vytvoření intervalu pro aktualizaci odpočítávání
     const interval = setInterval(() => {
       setSecondsRemaining((prevSeconds) => prevSeconds - 1);
-    }, 1000);
+    }, 5000);
 
     // Po uplynutí timeoutu provedeme potřebné akce a zrušíme interval
     setTimeout(() => {
@@ -57,15 +57,21 @@ const ChangeVerification = () => {
   return (
     <section className="wrapper">
       <div className="sent-message-container">
-        <h3 className="sent-message">{location.state.firstMessage}</h3>
-        <br />
+        <h3 className="sent-message text-shadow">
+          {location.state.firstMessage}
+        </h3>
+
         {location.state.secondMessage !== "" ? (
-          <h3 className="sent-message">{location.state.secondMessage}</h3>
+          <h3 className="sent-message text-shadow">
+            {location.state.secondMessage}
+          </h3>
         ) : null}
 
-        <h4>Nyní budete přesměrování na přihlašovací obrazovku.</h4>
-        <br />
-        <h3>{secondsRemaining}</h3>
+        <h4 className="sent-message-redirect-info text-shadow">
+          Nyní budete přesměrování na přihlašovací obrazovku.
+        </h4>
+
+        <h3 className="text-shadow">{secondsRemaining}</h3>
       </div>
     </section>
   );

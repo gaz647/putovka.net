@@ -17,12 +17,14 @@
 html {
   min-height: 100%;
   min-height: --webkit-fill-available;
+  width: 100%;
   touch-action: pan-y;
 }
 
 body {
   min-height: 100%;
   min-height: --webkit-fill-available;
+  width: 100%;
   touch-action: pan-y;
   background: rgb(61, 177, 255);
 }
@@ -38,10 +40,9 @@ body {
 }
 
 .wrapper {
+  height: 100%;
   width: 90%;
   max-width: 450px;
-  height: calc(100% - 10rem);
-
   margin: 2rem auto 6rem auto;
 }
 
@@ -52,6 +53,7 @@ body {
 
 a {
   text-decoration: none;
+  color: rgb(59, 95, 255);
 }
 
 .relative {
@@ -60,19 +62,6 @@ a {
 
 input:focus {
   outline: none;
-}
-
-.sent-message-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.sent-message {
-  color: whitesmoke;
-  margin-bottom: 2rem;
 }
 
 .vis-hidden {

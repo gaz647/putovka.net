@@ -94,24 +94,22 @@ const Login = () => {
             <h1 className="login-register-form-heading text-shadow">
               Přihlášení
             </h1>
-            <div className="login-register-form-item">
-              <input
-                className="login-register-form-input"
-                type="email"
-                placeholder="email"
-                onChange={(e) => setLoginEmail(e.target.value)}
-                value={loginEmail}
-              />
-            </div>
-            <div className="login-register-form-item">
-              <input
-                className="login-register-form-input"
-                type="password"
-                placeholder="heslo"
-                onChange={(e) => setLoginPassword(e.target.value)}
-                value={loginPassword}
-              />
-            </div>
+
+            <input
+              className="login-register-form-input"
+              type="email"
+              placeholder="email"
+              onChange={(e) => setLoginEmail(e.target.value)}
+              value={loginEmail}
+            />
+
+            <input
+              className="login-register-form-input"
+              type="password"
+              placeholder="heslo"
+              onChange={(e) => setLoginPassword(e.target.value)}
+              value={loginPassword}
+            />
 
             <ConfirmDeclineBtns
               confirmFunction={handleLogIn}

@@ -53,7 +53,7 @@ input[type="number"] {
 
 .input-field-field:focus {
   box-shadow: 0 0 7px var(--green);
-  /* border: solid 2px var(--green); */
+  border: solid 3px var(--green);
 }
 
 .input-field-field:invalid {

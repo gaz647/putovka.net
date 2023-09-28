@@ -21,7 +21,6 @@
 
 .dashboard-summary-invoicing-count {
   font-weight: bold;
-  font-size: 0.9rem;
   margin-bottom: 0.3rem;
   color: var(--blue-2);
 }
@@ -46,6 +45,7 @@
 .dashboard-summary-counts-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .dashboard-summary-counts-icon {
@@ -56,7 +56,6 @@
 
 .dashboard-summary-counts-text {
   color: var(--blue-2);
-  font-size: 0.9rem;
   font-weight: bold;
 }
 

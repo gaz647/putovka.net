@@ -73,7 +73,7 @@ const ChangePassword = () => {
     <section className="wrapper">
       {isLoading2 ? (
         <>
-          <h1>Odstraňování účtu probíhá</h1>
+          <h1>Probíhá změna hesla</h1>
           <p>isLoading2</p>
           <Spinner2 />
         </>

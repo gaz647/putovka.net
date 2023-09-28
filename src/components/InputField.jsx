@@ -15,7 +15,6 @@ const InputField = ({
   const [choosedWeight, setChoosedWeight] = useState(
     type === "weight" ? (value !== "" ? value : 27) : null
   );
-  console.log("choosedWeight", choosedWeight);
 
   const handleWeightChange = (value) => {
     setChoosedWeight(value);

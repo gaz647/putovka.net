@@ -270,12 +270,14 @@ const Settings = () => {
                 />
               </div>
               <br />
-              {isConfirmDeclineBtnsVisible && (
-                <ConfirmDeclineBtns
-                  confirmFunction={handleSubmit}
-                  declineFunction={handleDecline}
-                />
-              )}
+              <div className="settings-form-confirm-decline-btns-container">
+                {isConfirmDeclineBtnsVisible && (
+                  <ConfirmDeclineBtns
+                    confirmFunction={handleSubmit}
+                    declineFunction={handleDecline}
+                  />
+                )}
+              </div>
             </form>
           </main>
         </>

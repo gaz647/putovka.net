@@ -89,6 +89,7 @@
   border: none;
 }
 
-/* .current-password {
-  margin-top: 1rem;
-} */
+.settings-form-confirm-decline-btns-container {
+  margin: 0 auto;
+  max-width: 20rem;
+}
