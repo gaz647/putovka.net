@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import Spinner from "../components/Spinner";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -148,7 +149,7 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
-              <div className="settings-form-item-container">
+              {/* <div className="settings-form-item-container">
                 <label className="settings-form-item-container-label text-shadow">
                   terminál
                 </label>
@@ -269,6 +270,77 @@ const Settings = () => {
                   }}
                 />
               </div>
+              <br /> */}
+              <InputField
+                type={"terminal"}
+                label={"terminál"}
+                subLabel={""}
+                value={terminal}
+                onTerminalChange={(e) => {
+                  setTerminal(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"základní mzda"}
+                subLabel={"(Kč)"}
+                value={baseMoney}
+                onNumberChange={(e) => {
+                  setBaseMoney(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"% z fakturace"}
+                subLabel={""}
+                value={percentage}
+                onNumberChange={(e) => {
+                  setPercentage(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za druhou práci"}
+                subLabel={"(Kč"}
+                value={secondJobBenefit}
+                onNumberChange={(e) => {
+                  setSecondJobBenefit(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za čekání - zaměstnavatel"}
+                subLabel={"(Kč)"}
+                value={waitingBenefitEmployerCzk}
+                onNumberChange={(e) => {
+                  setWaitingBenefitEmployerCzk(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za čekání"}
+                subLabel={"(€)"}
+                value={waitingBenefitEur}
+                onNumberChange={(e) => {
+                  setWaitingBenefitEur(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number-decimal"}
+                label={"kurz Eur/Kč"}
+                subLabel={"(automaticky aktualizován po archivaci)"}
+                value={eurCzkRate}
+                onNumberChange={(e) => {
+                  setEurCzkRate(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
               <br />
               <div className="settings-form-confirm-decline-btns-container">
                 {isConfirmDeclineBtnsVisible && (

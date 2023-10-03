@@ -108,6 +108,7 @@ const AddJob = () => {
       <form className="add-job-form">
         <InputField
           label={"Datum"}
+          subLabel={""}
           type={"date"}
           value={date}
           onDateChange={(e) => setDate(e)}
@@ -115,6 +116,7 @@ const AddJob = () => {
 
         <InputField
           label={"Město"}
+          subLabel={""}
           type={"text"}
           value={city}
           onTextChange={(e) => setCity(e)}
@@ -122,6 +124,7 @@ const AddJob = () => {
 
         <InputField
           label={"PSČ"}
+          subLabel={""}
           type={"text"}
           value={zipcode}
           onTextChange={(e) => setZipcode(e)}
@@ -129,6 +132,7 @@ const AddJob = () => {
 
         <InputField
           label={""}
+          subLabel={""}
           type={"weight"}
           value={""}
           onWeightChange={(e) => handleWeightChange(e)}
@@ -136,6 +140,7 @@ const AddJob = () => {
 
         <InputField
           label={"Cena"}
+          subLabel={""}
           type={"number"}
           value={price}
           onNumberChange={(e) => setPrice(e)}
@@ -143,6 +148,7 @@ const AddJob = () => {
 
         <InputField
           label={"CMR"}
+          subLabel={""}
           type={"text"}
           value={cmr}
           onTextChange={(e) => setCmr(e)}
@@ -150,6 +156,7 @@ const AddJob = () => {
 
         <InputField
           label={"Druhá práce"}
+          subLabel={""}
           type={"checkbox"}
           value={isSecondJob}
           onCheckboxChange={(e) => setIsSecondJob(e)}
@@ -157,6 +164,7 @@ const AddJob = () => {
 
         <InputField
           label={"Čekání"}
+          subLabel={""}
           type={"number"}
           value={waiting}
           onNumberChange={(e) => setWaiting(e)}
@@ -164,6 +172,7 @@ const AddJob = () => {
 
         <InputField
           label={"Poznámka"}
+          subLabel={""}
           type={"text"}
           value={note}
           onTextChange={(e) => setNote(e)}
@@ -171,6 +180,7 @@ const AddJob = () => {
 
         <InputField
           label={"Terminál"}
+          subLabel={""}
           type={"text"}
           value={getProperTerminalName(terminal)}
           onTextChange={(e) => setTerminal(e)}

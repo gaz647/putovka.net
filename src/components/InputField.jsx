@@ -4,6 +4,7 @@ import "./InputField.css";
 
 const InputField = ({
   label,
+  subLabel,
   type,
   value,
   onDateChange,
@@ -11,6 +12,7 @@ const InputField = ({
   onNumberChange,
   onTextChange,
   onCheckboxChange,
+  onTerminalChange,
 }) => {
   const [choosedWeight, setChoosedWeight] = useState(
     type === "weight" ? (value !== "" ? value : 27) : null
@@ -41,11 +43,23 @@ const InputField = ({
     onCheckboxChange(value);
   };
 
+  const handleTerminalChange = (value) => {
+    onTerminalChange(value);
+  };
+
   return (
     <>
       {type === "date" && (
         <div className="input-field-container">
-          <label className="input-field-label">{label}</label>
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <>
+                <br />
+                <span className="input-field-sub-label">{" " + subLabel}</span>
+              </>
+            ) : null}
+          </div>
           <input
             className="input-field-field date"
             type="date"
@@ -54,9 +68,15 @@ const InputField = ({
           ></input>
         </div>
       )}
+
       {type === "text" && (
         <div className="input-field-container">
-          <label className="input-field-label">{label}</label>
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            ) : null}
+          </div>
           <input
             className="input-field-field"
             type="text"
@@ -65,9 +85,15 @@ const InputField = ({
           ></input>
         </div>
       )}
+
       {type === "number" && (
         <div className="input-field-container">
-          <label className="input-field-label">{label}</label>
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            ) : null}
+          </div>
           <input
             className="input-field-field"
             type="number"
@@ -78,8 +104,32 @@ const InputField = ({
           ></input>
         </div>
       )}
+
+      {type === "number-decimal" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <>
+                <br />
+                <span className="input-field-sub-label">{" " + subLabel}</span>
+              </>
+            ) : null}
+          </div>
+          <input
+            className="input-field-field"
+            type="number"
+            step="0.0001"
+            inputMode="numeric"
+            value={value === 0 ? "" : value}
+            onChange={(e) => handleNumberChange(e.target.value)}
+            min="0"
+          ></input>
+        </div>
+      )}
+
       {type === "weight" && (
-        <div className="input-field-weight-container">
+        <div className="input-field-container input-field-weight-container">
           <div
             className={`input-field-weight ${
               choosedWeight === 27 ? "input-field-weight-clicked" : ""
@@ -114,15 +164,53 @@ const InputField = ({
           </div>
         </div>
       )}
+
       {type === "checkbox" && (
-        <div className="input-field-checkbox-container">
-          <label className="input-field-label">{label}</label>
-          <input
-            className="input-field-checkbox"
-            type="checkbox"
-            checked={value}
-            onChange={(e) => handleCheckboxChange(e.target.checked)}
-          ></input>
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <>
+                <br />
+                <span className="input-field-sub-label">{" " + subLabel}</span>
+              </>
+            ) : null}
+          </div>
+          <div className="input-field-checkbox-container">
+            <input
+              className="input-field-checkbox"
+              type="checkbox"
+              checked={value}
+              onChange={(e) => handleCheckboxChange(e.target.checked)}
+            ></input>
+          </div>
+        </div>
+      )}
+
+      {type === "terminal" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label}
+            {subLabel !== "" ? (
+              <>
+                <br />
+                <span className="input-field-sub-label">{" " + subLabel}</span>
+              </>
+            ) : null}
+          </div>
+
+          <select
+            className="input-field-field"
+            value={value}
+            onChange={(e) => handleTerminalChange(e.target.value)}
+          >
+            <option value="ceska_trebova">Česká Třebová</option>
+            <option value="ostrava">Ostrava</option>
+            <option value="plzen">Plzeň</option>
+            <option value="praha">Praha</option>
+            <option value="usti_nad_labem">Ústí nad Labem</option>
+            <option value="zlin">Zlín</option>
+          </select>
         </div>
       )}
     </>
