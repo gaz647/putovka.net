@@ -29,6 +29,12 @@ input[type="number"] {
   font-size: 0.85rem;
 }
 
+.input-field-delete-code {
+  background-color: var(--red);
+  margin-left: 1rem;
+  padding: 0.05rem 0.2rem;
+}
+
 .input-field-field {
   min-width: 100%;
   max-width: 100%;

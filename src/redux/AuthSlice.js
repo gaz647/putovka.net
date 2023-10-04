@@ -69,7 +69,7 @@ export const registerRedux = createAsyncThunk(
       const user = await createUserWithEmailAndPassword(
         auth,
         registerCredentials.registerEmail,
-        registerCredentials.registerPassword
+        registerCredentials.registerPassword1
       );
       console.log("aktuální user: ", user.user.email);
 

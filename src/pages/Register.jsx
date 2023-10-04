@@ -9,6 +9,8 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -26,13 +28,13 @@ const Register = () => {
 
   // USE STATES
   const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPasword] = useState("");
+  const [registerPassword1, setRegisterPasword1] = useState("");
   const [registerPassword2, setRegisterPasword2] = useState("");
 
   // HANDLE REGISTER
   const handleRegister = (e) => {
     e.preventDefault();
-    if (registerPassword !== registerPassword2) {
+    if (registerPassword1 !== registerPassword2) {
       dispatch(
         runToastRedux({
           message: "Hesla se neshodují!",
@@ -42,7 +44,7 @@ const Register = () => {
       );
       return;
     } else {
-      let registerCredentials = { registerEmail, registerPassword };
+      let registerCredentials = { registerEmail, registerPassword1 };
       dispatch(registerRedux(registerCredentials));
     }
   };
@@ -109,31 +111,22 @@ const Register = () => {
           </>
         ) : (
           <form className="login-register-form">
-            <h1 className="login-register-form-heading text-shadow">
-              Registrace
-            </h1>
+            <Heading text={"Registrace"} />
 
-            <input
-              className="login-register-form-input"
-              type="email"
-              placeholder="email"
-              onChange={(e) => setRegisterEmail(e.target.value)}
-              value={registerEmail}
+            <InputField
+              type={"email"}
+              label={"nový email"}
+              onEmailChange={(e) => setRegisterEmail(e)}
             />
-
-            <input
-              className="login-register-form-input"
-              type="password"
-              placeholder="zadejte heslo"
-              onChange={(e) => setRegisterPasword(e.target.value)}
-              value={registerPassword}
+            <InputField
+              type={"password"}
+              label={"heslo"}
+              onPasswordChange={(e) => setRegisterPasword1(e)}
             />
-            <input
-              className="login-register-form-input"
-              type="password"
-              placeholder="zadejte stejné heslo"
-              onChange={(e) => setRegisterPasword2(e.target.value)}
-              value={registerPassword2}
+            <InputField
+              type={"password"}
+              label={"heslo znovu"}
+              onPasswordChange={(e) => setRegisterPasword2(e)}
             />
 
             <ConfirmDeclineBtns

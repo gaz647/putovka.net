@@ -7,6 +7,8 @@ import { runToastRedux, deleteAccountRedux } from "../redux/AuthSlice";
 import ModalPrompt from "../components/ModalPrompt";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const DeleteAccount = () => {
   const dispatch = useDispatch();
@@ -122,57 +124,22 @@ const DeleteAccount = () => {
           </>
         ) : (
           <>
-            <header className="change-email-password-header">
-              <div className="change-email-password-header-title">
-                SMAZÁNÍ ÚČTU
-              </div>
-            </header>
+            <Heading text={"SMAZÁNÍ ÚČTU"} />
+
             <main>
               <form className="change-email-password-form">
-                <div className="change-email-password-form-container">
-                  <label className="change-email-password-form-item-container-label">
-                    současné heslo pro potvrzení
-                  </label>
-                  <div className="change-email-password-form-item-container-email">
-                    <input
-                      className="change-email-password-form-item-container-input"
-                      type="password"
-                      placeholder="současné heslo"
-                      value={currentPassword}
-                      onChange={(e) => setCurrentPassword(e.target.value)}
-                    />
-                    {/* <div className="warning-container">
-                {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
-                  <div className="warning-message">emaily se neshodují</div>
-                ) : (
-                  ""
-                )}
-              </div> */}
-                  </div>
-                </div>
-                <div className="change-email-password-form-container">
-                  <label className="change-email-password-form-item-container-label">
-                    opište následující kód:
-                    <br />
-                    <span className="delete-account-code">{deleteCode}</span>
-                  </label>
-                  <div className="change-email-password-form-item-container-email">
-                    <input
-                      className="change-email-password-form-item-container-input"
-                      type="password"
-                      placeholder="kód pro potvrzení"
-                      value={userConfirmationCode}
-                      onChange={(e) => setUserConfirmationCode(e.target.value)}
-                    />
-                    {/* <div className="warning-container">
-                {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
-                  <div className="warning-message">emaily se neshodují</div>
-                ) : (
-                  ""
-                )}
-              </div> */}
-                  </div>
-                </div>
+                <InputField
+                  type={"password"}
+                  label={"současné heslo"}
+                  onPasswordChange={(e) => setCurrentPassword(e)}
+                />
+
+                <InputField
+                  type={"text"}
+                  label={"opište následující kód:"}
+                  deleteCode={deleteCode}
+                  onTextChange={(e) => setUserConfirmationCode(e)}
+                />
 
                 <ConfirmDeclineBtns
                   confirmFunction={handleSubmit}

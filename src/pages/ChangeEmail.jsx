@@ -6,6 +6,8 @@ import { changeEmailRedux, logoutRedux } from "../redux/AuthSlice";
 import resetIsAccountDisabled from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const ChangeEmail = () => {
   const dispatch = useDispatch();
@@ -81,64 +83,26 @@ const ChangeEmail = () => {
         </>
       ) : (
         <>
-          <header className="change-email-password-header">
-            <div className="change-email-password-header-title">
-              změna emailu
-            </div>
-          </header>
+          <Heading text={"změna EMAILU"} />
+
           <main>
             <form className="change-email-password-form">
-              <div className="change-email-password-form-container">
-                <label className="change-email-password-form-item-container-label">
-                  nový email
-                </label>
-                <div className="change-email-password-form-item-container-email">
-                  <input
-                    className="change-email-password-form-item-container-input"
-                    type="email"
-                    placeholder="nový email"
-                    value={newEmail1}
-                    onChange={(e) => setNewEmail1(e.target.value)}
-                  />
-
-                  <input
-                    className="change-email-password-form-item-container-input"
-                    type="email"
-                    placeholder="nový email znovu"
-                    value={newEmail2}
-                    onChange={(e) => setNewEmail2(e.target.value)}
-                    disabled={!newEmail1}
-                  />
-                  <div className="warning-container">
-                    {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
-                      <div className="warning-message">emaily se neshodují</div>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="change-email-password-form-container">
-                <label className="change-email-password-form-item-container-label">
-                  současné heslo pro potvrzení
-                </label>
-                <div className="change-email-password-form-item-container-email">
-                  <input
-                    className="change-email-password-form-item-container-input"
-                    type="password"
-                    placeholder="současné heslo"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
-                  />
-                  {/* <div className="warning-container">
-                {newEmail1 && newEmail2 && newEmail1 !== newEmail2 ? (
-                  <div className="warning-message">emaily se neshodují</div>
-                ) : (
-                  ""
-                )}
-              </div> */}
-                </div>
-              </div>
+              <InputField
+                type={"email"}
+                label={"nový email"}
+                onEmailChange={(e) => setNewEmail1(e)}
+              />
+              <InputField
+                type={"email"}
+                label={"nový email znovu"}
+                onEmailChange={(e) => setNewEmail2(e)}
+              />
+              <br />
+              <InputField
+                type={"password"}
+                label={"současné heslo"}
+                onPasswordChange={(e) => setCurrentPassword(e)}
+              />
 
               <ConfirmDeclineBtns
                 confirmFunction={changeEmail}

@@ -274,7 +274,6 @@ const Settings = () => {
               <InputField
                 type={"terminal"}
                 label={"terminál"}
-                subLabel={""}
                 value={terminal}
                 onTerminalChange={(e) => {
                   setTerminal(e);
@@ -294,7 +293,6 @@ const Settings = () => {
               <InputField
                 type={"number"}
                 label={"% z fakturace"}
-                subLabel={""}
                 value={percentage}
                 onNumberChange={(e) => {
                   setPercentage(e);

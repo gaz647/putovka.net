@@ -7,9 +7,12 @@ const InputField = ({
   subLabel,
   type,
   value,
+  deleteCode,
   onDateChange,
   onWeightChange,
   onNumberChange,
+  onEmailChange,
+  onPasswordChange,
   onTextChange,
   onCheckboxChange,
   onTerminalChange,
@@ -39,6 +42,14 @@ const InputField = ({
     }
   };
 
+  const handleEmailChange = (value) => {
+    onEmailChange(String(value));
+  };
+
+  const handlePasswordChange = (value) => {
+    onPasswordChange(String(value));
+  };
+
   const handleCheckboxChange = (value) => {
     onCheckboxChange(value);
   };
@@ -52,13 +63,13 @@ const InputField = ({
       {type === "date" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <>
                 <br />
                 <span className="input-field-sub-label">{" " + subLabel}</span>
               </>
-            ) : null}
+            )}
           </div>
           <input
             className="input-field-field date"
@@ -72,10 +83,13 @@ const InputField = ({
       {type === "text" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <span className="input-field-sub-label">{" " + subLabel}</span>
-            ) : null}
+            )}
+            {deleteCode && (
+              <span className="input-field-delete-code">{deleteCode}</span>
+            )}
           </div>
           <input
             className="input-field-field"
@@ -89,10 +103,10 @@ const InputField = ({
       {type === "number" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <span className="input-field-sub-label">{" " + subLabel}</span>
-            ) : null}
+            )}
           </div>
           <input
             className="input-field-field"
@@ -108,13 +122,13 @@ const InputField = ({
       {type === "number-decimal" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <>
                 <br />
                 <span className="input-field-sub-label">{" " + subLabel}</span>
               </>
-            ) : null}
+            )}
           </div>
           <input
             className="input-field-field"
@@ -124,6 +138,40 @@ const InputField = ({
             value={value === 0 ? "" : value}
             onChange={(e) => handleNumberChange(e.target.value)}
             min="0"
+          ></input>
+        </div>
+      )}
+
+      {type === "email" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            )}
+          </div>
+          <input
+            className="input-field-field"
+            type="email"
+            value={value}
+            onChange={(e) => handleEmailChange(e.target.value)}
+          ></input>
+        </div>
+      )}
+
+      {type === "password" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            )}
+          </div>
+          <input
+            className="input-field-field"
+            type="password"
+            value={value}
+            onChange={(e) => handlePasswordChange(e.target.value)}
           ></input>
         </div>
       )}
@@ -168,13 +216,13 @@ const InputField = ({
       {type === "checkbox" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <>
                 <br />
                 <span className="input-field-sub-label">{" " + subLabel}</span>
               </>
-            ) : null}
+            )}
           </div>
           <div className="input-field-checkbox-container">
             <input
@@ -190,13 +238,13 @@ const InputField = ({
       {type === "terminal" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
-            {label}
-            {subLabel !== "" ? (
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
               <>
                 <br />
                 <span className="input-field-sub-label">{" " + subLabel}</span>
               </>
-            ) : null}
+            )}
           </div>
 
           <select

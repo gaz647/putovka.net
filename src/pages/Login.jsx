@@ -8,6 +8,8 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -91,24 +93,17 @@ const Login = () => {
           </>
         ) : (
           <form className="login-register-form">
-            <h1 className="login-register-form-heading text-shadow">
-              Přihlášení
-            </h1>
+            <Heading text={"Přihlášení"} />
 
-            <input
-              className="login-register-form-input"
-              type="email"
-              placeholder="email"
-              onChange={(e) => setLoginEmail(e.target.value)}
-              value={loginEmail}
+            <InputField
+              type={"email"}
+              label={"email"}
+              onEmailChange={(e) => setLoginEmail(e)}
             />
-
-            <input
-              className="login-register-form-input"
-              type="password"
-              placeholder="heslo"
-              onChange={(e) => setLoginPassword(e.target.value)}
-              value={loginPassword}
+            <InputField
+              type={"password"}
+              label={"heslo"}
+              onPasswordChange={(e) => setLoginPassword(e)}
             />
 
             <ConfirmDeclineBtns
