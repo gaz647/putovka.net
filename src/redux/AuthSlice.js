@@ -23,6 +23,27 @@ import {
 import { db } from "../firebase/config";
 import axios from "axios";
 
+// GET INFO MESSAGE
+//
+export const getInfoMessageRedux = createAsyncThunk(
+  "auth/getInfoMessageRedux",
+  async () => {
+    try {
+      const docRef = doc(db, "infoMessage", "message");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        return docSnap.data().messageText;
+      } else {
+        console.log("No such document!");
+      }
+    } catch (error) {
+      console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
+      throw error.message;
+    }
+  }
+);
+
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
 const createUserData = async (userAuth) => {
@@ -134,7 +155,6 @@ export const loadUserDataRedux = createAsyncThunk(
 export const logoutRedux = createAsyncThunk("auth/logoutRedux", async () => {
   try {
     await signOut(auth);
-    localStorage.removeItem("emailVerified");
   } catch (error) {
     throw error.message;
   }
@@ -147,7 +167,6 @@ export const logoutInSettingsRedux = createAsyncThunk(
   async () => {
     try {
       await signOut(auth);
-      localStorage.removeItem("emailVerified");
     } catch (error) {
       throw error.message;
     }
@@ -168,7 +187,6 @@ export const changeEmailRedux = createAsyncThunk(
       await updateEmail(auth.currentUser, newEmail);
       await sendEmailVerification(auth.currentUser);
       // await signOut(auth);
-      // localStorage.removeItem("emailVerified");
     } catch (error) {
       throw error.message;
     }
@@ -520,6 +538,7 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
+    infoMessage: null,
     toast: {
       isVisible: false,
       message: "",
@@ -677,6 +696,7 @@ export const authSlice = createSlice({
 
     logoutOnAuthRedux(state) {
       console.log("logoutOnAuthRedux SPUŠTĚN");
+      state.infoMessage = null;
       state.isLoggedIn = false;
       state.loggedInUserEmail = null;
       state.loggedInUserUid = null;
@@ -949,6 +969,19 @@ export const authSlice = createSlice({
         console.log("loadUserDataRedux SELHAL", action.error.message);
         state.isLoading = false;
         state.isLoading2 = false;
+      })
+      //
+      // -----------------------------------------------------------------------
+      //
+      .addCase(getInfoMessageRedux.pending, () => {
+        console.log("getInfoMessageRedux PROBÍHÁ");
+      })
+      .addCase(getInfoMessageRedux.fulfilled, (state, action) => {
+        console.log("getInfoMessageRedux ÚSPĚŠNĚ DOKONČEN");
+        state.infoMessage = action.payload;
+      })
+      .addCase(getInfoMessageRedux.rejected, (state, action) => {
+        console.log("getInfoMessageRedux SELHAL", action.error.message);
       })
       //
       // -----------------------------------------------------------------------

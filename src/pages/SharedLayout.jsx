@@ -26,6 +26,8 @@ const SharedLayout = () => {
         ? toast.success(`${toastRedux.message}`)
         : toastRedux.style === "error"
         ? toast.error(`${toastRedux.message}`)
+        : toastRedux.style === "warning"
+        ? toast.warning(`${toastRedux.message}`)
         : null;
     }
   }, [toastRedux.isVisible, toastRedux.message, toastRedux.style]);

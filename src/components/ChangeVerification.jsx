@@ -38,9 +38,10 @@ const ChangeVerification = () => {
     // Vytvoření intervalu pro aktualizaci odpočítávání
     const interval = setInterval(() => {
       setSecondsRemaining((prevSeconds) => prevSeconds - 1);
-    }, 5000);
+    }, 1000);
 
     // Po uplynutí timeoutu provedeme potřebné akce a zrušíme interval
+
     setTimeout(() => {
       dispatch(logoutRedux());
       dispatch(logoutOnAuthRedux());
@@ -61,14 +62,14 @@ const ChangeVerification = () => {
           {location.state.firstMessage}
         </h3>
 
-        {location.state.secondMessage !== "" ? (
+        {location.state.secondMessage && (
           <h3 className="sent-message text-shadow">
             {location.state.secondMessage}
           </h3>
-        ) : null}
+        )}
 
         <h4 className="sent-message-redirect-info text-shadow">
-          Nyní budete přesměrování na přihlašovací obrazovku.
+          Nyní budete přesměrováni na přihlašovací obrazovku.
         </h4>
 
         <h3 className="text-shadow">{secondsRemaining}</h3>

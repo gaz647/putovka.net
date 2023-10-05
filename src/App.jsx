@@ -26,9 +26,10 @@ import {
   logoutOnAuthRedux,
   logoutRedux,
   loadUserDataRedux,
-  // runToastRedux,
+  getInfoMessageRedux,
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
+  runToastRedux,
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
 
@@ -43,6 +44,7 @@ const App = () => {
   const isAccountDeletingPending = useSelector(
     (state) => state.auth.isAccountDeletingPending
   );
+  const infoMessage = useSelector((state) => state.auth.infoMessage);
 
   // USE EFFECTS
   useEffect(() => {
@@ -77,6 +79,7 @@ const App = () => {
 
           dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
           dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+          dispatch(getInfoMessageRedux());
         }
       });
       return () => {
@@ -84,6 +87,27 @@ const App = () => {
       };
     }
   }, [dispatch, isAccountDeletingPending, isLoginPending, isRegisterPending]);
+
+  useEffect(() => {
+    //  RUN MESSAGE
+    //
+    const lsInfoMessage = localStorage.getItem("infoMessage");
+
+    if (infoMessage !== null && infoMessage !== "") {
+      if (lsInfoMessage === null || infoMessage !== lsInfoMessage) {
+        console.log("infoMessage", infoMessage, "lsInfoMessage", lsInfoMessage);
+        console.log("teď má vyjet toast");
+        dispatch(
+          runToastRedux({
+            message: infoMessage,
+            style: "warning",
+            time: false,
+          })
+        );
+        localStorage.setItem("infoMessage", infoMessage);
+      }
+    }
+  }, [dispatch, infoMessage]);
 
   return (
     <BrowserRouter>

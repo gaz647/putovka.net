@@ -68,7 +68,6 @@ const Settings = () => {
         replace: true,
         state: {
           firstMessage: "Odhlášení proběhlo úspěšně",
-          secondMessage: "Nyní proběhne přesměrování na přihlašovací obrazovku",
         },
       });
     }
