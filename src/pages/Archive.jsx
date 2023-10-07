@@ -3,6 +3,7 @@ import ArchiveMonth from "../components/ArchiveMonth";
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import Heading from "../components/Heading";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const Archive = () => {
   const archivedJobs = useSelector(
@@ -11,6 +12,7 @@ const Archive = () => {
 
   return (
     <section className="wrapper">
+      <BackToTopBtn />
       {archivedJobs.length === 0 ? (
         <Heading text={"Archiv je prázdný"} />
       ) : null}

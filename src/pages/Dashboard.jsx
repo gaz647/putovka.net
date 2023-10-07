@@ -19,6 +19,7 @@ import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiv
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
 import Spinner2 from "../components/Spinner2";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -317,11 +318,12 @@ const Dashboard = () => {
 
   return (
     <section className="wrapper relative">
+      <BackToTopBtn />
       {isLoading2 ? (
         <Spinner2 />
       ) : (
         <>
-          <section className="dashboard ">
+          <section className="dashboard">
             {showArchiveModal && (
               <ModalPrompt
                 heading={archiveModalHeading}

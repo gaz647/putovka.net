@@ -6,7 +6,7 @@ const Error404 = () => {
     <section>
       <h1>404</h1>
       <br />
-      <p>Page does not exist</p>
+      <p>Stránka neexistuje</p>
       <p>
         <Link to={"/"}>Zpět na domovskou stránku</Link>
       </p>
