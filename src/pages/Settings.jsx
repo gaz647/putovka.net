@@ -4,17 +4,19 @@ import { changeSettingsRedux, logoutInSettingsRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { setLoadingFalse } from "../redux/AuthSlice";
-// import Spinner from "../components/Spinner";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner2 from "../components/Spinner2";
 import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const Settings = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const loggedInUserEmail = useSelector(
     (state) => state.auth.loggedInUserEmail
@@ -27,7 +29,7 @@ const Settings = () => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const email = useSelector((state) => state.auth.loggedInUserEmail);
 
-  // USE STATE ---------------------------------------------------------------
+  // USE STATE -----------------------------------------------------------
   //
   const [baseMoney, setBaseMoney] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
@@ -60,27 +62,7 @@ const Settings = () => {
   const [isConfirmDeclineBtnsVisible, setIsConfirmDeclineBtnsVisible] =
     useState(false);
 
-  // USE EFFECT
-  //
-  useEffect(() => {
-    if (isAccountLogoutSuccess) {
-      navigate("/change-verification", {
-        replace: true,
-        state: {
-          firstMessage: "Odhlášení proběhlo úspěšně",
-        },
-      });
-    }
-  }, [dispatch, isAccountLogoutSuccess, navigate]);
-
-  // HANDLE LOGOUT
-  //
-  const handleLogout = () => {
-    dispatch(logoutInSettingsRedux());
-    // dispatch(logoutOnAuthRedux());
-  };
-
-  // HANDLE SUBMIT
+  // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
     const payload = {
@@ -100,10 +82,30 @@ const Settings = () => {
     navigate("/");
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
     navigate("/");
+  };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    if (isAccountLogoutSuccess) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Odhlášení proběhlo úspěšně",
+        },
+      });
+    }
+  }, [dispatch, isAccountLogoutSuccess, navigate]);
+
+  // HANDLE LOGOUT -------------------------------------------------------
+  //
+  const handleLogout = () => {
+    dispatch(logoutInSettingsRedux());
+    // dispatch(logoutOnAuthRedux());
   };
 
   return (
@@ -117,7 +119,7 @@ const Settings = () => {
       ) : (
         <>
           <header className="settings-header">
-            <h1 className="settings-header-title text-shadow">Nastavení</h1>
+            <Heading text={"Nastavení"} />
             <div className="settings-header-user-email text-shadow">
               {loggedInUserEmail}
             </div>
@@ -148,128 +150,6 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
-              {/* <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  terminál
-                </label>
-                <select
-                  className="settings-form-item-container-input"
-                  value={terminal}
-                  onChange={(e) => {
-                    setTerminal(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                >
-                  <option value="ceska_trebova">Česká Třebová</option>
-                  <option value="ostrava">Ostrava</option>
-                  <option value="plzen">Plzeň</option>
-                  <option value="praha">Praha</option>
-                  <option value="usti_nad_labem">Ústí nad Labem</option>
-                  <option value="zlin">Zlín</option>
-                </select>
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  základní mzda (Kč)
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={baseMoney === 0 ? "" : baseMoney}
-                  onChange={(e) => {
-                    setBaseMoney(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  % z fakturace
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={percentage === 0 ? "" : percentage}
-                  onChange={(e) => {
-                    setPercentage(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  příplatek za druhou práci (Kč)
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={secondJobBenefit === 0 ? "" : secondJobBenefit}
-                  onChange={(e) => {
-                    setSecondJobBenefit(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  příplatek za čekání - <br />{" "}
-                  <span className="settings-form-item-container-label-info-text">
-                    (zaměstnavatel - Kč)
-                  </span>
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={
-                    waitingBenefitEmployerCzk === 0
-                      ? ""
-                      : waitingBenefitEmployerCzk
-                  }
-                  onChange={(e) => {
-                    setWaitingBenefitEmployerCzk(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  příplatek za čekání (€)
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={waitingBenefitEur === 0 ? "" : waitingBenefitEur}
-                  onChange={(e) => {
-                    setWaitingBenefitEur(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label text-shadow">
-                  kurz Eur/Kč
-                  <br />
-                  <span className="settings-form-item-container-label-info-text">
-                    (automaticky aktualizován po archivaci)
-                  </span>
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  inputMode="numeric"
-                  value={eurCzkRate === 0 ? "" : eurCzkRate}
-                  onChange={(e) => {
-                    setEurCzkRate(e.target.value);
-                    setIsConfirmDeclineBtnsVisible(true);
-                  }}
-                />
-              </div>
-              <br /> */}
               <InputField
                 type={"terminal"}
                 label={"terminál"}

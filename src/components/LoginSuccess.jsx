@@ -8,8 +8,17 @@ const LoginSuccess = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log("SPINNER PAGE");
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
 
+  // USE SELECTOR --------------------------------------------------------
+  //
+
+  // USE STATE -----------------------------------------------------------
+  //
+
+  // USE EFFECT ----------------------------------------------------------
+  //
   useEffect(() => {
     console.log("SpinnerPage - teď se má spustit přesměrování na Dashboard");
     dispatch(setIsLoadingFalseRedux());

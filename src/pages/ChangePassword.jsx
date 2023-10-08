@@ -12,34 +12,23 @@ const ChangePassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const isPasswordChangedSuccess = useSelector(
     (state) => state.auth.isPasswordChangedSuccess
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  // USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword1, setNewPassword1] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
 
-  // USE EFFECT
-  //
-  useEffect(() => {
-    if (isPasswordChangedSuccess) {
-      navigate("/change-verification", {
-        replace: true,
-        state: {
-          firstMessage: "Vaše heslo bylo změněno!",
-          secondMessage: "",
-        },
-      });
-    }
-  }, [isPasswordChangedSuccess, navigate]);
-
-  // CHANGE EMAIL
+  // CHANGE EMAIL --------------------------------------------------------
   //
   const changeEmail = () => {
     console.log("click");
@@ -65,17 +54,31 @@ const ChangePassword = () => {
     }
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
     navigate("/settings");
   };
 
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    if (isPasswordChangedSuccess) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Vaše heslo bylo změněno!",
+          secondMessage: "",
+        },
+      });
+    }
+  }, [isPasswordChangedSuccess, navigate]);
+
   return (
     <section className="wrapper">
       {isLoading2 ? (
         <>
-          <h1>Probíhá změna hesla</h1>
+          <Heading text={"Probíhá změna hesla"} />
           <p>isLoading2</p>
           <Spinner2 />
         </>

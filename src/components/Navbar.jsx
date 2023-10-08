@@ -14,10 +14,23 @@ import {
 } from "../redux/AuthSlice";
 
 const Navbar = () => {
-  const isEditing = useSelector((state) => state.auth.isEditing);
-
   const dispatch = useDispatch();
 
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
+  const isEditing = useSelector((state) => state.auth.isEditing);
+
+  // USE STATE -----------------------------------------------------------
+  //
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+
+  // RESET ---------------------------------------------------------------
+  //
   const reset = () => {
     dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToAddValuesRedux());

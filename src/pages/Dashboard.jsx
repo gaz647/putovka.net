@@ -24,7 +24,10 @@ import BackToTopBtn from "../components/BackToTopBtn";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const loggedInUserSettings = useSelector(
     (state) => state.auth.loggedInUserData.userSettings
@@ -35,7 +38,6 @@ const Dashboard = () => {
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
@@ -67,7 +69,7 @@ const Dashboard = () => {
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  // USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [totalEur, setTotalEur] = useState(0);
   const [totalCzk, setTotalCzk] = useState(0);
@@ -77,105 +79,19 @@ const Dashboard = () => {
   const [totalWaiting, setTotalWaiting] = useState(0);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
-  // USE EFFECT
-  useEffect(() => {
-    setTotalJobs(currentJobs.length);
-    setTotalSecondJobs(
-      currentJobs.filter((oneJob) => oneJob.isSecondJob === true).length
-    );
-    setTotalWaiting(
-      currentJobs.reduce((acc, oneJob) => {
-        return acc + Number(oneJob.waiting);
-      }, 0)
-    );
-    setTotalEur(
-      currentJobs.reduce((acc, oneJob) => {
-        return acc + Number(oneJob.price);
-      }, 0)
-    );
-    setTotalCzk(parseInt(totalEur * eurCzkRate));
-
-    setSalary(
-      parseInt(
-        baseMoney +
-          totalCzk * (percentage * 0.01) +
-          totalSecondJobs * secondJobBenefit +
-          totalWaiting * waitingBenefitEmployerCzk +
-          totalWaiting * waitingBenefitEur * eurCzkRate
-      )
-    );
-  }, [
-    currentJobs,
-    eurCzkRate,
-    totalEur,
-    baseMoney,
-    totalCzk,
-    percentage,
-    totalSecondJobs,
-    secondJobBenefit,
-    totalWaiting,
-    waitingBenefitEmployerCzk,
-    waitingBenefitEur,
-  ]);
-
-  useEffect(() => {
-    if (email && loggedInUserEmail) {
-      if (email !== loggedInUserEmail) {
-        console.log(
-          "email byl změněn --> spouštím dispatch pro změnu userSettings"
-        );
-        console.log(email);
-        console.log(loggedInUserEmail);
-
-        const payload = {
-          userUid,
-          userSettings: {
-            baseMoney: Number(loggedInUserSettings.baseMoney),
-            email: loggedInUserEmail,
-            eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
-            percentage: Number(loggedInUserSettings.percentage),
-            secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
-            terminal: loggedInUserSettings.terminal,
-            waitingBenefitEmployerCzk: Number(
-              loggedInUserSettings.waitingBenefitEmployerCzk
-            ),
-            waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
-          },
-        };
-        console.log(payload);
-        dispatch(changeSettingsRedux(payload));
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, email, loggedInUserEmail]);
-
-  const archiveModalHeading =
-    "Archivovat práce z posledního měsíce ve Vašem výpisu? ";
-
-  const archiveModalText = "tento krok nelze vrátit";
-
-  // ARCHIVE JOBS 2 - nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs
-  //
+  // ARCHIVE JOBS 2 ------------------------------------------------------
+  // nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs ----
   //
   const archiveJobs2 = async () => {
-    // ... (existující části kódu)
-
     try {
       const renewedEurCzkRate = await getEurCzkCurrencyRate(); // Počká na dokončení asynchronní funkce
-      // ... (zbytek kódu, který závisí na hodnotě eurCzkRate)
-      //
-      //
       archiveJobs(renewedEurCzkRate);
-      //
-      //
-      //
     } catch (error) {
       console.error(error.message);
     }
   };
-  //
 
-  // ARCHIVE JOBS
+  // ARCHIVE JOBS --------------------------------------------------------
   //
   const archiveJobs = (newEurCzkRate) => {
     setShowArchiveModal(!showArchiveModal);
@@ -306,15 +222,85 @@ const Dashboard = () => {
       }
     }
   };
-  //
-  //
-  //
 
-  // HANDLE MODAL VISIBILITY
+  // HANDLE MODAL VISIBILITY ---------------------------------------------
   //
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    setTotalJobs(currentJobs.length);
+    setTotalSecondJobs(
+      currentJobs.filter((oneJob) => oneJob.isSecondJob === true).length
+    );
+    setTotalWaiting(
+      currentJobs.reduce((acc, oneJob) => {
+        return acc + Number(oneJob.waiting);
+      }, 0)
+    );
+    setTotalEur(
+      currentJobs.reduce((acc, oneJob) => {
+        return acc + Number(oneJob.price);
+      }, 0)
+    );
+    setTotalCzk(parseInt(totalEur * eurCzkRate));
+
+    setSalary(
+      parseInt(
+        baseMoney +
+          totalCzk * (percentage * 0.01) +
+          totalSecondJobs * secondJobBenefit +
+          totalWaiting * waitingBenefitEmployerCzk +
+          totalWaiting * waitingBenefitEur * eurCzkRate
+      )
+    );
+  }, [
+    currentJobs,
+    eurCzkRate,
+    totalEur,
+    baseMoney,
+    totalCzk,
+    percentage,
+    totalSecondJobs,
+    secondJobBenefit,
+    totalWaiting,
+    waitingBenefitEmployerCzk,
+    waitingBenefitEur,
+  ]);
+
+  useEffect(() => {
+    if (email && loggedInUserEmail) {
+      if (email !== loggedInUserEmail) {
+        console.log(
+          "email byl změněn --> spouštím dispatch pro změnu userSettings"
+        );
+        console.log(email);
+        console.log(loggedInUserEmail);
+
+        const payload = {
+          userUid,
+          userSettings: {
+            baseMoney: Number(loggedInUserSettings.baseMoney),
+            email: loggedInUserEmail,
+            eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
+            percentage: Number(loggedInUserSettings.percentage),
+            secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
+            terminal: loggedInUserSettings.terminal,
+            waitingBenefitEmployerCzk: Number(
+              loggedInUserSettings.waitingBenefitEmployerCzk
+            ),
+            waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
+          },
+        };
+        console.log(payload);
+        dispatch(changeSettingsRedux(payload));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, email, loggedInUserEmail]);
 
   return (
     <section className="wrapper relative">
@@ -326,8 +312,10 @@ const Dashboard = () => {
           <section className="dashboard">
             {showArchiveModal && (
               <ModalPrompt
-                heading={archiveModalHeading}
-                text={archiveModalText}
+                heading={
+                  "Archivovat práce z posledního měsíce ve Vašem výpisu?"
+                }
+                text={"tento krok nelze vrátit"}
                 confirmFunction={archiveJobs2}
                 declineFunction={handleArchiveModalVisibility}
               />

@@ -16,11 +16,10 @@ import { BsTrash3 } from "react-icons/bs";
 
 const ArchiveMonthJob = ({ oneJobData }) => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
   const {
     city,
     cmr,
@@ -40,21 +39,27 @@ const ArchiveMonthJob = ({ oneJobData }) => {
     zipcode,
   } = oneJobData;
 
+  // USE SELECTOR --------------------------------------------------------
+  //
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
 
-  // EDIT ARCHIVED JOB
-
-  const archiveJobEditModalHeading =
-    "Upravit vybranou práci v měsíci z archivu?";
-
+  // USE STATE -----------------------------------------------------------
+  //
   const [showArchiveJobEditModal, setShowArchiveJobEditModal] = useState(false);
+  const [showArchiveJobDeleteModal, setShowArchiveJobDeleteModal] =
+    useState(false);
 
+  // HANDLE ARCHVIE JOB EDIT MODAL VISIBILITY ----------------------------
+  //
   const handleArchiveJobEditModalVisibility = () => {
     setShowArchiveJobEditModal(!showArchiveJobEditModal);
   };
 
+  // EDIT ARCHIVE MONTH JOB ----------------------------------------------
+  //
   const editArchiveMonthJob = () => {
     const archivedJobToEdit = {
       city,
@@ -81,11 +86,9 @@ const ArchiveMonthJob = ({ oneJobData }) => {
     navigate("/edit-job");
   };
 
-  // DELETE ARCHIVED JOB
-
+  // DELETE ARCHIVED JOB -------------------------------------------------
+  //
   const deleteArchiveMonthJob = (idOfJob) => {
-    // setShowArchiveModal(!showArchiveModal);
-
     const tempArchivedJobs = [...archivedJobs];
 
     const filteredArchivedJobs = tempArchivedJobs.map((oneMonth) => {
@@ -104,32 +107,28 @@ const ArchiveMonthJob = ({ oneJobData }) => {
     dispatch(deleteArchiveMonthJobRedux(payload));
   };
 
-  const archiveJobDeleteModalHeading =
-    "Smazat vybranou práci v měsíci z archivu?";
-
-  const archiveJobDeleteModalText = "tuto akci nelze vzít zpět";
-
-  const [showArchiveJobDeleteModal, setShowArchiveJobDeleteModal] =
-    useState(false);
-
+  // HANDLE ARCHIVE JOB DELETE MODAL VISIBILITIY -------------------------
+  //
   const handleArchiveJobDeleteModalVisibility = () => {
     setShowArchiveJobDeleteModal(!showArchiveJobDeleteModal);
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
 
   return (
     <section className="archive-month-job">
       {showArchiveJobEditModal && (
         <ModalPrompt
-          heading={archiveJobEditModalHeading}
-          text={""}
+          heading={"Upravit vybranou práci v měsíci z archivu?"}
           confirmFunction={editArchiveMonthJob}
           declineFunction={handleArchiveJobEditModalVisibility}
         />
       )}
       {showArchiveJobDeleteModal && (
         <ModalPrompt
-          heading={archiveJobDeleteModalHeading}
-          text={archiveJobDeleteModalText}
+          heading={"Smazat vybranou práci v měsíci z archivu?"}
+          text={"tuto akci nelze vzít zpět"}
           confirmFunction={() => deleteArchiveMonthJob(id)}
           declineFunction={handleArchiveJobDeleteModalVisibility}
         />

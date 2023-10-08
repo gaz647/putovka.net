@@ -17,23 +17,42 @@ const InputField = ({
   onCheckboxChange,
   onTerminalChange,
 }) => {
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
+
+  // USE STATE -----------------------------------------------------------
+  //
   const [choosedWeight, setChoosedWeight] = useState(
     type === "weight" ? (value !== "" ? value : 27) : null
   );
 
+  // USE EFFECT ----------------------------------------------------------
+  //
+
+  // HANDLE WEIGHT CHANGE ------------------------------------------------
+  //
   const handleWeightChange = (value) => {
     setChoosedWeight(value);
     onWeightChange(Number(value));
   };
 
+  // HANDLE DATE CHANGE --------------------------------------------------
+  //
   const handleDateChange = (value) => {
     onDateChange(String(value));
   };
 
+  // HANDLE TEXT CHANGE --------------------------------------------------
+  //
   const handleTextChange = (value) => {
     onTextChange(String(value));
   };
 
+  // HANDLE NUMBER CHANGE ------------------------------------------------
+  //
   const handleNumberChange = (value) => {
     if (value < 0) {
       return;
@@ -42,18 +61,26 @@ const InputField = ({
     }
   };
 
+  // HANDLE EMAIL CHANGE -------------------------------------------------
+  //
   const handleEmailChange = (value) => {
     onEmailChange(String(value));
   };
 
+  // HANDLE PASSWORD CHANGE ----------------------------------------------
+  //
   const handlePasswordChange = (value) => {
     onPasswordChange(String(value));
   };
 
+  // HANDLE CHECKBOX CHANGE ----------------------------------------------
+  //
   const handleCheckboxChange = (value) => {
     onCheckboxChange(value);
   };
 
+  // HANDLE TERMINAL CHANGE ----------------------------------------------
+  //
   const handleTerminalChange = (value) => {
     onTerminalChange(value);
   };

@@ -12,10 +12,24 @@ import zlin from "../assets/prices/zlin.json";
 import Spinner2 from "../components/Spinner2";
 
 const Search = () => {
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const terminal = useSelector(
     (state) => state.auth.loggedInUserData.userSettings.terminal
   );
 
+  // USE STATE -----------------------------------------------------------
+  //
+  const [json, setJson] = useState([]);
+  const [inputText, setInputText] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchResultsReady, setSearchResultsReady] = useState(true);
+
+  // DISPLAY PROPER TERMINAL NAME ----------------------------------------
+  //
   const displayProperTerminalName = (value) => {
     if (value === "ceska_trebova") {
       return "Česká Třebová";
@@ -34,48 +48,8 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    switch (terminal) {
-      case "ceska_trebova":
-        setJson(ceska_trebova);
-        console.log("terminál Česká Třebová");
-        break;
-      case "ostrava":
-        setJson(ostrava);
-        console.log("terminál Ostrava");
-        break;
-      case "plzen":
-        setJson(plzen);
-        console.log("terminál Plzeň");
-        break;
-      case "praha":
-        setJson(praha);
-        console.log("terminál Praha");
-        break;
-      case "usti_nad_labem":
-        setJson(usti_nad_labem);
-        console.log("terminál Ústí nad Labem");
-        break;
-      case "zlin":
-        setJson(zlin);
-        console.log("terminál Zlín");
-        break;
-
-      default:
-        setJson(ceska_trebova);
-        console.log("spuštěň default");
-        break;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [terminal]);
-
-  const [json, setJson] = useState([]);
-
-  const [inputText, setInputText] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
-  const [searchResultsReady, setSearchResultsReady] = useState(true);
-
+  // FILTER BY USER INPUT ------------------------------------------------
+  //
   const filterByUserInput = (arrayOfObjects, letter) => {
     let result = [];
 
@@ -152,6 +126,57 @@ const Search = () => {
     return result;
   };
 
+  // HANDLE CHANGE -------------------------------------------------------
+  //
+  const handleChange = (event) => {
+    setSearchResultsReady(false);
+    setInputText(event.target.value);
+  };
+
+  // DELETE INPUT TEXT ---------------------------------------------------
+  //
+  const deleteInputText = () => {
+    setInputText("");
+    setSearchResults([]);
+  };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    switch (terminal) {
+      case "ceska_trebova":
+        setJson(ceska_trebova);
+        console.log("terminál Česká Třebová");
+        break;
+      case "ostrava":
+        setJson(ostrava);
+        console.log("terminál Ostrava");
+        break;
+      case "plzen":
+        setJson(plzen);
+        console.log("terminál Plzeň");
+        break;
+      case "praha":
+        setJson(praha);
+        console.log("terminál Praha");
+        break;
+      case "usti_nad_labem":
+        setJson(usti_nad_labem);
+        console.log("terminál Ústí nad Labem");
+        break;
+      case "zlin":
+        setJson(zlin);
+        console.log("terminál Zlín");
+        break;
+
+      default:
+        setJson(ceska_trebova);
+        console.log("spuštěň default");
+        break;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [terminal]);
+
   useEffect(() => {
     const delayTimer = setTimeout(() => {
       const result = filterByUserInput(json, inputText);
@@ -164,24 +189,6 @@ const Search = () => {
 
     return () => clearTimeout(delayTimer);
   }, [inputText, json]);
-
-  const handleChange = (event) => {
-    setSearchResultsReady(false);
-    setInputText(event.target.value);
-    // const result = filterByUserInput(json, inputText);
-    // setSearchResults(result);
-    // if (event.target.value === "") {
-    //   setSearchResults([]);
-    // }
-    // setTimeout(() => {
-    //   setSearchResultsReady(true);
-    // }, 100);
-  };
-
-  const deleteInputText = () => {
-    setInputText("");
-    setSearchResults([]);
-  };
 
   return (
     <section className="search-bar wrapper">

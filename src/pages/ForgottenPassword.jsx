@@ -15,7 +15,11 @@ const ForgottenPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTORS
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const toastRedux = useSelector((state) => state.auth.toast);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const resetToastStateRedux = useSelector(
@@ -25,10 +29,12 @@ const ForgottenPassword = () => {
     (state) => state.auth.isPasswordResetSuccess
   );
 
-  // USE STATES
+  // USE STATE -----------------------------------------------------------
+  //
   const [email, setEmail] = useState("");
 
-  // HANDLE SUBMIT
+  // HANDLE SUBMIT -------------------------------------------------------
+  //
   const handleSubmit = () => {
     if (email) {
       dispatch(resetPasswordRedux(email));
@@ -40,12 +46,14 @@ const ForgottenPassword = () => {
     }
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
+  //
   const handleDecline = () => {
     navigate("/login");
   };
 
-  // USE EFFECTS
+  // USE EFFECT ----------------------------------------------------------
+  //
   useEffect(() => {
     if (toastRedux.isVisible) {
       toastRedux.style === "success"

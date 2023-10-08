@@ -36,7 +36,11 @@ import DeleteAccount from "./pages/DeleteAccount";
 const App = () => {
   const dispatch = useDispatch();
 
-  // USE SELECTORS
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const isLoginPending = useSelector((state) => state.auth.isLoginPending);
   const isRegisterPending = useSelector(
     (state) => state.auth.isRegisterPending
@@ -46,7 +50,11 @@ const App = () => {
   );
   const infoMessage = useSelector((state) => state.auth.infoMessage);
 
-  // USE EFFECTS
+  // USE STATE -----------------------------------------------------------
+  //
+
+  // USE EFFECT ----------------------------------------------------------
+  //
   useEffect(() => {
     console.log("App.jsx");
     console.log(

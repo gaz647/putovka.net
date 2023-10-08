@@ -1,34 +1,17 @@
-// import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { loadUserData } from "../redux/AuthSlice";
-import { auth } from "../firebase/config";
-
 const Test = () => {
-  const dispatch = useDispatch();
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
 
-  // const testValue = useSelector((state) => state.auth.testValue);
+  // USE SELECTOR --------------------------------------------------------
+  //
 
-  const handleDispatch = () => {
-    const userUid = auth.currentUser.uid;
-    dispatch(loadUserData(userUid));
-  };
+  // USE STATE -----------------------------------------------------------
+  //
 
-  return (
-    <>
-      <div
-        style={{
-          margin: 2 + "rem",
-          backgroundColor: "green",
-          width: 3 + "rem",
-        }}
-      >
-        {}
-      </div>
-      <button onClick={() => handleDispatch()} style={{ margin: 2 + "rem" }}>
-        Změnit hodnout
-      </button>
-    </>
-  );
+  // USE EFFECT ----------------------------------------------------------
+  //
+
+  return <div>Test</div>;
 };
 
 export default Test;

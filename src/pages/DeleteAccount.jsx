@@ -14,7 +14,10 @@ const DeleteAccount = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const isAccountDeletedSuccess = useSelector(
@@ -22,7 +25,7 @@ const DeleteAccount = () => {
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  // USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -30,30 +33,13 @@ const DeleteAccount = () => {
   const [deleteCode, setDeleteCode] = useState(uuidv4().substring(0, 8));
   const [userConfirmationCode, setUserConfirmationCode] = useState("");
 
-  //  USE EFFECT
+  // HANDLE DELETE MODAL VISIBILITY --------------------------------------
   //
-  useEffect(() => {
-    if (isAccountDeletedSuccess) {
-      navigate("/change-verification", {
-        replace: true,
-        state: {
-          firstMessage: "Váš účet a veškerá Vaše data byla smazána",
-          secondMessage: "Třeba někdy příště",
-        },
-      });
-    }
-  }, [dispatch, isAccountDeletedSuccess, navigate]);
-
-  const deleteAccountModalHeading =
-    "Opravdu si přejete smazat Váš účet a všechna Vaše data?";
-
-  const deleteAccountModalText = "Tuto akci nelze vzít zpět";
-
   const handleDeleteJobModalVisibility = () => {
     setShowDeleteJobModal(!showDeleteJobModal);
   };
 
-  // HANDLE SUBMIT
+  // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
     if (userConfirmationCode && currentPassword === "") {
@@ -89,13 +75,13 @@ const DeleteAccount = () => {
     }
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
     navigate("/settings");
   };
 
-  // DELETE ACCOUNT
+  // DELETE ACCOUNT ------------------------------------------------------
   //
   const deleteAccount = () => {
     dispatch(deleteAccountRedux({ currentPassword, userUid }));
@@ -105,20 +91,34 @@ const DeleteAccount = () => {
     setDeleteCode(uuidv4().substring(0, 8));
   };
 
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    if (isAccountDeletedSuccess) {
+      navigate("/change-verification", {
+        replace: true,
+        state: {
+          firstMessage: "Váš účet a veškerá Vaše data byla smazána",
+          secondMessage: "Třeba někdy příště",
+        },
+      });
+    }
+  }, [dispatch, isAccountDeletedSuccess, navigate]);
+
   return (
     <div className="background">
       <section className="wrapper">
         {showDeleteJobModal && (
           <ModalPrompt
-            heading={deleteAccountModalHeading}
-            text={deleteAccountModalText}
+            heading={"Opravdu si přejete smazat Váš účet a všechna Vaše data?"}
+            text={"Tuto akci nelze vzít zpět"}
             confirmFunction={deleteAccount}
             declineFunction={handleDeleteJobModalVisibility}
           />
         )}
         {isLoading2 ? (
           <>
-            <h1>Odstraňování účtu probíhá</h1>
+            <Heading text={"Odstraňování účtu probíhá"} />
             <p>isLoading2</p>
             <Spinner2 />
           </>

@@ -14,12 +14,16 @@ import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
+import Spinner2 from "../components/Spinner2";
 
 const EditJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
@@ -51,8 +55,9 @@ const EditJob = () => {
   const isEditingArchivedJob = useSelector(
     (state) => state.auth.isEditingArchivedJob
   );
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  //  USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [date, setDate] = useState(
     useSelector((state) => state.auth.jobToEdit.date)
@@ -71,13 +76,7 @@ const EditJob = () => {
     useSelector((state) => state.auth.jobToEdit.weight)
   );
 
-  // USE EFFECT
-  //
-  useEffect(() => {
-    setDay(getCurrentDayCZ(date));
-  }, [date]);
-
-  // GET CURRENT DAY CZ
+  // GET CURRENT DAY CZ --------------------------------------------------
   //
   const getCurrentDayCZ = (dateVariable) => {
     const dateTransformed = new Date(dateVariable);
@@ -85,7 +84,7 @@ const EditJob = () => {
     return daysOfTheWeek[dateTransformed.getDay()];
   };
 
-  // HANDLE WEIGHT CHANGE
+  // HANDLE WEIGHT CHANGE ------------------------------------------------
   //
   const handleWeightChange = (newWeight) => {
     if (newWeight === 27) {
@@ -103,7 +102,7 @@ const EditJob = () => {
     }
   };
 
-  // EDIT JOB
+  // EDIT JOB ------------------------------------------------------------
   //
   const editJob = () => {
     const editedJob = {
@@ -172,7 +171,6 @@ const EditJob = () => {
         sortedUpdatedArchivedJobs,
       };
 
-      console.log(payload);
       dispatch(resetJobToEditValuesRedux());
       dispatch(editArchiveJobRedux(payload));
       dispatch(setIsEditingFalseRedux());
@@ -181,7 +179,7 @@ const EditJob = () => {
     }
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
     dispatch(setIsEditingFalseRedux());
@@ -189,84 +187,96 @@ const EditJob = () => {
     navigate("/");
   };
 
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    setDay(getCurrentDayCZ(date));
+  }, [date]);
+
   return (
     <section className="add-job wrapper">
-      <form className="add-job-form">
-        <InputField
-          label={"Datum"}
-          type={"date"}
-          value={date}
-          onDateChange={(e) => setDate(e)}
-        />
+      {isLoading2 ? (
+        <Spinner2 />
+      ) : (
+        <>
+          <form className="add-job-form">
+            <InputField
+              label={"Datum"}
+              type={"date"}
+              value={date}
+              onDateChange={(e) => setDate(e)}
+            />
 
-        <InputField
-          label={"Město"}
-          type={"text"}
-          value={city}
-          onTextChange={(e) => setCity(e)}
-        />
+            <InputField
+              label={"Město"}
+              type={"text"}
+              value={city}
+              onTextChange={(e) => setCity(e)}
+            />
 
-        <InputField
-          label={"PSČ"}
-          type={"text"}
-          value={zipcode}
-          onTextChange={(e) => setZipcode(e)}
-        />
+            <InputField
+              label={"PSČ"}
+              type={"text"}
+              value={zipcode}
+              onTextChange={(e) => setZipcode(e)}
+            />
 
-        <InputField
-          label={""}
-          type={"weight"}
-          value={weight}
-          onWeightChange={(e) => handleWeightChange(e)}
-        />
+            <InputField
+              label={""}
+              type={"weight"}
+              value={weight}
+              onWeightChange={(e) => handleWeightChange(e)}
+            />
 
-        <InputField
-          label={"Cena"}
-          type={"number"}
-          value={price}
-          onNumberChange={(e) => setPrice(e)}
-        />
+            <InputField
+              label={"Cena"}
+              type={"number"}
+              value={price}
+              onNumberChange={(e) => setPrice(e)}
+            />
 
-        <InputField
-          label={"CMR"}
-          type={"text"}
-          value={cmr}
-          onTextChange={(e) => setCmr(e)}
-        />
+            <InputField
+              label={"CMR"}
+              type={"text"}
+              value={cmr}
+              onTextChange={(e) => setCmr(e)}
+            />
 
-        <InputField
-          label={"Druhá práce"}
-          type={"checkbox"}
-          value={isSecondJob}
-          onCheckboxChange={(e) => setIsSecondJob(e)}
-        />
+            <InputField
+              label={"Druhá práce"}
+              type={"checkbox"}
+              value={isSecondJob}
+              onCheckboxChange={(e) => setIsSecondJob(e)}
+            />
 
-        <InputField
-          label={"Čekání"}
-          type={"number"}
-          value={waiting}
-          onNumberChange={(e) => setWaiting(e)}
-        />
+            <InputField
+              label={"Čekání"}
+              type={"number"}
+              value={waiting}
+              onNumberChange={(e) => setWaiting(e)}
+            />
 
-        <InputField
-          label={"Poznámka"}
-          type={"text"}
-          value={note}
-          onTextChange={(e) => setNote(e)}
-        />
+            <InputField
+              label={"Poznámka"}
+              type={"text"}
+              value={note}
+              onTextChange={(e) => setNote(e)}
+            />
 
-        <InputField
-          label={"Terminál"}
-          type={"text"}
-          value={terminal}
-          onTextChange={(e) => setTerminal(e)}
-        />
+            <InputField
+              label={"Terminál"}
+              type={"text"}
+              value={terminal}
+              onTextChange={(e) => setTerminal(e)}
+            />
 
-        <ConfirmDeclineBtns
-          confirmFunction={editJob}
-          declineFunction={handleDecline}
-        />
-      </form>
+            <ConfirmDeclineBtns
+              confirmFunction={editJob}
+              declineFunction={handleDecline}
+            />
+          </form>
+        </>
+      )}
     </section>
   );
 };

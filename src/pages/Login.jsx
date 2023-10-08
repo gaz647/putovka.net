@@ -15,7 +15,11 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTORS
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -24,11 +28,13 @@ const Login = () => {
     (state) => state.auth.toast.resetToast
   );
 
-  // USE STATES
+  // USE STATE -----------------------------------------------------------
+  //
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // HANDLE LOGIN
+  // HANDLE LOGIN --------------------------------------------------------
+  //
   const handleLogIn = () => {
     const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
@@ -36,13 +42,15 @@ const Login = () => {
     dispatch(setIsLoadingTrueRedux);
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
+  //
   const handleDecline = () => {
     setLoginEmail("");
     setLoginPassword("");
   };
 
-  // USE EFFECTS
+  // USE EFFECT ----------------------------------------------------------
+  //
   useEffect(() => {
     if (isLoggedIn) {
       console.log("isLoggedIn je true, teď má přijít přesměrování");

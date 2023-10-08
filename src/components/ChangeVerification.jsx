@@ -20,11 +20,17 @@ const ChangeVerification = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE STATE
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
+
+  // USE STATE -----------------------------------------------------------
   //
   const [secondsRemaining, setSecondsRemaining] = useState(5);
 
-  // USE EFFECT
+  // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
     dispatch(resetIsRegisterPending());

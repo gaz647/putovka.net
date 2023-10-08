@@ -14,12 +14,25 @@ import { BsTrash3 } from "react-icons/bs";
 const ArchiveMonth = ({ oneMonthData }) => {
   const dispatch = useDispatch();
 
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
   const { date, userSettings, jobs } = oneMonthData;
 
-  const [summaryData, setSummaryData] = useState({});
+  // USE SELECTOR --------------------------------------------------------
+  //
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useSelector(
+    (state) => state.auth.loggedInUserData.archivedJobs
+  );
 
+  // USE STATE -----------------------------------------------------------
+  //
+  const [summaryData, setSummaryData] = useState({});
+  const [showDetails, setShowDetails] = useState(false);
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
+
+  // GET SUMMARY ---------------------------------------------------------
+  //
   const getSummary = () => {
     const summaryEur = jobs.reduce((acc, job) => {
       return acc + job.price;
@@ -46,18 +59,12 @@ const ArchiveMonth = ({ oneMonthData }) => {
     );
 
     const summaryBaseMoney = userSettings.baseMoney;
-
     const summaryPercentage = userSettings.percentage;
-
     const summarySecondJobBenefit = userSettings.secondJobBenefit;
-
     const summaryWaitingBenefitEmployerCzk =
       userSettings.waitingBenefitEmployerCzk;
-
     const summaryWaitingBenefitEur = userSettings.waitingBenefitEur;
-
     const summaryEurCzkRate = userSettings.eurCzkRate;
-
     const summaryJobs = jobs.length;
 
     setSummaryData({
@@ -78,15 +85,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
     });
   };
 
-  useEffect(() => {
-    getSummary();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const archivedJobs = useSelector(
-    (state) => state.auth.loggedInUserData.archivedJobs
-  );
-
+  // DELETE ARCHIVE MONTH ------------------------------------------------
+  //
   const deleteArchiveMonth = (dateOfMonth) => {
     // setShowArchiveModal(!showArchiveModal);
     const tempArchivedJobs = [...archivedJobs];
@@ -103,28 +103,31 @@ const ArchiveMonth = ({ oneMonthData }) => {
     dispatch(deleteArchiveMonthRedux(payload));
   };
 
-  const archiveModalHeading = "Smazat vybraný měsíc z archivu?";
-
-  const archiveModalText = "tuto akci nelze vzít zpět";
-
-  const [showArchiveModal, setShowArchiveModal] = useState(false);
-
+  // HANDLE ARCHIVE MODAL VISIBILITY -------------------------------------
+  //
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
   };
 
-  const [showDetails, setShowDetails] = useState(false);
-
+  // HANDLE SHOW ---------------------------------------------------------
+  //
   const handleShow = () => {
     setShowDetails(!showDetails);
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    getSummary();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="archive-month">
       {showArchiveModal && (
         <ModalPrompt
-          heading={archiveModalHeading}
-          text={archiveModalText}
+          heading={"Smazat vybraný měsíc z archivu?"}
+          text={"tuto akci nelze vzít zpět"}
           confirmFunction={() => deleteArchiveMonth(date)}
           declineFunction={handleArchiveModalVisibility}
         />

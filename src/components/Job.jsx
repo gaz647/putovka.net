@@ -22,19 +22,7 @@ const Job = ({ jobDetails }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
-  //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const currentJobs = useSelector(
-    (state) => state.auth.loggedInUserData.currentJobs
-  );
-
-  // USE STATE
-  //
-  const [showDetails, setShowDetails] = useState(false);
-  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
-
-  // PROPS DESTRUCTURING
+  // PROPS DESTRUCTURING -------------------------------------------------
   //
   const {
     city,
@@ -55,7 +43,19 @@ const Job = ({ jobDetails }) => {
     zipcode,
   } = jobDetails;
 
-  // DELETE JOB
+  // USE SELECTOR --------------------------------------------------------
+  //
+  const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const currentJobs = useSelector(
+    (state) => state.auth.loggedInUserData.currentJobs
+  );
+
+  // USE STATE -----------------------------------------------------------
+  //
+  const [showDetails, setShowDetails] = useState(false);
+  const [showDeleteJobModal, setShowDeleteJobModal] = useState(false);
+
+  // DELETE JOB ----------------------------------------------------------
   //
   const deleteJob = () => {
     const tempCurrentJobs = [...currentJobs];
@@ -70,7 +70,7 @@ const Job = ({ jobDetails }) => {
     dispatch(deleteJobRedux(payload));
   };
 
-  // EDIT JOB NAVIGATE
+  // EDIT JOB NAVIGATE ---------------------------------------------------
   //
   const editJobNavigate = () => {
     const jobToEdit = {
@@ -96,13 +96,13 @@ const Job = ({ jobDetails }) => {
     navigate("/edit-job");
   };
 
-  // HANDLE SHOW DETAILS
+  // HANDLE SHOW DETAILS -------------------------------------------------
   //
   const handleShowDetails = () => {
     setShowDetails(!showDetails);
   };
 
-  // MODAL STUFF
+  // MODAL STUFF ---------------------------------------------------------
   //
   const deleteJobModalHeading = "Odstranit vybranou práci?";
 
@@ -110,7 +110,7 @@ const Job = ({ jobDetails }) => {
     setShowDeleteJobModal(!showDeleteJobModal);
   };
 
-  // COPY TO CLIPBOARD
+  // COPY TO CLIPBOARD ---------------------------------------------------
   //
   const copyToClipBoard = () => {
     const textToCoppy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
@@ -139,6 +139,9 @@ const Job = ({ jobDetails }) => {
       });
     console.log(textToCoppy);
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
 
   return (
     <div className="one-job">

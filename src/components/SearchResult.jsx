@@ -9,6 +9,20 @@ const SearchResult = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
+
+  // USE STATE -----------------------------------------------------------
+  //
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+
+  // HANDLE ADD JOB ------------------------------------------------------
+  //
   const handleAddJob = () => {
     const jobToAdd = {
       city: props.city,

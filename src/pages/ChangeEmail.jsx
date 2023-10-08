@@ -13,7 +13,11 @@ const ChangeEmail = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //  USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const isEmailChangedSuccess = useSelector(
     (state) => state.auth.isEmailChangedSuccess
   );
@@ -22,13 +26,36 @@ const ChangeEmail = () => {
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  // USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [newEmail1, setNewEmail1] = useState("");
   const [newEmail2, setNewEmail2] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
 
-  // USE EFFECT
+  // CHANGE EMAIL --------------------------------------------------------
+  //
+  const changeEmail = () => {
+    console.log("click");
+    // email email
+    if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
+      console.log(
+        "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
+      );
+      dispatch(changeEmailRedux({ currentPassword, newEmail: newEmail1 }));
+    } else {
+      console.log(
+        "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
+      );
+    }
+  };
+
+  // HANDLE DECLINE ------------------------------------------------------
+  //
+  const handleDecline = () => {
+    navigate("/settings");
+  };
+
+  // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
     if (isEmailChangedSuccess) {
@@ -51,33 +78,11 @@ const ChangeEmail = () => {
     }
   }, [dispatch, isAccountDisabled]);
 
-  // CHANGE EMAIL
-  //
-  const changeEmail = () => {
-    console.log("click");
-    // email email
-    if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
-      console.log(
-        "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
-      );
-      dispatch(changeEmailRedux({ currentPassword, newEmail: newEmail1 }));
-    } else {
-      console.log(
-        "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
-      );
-    }
-  };
-
-  // HANDLE DECLINE
-  const handleDecline = () => {
-    navigate("/settings");
-  };
-
   return (
     <section className="wrapper">
       {isLoading2 ? (
         <>
-          <h1>Odstraňování účtu probíhá</h1>
+          <Heading text={"Odstraňování účtu probíhá"} />
           <p>isLoading2</p>
           <Spinner2 />
         </>

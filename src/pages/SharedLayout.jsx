@@ -10,14 +10,20 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 const SharedLayout = () => {
   const dispatch = useDispatch();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const toastRedux = useSelector((state) => state.auth.toast);
   const resetToastStateRedux = useSelector(
     (state) => state.auth.toast.resetToast
   );
 
-  // USE EFFECT
+  // USE STATE -----------------------------------------------------------
+  //
+
+  // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
     if (toastRedux.isVisible) {

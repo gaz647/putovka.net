@@ -993,6 +993,7 @@ export const authSlice = createSlice({
       })
       .addCase(changeEmailRedux.fulfilled, (state) => {
         console.log("changeEmailRedux ÚSPĚŠNĚ DOKONČEN");
+        // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
         // state.isLoading = false;
         state.isEmailChangedSuccess = true;
       })
@@ -1030,6 +1031,7 @@ export const authSlice = createSlice({
       })
       .addCase(changePasswordRedux.fulfilled, (state) => {
         console.log("changePasswordRedux ÚSPĚŠNĚ DOKONČEN");
+        // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
         // state.isLoading = false;
 
         state.isPasswordChangedSuccess = true;
@@ -1064,6 +1066,7 @@ export const authSlice = createSlice({
       .addCase(resetPasswordRedux.fulfilled, (state) => {
         console.log("resetPasswordRedux ÚSPĚŠNĚ DOKONČEN");
         state.isPasswordResetSuccess = true;
+        // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
         // state.isLoading2 = false;
       })
       .addCase(resetPasswordRedux.rejected, (state, action) => {
@@ -1076,7 +1079,7 @@ export const authSlice = createSlice({
       //
       .addCase(changeSettingsRedux.pending, (state) => {
         console.log("changeSettingsRedux SPUŠTĚN");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1094,7 +1097,7 @@ export const authSlice = createSlice({
           action.payload.waitingBenefitEmployerCzk;
         state.loggedInUserData.userSettings.waitingBenefitEur =
           action.payload.waitingBenefitEur;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Změny uloženy";
@@ -1104,7 +1107,7 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.rejected, (state) => {
         console.log("changeSettingsRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Něco se pokazilo";
@@ -1124,6 +1127,7 @@ export const authSlice = createSlice({
       .addCase(deleteAccountRedux.fulfilled, (state) => {
         console.log("deleteAccountRedux ÚSPĚŠNĚ DOKONČEN");
         // state.isLoading = false;
+        // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
         // state.isLoading2 = false;
         state.isAccountDeletedSuccess = true;
       })
@@ -1145,7 +1149,7 @@ export const authSlice = createSlice({
       //
       .addCase(addJobRedux.pending, (state) => {
         console.log("addJobRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(addJobRedux.fulfilled, (state, action) => {
         console.log("addJobRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1157,7 +1161,7 @@ export const authSlice = createSlice({
         state.jobToAdd.weightTo34t = 0;
         state.jobToAdd.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Práce přidána";
@@ -1167,14 +1171,14 @@ export const authSlice = createSlice({
       })
       .addCase(addJobRedux.rejected, (state) => {
         console.log("addJobRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(editJobRedux.pending, (state) => {
         console.log("editJobRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(editJobRedux.fulfilled, (state, action) => {
         console.log("editJobRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1193,7 +1197,7 @@ export const authSlice = createSlice({
         state.jobToEdit.weightTo34t = 0;
         state.jobToEdit.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Práce upravena";
@@ -1203,19 +1207,19 @@ export const authSlice = createSlice({
       })
       .addCase(editJobRedux.rejected, (state) => {
         console.log("editJobRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(deleteJobRedux.pending, (state) => {
         console.log("deleteJobRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(deleteJobRedux.fulfilled, (state, action) => {
         state.loggedInUserData.currentJobs = action.payload;
         console.log("deleteJobRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Práce smazána";
@@ -1225,14 +1229,14 @@ export const authSlice = createSlice({
       })
       .addCase(deleteJobRedux.rejected, (state) => {
         console.log("deleteJobRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(archiveDoneJobsFirstTimeRedux.pending, (state) => {
         console.log("archiveDoneJobsFirstTimeRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(archiveDoneJobsFirstTimeRedux.fulfilled, (state, action) => {
         console.log("archiveDoneJobsFirstTimeRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1241,7 +1245,7 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.newEurCzkRate;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1251,14 +1255,14 @@ export const authSlice = createSlice({
       })
       .addCase(archiveDoneJobsFirstTimeRedux.rejected, (state) => {
         console.log("archiveDoneJobsFirstTimeRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(archiveDoneJobsNewMonthRedux.pending, (state) => {
         console.log("archiveDoneJobsNewMonthRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(archiveDoneJobsNewMonthRedux.fulfilled, (state, action) => {
         console.log("archiveDoneJobsNewMonthRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1267,7 +1271,7 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.newEurCzkRate;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1277,14 +1281,14 @@ export const authSlice = createSlice({
       })
       .addCase(archiveDoneJobsNewMonthRedux.rejected, (state) => {
         console.log("archiveDoneJobsNewMonthRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(archiveDoneJobsExistingMonthRedux.pending, (state) => {
         console.log("archiveDoneJobsExistingMonthRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(archiveDoneJobsExistingMonthRedux.fulfilled, (state, action) => {
         console.log("archiveDoneJobsExistingMonthRedux ÚSPĚŠNĚ DOKONČEN");
@@ -1292,7 +1296,7 @@ export const authSlice = createSlice({
         state.loggedInUserData.archivedJobs =
           action.payload.updatedArchivedJobs;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1302,19 +1306,19 @@ export const authSlice = createSlice({
       })
       .addCase(archiveDoneJobsExistingMonthRedux.rejected, (state) => {
         console.log("archiveDoneJobsExistingMonthRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(deleteArchiveMonthRedux.pending, (state) => {
         console.log("deleteArchiveMonthRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(deleteArchiveMonthRedux.fulfilled, (state, action) => {
         console.log("deleteArchiveMonthRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Smazáno";
@@ -1324,19 +1328,19 @@ export const authSlice = createSlice({
       })
       .addCase(deleteArchiveMonthRedux.rejected, (state) => {
         console.log("deleteArchiveMonthRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(deleteArchiveMonthJobRedux.pending, (state) => {
         console.log("deleteArchiveMonthJobRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(deleteArchiveMonthJobRedux.fulfilled, (state, action) => {
         console.log("deleteArchiveMonthJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Smazáno";
@@ -1346,19 +1350,19 @@ export const authSlice = createSlice({
       })
       .addCase(deleteArchiveMonthJobRedux.rejected, (state) => {
         console.log("deleteArchiveMonthJobRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(editArchiveJobRedux.pending, (state) => {
         console.log("editArchiveJobRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(editArchiveJobRedux.fulfilled, (state, action) => {
         console.log("editArchiveJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
-        state.isLoading = false;
+        state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Upraveno";
@@ -1368,14 +1372,14 @@ export const authSlice = createSlice({
       })
       .addCase(editArchiveJobRedux.rejected, (state) => {
         console.log("editArchiveJobRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(editArchiveMonthSummarySettingsRedux.pending, (state) => {
         console.log("editArchiveMonthSummarySettingsRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
 
       .addCase(
@@ -1391,7 +1395,7 @@ export const authSlice = createSlice({
           state.archiveMonthSummarySettingsToEdit.secondJobBenefit = 0;
           state.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk = 0;
           state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
-          state.isLoading = false;
+          state.isLoading2 = false;
 
           state.toast.isVisible = true;
           state.toast.message = "Upraveno";
@@ -1402,7 +1406,7 @@ export const authSlice = createSlice({
       )
       .addCase(editArchiveMonthSummarySettingsRedux.rejected, (state) => {
         console.log("editArchiveMonthSummarySettingsRedux SELHAL");
-        state.isLoading = false;
+        state.isLoading2 = false;
       });
   },
 });

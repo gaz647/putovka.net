@@ -8,9 +8,7 @@ const ModalPrompt = ({ heading, text, confirmFunction, declineFunction }) => {
     <section className="modal-background">
       <div className="modal-container">
         <div className="modal-heading">{heading}</div>
-        {text !== "" ? (
-          <div className="modal-text">{"(" + text + ")"}</div>
-        ) : null}
+        {text && <div className="modal-text">{"(" + text + ")"}</div>}
         <ConfirmDeclineBtns
           confirmFunction={confirmFunction}
           declineFunction={declineFunction}

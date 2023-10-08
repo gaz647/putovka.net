@@ -13,6 +13,8 @@ const ArchiveMonthSummary = ({ summary }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
   const {
     date,
     summaryEur,
@@ -30,6 +32,18 @@ const ArchiveMonthSummary = ({ summary }) => {
     jobs,
   } = summary;
 
+  // USE SELECTOR --------------------------------------------------------
+  //
+
+  // USE STATE -----------------------------------------------------------
+  //
+  const [
+    showArchiveMonthSummarySettingsEditModal,
+    setShowArchiveMonthSummarySettingsEditModal,
+  ] = useState(false);
+
+  // SET EDIT ARCHIVE MONTH SUMMARY SETTINGS -----------------------------
+  //
   const setEditArchiveMonthSummarySettings = () => {
     const payload = {
       date,
@@ -40,26 +54,22 @@ const ArchiveMonthSummary = ({ summary }) => {
       waitingBenefitEur: summaryWaitingBenefitEur,
       eurCzkRate: summaryEurCzkRate,
     };
-    // dispatch(setIsEditingArchivedJob(true));
+
     dispatch(setArchiveMonthSummarySettingsToEditRedux(payload));
     setShowArchiveMonthSummarySettingsEditModal(false);
     navigate("/edit-archive-month-summary-settings");
   };
 
-  const [
-    showArchiveMonthSummarySettingsEditModal,
-    setShowArchiveMonthSummarySettingsEditModal,
-  ] = useState(false);
-
-  const archiveMonthSummarySettingsEditModal =
-    "Upravit nastavení archivovaného měsíce?";
-
+  // HANDLE ARCHIVE MONTH SUMMARY SETTINGS EDIT MODAL VISIBILITY ---------
+  //
   const handleArchiveMonthSummarySettingsEditModalVisibility = () => {
     setShowArchiveMonthSummarySettingsEditModal(
       !showArchiveMonthSummarySettingsEditModal
     );
   };
 
+  // SEND DATA BY EMAIL --------------------------------------------------
+  //
   const sendDataByEmail = () => {
     const jobsData = jobs.map((oneJob) => {
       return `${getCzDateArchiveJobEmailFormat(oneJob.date)}\u00A0\u00A0${
@@ -82,16 +92,16 @@ const ArchiveMonthSummary = ({ summary }) => {
     const mailto = `mailto:?subject=${subject}&body=${encodedDataToSend}`;
 
     window.location.href = mailto;
-
-    console.log(dataToSend);
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
 
   return (
     <section className="archive-month-summary">
       {showArchiveMonthSummarySettingsEditModal && (
         <ModalPrompt
-          heading={archiveMonthSummarySettingsEditModal}
-          text={""}
+          heading={"Upravit nastavení archivovaného měsíce?"}
           confirmFunction={setEditArchiveMonthSummarySettings}
           declineFunction={handleArchiveMonthSummarySettingsEditModalVisibility}
         />

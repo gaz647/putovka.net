@@ -4,76 +4,77 @@ import {
   editArchiveMonthSummarySettingsRedux,
   resetArchiveMonthSummarySettingsToEditRedux,
 } from "../redux/AuthSlice";
-
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { setLoadingFalse } from "../redux/AuthSlice";
-import Spinner from "../components/Spinner";
+import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
+import Spinner2 from "../components/Spinner2";
+import InputField from "../components/InputField";
+import Heading from "../components/Heading";
 
 const EditArchiveMonthSummarySettings = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const isLoading = useSelector((state) => state.auth.isLoading);
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
 
+  // USE SELECTOR --------------------------------------------------------
+  //
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
-
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-
   const date = useSelector(
     (state) => state.auth.archiveMonthSummarySettingsToEdit.date
   );
+  const email = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.email
+  );
+  const terminal = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.terminal
+  );
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
+  // USE STATE -----------------------------------------------------------
+  //
   const [baseMoney, setBaseMoney] = useState(
     useSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.baseMoney
     )
   );
-
-  const email = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.email
-  );
-
   const [eurCzkRate, setEurCzkRate] = useState(
     useSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.eurCzkRate
     )
   );
-
   const [percentage, setPercentage] = useState(
     useSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.percentage
     )
   );
-
   const [secondJobBenefit, setSecondJobBenefit] = useState(
     useSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.secondJobBenefit
     )
   );
-
-  const terminal = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.terminal
-  );
-
   const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
     useSelector(
       (state) =>
         state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk
     )
   );
-
   const [waitingBenefitEur, setWaitingBenefitEur] = useState(
     useSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEur
     )
   );
+  const [isConfirmDeclineBtnsVisible, setIsConfirmDeclineBtnsVisible] =
+    useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // HANDLE SUBMIT -------------------------------------------------------
+  //
+  const handleSubmit = () => {
     const tempArchivedJobs = [...archivedJobs];
 
     const newArchiveMonthSummarySettings = {
@@ -105,119 +106,97 @@ const EditArchiveMonthSummarySettings = () => {
     navigate("/archive");
   };
 
+  // HANDLE DECLINE ------------------------------------------------------
+  //
   const handleDecline = () => {
     dispatch(resetArchiveMonthSummarySettingsToEditRedux());
-    navigate("/");
+    navigate("/archive");
   };
 
   return (
-    <>
-      {isLoading ? (
-        <Spinner />
+    <section className="wrapper">
+      {isLoading2 ? (
+        <Spinner2 />
       ) : (
-        <section className="wrapper">
+        <>
           <header className="settings-header">
-            <h1 className="settings-header-title">
-              Změna nastavení archivovaného měsíce
-            </h1>
+            <Heading text={"Změna nastavení archivovaného měsíce"} />
           </header>
           <main>
-            <form className="settings-form" onSubmit={handleSubmit}>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  základní mzda
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={baseMoney}
-                  onChange={(e) => setBaseMoney(e.target.value)}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  % z fakturace
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={percentage}
-                  onChange={(e) => setPercentage(e.target.value)}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  příplatek za druhou práci (Kč)
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={secondJobBenefit}
-                  onChange={(e) => setSecondJobBenefit(e.target.value)}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  příplatek za čekání - <br />{" "}
-                  <span className="settings-form-item-container-label-info-text">
-                    (zaměstnavatel Kč)
-                  </span>
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={waitingBenefitEmployerCzk}
-                  onChange={(e) => setWaitingBenefitEmployerCzk(e.target.value)}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  příplatek za čekání (€)
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={waitingBenefitEur}
-                  onChange={(e) => setWaitingBenefitEur(e.target.value)}
-                />
-              </div>
-              <div className="settings-form-item-container">
-                <label className="settings-form-item-container-label">
-                  kurz Eur / Kč
-                  <br />
-                  <span className="settings-form-item-container-label-info-text">
-                    (automaticky aktualizován po archivaci)
-                  </span>
-                </label>
-                <input
-                  className="settings-form-item-container-input"
-                  type="number"
-                  value={eurCzkRate}
-                  onChange={(e) => setEurCzkRate(e.target.value)}
-                />
-              </div>
+            <form className="settings-form">
+              <InputField
+                type={"number"}
+                label={"základní mzda"}
+                subLabel={"(Kč)"}
+                value={baseMoney}
+                onNumberChange={(e) => {
+                  setBaseMoney(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"% z fakturace"}
+                value={percentage}
+                onNumberChange={(e) => {
+                  setPercentage(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za druhou práci"}
+                subLabel={"(Kč"}
+                value={secondJobBenefit}
+                onNumberChange={(e) => {
+                  setSecondJobBenefit(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za čekání - zaměstnavatel"}
+                subLabel={"(Kč)"}
+                value={waitingBenefitEmployerCzk}
+                onNumberChange={(e) => {
+                  setWaitingBenefitEmployerCzk(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number"}
+                label={"příplatek za čekání"}
+                subLabel={"(€)"}
+                value={waitingBenefitEur}
+                onNumberChange={(e) => {
+                  setWaitingBenefitEur(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
+              <InputField
+                type={"number-decimal"}
+                label={"kurz Eur/Kč"}
+                subLabel={"(automaticky aktualizován po archivaci)"}
+                value={eurCzkRate}
+                onNumberChange={(e) => {
+                  setEurCzkRate(e);
+                  setIsConfirmDeclineBtnsVisible(true);
+                }}
+              />
               <br />
               <div className="confirm-decline-buttons-container">
-                <button
-                  className="confirm-btn"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
-                  uložit
-                </button>
-                <button
-                  className="decline-btn"
-                  type="button"
-                  onClick={handleDecline}
-                >
-                  zrušit
-                </button>
+                {isConfirmDeclineBtnsVisible && (
+                  <ConfirmDeclineBtns
+                    confirmFunction={handleSubmit}
+                    declineFunction={handleDecline}
+                  />
+                )}
               </div>
             </form>
           </main>
-        </section>
+        </>
       )}
-    </>
+    </section>
   );
 };
 

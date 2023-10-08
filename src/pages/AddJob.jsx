@@ -11,12 +11,16 @@ import getProperTerminalName from "../customFunctionsAndHooks/getProperTerminalN
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
+import Spinner2 from "../components/Spinner2";
 
 const AddJob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTOR
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
   //
   const currentJobs = useSelector(
     (state) => state.auth.loggedInUserData.currentJobs
@@ -25,8 +29,9 @@ const AddJob = () => {
   const weightTo34t = useSelector((state) => state.auth.jobToAdd.weightTo34t);
   const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
-  // USE STATE
+  // USE STATE -----------------------------------------------------------
   //
   const [date, setDate] = useState(getCurrentDate());
   const [day, setDay] = useState(getCzDayFromDate(date));
@@ -46,25 +51,7 @@ const AddJob = () => {
     useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
 
-  // USE EFFECT
-  //
-  useEffect(() => {
-    setDay(getCzDayFromDate(date));
-  }, [date]);
-
-  // HANDLE WEIGHT CHANGE
-  //
-  const handleWeightChange = (newWeight) => {
-    if (newWeight === 27) {
-      setWeight(27);
-      setPrice(weightTo27t);
-    } else if (newWeight === 34) {
-      setWeight(34);
-      setPrice(weightTo34t);
-    }
-  };
-
-  // ADD JOB
+  // ADD JOB -------------------------------------------------------------
   //
   const addJob = () => {
     const tempCurrentJobs = [...currentJobs];
@@ -96,101 +83,125 @@ const AddJob = () => {
     navigate("/");
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
     dispatch(resetJobToAddValuesRedux());
     navigate("/");
   };
 
+  // HANDLE WEIGHT CHANGE
+  //
+  const handleWeightChange = (newWeight) => {
+    if (newWeight === 27) {
+      setWeight(27);
+      setPrice(weightTo27t);
+    } else if (newWeight === 34) {
+      setWeight(34);
+      setPrice(weightTo34t);
+    }
+  };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    setDay(getCzDayFromDate(date));
+  }, [date]);
+
   return (
     <section className="add-job wrapper">
-      <form className="add-job-form">
-        <InputField
-          label={"Datum"}
-          subLabel={""}
-          type={"date"}
-          value={date}
-          onDateChange={(e) => setDate(e)}
-        />
+      {isLoading2 ? (
+        <Spinner2 />
+      ) : (
+        <>
+          <form className="add-job-form">
+            <InputField
+              label={"Datum"}
+              subLabel={""}
+              type={"date"}
+              value={date}
+              onDateChange={(e) => setDate(e)}
+            />
 
-        <InputField
-          label={"Město"}
-          subLabel={""}
-          type={"text"}
-          value={city}
-          onTextChange={(e) => setCity(e)}
-        />
+            <InputField
+              label={"Město"}
+              subLabel={""}
+              type={"text"}
+              value={city}
+              onTextChange={(e) => setCity(e)}
+            />
 
-        <InputField
-          label={"PSČ"}
-          subLabel={""}
-          type={"text"}
-          value={zipcode}
-          onTextChange={(e) => setZipcode(e)}
-        />
+            <InputField
+              label={"PSČ"}
+              subLabel={""}
+              type={"text"}
+              value={zipcode}
+              onTextChange={(e) => setZipcode(e)}
+            />
 
-        <InputField
-          label={""}
-          subLabel={""}
-          type={"weight"}
-          value={""}
-          onWeightChange={(e) => handleWeightChange(e)}
-        />
+            <InputField
+              label={""}
+              subLabel={""}
+              type={"weight"}
+              value={""}
+              onWeightChange={(e) => handleWeightChange(e)}
+            />
 
-        <InputField
-          label={"Cena"}
-          subLabel={""}
-          type={"number"}
-          value={price}
-          onNumberChange={(e) => setPrice(e)}
-        />
+            <InputField
+              label={"Cena"}
+              subLabel={""}
+              type={"number"}
+              value={price}
+              onNumberChange={(e) => setPrice(e)}
+            />
 
-        <InputField
-          label={"CMR"}
-          subLabel={""}
-          type={"text"}
-          value={cmr}
-          onTextChange={(e) => setCmr(e)}
-        />
+            <InputField
+              label={"CMR"}
+              subLabel={""}
+              type={"text"}
+              value={cmr}
+              onTextChange={(e) => setCmr(e)}
+            />
 
-        <InputField
-          label={"Druhá práce"}
-          subLabel={""}
-          type={"checkbox"}
-          value={isSecondJob}
-          onCheckboxChange={(e) => setIsSecondJob(e)}
-        />
+            <InputField
+              label={"Druhá práce"}
+              subLabel={""}
+              type={"checkbox"}
+              value={isSecondJob}
+              onCheckboxChange={(e) => setIsSecondJob(e)}
+            />
 
-        <InputField
-          label={"Čekání"}
-          subLabel={""}
-          type={"number"}
-          value={waiting}
-          onNumberChange={(e) => setWaiting(e)}
-        />
+            <InputField
+              label={"Čekání"}
+              subLabel={""}
+              type={"number"}
+              value={waiting}
+              onNumberChange={(e) => setWaiting(e)}
+            />
 
-        <InputField
-          label={"Poznámka"}
-          subLabel={""}
-          type={"text"}
-          value={note}
-          onTextChange={(e) => setNote(e)}
-        />
+            <InputField
+              label={"Poznámka"}
+              subLabel={""}
+              type={"text"}
+              value={note}
+              onTextChange={(e) => setNote(e)}
+            />
 
-        <InputField
-          label={"Terminál"}
-          subLabel={""}
-          type={"text"}
-          value={getProperTerminalName(terminal)}
-          onTextChange={(e) => setTerminal(e)}
-        />
+            <InputField
+              label={"Terminál"}
+              subLabel={""}
+              type={"text"}
+              value={getProperTerminalName(terminal)}
+              onTextChange={(e) => setTerminal(e)}
+            />
 
-        <ConfirmDeclineBtns
-          confirmFunction={addJob}
-          declineFunction={handleDecline}
-        />
-      </form>
+            <ConfirmDeclineBtns
+              confirmFunction={addJob}
+              declineFunction={handleDecline}
+            />
+          </form>
+        </>
+      )}
     </section>
   );
 };

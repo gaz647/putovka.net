@@ -16,7 +16,11 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // USE SELECTORS
+  // PROPS DESTRUCTURING -------------------------------------------------
+  //
+
+  // USE SELECTOR --------------------------------------------------------
+  //
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const isRegisterSuccess = useSelector(
     (state) => state.auth.isRegisterSuccess
@@ -26,12 +30,14 @@ const Register = () => {
     (state) => state.auth.toast.resetToast
   );
 
-  // USE STATES
+  // USE STATE -----------------------------------------------------------
+  //
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword1, setRegisterPasword1] = useState("");
   const [registerPassword2, setRegisterPasword2] = useState("");
 
-  // HANDLE REGISTER
+  // HANDLE REGISTER -----------------------------------------------------
+  //
   const handleRegister = (e) => {
     e.preventDefault();
     if (registerPassword1 !== registerPassword2) {
@@ -49,12 +55,14 @@ const Register = () => {
     }
   };
 
-  // HANDLE DECLINE
+  // HANDLE DECLINE ------------------------------------------------------
+  //
   const handleDecline = () => {
     navigate("/");
   };
 
-  // USE EFFECTS
+  // USE EFFECT ----------------------------------------------------------
+  //
   useEffect(() => {
     if (isRegisterSuccess) {
       navigate("/change-verification", {

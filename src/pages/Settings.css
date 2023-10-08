@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.settings-header-title {
-  font-size: 2rem;
-  margin-bottom: 1.3rem;
-}
-
 .settings-header-user-email {
   color: var(--white-2);
   font-weight: bold;
@@ -28,42 +23,3 @@
 .settings-form {
   margin-top: 2.5rem;
 }
-
-/* .settings-form-item-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.settings-form-item-container-label {
-  color: var(--white-2);
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.settings-form-item-container-label-info-text {
-  color: var(--white-2);
-  font-size: 0.75rem;
-  font-weight: 100;
-}
-
-.settings-form-item-container-input {
-  height: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  min-width: 40%;
-  max-width: 40%;
-  color: var(--blue-2);
-  padding: 0 0.5rem;
-  margin-left: 0.3rem;
-  background-color: var(--white-2);
-  border-radius: 5px;
-  border: none;
-}
-
-.settings-form-confirm-decline-btns-container {
-  margin: 0 auto;
-  max-width: 20rem;
-} */
