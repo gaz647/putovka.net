@@ -3,7 +3,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 const Spinner = () => {
   return (
     <SyncLoader
-      color={"#36d7b7"}
+      color={"#f9fafe"}
       cssOverride={{
         height: "5rem",
         display: "flex",
