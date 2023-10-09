@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./ModalPrompt.css";
-// import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import ConfirmDeclineBtns from "./ConfirmDeclineBtns";
 
 const ModalPrompt = ({ heading, text, confirmFunction, declineFunction }) => {
   return (
     <section className="modal-background">
       <div className="modal-container">
-        <div className="modal-heading">{heading}</div>
+        <div className="modal-heading text-shadow">{heading}</div>
         {text && <div className="modal-text">{"(" + text + ")"}</div>}
         <ConfirmDeclineBtns
           confirmFunction={confirmFunction}

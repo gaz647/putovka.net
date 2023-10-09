@@ -16,7 +16,24 @@
 
 .modal-container {
   background-color: var(--white-2);
-  width: 80%;
+  background: rgb(61, 177, 255);
+  background: -moz-linear-gradient(
+    150deg,
+    rgba(61, 177, 255, 1) 0%,
+    rgba(142, 210, 255, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    150deg,
+    rgba(61, 177, 255, 1) 0%,
+    rgba(142, 210, 255, 1) 100%
+  );
+  background: linear-gradient(
+    150deg,
+    rgba(61, 177, 255, 1) 0%,
+    rgba(142, 210, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3db1ff",endColorstr="#8ed2ff",GradientType=1);
+  width: 90%;
   max-width: 450px;
   border-radius: 5px;
   margin: 1.5rem auto 1rem auto;
@@ -29,9 +46,10 @@
 
 .modal-heading {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   margin: 1rem auto 1rem auto;
-  color: var(--text-black);
+  /* color: var(--text-black); */
 }
 
 .modal-text {

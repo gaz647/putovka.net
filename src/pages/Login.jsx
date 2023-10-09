@@ -96,7 +96,7 @@ const Login = () => {
         />
         {isLoading || isLoading2 ? (
           <div className="full-page-container-center">
-            <Heading text={"Přihlášuji . . ."} />
+            <Heading text={"Přihlašování . . ."} />
             <p>isLoading2</p>
             <Spinner />
           </div>

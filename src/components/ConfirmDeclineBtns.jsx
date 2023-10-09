@@ -9,14 +9,14 @@ const ConfirmDeclineBtns = ({ confirmFunction, declineFunction }) => {
         className="confirm-decline-btns confirm-btn"
         onClick={confirmFunction}
       >
-        <ImCheckmark className="confirm-btn-icon" />
+        <ImCheckmark className="confirm-decline-btn-icon" />
       </div>
 
       <div
         className="confirm-decline-btns decline-btn"
         onClick={declineFunction}
       >
-        <ImCross className="decline-btn-icon" />
+        <ImCross className="confirm-decline-btn-icon" />
       </div>
     </div>
   );

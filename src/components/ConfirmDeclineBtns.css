@@ -4,11 +4,12 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .confirm-decline-btns {
   padding: 0.5rem 2.3rem;
-  border-radius: 5px;
   border-radius: 5px;
   cursor: pointer;
   margin: 1rem;
@@ -17,24 +18,18 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: solid 2px var(--white-2);
 }
 
 .confirm-btn {
   background-color: var(--green);
-  box-shadow: 0 0 0.1rem var(--green);
-}
-
-.confirm-btn-icon {
-  font-size: 1.3rem;
-  color: var(--white-2);
 }
 
 .decline-btn {
   background-color: var(--red);
-  box-shadow: 0 0 0.1rem var(--red);
 }
 
-.decline-btn-icon {
+.confirm-decline-btn-icon {
   font-size: 1.3rem;
   color: var(--white-2);
 }
