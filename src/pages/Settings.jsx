@@ -180,7 +180,7 @@ const Settings = () => {
               <InputField
                 type={"number"}
                 label={"příplatek za druhou práci"}
-                subLabel={"(Kč"}
+                subLabel={"(Kč)"}
                 value={secondJobBenefit}
                 onNumberChange={(e) => {
                   setSecondJobBenefit(e);

@@ -1,8 +1,8 @@
-import SyncLoader from "react-spinners/SyncLoader";
+import DotLoader from "react-spinners/DotLoader";
 
 const Spinner = () => {
   return (
-    <SyncLoader
+    <DotLoader
       color={"#f9fafe"}
       cssOverride={{
         height: "5rem",

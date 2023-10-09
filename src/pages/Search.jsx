@@ -50,23 +50,21 @@ const Search = () => {
 
   // FILTER BY USER INPUT ------------------------------------------------
   //
-  const filterByUserInput = (arrayOfObjects, letter) => {
+  const filterByUserInput = (arrayOfObjects, text) => {
     let result = [];
 
-    if (letter.length !== "") {
+    if (text.length !== "") {
       for (let i = 0; i < arrayOfObjects.length; i++) {
         const zipcodeString = arrayOfObjects[i].zipcode.toString();
 
         if (
-          arrayOfObjects[i].city
-            .toLowerCase()
-            .startsWith(letter.toLowerCase()) ||
-          zipcodeString.startsWith(letter)
+          arrayOfObjects[i].city.toLowerCase().startsWith(text.toLowerCase()) ||
+          zipcodeString.startsWith(text)
         ) {
           result.push(arrayOfObjects[i]);
         } else if (
-          arrayOfObjects[i].city.toLowerCase().includes(letter.toLowerCase()) ||
-          zipcodeString.includes(letter)
+          arrayOfObjects[i].city.toLowerCase().includes(text.toLowerCase()) ||
+          zipcodeString.includes(text)
         ) {
           result.push(arrayOfObjects[i]);
         }
@@ -80,43 +78,43 @@ const Search = () => {
       const bZipcodeString = b.zipcode.toString();
 
       if (
-        a.city.toLowerCase().startsWith(letter.toLowerCase()) &&
-        !b.city.toLowerCase().startsWith(letter.toLowerCase())
+        a.city.toLowerCase().startsWith(text.toLowerCase()) &&
+        !b.city.toLowerCase().startsWith(text.toLowerCase())
       ) {
         return -1;
       } else if (
-        b.city.toLowerCase().startsWith(letter.toLowerCase()) &&
-        !a.city.toLowerCase().startsWith(letter.toLowerCase())
+        b.city.toLowerCase().startsWith(text.toLowerCase()) &&
+        !a.city.toLowerCase().startsWith(text.toLowerCase())
       ) {
         return 1;
       } else if (
-        a.city.toLowerCase().includes(letter.toLowerCase()) &&
-        !b.city.toLowerCase().includes(letter.toLowerCase())
+        a.city.toLowerCase().includes(text.toLowerCase()) &&
+        !b.city.toLowerCase().includes(text.toLowerCase())
       ) {
         return -1;
       } else if (
-        b.city.toLowerCase().includes(letter.toLowerCase()) &&
-        !a.city.toLowerCase().includes(letter.toLowerCase())
+        b.city.toLowerCase().includes(text.toLowerCase()) &&
+        !a.city.toLowerCase().includes(text.toLowerCase())
       ) {
         return 1;
       } else if (
-        aZipcodeString.startsWith(letter) &&
-        !bZipcodeString.startsWith(letter)
+        aZipcodeString.startsWith(text) &&
+        !bZipcodeString.startsWith(text)
       ) {
         return -1;
       } else if (
-        bZipcodeString.startsWith(letter) &&
-        !aZipcodeString.startsWith(letter)
+        bZipcodeString.startsWith(text) &&
+        !aZipcodeString.startsWith(text)
       ) {
         return 1;
       } else if (
-        aZipcodeString.includes(letter) &&
-        !bZipcodeString.includes(letter)
+        aZipcodeString.includes(text) &&
+        !bZipcodeString.includes(text)
       ) {
         return -1;
       } else if (
-        bZipcodeString.includes(letter) &&
-        !aZipcodeString.includes(letter)
+        bZipcodeString.includes(text) &&
+        !aZipcodeString.includes(text)
       ) {
         return 1;
       } else {
@@ -179,9 +177,14 @@ const Search = () => {
 
   useEffect(() => {
     const delayTimer = setTimeout(() => {
-      const result = filterByUserInput(json, inputText);
+      const inputTextNoDiacritics = inputText
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+      console.log(inputTextNoDiacritics);
+      const result = filterByUserInput(json, inputTextNoDiacritics);
       setSearchResults(result);
-      if (inputText === "") {
+      if (inputTextNoDiacritics === "") {
         setSearchResults([]);
       }
       setSearchResultsReady(true);
