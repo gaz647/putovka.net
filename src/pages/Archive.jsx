@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import Heading from "../components/Heading";
 import BackToTopBtn from "../components/BackToTopBtn";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 
 const Archive = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -27,12 +27,10 @@ const Archive = () => {
     <section className="wrapper">
       <BackToTopBtn />
       {isLoading2 ? (
-        <Spinner2 />
+        <Spinner />
       ) : (
         <>
-          {archivedJobs.length === 0 ? (
-            <Heading text={"Archiv je prázdný"} />
-          ) : null}
+          {archivedJobs.length === 0 && <Heading text={"Archiv je prázdný"} />}
           {archivedJobs.map((oneMonth) => {
             return <ArchiveMonth key={uuidv4()} oneMonthData={oneMonth} />;
           })}

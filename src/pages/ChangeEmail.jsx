@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { changeEmailRedux, logoutRedux } from "../redux/AuthSlice";
 import resetIsAccountDisabled from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -81,11 +81,11 @@ const ChangeEmail = () => {
   return (
     <section className="wrapper">
       {isLoading2 ? (
-        <>
-          <Heading text={"Odstraňování účtu probíhá"} />
+        <div className="full-page-container-center">
+          <Heading text={"Probíhá změna emailu . . ."} />
           <p>isLoading2</p>
-          <Spinner2 />
-        </>
+          <Spinner />
+        </div>
       ) : (
         <>
           <Heading text={"změna EMAILU"} />

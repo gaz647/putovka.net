@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setIsLoadingFalseRedux } from "../redux/AuthSlice";
-import Spinner from "..//components/Spinner";
+import Spinner1 from "../components/Spinner1";
 const LoginSuccess = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const LoginSuccess = () => {
     navigate("/");
   }, [dispatch, navigate]);
 
-  return <Spinner />;
+  return <Spinner1 />;
 };
 
 export default LoginSuccess;

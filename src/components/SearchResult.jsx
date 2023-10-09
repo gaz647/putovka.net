@@ -18,9 +18,6 @@ const SearchResult = (props) => {
   // USE STATE -----------------------------------------------------------
   //
 
-  // USE EFFECT ----------------------------------------------------------
-  //
-
   // HANDLE ADD JOB ------------------------------------------------------
   //
   const handleAddJob = () => {
@@ -35,6 +32,9 @@ const SearchResult = (props) => {
     dispatch(setJobToAddRedux(jobToAdd));
     navigate("/add-job");
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
 
   return (
     <ul>

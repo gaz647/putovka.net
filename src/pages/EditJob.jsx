@@ -14,7 +14,7 @@ import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 
 const EditJob = () => {
   const dispatch = useDispatch();
@@ -196,7 +196,10 @@ const EditJob = () => {
   return (
     <section className="add-job wrapper">
       {isLoading2 ? (
-        <Spinner2 />
+        <div className="full-page-container-center">
+          <p>isLoading2</p>
+          <Spinner />
+        </div>
       ) : (
         <>
           <form className="add-job-form">

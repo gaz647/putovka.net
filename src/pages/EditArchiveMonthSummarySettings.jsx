@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -116,7 +116,10 @@ const EditArchiveMonthSummarySettings = () => {
   return (
     <section className="wrapper">
       {isLoading2 ? (
-        <Spinner2 />
+        <div className="full-page-container-center">
+          <p>isLoading2</p>
+          <Spinner />
+        </div>
       ) : (
         <>
           <header className="settings-header">

@@ -9,7 +9,7 @@ import plzen from "../assets/prices/plzen.json";
 import praha from "../assets/prices/praha.json";
 import usti_nad_labem from "../assets/prices/usti_nad_labem.json";
 import zlin from "../assets/prices/zlin.json";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 
 const Search = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -214,7 +214,7 @@ const Search = () => {
         )}
       </div>
       {!searchResultsReady ? (
-        <Spinner2 />
+        <Spinner />
       ) : (
         <ul>
           {searchResults.map((result) => (

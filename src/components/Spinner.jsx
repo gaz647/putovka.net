@@ -5,10 +5,11 @@ const Spinner = () => {
     <SyncLoader
       color={"#36d7b7"}
       cssOverride={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
+        height: "5rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // backgroundColor: "red",
       }}
     />
   );

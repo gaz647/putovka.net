@@ -18,7 +18,7 @@ import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveM
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
 
 const Dashboard = () => {
@@ -306,7 +306,10 @@ const Dashboard = () => {
     <section className="wrapper relative">
       <BackToTopBtn />
       {isLoading2 ? (
-        <Spinner2 />
+        <div className="full-page-container-center">
+          <p>isLoading2</p>
+          <Spinner />
+        </div>
       ) : (
         <>
           <section className="dashboard">
@@ -375,7 +378,7 @@ const Dashboard = () => {
           </section>
           <section className="dashboard-jobs">
             {isLoading2 ? (
-              <Spinner2 />
+              <Spinner />
             ) : (
               <>
                 {currentJobs.map((oneJob) => {

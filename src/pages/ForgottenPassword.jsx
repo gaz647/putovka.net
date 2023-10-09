@@ -9,7 +9,8 @@ import {
 } from "../redux/AuthSlice";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
+import Heading from "../components/Heading";
 
 const ForgottenPassword = () => {
   const dispatch = useDispatch();
@@ -100,11 +101,11 @@ const ForgottenPassword = () => {
         theme="colored"
       />
       {isLoading2 ? (
-        <>
-          <h1>Resetování hesla probíhá</h1>
+        <div className="full-page-container-center">
+          <Heading text={"Probíhá resetování hesla . . ."} />
           <p>isLoading2</p>
-          <Spinner2 />
-        </>
+          <Spinner />
+        </div>
       ) : (
         <>
           <header className="forgotten-password-header">

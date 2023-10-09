@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { runToastRedux, deleteAccountRedux } from "../redux/AuthSlice";
 import ModalPrompt from "../components/ModalPrompt";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -117,11 +117,11 @@ const DeleteAccount = () => {
           />
         )}
         {isLoading2 ? (
-          <>
+          <div className="full-page-container-center">
             <Heading text={"Odstraňování účtu probíhá"} />
             <p>isLoading2</p>
-            <Spinner2 />
-          </>
+            <Spinner />
+          </div>
         ) : (
           <>
             <Heading text={"SMAZÁNÍ ÚČTU"} />

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePasswordRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -77,11 +77,11 @@ const ChangePassword = () => {
   return (
     <section className="wrapper">
       {isLoading2 ? (
-        <>
-          <Heading text={"Probíhá změna hesla"} />
+        <div className="full-page-container-center">
+          <Heading text={"Probíhá změna hesla . . ."} />
           <p>isLoading2</p>
-          <Spinner2 />
-        </>
+          <Spinner />
+        </div>
       ) : (
         <>
           <Heading text={"změna HESLA"} />

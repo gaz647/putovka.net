@@ -847,19 +847,16 @@ export const authSlice = createSlice({
       .addCase(registerRedux.pending, (state) => {
         console.log("registerRedux PROBÍHÁ");
         state.isRegisterPending = true;
-        // state.isLoading = true;
         state.isLoading2 = true;
       })
       .addCase(registerRedux.fulfilled, (state) => {
         console.log("registerRedux ÚSPĚŠNĚ DOKONČEN");
         state.isRegisterSuccess = true;
         // state.isRegisterPending = false;
-        // state.isLoading2 = false;
       })
       .addCase(registerRedux.rejected, (state, action) => {
         console.log("registerRedux SELHAL", action.error.message);
         state.isRegisterPending = false;
-        // state.isLoading = false;
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
@@ -870,7 +867,7 @@ export const authSlice = createSlice({
             : action.error.message ===
               "Firebase: Password should be at least 6 characters (auth/weak-password)."
             ? "Heslo musí mít alespoň 6 znaků"
-            : action.error.message;
+            : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -880,13 +877,12 @@ export const authSlice = createSlice({
       //
       .addCase(loginRedux.pending, (state) => {
         console.log("loginRedux PROBÍHÁ");
-        // state.isLoading = true;
         state.isLoading2 = true;
         state.isLoginPending = true;
       })
       .addCase(loginRedux.fulfilled, (state) => {
         console.log("loginRedux ÚSPĚŠNĚ DOKONČEN");
-        // state.isLoading = false;
+
         state.isLoginPending = false;
         state.isLoading2 = false;
 
@@ -896,7 +892,7 @@ export const authSlice = createSlice({
         console.log("loginRedux SELHAL", action.error.message);
         state.isLoggedIn = false;
         state.loggedInUserEmail = null;
-        // state.isLoading = false;
+
         state.isLoading2 = false;
         state.isLoginPending = false;
 
@@ -911,7 +907,7 @@ export const authSlice = createSlice({
             : action.error.message ===
               "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
-            : action.error.message;
+            : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -936,23 +932,28 @@ export const authSlice = createSlice({
       //
       .addCase(logoutInSettingsRedux.pending, (state) => {
         console.log("logoutInSettingsRedux PROBÍHÁ");
-        state.isLoading = true;
+        state.isLoading2 = true;
       })
       .addCase(logoutInSettingsRedux.fulfilled, (state) => {
         console.log("logoutInSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading = false;
+        state.isLoading2 = false;
         state.isAccountLogoutSuccess = true;
       })
       .addCase(logoutInSettingsRedux.rejected, (state, action) => {
         console.log("logoutInSettingsRedux SELHAL", action.error.message);
-        state.isLoading = false;
+        state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
       //
       .addCase(loadUserDataRedux.pending, (state) => {
         console.log("loadUserDataRedux PROBÍHÁ");
-        state.isLoading = true;
         state.isLoading2 = true;
       })
       .addCase(loadUserDataRedux.fulfilled, (state, action) => {
@@ -960,14 +961,11 @@ export const authSlice = createSlice({
         state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
         state.loggedInUserData.currentJobs = action.payload.currentJobs;
         state.loggedInUserData.userSettings = action.payload.userSettings;
-        // state.isLoading = false;
         state.isLoading2 = false;
-
         state.isLoggedIn = true;
       })
       .addCase(loadUserDataRedux.rejected, (state, action) => {
         console.log("loadUserDataRedux SELHAL", action.error.message);
-        state.isLoading = false;
         state.isLoading2 = false;
       })
       //
@@ -988,18 +986,15 @@ export const authSlice = createSlice({
       //
       .addCase(changeEmailRedux.pending, (state) => {
         console.log("changeEmailRedux SPUŠTĚN");
-        // state.isLoading = true;
         state.isLoading2 = true;
       })
       .addCase(changeEmailRedux.fulfilled, (state) => {
         console.log("changeEmailRedux ÚSPĚŠNĚ DOKONČEN");
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        // state.isLoading = false;
         state.isEmailChangedSuccess = true;
       })
       .addCase(changeEmailRedux.rejected, (state, action) => {
         console.log("changeEmailRedux selhal", action.error.message);
-        // state.isLoading = false;
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
@@ -1009,7 +1004,7 @@ export const authSlice = createSlice({
             : action.error.message ===
               "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
-            : action.error.message;
+            : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
 
@@ -1026,14 +1021,11 @@ export const authSlice = createSlice({
       //
       .addCase(changePasswordRedux.pending, (state) => {
         console.log("changePasswordRedux SPUŠTĚN");
-        // state.isLoading = true;
         state.isLoading2 = true;
       })
       .addCase(changePasswordRedux.fulfilled, (state) => {
         console.log("changePasswordRedux ÚSPĚŠNĚ DOKONČEN");
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        // state.isLoading = false;
-
         state.isPasswordChangedSuccess = true;
 
         state.toast.isVisible = true;
@@ -1044,14 +1036,13 @@ export const authSlice = createSlice({
       })
       .addCase(changePasswordRedux.rejected, (state, action) => {
         console.log("changePasswordRedux selhal", action.error.message);
-        // state.isLoading = false;
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/wrong-password)."
             ? "Zadali jste špatné heslo"
-            : "Něco se pokazilo";
+            : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1067,12 +1058,17 @@ export const authSlice = createSlice({
         console.log("resetPasswordRedux ÚSPĚŠNĚ DOKONČEN");
         state.isPasswordResetSuccess = true;
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        // state.isLoading2 = false;
       })
       .addCase(resetPasswordRedux.rejected, (state, action) => {
         console.log("resetPasswordRedux SELHAL");
         console.log(action.error.message);
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1110,7 +1106,7 @@ export const authSlice = createSlice({
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Něco se pokazilo";
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1120,26 +1116,22 @@ export const authSlice = createSlice({
       //
       .addCase(deleteAccountRedux.pending, (state) => {
         console.log("deleteAccountRedux SPUŠTĚN");
-        // state.isLoading = true;
         state.isLoading2 = true;
         state.isAccountDeletingPending = true;
       })
       .addCase(deleteAccountRedux.fulfilled, (state) => {
         console.log("deleteAccountRedux ÚSPĚŠNĚ DOKONČEN");
-        // state.isLoading = false;
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        // state.isLoading2 = false;
         state.isAccountDeletedSuccess = true;
       })
 
       .addCase(deleteAccountRedux.rejected, (state) => {
         console.log("deleteAccountRedux SELHAL");
-        // state.isLoading = false;
         state.isLoading2 = false;
         state.isAccountDeletingPending = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Něco se pokazilo, zkuste to znovu";
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1172,6 +1164,12 @@ export const authSlice = createSlice({
       .addCase(addJobRedux.rejected, (state) => {
         console.log("addJobRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1208,6 +1206,12 @@ export const authSlice = createSlice({
       .addCase(editJobRedux.rejected, (state) => {
         console.log("editJobRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1230,6 +1234,12 @@ export const authSlice = createSlice({
       .addCase(deleteJobRedux.rejected, (state) => {
         console.log("deleteJobRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1256,6 +1266,12 @@ export const authSlice = createSlice({
       .addCase(archiveDoneJobsFirstTimeRedux.rejected, (state) => {
         console.log("archiveDoneJobsFirstTimeRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1282,6 +1298,12 @@ export const authSlice = createSlice({
       .addCase(archiveDoneJobsNewMonthRedux.rejected, (state) => {
         console.log("archiveDoneJobsNewMonthRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1307,6 +1329,12 @@ export const authSlice = createSlice({
       .addCase(archiveDoneJobsExistingMonthRedux.rejected, (state) => {
         console.log("archiveDoneJobsExistingMonthRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1329,6 +1357,12 @@ export const authSlice = createSlice({
       .addCase(deleteArchiveMonthRedux.rejected, (state) => {
         console.log("deleteArchiveMonthRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1351,6 +1385,12 @@ export const authSlice = createSlice({
       .addCase(deleteArchiveMonthJobRedux.rejected, (state) => {
         console.log("deleteArchiveMonthJobRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1373,6 +1413,12 @@ export const authSlice = createSlice({
       .addCase(editArchiveJobRedux.rejected, (state) => {
         console.log("editArchiveJobRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       })
       //
       // -----------------------------------------------------------------------
@@ -1407,6 +1453,12 @@ export const authSlice = createSlice({
       .addCase(editArchiveMonthSummarySettingsRedux.rejected, (state) => {
         console.log("editArchiveMonthSummarySettingsRedux SELHAL");
         state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
       });
   },
 });

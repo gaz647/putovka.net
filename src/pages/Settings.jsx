@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
-import Spinner2 from "../components/Spinner2";
+import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -88,6 +88,13 @@ const Settings = () => {
     navigate("/");
   };
 
+  // HANDLE LOGOUT -------------------------------------------------------
+  //
+  const handleLogout = () => {
+    dispatch(logoutInSettingsRedux());
+    // dispatch(logoutOnAuthRedux());
+  };
+
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
@@ -101,21 +108,13 @@ const Settings = () => {
     }
   }, [dispatch, isAccountLogoutSuccess, navigate]);
 
-  // HANDLE LOGOUT -------------------------------------------------------
-  //
-  const handleLogout = () => {
-    dispatch(logoutInSettingsRedux());
-    // dispatch(logoutOnAuthRedux());
-  };
-
   return (
     <section className="wrapper">
       {isLoading2 ? (
-        <>
-          <h1>Odstraňování účtu probíhá</h1>
+        <div className="full-page-container-center">
           <p>isLoading2</p>
-          <Spinner2 />
-        </>
+          <Spinner />
+        </div>
       ) : (
         <>
           <header className="settings-header">

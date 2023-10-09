@@ -26,15 +26,15 @@ const Navbar = () => {
   // USE STATE -----------------------------------------------------------
   //
 
-  // USE EFFECT ----------------------------------------------------------
-  //
-
   // RESET ---------------------------------------------------------------
   //
   const reset = () => {
     dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToAddValuesRedux());
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
 
   return (
     <div className="navbar-container">
