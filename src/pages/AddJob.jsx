@@ -54,6 +54,7 @@ const AddJob = () => {
   // ADD JOB -------------------------------------------------------------
   //
   const addJob = () => {
+    console.log(typeof price);
     const tempCurrentJobs = [...currentJobs];
 
     const newJob = {

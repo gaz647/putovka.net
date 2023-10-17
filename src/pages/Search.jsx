@@ -181,7 +181,6 @@ const Search = () => {
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
 
-      console.log(inputTextNoDiacritics);
       const result = filterByUserInput(json, inputTextNoDiacritics);
       setSearchResults(result);
       if (inputTextNoDiacritics === "") {
