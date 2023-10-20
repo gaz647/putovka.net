@@ -28,10 +28,16 @@
 .link {
   color: rgba(163, 163, 163, 0.432);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .active-link {
   color: var(--white-brighter);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
