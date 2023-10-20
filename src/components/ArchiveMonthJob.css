@@ -11,3 +11,19 @@
   padding: 0.2rem;
   margin-bottom: 0.2rem;
 }
+
+.archive-month-job-second-job-icon {
+  display: block;
+  font-size: 1rem;
+  color: var(--red);
+}
+
+.archive-month-job-second-waiting-icon-container {
+  display: flex;
+  align-items: center;
+  color: var(--red);
+}
+
+.archive-month-job-second-waiting-count {
+  display: inline-block;
+}

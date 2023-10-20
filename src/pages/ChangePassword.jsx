@@ -79,7 +79,6 @@ const ChangePassword = () => {
       {isLoading2 ? (
         <div className="full-page-container-center">
           <Heading text={"Probíhá změna hesla . . ."} />
-          <p>isLoading2</p>
           <Spinner />
         </div>
       ) : (

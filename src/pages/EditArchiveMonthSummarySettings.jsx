@@ -117,7 +117,6 @@ const EditArchiveMonthSummarySettings = () => {
     <section className="wrapper">
       {isLoading2 ? (
         <div className="full-page-container-center">
-          <p>isLoading2</p>
           <Spinner />
         </div>
       ) : (

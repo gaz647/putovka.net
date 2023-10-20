@@ -110,7 +110,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Fakturace:</div>
           <div className="archive-month-summary-item">
-            {summaryEur + " €"}
+            {summaryEur.toLocaleString() + " €"}
             <span>&nbsp;</span>
             <span>&nbsp;</span>
           </div>
@@ -118,13 +118,15 @@ const ArchiveMonthSummary = ({ summary }) => {
 
         <div className="archive-month-summary-one-line">
           <div></div>
-          <div className="archive-month-summary-item">{summaryCzk + " Kč"}</div>
+          <div className="archive-month-summary-item">
+            {summaryCzk.toLocaleString() + " Kč"}
+          </div>
         </div>
         <br />
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Výplata:</div>
           <div className="archive-month-summary-item">
-            {summarySalary + " Kč"}
+            {summarySalary.toLocaleString() + " Kč"}
           </div>
         </div>
         <br />
@@ -151,7 +153,7 @@ const ArchiveMonthSummary = ({ summary }) => {
           <div className="archive-month-summary-item">Základ:</div>
 
           <div className="archive-month-summary-item">
-            {summaryBaseMoney + " Kč"}
+            {summaryBaseMoney.toLocaleString() + " Kč"}
           </div>
         </div>
 
@@ -166,7 +168,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Druhá práce:</div>
           <div className="archive-month-summary-item">
-            {summarySecondJobBenefit + " Kč"}
+            {summarySecondJobBenefit.toLocaleString() + " Kč"}
           </div>
         </div>
 
@@ -175,14 +177,14 @@ const ArchiveMonthSummary = ({ summary }) => {
             Čekání - zaměstnavatel (Kč):
           </div>
           <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEmployerCzk + " Kč"}
+            {summaryWaitingBenefitEmployerCzk.toLocaleString() + " Kč"}
           </div>
         </div>
 
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Čekání (€):</div>
           <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEur + " €"}
+            {summaryWaitingBenefitEur.toLocaleString() + " €"}
             <span>&nbsp;</span>
             <span>&nbsp;</span>
           </div>

@@ -27,7 +27,9 @@ const Archive = () => {
     <section className="wrapper">
       <BackToTopBtn />
       {isLoading2 ? (
-        <Spinner />
+        <div className="full-page-container-center">
+          <Spinner />
+        </div>
       ) : (
         <>
           {archivedJobs.length === 0 && <Heading text={"Archiv je prázdný"} />}

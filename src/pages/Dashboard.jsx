@@ -242,8 +242,14 @@ const Dashboard = () => {
       }, 0)
     );
     setTotalEur(
+      // sečte eura z prací + eura za čekání
+      // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
       currentJobs.reduce((acc, oneJob) => {
-        return acc + Number(oneJob.price);
+        return (
+          acc +
+          Number(oneJob.price) +
+          Number(oneJob.waiting * waitingBenefitEur)
+        );
       }, 0)
     );
     setTotalCzk(parseInt(totalEur * eurCzkRate));
@@ -253,8 +259,8 @@ const Dashboard = () => {
         baseMoney +
           totalCzk * (percentage * 0.01) +
           totalSecondJobs * secondJobBenefit +
-          totalWaiting * waitingBenefitEmployerCzk +
-          totalWaiting * waitingBenefitEur * eurCzkRate
+          // waitingBenefitEur se nepřičítá - je už totalEur
+          totalWaiting * waitingBenefitEmployerCzk
       )
     );
   }, [
@@ -307,7 +313,6 @@ const Dashboard = () => {
       <BackToTopBtn />
       {isLoading2 ? (
         <div className="full-page-container-center">
-          <p>isLoading2</p>
           <Spinner />
         </div>
       ) : (
@@ -330,10 +335,10 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dashboard-summary-invoicing-count">
-                  {totalEur + " € "}
+                  {totalEur.toLocaleString() + " € "}
                 </div>
                 <div className="dashboard-summary-invoicing-count">
-                  {totalCzk + " Kč"}
+                  {totalCzk.toLocaleString() + " Kč"}
                 </div>
               </div>
               <div className="dashboard-summary-invoicing-container">
@@ -345,7 +350,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dashboard-summary-invoicing-count">
-                  {salary + " Kč"}
+                  {salary.toLocaleString() + " Kč"}
                 </div>
               </div>
             </div>

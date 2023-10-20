@@ -11,8 +11,8 @@ import {
   deleteArchiveMonthJobRedux,
   setIsEditingTrueRedux,
 } from "../redux/AuthSlice";
-import { BsPencil } from "react-icons/bs";
-import { BsTrash3 } from "react-icons/bs";
+import { BsPencil, BsTrash3 } from "react-icons/bs";
+import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 
 const ArchiveMonthJob = ({ oneJobData }) => {
   const dispatch = useDispatch();
@@ -44,6 +44,9 @@ const ArchiveMonthJob = ({ oneJobData }) => {
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const archivedJobs = useSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
+  );
+  const waitingBenefitEur = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
   // USE STATE -----------------------------------------------------------
@@ -142,7 +145,9 @@ const ArchiveMonthJob = ({ oneJobData }) => {
           {getCzDateFormat(date)}
         </div>
         <div className="archive-month-job-header-item">{weight + "t"}</div>
-        <div className="archive-month-job-header-item">{price + " €"}</div>
+        <div className="archive-month-job-header-item">
+          {(price + waiting * waitingBenefitEur).toLocaleString() + " €"}
+        </div>
 
         <div className="archive-month-job-header-item">
           <BsTrash3 onClick={() => setShowArchiveJobDeleteModal(true)} />
@@ -152,8 +157,18 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       <div>{city}</div>
       <div>{zipcode}</div>
       <div>{cmr}</div>
-      <div>{isSecondJob ? "dvojka" : "nedvojka"}</div>
-      <div>{waiting}</div>
+      {isSecondJob && (
+        <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
+      )}
+      {waiting > 0 && (
+        <div className="archive-month-job-second-waiting-icon-container">
+          <PiClockBold />
+          <div className="archive-month-job-second-waiting-count">
+            {waiting}
+          </div>
+        </div>
+      )}
+
       <div>{note}</div>
     </section>
   );

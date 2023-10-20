@@ -114,7 +114,6 @@ const Register = () => {
         {isLoading2 ? (
           <div className="full-page-container-center">
             <Heading text={"Registrace probíhá . . ."} />
-            <p>isLoading2</p>
             <Spinner />
           </div>
         ) : (

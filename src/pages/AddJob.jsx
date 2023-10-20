@@ -113,7 +113,6 @@ const AddJob = () => {
     <section className="add-job wrapper">
       {isLoading2 ? (
         <div className="full-page-container-center">
-          <p>isLoading2</p>
           <Spinner />
         </div>
       ) : (

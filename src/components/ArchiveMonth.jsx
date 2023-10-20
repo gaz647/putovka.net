@@ -35,7 +35,9 @@ const ArchiveMonth = ({ oneMonthData }) => {
   //
   const getSummary = () => {
     const summaryEur = jobs.reduce((acc, job) => {
-      return acc + job.price;
+      // sečte eura z prací + eura za čekání
+      // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
+      return acc + job.price + job.waiting * userSettings.waitingBenefitEur;
     }, 0);
 
     const summaryCzk = parseInt(summaryEur * userSettings.eurCzkRate);
@@ -52,10 +54,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
       userSettings.baseMoney +
         summaryCzk * (userSettings.percentage * 0.01) +
         summarySecondJobs * userSettings.secondJobBenefit +
-        summaryWaiting * userSettings.waitingBenefitEmployerCzk +
-        summaryWaiting *
-          userSettings.waitingBenefitEur *
-          userSettings.eurCzkRate
+        // waitingBenefitEur se nepřičítá - je už summaryEur
+        summaryWaiting * userSettings.waitingBenefitEmployerCzk
     );
 
     const summaryBaseMoney = userSettings.baseMoney;

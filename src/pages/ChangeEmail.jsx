@@ -83,7 +83,6 @@ const ChangeEmail = () => {
       {isLoading2 ? (
         <div className="full-page-container-center">
           <Heading text={"Probíhá změna emailu . . ."} />
-          <p>isLoading2</p>
           <Spinner />
         </div>
       ) : (
