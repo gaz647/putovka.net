@@ -216,7 +216,9 @@ const Search = () => {
         )}
       </div>
       {!searchResultsReady ? (
-        <Spinner />
+        <div className="spinner-one-line-container">
+          <Spinner />
+        </div>
       ) : (
         <ul>
           {searchResults.map((result) => (

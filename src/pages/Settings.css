@@ -23,3 +23,8 @@
 .settings-form {
   margin-top: 2.5rem;
 }
+
+.spinner-one-line-container {
+  display: flex;
+  justify-content: center;
+}
