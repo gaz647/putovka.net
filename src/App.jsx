@@ -80,8 +80,18 @@ const App = () => {
         } else if (currentUser !== null && !emailVerified) {
           console.log("karent jůsr není nul ale nepotvrdil email");
           console.log("proto ho odhlašuji");
-          dispatch(logoutOnAuthRedux());
-          dispatch(logoutRedux());
+          dispatch(
+            runToastRedux({
+              message:
+                "Vaše registrace není aktivní. Potvrďte ji kliknutím na odkaz který Vám byl odeslán do Vaší emalové schránky.",
+              style: "error",
+              time: false,
+            })
+          );
+          setTimeout(() => {
+            dispatch(logoutOnAuthRedux());
+            dispatch(logoutRedux());
+          }, 100);
         } else if (currentUser !== null && emailVerified) {
           console.log("karent jůsr není nul a potvrdil mail");
 
