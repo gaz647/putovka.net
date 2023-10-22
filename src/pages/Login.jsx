@@ -66,6 +66,8 @@ const Login = () => {
         ? toast.success(`${toastRedux.message}`)
         : toastRedux.style === "error"
         ? toast.error(`${toastRedux.message}`)
+        : toastRedux.style === "warning"
+        ? toast.warning(`${toastRedux.message}`)
         : null;
     }
   }, [toastRedux]);
