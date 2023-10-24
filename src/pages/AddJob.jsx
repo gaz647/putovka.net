@@ -33,6 +33,7 @@ const AddJob = () => {
 
   // USE STATE -----------------------------------------------------------
   //
+  const [isHoliday, setIsHoliday] = useState(false);
   const [date, setDate] = useState(getCurrentDate());
   const [day, setDay] = useState(getCzDayFromDate(date));
   const [city, setCity] = useState(
@@ -54,27 +55,53 @@ const AddJob = () => {
   // ADD JOB -------------------------------------------------------------
   //
   const addJob = () => {
-    console.log(typeof price);
     const tempCurrentJobs = [...currentJobs];
 
-    const newJob = {
-      city,
-      cmr,
-      date,
-      day,
-      id: uuidv4(),
-      isCustomJob,
-      isSecondJob,
-      note,
-      price: Number(price),
-      terminal: getProperTerminalName(terminal),
-      timestamp: new Date().getTime(),
-      waiting: Number(waiting),
-      weight: Number(weight),
-      weightTo27t: Number(weightTo27t),
-      weightTo34t: Number(weightTo34t),
-      zipcode,
-    };
+    let newJob = {};
+
+    if (!isHoliday) {
+      newJob = {
+        city,
+        cmr,
+        date,
+        day,
+        id: uuidv4(),
+        isCustomJob,
+        isHoliday,
+        isSecondJob,
+        note,
+        price: Number(price),
+        terminal: getProperTerminalName(terminal),
+        timestamp: new Date().getTime(),
+        waiting: Number(waiting),
+        weight: Number(weight),
+        weightTo27t: Number(weightTo27t),
+        weightTo34t: Number(weightTo34t),
+        zipcode,
+      };
+    } else if (isHoliday) {
+      newJob = {
+        city: "DOVOLENÁ",
+        cmr: "",
+        date,
+        day,
+        id: uuidv4(),
+        isCustomJob,
+        isHoliday,
+        isSecondJob: false,
+        note,
+        price: 0,
+        terminal: "",
+        timestamp: new Date().getTime(),
+        waiting: 0,
+        weight: 0,
+        weightTo27t: 0,
+        weightTo34t: 0,
+        zipcode: "",
+      };
+    }
+
+    console.log("newJob", newJob);
 
     tempCurrentJobs.unshift(newJob);
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
@@ -118,86 +145,128 @@ const AddJob = () => {
       ) : (
         <>
           <form className="add-job-form">
-            <InputField
-              label={"Datum"}
-              subLabel={""}
-              type={"date"}
-              value={date}
-              onDateChange={(e) => setDate(e)}
-            />
+            {isCustomJob && (
+              <div className="add-job-holiday-swich-container">
+                <div
+                  className={`add-job-holiday-switch add-job-switch ${
+                    !isHoliday ? "add-job-holiday-selected" : ""
+                  }`}
+                  onClick={() => setIsHoliday(false)}
+                >
+                  PRÁCE
+                </div>
+                <div
+                  className={`add-job-holiday-switch add-holiday-switch ${
+                    isHoliday ? "add-job-holiday-selected" : ""
+                  }`}
+                  onClick={() => setIsHoliday(true)}
+                >
+                  DOVOLENÁ
+                </div>
+              </div>
+            )}
 
-            <InputField
-              label={"Město"}
-              subLabel={""}
-              type={"text"}
-              value={city}
-              onTextChange={(e) => setCity(e)}
-            />
+            {!isHoliday && (
+              <>
+                <InputField
+                  label={"Datum"}
+                  subLabel={""}
+                  type={"date"}
+                  value={date}
+                  onDateChange={(e) => setDate(e)}
+                />
 
-            <InputField
-              label={"PSČ"}
-              subLabel={""}
-              type={"text"}
-              value={zipcode}
-              onTextChange={(e) => setZipcode(e)}
-            />
+                <InputField
+                  label={"Město"}
+                  subLabel={""}
+                  type={"text"}
+                  value={city}
+                  onTextChange={(e) => setCity(e)}
+                />
 
-            <InputField
-              label={""}
-              subLabel={""}
-              type={"weight"}
-              value={""}
-              onWeightChange={(e) => handleWeightChange(e)}
-            />
+                <InputField
+                  label={"PSČ"}
+                  subLabel={""}
+                  type={"text"}
+                  value={zipcode}
+                  onTextChange={(e) => setZipcode(e)}
+                />
 
-            <InputField
-              label={"Cena"}
-              subLabel={""}
-              type={"number"}
-              value={price}
-              onNumberChange={(e) => setPrice(e)}
-            />
+                <InputField
+                  label={""}
+                  subLabel={""}
+                  type={"weight"}
+                  value={""}
+                  onWeightChange={(e) => handleWeightChange(e)}
+                />
 
-            <InputField
-              label={"CMR"}
-              subLabel={""}
-              type={"text"}
-              value={cmr}
-              onTextChange={(e) => setCmr(e)}
-            />
+                <InputField
+                  label={"Cena"}
+                  subLabel={""}
+                  type={"number"}
+                  value={price}
+                  onNumberChange={(e) => setPrice(e)}
+                />
 
-            <InputField
-              label={"Druhá práce"}
-              subLabel={""}
-              type={"checkbox"}
-              value={isSecondJob}
-              onCheckboxChange={(e) => setIsSecondJob(e)}
-            />
+                <InputField
+                  label={"CMR"}
+                  subLabel={""}
+                  type={"text"}
+                  value={cmr}
+                  onTextChange={(e) => setCmr(e)}
+                />
 
-            <InputField
-              label={"Čekání"}
-              subLabel={""}
-              type={"number"}
-              value={waiting}
-              onNumberChange={(e) => setWaiting(e)}
-            />
+                <InputField
+                  label={"Druhá práce"}
+                  subLabel={""}
+                  type={"checkbox"}
+                  value={isSecondJob}
+                  onCheckboxChange={(e) => setIsSecondJob(e)}
+                />
 
-            <InputField
-              label={"Poznámka"}
-              subLabel={""}
-              type={"text"}
-              value={note}
-              onTextChange={(e) => setNote(e)}
-            />
+                <InputField
+                  label={"Čekání"}
+                  subLabel={""}
+                  type={"number"}
+                  value={waiting}
+                  onNumberChange={(e) => setWaiting(e)}
+                />
 
-            <InputField
-              label={"Terminál"}
-              subLabel={""}
-              type={"text"}
-              value={getProperTerminalName(terminal)}
-              onTextChange={(e) => setTerminal(e)}
-            />
+                <InputField
+                  label={"Poznámka"}
+                  subLabel={""}
+                  type={"text"}
+                  value={note}
+                  onTextChange={(e) => setNote(e)}
+                />
 
+                <InputField
+                  label={"Terminál"}
+                  subLabel={""}
+                  type={"text"}
+                  value={getProperTerminalName(terminal)}
+                  onTextChange={(e) => setTerminal(e)}
+                />
+              </>
+            )}
+            {isHoliday && (
+              <>
+                <InputField
+                  label={"Datum"}
+                  subLabel={""}
+                  type={"date"}
+                  value={date}
+                  onDateChange={(e) => setDate(e)}
+                />
+                <InputField
+                  label={"Poznámka"}
+                  subLabel={""}
+                  type={"text"}
+                  value={note}
+                  onTextChange={(e) => setNote(e)}
+                />
+              </>
+            )}
             <ConfirmDeclineBtns
               confirmFunction={addJob}
               declineFunction={handleDecline}

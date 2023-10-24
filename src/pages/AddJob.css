@@ -5,3 +5,37 @@
   align-items: center;
   justify-content: center;
 }
+
+.add-job-holiday-swich-container {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--blue-2);
+}
+
+.add-job-holiday-switch {
+  width: 50%;
+  height: 100%;
+  background-color: var(--white-2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-job-switch {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.add-holiday-switch {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.add-job-holiday-selected {
+  background-color: var(--green);
+  font-weight: bold;
+}

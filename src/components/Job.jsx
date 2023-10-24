@@ -12,6 +12,7 @@ import { BsPencil } from "react-icons/bs";
 import { BsTrash3 } from "react-icons/bs";
 import { FcExpand } from "react-icons/fc";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
+import { FaUmbrellaBeach } from "react-icons/fa";
 import "./Job.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -31,6 +32,7 @@ const Job = ({ jobDetails }) => {
     day,
     id,
     isCustomJob,
+    isHoliday,
     isSecondJob,
     note,
     price,
@@ -83,6 +85,7 @@ const Job = ({ jobDetails }) => {
       date,
       id,
       isCustomJob,
+      isHoliday,
       isSecondJob,
       note,
       price,
@@ -103,7 +106,7 @@ const Job = ({ jobDetails }) => {
   // HANDLE SHOW DETAILS -------------------------------------------------
   //
   const handleShowDetails = () => {
-    setShowDetails(!showDetails);
+    !isHoliday ? setShowDetails(!showDetails) : null;
   };
 
   // MODAL STUFF ---------------------------------------------------------
@@ -171,21 +174,24 @@ const Job = ({ jobDetails }) => {
             {getCzDateFormat(date)}
           </div>
           <div className="one-job-header-copy-to-clipboard-item">
-            {(price + waiting * waitingBenefitEur).toLocaleString() + " €"}
+            {!isHoliday
+              ? (price + waiting * waitingBenefitEur).toLocaleString() + " €"
+              : ""}
           </div>
         </div>
 
         <div className="one-job-header-delete-btn">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
         </div>
-
-        <div className="one-job-header-expand-btn">
-          <FcExpand
-            className={` ${
-              showDetails ? "one-job-header-expand-btn-opened" : ""
-            }`}
-          />
-        </div>
+        {!isHoliday && (
+          <div className="one-job-header-expand-btn">
+            <FcExpand
+              className={` ${
+                showDetails ? "one-job-header-expand-btn-opened" : ""
+              }`}
+            />
+          </div>
+        )}
       </div>
 
       <div className="one-job-body-container" onClick={handleShowDetails}>
@@ -196,17 +202,20 @@ const Job = ({ jobDetails }) => {
 
         <div className="one-job-body-bottom-line-container">
           <div
-            className={`one-job-body-bottom-line-second-job-icon ${
+            className={`${
+              isSecondJob && "one-job-body-bottom-line-second-job-icon"
+            } ${isHoliday && "one-job-body-bottom-line-holiday-icon"} ${
               showDetails && "vis-hidden"
             }`}
           >
             <PiNumberSquareTwoBold
               className={!isSecondJob ? "vis-hidden" : ""}
             />
+            <FaUmbrellaBeach className={!isHoliday ? "vis-hidden" : ""} />
           </div>
 
           <div className="one-job-body-item one-job-body-item-smaller">
-            {weight + "t"}
+            {!isHoliday ? weight + "t" : note}
           </div>
 
           <div

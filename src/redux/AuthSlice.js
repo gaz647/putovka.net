@@ -597,6 +597,7 @@ export const authSlice = createSlice({
       date: "",
       id: "",
       isCustomJob: "",
+      isHoliday: "",
       isSecondJob: false,
       note: "",
       price: 0,
@@ -762,6 +763,7 @@ export const authSlice = createSlice({
       state.jobToEdit.date = action.payload.date;
       state.jobToEdit.id = action.payload.id;
       state.jobToEdit.isCustomJob = action.payload.isCustomJob;
+      state.jobToEdit.isHoliday = action.payload.isHoliday;
       state.jobToEdit.isSecondJob = action.payload.isSecondJob;
       state.jobToEdit.note = action.payload.note;
       state.jobToEdit.price = action.payload.price;
@@ -823,13 +825,14 @@ export const authSlice = createSlice({
 
     resetJobToEditValuesRedux: (state) => {
       console.log("resetJobToEditValuesRedux SPUŠTĚN");
-      state.isEditingArchivedJob = true;
+      state.isEditingArchivedJob = false;
 
       state.jobToEdit.city = "";
       state.jobToEdit.cmr = "";
       state.jobToEdit.date = "";
       state.jobToEdit.id = "";
-      state.jobToEdit.isCustomJob = false;
+      state.jobToEdit.isCustomJob = true;
+      state.jobToEdit.isHoliday = false;
       state.jobToEdit.isSecondJob = false;
       state.jobToEdit.note = "";
       state.jobToEdit.price = 0;
@@ -1180,20 +1183,24 @@ export const authSlice = createSlice({
       })
       .addCase(editJobRedux.fulfilled, (state, action) => {
         console.log("editJobRedux ÚSPĚŠNĚ DOKONČEN");
+
         state.jobToEdit.city = "";
         state.jobToEdit.cmr = "";
         state.jobToEdit.date = "";
         state.jobToEdit.id = "";
-        state.jobToEdit.isCustomJob = "";
+        state.jobToEdit.isCustomJob = true;
+        state.jobToEdit.isHoliday = false;
         state.jobToEdit.isSecondJob = false;
         state.jobToEdit.note = "";
         state.jobToEdit.price = 0;
         state.jobToEdit.terminal = "";
+        state.jobToEdit.timestamp = "";
         state.jobToEdit.waiting = 0;
         state.jobToEdit.weight = 0;
         state.jobToEdit.weightTo27t = 0;
         state.jobToEdit.weightTo34t = 0;
         state.jobToEdit.zipcode = "";
+
         state.loggedInUserData.currentJobs = action.payload;
         state.isLoading2 = false;
 

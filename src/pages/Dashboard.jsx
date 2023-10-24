@@ -11,6 +11,7 @@ import {
 } from "../redux/AuthSlice";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
+import { FaUmbrellaBeach } from "react-icons/fa";
 import { GiReceiveMoney } from "react-icons/gi";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
@@ -75,6 +76,7 @@ const Dashboard = () => {
   const [totalCzk, setTotalCzk] = useState(0);
   const [salary, setSalary] = useState(0);
   const [totalJobs, setTotalJobs] = useState(0);
+  const [totalHoliday, setTotalHoliday] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
   const [totalWaiting, setTotalWaiting] = useState(0);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
@@ -232,7 +234,16 @@ const Dashboard = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    setTotalJobs(currentJobs.length);
+    setTotalJobs(
+      currentJobs.filter((oneJob) => {
+        return !oneJob.isHoliday;
+      }).length
+    );
+    setTotalHoliday(
+      currentJobs.filter((oneJob) => {
+        return oneJob.isHoliday;
+      }).length
+    );
     setTotalSecondJobs(
       currentJobs.filter((oneJob) => oneJob.isSecondJob === true).length
     );
@@ -369,6 +380,12 @@ const Dashboard = () => {
                 <PiClockBold className="dashboard-summary-counts-icon" />
                 <div className="dashboard-summary-counts-text">
                   {totalWaiting}
+                </div>
+              </div>
+              <div className="dashboard-summary-counts-container">
+                <FaUmbrellaBeach className="dashboard-summary-counts-icon" />
+                <div className="dashboard-summary-counts-text">
+                  {totalHoliday}
                 </div>
               </div>
             </div>
