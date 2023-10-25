@@ -23,6 +23,7 @@ const ArchiveMonthSummary = ({ summary }) => {
     summaryWaiting,
     summarySalary,
     summaryJobs,
+    summaryHolidays,
     summaryBaseMoney,
     summaryPercentage,
     summarySecondJobBenefit,
@@ -79,7 +80,7 @@ const ArchiveMonthSummary = ({ summary }) => {
       }\u00A0\u00A0${oneJob.price + "€"}`;
     });
 
-    const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk} Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}`;
+    const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk} Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}\nDovolené:\u00A0\u00A0${summaryHolidays}`;
 
     const dataToSend = `${getArchiveDate(date)}\n\n${jobsData.join(
       "\n"
@@ -144,6 +145,11 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Čekání:</div>
           <div className="archive-month-summary-item">{summaryWaiting}</div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Dovolené:</div>
+          <div className="archive-month-summary-item">{summaryHolidays}</div>
         </div>
         <br />
         <br />

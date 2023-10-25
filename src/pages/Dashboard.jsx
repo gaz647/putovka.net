@@ -76,7 +76,7 @@ const Dashboard = () => {
   const [totalCzk, setTotalCzk] = useState(0);
   const [salary, setSalary] = useState(0);
   const [totalJobs, setTotalJobs] = useState(0);
-  const [totalHoliday, setTotalHoliday] = useState(0);
+  const [totalHolidays, setTotalHolidays] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
   const [totalWaiting, setTotalWaiting] = useState(0);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
@@ -239,7 +239,7 @@ const Dashboard = () => {
         return !oneJob.isHoliday;
       }).length
     );
-    setTotalHoliday(
+    setTotalHolidays(
       currentJobs.filter((oneJob) => {
         return oneJob.isHoliday;
       }).length
@@ -385,7 +385,7 @@ const Dashboard = () => {
               <div className="dashboard-summary-counts-container">
                 <FaUmbrellaBeach className="dashboard-summary-counts-icon" />
                 <div className="dashboard-summary-counts-text">
-                  {totalHoliday}
+                  {totalHolidays}
                 </div>
               </div>
             </div>

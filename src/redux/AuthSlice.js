@@ -747,7 +747,7 @@ export const authSlice = createSlice({
     },
 
     resetJobToAddValuesRedux: (state) => {
-      // console.log("resetJobToAddValuesRedux SPUŠTĚN");
+      console.log("resetJobToAddValuesRedux SPUŠTĚN");
       state.jobToAdd.city = "";
       state.jobToAdd.isCustomJob = true;
       state.jobToAdd.terminal = "";
@@ -1257,7 +1257,7 @@ export const authSlice = createSlice({
       })
       .addCase(archiveDoneJobsFirstTimeRedux.fulfilled, (state, action) => {
         console.log("archiveDoneJobsFirstTimeRedux ÚSPĚŠNĚ DOKONČEN");
-        console.log(action.payload);
+
         state.loggedInUserData.archivedJobs = action.payload.monthToArchive;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
         state.loggedInUserData.userSettings.eurCzkRate =
@@ -1473,7 +1473,9 @@ export const authSlice = createSlice({
 export const {
   runToastRedux,
   resetToastRedux,
+  resetJobToAddValuesRedux,
   resetJobToEditValuesRedux,
+  resetArchiveMonthSummarySettingsToEditRedux,
   resetIsRegisterPending,
   resetIsRegisterSuccessRedux,
   resetIsEmailChangedSuccessRedux,
@@ -1489,12 +1491,10 @@ export const {
   logoutOnAuthRedux,
   setLoadedUserDataRedux,
   setJobToAddRedux,
-  resetJobToAddValuesRedux,
   setJobToEditRedux,
   setIsEditingArchivedJobTrueRedux,
   setIsEditingArchivedJobFalseRedux,
   setArchiveMonthSummarySettingsToEditRedux,
-  resetArchiveMonthSummarySettingsToEditRedux,
   setIsEditingTrueRedux,
   setIsEditingFalseRedux,
 } = authSlice.actions;

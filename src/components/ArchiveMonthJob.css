@@ -1,12 +1,12 @@
 .archive-month-job {
-  /* padding: 0.5rem; */
-  margin: 1rem auto;
+  margin: 2rem auto;
   font-size: 0.9rem;
 }
 
 .archive-month-job-header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   background-color: lightgray;
   padding: 0.2rem;
   margin-bottom: 0.2rem;
@@ -15,6 +15,12 @@
 .archive-month-job-second-job-icon {
   display: block;
   font-size: 1rem;
+  color: var(--red);
+}
+
+.archive-month-holiday-job-icon {
+  display: block;
+  font-size: 0.95rem;
   color: var(--red);
 }
 

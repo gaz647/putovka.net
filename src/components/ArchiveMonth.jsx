@@ -65,7 +65,8 @@ const ArchiveMonth = ({ oneMonthData }) => {
       userSettings.waitingBenefitEmployerCzk;
     const summaryWaitingBenefitEur = userSettings.waitingBenefitEur;
     const summaryEurCzkRate = userSettings.eurCzkRate;
-    const summaryJobs = jobs.length;
+    const summaryJobs = jobs.filter((oneJob) => !oneJob.isHoliday).length;
+    const summaryHolidays = jobs.filter((oneJob) => oneJob.isHoliday).length;
 
     setSummaryData({
       date,
@@ -75,6 +76,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
       summaryWaiting,
       summarySalary,
       summaryJobs,
+      summaryHolidays,
       summaryEurCzkRate,
       summaryBaseMoney,
       summaryPercentage,

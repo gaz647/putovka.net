@@ -13,6 +13,7 @@ import {
 } from "../redux/AuthSlice";
 import { BsPencil, BsTrash3 } from "react-icons/bs";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
+import { FaUmbrellaBeach } from "react-icons/fa";
 
 const ArchiveMonthJob = ({ oneJobData }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
     day,
     id,
     isCustomJob,
+    isHoliday,
     isSecondJob,
     note,
     price,
@@ -71,6 +73,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       day,
       id,
       isCustomJob,
+      isHoliday,
       isSecondJob,
       note,
       price,
@@ -140,13 +143,17 @@ const ArchiveMonthJob = ({ oneJobData }) => {
         <div className="archive-month-job-header-item">
           <BsPencil onClick={() => setShowArchiveJobEditModal(true)} />
         </div>
-        <div className="archive-month-job-header-item">{day}</div>
-        <div className="archive-month-job-header-item">
+        <div className="archive-month-job-header-day">{day}</div>
+        <div className="archive-month-job-header-date">
           {getCzDateFormat(date)}
         </div>
-        <div className="archive-month-job-header-item">{weight + "t"}</div>
         <div className="archive-month-job-header-item">
-          {(price + waiting * waitingBenefitEur).toLocaleString() + " €"}
+          {!isHoliday ? weight + "t" : "-------"}
+        </div>
+        <div className="archive-month-job-header-item">
+          {!isHoliday
+            ? (price + waiting * waitingBenefitEur).toLocaleString() + " €"
+            : "-------"}
         </div>
 
         <div className="archive-month-job-header-item">
@@ -160,6 +167,7 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       {isSecondJob && (
         <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
       )}
+
       {waiting > 0 && (
         <div className="archive-month-job-second-waiting-icon-container">
           <PiClockBold />
@@ -170,6 +178,9 @@ const ArchiveMonthJob = ({ oneJobData }) => {
       )}
 
       <div>{note}</div>
+      {isHoliday && (
+        <FaUmbrellaBeach className="archive-month-holiday-job-icon" />
+      )}
     </section>
   );
 };

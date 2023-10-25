@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import {
   setIsEditingFalseRedux,
   resetJobToAddValuesRedux,
+  resetJobToEditValuesRedux,
+  resetArchiveMonthSummarySettingsToEditRedux,
 } from "../redux/AuthSlice";
 
 const Navbar = () => {
@@ -31,6 +33,8 @@ const Navbar = () => {
   const reset = () => {
     dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToAddValuesRedux());
+    dispatch(resetJobToEditValuesRedux());
+    dispatch(resetArchiveMonthSummarySettingsToEditRedux());
   };
 
   // USE EFFECT ----------------------------------------------------------
