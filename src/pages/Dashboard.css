@@ -54,6 +54,10 @@
   color: var(--blue-2);
 }
 
+.dashboard-summary-counts-icon-beach {
+  font-size: 1.05rem;
+}
+
 .dashboard-summary-counts-text {
   color: var(--blue-2);
   font-weight: bold;

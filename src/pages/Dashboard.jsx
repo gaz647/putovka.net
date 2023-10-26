@@ -383,7 +383,7 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="dashboard-summary-counts-container">
-                <FaUmbrellaBeach className="dashboard-summary-counts-icon" />
+                <FaUmbrellaBeach className="dashboard-summary-counts-icon dashboard-summary-counts-icon-beach" />
                 <div className="dashboard-summary-counts-text">
                   {totalHolidays}
                 </div>
