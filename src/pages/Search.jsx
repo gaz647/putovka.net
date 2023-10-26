@@ -144,32 +144,24 @@ const Search = () => {
     switch (terminal) {
       case "ceska_trebova":
         setJson(ceska_trebova);
-        console.log("terminál Česká Třebová");
         break;
       case "ostrava":
         setJson(ostrava);
-        console.log("terminál Ostrava");
         break;
       case "plzen":
         setJson(plzen);
-        console.log("terminál Plzeň");
         break;
       case "praha":
         setJson(praha);
-        console.log("terminál Praha");
         break;
       case "usti_nad_labem":
         setJson(usti_nad_labem);
-        console.log("terminál Ústí nad Labem");
         break;
       case "zlin":
         setJson(zlin);
-        console.log("terminál Zlín");
         break;
-
       default:
         setJson(ceska_trebova);
-        console.log("spuštěň default");
         break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
