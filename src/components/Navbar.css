@@ -9,6 +9,18 @@
   background-color: var(--blue-2);
 }
 
+.navbar-click-blocker {
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: var(--blue-2);
+  z-index: 999;
+}
+
 .navbar {
   height: inherit;
   max-width: 450px;

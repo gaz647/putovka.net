@@ -23,6 +23,8 @@ const Navbar = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
+  const isLoading = useSelector((state) => state.auth.isLoading);
+  const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const isEditing = useSelector((state) => state.auth.isEditing);
 
   // USE STATE -----------------------------------------------------------
@@ -43,6 +45,8 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <nav className="navbar">
+        {isLoading ||
+          (isLoading2 && <div className="navbar-click-blocker"></div>)}
         <NavLink
           to={"/"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
@@ -50,6 +54,7 @@ const Navbar = () => {
         >
           <BiSpreadsheet />
         </NavLink>
+
         <NavLink
           to={"/search"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
@@ -57,6 +62,7 @@ const Navbar = () => {
         >
           <HiOutlineMagnifyingGlass />
         </NavLink>
+
         {isEditing ? (
           <NavLink
             className={({ isActive }) =>
@@ -83,6 +89,7 @@ const Navbar = () => {
         >
           <RiCharacterRecognitionLine />
         </NavLink>
+
         <NavLink
           to={"/settings"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
