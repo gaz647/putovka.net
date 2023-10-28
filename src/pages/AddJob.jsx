@@ -101,8 +101,6 @@ const AddJob = () => {
       };
     }
 
-    console.log("newJob", newJob);
-
     tempCurrentJobs.unshift(newJob);
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
     const payload = { userUid, sortedCurrentJobs };
