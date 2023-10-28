@@ -120,12 +120,17 @@ const Job = ({ jobDetails }) => {
   // COPY TO CLIPBOARD ---------------------------------------------------
   //
   const copyToClipBoard = () => {
-    const textToCoppy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
-      weight + "t"
-    } ${price + "€"}`;
+    let textToCopy;
+    if (!isHoliday) {
+      textToCopy = `${getCzDateFormat(date)} ${cmr} ${city} ${zipcode} ${
+        weight + "t"
+      } ${price + "€"}`;
+    } else if (isHoliday) {
+      textToCopy = `${getCzDateFormat(date)} ${city}`;
+    }
 
     navigator.clipboard
-      .writeText(textToCoppy)
+      .writeText(textToCopy)
       .then(() => {
         dispatch(
           runToastRedux({
@@ -161,7 +166,7 @@ const Job = ({ jobDetails }) => {
       )}
 
       <div className="one-job-header">
-        <div className="one-job-header-edit-btn">
+        <div className="one-job-edit-delete-second-job-waiting-btn-container one-job-header-edit-btn">
           <BsPencil onClick={editJobNavigate} />
         </div>
 
@@ -180,7 +185,7 @@ const Job = ({ jobDetails }) => {
           </div>
         </div>
 
-        <div className="one-job-header-delete-btn">
+        <div className="one-job-edit-delete-second-job-waiting-btn-container one-job-header-delete-btn">
           <BsTrash3 onClick={handleDeleteJobModalVisibility} />
         </div>
         {!isHoliday && (
@@ -194,93 +199,57 @@ const Job = ({ jobDetails }) => {
         )}
       </div>
 
-      <div className="one-job-body-container" onClick={handleShowDetails}>
+      <div className="one-job-body" onClick={handleShowDetails}>
         <div className="one-job-body-item one-job-body-city">{city}</div>
+
         <div className="one-job-body-item one-job-body-item-smaller">
           {zipcode}
         </div>
 
-        <div className="one-job-body-bottom-line-container">
-          <div
-            className={`${
-              isSecondJob && "one-job-body-bottom-line-second-job-icon"
-            } ${isHoliday && "one-job-body-bottom-line-holiday-icon"} ${
-              showDetails && "vis-hidden"
-            }`}
-          >
-            <PiNumberSquareTwoBold
-              className={!isSecondJob ? "vis-hidden" : ""}
-            />
-            <FaUmbrellaBeach className={!isHoliday ? "vis-hidden" : ""} />
-          </div>
-
-          <div className="one-job-body-item one-job-body-item-smaller">
-            {!isHoliday ? weight + "t" : note}
-          </div>
-
-          <div
-            className={`one-job-body-bottom-line-waiting-container ${
-              showDetails && "vis-hidden"
-            }`}
-          >
-            <div className={waiting < 1 ? "vis-hidden" : ""}>
-              <div className="one-job-body-bottom-line-waiting-icon">
-                <PiClockBold />
-              </div>
-              {waiting}
-            </div>
-          </div>
-        </div>
-
         {showDetails && (
           <>
-            {cmr !== "" ? (
+            {cmr && (
               <div className="one-job-body-item one-job-body-item-smaller">
                 {cmr}
               </div>
-            ) : null}
+            )}
 
             <div className="one-job-body-item one-job-body-item-smaller">
               {"terminál: " + terminal}
             </div>
 
-            <div className="one-job-body-bottom-line-container">
-              <div className="one-job-body-bottom-line-second-job-icon">
-                <PiNumberSquareTwoBold
-                  className={!isSecondJob ? "vis-hidden" : ""}
-                />
-              </div>
-
+            {note && (
               <div className="one-job-body-item one-job-body-item-smaller">
                 {note}
               </div>
-
-              <div className="one-job-body-bottom-line-waiting-container">
-                <div className={waiting < 1 ? "vis-hidden" : ""}>
-                  <div className="one-job-body-bottom-line-waiting-icon">
-                    <PiClockBold />
-                  </div>
-                  {waiting}
-                </div>
-              </div>
-            </div>
+            )}
           </>
         )}
+      </div>
 
-        {/* {isSecondJob ? (
-          <PiNumberSquareTwoBold className="one-job-body-second-job-icon" />
-        ) : (
-          ""
-        )}
+      <div className="one-job-footer">
+        <div className="one-job-edit-delete-second-job-waiting-btn-container one-job-footer-btn">
+          {isHoliday ? (
+            <FaUmbrellaBeach />
+          ) : (
+            <PiNumberSquareTwoBold
+              className={isSecondJob ? "" : "vis-hidden"}
+            />
+          )}
+        </div>
 
-        {waiting > 0 ? (
-          <div className="one-job-body-waiting-container">
-            <PiClockBold className="one-job-body-waiting-icon" />
-            {waiting}
-          </div>
-        ) : (
-          ""
-        )} */}
+        <div className="one-job-body-item one-job-body-item-smaller">
+          {isHoliday ? note : weight + "t"}
+        </div>
+
+        <div
+          className={`one-job-edit-delete-second-job-waiting-btn-container one-job-footer-btn ${
+            waiting < 1 ? "vis-hidden" : ""
+          }`}
+        >
+          <PiClockBold />
+          {waiting}
+        </div>
       </div>
     </div>
   );

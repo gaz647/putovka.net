@@ -36,26 +36,23 @@
   padding: 0.3rem 0.5rem;
 }
 
-.one-job-header-edit-btn {
+.one-job-edit-delete-second-job-waiting-btn-container {
   height: 1.5rem;
-  width: 1.5rem;
+  width: 2rem;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--blue);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.one-job-header-edit-btn {
+  color: var(--blue);
+}
+
 .one-job-header-delete-btn {
-  height: 1.5rem;
-  width: 1.5rem;
-  cursor: pointer;
-  font-size: 0.8rem;
   color: var(--red);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .one-job-header-expand-btn {
@@ -74,14 +71,13 @@
 
 /* JOB'S BODY */
 
-.one-job-body-container {
+.one-job-body {
   margin-top: 0.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-bottom: 0.3rem;
 }
 
 .one-job-body-item {
@@ -97,41 +93,17 @@
   font-size: 0.85rem;
 }
 
-.one-job-body-bottom-line-container {
+/* JOB'S FOOTER */
+
+.one-job-footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
-/* JOB'S FOOTER */
-
-.one-job-body-bottom-line-second-job-icon {
-  padding-left: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.one-job-footer-btn {
   color: var(--red);
-}
-
-.one-job-body-bottom-line-holiday-icon {
-  margin-left: -0.5rem;
-  font-size: 0.95rem;
-  color: var(--red);
-}
-
-.one-job-body-bottom-line-waiting-container {
-  position: relative;
-  padding-right: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--red);
-}
-
-.one-job-body-bottom-line-waiting-icon {
-  position: absolute;
-  top: 0.15rem;
-  left: -1.15rem;
 }
