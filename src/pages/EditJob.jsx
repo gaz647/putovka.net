@@ -211,7 +211,11 @@ const EditJob = () => {
   const handleDecline = () => {
     dispatch(resetJobToEditValuesRedux());
     dispatch(setIsEditingFalseRedux());
-    navigate("/");
+    if (isEditingArchivedJob) {
+      navigate("/archive");
+    } else if (!isEditingArchivedJob) {
+      navigate("/");
+    }
   };
 
   // USE EFFECT ----------------------------------------------------------

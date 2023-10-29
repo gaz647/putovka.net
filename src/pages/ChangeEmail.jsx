@@ -18,8 +18,8 @@ const ChangeEmail = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isEmailChangedSuccess = useSelector(
-    (state) => state.auth.isEmailChangedSuccess
+  const isChangeEmailReduxSuccess = useSelector(
+    (state) => state.auth.isChangeEmailReduxSuccess
   );
   const isAccountDisabled = useSelector(
     (state) => state.auth.isAccountDisabled
@@ -56,7 +56,7 @@ const ChangeEmail = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    if (isEmailChangedSuccess) {
+    if (isChangeEmailReduxSuccess) {
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -66,7 +66,7 @@ const ChangeEmail = () => {
         },
       });
     }
-  }, [isEmailChangedSuccess, navigate]);
+  }, [isChangeEmailReduxSuccess, navigate]);
 
   useEffect(() => {
     if (isAccountDisabled === true) {

@@ -248,7 +248,7 @@ export const changeSettingsRedux = createAsyncThunk(
   }
 );
 
-// DELETE ACCOUNT FROM DATABASE
+// DELETE ACCOUNT
 //
 export const deleteAccountRedux = createAsyncThunk(
   "auth/deleteAccountRedux",
@@ -261,8 +261,8 @@ export const deleteAccountRedux = createAsyncThunk(
         currentPassword
       );
       await reauthenticateWithCredential(auth.currentUser, credential);
-      await deleteUser(auth.currentUser);
       await deleteDoc(doc(usersCollectionRef, userUid));
+      await deleteUser(auth.currentUser);
       await signOut(auth);
     } catch (error) {
       throw error.message;

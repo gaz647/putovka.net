@@ -20,8 +20,8 @@ const DeleteAccount = () => {
   // USE SELECTOR --------------------------------------------------------
   //
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const isAccountDeletedSuccess = useSelector(
-    (state) => state.auth.isAccountDeletedSuccess
+  const isDeleteAccountReduxSuccess = useSelector(
+    (state) => state.auth.isDeleteAccountReduxSuccess
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
@@ -94,7 +94,7 @@ const DeleteAccount = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    if (isAccountDeletedSuccess) {
+    if (isDeleteAccountReduxSuccess) {
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -103,7 +103,7 @@ const DeleteAccount = () => {
         },
       });
     }
-  }, [dispatch, isAccountDeletedSuccess, navigate]);
+  }, [dispatch, isDeleteAccountReduxSuccess, navigate]);
 
   return (
     <div className="background">

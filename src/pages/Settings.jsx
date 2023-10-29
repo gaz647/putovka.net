@@ -23,8 +23,8 @@ const Settings = () => {
   );
   // const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isAccountLogoutSuccess = useSelector(
-    (state) => state.auth.isAccountLogoutSuccess
+  const isLogoutReduxSuccess = useSelector(
+    (state) => state.auth.isLogoutReduxSuccess
   );
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const email = useSelector((state) => state.auth.loggedInUserEmail);
@@ -100,7 +100,7 @@ const Settings = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    if (isAccountLogoutSuccess) {
+    if (isLogoutReduxSuccess) {
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -110,12 +110,7 @@ const Settings = () => {
     } else if (isChangeSettingsReduxSuccess) {
       navigate("/");
     }
-  }, [
-    dispatch,
-    isAccountLogoutSuccess,
-    isChangeSettingsReduxSuccess,
-    navigate,
-  ]);
+  }, [dispatch, isLogoutReduxSuccess, isChangeSettingsReduxSuccess, navigate]);
 
   return (
     <section className="wrapper">

@@ -22,8 +22,8 @@ const Register = () => {
   // USE SELECTOR --------------------------------------------------------
   //
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isRegisterSuccess = useSelector(
-    (state) => state.auth.isRegisterSuccess
+  const isRegisterReduxSuccess = useSelector(
+    (state) => state.auth.isRegisterReduxSuccess
   );
   const toastRedux = useSelector((state) => state.auth.toast);
   const resetToastStateRedux = useSelector(
@@ -64,7 +64,8 @@ const Register = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    if (isRegisterSuccess) {
+    if (isRegisterReduxSuccess) {
+      console.log("dobže");
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -74,7 +75,7 @@ const Register = () => {
         },
       });
     }
-  }, [isRegisterSuccess, navigate]);
+  }, [isRegisterReduxSuccess, navigate]);
 
   useEffect(() => {
     if (toastRedux.isVisible) {

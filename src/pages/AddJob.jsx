@@ -112,6 +112,7 @@ const AddJob = () => {
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
     const payload = { userUid, sortedCurrentJobs };
     dispatch(addJobRedux(payload));
+    dispatch(resetJobToAddValuesRedux());
   };
 
   // HANDLE DECLINE ------------------------------------------------------

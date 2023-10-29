@@ -17,8 +17,8 @@ const ChangePassword = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isPasswordChangedSuccess = useSelector(
-    (state) => state.auth.isPasswordChangedSuccess
+  const isChangePasswordReduxSuccess = useSelector(
+    (state) => state.auth.isChangePasswordReduxSuccess
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
 
@@ -63,7 +63,7 @@ const ChangePassword = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    if (isPasswordChangedSuccess) {
+    if (isChangePasswordReduxSuccess) {
       navigate("/change-verification", {
         replace: true,
         state: {
@@ -72,7 +72,7 @@ const ChangePassword = () => {
         },
       });
     }
-  }, [isPasswordChangedSuccess, navigate]);
+  }, [isChangePasswordReduxSuccess, navigate]);
 
   return (
     <section className="wrapper">
