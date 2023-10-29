@@ -28,6 +28,9 @@ const Settings = () => {
   );
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const email = useSelector((state) => state.auth.loggedInUserEmail);
+  const isChangeSettingsReduxSuccess = useSelector(
+    (state) => state.auth.isChangeSettingsReduxSuccess
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -79,7 +82,6 @@ const Settings = () => {
       },
     };
     dispatch(changeSettingsRedux(payload));
-    navigate("/");
   };
 
   // HANDLE DECLINE ------------------------------------------------------
@@ -105,8 +107,15 @@ const Settings = () => {
           firstMessage: "Odhlášení proběhlo úspěšně",
         },
       });
+    } else if (isChangeSettingsReduxSuccess) {
+      navigate("/");
     }
-  }, [dispatch, isAccountLogoutSuccess, navigate]);
+  }, [
+    dispatch,
+    isAccountLogoutSuccess,
+    isChangeSettingsReduxSuccess,
+    navigate,
+  ]);
 
   return (
     <section className="wrapper">

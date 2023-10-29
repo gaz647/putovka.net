@@ -11,6 +11,7 @@ import {
   resetIsAddJobReduxSuccess,
   resetIsEditJobReduxSuccess,
   setIsLoading2FalseRedux,
+  resetIsChangeSettingsReduxSuccess,
 } from "../redux/AuthSlice";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
@@ -29,10 +30,6 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  console.log(
-    "JSEM NA DASHBOARD-----------------------------------------------------"
-  );
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
@@ -84,9 +81,11 @@ const Dashboard = () => {
   const isEditJobReduxSuccess = useSelector(
     (state) => state.auth.isEditJobReduxSuccess
   );
-
   const isArchiveDoneJobsAllCasesReduxSuccess = useSelector(
     (state) => state.auth.isArchiveDoneJobsAllCasesReduxSuccess
+  );
+  const isChangeSettingsReduxSuccess = useSelector(
+    (state) => state.auth.isChangeSettingsReduxSuccess
   );
 
   // USE STATE -----------------------------------------------------------
@@ -341,6 +340,9 @@ const Dashboard = () => {
       dispatch(setIsLoading2FalseRedux());
     } else if (isArchiveDoneJobsAllCasesReduxSuccess) {
       navigate("/archive");
+    } else if (isChangeSettingsReduxSuccess) {
+      dispatch(resetIsChangeSettingsReduxSuccess());
+      dispatch(setIsLoading2FalseRedux());
     }
   }, [
     isAddJobReduxSuccess,
@@ -348,6 +350,7 @@ const Dashboard = () => {
     isArchiveDoneJobsAllCasesReduxSuccess,
     dispatch,
     navigate,
+    isChangeSettingsReduxSuccess,
   ]);
 
   return (

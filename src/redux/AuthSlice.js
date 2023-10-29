@@ -565,6 +565,8 @@ export const authSlice = createSlice({
     isAccountDisabled: false,
     isAccountDeletedSuccess: false,
     //
+    isChangeSettingsReduxSuccess: false,
+    //
     isAddJobReduxSuccess: false,
     isEditJobReduxSuccess: false,
     isEditArchiveJobReduxSuccess: false,
@@ -673,6 +675,10 @@ export const authSlice = createSlice({
 
     resetIsAccountLogoutSuccessRedux(state) {
       state.isAccountLogoutSuccess = false;
+    },
+
+    resetIsChangeSettingsReduxSuccess(state) {
+      state.isChangeSettingsReduxSuccess = false;
     },
 
     resetIsAddJobReduxSuccess(state) {
@@ -1123,7 +1129,10 @@ export const authSlice = createSlice({
           action.payload.waitingBenefitEmployerCzk;
         state.loggedInUserData.userSettings.waitingBenefitEur =
           action.payload.waitingBenefitEur;
-        state.isLoading2 = false;
+
+        state.isChangeSettingsReduxSuccess = true;
+
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Změny uloženy";
@@ -1528,6 +1537,7 @@ export const {
   resetIsAccountDisabledRedux,
   resetIsAccountDeletedSuccessRedux,
   resetIsAccountLogoutSuccess,
+  resetIsChangeSettingsReduxSuccess,
   resetIsAddJobReduxSuccess,
   resetIsEditJobReduxSuccess,
   resetIsArchiveDoneJobsAllCasesReduxSuccess,
