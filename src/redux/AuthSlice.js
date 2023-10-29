@@ -554,16 +554,16 @@ export const authSlice = createSlice({
     isLoggedIn: false,
     //
     isRegisterPending: false,
-    isRegisterSuccess: false,
+    isRegisterReduxSuccess: false,
     //
-    isEmailChangedSuccess: false,
-    isPasswordChangedSuccess: false,
+    isChangeEmailReduxSuccess: false,
+    isChangePasswordReduxSuccess: false,
     isPasswordResetSuccess: false,
     //
-    isAccountLogoutSuccess: false,
+    isLogoutReduxSuccess: false,
     isAccountDeletingPending: false,
     isAccountDisabled: false,
-    isAccountDeletedSuccess: false,
+    isDeleteAccountReduxSuccess: false,
     //
     isChangeSettingsReduxSuccess: false,
     //
@@ -651,30 +651,30 @@ export const authSlice = createSlice({
       state.isRegisterPending = false;
     },
 
-    resetIsRegisterSuccessRedux(state) {
-      state.isRegisterSuccess = false;
+    resetIsRegisterReduxSuccess(state) {
+      state.isRegisterReduxSuccess = false;
       state.isRegisterPending = false;
     },
 
-    resetIsEmailChangedSuccessRedux(state) {
-      state.isEmailChangedSuccess = false;
+    resetIsChangeEmailReduxSuccess(state) {
+      state.isChangeEmailReduxSuccess = false;
     },
 
-    resetIsPasswordChangedSuccessRedux(state) {
-      state.isPasswordChangedSuccess = false;
+    resetIsChangePasswordReduxSuccess(state) {
+      state.isChangePasswordReduxSuccess = false;
     },
 
     resetIsAccountDisabledRedux(state) {
       state.isAccountDisabled = false;
     },
 
-    resetIsAccountDeletedSuccessRedux(state) {
-      state.isAccountDeletedSuccess = false;
+    resetIsDeleteAccountReduxSuccess(state) {
+      state.isDeleteAccountReduxSuccess = false;
       state.isAccountDeletingPending = false;
     },
 
-    resetIsAccountLogoutSuccessRedux(state) {
-      state.isAccountLogoutSuccess = false;
+    resetIsLogoutReduxSuccess(state) {
+      state.isLogoutReduxSuccess = false;
     },
 
     resetIsChangeSettingsReduxSuccess(state) {
@@ -887,7 +887,7 @@ export const authSlice = createSlice({
       })
       .addCase(registerRedux.fulfilled, (state) => {
         console.log("registerRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isRegisterSuccess = true;
+        state.isRegisterReduxSuccess = true;
         // state.isRegisterPending = false;
       })
       .addCase(registerRedux.rejected, (state, action) => {
@@ -973,7 +973,7 @@ export const authSlice = createSlice({
       .addCase(logoutInSettingsRedux.fulfilled, (state) => {
         console.log("logoutInSettingsRedux ÚSPĚŠNĚ DOKONČEN");
         state.isLoading2 = false;
-        state.isAccountLogoutSuccess = true;
+        state.isLogoutReduxSuccess = true;
       })
       .addCase(logoutInSettingsRedux.rejected, (state, action) => {
         console.log("logoutInSettingsRedux SELHAL", action.error.message);
@@ -1027,7 +1027,7 @@ export const authSlice = createSlice({
       .addCase(changeEmailRedux.fulfilled, (state) => {
         console.log("changeEmailRedux ÚSPĚŠNĚ DOKONČEN");
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        state.isEmailChangedSuccess = true;
+        state.isChangeEmailReduxSuccess = true;
       })
       .addCase(changeEmailRedux.rejected, (state, action) => {
         console.log("changeEmailRedux selhal", action.error.message);
@@ -1062,7 +1062,7 @@ export const authSlice = createSlice({
       .addCase(changePasswordRedux.fulfilled, (state) => {
         console.log("changePasswordRedux ÚSPĚŠNĚ DOKONČEN");
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        state.isPasswordChangedSuccess = true;
+        state.isChangePasswordReduxSuccess = true;
 
         state.toast.isVisible = true;
         state.toast.message = "Heslo změněno";
@@ -1161,7 +1161,7 @@ export const authSlice = createSlice({
       .addCase(deleteAccountRedux.fulfilled, (state) => {
         console.log("deleteAccountRedux ÚSPĚŠNĚ DOKONČEN");
         // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
-        state.isAccountDeletedSuccess = true;
+        state.isDeleteAccountReduxSuccess = true;
       })
 
       .addCase(deleteAccountRedux.rejected, (state) => {
@@ -1527,28 +1527,33 @@ export const authSlice = createSlice({
 export const {
   runToastRedux,
   resetToastRedux,
+  //
   resetJobToAddValuesRedux,
   resetJobToEditValuesRedux,
   resetArchiveMonthSummarySettingsToEditRedux,
   resetIsRegisterPending,
-  resetIsRegisterSuccessRedux,
-  resetIsEmailChangedSuccessRedux,
-  resetIsPasswordChangedSuccessRedux,
+  //
+  resetIsRegisterReduxSuccess,
+  resetIsChangeEmailReduxSuccess,
+  resetIsChangePasswordReduxSuccess,
   resetIsAccountDisabledRedux,
-  resetIsAccountDeletedSuccessRedux,
-  resetIsAccountLogoutSuccess,
+  resetIsDeleteAccountReduxSuccess,
+  resetIsLogoutReduxSuccess,
   resetIsChangeSettingsReduxSuccess,
   resetIsAddJobReduxSuccess,
   resetIsEditJobReduxSuccess,
   resetIsArchiveDoneJobsAllCasesReduxSuccess,
   resetIsEditArchiveJobReduxSuccess,
   resetIsEditArchiveMonthSummarySettingsReduxSuccess,
+  //
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
   setIsLoading2TrueRedux,
   setIsLoading2FalseRedux,
+  //
   loginOnAuthRedux,
   logoutOnAuthRedux,
+  //
   setLoadedUserDataRedux,
   setJobToAddRedux,
   setJobToEditRedux,

@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 import {
   logoutRedux,
   resetIsRegisterPending,
-  resetIsRegisterSuccessRedux,
-  resetIsEmailChangedSuccessRedux,
-  resetIsPasswordChangedSuccessRedux,
-  resetIsAccountDeletedSuccessRedux,
-  resetIsAccountLogoutSuccess,
+  resetIsRegisterReduxSuccess,
+  resetIsChangeEmailReduxSuccess,
+  resetIsChangePasswordReduxSuccess,
+  resetIsDeleteAccountReduxSuccess,
+  resetIsLogoutReduxSuccess,
   logoutOnAuthRedux,
   setIsLoading2FalseRedux,
 } from "../redux/AuthSlice";
@@ -34,11 +34,11 @@ const ChangeVerification = () => {
   //
   useEffect(() => {
     dispatch(resetIsRegisterPending());
-    dispatch(resetIsRegisterSuccessRedux());
-    dispatch(resetIsEmailChangedSuccessRedux());
-    dispatch(resetIsPasswordChangedSuccessRedux());
-    dispatch(resetIsAccountDeletedSuccessRedux());
-    dispatch(resetIsAccountLogoutSuccess());
+    dispatch(resetIsRegisterReduxSuccess());
+    dispatch(resetIsChangeEmailReduxSuccess());
+    dispatch(resetIsChangePasswordReduxSuccess());
+    dispatch(resetIsDeleteAccountReduxSuccess());
+    dispatch(resetIsLogoutReduxSuccess());
     dispatch(setIsLoading2FalseRedux());
 
     // Vytvoření intervalu pro aktualizaci odpočítávání

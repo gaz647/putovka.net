@@ -348,9 +348,9 @@ const Dashboard = () => {
     isAddJobReduxSuccess,
     isEditJobReduxSuccess,
     isArchiveDoneJobsAllCasesReduxSuccess,
+    isChangeSettingsReduxSuccess,
     dispatch,
     navigate,
-    isChangeSettingsReduxSuccess,
   ]);
 
   return (
