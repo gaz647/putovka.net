@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import "./AddJob.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addJobRedux, resetJobToAddValuesRedux } from "../redux/AuthSlice";
+import {
+  addJobRedux,
+  resetJobToAddValuesRedux,
+  // resetIsAddJobReduxSuccess,
+} from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import getCzDayFromDate from "../customFunctionsAndHooks/getCzDayFromDate";
@@ -30,6 +34,9 @@ const AddJob = () => {
   const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isAddJobReduxSuccess = useSelector(
+    (state) => state.auth.isAddJobReduxSuccess
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -105,8 +112,6 @@ const AddJob = () => {
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
     const payload = { userUid, sortedCurrentJobs };
     dispatch(addJobRedux(payload));
-
-    navigate("/");
   };
 
   // HANDLE DECLINE ------------------------------------------------------
@@ -133,6 +138,13 @@ const AddJob = () => {
   useEffect(() => {
     setDay(getCzDayFromDate(date));
   }, [date]);
+
+  useEffect(() => {
+    if (isAddJobReduxSuccess) {
+      // dispatch(resetIsAddJobReduxSuccess());
+      navigate("/");
+    }
+  }, [dispatch, isAddJobReduxSuccess, navigate]);
 
   return (
     <section className="add-job wrapper">

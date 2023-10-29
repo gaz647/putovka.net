@@ -35,8 +35,6 @@ const ChangeEmail = () => {
   // CHANGE EMAIL --------------------------------------------------------
   //
   const changeEmail = () => {
-    console.log("click");
-    // email email
     if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
       console.log(
         "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"

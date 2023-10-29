@@ -5,7 +5,7 @@ import {
   resetArchiveMonthSummarySettingsToEditRedux,
 } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
@@ -35,6 +35,9 @@ const EditArchiveMonthSummarySettings = () => {
     (state) => state.auth.loggedInUserData.userSettings.terminal
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isEditArchiveMonthSummarySettingsReduxSuccess = useSelector(
+    (state) => state.auth.isEditArchiveMonthSummarySettingsReduxSuccess
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -103,7 +106,6 @@ const EditArchiveMonthSummarySettings = () => {
       updatedArchivedJobs,
     };
     dispatch(editArchiveMonthSummarySettingsRedux(payload));
-    navigate("/archive");
   };
 
   // HANDLE DECLINE ------------------------------------------------------
@@ -112,6 +114,14 @@ const EditArchiveMonthSummarySettings = () => {
     dispatch(resetArchiveMonthSummarySettingsToEditRedux());
     navigate("/archive");
   };
+
+  // USE EFFECT ----------------------------------------------------------
+  //
+  useEffect(() => {
+    if (isEditArchiveMonthSummarySettingsReduxSuccess) {
+      navigate("/archive");
+    }
+  }, [isEditArchiveMonthSummarySettingsReduxSuccess, navigate]);
 
   return (
     <section className="wrapper">

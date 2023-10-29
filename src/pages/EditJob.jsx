@@ -57,6 +57,12 @@ const EditJob = () => {
     (state) => state.auth.isEditingArchivedJob
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isEditJobReduxSuccess = useSelector(
+    (state) => state.auth.isEditJobReduxSuccess
+  );
+  const isEditArchiveJobReduxSuccess = useSelector(
+    (state) => state.auth.isEditArchiveJobReduxSuccess
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -149,7 +155,7 @@ const EditJob = () => {
         zipcode: "",
       };
     }
-
+    // EDIT CURRENT JOB
     if (!isEditingArchivedJob) {
       console.log("editována práce z currentJobs");
 
@@ -167,11 +173,10 @@ const EditJob = () => {
         const payload = { userUid, sortedCurrentJobsEdit };
 
         dispatch(editJobRedux(payload));
-        dispatch(setIsEditingFalseRedux());
-        dispatch(resetJobToEditValuesRedux());
-        navigate("/");
       }
-    } else if (isEditingArchivedJob) {
+    }
+    // EDIT ARCHIVED JOB
+    else if (isEditingArchivedJob) {
       console.log("bude upravena práce z archivu");
 
       const tempArchivedJobs = [...archivedJobs];
@@ -197,19 +202,15 @@ const EditJob = () => {
         sortedUpdatedArchivedJobs,
       };
 
-      dispatch(resetJobToEditValuesRedux());
       dispatch(editArchiveJobRedux(payload));
-      dispatch(setIsEditingFalseRedux());
-      dispatch(setIsEditingArchivedJobFalseRedux());
-      navigate("/archive");
     }
   };
 
   // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
-    dispatch(setIsEditingFalseRedux());
     dispatch(resetJobToEditValuesRedux());
+    dispatch(setIsEditingFalseRedux());
     navigate("/");
   };
 
@@ -218,6 +219,19 @@ const EditJob = () => {
   useEffect(() => {
     setDay(getCurrentDayCZ(date));
   }, [date]);
+
+  useEffect(() => {
+    if (isEditJobReduxSuccess) {
+      dispatch(resetJobToEditValuesRedux());
+      dispatch(setIsEditingFalseRedux());
+      navigate("/");
+    } else if (isEditArchiveJobReduxSuccess) {
+      dispatch(resetJobToEditValuesRedux());
+      dispatch(setIsEditingFalseRedux());
+      dispatch(setIsEditingArchivedJobFalseRedux());
+      navigate("/archive");
+    }
+  }, [dispatch, isEditArchiveJobReduxSuccess, isEditJobReduxSuccess, navigate]);
 
   return (
     <section className="add-job wrapper">

@@ -8,6 +8,9 @@ import {
   archiveDoneJobsNewMonthRedux,
   archiveDoneJobsExistingMonthRedux,
   changeSettingsRedux,
+  resetIsAddJobReduxSuccess,
+  resetIsEditJobReduxSuccess,
+  setIsLoading2FalseRedux,
 } from "../redux/AuthSlice";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
@@ -21,9 +24,15 @@ import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver1
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
 import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  console.log(
+    "JSEM NA DASHBOARD-----------------------------------------------------"
+  );
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
@@ -69,6 +78,16 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.userSettings.email
   );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isAddJobReduxSuccess = useSelector(
+    (state) => state.auth.isAddJobReduxSuccess
+  );
+  const isEditJobReduxSuccess = useSelector(
+    (state) => state.auth.isEditJobReduxSuccess
+  );
+
+  const isArchiveDoneJobsAllCasesReduxSuccess = useSelector(
+    (state) => state.auth.isArchiveDoneJobsAllCasesReduxSuccess
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -100,7 +119,6 @@ const Dashboard = () => {
 
     const currentArchivedJobs =
       archivedJobs.length > 0 ? [...archivedJobs] : [];
-    console.log("currentArchivedJobs", currentArchivedJobs);
 
     const dateForArchiving =
       currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
@@ -144,7 +162,7 @@ const Dashboard = () => {
         userSettings,
         newEurCzkRate,
       };
-      console.log(payload);
+
       dispatch(archiveDoneJobsFirstTimeRedux(payload));
     }
     // Pokud archív NENÍ prázdný
@@ -175,8 +193,6 @@ const Dashboard = () => {
           )
         );
 
-        console.log("newMonthToArchive", newMonthToArchive);
-
         const payload = {
           userUid,
           newMonthToArchive,
@@ -184,7 +200,7 @@ const Dashboard = () => {
           userSettings,
           newEurCzkRate,
         };
-        console.log(payload);
+
         dispatch(archiveDoneJobsNewMonthRedux(payload));
       }
       //
@@ -209,9 +225,6 @@ const Dashboard = () => {
             return archivedMonth;
           })
         );
-        console.log(filteredCurrentJobs);
-
-        console.log(updatedArchivedJobs);
 
         const payload = {
           userUid,
@@ -318,6 +331,24 @@ const Dashboard = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, email, loggedInUserEmail]);
+
+  useEffect(() => {
+    if (isAddJobReduxSuccess) {
+      dispatch(resetIsAddJobReduxSuccess());
+      dispatch(setIsLoading2FalseRedux());
+    } else if (isEditJobReduxSuccess) {
+      dispatch(resetIsEditJobReduxSuccess());
+      dispatch(setIsLoading2FalseRedux());
+    } else if (isArchiveDoneJobsAllCasesReduxSuccess) {
+      navigate("/archive");
+    }
+  }, [
+    isAddJobReduxSuccess,
+    isEditJobReduxSuccess,
+    isArchiveDoneJobsAllCasesReduxSuccess,
+    dispatch,
+    navigate,
+  ]);
 
   return (
     <section className="wrapper relative">

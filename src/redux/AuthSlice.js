@@ -565,6 +565,13 @@ export const authSlice = createSlice({
     isAccountDisabled: false,
     isAccountDeletedSuccess: false,
     //
+    isAddJobReduxSuccess: false,
+    isEditJobReduxSuccess: false,
+    isEditArchiveJobReduxSuccess: false,
+    //
+    isArchiveDoneJobsAllCasesReduxSuccess: false,
+    isEditArchiveMonthSummarySettingsReduxSuccess: false,
+    //
     loggedInUserEmail: null,
     loggedInUserUid: null,
     loggedInUserData: {
@@ -664,8 +671,28 @@ export const authSlice = createSlice({
       state.isAccountDeletingPending = false;
     },
 
-    resetIsAccountLogoutSuccess(state) {
+    resetIsAccountLogoutSuccessRedux(state) {
       state.isAccountLogoutSuccess = false;
+    },
+
+    resetIsAddJobReduxSuccess(state) {
+      state.isAddJobReduxSuccess = false;
+    },
+
+    resetIsEditJobReduxSuccess(state) {
+      state.isEditJobReduxSuccess = false;
+    },
+
+    resetIsArchiveDoneJobsAllCasesReduxSuccess(state) {
+      state.isArchiveDoneJobsAllCasesReduxSuccess = false;
+    },
+
+    resetIsEditArchiveJobReduxSuccess(state) {
+      state.isEditArchiveJobReduxSuccess = false;
+    },
+
+    resetIsEditArchiveMonthSummarySettingsReduxSuccess(state) {
+      state.isEditArchiveMonthSummarySettingsReduxSuccess = false;
     },
 
     setIsLoadingTrueRedux(state) {
@@ -1148,6 +1175,8 @@ export const authSlice = createSlice({
       })
       .addCase(addJobRedux.fulfilled, (state, action) => {
         console.log("addJobRedux ÚSPĚŠNĚ DOKONČEN");
+        state.isAddJobReduxSuccess = true;
+
         state.jobToAdd.city = "";
         state.jobToAdd.price = 0;
         state.jobToAdd.terminal = "";
@@ -1184,6 +1213,8 @@ export const authSlice = createSlice({
       .addCase(editJobRedux.fulfilled, (state, action) => {
         console.log("editJobRedux ÚSPĚŠNĚ DOKONČEN");
 
+        state.isEditJobReduxSuccess = true;
+
         state.jobToEdit.city = "";
         state.jobToEdit.cmr = "";
         state.jobToEdit.date = "";
@@ -1202,7 +1233,7 @@ export const authSlice = createSlice({
         state.jobToEdit.zipcode = "";
 
         state.loggedInUserData.currentJobs = action.payload;
-        state.isLoading2 = false;
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Práce upravena";
@@ -1262,7 +1293,10 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.newEurCzkRate;
-        state.isLoading2 = false;
+
+        state.isArchiveDoneJobsAllCasesReduxSuccess = true;
+
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1294,7 +1328,10 @@ export const authSlice = createSlice({
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.newEurCzkRate;
-        state.isLoading2 = false;
+
+        state.isArchiveDoneJobsAllCasesReduxSuccess = true;
+
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1325,7 +1362,10 @@ export const authSlice = createSlice({
         state.loggedInUserData.archivedJobs =
           action.payload.updatedArchivedJobs;
         state.loggedInUserData.currentJobs = action.payload.filteredCurrentJobs;
-        state.isLoading2 = false;
+
+        state.isArchiveDoneJobsAllCasesReduxSuccess = true;
+
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Archivováno";
@@ -1409,7 +1449,10 @@ export const authSlice = createSlice({
       .addCase(editArchiveJobRedux.fulfilled, (state, action) => {
         console.log("editArchiveJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.loggedInUserData.archivedJobs = action.payload;
-        state.isLoading2 = false;
+
+        state.isEditArchiveJobReduxSuccess = true;
+
+        // state.isLoading2 = false;
 
         state.toast.isVisible = true;
         state.toast.message = "Upraveno";
@@ -1441,6 +1484,8 @@ export const authSlice = createSlice({
           console.log("editArchiveMonthSummarySettingsRedux ÚSPĚŠNĚ DOKONČEN");
           state.loggedInUserData.archivedJobs = action.payload;
 
+          state.isEditArchiveMonthSummarySettingsReduxSuccess = true;
+
           state.archiveMonthSummarySettingsToEdit.date = "";
           state.archiveMonthSummarySettingsToEdit.baseMoney = 0;
           state.archiveMonthSummarySettingsToEdit.eurCzkRate = 0;
@@ -1448,7 +1493,7 @@ export const authSlice = createSlice({
           state.archiveMonthSummarySettingsToEdit.secondJobBenefit = 0;
           state.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk = 0;
           state.archiveMonthSummarySettingsToEdit.waitingBenefitEur = 0;
-          state.isLoading2 = false;
+          // state.isLoading2 = false;
 
           state.toast.isVisible = true;
           state.toast.message = "Upraveno";
@@ -1483,6 +1528,11 @@ export const {
   resetIsAccountDisabledRedux,
   resetIsAccountDeletedSuccessRedux,
   resetIsAccountLogoutSuccess,
+  resetIsAddJobReduxSuccess,
+  resetIsEditJobReduxSuccess,
+  resetIsArchiveDoneJobsAllCasesReduxSuccess,
+  resetIsEditArchiveJobReduxSuccess,
+  resetIsEditArchiveMonthSummarySettingsReduxSuccess,
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
   setIsLoading2TrueRedux,
