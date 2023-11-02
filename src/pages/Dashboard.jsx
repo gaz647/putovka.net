@@ -21,6 +21,7 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
+import sortCurrentJobsToBeArchivedAscending from "../customFunctionsAndHooks/sortCurrentJobsToBeArchivedAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
 import Spinner from "../components/Spinner";
@@ -128,6 +129,9 @@ const Dashboard = () => {
         getDateForComparing(dateForArchiving)
     );
 
+    const sortedJobsToBeArchived =
+      sortCurrentJobsToBeArchivedAscending(jobsToBeArchived);
+
     const filteredCurrentJobs = currentJobs.filter(
       (oneJob) =>
         getDateForComparing(oneJob.date) !==
@@ -136,7 +140,7 @@ const Dashboard = () => {
 
     const monthToArchive = {
       date: dateForArchiving,
-      jobs: jobsToBeArchived,
+      jobs: sortedJobsToBeArchived,
       userSettings: {
         baseMoney,
         eurCzkRate,
@@ -241,6 +245,23 @@ const Dashboard = () => {
   //
   const handleArchiveModalVisibility = () => {
     setShowArchiveModal(!showArchiveModal);
+  };
+
+  //
+  //
+  //
+  const showJobsToBeArchived = () => {
+    console.log("SPUŠTĚNO");
+    const dateForArchiving =
+      currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
+
+    const jobsToBeArchived = currentJobs.filter(
+      (oneJob) =>
+        getDateForComparing(oneJob.date) ===
+        getDateForComparing(dateForArchiving)
+    );
+
+    console.log(sortCurrentJobsToBeArchivedAscending(jobsToBeArchived));
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -426,7 +447,10 @@ const Dashboard = () => {
             {currentJobs.length > 0 && (
               <button
                 className="dashboard-archive-btn"
-                onClick={() => setShowArchiveModal(true)}
+                onClick={() => {
+                  setShowArchiveModal(true);
+                  showJobsToBeArchived();
+                }}
               >
                 Archivovat nejstarší měsíc
               </button>
