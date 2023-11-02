@@ -64,13 +64,13 @@ const InputField = ({
   // HANDLE EMAIL CHANGE -------------------------------------------------
   //
   const handleEmailChange = (value) => {
-    onEmailChange(value);
+    onEmailChange(String(value));
   };
 
   // HANDLE PASSWORD CHANGE ----------------------------------------------
   //
   const handlePasswordChange = (value) => {
-    onPasswordChange(value);
+    onPasswordChange(String(value));
   };
 
   // HANDLE CHECKBOX CHANGE ----------------------------------------------
@@ -182,6 +182,7 @@ const InputField = ({
             type="email"
             value={value}
             onChange={(e) => handleEmailChange(e.target.value)}
+            autoComplete="off"
           ></input>
         </div>
       )}
@@ -199,6 +200,7 @@ const InputField = ({
             type="password"
             value={value}
             onChange={(e) => handlePasswordChange(e.target.value)}
+            autoComplete="off"
           ></input>
         </div>
       )}
