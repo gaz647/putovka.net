@@ -64,13 +64,13 @@ const InputField = ({
   // HANDLE EMAIL CHANGE -------------------------------------------------
   //
   const handleEmailChange = (value) => {
-    onEmailChange(String(value));
+    onEmailChange(value);
   };
 
   // HANDLE PASSWORD CHANGE ----------------------------------------------
   //
   const handlePasswordChange = (value) => {
-    onPasswordChange(String(value));
+    onPasswordChange(value);
   };
 
   // HANDLE CHECKBOX CHANGE ----------------------------------------------
