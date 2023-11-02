@@ -2,7 +2,7 @@ import "./ChangeEmail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { changePasswordRedux } from "../redux/AuthSlice";
+import { changePasswordRedux, runToastRedux } from "../redux/AuthSlice";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
@@ -47,9 +47,27 @@ const ChangePassword = () => {
       dispatch(
         changePasswordRedux({ currentPassword, newPassword: newPassword1 })
       );
-    } else {
+    } else if (!currentPassword || !newPassword1 || !newPassword2) {
       console.log(
         "ChangePassword - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
+      );
+      dispatch(
+        runToastRedux({
+          message: "Vyplňte všechna pole!",
+          style: "error",
+          time: 5000,
+        })
+      );
+    } else if (newPassword1 !== newPassword2) {
+      console.log(
+        "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
+      );
+      dispatch(
+        runToastRedux({
+          message: "Nová hesla se neshodují!",
+          style: "error",
+          time: 5000,
+        })
       );
     }
   };
