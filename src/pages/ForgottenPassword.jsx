@@ -10,6 +10,7 @@ import {
 import { ToastContainer, toast, Flip } from "react-toastify";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
+import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const ForgottenPassword = () => {
@@ -107,17 +108,14 @@ const ForgottenPassword = () => {
         </div>
       ) : (
         <>
-          <header className="forgotten-password-header">
-            <h1 className="forgotten-password-title">Obnovit heslo</h1>
-          </header>
+          <Heading text={"Obnovit heslo"} />
+
           <main>
             <form className="forgotten-password-form">
-              <input
-                className="forgotten-password-input"
-                type="email"
-                placeholder="zadejte Váš email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+              <InputField
+                type={"email"}
+                label={"zadejte Váš email"}
+                onEmailChange={(e) => setEmail(e)}
               />
 
               <ConfirmDeclineBtns

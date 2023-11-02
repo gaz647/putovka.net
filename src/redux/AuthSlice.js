@@ -1102,7 +1102,10 @@ export const authSlice = createSlice({
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.message =
+          action.error.message === "Firebase: Error (auth/user-not-found)."
+            ? "Zadaný email není registrován"
+            : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
         state.toast.resetToast = true;
