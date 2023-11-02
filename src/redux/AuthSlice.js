@@ -109,6 +109,7 @@ export const loginRedux = createAsyncThunk(
   async (loginCredentials) => {
     try {
       console.log("loginRedux TRY část signInWithEmailAndPassword SPUŠTĚNA");
+      console.log(loginCredentials);
       await signInWithEmailAndPassword(
         auth,
         loginCredentials.loginEmail,
