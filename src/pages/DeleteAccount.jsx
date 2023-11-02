@@ -42,36 +42,23 @@ const DeleteAccount = () => {
   // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
-    if (userConfirmationCode && currentPassword === "") {
-      dispatch(
-        runToastRedux({ message: "Zadejte heslo", style: "error", time: 3000 })
-      );
-      return;
-    } else if (currentPassword && userConfirmationCode === "") {
-      dispatch(
-        runToastRedux({ message: "Opište kód", style: "error", time: 3000 })
-      );
-      return;
-    } else if (
-      currentPassword &&
-      userConfirmationCode &&
-      userConfirmationCode !== deleteCode
-    ) {
-      dispatch(
-        runToastRedux({ message: "Špatný kód", style: "error", time: 3000 })
-      );
-      return;
-    } else if (!currentPassword && !userConfirmationCode) {
+    if (currentPassword && userConfirmationCode === deleteCode) {
+      // Vše vyplněné - nyní se otevře modal
+      handleDeleteJobModalVisibility();
+    } else if (!userConfirmationCode || !currentPassword) {
       dispatch(
         runToastRedux({
-          message: "Vyplňte požadová pole",
+          message: "Vyplňte všechna pole!",
           style: "error",
           time: 3000,
         })
       );
-    } else {
-      // Vše vyplněné - nyní se otevře modal
-      handleDeleteJobModalVisibility();
+      return;
+    } else if (userConfirmationCode !== deleteCode) {
+      dispatch(
+        runToastRedux({ message: "Špatný kód", style: "error", time: 3000 })
+      );
+      return;
     }
   };
 

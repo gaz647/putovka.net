@@ -49,9 +49,10 @@ const ChangeEmail = () => {
         runToastRedux({
           message: "Vyplňte všechna pole!",
           style: "error",
-          time: 5000,
+          time: 3000,
         })
       );
+      return;
     } else if (newEmail1 !== newEmail2) {
       console.log(
         "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
@@ -60,9 +61,10 @@ const ChangeEmail = () => {
         runToastRedux({
           message: "Emaily se neshodují!",
           style: "error",
-          time: 5000,
+          time: 3000,
         })
       );
+      return;
     }
   };
 
