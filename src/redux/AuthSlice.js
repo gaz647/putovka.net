@@ -936,11 +936,11 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/user-not-found)."
-            ? "Email není registrován!"
+            ? "Email není registrován."
             : action.error.message === "Firebase: Error (auth/wrong-password)."
-            ? "Zadali jste špatné heslo"
+            ? "Zadali jste špatné heslo."
             : action.error.message === "Firebase: Error (auth/invalid-email)."
-            ? "Neplatný email"
+            ? "Neplatný email."
             : action.error.message ===
               "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
@@ -1037,7 +1037,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/wrong-password)."
-            ? "Zadali jste špatné heslo"
+            ? "Zadali jste špatné heslo."
             : action.error.message ===
               "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests)."
             ? "Účet byl dočasně zablokován z důvodu opakovaného zadání špatného hesla. Můžete ho obnovit resetováním hesla. Nebo opětovném přihlášením původním heslem za pár minut."
@@ -1066,7 +1066,7 @@ export const authSlice = createSlice({
         state.isChangePasswordReduxSuccess = true;
 
         state.toast.isVisible = true;
-        state.toast.message = "Heslo změněno";
+        state.toast.message = "Heslo změněno.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1078,7 +1078,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/wrong-password)."
-            ? "Zadali jste špatné heslo"
+            ? "Zadali jste špatné heslo."
             : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
@@ -1104,7 +1104,7 @@ export const authSlice = createSlice({
         state.toast.isVisible = true;
         state.toast.message =
           action.error.message === "Firebase: Error (auth/user-not-found)."
-            ? "Zadaný email není registrován"
+            ? "Zadaný email není registrován."
             : "Něco se pokazilo, zkuste to znovu.";
         state.toast.style = "error";
         state.toast.time = 3000;
@@ -1139,7 +1139,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Změny uloženy";
+        state.toast.message = "Změny uloženy.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1249,7 +1249,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Práce upravena";
+        state.toast.message = "Práce upravena.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1277,7 +1277,7 @@ export const authSlice = createSlice({
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Práce smazána";
+        state.toast.message = "Práce smazána.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1312,7 +1312,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Archivováno";
+        state.toast.message = "Práce archivovány.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1347,7 +1347,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Archivováno";
+        state.toast.message = "Práce archivovány.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1381,7 +1381,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Archivováno";
+        state.toast.message = "Práce archivovány.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1409,7 +1409,7 @@ export const authSlice = createSlice({
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Smazáno";
+        state.toast.message = "Archivovaný měsíc smazán.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1437,7 +1437,7 @@ export const authSlice = createSlice({
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Smazáno";
+        state.toast.message = "Archivovaná práce smazána.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1468,7 +1468,7 @@ export const authSlice = createSlice({
         // state.isLoading2 = false;
 
         state.toast.isVisible = true;
-        state.toast.message = "Upraveno";
+        state.toast.message = "Archivovaná práce upravena.";
         state.toast.style = "success";
         state.toast.time = 3000;
         state.toast.resetToast = true;
@@ -1509,7 +1509,7 @@ export const authSlice = createSlice({
           // state.isLoading2 = false;
 
           state.toast.isVisible = true;
-          state.toast.message = "Upraveno";
+          state.toast.message = "Nastavení archivovaného měsíce upraveno.";
           state.toast.style = "success";
           state.toast.time = 3000;
           state.toast.resetToast = true;
