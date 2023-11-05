@@ -93,50 +93,46 @@ const DeleteAccount = () => {
   }, [dispatch, isDeleteAccountReduxSuccess, navigate]);
 
   return (
-    <div className="background">
-      <section className="wrapper">
-        {showDeleteJobModal && (
-          <ModalPrompt
-            heading={"Opravdu si přejete smazat Váš účet a všechna Vaše data?"}
-            text={"Tuto akci nelze vzít zpět"}
-            confirmFunction={deleteAccount}
-            declineFunction={handleDeleteJobModalVisibility}
-          />
-        )}
-        {isLoading2 ? (
-          <div className="full-page-container-center">
-            <Heading text={"Odstraňování účtu probíhá"} />
-            <Spinner />
-          </div>
-        ) : (
-          <>
-            <Heading text={"SMAZÁNÍ ÚČTU"} />
+    <section className="full-page-container-center">
+      {showDeleteJobModal && (
+        <ModalPrompt
+          heading={"Opravdu si přejete smazat Váš účet a všechna Vaše data?"}
+          text={"Tuto akci nelze vzít zpět"}
+          confirmFunction={deleteAccount}
+          declineFunction={handleDeleteJobModalVisibility}
+        />
+      )}
+      {isLoading2 ? (
+        <>
+          <Heading text={"Odstraňování účtu probíhá"} />
+          <Spinner />
+        </>
+      ) : (
+        <>
+          <Heading text={"SMAZÁNÍ ÚČTU"} />
 
-            <main>
-              <form className="change-email-password-form">
-                <InputField
-                  type={"password"}
-                  label={"současné heslo"}
-                  onPasswordChange={(e) => setCurrentPassword(e)}
-                />
+          <form className="change-form">
+            <InputField
+              type={"password"}
+              label={"současné heslo"}
+              onPasswordChange={(e) => setCurrentPassword(e)}
+            />
 
-                <InputField
-                  type={"text"}
-                  label={"opište následující kód:"}
-                  deleteCode={deleteCode}
-                  onTextChange={(e) => setUserConfirmationCode(e)}
-                />
+            <InputField
+              type={"text"}
+              label={"opište následující kód:"}
+              deleteCode={deleteCode}
+              onTextChange={(e) => setUserConfirmationCode(e)}
+            />
 
-                <ConfirmDeclineBtns
-                  confirmFunction={handleSubmit}
-                  declineFunction={handleDecline}
-                />
-              </form>
-            </main>
-          </>
-        )}
-      </section>
-    </div>
+            <ConfirmDeclineBtns
+              confirmFunction={handleSubmit}
+              declineFunction={handleDecline}
+            />
+          </form>
+        </>
+      )}
+    </section>
   );
 };
 

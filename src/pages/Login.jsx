@@ -81,58 +81,58 @@ const Login = () => {
   }, [resetToastStateRedux, dispatch]);
 
   return (
-    <>
-      <section className="login-register">
-        <ToastContainer
-          transition={Flip}
-          position="top-center"
-          autoClose={toastRedux.time}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
-        {isLoading || isLoading2 ? (
-          <div className="full-page-container-center">
-            <Heading text={"Přihlašování . . ."} />
-            <Spinner />
-          </div>
-        ) : (
-          <form className="login-register-form">
-            <Heading text={"Přihlášení"} />
+    <section className="full-page-container-center">
+      <ToastContainer
+        transition={Flip}
+        position="top-center"
+        autoClose={toastRedux.time}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading || isLoading2 ? (
+        <>
+          <Heading text={"Přihlašování . . ."} />
+          <Spinner />
+        </>
+      ) : (
+        <form className="change-form">
+          <Heading text={"Přihlášení"} />
 
-            <InputField
-              type={"email"}
-              label={"email"}
-              onEmailChange={(e) => setLoginEmail(e)}
-            />
-            <InputField
-              type={"password"}
-              label={"heslo"}
-              onPasswordChange={(e) => setLoginPassword(e)}
-            />
+          <InputField
+            type={"email"}
+            label={"email"}
+            value={loginEmail}
+            onEmailChange={(e) => setLoginEmail(e)}
+          />
+          <InputField
+            type={"password"}
+            label={"heslo"}
+            value={loginPassword}
+            onPasswordChange={(e) => setLoginPassword(e)}
+          />
 
-            <ConfirmDeclineBtns
-              confirmFunction={handleLogIn}
-              declineFunction={handleDecline}
-            />
+          <ConfirmDeclineBtns
+            confirmFunction={handleLogIn}
+            declineFunction={handleDecline}
+          />
+          <br />
+          <p className="login-register-bottom-link">
+            Ještě nemáte účet? <Link to={"/register"}>Zaregistrujte se.</Link>
+          </p>
 
-            <p>
-              Ještě nemáte účet? <Link to={"/register"}>Zaregistrujte se.</Link>
-            </p>
-
-            <p>
-              Zapomenuté heslo?{" "}
-              <Link to={"/forgotten-password"}>Klikněte zde.</Link>
-            </p>
-          </form>
-        )}
-      </section>
-    </>
+          <p>
+            Zapomenuté heslo?{" "}
+            <Link to={"/forgotten-password"}>Klikněte zde.</Link>
+          </p>
+        </form>
+      )}
+    </section>
   );
 };
 

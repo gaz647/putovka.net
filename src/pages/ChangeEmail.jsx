@@ -98,41 +98,39 @@ const ChangeEmail = () => {
   }, [dispatch, isAccountDisabled]);
 
   return (
-    <section className="wrapper">
+    <section className="full-page-container-center">
       {isLoading2 ? (
-        <div className="full-page-container-center">
+        <>
           <Heading text={"Probíhá změna emailu . . ."} />
           <Spinner />
-        </div>
+        </>
       ) : (
         <>
           <Heading text={"změna EMAILU"} />
 
-          <main>
-            <form className="change-email-password-form">
-              <InputField
-                type={"email"}
-                label={"nový email"}
-                onEmailChange={(e) => setNewEmail1(e)}
-              />
-              <InputField
-                type={"email"}
-                label={"nový email znovu"}
-                onEmailChange={(e) => setNewEmail2(e)}
-              />
-              <br />
-              <InputField
-                type={"password"}
-                label={"současné heslo"}
-                onPasswordChange={(e) => setCurrentPassword(e)}
-              />
+          <form className="change-form">
+            <InputField
+              type={"email"}
+              label={"nový email"}
+              onEmailChange={(e) => setNewEmail1(e)}
+            />
+            <InputField
+              type={"email"}
+              label={"nový email znovu"}
+              onEmailChange={(e) => setNewEmail2(e)}
+            />
+            <br />
+            <InputField
+              type={"password"}
+              label={"současné heslo"}
+              onPasswordChange={(e) => setCurrentPassword(e)}
+            />
 
-              <ConfirmDeclineBtns
-                confirmFunction={changeEmail}
-                declineFunction={handleDecline}
-              />
-            </form>
-          </main>
+            <ConfirmDeclineBtns
+              confirmFunction={changeEmail}
+              declineFunction={handleDecline}
+            />
+          </form>
         </>
       )}
     </section>

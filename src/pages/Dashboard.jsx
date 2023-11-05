@@ -389,7 +389,7 @@ const Dashboard = () => {
                 heading={
                   "Archivovat práce z posledního měsíce ve Vašem výpisu?"
                 }
-                text={"tento krok nelze vrátit"}
+                text={"tento krok nelze vrátit zpět"}
                 confirmFunction={archiveJobs2}
                 declineFunction={handleArchiveModalVisibility}
               />

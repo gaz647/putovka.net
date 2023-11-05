@@ -9,7 +9,7 @@
 }
 
 .confirm-decline-btns {
-  padding: 0.5rem 2.3rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
   margin: 1rem;
@@ -19,6 +19,7 @@
   align-items: center;
   cursor: pointer;
   border: solid 2px var(--white-2);
+  margin: 1rem auto;
 }
 
 .confirm-btn {

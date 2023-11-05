@@ -62,8 +62,6 @@ const Settings = () => {
   const [eurCzkRate, setEurCzkRate] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
   );
-  const [isConfirmDeclineBtnsVisible, setIsConfirmDeclineBtnsVisible] =
-    useState(false);
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
@@ -158,7 +156,6 @@ const Settings = () => {
                 value={terminal}
                 onTerminalChange={(e) => {
                   setTerminal(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -168,7 +165,6 @@ const Settings = () => {
                 value={baseMoney}
                 onNumberChange={(e) => {
                   setBaseMoney(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -177,7 +173,6 @@ const Settings = () => {
                 value={percentage}
                 onNumberChange={(e) => {
                   setPercentage(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -187,7 +182,6 @@ const Settings = () => {
                 value={secondJobBenefit}
                 onNumberChange={(e) => {
                   setSecondJobBenefit(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -197,7 +191,6 @@ const Settings = () => {
                 value={waitingBenefitEmployerCzk}
                 onNumberChange={(e) => {
                   setWaitingBenefitEmployerCzk(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -207,7 +200,6 @@ const Settings = () => {
                 value={waitingBenefitEur}
                 onNumberChange={(e) => {
                   setWaitingBenefitEur(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -217,17 +209,14 @@ const Settings = () => {
                 value={eurCzkRate}
                 onNumberChange={(e) => {
                   setEurCzkRate(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <br />
               <div className="settings-form-confirm-decline-btns-container">
-                {isConfirmDeclineBtnsVisible && (
-                  <ConfirmDeclineBtns
-                    confirmFunction={handleSubmit}
-                    declineFunction={handleDecline}
-                  />
-                )}
+                <ConfirmDeclineBtns
+                  confirmFunction={handleSubmit}
+                  declineFunction={handleDecline}
+                />
               </div>
             </form>
           </main>

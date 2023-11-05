@@ -1,15 +1,1 @@
-.change-email-password-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.change-email-password-header-title {
-  color: whitesmoke;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.change-email-password-form {
-  margin-top: 3rem;
-}

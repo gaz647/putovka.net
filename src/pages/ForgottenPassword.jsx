@@ -87,7 +87,7 @@ const ForgottenPassword = () => {
   }, [isPasswordResetSuccess, navigate]);
 
   return (
-    <section className="wrapper">
+    <section className="full-page-container-center">
       <ToastContainer
         transition={Flip}
         position="top-center"
@@ -102,29 +102,26 @@ const ForgottenPassword = () => {
         theme="colored"
       />
       {isLoading2 ? (
-        <div className="full-page-container-center">
+        <>
           <Heading text={"Probíhá resetování hesla . . ."} />
           <Spinner />
-        </div>
+        </>
       ) : (
-        <>
+        <form className="change-form">
           <Heading text={"Obnovit heslo"} />
 
-          <main>
-            <form className="forgotten-password-form">
-              <InputField
-                type={"email"}
-                label={"zadejte Váš email"}
-                onEmailChange={(e) => setEmail(e)}
-              />
+          <InputField
+            type={"email"}
+            label={"zadejte Váš email"}
+            value={email}
+            onEmailChange={(e) => setEmail(e)}
+          />
 
-              <ConfirmDeclineBtns
-                confirmFunction={handleSubmit}
-                declineFunction={handleDecline}
-              />
-            </form>
-          </main>
-        </>
+          <ConfirmDeclineBtns
+            confirmFunction={handleSubmit}
+            declineFunction={handleDecline}
+          />
+        </form>
       )}
     </section>
   );

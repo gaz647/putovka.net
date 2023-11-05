@@ -21,6 +21,7 @@ const Register = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
+  const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const isRegisterReduxSuccess = useSelector(
     (state) => state.auth.isRegisterReduxSuccess
@@ -58,7 +59,7 @@ const Register = () => {
   // HANDLE DECLINE ------------------------------------------------------
   //
   const handleDecline = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -97,58 +98,59 @@ const Register = () => {
   }, [resetToastStateRedux, dispatch]);
 
   return (
-    <>
-      <section className="login-register">
-        <ToastContainer
-          transition={Flip}
-          position="top-center"
-          autoClose={toastRedux.time}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
-        {isLoading2 ? (
-          <div className="full-page-container-center">
-            <Heading text={"Registrace probíhá . . ."} />
-            <Spinner />
-          </div>
-        ) : (
-          <form className="login-register-form">
-            <Heading text={"Registrace"} />
+    <section className="full-page-container-center">
+      <ToastContainer
+        transition={Flip}
+        position="top-center"
+        autoClose={toastRedux.time}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      {isLoading || isLoading2 ? (
+        <>
+          <Heading text={"Registrace probíhá . . ."} />
+          <Spinner />
+        </>
+      ) : (
+        <form className="change-form">
+          <Heading text={"Registrace"} />
 
-            <InputField
-              type={"email"}
-              label={"nový email"}
-              onEmailChange={(e) => setRegisterEmail(e)}
-            />
-            <InputField
-              type={"password"}
-              label={"heslo"}
-              onPasswordChange={(e) => setRegisterPasword1(e)}
-            />
-            <InputField
-              type={"password"}
-              label={"heslo znovu"}
-              onPasswordChange={(e) => setRegisterPasword2(e)}
-            />
+          <InputField
+            type={"email"}
+            label={"nový email"}
+            value={registerEmail}
+            onEmailChange={(e) => setRegisterEmail(e)}
+          />
+          <InputField
+            type={"password"}
+            label={"heslo"}
+            value={registerPassword1}
+            onPasswordChange={(e) => setRegisterPasword1(e)}
+          />
+          <InputField
+            type={"password"}
+            label={"heslo znovu"}
+            value={registerPassword2}
+            onPasswordChange={(e) => setRegisterPasword2(e)}
+          />
 
-            <ConfirmDeclineBtns
-              confirmFunction={handleRegister}
-              declineFunction={handleDecline}
-            />
-
-            <p>
-              Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>{" "}
-            </p>
-          </form>
-        )}
-      </section>
-    </>
+          <ConfirmDeclineBtns
+            confirmFunction={handleRegister}
+            declineFunction={handleDecline}
+          />
+          <br />
+          <p>
+            Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>{" "}
+          </p>
+        </form>
+      )}
+    </section>
   );
 };
 

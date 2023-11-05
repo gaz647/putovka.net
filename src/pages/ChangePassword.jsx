@@ -95,41 +95,39 @@ const ChangePassword = () => {
   }, [isChangePasswordReduxSuccess, navigate]);
 
   return (
-    <section className="wrapper">
+    <section className="full-page-container-center">
       {isLoading2 ? (
-        <div className="full-page-container-center">
+        <>
           <Heading text={"Probíhá změna hesla . . ."} />
           <Spinner />
-        </div>
+        </>
       ) : (
         <>
           <Heading text={"změna HESLA"} />
 
-          <main>
-            <form className="change-email-password-form">
-              <InputField
-                type={"password"}
-                label={"současné heslo"}
-                onPasswordChange={(e) => setCurrentPassword(e)}
-              />
-              <br />
-              <InputField
-                type={"password"}
-                label={"nové heslo"}
-                onPasswordChange={(e) => setNewPassword1(e)}
-              />
-              <InputField
-                type={"password"}
-                label={"nové heslo znovu"}
-                onPasswordChange={(e) => setNewPassword2(e)}
-              />
+          <form className="change-form">
+            <InputField
+              type={"password"}
+              label={"nové heslo"}
+              onPasswordChange={(e) => setNewPassword1(e)}
+            />
+            <InputField
+              type={"password"}
+              label={"nové heslo znovu"}
+              onPasswordChange={(e) => setNewPassword2(e)}
+            />
+            <br />
+            <InputField
+              type={"password"}
+              label={"současné heslo"}
+              onPasswordChange={(e) => setCurrentPassword(e)}
+            />
 
-              <ConfirmDeclineBtns
-                confirmFunction={changeEmail}
-                declineFunction={handleDecline}
-              />
-            </form>
-          </main>
+            <ConfirmDeclineBtns
+              confirmFunction={changeEmail}
+              declineFunction={handleDecline}
+            />
+          </form>
         </>
       )}
     </section>
