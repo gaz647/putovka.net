@@ -34,8 +34,6 @@ export const getInfoMessageRedux = createAsyncThunk(
 
       if (docSnap.exists()) {
         return docSnap.data().messageText;
-      } else {
-        console.log("No such document!");
       }
     } catch (error) {
       console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
@@ -87,13 +85,11 @@ export const registerRedux = createAsyncThunk(
   "auth/registerRedux",
   async (registerCredentials) => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         registerCredentials.registerEmail,
         registerCredentials.registerPassword1
       );
-      console.log("aktuální user: ", user.user.email);
-
       await sendEmailVerification(auth.currentUser);
     } catch (error) {
       console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
@@ -1021,7 +1017,7 @@ export const authSlice = createSlice({
       // -----------------------------------------------------------------------
       //
       .addCase(changeEmailRedux.pending, (state) => {
-        console.log("changeEmailRedux SPUŠTĚN");
+        console.log("changeEmailRedux PROBÍHÁ");
         state.isLoading2 = true;
       })
       .addCase(changeEmailRedux.fulfilled, (state) => {
@@ -1030,7 +1026,7 @@ export const authSlice = createSlice({
         state.isChangeEmailReduxSuccess = true;
       })
       .addCase(changeEmailRedux.rejected, (state, action) => {
-        console.log("changeEmailRedux selhal", action.error.message);
+        console.log("changeEmailRedux SELHAL", action.error.message);
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
@@ -1056,7 +1052,7 @@ export const authSlice = createSlice({
       // -----------------------------------------------------------------------
       //
       .addCase(changePasswordRedux.pending, (state) => {
-        console.log("changePasswordRedux SPUŠTĚN");
+        console.log("changePasswordRedux PROBÍHÁ");
         state.isLoading2 = true;
       })
       .addCase(changePasswordRedux.fulfilled, (state) => {
@@ -1071,7 +1067,7 @@ export const authSlice = createSlice({
         state.toast.resetToast = true;
       })
       .addCase(changePasswordRedux.rejected, (state, action) => {
-        console.log("changePasswordRedux selhal", action.error.message);
+        console.log("changePasswordRedux SELHAL", action.error.message);
         state.isLoading2 = false;
 
         state.toast.isVisible = true;
@@ -1087,7 +1083,7 @@ export const authSlice = createSlice({
       // -----------------------------------------------------------------------
       //
       .addCase(resetPasswordRedux.pending, (state) => {
-        console.log("resetPasswordRedux SPUŠTĚN");
+        console.log("resetPasswordRedux PROBÍHÁ");
         state.isLoading2 = true;
       })
       .addCase(resetPasswordRedux.fulfilled, (state) => {
@@ -1113,7 +1109,7 @@ export const authSlice = createSlice({
       // -----------------------------------------------------------------------
       //
       .addCase(changeSettingsRedux.pending, (state) => {
-        console.log("changeSettingsRedux SPUŠTĚN");
+        console.log("changeSettingsRedux PROBÍHÁ");
         state.isLoading2 = true;
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
@@ -1157,7 +1153,7 @@ export const authSlice = createSlice({
       // -----------------------------------------------------------------------
       //
       .addCase(deleteAccountRedux.pending, (state) => {
-        console.log("deleteAccountRedux SPUŠTĚN");
+        console.log("deleteAccountRedux PROBÍHÁ");
         state.isLoading2 = true;
         state.isAccountDeletingPending = true;
       })
