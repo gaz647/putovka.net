@@ -973,7 +973,7 @@ export const authSlice = createSlice({
       })
       .addCase(logoutInSettingsRedux.fulfilled, (state) => {
         console.log("logoutInSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        state.isLoading2 = false;
+        // isLoading2 se neukončuje jelikož po úspěšné změně dojde k přesměrování na changeVerification
         state.isLogoutReduxSuccess = true;
       })
       .addCase(logoutInSettingsRedux.rejected, (state, action) => {
