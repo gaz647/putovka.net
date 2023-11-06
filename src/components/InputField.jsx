@@ -206,7 +206,9 @@ const InputField = ({
               autoComplete="off"
             ></input>
             <div
-              className="show-password-btn"
+              className={`show-password-btn ${
+                showPassword ? "show-password-btn-clicked" : ""
+              }`}
               onClick={() => setShowPassword(!showPassword)}
             >
               <TfiEye />
