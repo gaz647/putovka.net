@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./InputField.css";
+import { TfiEye } from "react-icons/tfi";
 
 const InputField = ({
   label,
@@ -28,6 +29,7 @@ const InputField = ({
   const [choosedWeight, setChoosedWeight] = useState(
     type === "weight" ? (value !== "" ? value : 27) : null
   );
+  const [showPassword, setShowPassword] = useState(false);
 
   // USE EFFECT ----------------------------------------------------------
   //
@@ -195,13 +197,21 @@ const InputField = ({
               <span className="input-field-sub-label">{" " + subLabel}</span>
             )}
           </div>
-          <input
-            className="input-field-field"
-            type="password"
-            value={value}
-            onChange={(e) => handlePasswordChange(e.target.value)}
-            autoComplete="off"
-          ></input>
+          <div className="input-type-number-container">
+            <input
+              className="input-field-field-password"
+              type={!showPassword ? "password" : "text"}
+              value={value}
+              onChange={(e) => handlePasswordChange(e.target.value)}
+              autoComplete="off"
+            ></input>
+            <div
+              className="show-password-btn"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <TfiEye />
+            </div>
+          </div>
         </div>
       )}
 
