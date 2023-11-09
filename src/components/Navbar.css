@@ -1,8 +1,9 @@
 .navbar-container {
   height: 4rem;
-  --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  height: calc(3.5rem + var(--safe-area-inset-bottom)) !important;
-  padding-bottom: constant(safe-area-inset-bottom);
+  @supports (height: env(safe-area-inset-bottom)) {
+    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
+  }
+
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -14,9 +15,10 @@
 
 .navbar-click-blocker {
   height: 4rem;
-  --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  height: calc(3.5rem + var(--safe-area-inset-bottom)) !important;
-  padding-bottom: constant(safe-area-inset-bottom);
+  @supports (height: env(safe-area-inset-bottom)) {
+    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
+  }
+
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -29,9 +31,10 @@
 
 .navbar {
   height: inherit;
-  --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  height: calc(3.5rem + var(--safe-area-inset-bottom)) !important;
-  padding-bottom: constant(safe-area-inset-bottom);
+  @supports (height: env(safe-area-inset-bottom)) {
+    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
+  }
+
   max-width: 450px;
   display: flex;
   flex-wrap: nowrap;
