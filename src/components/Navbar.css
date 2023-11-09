@@ -25,6 +25,7 @@
 
 .navbar {
   height: inherit;
+  height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
   max-width: 450px;
   display: flex;
   flex-wrap: nowrap;
