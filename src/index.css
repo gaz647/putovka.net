@@ -26,7 +26,6 @@ body {
   min-height: --webkit-fill-available;
   width: 100%;
   touch-action: pan-y;
-  /* background: rgb(61, 177, 255); */
   background: rgb(61, 177, 255);
   background: -moz-linear-gradient(
     150deg,

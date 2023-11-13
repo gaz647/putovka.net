@@ -1,9 +1,6 @@
 .navbar-container {
-  height: 4rem;
-  @supports (height: env(safe-area-inset-bottom)) {
-    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
-  }
-
+  display: flex;
+  height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -14,32 +11,25 @@
 }
 
 .navbar-click-blocker {
-  height: 4rem;
-  @supports (height: env(safe-area-inset-bottom)) {
-    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
-  }
-
-  width: 100%;
+  height: inherit;
+  width: inherit;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
-  background-color: var(--blue-2);
+  background-color: inherit;
   z-index: 999;
 }
 
 .navbar {
   height: inherit;
-  @supports (height: env(safe-area-inset-bottom)) {
-    height: calc(3.5rem + env(safe-area-inset-bottom)) !important;
-  }
-
   max-width: 450px;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: env(safe-area-inset-bottom) !important;
   position: fixed;
   bottom: 0;
   left: 0;

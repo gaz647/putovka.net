@@ -25,6 +25,7 @@ const Navbar = () => {
   //
   const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  console.log(isLoading, isLoading2);
   const isEditing = useSelector((state) => state.auth.isEditing);
 
   // USE STATE -----------------------------------------------------------
