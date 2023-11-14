@@ -58,14 +58,18 @@ const createUserData = async (userAuth) => {
     const response = await axios.get(
       `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${FROM_CURRENCY}/${TO_CURRENCY}/${AMOUNT}`
     );
-
     await setDoc(doc(usersCollectionRef, uid), {
-      currentJobs: [],
       archivedJobs: [],
+      currentJobs: [],
       userSettings: {
         baseMoney: 0,
         email: email,
         eurCzkRate: response.data.conversion_rate,
+        nameFirst: "",
+        nameSecond: "",
+        numberEm: "",
+        numberTrailer: "",
+        numberTruck: "",
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "ceska_trebova",
@@ -579,6 +583,11 @@ export const authSlice = createSlice({
         baseMoney: 0,
         email: "",
         eurCzkRate: 0,
+        nameFirst: "",
+        nameSecond: "",
+        numberEm: "",
+        numberTrailer: "",
+        numberTruck: "",
         percentage: 0,
         secondJobBenefit: 0,
         terminal: "",
@@ -1114,20 +1123,22 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        state.loggedInUserData.userSettings.email = action.payload.email;
-        state.loggedInUserData.userSettings.baseMoney =
-          action.payload.baseMoney;
-        state.loggedInUserData.userSettings.eurCzkRate =
-          action.payload.eurCzkRate;
-        state.loggedInUserData.userSettings.percentage =
-          action.payload.percentage;
-        state.loggedInUserData.userSettings.secondJobBenefit =
-          action.payload.secondJobBenefit;
-        state.loggedInUserData.userSettings.terminal = action.payload.terminal;
-        state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
-          action.payload.waitingBenefitEmployerCzk;
-        state.loggedInUserData.userSettings.waitingBenefitEur =
-          action.payload.waitingBenefitEur;
+        console.log(action.payload);
+        // state.loggedInUserData.userSettings.email = action.payload.email;
+        // state.loggedInUserData.userSettings.baseMoney =
+        //   action.payload.baseMoney;
+        // state.loggedInUserData.userSettings.eurCzkRate =
+        //   action.payload.eurCzkRate;
+        // state.loggedInUserData.userSettings.percentage =
+        //   action.payload.percentage;
+        // state.loggedInUserData.userSettings.secondJobBenefit =
+        //   action.payload.secondJobBenefit;
+        // state.loggedInUserData.userSettings.terminal = action.payload.terminal;
+        // state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
+        //   action.payload.waitingBenefitEmployerCzk;
+        // state.loggedInUserData.userSettings.waitingBenefitEur =
+        //   action.payload.waitingBenefitEur;
+        state.loggedInUserData.userSettings = action.payload;
 
         state.isChangeSettingsReduxSuccess = true;
 

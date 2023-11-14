@@ -4,6 +4,7 @@ import { changeSettingsRedux, logoutInSettingsRedux } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import firstLetterToUpperCase from "../customFunctionsAndHooks/firstLetterToUpperCase";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
@@ -37,6 +38,24 @@ const Settings = () => {
   const [baseMoney, setBaseMoney] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
   );
+  const [nameFirst, setNameFirst] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.nameFirst)
+  );
+  const [nameSecond, setNameSecond] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.nameSecond)
+  );
+  const [numberEm, setNumberEm] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.numberEm)
+  );
+  const [numberTrailer, setNumberTrailer] = useState(
+    useSelector(
+      (state) => state.auth.loggedInUserData.userSettings.numberTrailer
+    )
+  );
+  const [numberTruck, setNumberTruck] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.numberTruck)
+  );
+
   const [terminal, setTerminal] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
@@ -72,6 +91,11 @@ const Settings = () => {
         baseMoney: Number(baseMoney),
         email,
         eurCzkRate: Number(eurCzkRate),
+        nameFirst: firstLetterToUpperCase(nameFirst),
+        nameSecond: firstLetterToUpperCase(nameSecond),
+        numberEm: numberEm.toUpperCase(),
+        numberTrailer: numberTrailer.toUpperCase(),
+        numberTruck: numberTruck.toUpperCase(),
         percentage: Number(percentage),
         secondJobBenefit: Number(secondJobBenefit),
         terminal,
@@ -150,6 +174,37 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
+              <InputField
+                type={"text"}
+                label={"jméno"}
+                value={nameFirst}
+                onTextChange={(e) => setNameFirst(e)}
+              />
+              <InputField
+                type={"text"}
+                label={"příjmení"}
+                value={nameSecond}
+                onTextChange={(e) => setNameSecond(e)}
+              />
+              <InputField
+                type={"text"}
+                label={"číslo"}
+                subLabel={"(např. 101, U01 atd.)"}
+                value={numberEm}
+                onTextChange={(e) => setNumberEm(e)}
+              />
+              <InputField
+                type={"text"}
+                label={"SPZ tahač"}
+                value={numberTruck}
+                onTextChange={(e) => setNumberTruck(e)}
+              />
+              <InputField
+                type={"text"}
+                label={"SPZ návěs"}
+                value={numberTrailer}
+                onTextChange={(e) => setNumberTrailer(e)}
+              />
               <InputField
                 type={"terminal"}
                 label={"terminál"}
