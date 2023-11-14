@@ -741,14 +741,7 @@ export const authSlice = createSlice({
       state.loggedInUserUid = null;
       state.loggedInUserData.archivedJobs = [];
       state.loggedInUserData.currentJobs = [];
-      state.loggedInUserData.userSettings.baseMoney = 0;
-      state.loggedInUserData.userSettings.email = "";
-      state.loggedInUserData.userSettings.eurCzkRate = 0;
-      state.loggedInUserData.userSettings.percentage = 0;
-      state.loggedInUserData.userSettings.secondJobBenefit = 0;
-      state.loggedInUserData.userSettings.terminal = "";
-      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk = 0;
-      state.loggedInUserData.userSettings.waitingBenefitEur = 0;
+      state.loggedInUserData.userSettings = {};
       state.isLoading = false;
     },
 

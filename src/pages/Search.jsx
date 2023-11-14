@@ -1,6 +1,6 @@
 import "./Search.css";
 import cross_button from "../assets/icons/cross_button.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import SearchResult from "../components/SearchResult";
 import ceska_trebova from "../assets/prices/ceska_trebova.json";
@@ -14,6 +14,8 @@ import Spinner from "../components/Spinner";
 const Search = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
   //
+
+  const inputRef = useRef(null);
 
   // USE SELECTOR --------------------------------------------------------
   //
@@ -136,6 +138,7 @@ const Search = () => {
   const deleteInputText = () => {
     setInputText("");
     setSearchResults([]);
+    inputRef.current.focus();
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -193,6 +196,7 @@ const Search = () => {
         <input
           className="search-bar-input"
           placeholder="Obec / PSC"
+          ref={inputRef}
           autoFocus
           type="text"
           value={inputText}
@@ -225,18 +229,6 @@ const Search = () => {
           ))}
         </ul>
       )}
-      {/* <ul>
-            {searchResults.map((result) => (
-              <SearchResult
-                key={result.objIndex}
-                city={result.city}
-                zipcode={result.zipcode}
-                weightTo27t={result.weightTo27t}
-                weightTo34t={result.weightTo34t}
-                terminal={terminal}
-              />
-            ))}
-      </ul> */}
     </section>
   );
 };
