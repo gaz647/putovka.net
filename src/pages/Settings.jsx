@@ -176,19 +176,19 @@ const Settings = () => {
             <form className="settings-form">
               <InputField
                 type={"text"}
-                label={"jméno"}
+                label={"Jméno"}
                 value={nameFirst}
                 onTextChange={(e) => setNameFirst(e)}
               />
               <InputField
                 type={"text"}
-                label={"příjmení"}
+                label={"Příjmení"}
                 value={nameSecond}
                 onTextChange={(e) => setNameSecond(e)}
               />
               <InputField
                 type={"text"}
-                label={"číslo"}
+                label={"Číslo"}
                 subLabel={"(např. 101, U01 atd.)"}
                 value={numberEm}
                 onTextChange={(e) => setNumberEm(e)}
@@ -207,7 +207,7 @@ const Settings = () => {
               />
               <InputField
                 type={"terminal"}
-                label={"terminál"}
+                label={"Terminál"}
                 value={terminal}
                 onTerminalChange={(e) => {
                   setTerminal(e);
@@ -215,7 +215,7 @@ const Settings = () => {
               />
               <InputField
                 type={"number"}
-                label={"základní mzda"}
+                label={"Základní mzda"}
                 subLabel={"(Kč)"}
                 value={baseMoney}
                 onNumberChange={(e) => {
@@ -232,7 +232,7 @@ const Settings = () => {
               />
               <InputField
                 type={"number"}
-                label={"příplatek za druhou práci"}
+                label={"Příplatek za druhou práci"}
                 subLabel={"(Kč)"}
                 value={secondJobBenefit}
                 onNumberChange={(e) => {
@@ -241,7 +241,7 @@ const Settings = () => {
               />
               <InputField
                 type={"number"}
-                label={"příplatek za čekání - zaměstnavatel"}
+                label={"Příplatek za čekání - zaměstnavatel"}
                 subLabel={"(Kč)"}
                 value={waitingBenefitEmployerCzk}
                 onNumberChange={(e) => {
@@ -250,7 +250,7 @@ const Settings = () => {
               />
               <InputField
                 type={"number"}
-                label={"příplatek za čekání"}
+                label={"Příplatek za čekání"}
                 subLabel={"(€)"}
                 value={waitingBenefitEur}
                 onNumberChange={(e) => {
@@ -259,7 +259,7 @@ const Settings = () => {
               />
               <InputField
                 type={"number-decimal"}
-                label={"kurz Eur/Kč"}
+                label={"Kurz Eur/Kč"}
                 subLabel={"(automaticky aktualizován po archivaci)"}
                 value={eurCzkRate}
                 onNumberChange={(e) => {
