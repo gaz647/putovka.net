@@ -22,6 +22,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 // GET INFO MESSAGE
 //
@@ -71,6 +72,7 @@ const createUserData = async (userAuth) => {
         numberTrailer: "",
         numberTruck: "",
         percentage: 0,
+        referenceId: uuidv4(),
         secondJobBenefit: 0,
         terminal: "ceska_trebova",
         waitingBenefitEmployerCzk: 0,

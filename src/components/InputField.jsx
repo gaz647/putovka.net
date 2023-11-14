@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./InputField.css";
+import { runToastRedux } from "../redux/AuthSlice";
 import { TfiEye } from "react-icons/tfi";
+import { MdContentCopy } from "react-icons/md";
+import { MdAutorenew } from "react-icons/md";
+import { useDispatch } from "react-redux";
 
 const InputField = ({
   label,
@@ -18,6 +22,8 @@ const InputField = ({
   onCheckboxChange,
   onTerminalChange,
 }) => {
+  const dispatch = useDispatch();
+
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
@@ -85,6 +91,31 @@ const InputField = ({
   //
   const handleTerminalChange = (value) => {
     onTerminalChange(value);
+  };
+
+  // COPY TO CLIPBOARD ---------------------------------------------------
+  //
+  const copyToClipBoardReferenceId = (value) => {
+    navigator.clipboard
+      .writeText(value)
+      .then(() => {
+        dispatch(
+          runToastRedux({
+            message: "Zkopírováno do schránky",
+            style: "success",
+            time: 3000,
+          })
+        );
+      })
+      .catch(() => {
+        dispatch(
+          runToastRedux({
+            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
+            style: "error",
+            time: 3000,
+          })
+        );
+      });
   };
 
   return (
@@ -300,6 +331,37 @@ const InputField = ({
             <option value="usti_nad_labem">Ústí nad Labem</option>
             <option value="zlin">Zlín</option>
           </select>
+        </div>
+      )}
+
+      {type === "referenceId" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            )}
+          </div>
+          <div className="input-type-number-container">
+            <div
+              className="copy-reference-id-left"
+              onClick={(value) => copyToClipBoardReferenceId(value)}
+            >
+              <MdContentCopy />
+            </div>
+            <input
+              className="input-field-field-reference-id"
+              type="text"
+              value={value}
+              disabled
+            ></input>
+            <div
+              className="reset-reference-id-right"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <MdAutorenew />
+            </div>
+          </div>
         </div>
       )}
     </>

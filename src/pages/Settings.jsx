@@ -29,6 +29,9 @@ const Settings = () => {
   );
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const email = useSelector((state) => state.auth.loggedInUserEmail);
+  const referenceId = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings.referenceId
+  );
   const isChangeSettingsReduxSuccess = useSelector(
     (state) => state.auth.isChangeSettingsReduxSuccess
   );
@@ -97,6 +100,7 @@ const Settings = () => {
         numberTrailer: numberTrailer.toUpperCase(),
         numberTruck: numberTruck.toUpperCase(),
         percentage: Number(percentage),
+        referenceId,
         secondJobBenefit: Number(secondJobBenefit),
         terminal,
         waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
@@ -174,6 +178,12 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
+              {/* <InputField
+                type={"referenceId"}
+                label={"Referenční číslo"}
+                subLabel={"(Pro sdílení vašich dat se zaměstnavatelem)"}
+                value={referenceId}
+              /> */}
               <InputField
                 type={"text"}
                 label={"Jméno"}
