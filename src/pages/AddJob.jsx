@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   addJobRedux,
   resetJobToAddValuesRedux,
-  // resetIsAddJobReduxSuccess,
+  runToastRedux,
 } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -67,6 +67,16 @@ const AddJob = () => {
     let newJob = {};
 
     if (!isHoliday) {
+      if (!city || !cmr || !zipcode || !terminal) {
+        dispatch(
+          runToastRedux({
+            message: "Vyplňte povinná pole.",
+            style: "error",
+            time: 3000,
+          })
+        );
+        return;
+      }
       newJob = {
         city,
         cmr,
@@ -188,6 +198,7 @@ const AddJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"Město"}
                   subLabel={""}
                   type={"text"}
@@ -196,6 +207,7 @@ const AddJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"PSČ"}
                   subLabel={""}
                   type={"text"}
@@ -220,6 +232,7 @@ const AddJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"CMR"}
                   subLabel={""}
                   type={"text"}
@@ -252,6 +265,7 @@ const AddJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"Terminál"}
                   subLabel={""}
                   type={"text"}

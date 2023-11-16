@@ -20,6 +20,14 @@ input[type="number"] {
   border-radius: 5px;
 }
 
+.required {
+  display: inline;
+  color: var(--red);
+  text-shadow: 1px 1px 0px rgb(255, 255, 255);
+
+  margin-left: 0.3rem;
+}
+
 .input-field-label {
   font-weight: bold;
   color: var(--white-2);
@@ -60,7 +68,7 @@ input[type="number"] {
 }
 
 .input-field-field:invalid {
-  border: solid 2px var(--red);
+  border: solid 1px var(--red);
 }
 
 .input-field-weight-container {

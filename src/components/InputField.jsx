@@ -8,6 +8,7 @@ import { RxCross1 } from "react-icons/rx";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 
 const InputField = ({
+  required,
   label,
   subLabel,
   type,
@@ -122,6 +123,7 @@ const InputField = ({
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
             {label !== "" || label !== undefined ? label : null}
+            {required && <div className="required">*</div>}
             {subLabel && (
               <span className="input-field-sub-label">{" " + subLabel}</span>
             )}
@@ -133,6 +135,7 @@ const InputField = ({
             className="input-field-field"
             type="text"
             value={value}
+            required={required && true}
             onChange={(e) => handleTextChange(e.target.value)}
           ></input>
         </div>
@@ -142,6 +145,7 @@ const InputField = ({
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
             {label !== "" || label !== undefined ? label : null}
+            {required && <div className="required">*</div>}
             {subLabel && (
               <span className="input-field-sub-label">{" " + subLabel}</span>
             )}
@@ -161,6 +165,7 @@ const InputField = ({
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
             {label !== "" || label !== undefined ? label : null}
+            {required && <div className="required">*</div>}
             {subLabel && (
               <>
                 <br />

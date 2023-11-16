@@ -147,10 +147,21 @@ const Settings = () => {
   // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
+    if (!nameFirst || !nameSecond || !numberEm || !numberTruck) {
+      dispatch(
+        runToastRedux({
+          message: "Vyplňte povinná pole.",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+
     if (eurCzkRate === 0) {
       dispatch(
         runToastRedux({
-          message: "Zadejte požadovaný kurz.",
+          message: "Zadejte kurz Eur/Kč.",
           style: "error",
           time: 3000,
         })
@@ -278,18 +289,21 @@ const Settings = () => {
                 onCopyReferenceId={copyToClipBoardReferenceId}
               /> */}
               <InputField
+                required={true}
                 type={"text"}
                 label={"Jméno"}
                 value={nameFirst}
                 onTextChange={(e) => setNameFirst(e)}
               />
               <InputField
+                required={true}
                 type={"text"}
                 label={"Příjmení"}
                 value={nameSecond}
                 onTextChange={(e) => setNameSecond(e)}
               />
               <InputField
+                required={true}
                 type={"text"}
                 label={"Číslo"}
                 subLabel={"(např. 101, U01 atd.)"}
@@ -298,6 +312,7 @@ const Settings = () => {
               />
               <InputField
                 type={"text"}
+                required={true}
                 label={"SPZ tahač"}
                 value={numberTruck}
                 onTextChange={(e) => setNumberTruck(e)}
@@ -361,6 +376,7 @@ const Settings = () => {
                 }}
               />
               <InputField
+                required={true}
                 type={"number-decimal"}
                 label={"Kurz Eur/Kč"}
                 subLabel={"(automaticky aktualizován po archivaci)"}

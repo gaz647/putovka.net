@@ -8,6 +8,7 @@ import {
   setIsEditingFalseRedux,
   setIsEditingArchivedJobFalseRedux,
   resetJobToEditValuesRedux,
+  runToastRedux,
 } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
@@ -115,6 +116,17 @@ const EditJob = () => {
     let editedJob = {};
 
     if (!isHoliday) {
+      if (!city || !cmr || !zipcode || !terminal) {
+        dispatch(
+          runToastRedux({
+            message: "Vyplňte povinná pole.",
+            style: "error",
+            time: 3000,
+          })
+        );
+        return;
+      }
+
       editedJob = {
         city,
         cmr,
@@ -256,6 +268,7 @@ const EditJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"Město"}
                   type={"text"}
                   value={city}
@@ -263,6 +276,7 @@ const EditJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"PSČ"}
                   type={"text"}
                   value={zipcode}
@@ -284,6 +298,7 @@ const EditJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"CMR"}
                   type={"text"}
                   value={cmr}
@@ -312,6 +327,7 @@ const EditJob = () => {
                 />
 
                 <InputField
+                  required={true}
                   label={"Terminál"}
                   type={"text"}
                   value={terminal}
