@@ -219,7 +219,10 @@ input[type="number"] {
   height: 2.5rem;
   padding: 0 0.5rem;
   border: none;
-  border-radius: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: var(--white-2);
   color: var(--blue-2);
   font-size: 0.8rem;
