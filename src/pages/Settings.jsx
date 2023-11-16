@@ -147,8 +147,28 @@ const Settings = () => {
   // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
-    console.log(typeof eurCzkRate);
-    console.log(eurCzkRate);
+    if (eurCzkRate === 0) {
+      dispatch(
+        runToastRedux({
+          message: "Zadejte požadovaný kurz.",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+
+    if (eurCzkRate.toString().length > 7) {
+      dispatch(
+        runToastRedux({
+          message: "Zadané číslo musí obsahovat maximálně 4 desetinná místa.",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+
     const payload = {
       userUid,
       userSettings: {

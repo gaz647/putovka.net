@@ -1118,7 +1118,6 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        console.log(action.payload);
         // state.loggedInUserData.userSettings.email = action.payload.email;
         // state.loggedInUserData.userSettings.baseMoney =
         //   action.payload.baseMoney;
