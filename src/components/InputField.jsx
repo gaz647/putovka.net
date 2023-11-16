@@ -155,6 +155,7 @@ const InputField = ({
             type="number"
             inputMode="numeric"
             value={value === 0 ? "" : value}
+            required={required && true}
             onChange={(e) => handleNumberChange(e.target.value)}
             min="0"
           ></input>
@@ -179,6 +180,7 @@ const InputField = ({
             step="0.0001"
             // inputMode="numeric"
             value={value === 0 ? "" : value}
+            required={required && true}
             onChange={(e) => handleNumberChange(e.target.value)}
             min="0"
           ></input>

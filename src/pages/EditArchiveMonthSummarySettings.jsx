@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   editArchiveMonthSummarySettingsRedux,
   resetArchiveMonthSummarySettingsToEditRedux,
+  runToastRedux,
 } from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -78,15 +79,23 @@ const EditArchiveMonthSummarySettings = () => {
   // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
+    if (!eurCzkRate) {
+      dispatch(
+        runToastRedux({
+          message: "Vyplňte povinná pole.",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
     const tempArchivedJobs = [...archivedJobs];
 
     const newArchiveMonthSummarySettings = {
       baseMoney: Number(baseMoney),
-      email,
       eurCzkRate: Number(eurCzkRate),
       percentage: Number(percentage),
       secondJobBenefit: Number(secondJobBenefit),
-      terminal,
       waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
       waitingBenefitEur: Number(waitingBenefitEur),
     };
@@ -186,6 +195,7 @@ const EditArchiveMonthSummarySettings = () => {
                 }}
               />
               <InputField
+                required={true}
                 type={"number-decimal"}
                 label={"kurz Eur/Kč"}
                 subLabel={"(automaticky aktualizován po archivaci)"}
