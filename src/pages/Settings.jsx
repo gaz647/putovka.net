@@ -249,14 +249,14 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
-              <InputField
+              {/* <InputField
                 type={"referenceId"}
                 label={"Referenční číslo"}
                 subLabel={"(pro sdílení vašich dat se zaměstnavatelem)"}
                 value={referenceId}
                 onResetReferenceId={handleArchiveModalVisibility}
                 onCopyReferenceId={copyToClipBoardReferenceId}
-              />
+              /> */}
               <InputField
                 type={"text"}
                 label={"Jméno"}

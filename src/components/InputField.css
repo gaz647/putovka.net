@@ -158,13 +158,13 @@ input[type="number"] {
   min-width: 80%;
   max-width: 70%;
   height: 2.5rem;
+  background-color: var(--white-2);
   padding: 0 0.5rem;
   border: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  background-color: var(--white-2);
   color: var(--blue-2);
   font-size: 0.8rem;
   text-align: center;
@@ -228,7 +228,7 @@ input[type="number"] {
   border-bottom-right-radius: 0;
   background-color: var(--white-2);
   color: var(--blue-2);
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
   font-weight: bold;
 }
