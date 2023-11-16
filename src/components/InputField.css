@@ -155,13 +155,13 @@ input[type="number"] {
 }
 
 .input-field-field-reference-id {
-  min-width: 70%;
+  min-width: 80%;
   max-width: 70%;
   height: 2.5rem;
   padding: 0 0.5rem;
   border: none;
   border-radius: none;
-  background-color: rgb(223, 221, 221);
+  background-color: rgb(226, 226, 226);
   color: var(--blue-2);
   font-size: 0.8rem;
   text-align: center;
@@ -170,13 +170,12 @@ input[type="number"] {
 }
 
 .copy-reference-id-left {
-  width: 15%;
+  width: 10%;
   background-color: var(--white-2);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-left: 1px solid rgb(223, 222, 222);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,13 +183,12 @@ input[type="number"] {
 }
 
 .reset-reference-id-right {
-  width: 15%;
+  width: 10%;
   background-color: var(--white-2);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border-left: 1px solid rgb(223, 222, 222);
   display: flex;
   justify-content: center;
   align-items: center;
