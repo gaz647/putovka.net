@@ -298,7 +298,7 @@ const InputField = ({
           </div>
 
           <select
-            className="input-field-field"
+            className="input-field-field input-field-select"
             value={value}
             onChange={(e) => handleTerminalChange(e.target.value)}
           >
