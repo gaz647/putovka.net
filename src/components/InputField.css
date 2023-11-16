@@ -50,10 +50,6 @@ input[type="number"] {
   font-weight: bold;
 }
 
-.input-field-select {
-  text-align: -webkit-center;
-}
-
 .date {
   width: 20px;
 }
