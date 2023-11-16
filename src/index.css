@@ -94,6 +94,10 @@ input:focus {
   visibility: hidden;
 }
 
+.vis-visible {
+  visibility: visible;
+}
+
 .change-form {
   width: 100%;
   max-width: 300px;

@@ -3,7 +3,7 @@ import "./SearchResult.css";
 import { useDispatch } from "react-redux";
 import { setJobToAddRedux } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
-import AddButton from "../assets/icons/add-button.svg";
+import { FaPlusCircle } from "react-icons/fa";
 
 const SearchResult = (props) => {
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const SearchResult = (props) => {
             className="result-second-line-item-middle"
             onClick={handleAddJob}
           >
-            <img src={AddButton} alt="add-own-done-job-button" />
+            <FaPlusCircle className="add-job-btn" />
           </div>
 
           <div className="result-second-line-item-right">

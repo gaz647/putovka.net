@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { BiSpreadsheet } from "react-icons/bi";
-import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { RiCharacterRecognitionLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
@@ -60,7 +60,7 @@ const Navbar = () => {
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
           onClick={reset}
         >
-          <HiOutlineMagnifyingGlass />
+          <PiMagnifyingGlassBold />
         </NavLink>
 
         {isEditing ? (

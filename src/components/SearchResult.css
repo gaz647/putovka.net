@@ -64,9 +64,11 @@ ul {
   width: 14%;
   background-color: var(--white-2);
   padding: 0.5rem;
-  /* border-right: 1px solid rgba(0, 123, 254, 0.5);
-  border-left: 1px solid rgba(0, 123, 254, 0.5); */
   cursor: pointer;
+}
+.add-job-btn {
+  color: var(--green);
+  font-size: 1.5rem;
 }
 
 .result-second-line-item-right {

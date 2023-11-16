@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./InputField.css";
-import { runToastRedux } from "../redux/AuthSlice";
 import { TfiEye } from "react-icons/tfi";
 import { MdContentCopy } from "react-icons/md";
 import { MdAutorenew } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { RxCross1 } from "react-icons/rx";
+import { PiMagnifyingGlassBold } from "react-icons/pi";
 
 const InputField = ({
   label,
   subLabel,
   type,
   value,
+  inputRef,
   deleteCode,
   onDateChange,
   onWeightChange,
@@ -21,9 +22,11 @@ const InputField = ({
   onTextChange,
   onCheckboxChange,
   onTerminalChange,
+  onCopyReferenceId,
+  onResetReferenceId,
+  onSearchTextChange,
+  onSearchInputDelete,
 }) => {
-  const dispatch = useDispatch();
-
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
@@ -91,31 +94,6 @@ const InputField = ({
   //
   const handleTerminalChange = (value) => {
     onTerminalChange(value);
-  };
-
-  // COPY TO CLIPBOARD ---------------------------------------------------
-  //
-  const copyToClipBoardReferenceId = (value) => {
-    navigator.clipboard
-      .writeText(value)
-      .then(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírováno do schránky",
-            style: "success",
-            time: 3000,
-          })
-        );
-      })
-      .catch(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
-            style: "error",
-            time: 3000,
-          })
-        );
-      });
   };
 
   return (
@@ -194,7 +172,7 @@ const InputField = ({
             className="input-field-field"
             type="number"
             step="0.0001"
-            inputMode="numeric"
+            // inputMode="numeric"
             value={value === 0 ? "" : value}
             onChange={(e) => handleNumberChange(e.target.value)}
             min="0"
@@ -228,7 +206,7 @@ const InputField = ({
               <span className="input-field-sub-label">{" " + subLabel}</span>
             )}
           </div>
-          <div className="input-type-number-container">
+          <div className="input-field-flex-container">
             <input
               className="input-field-field-password"
               type={!showPassword ? "password" : "text"}
@@ -342,11 +320,8 @@ const InputField = ({
               <span className="input-field-sub-label">{" " + subLabel}</span>
             )}
           </div>
-          <div className="input-type-number-container">
-            <div
-              className="copy-reference-id-left"
-              onClick={(value) => copyToClipBoardReferenceId(value)}
-            >
+          <div className="input-field-flex-container">
+            <div className="copy-reference-id-left" onClick={onCopyReferenceId}>
               <MdContentCopy />
             </div>
             <input
@@ -357,9 +332,40 @@ const InputField = ({
             ></input>
             <div
               className="reset-reference-id-right"
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={onResetReferenceId}
             >
               <MdAutorenew />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {type === "searchBar" && (
+        <div className="input-field-container">
+          <div className="input-field-label text-shadow">
+            {label !== "" || label !== undefined ? label : null}
+            {subLabel && (
+              <span className="input-field-sub-label">{" " + subLabel}</span>
+            )}
+          </div>
+          <div className="input-field-flex-container">
+            <div className="input-field-field-search-left">
+              <PiMagnifyingGlassBold className="search-bar-magnifying-glass" />
+            </div>
+            <input
+              className="input-field-field-search"
+              type="text"
+              placeholder="Obec / PSČ"
+              autoFocus
+              value={value}
+              ref={inputRef}
+              onChange={(e) => onSearchTextChange(e.target.value)}
+            ></input>
+            <div
+              className="input-field-field-search-right"
+              onClick={onSearchInputDelete}
+            >
+              <RxCross1 className={`vis-hidden ${value && "vis-visible"}`} />
             </div>
           </div>
         </div>

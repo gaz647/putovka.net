@@ -1,12 +1,18 @@
 import "./Settings.css";
 import { useDispatch } from "react-redux";
-import { changeSettingsRedux, logoutInSettingsRedux } from "../redux/AuthSlice";
+import {
+  changeSettingsRedux,
+  logoutInSettingsRedux,
+  runToastRedux,
+} from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import firstLetterToUpperCase from "../customFunctionsAndHooks/firstLetterToUpperCase";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
+import ModalPrompt from "../components/ModalPrompt";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
@@ -29,7 +35,7 @@ const Settings = () => {
   );
   const userUid = useSelector((state) => state.auth.loggedInUserUid);
   const email = useSelector((state) => state.auth.loggedInUserEmail);
-  const referenceId = useSelector(
+  const referenceIdSel = useSelector(
     (state) => state.auth.loggedInUserData.userSettings.referenceId
   );
   const isChangeSettingsReduxSuccess = useSelector(
@@ -65,6 +71,9 @@ const Settings = () => {
   const [percentage, setPercentage] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.percentage)
   );
+  const [referenceId, setReferenceId] = useState(
+    useSelector((state) => state.auth.loggedInUserData.userSettings.referenceId)
+  );
   const [secondJobBenefit, setSecondJobBenefit] = useState(
     useSelector(
       (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
@@ -84,10 +93,62 @@ const Settings = () => {
   const [eurCzkRate, setEurCzkRate] = useState(
     useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
   );
+  const [showArchiveModal, setShowArchiveModal] = useState(false);
+
+  // HANDLE MODAL VISIBILITY ---------------------------------------------
+  //
+  const handleArchiveModalVisibility = () => {
+    setReferenceId(referenceIdSel);
+    setShowArchiveModal(!showArchiveModal);
+  };
+
+  // COPY TO CLIPBOARD ---------------------------------------------------
+  //
+  const copyToClipBoardReferenceId = () => {
+    if (referenceIdSel !== referenceId) {
+      dispatch(
+        runToastRedux({
+          message: "Nejdříve uložte nastavení.",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+    navigator.clipboard
+      .writeText(referenceIdSel)
+      .then(() => {
+        dispatch(
+          runToastRedux({
+            message: "Zkopírováno do schránky",
+            style: "success",
+            time: 3000,
+          })
+        );
+      })
+      .catch(() => {
+        dispatch(
+          runToastRedux({
+            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
+            style: "error",
+            time: 3000,
+          })
+        );
+      });
+  };
+
+  // GENERATE NEW REFERENCE ID -------------------------------------------
+  //
+  const generateNewReferenceId = () => {
+    setShowArchiveModal(!showArchiveModal);
+    setReferenceId(uuidv4());
+  };
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
   const handleSubmit = () => {
+    console.log(typeof eurCzkRate);
+    console.log(eurCzkRate);
     const payload = {
       userUid,
       userSettings: {
@@ -145,7 +206,17 @@ const Settings = () => {
           <Spinner />
         </div>
       ) : (
-        <>
+        <section className="settings">
+          {showArchiveModal && (
+            <ModalPrompt
+              heading={
+                "Vygenerovat nové referenční číslo? Sledování Vašich dat bude tomu kdo vlastní stávající referenční číslo znemožněno."
+              }
+              text={"Pro dokončení uložte Vaše nastavení."}
+              confirmFunction={generateNewReferenceId}
+              declineFunction={handleArchiveModalVisibility}
+            />
+          )}
           <header className="settings-header">
             <Heading text={"Nastavení"} />
             <div className="settings-header-user-email text-shadow">
@@ -178,12 +249,14 @@ const Settings = () => {
           </header>
           <main>
             <form className="settings-form">
-              {/* <InputField
+              <InputField
                 type={"referenceId"}
                 label={"Referenční číslo"}
-                subLabel={"(Pro sdílení vašich dat se zaměstnavatelem)"}
+                subLabel={"(pro sdílení vašich dat se zaměstnavatelem)"}
                 value={referenceId}
-              /> */}
+                onResetReferenceId={handleArchiveModalVisibility}
+                onCopyReferenceId={copyToClipBoardReferenceId}
+              />
               <InputField
                 type={"text"}
                 label={"Jméno"}
@@ -285,7 +358,7 @@ const Settings = () => {
               </div>
             </form>
           </main>
-        </>
+        </section>
       )}
     </section>
   );

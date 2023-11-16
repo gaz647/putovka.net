@@ -1,5 +1,5 @@
 import "./Search.css";
-import cross_button from "../assets/icons/cross_button.svg";
+
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import SearchResult from "../components/SearchResult";
@@ -10,6 +10,7 @@ import praha from "../assets/prices/praha.json";
 import usti_nad_labem from "../assets/prices/usti_nad_labem.json";
 import zlin from "../assets/prices/zlin.json";
 import Spinner from "../components/Spinner";
+import InputField from "../components/InputField";
 
 const Search = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -128,9 +129,9 @@ const Search = () => {
 
   // HANDLE CHANGE -------------------------------------------------------
   //
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     setSearchResultsReady(false);
-    setInputText(event.target.value);
+    setInputText(e);
   };
 
   // DELETE INPUT TEXT ---------------------------------------------------
@@ -189,28 +190,14 @@ const Search = () => {
 
   return (
     <section className="search-bar wrapper">
-      <div className="terminal text-shadow">
-        {"terminál: " + displayProperTerminalName(terminal)}
-      </div>
-      <div className="search-bar-container">
-        <input
-          className="search-bar-input"
-          placeholder="Obec / PSC"
-          ref={inputRef}
-          autoFocus
-          type="text"
-          value={inputText}
-          onChange={handleChange}
-        />
-        {inputText !== "" && (
-          <img
-            className="search-bar-img"
-            src={cross_button}
-            alt="clear-text-button"
-            onClick={deleteInputText}
-          />
-        )}
-      </div>
+      <InputField
+        type={"searchBar"}
+        label={`terminál: ${displayProperTerminalName(terminal)}`}
+        value={inputText}
+        inputRef={inputRef}
+        onSearchTextChange={(e) => handleChange(e)}
+        onSearchInputDelete={deleteInputText}
+      />
       {!searchResultsReady ? (
         <div className="spinner-one-line-container">
           <Spinner />

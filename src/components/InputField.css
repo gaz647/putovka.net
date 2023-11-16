@@ -114,10 +114,9 @@ input[type="number"] {
   align-items: center;
 }
 
-.input-type-number-container {
+.input-field-flex-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 
 .input-field-field-password {
@@ -196,4 +195,66 @@ input[type="number"] {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.input-field-search-container {
+  border-radius: inherit;
+  width: 100%;
+}
+
+.input-field-search-delete-btn-container {
+  height: 100%;
+  width: 15%;
+}
+
+.input-field-search-delete-btn {
+  height: 2rem;
+  right: 10px;
+  cursor: pointer;
+}
+
+.input-field-field-search {
+  min-width: 80%;
+  max-width: 80%;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  border: none;
+  border-radius: none;
+  background-color: var(--white-2);
+  color: var(--blue-2);
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.input-field-field-search-left {
+  width: 10%;
+  background-color: var(--white-2);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-field-field-search-right {
+  width: 10%;
+  background-color: var(--white-2);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-bar-magnifying-glass {
+  color: gray;
 }
