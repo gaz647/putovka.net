@@ -22,6 +22,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 import axios from "axios";
+import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
 
 // GET INFO MESSAGE
@@ -37,7 +38,7 @@ export const getInfoMessageRedux = createAsyncThunk(
         return docSnap.data().messageText;
       }
     } catch (error) {
-      console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
+      console.log("getInfoMessageRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
   }
@@ -90,13 +91,26 @@ const createUserData = async (userAuth) => {
 export const registerRedux = createAsyncThunk(
   "auth/registerRedux",
   async (registerCredentials) => {
+    const registrationsCollectionRef = collection(db, "registrations");
+    const userIpAddress = await getUserIpAddress();
+
     try {
       await createUserWithEmailAndPassword(
         auth,
         registerCredentials.registerEmail,
         registerCredentials.registerPassword1
       );
+      console.log("Registrace...OK");
+
       await sendEmailVerification(auth.currentUser);
+      console.log("Odeslání emailu pro verifikaci...OK");
+
+      await setDoc(doc(registrationsCollectionRef, auth.currentUser.uid), {
+        email: registerCredentials.registerEmail,
+        ipAdress: userIpAddress,
+        timestamp: new Date(),
+      });
+      console.log("Údaje o registraci...OK");
     } catch (error) {
       console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
@@ -255,8 +269,8 @@ export const changeSettingsRedux = createAsyncThunk(
 export const deleteAccountRedux = createAsyncThunk(
   "auth/deleteAccountRedux",
   async ({ currentPassword, userUid }) => {
-    // Vytvoření reference kolekce USERS
     const usersCollectionRef = collection(db, "users");
+
     try {
       const credential = EmailAuthProvider.credential(
         auth.currentUser.email,

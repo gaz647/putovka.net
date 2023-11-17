@@ -50,10 +50,10 @@ const Register = () => {
         })
       );
       return;
-    } else {
-      let registerCredentials = { registerEmail, registerPassword1 };
-      dispatch(registerRedux(registerCredentials));
     }
+    // const userIpAdress = getUserIpAdress();
+    let registerCredentials = { registerEmail, registerPassword1 };
+    dispatch(registerRedux(registerCredentials));
   };
 
   // HANDLE DECLINE ------------------------------------------------------
