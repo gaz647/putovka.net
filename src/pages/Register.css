@@ -1,1 +1,8 @@
+.terms-and-conditions-container {
+  width: 100%;
+  display: flex;
+}
 
+.terms-and-conditions-checkbox {
+  margin-right: 0.5rem;
+}

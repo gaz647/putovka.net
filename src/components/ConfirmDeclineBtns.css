@@ -34,3 +34,11 @@
   font-size: 1.3rem;
   color: var(--white-2);
 }
+
+.confirm-btn-disabled {
+  background-color: rgba(47, 228, 107, 0.5);
+}
+
+.decline-btn-disabled {
+  background-color: rgba(230, 11, 11, 0.5);
+}

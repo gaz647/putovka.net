@@ -2,22 +2,28 @@
 import "./ConfirmDeclineBtns.css";
 import { ImCheckmark, ImCross } from "react-icons/im";
 
-const ConfirmDeclineBtns = ({ confirmFunction, declineFunction }) => {
+const ConfirmDeclineBtns = ({ confirmFunction, declineFunction, disabled }) => {
   return (
     <div className="confirm-decline-btns-container">
-      <div
-        className="confirm-decline-btns confirm-btn"
+      <button
+        className={`confirm-decline-btns confirm-btn ${
+          disabled && "confirm-btn-disabled"
+        }`}
         onClick={confirmFunction}
+        disabled={disabled}
       >
         <ImCheckmark className="confirm-decline-btn-icon" />
-      </div>
+      </button>
 
-      <div
-        className="confirm-decline-btns decline-btn"
+      <button
+        className={`confirm-decline-btns decline-btn ${
+          disabled && "decline-btn-disabled"
+        }`}
         onClick={declineFunction}
+        disabled={disabled}
       >
         <ImCross className="confirm-decline-btn-icon" />
-      </div>
+      </button>
     </div>
   );
 };

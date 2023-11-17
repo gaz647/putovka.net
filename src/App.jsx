@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import Dashboard from "./pages/Dashboard";
 import Search from "./pages/Search";
 import AddJob from "./pages/AddJob";
@@ -133,6 +134,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />
+
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
 

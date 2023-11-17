@@ -1,4 +1,5 @@
 import "./Login.css";
+import "./Register.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -36,6 +37,13 @@ const Register = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword1, setRegisterPasword1] = useState("");
   const [registerPassword2, setRegisterPasword2] = useState("");
+  const [checkboxChecked, setCheckboxCheked] = useState(false);
+
+  // HANDLE CHECKBOX CHECKED ---------------------------------------------
+  //
+  const handleCheckboxChecked = () => {
+    setCheckboxCheked(!checkboxChecked);
+  };
 
   // HANDLE REGISTER -----------------------------------------------------
   //
@@ -140,13 +148,33 @@ const Register = () => {
             onPasswordChange={(e) => setRegisterPasword2(e)}
           />
 
+          <div className="terms-and-conditions-container">
+            <input
+              type="checkbox"
+              className="terms-and-conditions-checkbox"
+              onClick={handleCheckboxChecked}
+            />
+            <div className="terms-and-conditions-text">
+              Souhlasím s{" "}
+              <span>
+                <Link to={"/terms-and-conditions"} target="_blank">
+                  obchodními podmínkami.
+                </Link>
+              </span>
+            </div>
+          </div>
+
+          <br />
+
           <ConfirmDeclineBtns
+            disabled={!checkboxChecked}
             confirmFunction={handleRegister}
             declineFunction={handleDecline}
           />
+
           <br />
           <p>
-            Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>{" "}
+            Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>
           </p>
         </form>
       )}
