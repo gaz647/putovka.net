@@ -388,6 +388,13 @@ const Settings = () => {
               <br />
               <div className="settings-form-confirm-decline-btns-container">
                 <ConfirmDeclineBtns
+                  disabled={
+                    !nameFirst ||
+                    !nameSecond ||
+                    !numberEm ||
+                    !numberTruck ||
+                    !eurCzkRate
+                  }
                   confirmFunction={handleSubmit}
                   declineFunction={handleDecline}
                 />

@@ -16,11 +16,8 @@ const ConfirmDeclineBtns = ({ confirmFunction, declineFunction, disabled }) => {
       </button>
 
       <button
-        className={`confirm-decline-btns decline-btn ${
-          disabled && "decline-btn-disabled"
-        }`}
+        className="confirm-decline-btns decline-btn"
         onClick={declineFunction}
-        disabled={disabled}
       >
         <ImCross className="confirm-decline-btn-icon" />
       </button>

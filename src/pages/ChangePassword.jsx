@@ -102,33 +102,35 @@ const ChangePassword = () => {
           <Spinner />
         </>
       ) : (
-        <>
+        <form className="change-form">
           <Heading text={"změna HESLA"} />
 
-          <form className="change-form">
-            <InputField
-              type={"password"}
-              label={"nové heslo"}
-              onPasswordChange={(e) => setNewPassword1(e)}
-            />
-            <InputField
-              type={"password"}
-              label={"nové heslo znovu"}
-              onPasswordChange={(e) => setNewPassword2(e)}
-            />
-            <br />
-            <InputField
-              type={"password"}
-              label={"současné heslo"}
-              onPasswordChange={(e) => setCurrentPassword(e)}
-            />
+          <InputField
+            type={"password"}
+            label={"nové heslo"}
+            value={newPassword1}
+            onPasswordChange={(e) => setNewPassword1(e)}
+          />
+          <InputField
+            type={"password"}
+            label={"nové heslo znovu"}
+            value={newPassword2}
+            onPasswordChange={(e) => setNewPassword2(e)}
+          />
+          <br />
+          <InputField
+            type={"password"}
+            label={"současné heslo"}
+            value={currentPassword}
+            onPasswordChange={(e) => setCurrentPassword(e)}
+          />
 
-            <ConfirmDeclineBtns
-              confirmFunction={changeEmail}
-              declineFunction={handleDecline}
-            />
-          </form>
-        </>
+          <ConfirmDeclineBtns
+            disabled={!newPassword1 || !newPassword2 || !currentPassword}
+            confirmFunction={changeEmail}
+            declineFunction={handleDecline}
+          />
+        </form>
       )}
     </section>
   );

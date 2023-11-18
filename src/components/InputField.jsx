@@ -6,6 +6,7 @@ import { MdContentCopy } from "react-icons/md";
 import { MdAutorenew } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
+import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 
 const InputField = ({
   required,
@@ -196,7 +197,11 @@ const InputField = ({
             )}
           </div>
           <input
-            className="input-field-field"
+            className={`input-field-field-email ${
+              value &&
+              !isValidEmailFormat(value) &&
+              "input-field-field-email-invalid"
+            }`}
             type="email"
             value={value}
             onChange={(e) => handleEmailChange(e.target.value)}

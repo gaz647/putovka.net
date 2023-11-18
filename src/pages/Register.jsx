@@ -3,11 +3,15 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { registerRedux, runToastRedux } from "../redux/AuthSlice";
+import {
+  registerRedux,
+  runToastRedux,
+  resetToastRedux,
+} from "../redux/AuthSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
-import { resetToastRedux } from "../redux/AuthSlice";
+import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
@@ -49,6 +53,7 @@ const Register = () => {
   //
   const handleRegister = (e) => {
     e.preventDefault();
+
     if (registerPassword1 !== registerPassword2) {
       dispatch(
         runToastRedux({
@@ -59,15 +64,30 @@ const Register = () => {
       );
       return;
     }
-    // const userIpAdress = getUserIpAdress();
-    let registerCredentials = { registerEmail, registerPassword1 };
+
+    if (registerPassword1.length < 6 || registerPassword2.length < 6) {
+      dispatch(
+        runToastRedux({
+          message: "Heslo musí mít alespoň 6 znaků!",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+
+    const registerCredentials = { registerEmail, registerPassword1 };
     dispatch(registerRedux(registerCredentials));
   };
 
   // HANDLE DECLINE ------------------------------------------------------
   //
-  const handleDecline = () => {
-    navigate("/login");
+  const handleDecline = (e) => {
+    e.preventDefault();
+    // navigate("/login");
+    setRegisterEmail("");
+    setRegisterPasword1("");
+    setRegisterPasword2("");
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -131,7 +151,7 @@ const Register = () => {
 
           <InputField
             type={"email"}
-            label={"nový email"}
+            label={"email"}
             value={registerEmail}
             onEmailChange={(e) => setRegisterEmail(e)}
           />
@@ -167,7 +187,13 @@ const Register = () => {
           <br />
 
           <ConfirmDeclineBtns
-            disabled={!checkboxChecked}
+            disabled={
+              !registerEmail ||
+              !registerPassword1 ||
+              !registerPassword2 ||
+              !checkboxChecked ||
+              !isValidEmailFormat(registerEmail)
+            }
             confirmFunction={handleRegister}
             declineFunction={handleDecline}
           />

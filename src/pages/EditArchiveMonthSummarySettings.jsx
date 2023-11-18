@@ -73,8 +73,6 @@ const EditArchiveMonthSummarySettings = () => {
       (state) => state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEur
     )
   );
-  const [isConfirmDeclineBtnsVisible, setIsConfirmDeclineBtnsVisible] =
-    useState(false);
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
@@ -152,7 +150,6 @@ const EditArchiveMonthSummarySettings = () => {
                 value={baseMoney}
                 onNumberChange={(e) => {
                   setBaseMoney(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -161,7 +158,6 @@ const EditArchiveMonthSummarySettings = () => {
                 value={percentage}
                 onNumberChange={(e) => {
                   setPercentage(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -171,7 +167,6 @@ const EditArchiveMonthSummarySettings = () => {
                 value={secondJobBenefit}
                 onNumberChange={(e) => {
                   setSecondJobBenefit(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -181,7 +176,6 @@ const EditArchiveMonthSummarySettings = () => {
                 value={waitingBenefitEmployerCzk}
                 onNumberChange={(e) => {
                   setWaitingBenefitEmployerCzk(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -191,7 +185,6 @@ const EditArchiveMonthSummarySettings = () => {
                 value={waitingBenefitEur}
                 onNumberChange={(e) => {
                   setWaitingBenefitEur(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <InputField
@@ -202,17 +195,15 @@ const EditArchiveMonthSummarySettings = () => {
                 value={eurCzkRate}
                 onNumberChange={(e) => {
                   setEurCzkRate(e);
-                  setIsConfirmDeclineBtnsVisible(true);
                 }}
               />
               <br />
               <div className="confirm-decline-buttons-container">
-                {isConfirmDeclineBtnsVisible && (
-                  <ConfirmDeclineBtns
-                    confirmFunction={handleSubmit}
-                    declineFunction={handleDecline}
-                  />
-                )}
+                <ConfirmDeclineBtns
+                  disabled={!eurCzkRate}
+                  confirmFunction={handleSubmit}
+                  declineFunction={handleDecline}
+                />
               </div>
             </form>
           </main>

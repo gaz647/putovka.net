@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import { resetToastRedux } from "../redux/AuthSlice";
+import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
@@ -35,7 +36,9 @@ const Login = () => {
 
   // HANDLE LOGIN --------------------------------------------------------
   //
-  const handleLogIn = () => {
+  const handleLogIn = (e) => {
+    e.preventDefault();
+
     const loginCredentials = { loginEmail, loginPassword };
     console.log("login SPUŠTĚN V Login.jsx");
     dispatch(loginRedux(loginCredentials));
@@ -44,7 +47,8 @@ const Login = () => {
 
   // HANDLE DECLINE ------------------------------------------------------
   //
-  const handleDecline = () => {
+  const handleDecline = (e) => {
+    e.preventDefault();
     setLoginEmail("");
     setLoginPassword("");
   };
@@ -61,7 +65,6 @@ const Login = () => {
 
   useEffect(() => {
     if (toastRedux.isVisible) {
-      console.log("toast SPUŠTĚN");
       toastRedux.style === "success"
         ? toast.success(`${toastRedux.message}`)
         : toastRedux.style === "error"
@@ -118,6 +121,9 @@ const Login = () => {
           />
 
           <ConfirmDeclineBtns
+            disabled={
+              !loginEmail || !loginPassword || !isValidEmailFormat(loginEmail)
+            }
             confirmFunction={handleLogIn}
             declineFunction={handleDecline}
           />

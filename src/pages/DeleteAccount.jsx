@@ -115,17 +115,24 @@ const DeleteAccount = () => {
             <InputField
               type={"password"}
               label={"současné heslo"}
+              value={currentPassword}
               onPasswordChange={(e) => setCurrentPassword(e)}
             />
 
             <InputField
               type={"text"}
               label={"opište následující kód:"}
+              value={userConfirmationCode}
               deleteCode={deleteCode}
               onTextChange={(e) => setUserConfirmationCode(e)}
             />
 
             <ConfirmDeclineBtns
+              disabled={
+                !currentPassword ||
+                !userConfirmationCode ||
+                userConfirmationCode !== deleteCode
+              }
               confirmFunction={handleSubmit}
               declineFunction={handleDecline}
             />

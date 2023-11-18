@@ -8,6 +8,7 @@ import {
   runToastRedux,
 } from "../redux/AuthSlice";
 import resetIsAccountDisabled from "../redux/AuthSlice";
+import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
@@ -105,33 +106,41 @@ const ChangeEmail = () => {
           <Spinner />
         </>
       ) : (
-        <>
+        <form className="change-form">
           <Heading text={"změna EMAILU"} />
 
-          <form className="change-form">
-            <InputField
-              type={"email"}
-              label={"nový email"}
-              onEmailChange={(e) => setNewEmail1(e)}
-            />
-            <InputField
-              type={"email"}
-              label={"nový email znovu"}
-              onEmailChange={(e) => setNewEmail2(e)}
-            />
-            <br />
-            <InputField
-              type={"password"}
-              label={"současné heslo"}
-              onPasswordChange={(e) => setCurrentPassword(e)}
-            />
+          <InputField
+            type={"email"}
+            label={"nový email"}
+            value={newEmail1}
+            onEmailChange={(e) => setNewEmail1(e)}
+          />
+          <InputField
+            type={"email"}
+            label={"nový email znovu"}
+            value={newEmail2}
+            onEmailChange={(e) => setNewEmail2(e)}
+          />
+          <br />
+          <InputField
+            type={"password"}
+            label={"současné heslo"}
+            value={currentPassword}
+            onPasswordChange={(e) => setCurrentPassword(e)}
+          />
 
-            <ConfirmDeclineBtns
-              confirmFunction={changeEmail}
-              declineFunction={handleDecline}
-            />
-          </form>
-        </>
+          <ConfirmDeclineBtns
+            disabled={
+              !newEmail1 ||
+              !newEmail2 ||
+              !currentPassword ||
+              !isValidEmailFormat(newEmail1) ||
+              !isValidEmailFormat(newEmail2)
+            }
+            confirmFunction={changeEmail}
+            declineFunction={handleDecline}
+          />
+        </form>
       )}
     </section>
   );
