@@ -132,7 +132,7 @@ const Login = () => {
             Ještě nemáte účet? <Link to={"/register"}>Zaregistrujte se.</Link>
           </p>
 
-          <p>
+          <p className="login-register-bottom-link">
             Zapomenuté heslo?{" "}
             <Link to={"/forgotten-password"}>Klikněte zde.</Link>
           </p>

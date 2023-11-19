@@ -24,6 +24,12 @@
 
 .confirm-btn {
   background-color: var(--green);
+  color: var(--white-2);
+  font-weight: bold;
+}
+
+.confirm-btn-register {
+  width: 100%;
 }
 
 .decline-btn {

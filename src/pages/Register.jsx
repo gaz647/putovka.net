@@ -41,12 +41,17 @@ const Register = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword1, setRegisterPasword1] = useState("");
   const [registerPassword2, setRegisterPasword2] = useState("");
-  const [checkboxChecked, setCheckboxCheked] = useState(false);
+  const [checkbox1Checked, setCheckbox1Cheked] = useState(false);
+  const [checkbox2Checked, setCheckbox2Cheked] = useState(false);
 
   // HANDLE CHECKBOX CHECKED ---------------------------------------------
   //
-  const handleCheckboxChecked = () => {
-    setCheckboxCheked(!checkboxChecked);
+  const handleCheckbox1Checked = () => {
+    setCheckbox1Cheked(!checkbox1Checked);
+  };
+
+  const handleCheckbox2Checked = () => {
+    setCheckbox2Cheked(!checkbox2Checked);
   };
 
   // HANDLE REGISTER -----------------------------------------------------
@@ -169,29 +174,47 @@ const Register = () => {
           />
 
           <div className="terms-and-conditions-container">
-            <input
-              type="checkbox"
-              className="terms-and-conditions-checkbox"
-              onClick={handleCheckboxChecked}
-            />
-            <div className="terms-and-conditions-text">
-              Souhlasím s{" "}
-              <span>
-                <Link to={"/terms-and-conditions"} target="_blank">
-                  obchodními podmínkami.
-                </Link>
-              </span>
+            <div className="terms-and-conditions-one-condition-container">
+              <input
+                type="checkbox"
+                className="terms-and-conditions-checkbox"
+                onClick={handleCheckbox1Checked}
+              />
+              <div className="terms-and-conditions-text">
+                Souhlasím s{" "}
+                <span>
+                  <Link to={"/terms-and-conditions"} target="_blank">
+                    Obchodními podmínkami.
+                  </Link>
+                </span>
+              </div>
+            </div>
+            <br />
+            <div className="terms-and-conditions-one-condition-container">
+              <input
+                type="checkbox"
+                className="terms-and-conditions-checkbox"
+                onClick={handleCheckbox2Checked}
+              />
+              <div className="terms-and-conditions-text">
+                Souhlasím se{" "}
+                <span>
+                  <Link to={"/personal-data-processing"} target="_blank">
+                    zpracováním osobních údajů.
+                  </Link>
+                </span>
+              </div>
             </div>
           </div>
 
-          <br />
-
           <ConfirmDeclineBtns
+            register={true}
             disabled={
               !registerEmail ||
               !registerPassword1 ||
               !registerPassword2 ||
-              !checkboxChecked ||
+              !checkbox1Checked ||
+              !checkbox2Checked ||
               !isValidEmailFormat(registerEmail)
             }
             confirmFunction={handleRegister}
@@ -199,7 +222,7 @@ const Register = () => {
           />
 
           <br />
-          <p>
+          <p className="login-register-bottom-link">
             Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>
           </p>
         </form>

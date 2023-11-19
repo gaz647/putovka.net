@@ -33,6 +33,7 @@ import {
   runToastRedux,
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
+import PersonalDataProcessing from "./pages/PersonalDataProcessing";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -136,6 +137,11 @@ const App = () => {
         <Route path="/register" element={<Register />} />
 
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
+        <Route
+          path="/personal-data-processing"
+          element={<PersonalDataProcessing />}
+        />
 
         <Route path="/forgotten-password" element={<ForgottenPassword />} />
 
