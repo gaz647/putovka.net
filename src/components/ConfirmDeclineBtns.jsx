@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./ConfirmDeclineBtns.css";
 import { ImCheckmark, ImCross } from "react-icons/im";
+import { MdDoNotDisturbAlt } from "react-icons/md";
 
 const ConfirmDeclineBtns = ({
   confirmFunction,
@@ -19,6 +20,8 @@ const ConfirmDeclineBtns = ({
       >
         {register ? (
           "REGISTROVAT"
+        ) : disabled ? (
+          <MdDoNotDisturbAlt className="confirm-decline-btn-icon" />
         ) : (
           <ImCheckmark className="confirm-decline-btn-icon" />
         )}
