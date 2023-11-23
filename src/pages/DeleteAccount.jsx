@@ -41,9 +41,11 @@ const DeleteAccount = () => {
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (currentPassword && userConfirmationCode === deleteCode) {
       // Vše vyplněné - nyní se otevře modal
+      console.log("Vše vyplněné - nyní se otevře modal");
       handleDeleteJobModalVisibility();
     } else if (!userConfirmationCode || !currentPassword) {
       dispatch(
