@@ -16,6 +16,7 @@ import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
+import TermsAndConditionsCheckbox from "../components/TermsAndConditionsCheckbox";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Register = () => {
   const [checkbox1Checked, setCheckbox1Cheked] = useState(false);
   const [checkbox2Checked, setCheckbox2Cheked] = useState(false);
   const [checkbox3Checked, setCheckbox3Cheked] = useState(false);
+  const [checkbox4Checked, setCheckbox4Cheked] = useState(false);
 
   // HANDLE CHECKBOX CHECKED ---------------------------------------------
   //
@@ -57,6 +59,10 @@ const Register = () => {
 
   const handleCheckbox3Checked = () => {
     setCheckbox3Cheked(!checkbox3Checked);
+  };
+
+  const handleCheckbox4Checked = () => {
+    setCheckbox4Cheked(!checkbox4Checked);
   };
 
   // HANDLE REGISTER -----------------------------------------------------
@@ -178,67 +184,33 @@ const Register = () => {
             onPasswordChange={(e) => setRegisterPasword2(e)}
           />
 
-          <div className="terms-and-conditions-container">
-            <div className="terms-and-conditions-one-condition-container">
-              <input
-                type="checkbox"
-                className="terms-and-conditions-checkbox"
-                onClick={handleCheckbox1Checked}
-              />
-              <div className="terms-and-conditions-text">
-                Souhlasím s{" "}
-                <span>
-                  <a
-                    href="/public/obchodni-podminky.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    obchodními podmínkami.
-                  </a>
-                </span>
-              </div>
-            </div>
-            <br />
-            <div className="terms-and-conditions-one-condition-container">
-              <input
-                type="checkbox"
-                className="terms-and-conditions-checkbox"
-                onClick={handleCheckbox2Checked}
-              />
-              <div className="terms-and-conditions-text">
-                Souhlasím se{" "}
-                <span>
-                  <a
-                    href="/public/zasady-zpracovani-osobnich-udaju.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    zpracováním osobních údajů.
-                  </a>
-                </span>
-              </div>
-            </div>
-            <br />
-            <div className="terms-and-conditions-one-condition-container">
-              <input
-                type="checkbox"
-                className="terms-and-conditions-checkbox"
-                onClick={handleCheckbox3Checked}
-              />
-              <div className="terms-and-conditions-text">
-                Souhlasím s{" "}
-                <span>
-                  <a
-                    href="/public/zpracovani-cookies.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    použitím cookies.
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
+          <TermsAndConditionsCheckbox
+            text={"Souhlasím s"}
+            linkText={"obchodními podmínkami."}
+            linkUrl={"/obchodni-podminky.pdf"}
+            onCheckboxChecked={handleCheckbox1Checked}
+          />
+          <br />
+          <TermsAndConditionsCheckbox
+            text={"Souhlasím se"}
+            linkText={"zpracováním osobních údajů."}
+            linkUrl={"/souhlas-s-poskytnutim-osobnich-udaju.pdf"}
+            onCheckboxChecked={handleCheckbox2Checked}
+          />
+          <br />
+          <TermsAndConditionsCheckbox
+            text={"Přečetl jsem si"}
+            linkText={"zásady ochrany osobních údajů."}
+            linkUrl={"/zasady-ochrany-osobnich-udaju.pdf"}
+            onCheckboxChecked={handleCheckbox3Checked}
+          />
+          <br />
+          <TermsAndConditionsCheckbox
+            text={"Souhlasím se"}
+            linkText={"zpracováním cookies."}
+            linkUrl={"/zpracovani-cookies.pdf"}
+            onCheckboxChecked={handleCheckbox4Checked}
+          />
 
           <ConfirmDeclineBtns
             register={true}
@@ -249,6 +221,7 @@ const Register = () => {
               !checkbox1Checked ||
               !checkbox2Checked ||
               !checkbox3Checked ||
+              !checkbox4Checked ||
               !isValidEmailFormat(registerEmail)
             }
             confirmFunction={handleRegister}
