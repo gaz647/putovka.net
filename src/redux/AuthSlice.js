@@ -270,6 +270,7 @@ export const deleteAccountRedux = createAsyncThunk(
   "auth/deleteAccountRedux",
   async ({ currentPassword, userUid }) => {
     const usersCollectionRef = collection(db, "users");
+    const registrationsCollectionRef = collection(db, "registrations");
 
     try {
       const credential = EmailAuthProvider.credential(
@@ -278,6 +279,7 @@ export const deleteAccountRedux = createAsyncThunk(
       );
       await reauthenticateWithCredential(auth.currentUser, credential);
       await deleteDoc(doc(usersCollectionRef, userUid));
+      await deleteDoc(doc(registrationsCollectionRef, userUid));
       await deleteUser(auth.currentUser);
       await signOut(auth);
     } catch (error) {

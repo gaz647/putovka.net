@@ -18,8 +18,8 @@ const ConfirmDeclineBtns = ({
         onClick={confirmFunction}
         disabled={disabled}
       >
-        {register ? (
-          "REGISTROVAT"
+        {register && !disabled ? (
+          <div className="register-btn-text">REGISTROVAT</div>
         ) : disabled ? (
           <MdDoNotDisturbAlt className="confirm-decline-btn-icon" />
         ) : (
