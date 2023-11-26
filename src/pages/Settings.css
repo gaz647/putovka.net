@@ -1,3 +1,7 @@
+.settings {
+  position: relative;
+}
+
 .settings-header {
   display: flex;
   flex-direction: column;

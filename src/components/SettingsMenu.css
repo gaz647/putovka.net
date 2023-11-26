@@ -1,0 +1,28 @@
+.settings-menu {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-menu-icon-container {
+  width: inherit;
+  display: flex;
+  justify-content: flex-end;
+  background-color: wheat;
+}
+
+.settings-menu-icon {
+  font-size: 2rem;
+  color: var(--white-2);
+  background-color: red;
+  cursor: pointer;
+}
+
+.settings-menu-content-item {
+  width: inherit;
+  background-color: pink;
+  text-align: center;
+  padding: 0.5rem;
+}

@@ -15,6 +15,7 @@ import Spinner from "../components/Spinner";
 import ModalPrompt from "../components/ModalPrompt";
 import InputField from "../components/InputField";
 import Heading from "../components/Heading";
+import SettingsMenu from "../components/SettingsMenu";
 
 const Settings = () => {
   const dispatch = useDispatch();
@@ -248,6 +249,7 @@ const Settings = () => {
               declineFunction={handleArchiveModalVisibility}
             />
           )}
+          <SettingsMenu />
           <header className="settings-header">
             <Heading text={"Nastavení"} />
             <div className="settings-header-user-email text-shadow">
