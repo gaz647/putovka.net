@@ -194,7 +194,7 @@ const Register = () => {
           <TermsAndConditionsCheckbox
             text={"Souhlasím se"}
             linkText={"zpracováním osobních údajů."}
-            linkUrl={"/souhlas-s-poskytnutim-osobnich-udaju.pdf"}
+            linkUrl={"/souhlas-se-zpracovanim-osobnich-udaju.pdf"}
             onCheckboxChecked={handleCheckbox2Checked}
           />
           <br />
