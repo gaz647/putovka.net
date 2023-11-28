@@ -17,28 +17,27 @@ const SettingsMenu = () => {
   //
   return (
     <div className="settings-menu">
-      <div className="settings-menu-icon-container">
+      <div className={`settings-menu-content ${!showMenu && "vis-hidden"}`}>
         <IoMenu
-          className="settings-menu-icon"
+          className={`settings-menu-icon ${!showMenu && "vis-visible"}`}
           onClick={() => setShowMenu(!showMenu)}
         />
+        <div className="settings-menu-content-item">Obchodní podmínky</div>
+        <div className="settings-menu-content-line"></div>
+        <div className="settings-menu-content-item">
+          Souhlas se zpracováním osobních údajů
+        </div>
+        <div className="settings-menu-content-line"></div>
+        <div className="settings-menu-content-item">
+          Zásady ochrany osobních údajů
+        </div>
+        <div className="settings-menu-content-line"></div>
+        <div className="settings-menu-content-item">Zpracování cookies</div>
+        <div className="settings-menu-content-line"></div>
+        <div className="settings-menu-content-item">
+          kontakt: info@emtruck.net
+        </div>
       </div>
-
-      {showMenu && (
-        <>
-          <div className="settings-menu-content-item">
-            kontakt: info@emtruck.net
-          </div>
-          <div className="settings-menu-content-item">Obchodní podmínky</div>
-          <div className="settings-menu-content-item">
-            Souhlas se zpracováním osobních údajů
-          </div>
-          <div className="settings-menu-content-item">
-            Zásady ochrany osobních údajů
-          </div>
-          <div className="settings-menu-content-item">Zpracování cookies</div>
-        </>
-      )}
     </div>
   );
 };
