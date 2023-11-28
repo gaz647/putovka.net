@@ -98,6 +98,10 @@ input:focus {
   visibility: visible;
 }
 
+.dis-none {
+  display: none;
+}
+
 .change-form {
   width: 100%;
   max-width: 300px;

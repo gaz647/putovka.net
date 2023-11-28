@@ -13,15 +13,20 @@ const SettingsMenu = () => {
   //
   const [showMenu, setShowMenu] = useState(false);
 
+  const handleBlur = () => {
+    console.log("click");
+    setShowMenu(false);
+  };
+
   // USE EFFECT ----------------------------------------------------------
   //
   return (
-    <div className="settings-menu">
-      <div className={`settings-menu-content ${!showMenu && "vis-hidden"}`}>
-        <IoMenu
-          className={`settings-menu-icon ${!showMenu && "vis-visible"}`}
-          onClick={() => setShowMenu(!showMenu)}
-        />
+    <div className="settings-menu" onBlur={handleBlur} tabIndex="0">
+      <IoMenu
+        className={`settings-menu-icon ${!showMenu && "vis-visible"}`}
+        onClick={() => setShowMenu(!showMenu)}
+      />
+      <div className={`settings-menu-content ${!showMenu && "dis-none"}`}>
         <div className="settings-menu-content-item">Obchodní podmínky</div>
         <div className="settings-menu-content-line"></div>
         <div className="settings-menu-content-item">
