@@ -24,20 +24,26 @@
   background-color: var(--blue-2);
 }
 
-.settings-menu-content-item {
-  width: inherit;
-  text-align: center;
-  padding: 1rem 0.5rem;
-  cursor: pointer;
-}
-
-.settings-menu-content-item:hover {
-  font-size: 1.1rem;
-}
-
 .settings-menu-content-line {
   height: 1px;
   width: 90%;
   margin: 0 auto;
   background-color: lightgray;
+}
+
+.settings-menu-email-icon {
+  margin-right: 0.5rem;
+}
+
+.settings-menu-anchor {
+  display: block;
+  width: inherit;
+  text-align: center;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--white-2);
+}
+
+.settings-menu-anchor:hover {
+  font-size: 1.1rem;
 }

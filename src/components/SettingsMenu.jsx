@@ -1,5 +1,6 @@
 import "./SettingsMenu.css";
 import { IoMenu } from "react-icons/io5";
+import { MdOutlineEmail } from "react-icons/md";
 import { useState } from "react";
 
 const SettingsMenu = () => {
@@ -14,8 +15,9 @@ const SettingsMenu = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleBlur = () => {
-    console.log("click");
-    setShowMenu(false);
+    setTimeout(() => {
+      setShowMenu(false);
+    }, 100);
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -27,21 +29,56 @@ const SettingsMenu = () => {
         onClick={() => setShowMenu(!showMenu)}
       />
       <div className={`settings-menu-content ${!showMenu && "dis-none"}`}>
-        <div className="settings-menu-content-item">Obchodní podmínky</div>
+        <a
+          href={"/obchodni-podminky.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="settings-menu-anchor"
+        >
+          Obchodní podmínky
+        </a>
+
         <div className="settings-menu-content-line"></div>
-        <div className="settings-menu-content-item">
+
+        <a
+          href={"/souhlas-se-zpracovanim-osobnich-udaju.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="settings-menu-anchor"
+        >
           Souhlas se zpracováním osobních údajů
-        </div>
+        </a>
+
         <div className="settings-menu-content-line"></div>
-        <div className="settings-menu-content-item">
+
+        <a
+          href={"/zasady-ochrany-osobnich-udaju.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="settings-menu-anchor"
+        >
           Zásady ochrany osobních údajů
-        </div>
+        </a>
+
         <div className="settings-menu-content-line"></div>
-        <div className="settings-menu-content-item">Zpracování cookies</div>
+
+        <a
+          href={"/zpracovani-cookies.pdf"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="settings-menu-anchor"
+        >
+          Zpracování cookies
+        </a>
+
         <div className="settings-menu-content-line"></div>
-        <div className="settings-menu-content-item">
-          kontakt: info@emtruck.net
-        </div>
+
+        <a href="mailto:info@emtruck.net" className="settings-menu-anchor">
+          <span className="settings-menu-email-icon">
+            <MdOutlineEmail />
+          </span>
+          info@emtruck.net
+        </a>
       </div>
     </div>
   );
