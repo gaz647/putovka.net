@@ -17,7 +17,7 @@ const SettingsMenu = () => {
   const handleBlur = () => {
     setTimeout(() => {
       setShowMenu(false);
-    }, 100);
+    }, 300);
   };
 
   // USE EFFECT ----------------------------------------------------------
