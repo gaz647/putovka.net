@@ -165,7 +165,6 @@ const Dashboard = () => {
         userSettings,
         newEurCzkRate,
       };
-
       dispatch(archiveDoneJobsFirstTimeRedux(payload));
     }
     // Pokud archív NENÍ prázdný
