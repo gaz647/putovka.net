@@ -163,9 +163,9 @@ const Register = () => {
         </>
       ) : (
         <form className="change-form">
-          <Heading text={"Registrace"} />
+          {/* <Heading text={"Registrace"} /> */}
 
-          <InputField
+          {/* <InputField
             type={"email"}
             label={"email"}
             value={registerEmail}
@@ -226,12 +226,14 @@ const Register = () => {
             }
             confirmFunction={handleRegister}
             declineFunction={handleDecline}
-          />
+          /> */}
 
-          <br />
+          <h1>Probíhá údržba, vraťte se později</h1>
+
+          {/* <br />
           <p className="login-register-bottom-link">
             Již máte účet? <Link to={"/login"}>Přihlašte se.</Link>
-          </p>
+          </p> */}
         </form>
       )}
     </section>
