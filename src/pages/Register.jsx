@@ -228,7 +228,7 @@ const Register = () => {
             declineFunction={handleDecline}
           /> */}
 
-          <h1>Probíhá údržba, vraťte se později</h1>
+          <h1 className="text-shadow">Probíhá údržba, vraťte se později</h1>
 
           {/* <br />
           <p className="login-register-bottom-link">
