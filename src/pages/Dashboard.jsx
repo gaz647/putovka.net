@@ -249,19 +249,6 @@ const Dashboard = () => {
   //
   //
   //
-  const showJobsToBeArchived = () => {
-    console.log("SPUŠTĚNO");
-    const dateForArchiving =
-      currentJobs[currentJobs.length - 1].date.slice(0, -2) + "01";
-
-    const jobsToBeArchived = currentJobs.filter(
-      (oneJob) =>
-        getDateForComparing(oneJob.date) ===
-        getDateForComparing(dateForArchiving)
-    );
-
-    console.log(sortCurrentJobsToBeArchivedAscending(jobsToBeArchived));
-  };
 
   // USE EFFECT ----------------------------------------------------------
   //
@@ -448,7 +435,6 @@ const Dashboard = () => {
                 className="dashboard-archive-btn"
                 onClick={() => {
                   setShowArchiveModal(true);
-                  showJobsToBeArchived();
                 }}
               >
                 Archivovat nejstarší měsíc
