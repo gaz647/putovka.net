@@ -293,7 +293,7 @@ const AddJob = () => {
               </>
             )}
             <ConfirmDeclineBtns
-              disabled={!city || !zipcode || !cmr}
+              disabled={!isHoliday && (!city || !zipcode || !cmr)}
               confirmFunction={addJob}
               declineFunction={handleDecline}
             />
