@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   editJobRedux,
   editArchiveJobRedux,
+  editArchiveDoneJobsNewMonthRedux,
   setIsEditingFalseRedux,
   setIsEditingArchivedJobFalseRedux,
   resetJobToEditValuesRedux,
@@ -13,6 +14,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import sortJobs from "../customFunctionsAndHooks/sortJobs";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
+import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
+import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
+import compareMonths from "../customFunctionsAndHooks/compareMonths";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
 import Spinner from "../components/Spinner";
@@ -64,6 +68,11 @@ const EditJob = () => {
   const isEditArchiveJobReduxSuccess = useSelector(
     (state) => state.auth.isEditArchiveJobReduxSuccess
   );
+  const dateSel = useSelector((state) => state.auth.jobToEdit.date);
+
+  const userSettings = useSelector(
+    (state) => state.auth.loggedInUserData.userSettings
+  );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -112,7 +121,8 @@ const EditJob = () => {
 
   // EDIT JOB ------------------------------------------------------------
   //
-  const editJob = () => {
+  const editJob = (e) => {
+    e.preventDefault();
     let editedJob = {};
 
     if (!isHoliday) {
@@ -193,28 +203,118 @@ const EditJob = () => {
 
       const tempArchivedJobs = [...archivedJobs];
 
-      const updatedArchivedJobs = tempArchivedJobs.map((oneMonth) => {
-        if (oneMonth.jobs.some((job) => job.id === id)) {
-          const updatedJobs = oneMonth.jobs.map((job) =>
-            job.id === id ? editedJob : job
-          );
-          return {
-            ...oneMonth,
-            jobs: updatedJobs,
-          };
+      let updatedArchivedJobs = [];
+
+      let sortedUpdatedArchivedJobs;
+
+      let payload;
+
+      // upravovaná práce má STEJNÝ MĚSÍC
+      if (compareMonths(dateSel, date)) {
+        console.log("STEJNÝ MĚSÍC");
+        updatedArchivedJobs = tempArchivedJobs.map((oneMonth) => {
+          if (oneMonth.jobs.some((job) => job.id === id)) {
+            const updatedJobs = oneMonth.jobs.map((job) =>
+              job.id === id ? editedJob : job
+            );
+            return {
+              ...oneMonth,
+              jobs: updatedJobs,
+            };
+          }
+          return oneMonth;
+        });
+
+        sortedUpdatedArchivedJobs =
+          sortArchiveMonthJobsAscending(updatedArchivedJobs);
+
+        payload = {
+          userUid,
+          sortedUpdatedArchivedJobs,
+        };
+
+        dispatch(editArchiveJobRedux(payload));
+      }
+      // upravovaná práce JINÝ MĚSÍC
+      else {
+        let indexOfMonthToMoveJob;
+
+        for (let i = 0; i < archivedJobs.length; i++) {
+          if (compareMonths(archivedJobs[i].date, date)) {
+            indexOfMonthToMoveJob = i;
+          }
         }
-        return oneMonth;
-      });
 
-      const sortedUpdatedArchivedJobs =
-        sortArchiveMonthJobsAscending(updatedArchivedJobs);
+        // měsíc pro přesunutí EXISTUJE - přesunout práci
+        if (indexOfMonthToMoveJob !== undefined) {
+          updatedArchivedJobs = archivedJobs.map((archivedMonth, index) => {
+            if (index === indexOfMonthToMoveJob) {
+              console.log("ano");
+              return {
+                ...archivedMonth,
+                jobs: [...archivedMonth.jobs, editedJob],
+              };
+            } else {
+              console.log(typeof archivedMonth.jobs);
+              return {
+                ...archivedMonth,
+                jobs: archivedMonth.jobs.filter((oneJob) => oneJob.id !== id),
+              };
+            }
+          });
+          console.log(updatedArchivedJobs);
 
-      const payload = {
-        userUid,
-        sortedUpdatedArchivedJobs,
-      };
+          sortedUpdatedArchivedJobs =
+            sortArchiveMonthJobsAscending(updatedArchivedJobs);
 
-      dispatch(editArchiveJobRedux(payload));
+          console.log("hotovo");
+          console.log(sortedUpdatedArchivedJobs);
+
+          payload = {
+            userUid,
+            sortedUpdatedArchivedJobs,
+          };
+
+          dispatch(editArchiveJobRedux(payload));
+        }
+        // měsíc NEEXISTUJE - vytvořit nový
+        else {
+          console.log("je potřeba vytvořit nový měsíc");
+
+          const dateForArchiving = editedJob.date.slice(0, -2) + "01";
+
+          const monthToArchive = {
+            date: dateForArchiving,
+            jobs: [editedJob],
+            userSettings,
+          };
+
+          const filteredArchivedJobs = archivedJobs.map((oneMonth) => {
+            return {
+              ...oneMonth,
+              jobs: oneMonth.jobs.filter((job) => job.id !== id),
+            };
+          });
+
+          const newMonthToArchive = trimArchiveOver13months(
+            sortArchiveMonthJobsAscending(
+              sortArchiveMonthsDescending([
+                ...filteredArchivedJobs,
+                monthToArchive,
+              ])
+            )
+          );
+
+          console.log(newMonthToArchive);
+
+          const payload = {
+            userUid,
+            newMonthToArchive,
+          };
+
+          dispatch(editArchiveDoneJobsNewMonthRedux(payload));
+        }
+      }
     }
   };
 
@@ -353,7 +453,7 @@ const EditJob = () => {
             )}
 
             <ConfirmDeclineBtns
-              disabled={!city || !zipcode || !cmr || !terminal}
+              disabled={!isHoliday && (!city || !zipcode || !cmr || !terminal)}
               confirmFunction={editJob}
               declineFunction={handleDecline}
             />

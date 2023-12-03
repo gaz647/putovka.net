@@ -77,10 +77,10 @@ const ArchiveMonthSummary = ({ summary }) => {
         oneJob.cmr
       }\u00A0\u00A0${oneJob.city}\u00A0\u00A0${oneJob.zipcode}\u00A0\u00A0${
         oneJob.weight + "t"
-      }\u00A0\u00A0${oneJob.price + "€"}`;
+      }\u00A0\u00A0${oneJob.price + "€"}\n`;
     });
 
-    const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk} Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}\nDovolené:\u00A0\u00A0${summaryHolidays}`;
+    const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk}\u00A0Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}\nDovolené:\u00A0\u00A0${summaryHolidays}`;
 
     const dataToSend = `${getArchiveDate(date)}\n\n${jobsData.join(
       "\n"
@@ -111,7 +111,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Fakturace:</div>
           <div className="archive-month-summary-item">
-            {summaryEur && summaryEur.toLocaleString() + " €"}
+            {summaryEur ? summaryEur.toLocaleString() + " €" : "0 €"}
             <span>&nbsp;</span>
             <span>&nbsp;</span>
           </div>
@@ -120,7 +120,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div></div>
           <div className="archive-month-summary-item">
-            {summaryCzk && summaryCzk.toLocaleString() + " Kč"}
+            {summaryCzk ? summaryCzk.toLocaleString() + " Kč" : "0 Kč"}
           </div>
         </div>
 
@@ -128,7 +128,7 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Výplata:</div>
           <div className="archive-month-summary-item">
-            {summarySalary && summarySalary.toLocaleString() + " Kč"}
+            {summarySalary ? summarySalary.toLocaleString() + " Kč" : "0 Kč"}
           </div>
         </div>
         <br />
@@ -160,7 +160,9 @@ const ArchiveMonthSummary = ({ summary }) => {
           <div className="archive-month-summary-item">Základ:</div>
 
           <div className="archive-month-summary-item">
-            {summaryBaseMoney && summaryBaseMoney.toLocaleString() + " Kč"}
+            {summaryBaseMoney
+              ? summaryBaseMoney.toLocaleString() + " Kč"
+              : "0 Kč"}
           </div>
         </div>
 
@@ -175,8 +177,9 @@ const ArchiveMonthSummary = ({ summary }) => {
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Druhá práce:</div>
           <div className="archive-month-summary-item">
-            {summarySecondJobBenefit &&
-              summarySecondJobBenefit.toLocaleString() + " Kč"}
+            {summarySecondJobBenefit
+              ? summarySecondJobBenefit.toLocaleString() + " Kč"
+              : "0 Kč"}
           </div>
         </div>
 
@@ -185,16 +188,18 @@ const ArchiveMonthSummary = ({ summary }) => {
             Čekání - zaměstnavatel (Kč):
           </div>
           <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEmployerCzk &&
-              summaryWaitingBenefitEmployerCzk.toLocaleString() + " Kč"}
+            {summaryWaitingBenefitEmployerCzk
+              ? summaryWaitingBenefitEmployerCzk.toLocaleString() + " Kč"
+              : "0 Kč"}
           </div>
         </div>
 
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Čekání (€):</div>
           <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEur &&
-              summaryWaitingBenefitEur.toLocaleString() + " €"}
+            {summaryWaitingBenefitEur
+              ? summaryWaitingBenefitEur.toLocaleString() + " €"
+              : "0 €"}
             <span>&nbsp;</span>
             <span>&nbsp;</span>
           </div>

@@ -29,12 +29,12 @@ const EditArchiveMonthSummarySettings = () => {
   const date = useSelector(
     (state) => state.auth.archiveMonthSummarySettingsToEdit.date
   );
-  const email = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.email
-  );
-  const terminal = useSelector(
-    (state) => state.auth.loggedInUserData.userSettings.terminal
-  );
+  // const email = useSelector(
+  //   (state) => state.auth.loggedInUserData.userSettings.email
+  // );
+  // const terminal = useSelector(
+  //   (state) => state.auth.loggedInUserData.userSettings.terminal
+  // );
   const isLoading2 = useSelector((state) => state.auth.isLoading2);
   const isEditArchiveMonthSummarySettingsReduxSuccess = useSelector(
     (state) => state.auth.isEditArchiveMonthSummarySettingsReduxSuccess
@@ -76,7 +76,8 @@ const EditArchiveMonthSummarySettings = () => {
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!eurCzkRate) {
       dispatch(
         runToastRedux({

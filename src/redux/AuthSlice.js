@@ -538,6 +538,33 @@ export const editArchiveJobRedux = createAsyncThunk(
   }
 );
 
+//  EDIT ARCHIVE DONE JOBS NEW MONTH
+//
+export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
+  "auth/editArchiveDoneJobsNewMonthRedux",
+  async (payload) => {
+    console.log(payload);
+    try {
+      await runTransaction(db, async (transaction) => {
+        const userDocRef = doc(db, "users", payload.userUid);
+        const userDocSnapshot = await transaction.get(userDocRef);
+        console.log(userDocSnapshot.data());
+
+        if (userDocSnapshot.exists()) {
+          console.log("jupííííí");
+          transaction.update(userDocRef, {
+            archivedJobs: payload.newMonthToArchive,
+          });
+        }
+      });
+      return payload.newMonthToArchive;
+    } catch (error) {
+      console.log(error.message);
+      throw error.message;
+    }
+  }
+);
+
 //  EDIT ARCHIVE MONTH SUMMARY SETTINGS
 //
 export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
@@ -1503,6 +1530,37 @@ export const authSlice = createSlice({
       })
       .addCase(editArchiveJobRedux.rejected, (state) => {
         console.log("editArchiveJobRedux SELHAL");
+        state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Něco se pokazilo, zkuste to znovu.";
+        state.toast.style = "error";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
+      })
+      //
+      // -----------------------------------------------------------------------
+      //
+      .addCase(editArchiveDoneJobsNewMonthRedux.pending, (state) => {
+        console.log("editArchiveDoneJobsNewMonthRedux PROBÍHÁ");
+        state.isLoading2 = true;
+      })
+      .addCase(editArchiveDoneJobsNewMonthRedux.fulfilled, (state, action) => {
+        console.log("editArchiveDoneJobsNewMonthRedux ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.archivedJobs = action.payload;
+
+        state.isEditArchiveJobReduxSuccess = true;
+
+        // state.isLoading2 = false;
+
+        state.toast.isVisible = true;
+        state.toast.message = "Archivovaná práce upravena.";
+        state.toast.style = "success";
+        state.toast.time = 3000;
+        state.toast.resetToast = true;
+      })
+      .addCase(editArchiveDoneJobsNewMonthRedux.rejected, (state) => {
+        console.log("editArchiveDoneJobsNewMonthRedux SELHAL");
         state.isLoading2 = false;
 
         state.toast.isVisible = true;

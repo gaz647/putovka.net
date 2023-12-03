@@ -61,7 +61,8 @@ const AddJob = () => {
 
   // ADD JOB -------------------------------------------------------------
   //
-  const addJob = () => {
+  const addJob = (e) => {
+    e.preventDefault();
     const tempCurrentJobs = [...currentJobs];
 
     let newJob = {};
