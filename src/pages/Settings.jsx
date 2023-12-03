@@ -105,38 +105,38 @@ const Settings = () => {
 
   // COPY TO CLIPBOARD ---------------------------------------------------
   //
-  const copyToClipBoardReferenceId = () => {
-    if (referenceIdSel !== referenceId) {
-      dispatch(
-        runToastRedux({
-          message: "Nejdříve uložte nastavení.",
-          style: "error",
-          time: 3000,
-        })
-      );
-      return;
-    }
-    navigator.clipboard
-      .writeText(referenceIdSel)
-      .then(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírováno do schránky",
-            style: "success",
-            time: 3000,
-          })
-        );
-      })
-      .catch(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
-            style: "error",
-            time: 3000,
-          })
-        );
-      });
-  };
+  // const copyToClipBoardReferenceId = () => {
+  //   if (referenceIdSel !== referenceId) {
+  //     dispatch(
+  //       runToastRedux({
+  //         message: "Nejdříve uložte nastavení.",
+  //         style: "error",
+  //         time: 3000,
+  //       })
+  //     );
+  //     return;
+  //   }
+  //   navigator.clipboard
+  //     .writeText(referenceIdSel)
+  //     .then(() => {
+  //       dispatch(
+  //         runToastRedux({
+  //           message: "Zkopírováno do schránky",
+  //           style: "success",
+  //           time: 3000,
+  //         })
+  //       );
+  //     })
+  //     .catch(() => {
+  //       dispatch(
+  //         runToastRedux({
+  //           message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
+  //           style: "error",
+  //           time: 3000,
+  //         })
+  //       );
+  //     });
+  // };
 
   // GENERATE NEW REFERENCE ID -------------------------------------------
   //
