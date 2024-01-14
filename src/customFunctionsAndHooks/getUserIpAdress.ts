@@ -3,7 +3,7 @@ const getUserIpAdress = async () => {
     const response = await fetch("https://api64.ipify.org?format=json");
     const data = await response.json();
     return data.ip;
-  } catch (error) {
+  } catch (error: any | null) {
     throw error.message || error;
   }
 };

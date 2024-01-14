@@ -15,7 +15,7 @@ import {
   resetArchiveMonthSummarySettingsToEditRedux,
 } from "../redux/AuthSlice";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const dispatch = useDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -65,6 +65,7 @@ const Navbar = () => {
 
         {isEditing ? (
           <NavLink
+            to={"/edit-job"}
             className={({ isActive }) =>
               isActive ? "link active-link" : "link"
             }

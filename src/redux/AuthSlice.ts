@@ -37,7 +37,7 @@ export const getInfoMessageRedux = createAsyncThunk(
       if (docSnap.exists()) {
         return docSnap.data().messageText;
       }
-    } catch (error) {
+    } catch (error: any | null) {
       console.log("getInfoMessageRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
@@ -46,7 +46,7 @@ export const getInfoMessageRedux = createAsyncThunk(
 
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
-const createUserData = async (userAuth) => {
+const createUserData = async (userAuth: { email: string; uid: string }) => {
   const { email, uid } = userAuth;
 
   const usersCollectionRef = collection(db, "users");
@@ -81,7 +81,7 @@ const createUserData = async (userAuth) => {
       },
     });
     console.log("stáhnut kurz");
-  } catch (error) {
+  } catch (error: any | null) {
     console.log(error.message);
   }
 };
@@ -90,7 +90,10 @@ const createUserData = async (userAuth) => {
 //
 export const registerRedux = createAsyncThunk(
   "auth/registerRedux",
-  async (registerCredentials) => {
+  async (registerCredentials: {
+    registerEmail: string;
+    registerPassword1: string;
+  }) => {
     const registrationsCollectionRef = collection(db, "registrations");
     const userIpAddress = await getUserIpAddress();
 
@@ -102,16 +105,17 @@ export const registerRedux = createAsyncThunk(
       );
       console.log("Registrace...OK");
 
-      await sendEmailVerification(auth.currentUser);
+      auth.currentUser && (await sendEmailVerification(auth.currentUser));
       console.log("Odeslání emailu pro verifikaci...OK");
 
-      await setDoc(doc(registrationsCollectionRef, auth.currentUser.uid), {
-        email: registerCredentials.registerEmail,
-        ipAdress: userIpAddress,
-        timestamp: new Date(),
-      });
+      auth.currentUser &&
+        (await setDoc(doc(registrationsCollectionRef, auth.currentUser.uid), {
+          email: registerCredentials.registerEmail,
+          ipAdress: userIpAddress,
+          timestamp: new Date(),
+        }));
       console.log("Údaje o registraci...OK");
-    } catch (error) {
+    } catch (error: any | null) {
       console.log("registerRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
@@ -122,7 +126,7 @@ export const registerRedux = createAsyncThunk(
 //
 export const loginRedux = createAsyncThunk(
   "auth/loginRedux",
-  async (loginCredentials) => {
+  async (loginCredentials: { loginEmail: string; loginPassword: string }) => {
     try {
       console.log("loginRedux TRY část signInWithEmailAndPassword SPUŠTĚNA");
       await signInWithEmailAndPassword(
@@ -130,7 +134,7 @@ export const loginRedux = createAsyncThunk(
         loginCredentials.loginEmail,
         loginCredentials.loginPassword
       );
-    } catch (error) {
+    } catch (error: any | null) {
       console.log("loginRedux TRY část NE-ÚSPĚŠNÁ");
       throw error.message;
     }
@@ -141,7 +145,7 @@ export const loginRedux = createAsyncThunk(
 //
 export const loadUserDataRedux = createAsyncThunk(
   "auth/loadUserDataRedux",
-  async (userAuth) => {
+  async (userAuth: { email: string; uid: string }) => {
     // Získání ID a EMAILU uživatele
     const { email, uid } = userAuth;
     const userRef = doc(db, "users", uid);
@@ -160,7 +164,7 @@ export const loadUserDataRedux = createAsyncThunk(
         createdUserData = await getDoc(userRef);
         return createdUserData.data();
       }
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -171,7 +175,7 @@ export const loadUserDataRedux = createAsyncThunk(
 export const logoutRedux = createAsyncThunk("auth/logoutRedux", async () => {
   try {
     await signOut(auth);
-  } catch (error) {
+  } catch (error: any | null) {
     throw error.message;
   }
 });
@@ -183,7 +187,7 @@ export const logoutInSettingsRedux = createAsyncThunk(
   async () => {
     try {
       await signOut(auth);
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -193,17 +197,26 @@ export const logoutInSettingsRedux = createAsyncThunk(
 //
 export const changeEmailRedux = createAsyncThunk(
   "auth/changeEmailRedux",
-  async ({ currentPassword, newEmail }) => {
+  async ({
+    currentPassword,
+    newEmail,
+  }: {
+    currentPassword: string;
+    newEmail: string;
+  }) => {
     try {
-      const credential = EmailAuthProvider.credential(
-        auth.currentUser.email,
-        currentPassword
-      );
-      await reauthenticateWithCredential(auth.currentUser, credential);
-      await updateEmail(auth.currentUser, newEmail);
-      await sendEmailVerification(auth.currentUser);
-      // await signOut(auth);
-    } catch (error) {
+      let credential;
+      if (auth.currentUser && auth.currentUser.email) {
+        credential = EmailAuthProvider.credential(
+          auth.currentUser.email,
+          currentPassword
+        );
+        await reauthenticateWithCredential(auth.currentUser, credential);
+        await updateEmail(auth.currentUser, newEmail);
+        await sendEmailVerification(auth.currentUser);
+        // await signOut(auth);
+      }
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -213,16 +226,25 @@ export const changeEmailRedux = createAsyncThunk(
 
 export const changePasswordRedux = createAsyncThunk(
   "auth/changePasswordRedux",
-  async ({ currentPassword, newPassword }) => {
+  async ({
+    currentPassword,
+    newPassword,
+  }: {
+    currentPassword: string;
+    newPassword: string;
+  }) => {
     try {
-      const credential = EmailAuthProvider.credential(
-        auth.currentUser.email,
-        currentPassword
-      );
-      await reauthenticateWithCredential(auth.currentUser, credential);
-      await updatePassword(auth.currentUser, newPassword);
+      let credential;
+      if (auth.currentUser && auth.currentUser.email) {
+        credential = EmailAuthProvider.credential(
+          auth.currentUser.email,
+          currentPassword
+        );
+        await reauthenticateWithCredential(auth.currentUser, credential);
+        await updatePassword(auth.currentUser, newPassword);
+      }
       // await signOut(auth);
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -232,10 +254,10 @@ export const changePasswordRedux = createAsyncThunk(
 //
 export const resetPasswordRedux = createAsyncThunk(
   "auth/resetPasswordRedux",
-  async (email) => {
+  async (email: string) => {
     try {
       await sendPasswordResetEmail(auth, email);
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -245,7 +267,7 @@ export const resetPasswordRedux = createAsyncThunk(
 //
 export const changeSettingsRedux = createAsyncThunk(
   "auth/changeSettingsRedux",
-  async (payload) => {
+  async (payload: { userUid: string; userSettings: {} }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -258,7 +280,7 @@ export const changeSettingsRedux = createAsyncThunk(
         }
       });
       return payload.userSettings;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -268,21 +290,30 @@ export const changeSettingsRedux = createAsyncThunk(
 //
 export const deleteAccountRedux = createAsyncThunk(
   "auth/deleteAccountRedux",
-  async ({ currentPassword, userUid }) => {
+  async ({
+    currentPassword,
+    userUid,
+  }: {
+    currentPassword: string;
+    userUid: string;
+  }) => {
     const usersCollectionRef = collection(db, "users");
     const registrationsCollectionRef = collection(db, "registrations");
 
     try {
-      const credential = EmailAuthProvider.credential(
-        auth.currentUser.email,
-        currentPassword
-      );
-      await reauthenticateWithCredential(auth.currentUser, credential);
-      await deleteDoc(doc(usersCollectionRef, userUid));
-      await deleteDoc(doc(registrationsCollectionRef, userUid));
-      await deleteUser(auth.currentUser);
-      await signOut(auth);
-    } catch (error) {
+      let credential;
+      if (auth.currentUser && auth.currentUser.email) {
+        credential = EmailAuthProvider.credential(
+          auth.currentUser.email,
+          currentPassword
+        );
+        await reauthenticateWithCredential(auth.currentUser, credential);
+        await deleteDoc(doc(usersCollectionRef, userUid));
+        await deleteDoc(doc(registrationsCollectionRef, userUid));
+        await deleteUser(auth.currentUser);
+        await signOut(auth);
+      }
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -292,7 +323,7 @@ export const deleteAccountRedux = createAsyncThunk(
 //
 export const addJobRedux = createAsyncThunk(
   "auth/addJobRedux",
-  async (payload) => {
+  async (payload: { userUid: string; sortedCurrentJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -305,7 +336,7 @@ export const addJobRedux = createAsyncThunk(
         }
       });
       return payload.sortedCurrentJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -315,7 +346,7 @@ export const addJobRedux = createAsyncThunk(
 //
 export const editJobRedux = createAsyncThunk(
   "auth/editJobRedux",
-  async (payload) => {
+  async (payload: { userUid: string; sortedCurrentJobsEdit: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -328,7 +359,7 @@ export const editJobRedux = createAsyncThunk(
         }
       });
       return payload.sortedCurrentJobsEdit;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -338,7 +369,7 @@ export const editJobRedux = createAsyncThunk(
 //
 export const deleteJobRedux = createAsyncThunk(
   "auth/deleteJobRedux",
-  async (payload) => {
+  async (payload: { userUid: string; filteredCurrentJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -351,7 +382,7 @@ export const deleteJobRedux = createAsyncThunk(
         }
       });
       return payload.filteredCurrentJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -361,7 +392,27 @@ export const deleteJobRedux = createAsyncThunk(
 //
 export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
   "auth/archiveDoneJobsFirstTimeRedux",
-  async (payload) => {
+  async (payload: {
+    newEurCzkRate: number;
+    userUid: string;
+    monthToArchive: [];
+    filteredCurrentJobs: [];
+    userSettings: {
+      baseMoney: number;
+      email: string;
+      nameFirst: string;
+      nameSecond: string;
+      numberEm: string;
+      numberTrailer: string;
+      numberTruck: string;
+      percentage: number;
+      referenceId: string;
+      secondJobBenefit: number;
+      terminal: string;
+      waitingBenefitEmployerCzk: number;
+      waitingBenefitEur: number;
+    };
+  }) => {
     try {
       const userSetingsNewCurrencyRate = {
         baseMoney: payload.userSettings.baseMoney,
@@ -395,7 +446,7 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
       });
 
       return payload;
-    } catch (error) {
+    } catch (error: any | null) {
       console.log(error.message);
       throw error.message;
     }
