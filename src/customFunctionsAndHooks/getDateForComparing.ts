@@ -1,4 +1,4 @@
-const getDateForComparing = (date) => {
+const getDateForComparing = (date: string) => {
   return date.slice(0, 7);
 };
 

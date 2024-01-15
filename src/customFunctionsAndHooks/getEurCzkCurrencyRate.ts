@@ -10,7 +10,7 @@ const getEurCzkCurrencyRate = async () => {
       `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${FROM_CURRENCY}/${TO_CURRENCY}/${AMOUNT}`
     );
     return response.data.conversion_rate;
-  } catch (error) {
+  } catch (error: any | null) {
     throw error.message;
   }
 };
