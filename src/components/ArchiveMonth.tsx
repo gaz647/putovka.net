@@ -154,7 +154,7 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
       {showDetails && (
         <>
-          {jobs.map((oneJob) => {
+          {jobs.map((oneJob: {}) => {
             return <ArchiveMonthJob key={uuidv4()} oneJobData={oneJob} />;
           })}
         </>

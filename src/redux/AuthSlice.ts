@@ -25,6 +25,23 @@ import axios from "axios";
 import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
 
+type userSettingsType = {
+  baseMoney: number;
+  email: string;
+  eurCzkRate: number;
+  nameFirst: string;
+  nameSecond: string;
+  numberEm: string;
+  numberTrailer: string;
+  numberTruck: string;
+  percentage: number;
+  referenceId: string;
+  secondJobBenefit: number;
+  terminal: string;
+  waitingBenefitEmployerCzk: number;
+  waitingBenefitEur: number;
+};
+
 // GET INFO MESSAGE
 //
 export const getInfoMessageRedux = createAsyncThunk(
@@ -267,7 +284,7 @@ export const resetPasswordRedux = createAsyncThunk(
 //
 export const changeSettingsRedux = createAsyncThunk(
   "auth/changeSettingsRedux",
-  async (payload: { userUid: string; userSettings: {} }) => {
+  async (payload: { userUid: string; userSettings: userSettingsType }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -397,21 +414,7 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
     userUid: string;
     monthToArchive: [];
     filteredCurrentJobs: [];
-    userSettings: {
-      baseMoney: number;
-      email: string;
-      nameFirst: string;
-      nameSecond: string;
-      numberEm: string;
-      numberTrailer: string;
-      numberTruck: string;
-      percentage: number;
-      referenceId: string;
-      secondJobBenefit: number;
-      terminal: string;
-      waitingBenefitEmployerCzk: number;
-      waitingBenefitEur: number;
-    };
+    userSettings: userSettingsType;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -457,7 +460,13 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
 //
 export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
   "auth/archiveDoneJobsNewMonthRedux",
-  async (payload) => {
+  async (payload: {
+    newEurCzkRate: number;
+    userUid: string;
+    newMonthToArchive: [];
+    filteredCurrentJobs: [];
+    userSettings: userSettingsType;
+  }) => {
     try {
       const userSetingsNewCurrencyRate = {
         baseMoney: payload.userSettings.baseMoney,
@@ -490,7 +499,7 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
         }
       });
       return payload;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -500,7 +509,11 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
 //
 export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
   "auth/archiveDoneJobsExistingMonthRedux",
-  async (payload) => {
+  async (payload: {
+    userUid: string;
+    updatedArchivedJobs: [];
+    filteredCurrentJobs: [];
+  }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -514,7 +527,7 @@ export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
         }
       });
       return payload;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -524,7 +537,7 @@ export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
 //
 export const deleteArchiveMonthRedux = createAsyncThunk(
   "auth/deleteArchiveMonthRedux",
-  async (payload) => {
+  async (payload: { userUid: string; filteredArchivedJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -537,7 +550,7 @@ export const deleteArchiveMonthRedux = createAsyncThunk(
         }
       });
       return payload.filteredArchivedJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -547,7 +560,7 @@ export const deleteArchiveMonthRedux = createAsyncThunk(
 //
 export const deleteArchiveMonthJobRedux = createAsyncThunk(
   "auth/deleteArchiveMonthJobRedux",
-  async (payload) => {
+  async (payload: { userUid: string; filteredArchivedJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -560,7 +573,7 @@ export const deleteArchiveMonthJobRedux = createAsyncThunk(
         }
       });
       return payload.filteredArchivedJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -570,7 +583,7 @@ export const deleteArchiveMonthJobRedux = createAsyncThunk(
 //
 export const editArchiveJobRedux = createAsyncThunk(
   "auth/editArchiveJobRedux",
-  async (payload) => {
+  async (payload: { userUid: string; sortedUpdatedArchivedJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -583,7 +596,7 @@ export const editArchiveJobRedux = createAsyncThunk(
         }
       });
       return payload.sortedUpdatedArchivedJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -593,7 +606,7 @@ export const editArchiveJobRedux = createAsyncThunk(
 //
 export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
   "auth/editArchiveDoneJobsNewMonthRedux",
-  async (payload) => {
+  async (payload: { userUid: string; newMonthToArchive: [] }) => {
     console.log(payload);
     try {
       await runTransaction(db, async (transaction) => {
@@ -609,7 +622,7 @@ export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
         }
       });
       return payload.newMonthToArchive;
-    } catch (error) {
+    } catch (error: any | null) {
       console.log(error.message);
       throw error.message;
     }
@@ -620,7 +633,7 @@ export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
 //
 export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
   "auth/editArchiveMonthSummarySettingsRedux",
-  async (payload) => {
+  async (payload: { userUid: string; updatedArchivedJobs: [] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -633,7 +646,7 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
         }
       });
       return payload.updatedArchivedJobs;
-    } catch (error) {
+    } catch (error: any | null) {
       throw error.message;
     }
   }
@@ -706,6 +719,8 @@ export const authSlice = createSlice({
     jobToAdd: {
       city: "",
       isCustomJob: true,
+      price: 0,
+      weight: 27,
       terminal: "",
       weightTo27t: 0,
       weightTo34t: 0,
@@ -718,8 +733,8 @@ export const authSlice = createSlice({
       cmr: "",
       date: "",
       id: "",
-      isCustomJob: "",
-      isHoliday: "",
+      isCustomJob: false,
+      isHoliday: false,
       isSecondJob: false,
       note: "",
       price: 0,
@@ -849,7 +864,18 @@ export const authSlice = createSlice({
       state.loggedInUserUid = null;
       state.loggedInUserData.archivedJobs = [];
       state.loggedInUserData.currentJobs = [];
-      state.loggedInUserData.userSettings = {};
+      state.loggedInUserData.userSettings.baseMoney = 0;
+      state.loggedInUserData.userSettings.email = "";
+      state.loggedInUserData.userSettings.nameFirst = "";
+      state.loggedInUserData.userSettings.nameSecond = "";
+      state.loggedInUserData.userSettings.numberEm = "";
+      state.loggedInUserData.userSettings.numberTrailer = "";
+      state.loggedInUserData.userSettings.numberTruck = "";
+      state.loggedInUserData.userSettings.percentage = 0;
+      state.loggedInUserData.userSettings.secondJobBenefit = 0;
+      state.loggedInUserData.userSettings.terminal = "";
+      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk = 0;
+      state.loggedInUserData.userSettings.waitingBenefitEur = 0;
       state.isLoading = false;
     },
 
@@ -1100,9 +1126,12 @@ export const authSlice = createSlice({
       })
       .addCase(loadUserDataRedux.fulfilled, (state, action) => {
         console.log("loadUserDataRedux ÚSPĚŠNĚ DOKONČEN");
-        state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
-        state.loggedInUserData.currentJobs = action.payload.currentJobs;
-        state.loggedInUserData.userSettings = action.payload.userSettings;
+        state.loggedInUserData.archivedJobs =
+          action.payload && action.payload.archivedJobs;
+        state.loggedInUserData.currentJobs =
+          action.payload && action.payload.currentJobs;
+        state.loggedInUserData.userSettings =
+          action.payload && action.payload.userSettings;
         state.isLoading2 = false;
         state.isLoggedIn = true;
       })
@@ -1120,8 +1149,8 @@ export const authSlice = createSlice({
         console.log("getInfoMessageRedux ÚSPĚŠNĚ DOKONČEN");
         state.infoMessage = action.payload;
       })
-      .addCase(getInfoMessageRedux.rejected, (state, action) => {
-        console.log("getInfoMessageRedux SELHAL", action.error.message);
+      .addCase(getInfoMessageRedux.rejected, () => {
+        console.log("getInfoMessageRedux SELHAL");
       })
       //
       // -----------------------------------------------------------------------
