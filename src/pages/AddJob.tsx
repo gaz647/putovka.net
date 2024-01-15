@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { MouseEventHandler } from "react";
 import "./AddJob.css";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import {
   addJobRedux,
   resetJobToAddValuesRedux,
@@ -18,7 +19,7 @@ import InputField from "../components/InputField";
 import Spinner from "../components/Spinner";
 
 const AddJob = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -26,15 +27,21 @@ const AddJob = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const currentJobs = useSelector(
+  const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-  const weightTo27t = useSelector((state) => state.auth.jobToAdd.weightTo27t);
-  const weightTo34t = useSelector((state) => state.auth.jobToAdd.weightTo34t);
-  const isCustomJob = useSelector((state) => state.auth.jobToAdd.isCustomJob);
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isAddJobReduxSuccess = useSelector(
+  const weightTo27t = useAppSelector(
+    (state) => state.auth.jobToAdd.weightTo27t
+  );
+  const weightTo34t = useAppSelector(
+    (state) => state.auth.jobToAdd.weightTo34t
+  );
+  const isCustomJob = useAppSelector(
+    (state) => state.auth.jobToAdd.isCustomJob
+  );
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isAddJobReduxSuccess = useAppSelector(
     (state) => state.auth.isAddJobReduxSuccess
   );
 
@@ -44,11 +51,11 @@ const AddJob = () => {
   const [date, setDate] = useState(getCurrentDate());
   const [day, setDay] = useState(getCzDayFromDate(date));
   const [city, setCity] = useState(
-    useSelector((state) => state.auth.jobToAdd.city)
+    useAppSelector((state) => state.auth.jobToAdd.city)
   );
   const [cmr, setCmr] = useState("");
   const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.auth.jobToAdd.zipcode)
+    useAppSelector((state) => state.auth.jobToAdd.zipcode)
   );
   const [weight, setWeight] = useState(27);
   const [price, setPrice] = useState(weightTo27t);
@@ -56,12 +63,12 @@ const AddJob = () => {
   const [waiting, setWaiting] = useState(0);
   const [note, setNote] = useState("");
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+    useAppSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
 
   // ADD JOB -------------------------------------------------------------
   //
-  const addJob = (e) => {
+  const addJob: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     const tempCurrentJobs = [...currentJobs];
 
@@ -121,9 +128,11 @@ const AddJob = () => {
 
     tempCurrentJobs.unshift(newJob);
     const sortedCurrentJobs = sortJobs(tempCurrentJobs);
-    const payload = { userUid, sortedCurrentJobs };
-    dispatch(addJobRedux(payload));
-    dispatch(resetJobToAddValuesRedux());
+    if (userUid) {
+      const payload = { userUid, sortedCurrentJobs };
+      dispatch(addJobRedux(payload));
+      dispatch(resetJobToAddValuesRedux());
+    }
   };
 
   // HANDLE DECLINE ------------------------------------------------------
@@ -135,7 +144,7 @@ const AddJob = () => {
 
   // HANDLE WEIGHT CHANGE
   //
-  const handleWeightChange = (newWeight) => {
+  const handleWeightChange = (newWeight: number) => {
     if (newWeight === 27) {
       setWeight(27);
       setPrice(weightTo27t);

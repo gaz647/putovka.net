@@ -6,13 +6,90 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import ModalPrompt from "./ModalPrompt";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { deleteArchiveMonthRedux } from "../redux/AuthSlice";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { BsTrash3 } from "react-icons/bs";
 
-const ArchiveMonth = ({ oneMonthData }) => {
-  const dispatch = useDispatch();
+type userSettingsType = {
+  baseMoney: number;
+  email: string;
+  eurCzkRate: number;
+  nameFirst: string;
+  nameSecond: string;
+  numberEm: string;
+  numberTrailer: string;
+  numberTruck: string;
+  percentage: number;
+  referenceId: string;
+  secondJobBenefit: number;
+  terminal: string;
+  waitingBenefitEmployerCzk: number;
+  waitingBenefitEur: number;
+};
+
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+type ArchiveType = {
+  date: string;
+  jobs: JobType[];
+  userSettings: {
+    baseMoney: number;
+    eurCzkRate: number;
+    percentage: number;
+    secondJobBenefit: number;
+    waitingBenefitEmployerCzk: number;
+    waitingBenefitEur: number;
+  };
+};
+
+type SummaryType = {
+  date: string;
+  summaryEur: number;
+  summaryCzk: number;
+  summarySecondJobs: number;
+  summaryWaiting: number;
+  summarySalary: number;
+  summaryJobs: number;
+  summaryHolidays: number;
+  summaryBaseMoney: number;
+  summaryPercentage: number;
+  summarySecondJobBenefit: number;
+  summaryWaitingBenefitEmployerCzk: number;
+  summaryWaitingBenefitEur: number;
+  summaryEurCzkRate: number;
+  jobs: JobType[];
+};
+
+const ArchiveMonth = ({
+  oneMonthData,
+}: {
+  oneMonthData: {
+    date: string;
+    userSettings: userSettingsType;
+    jobs: JobType[];
+  };
+}) => {
+  const dispatch = useAppDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
@@ -20,27 +97,46 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const archivedJobs = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
 
   // USE STATE -----------------------------------------------------------
   //
-  const [summaryData, setSummaryData] = useState({});
+  const [summaryData, setSummaryData] = useState<SummaryType>({
+    date: "",
+    summaryEur: 0,
+    summaryCzk: 0,
+    summarySecondJobs: 0,
+    summaryWaiting: 0,
+    summarySalary: 0,
+    summaryJobs: 0,
+    summaryHolidays: 0,
+    summaryBaseMoney: 0,
+    summaryPercentage: 0,
+    summarySecondJobBenefit: 0,
+    summaryWaitingBenefitEmployerCzk: 0,
+    summaryWaitingBenefitEur: 0,
+    summaryEurCzkRate: 0,
+    jobs: [],
+  });
   const [showDetails, setShowDetails] = useState(false);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
   // GET SUMMARY ---------------------------------------------------------
   //
   const getSummary = () => {
-    const summaryEur = jobs.reduce((acc, job) => {
-      // sečte eura z prací + eura za čekání
-      // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
-      return acc + job.price + job.waiting * userSettings.waitingBenefitEur;
-    }, 0);
+    const summaryEur = jobs.reduce(
+      (acc, job: { price: number; waiting: number }) => {
+        // sečte eura z prací + eura za čekání
+        // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
+        return acc + job.price + job.waiting * userSettings.waitingBenefitEur;
+      },
+      0
+    );
 
-    const summaryCzk = parseInt(summaryEur * userSettings.eurCzkRate);
+    const summaryCzk = summaryEur * userSettings.eurCzkRate;
 
     const summarySecondJobs = jobs.reduce((acc, job) => {
       return job.isSecondJob ? acc + 1 : acc;
@@ -50,14 +146,12 @@ const ArchiveMonth = ({ oneMonthData }) => {
       return acc + job.waiting;
     }, 0);
 
-    const summarySalary = parseInt(
+    const summarySalary =
       userSettings.baseMoney +
-        summaryCzk * (userSettings.percentage * 0.01) +
-        summarySecondJobs * userSettings.secondJobBenefit +
-        // waitingBenefitEur se nepřičítá - je už summaryEur
-        summaryWaiting * userSettings.waitingBenefitEmployerCzk
-    );
-
+      summaryCzk * (userSettings.percentage * 0.01) +
+      summarySecondJobs * userSettings.secondJobBenefit +
+      // waitingBenefitEur se nepřičítá - je už summaryEur
+      summaryWaiting * userSettings.waitingBenefitEmployerCzk;
     const summaryBaseMoney = userSettings.baseMoney;
     const summaryPercentage = userSettings.percentage;
     const summarySecondJobBenefit = userSettings.secondJobBenefit;
@@ -89,17 +183,17 @@ const ArchiveMonth = ({ oneMonthData }) => {
 
   // DELETE ARCHIVE MONTH ------------------------------------------------
   //
-  const deleteArchiveMonth = (dateOfMonth) => {
+  const deleteArchiveMonth = (dateOfMonth: string) => {
     // setShowArchiveModal(!showArchiveModal);
-    const tempArchivedJobs = [...archivedJobs];
+    const tempArchivedJobs: ArchiveType[] = [...archivedJobs];
 
-    const filteredArchivedJobs = tempArchivedJobs.filter(
+    const filteredArchivedJobs: ArchiveType[] = tempArchivedJobs.filter(
       (oneMonth) => oneMonth.date !== dateOfMonth
     );
 
     const payload = {
-      userUid,
-      filteredArchivedJobs,
+      userUid: userUid || "",
+      filteredArchivedJobs: filteredArchivedJobs || [],
     };
 
     dispatch(deleteArchiveMonthRedux(payload));

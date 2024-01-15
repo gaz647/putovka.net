@@ -1,4 +1,24 @@
-const sortJobs = (jobs) => {
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+const sortJobs = (jobs: JobType[]) => {
   let sortedJobs = jobs.sort((a, b) => {
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);

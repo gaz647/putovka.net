@@ -9,7 +9,45 @@ import { setArchiveMonthSummarySettingsToEditRedux } from "../redux/AuthSlice";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import getCzDateArchiveJobEmailFormat from "../customFunctionsAndHooks/getCzDateArchiveJobEmailFormat";
 
-const ArchiveMonthSummary = ({ summary }) => {
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+type SummaryType = {
+  date: string;
+  summaryEur: number;
+  summaryCzk: number;
+  summarySecondJobs: number;
+  summaryWaiting: number;
+  summarySalary: number;
+  summaryJobs: number;
+  summaryHolidays: number;
+  summaryBaseMoney: number;
+  summaryPercentage: number;
+  summarySecondJobBenefit: number;
+  summaryWaitingBenefitEmployerCzk: number;
+  summaryWaitingBenefitEur: number;
+  summaryEurCzkRate: number;
+  jobs: JobType[];
+};
+
+const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

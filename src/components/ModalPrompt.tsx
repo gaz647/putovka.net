@@ -1,8 +1,18 @@
-/* eslint-disable react/prop-types */
 import "./ModalPrompt.css";
+import { MouseEventHandler } from "react";
 import ConfirmDeclineBtns from "./ConfirmDeclineBtns";
 
-const ModalPrompt = ({ heading, text, confirmFunction, declineFunction }) => {
+const ModalPrompt = ({
+  heading,
+  text,
+  confirmFunction,
+  declineFunction,
+}: {
+  heading: string;
+  text?: string;
+  confirmFunction: MouseEventHandler<HTMLButtonElement>;
+  declineFunction: MouseEventHandler<HTMLButtonElement>;
+}) => {
   return (
     <section className="modal-background">
       <div className="modal-container">

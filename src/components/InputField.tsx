@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import "./InputField.css";
 import { TfiEye } from "react-icons/tfi";
 import { MdContentCopy } from "react-icons/md";
@@ -8,7 +8,29 @@ import { RxCross1 } from "react-icons/rx";
 import { PiMagnifyingGlassBold } from "react-icons/pi";
 import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 
-const InputField = ({
+interface InputFieldProps {
+  required?: boolean;
+  label: string;
+  subLabel: string;
+  type: string;
+  value?: string | number | boolean | Date;
+  inputRef?: React.RefObject<HTMLInputElement>;
+  deleteCode?: string;
+  onDateChange?: (value: string) => void;
+  onWeightChange?: (value: number) => void;
+  onNumberChange?: (value: number) => void;
+  onEmailChange?: (value: string) => void;
+  onPasswordChange?: (value: string) => void;
+  onTextChange?: (value: string) => void;
+  onCheckboxChange?: (value: boolean) => void;
+  onTerminalChange?: (value: string) => void;
+  onCopyReferenceId?: () => void;
+  onResetReferenceId?: () => void;
+  onSearchTextChange?: (value: string) => void;
+  onSearchInputDelete?: () => void;
+}
+
+const InputField: React.FC<InputFieldProps> = ({
   required,
   label,
   subLabel,
@@ -47,55 +69,55 @@ const InputField = ({
 
   // HANDLE WEIGHT CHANGE ------------------------------------------------
   //
-  const handleWeightChange = (value) => {
+  const handleWeightChange = (value: number) => {
     setChoosedWeight(value);
-    onWeightChange(Number(value));
+    onWeightChange && onWeightChange(value);
   };
 
   // HANDLE DATE CHANGE --------------------------------------------------
   //
-  const handleDateChange = (value) => {
-    onDateChange(String(value));
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onDateChange && onDateChange(e.target.value);
   };
 
   // HANDLE TEXT CHANGE --------------------------------------------------
   //
-  const handleTextChange = (value) => {
-    onTextChange(String(value));
+  const handleTextChange = (value: string) => {
+    onTextChange && onTextChange(value);
   };
 
   // HANDLE NUMBER CHANGE ------------------------------------------------
   //
-  const handleNumberChange = (value) => {
+  const handleNumberChange = (value: number) => {
     if (value < 0) {
       return;
     } else {
-      onNumberChange(Number(value));
+      onNumberChange && onNumberChange(value);
     }
   };
 
   // HANDLE EMAIL CHANGE -------------------------------------------------
   //
-  const handleEmailChange = (value) => {
-    onEmailChange(String(value));
+  const handleEmailChange = (value: string) => {
+    onEmailChange && onEmailChange(value);
   };
 
   // HANDLE PASSWORD CHANGE ----------------------------------------------
   //
-  const handlePasswordChange = (value) => {
-    onPasswordChange(String(value));
+  const handlePasswordChange = (value: string) => {
+    onPasswordChange && onPasswordChange(value);
   };
 
   // HANDLE CHECKBOX CHANGE ----------------------------------------------
   //
-  const handleCheckboxChange = (value) => {
-    onCheckboxChange(value);
+  const handleCheckboxChange = (value: boolean) => {
+    onCheckboxChange && onCheckboxChange(value);
   };
 
   // HANDLE TERMINAL CHANGE ----------------------------------------------
   //
-  const handleTerminalChange = (value) => {
-    onTerminalChange(value);
+  const handleTerminalChange = (value: string) => {
+    onTerminalChange && onTerminalChange(value);
   };
 
   return (
@@ -114,8 +136,10 @@ const InputField = ({
           <input
             className="input-field-field date"
             type="date"
-            value={value}
-            onChange={(e) => handleDateChange(e.target.value)}
+            value={value as string}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleDateChange(e)
+            }
           ></input>
         </div>
       )}
@@ -135,7 +159,7 @@ const InputField = ({
           <input
             className="input-field-field"
             type="text"
-            value={value}
+            value={value as string}
             required={required && true}
             onChange={(e) => handleTextChange(e.target.value)}
           ></input>
@@ -155,9 +179,9 @@ const InputField = ({
             className="input-field-field"
             type="number"
             inputMode="numeric"
-            value={value === 0 ? "" : value}
+            value={value === 0 ? "" : String(value)}
             required={required && true}
-            onChange={(e) => handleNumberChange(e.target.value)}
+            onChange={(e) => handleNumberChange(Number(e.target.value))}
             min="0"
           ></input>
         </div>
@@ -180,9 +204,9 @@ const InputField = ({
             type="number"
             step="0.0001"
             // inputMode="numeric"
-            value={value === 0 ? "" : value}
+            value={value === 0 ? "" : String(value)}
             required={required && true}
-            onChange={(e) => handleNumberChange(e.target.value)}
+            onChange={(e) => handleNumberChange(Number(e.target.value))}
             min="0"
           ></input>
         </div>
@@ -199,11 +223,12 @@ const InputField = ({
           <input
             className={`input-field-field-email ${
               value &&
+              typeof value === "string" &&
               !isValidEmailFormat(value) &&
               "input-field-field-email-invalid"
             }`}
             type="email"
-            value={value}
+            value={value as string}
             onChange={(e) => handleEmailChange(e.target.value)}
             autoComplete="off"
           ></input>
@@ -222,7 +247,7 @@ const InputField = ({
             <input
               className="input-field-field-password"
               type={!showPassword ? "password" : "text"}
-              value={value}
+              value={value as string}
               onChange={(e) => handlePasswordChange(e.target.value)}
               autoComplete="off"
             ></input>
@@ -290,7 +315,7 @@ const InputField = ({
             <input
               className="input-field-checkbox"
               type="checkbox"
-              checked={value}
+              checked={value as boolean}
               onChange={(e) => handleCheckboxChange(e.target.checked)}
             ></input>
           </div>
@@ -311,7 +336,7 @@ const InputField = ({
 
           <select
             className="input-field-field"
-            value={value}
+            value={value as string}
             onChange={(e) => handleTerminalChange(e.target.value)}
           >
             <option value="ceska_trebova">Česká Třebová</option>
@@ -339,7 +364,7 @@ const InputField = ({
             <input
               className="input-field-field-reference-id"
               type="text"
-              value={value}
+              value={value as string}
               disabled
             ></input>
             <div
@@ -369,9 +394,11 @@ const InputField = ({
               type="text"
               placeholder="Obec / PSČ"
               autoFocus
-              value={value}
+              value={value as string}
               ref={inputRef}
-              onChange={(e) => onSearchTextChange(e.target.value)}
+              onChange={(e) =>
+                onSearchTextChange && onSearchTextChange(e.target.value)
+              }
             ></input>
             <div
               className="input-field-field-search-right"

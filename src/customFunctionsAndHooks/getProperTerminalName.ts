@@ -1,4 +1,4 @@
-const getProperTerminalName = (value) => {
+const getProperTerminalName = (value: string) => {
   if (value === "ceska_trebova") {
     return "Česká Třebová";
   } else if (value === "ostrava") {

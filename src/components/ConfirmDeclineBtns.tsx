@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import "./ConfirmDeclineBtns.css";
+import { MouseEventHandler } from "react";
 import { ImCheckmark, ImCross } from "react-icons/im";
 import { MdDoNotDisturbAlt } from "react-icons/md";
 
@@ -8,6 +8,11 @@ const ConfirmDeclineBtns = ({
   declineFunction,
   disabled,
   register,
+}: {
+  confirmFunction: MouseEventHandler<HTMLButtonElement>;
+  declineFunction: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  register?: boolean;
 }) => {
   return (
     <div className="confirm-decline-btns-container">

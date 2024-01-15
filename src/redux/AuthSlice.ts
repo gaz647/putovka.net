@@ -25,7 +25,7 @@ import axios from "axios";
 import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
 
-type userSettingsType = {
+type UserSettingsType = {
   baseMoney: number;
   email: string;
   eurCzkRate: number;
@@ -41,6 +41,58 @@ type userSettingsType = {
   waitingBenefitEmployerCzk: number;
   waitingBenefitEur: number;
 };
+
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+type ArchiveType = {
+  date: string;
+  jobs: JobType[];
+  userSettings: {
+    baseMoney: number;
+    eurCzkRate: number;
+    percentage: number;
+    secondJobBenefit: number;
+    waitingBenefitEmployerCzk: number;
+    waitingBenefitEur: number;
+  };
+};
+
+interface Job {
+  city: string;
+  cmr: string;
+  date: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+}
 
 // GET INFO MESSAGE
 //
@@ -284,7 +336,7 @@ export const resetPasswordRedux = createAsyncThunk(
 //
 export const changeSettingsRedux = createAsyncThunk(
   "auth/changeSettingsRedux",
-  async (payload: { userUid: string; userSettings: userSettingsType }) => {
+  async (payload: { userUid: string; userSettings: UserSettingsType }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -340,7 +392,7 @@ export const deleteAccountRedux = createAsyncThunk(
 //
 export const addJobRedux = createAsyncThunk(
   "auth/addJobRedux",
-  async (payload: { userUid: string; sortedCurrentJobs: [] }) => {
+  async (payload: { userUid: string; sortedCurrentJobs: JobType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -414,7 +466,7 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
     userUid: string;
     monthToArchive: [];
     filteredCurrentJobs: [];
-    userSettings: userSettingsType;
+    userSettings: UserSettingsType;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -465,7 +517,7 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
     userUid: string;
     newMonthToArchive: [];
     filteredCurrentJobs: [];
-    userSettings: userSettingsType;
+    userSettings: UserSettingsType;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -537,7 +589,7 @@ export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
 //
 export const deleteArchiveMonthRedux = createAsyncThunk(
   "auth/deleteArchiveMonthRedux",
-  async (payload: { userUid: string; filteredArchivedJobs: [] }) => {
+  async (payload: { userUid: string; filteredArchivedJobs: ArchiveType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -651,6 +703,189 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
     }
   }
 );
+//
+// -----------------------------------------------------------------------
+//
+
+interface UserSettings {
+  baseMoney: number;
+  email: string;
+  eurCzkRate: number;
+  nameFirst: string;
+  nameSecond: string;
+  numberEm: string;
+  numberTrailer: string;
+  numberTruck: string;
+  percentage: number;
+  secondJobBenefit: number;
+  terminal: string;
+  waitingBenefitEmployerCzk: number;
+  waitingBenefitEur: number;
+}
+
+interface LoggedInUserData {
+  archivedJobs: any[]; // Přizpůsobte podle skutečné struktury
+  currentJobs: any[]; // Přizpůsobte podle skutečné struktury
+  userSettings: UserSettings;
+}
+
+interface JobToAdd {
+  city: string;
+  isCustomJob: boolean;
+  price: number;
+  weight: number;
+  terminal: string;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+}
+
+interface ArchiveMonthSummarySettings {
+  date: string;
+  baseMoney: number;
+  percentage: number;
+  secondJobBenefit: number;
+  waitingBenefitEmployerCzk: number;
+  waitingBenefitEur: number;
+  eurCzkRate: number;
+}
+
+interface AuthState {
+  infoMessage: string | null;
+  toast: {
+    isVisible: boolean;
+    message: string;
+    style: string;
+    time: number;
+    resetToast: boolean;
+  };
+  isLoading: boolean;
+  isLoading2: boolean;
+  isLoginPending: boolean;
+  isLoggedIn: boolean;
+  isRegisterPending: boolean;
+  isRegisterReduxSuccess: boolean;
+  isChangeEmailReduxSuccess: boolean;
+  isChangePasswordReduxSuccess: boolean;
+  isPasswordResetSuccess: boolean;
+  isLogoutReduxSuccess: boolean;
+  isAccountDeletingPending: boolean;
+  isAccountDisabled: boolean;
+  isDeleteAccountReduxSuccess: boolean;
+  isChangeSettingsReduxSuccess: boolean;
+  isAddJobReduxSuccess: boolean;
+  isEditJobReduxSuccess: boolean;
+  isEditArchiveJobReduxSuccess: boolean;
+  isArchiveDoneJobsAllCasesReduxSuccess: boolean;
+  isEditArchiveMonthSummarySettingsReduxSuccess: boolean;
+  loggedInUserEmail: string | null;
+  loggedInUserUid: string | null;
+  loggedInUserData: LoggedInUserData;
+  jobToAdd: JobToAdd;
+  isEditing: boolean;
+  isEditingArchivedJob: boolean;
+  jobToEdit: Job;
+  archiveMonthSummarySettingsToEdit: ArchiveMonthSummarySettings;
+}
+
+const initialState: AuthState = {
+  infoMessage: null,
+  toast: {
+    isVisible: false,
+    message: "",
+    style: "",
+    time: 0,
+    resetToast: false,
+  },
+  //
+  isLoading: true,
+  isLoading2: false,
+  //
+  isLoginPending: false,
+  isLoggedIn: false,
+  //
+  isRegisterPending: false,
+  isRegisterReduxSuccess: false,
+  //
+  isChangeEmailReduxSuccess: false,
+  isChangePasswordReduxSuccess: false,
+  isPasswordResetSuccess: false,
+  //
+  isLogoutReduxSuccess: false,
+  isAccountDeletingPending: false,
+  isAccountDisabled: false,
+  isDeleteAccountReduxSuccess: false,
+  //
+  isChangeSettingsReduxSuccess: false,
+  //
+  isAddJobReduxSuccess: false,
+  isEditJobReduxSuccess: false,
+  isEditArchiveJobReduxSuccess: false,
+  //
+  isArchiveDoneJobsAllCasesReduxSuccess: false,
+  isEditArchiveMonthSummarySettingsReduxSuccess: false,
+  //
+  loggedInUserEmail: null,
+  loggedInUserUid: null,
+  loggedInUserData: {
+    archivedJobs: [],
+    currentJobs: [],
+    userSettings: {
+      baseMoney: 0,
+      email: "",
+      eurCzkRate: 0,
+      nameFirst: "",
+      nameSecond: "",
+      numberEm: "",
+      numberTrailer: "",
+      numberTruck: "",
+      percentage: 0,
+      secondJobBenefit: 0,
+      terminal: "",
+      waitingBenefitEmployerCzk: 0,
+      waitingBenefitEur: 0,
+    },
+  },
+  jobToAdd: {
+    city: "",
+    isCustomJob: true,
+    price: 0,
+    weight: 27,
+    terminal: "",
+    weightTo27t: 0,
+    weightTo34t: 0,
+    zipcode: "",
+  },
+  isEditing: false,
+  isEditingArchivedJob: false,
+  jobToEdit: {
+    city: "",
+    cmr: "",
+    date: "",
+    id: "",
+    isCustomJob: false,
+    isHoliday: false,
+    isSecondJob: false,
+    note: "",
+    price: 0,
+    terminal: "",
+    timestamp: 0,
+    waiting: 0,
+    weight: 0,
+    weightTo27t: 0,
+    weightTo34t: 0,
+    zipcode: "",
+  },
+  archiveMonthSummarySettingsToEdit: {
+    date: "",
+    baseMoney: 0,
+    percentage: 0,
+    secondJobBenefit: 0,
+    waitingBenefitEmployerCzk: 0,
+    waitingBenefitEur: 0,
+    eurCzkRate: 0,
+  },
+};
 
 //
 // -----------------------------------------------------------------------
@@ -658,104 +893,7 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
 
 export const authSlice = createSlice({
   name: "auth",
-  initialState: {
-    infoMessage: null,
-    toast: {
-      isVisible: false,
-      message: "",
-      style: "",
-      time: 0,
-      resetToast: false,
-    },
-    //
-    isLoading: true,
-    isLoading2: false,
-    //
-    isLoginPending: false,
-    isLoggedIn: false,
-    //
-    isRegisterPending: false,
-    isRegisterReduxSuccess: false,
-    //
-    isChangeEmailReduxSuccess: false,
-    isChangePasswordReduxSuccess: false,
-    isPasswordResetSuccess: false,
-    //
-    isLogoutReduxSuccess: false,
-    isAccountDeletingPending: false,
-    isAccountDisabled: false,
-    isDeleteAccountReduxSuccess: false,
-    //
-    isChangeSettingsReduxSuccess: false,
-    //
-    isAddJobReduxSuccess: false,
-    isEditJobReduxSuccess: false,
-    isEditArchiveJobReduxSuccess: false,
-    //
-    isArchiveDoneJobsAllCasesReduxSuccess: false,
-    isEditArchiveMonthSummarySettingsReduxSuccess: false,
-    //
-    loggedInUserEmail: null,
-    loggedInUserUid: null,
-    loggedInUserData: {
-      archivedJobs: [],
-      currentJobs: [],
-      userSettings: {
-        baseMoney: 0,
-        email: "",
-        eurCzkRate: 0,
-        nameFirst: "",
-        nameSecond: "",
-        numberEm: "",
-        numberTrailer: "",
-        numberTruck: "",
-        percentage: 0,
-        secondJobBenefit: 0,
-        terminal: "",
-        waitingBenefitEmployerCzk: 0,
-        waitingBenefitEur: 0,
-      },
-    },
-    jobToAdd: {
-      city: "",
-      isCustomJob: true,
-      price: 0,
-      weight: 27,
-      terminal: "",
-      weightTo27t: 0,
-      weightTo34t: 0,
-      zipcode: "",
-    },
-    isEditing: false,
-    isEditingArchivedJob: false,
-    jobToEdit: {
-      city: "",
-      cmr: "",
-      date: "",
-      id: "",
-      isCustomJob: false,
-      isHoliday: false,
-      isSecondJob: false,
-      note: "",
-      price: 0,
-      terminal: "",
-      timestamp: "",
-      waiting: 0,
-      weight: 0,
-      weightTo27t: 0,
-      weightTo34t: 0,
-      zipcode: "",
-    },
-    archiveMonthSummarySettingsToEdit: {
-      date: "",
-      baseMoney: 0,
-      percentage: 0,
-      secondJobBenefit: 0,
-      waitingBenefitEmployerCzk: 0,
-      waitingBenefitEur: 0,
-      eurCzkRate: 0,
-    },
-  },
+  initialState,
   reducers: {
     runToastRedux(state, action) {
       console.log("toast SPUŠTĚN");
@@ -1002,7 +1140,7 @@ export const authSlice = createSlice({
       state.jobToEdit.note = "";
       state.jobToEdit.price = 0;
       state.jobToEdit.terminal = "";
-      state.jobToEdit.timestamp = "";
+      state.jobToEdit.timestamp = 0;
       state.jobToEdit.waiting = 0;
       state.jobToEdit.weight = 0;
       state.jobToEdit.weightTo27t = 0;
@@ -1373,7 +1511,7 @@ export const authSlice = createSlice({
         state.jobToEdit.note = "";
         state.jobToEdit.price = 0;
         state.jobToEdit.terminal = "";
-        state.jobToEdit.timestamp = "";
+        state.jobToEdit.timestamp = 0;
         state.jobToEdit.waiting = 0;
         state.jobToEdit.weight = 0;
         state.jobToEdit.weightTo27t = 0;
