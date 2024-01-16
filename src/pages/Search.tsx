@@ -1,7 +1,8 @@
 import "./Search.css";
 
+import { useAppSelector } from "../redux/hooks";
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import SearchResult from "../components/SearchResult";
 import ceska_trebova from "../assets/prices/ceska_trebova.json";
 import ostrava from "../assets/prices/ostrava.json";
@@ -12,28 +13,38 @@ import zlin from "../assets/prices/zlin.json";
 import Spinner from "../components/Spinner";
 import InputField from "../components/InputField";
 
+type SearchItemType = {
+  city: string;
+  zipcode: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  terminal: string;
+  objIndex: number;
+  id: number;
+};
+
 const Search = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const terminal = useSelector(
+  const terminal = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.terminal
   );
 
   // USE STATE -----------------------------------------------------------
   //
-  const [json, setJson] = useState([]);
+  const [json, setJson] = useState<SearchItemType[]>([]);
   const [inputText, setInputText] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<SearchItemType[]>([]);
   const [searchResultsReady, setSearchResultsReady] = useState(true);
 
   // DISPLAY PROPER TERMINAL NAME ----------------------------------------
   //
-  const displayProperTerminalName = (value) => {
+  const displayProperTerminalName = (value: string) => {
     if (value === "ceska_trebova") {
       return "Česká Třebová";
     } else if (value === "ostrava") {
@@ -53,10 +64,13 @@ const Search = () => {
 
   // FILTER BY USER INPUT ------------------------------------------------
   //
-  const filterByUserInput = (arrayOfObjects, text) => {
+  const filterByUserInput = (
+    arrayOfObjects: SearchItemType[],
+    text: string
+  ) => {
     let result = [];
 
-    if (text.length !== "") {
+    if (text.length !== 0) {
       for (let i = 0; i < arrayOfObjects.length; i++) {
         const zipcodeString = arrayOfObjects[i].zipcode.toString();
 
@@ -129,7 +143,7 @@ const Search = () => {
 
   // HANDLE CHANGE -------------------------------------------------------
   //
-  const handleChange = (e) => {
+  const handleChange = (e: string) => {
     setSearchResultsReady(false);
     setInputText(e);
   };
@@ -139,7 +153,7 @@ const Search = () => {
   const deleteInputText = () => {
     setInputText("");
     setSearchResults([]);
-    inputRef.current.focus();
+    inputRef.current && inputRef.current.focus();
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -147,25 +161,25 @@ const Search = () => {
   useEffect(() => {
     switch (terminal) {
       case "ceska_trebova":
-        setJson(ceska_trebova);
+        setJson(ceska_trebova as SearchItemType[]);
         break;
       case "ostrava":
-        setJson(ostrava);
+        setJson(ostrava as SearchItemType[]);
         break;
       case "plzen":
-        setJson(plzen);
+        setJson(plzen as SearchItemType[]);
         break;
       case "praha":
-        setJson(praha);
+        setJson(praha as SearchItemType[]);
         break;
       case "usti_nad_labem":
-        setJson(usti_nad_labem);
+        setJson(usti_nad_labem as SearchItemType[]);
         break;
       case "zlin":
-        setJson(zlin);
+        setJson(zlin as SearchItemType[]);
         break;
       default:
-        setJson(ceska_trebova);
+        setJson(ceska_trebova as SearchItemType[]);
         break;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

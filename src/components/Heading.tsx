@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Heading.css";
 
-const Heading = ({ text }) => {
+const Heading = ({ text }: { text: string }) => {
   return <div className="heading text-shadow">{text}</div>;
 };
 

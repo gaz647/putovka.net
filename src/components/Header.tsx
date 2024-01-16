@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Header.css";
 
-const Header = ({ title, email }) => {
+const Header = ({ title, email }: { title: string; email: string }) => {
   return (
     <div className="header-container">
       <div className="header">

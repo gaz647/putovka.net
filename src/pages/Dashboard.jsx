@@ -2,7 +2,8 @@ import "./Dashboard.css";
 import ModalPrompt from "../components/ModalPrompt";
 import Job from "../components/Job";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import {
   archiveDoneJobsFirstTimeRedux,
   archiveDoneJobsNewMonthRedux,
@@ -29,7 +30,7 @@ import BackToTopBtn from "../components/BackToTopBtn";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -37,55 +38,55 @@ const Dashboard = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const loggedInUserSettings = useSelector(
+  const loggedInUserSettings = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings
   );
-  const loggedInUserEmail = useSelector(
+  const loggedInUserEmail = useAppSelector(
     (state) => state.auth.loggedInUserEmail
   );
-  const currentJobs = useSelector(
+  const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-  const archivedJobs = useSelector(
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const userSettings = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const userSettings = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings
   );
-  const baseMoney = useSelector(
+  const baseMoney = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.baseMoney
   );
-  const eurCzkRate = useSelector(
+  const eurCzkRate = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
   );
-  const percentage = useSelector(
+  const percentage = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.percentage
   );
-  const secondJobBenefit = useSelector(
+  const secondJobBenefit = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
   );
-  const waitingBenefitEmployerCzk = useSelector(
+  const waitingBenefitEmployerCzk = useAppSelector(
     (state) =>
       state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
   );
-  const waitingBenefitEur = useSelector(
+  const waitingBenefitEur = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
-  const email = useSelector(
+  const email = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.email
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isAddJobReduxSuccess = useSelector(
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isAddJobReduxSuccess = useAppSelector(
     (state) => state.auth.isAddJobReduxSuccess
   );
-  const isEditJobReduxSuccess = useSelector(
+  const isEditJobReduxSuccess = useAppSelector(
     (state) => state.auth.isEditJobReduxSuccess
   );
-  const isArchiveDoneJobsAllCasesReduxSuccess = useSelector(
+  const isArchiveDoneJobsAllCasesReduxSuccess = useAppSelector(
     (state) => state.auth.isArchiveDoneJobsAllCasesReduxSuccess
   );
-  const isChangeSettingsReduxSuccess = useSelector(
+  const isChangeSettingsReduxSuccess = useAppSelector(
     (state) => state.auth.isChangeSettingsReduxSuccess
   );
 

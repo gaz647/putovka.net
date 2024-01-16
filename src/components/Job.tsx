@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import {
   deleteJobRedux,
   setIsEditingArchivedJobFalseRedux,
@@ -19,8 +18,28 @@ import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 
-const Job = ({ jobDetails }) => {
-  const dispatch = useDispatch();
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+const Job = ({ jobDetails }: { jobDetails: JobType }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -47,12 +66,12 @@ const Job = ({ jobDetails }) => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const currentJobs = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
 
-  const waitingBenefitEur = useSelector(
+  const waitingBenefitEur = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
@@ -72,7 +91,7 @@ const Job = ({ jobDetails }) => {
       (oneJob) => oneJob.id !== jobId
     );
 
-    const payload = { userUid, filteredCurrentJobs };
+    const payload = { userUid: userUid || "", filteredCurrentJobs };
     dispatch(deleteJobRedux(payload));
   };
 
@@ -129,26 +148,28 @@ const Job = ({ jobDetails }) => {
       textToCopy = `${getCzDateFormat(date)} ${city}`;
     }
 
-    navigator.clipboard
-      .writeText(textToCopy)
-      .then(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírováno do schránky",
-            style: "success",
-            time: 3000,
-          })
-        );
-      })
-      .catch(() => {
-        dispatch(
-          runToastRedux({
-            message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
-            style: "error",
-            time: 3000,
-          })
-        );
-      });
+    if (textToCopy) {
+      navigator.clipboard
+        .writeText(textToCopy)
+        .then(() => {
+          dispatch(
+            runToastRedux({
+              message: "Zkopírováno do schránky",
+              style: "success",
+              time: 3000,
+            })
+          );
+        })
+        .catch(() => {
+          dispatch(
+            runToastRedux({
+              message: "Zkopírování do schránky se nepovedlo. Zkuste to znovu",
+              style: "error",
+              time: 3000,
+            })
+          );
+        });
+    }
   };
 
   // USE EFFECT ----------------------------------------------------------

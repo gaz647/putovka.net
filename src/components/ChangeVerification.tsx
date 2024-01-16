@@ -2,7 +2,8 @@
 import "./ChangeVerification.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/hooks";
+// import { useDispatch } from "react-redux";
 import {
   logoutRedux,
   resetIsRegisterPending,
@@ -17,7 +18,7 @@ import {
 
 const ChangeVerification = () => {
   const location = useLocation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------

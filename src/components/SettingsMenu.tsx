@@ -23,7 +23,7 @@ const SettingsMenu = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   return (
-    <div className="settings-menu" onBlur={handleBlur} tabIndex="0">
+    <div className="settings-menu" onBlur={handleBlur} tabIndex={0}>
       <IoMenu
         className={`settings-menu-icon ${!showMenu && "vis-visible"}`}
         onClick={() => setShowMenu(!showMenu)}

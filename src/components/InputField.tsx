@@ -11,7 +11,7 @@ import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 interface InputFieldProps {
   required?: boolean;
   label: string;
-  subLabel: string;
+  subLabel?: string;
   type: string;
   value?: string | number | boolean | Date;
   inputRef?: React.RefObject<HTMLInputElement>;

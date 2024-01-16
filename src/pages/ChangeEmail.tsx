@@ -1,5 +1,6 @@
 import "./ChangeEmail.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -7,7 +8,7 @@ import {
   logoutRedux,
   runToastRedux,
 } from "../redux/AuthSlice";
-import resetIsAccountDisabled from "../redux/AuthSlice";
+import resetIsAccountDisabledRedux from "../redux/AuthSlice";
 import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
@@ -15,7 +16,7 @@ import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const ChangeEmail = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -23,13 +24,13 @@ const ChangeEmail = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isChangeEmailReduxSuccess = useSelector(
+  const isChangeEmailReduxSuccess = useAppSelector(
     (state) => state.auth.isChangeEmailReduxSuccess
   );
-  const isAccountDisabled = useSelector(
+  const isAccountDisabled = useAppSelector(
     (state) => state.auth.isAccountDisabled
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -93,7 +94,7 @@ const ChangeEmail = () => {
   useEffect(() => {
     if (isAccountDisabled === true) {
       console.log("isAccountDisabled", isAccountDisabled);
-      dispatch(resetIsAccountDisabled);
+      dispatch(resetIsAccountDisabledRedux);
       dispatch(logoutRedux());
     }
   }, [dispatch, isAccountDisabled]);

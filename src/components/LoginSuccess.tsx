@@ -1,11 +1,12 @@
 import "./LoginSuccess.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/hooks";
+// import { useDispatch } from "react-redux";
 import { setIsLoadingFalseRedux } from "../redux/AuthSlice";
-import Spinner from "../components/Spinner";
+import Spinner from "./Spinner";
 const LoginSuccess = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------

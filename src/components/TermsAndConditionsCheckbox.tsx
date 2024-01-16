@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
 import "./TermsAndConditionsCheckbox.css";
+import { MouseEventHandler } from "react";
 
 const TermsAndConditionsCheckbox = ({
   text,
   linkText,
   linkUrl,
   onCheckboxChecked,
+}: {
+  text: string;
+  linkText: string;
+  linkUrl: string;
+  onCheckboxChecked: MouseEventHandler<HTMLInputElement>;
 }) => {
   return (
     <div className="terms-and-conditions-container">

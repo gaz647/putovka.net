@@ -1,4 +1,37 @@
-const sortArchiveMonthJobsAscending = (archivedMonths) => {
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+type ArchiveType = {
+  date: string;
+  jobs: JobType[];
+  userSettings: {
+    baseMoney: number;
+    eurCzkRate: number;
+    percentage: number;
+    secondJobBenefit: number;
+    waitingBenefitEmployerCzk: number;
+    waitingBenefitEur: number;
+  };
+};
+
+const sortArchiveMonthJobsAscending = (archivedMonths: ArchiveType[]) => {
   return archivedMonths.map((archivedMonth) => {
     const sortedJobs = archivedMonth.jobs.slice().sort((a, b) => {
       const dateA = new Date(a.date);

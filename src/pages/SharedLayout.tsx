@@ -1,22 +1,22 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import { resetToastRedux } from "../redux/AuthSlice";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast, Flip } from "react-toastify";
 
 const SharedLayout = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const toastRedux = useSelector((state) => state.auth.toast);
-  const resetToastStateRedux = useSelector(
+  const toastRedux = useAppSelector((state) => state.auth.toast);
+  const resetToastStateRedux = useAppSelector(
     (state) => state.auth.toast.resetToast
   );
 

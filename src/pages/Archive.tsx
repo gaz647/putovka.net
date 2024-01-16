@@ -1,6 +1,7 @@
 import "./Archive.css";
 import ArchiveMonth from "../components/ArchiveMonth";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import {
   resetIsEditArchiveJobReduxSuccess,
   resetIsEditArchiveMonthSummarySettingsReduxSuccess,
@@ -14,24 +15,24 @@ import Spinner from "../components/Spinner";
 import { useEffect } from "react";
 
 const Archive = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const archivedJobs = useSelector(
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isEditArchiveJobReduxSuccess = useSelector(
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isEditArchiveJobReduxSuccess = useAppSelector(
     (state) => state.auth.isEditArchiveJobReduxSuccess
   );
-  const isEditArchiveMonthSummarySettingsReduxSuccess = useSelector(
+  const isEditArchiveMonthSummarySettingsReduxSuccess = useAppSelector(
     (state) => state.auth.isEditArchiveMonthSummarySettingsReduxSuccess
   );
-  const isArchiveDoneJobsAllCasesReduxSuccess = useSelector(
+  const isArchiveDoneJobsAllCasesReduxSuccess = useAppSelector(
     (state) => state.auth.isArchiveDoneJobsAllCasesReduxSuccess
   );
 

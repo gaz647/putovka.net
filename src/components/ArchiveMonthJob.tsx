@@ -2,7 +2,8 @@
 import "./ArchiveMonthJob.css";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
 import {
@@ -15,8 +16,28 @@ import { BsPencil, BsTrash3 } from "react-icons/bs";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { FaUmbrellaBeach } from "react-icons/fa";
 
-const ArchiveMonthJob = ({ oneJobData }) => {
-  const dispatch = useDispatch();
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
+const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -43,11 +64,11 @@ const ArchiveMonthJob = ({ oneJobData }) => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const archivedJobs = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-  const waitingBenefitEur = useSelector(
+  const waitingBenefitEur = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
@@ -94,19 +115,21 @@ const ArchiveMonthJob = ({ oneJobData }) => {
 
   // DELETE ARCHIVED JOB -------------------------------------------------
   //
-  const deleteArchiveMonthJob = (idOfJob) => {
+  const deleteArchiveMonthJob = (idOfJob: string) => {
     const tempArchivedJobs = [...archivedJobs];
 
     const filteredArchivedJobs = tempArchivedJobs.map((oneMonth) => {
       // Zkopírujeme pole jobs a odstraníme z něj položku s odpovídajícím id
-      const updatedJobs = oneMonth.jobs.filter((job) => job.id !== idOfJob);
+      const updatedJobs = oneMonth.jobs.filter(
+        (job: JobType) => job.id !== idOfJob
+      );
 
       // Vrátíme aktualizovaný objekt s novým polem jobs
       return { ...oneMonth, jobs: updatedJobs };
     });
 
     const payload = {
-      userUid,
+      userUid: userUid || "",
       filteredArchivedJobs,
     };
 

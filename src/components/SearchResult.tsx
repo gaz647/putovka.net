@@ -1,12 +1,22 @@
 /* eslint-disable react/prop-types */
 import "./SearchResult.css";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/hooks";
+// import { useDispatch } from "react-redux";
 import { setJobToAddRedux } from "../redux/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 
-const SearchResult = (props) => {
-  const dispatch = useDispatch();
+type SearchResultType = {
+  key: number;
+  city: string;
+  zipcode: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  terminal: string;
+};
+
+const SearchResult = (props: SearchResultType) => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------

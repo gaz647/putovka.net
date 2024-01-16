@@ -438,7 +438,7 @@ export const editJobRedux = createAsyncThunk(
 //
 export const deleteJobRedux = createAsyncThunk(
   "auth/deleteJobRedux",
-  async (payload: { userUid: string; filteredCurrentJobs: [] }) => {
+  async (payload: { userUid: string; filteredCurrentJobs: JobType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -612,7 +612,7 @@ export const deleteArchiveMonthRedux = createAsyncThunk(
 //
 export const deleteArchiveMonthJobRedux = createAsyncThunk(
   "auth/deleteArchiveMonthJobRedux",
-  async (payload: { userUid: string; filteredArchivedJobs: [] }) => {
+  async (payload: { userUid: string; filteredArchivedJobs: ArchiveType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
