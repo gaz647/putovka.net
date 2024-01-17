@@ -20,8 +20,9 @@ import SharedLayout from "./pages/SharedLayout";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect } from "react";
 import { auth } from "./firebase/config";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+// import { useDispatch } from "react-redux";
+// import { useSelector } from "react-redux/es/hooks/useSelector";
 import {
   loginOnAuthRedux,
   logoutOnAuthRedux,
@@ -36,21 +37,21 @@ import DeleteAccount from "./pages/DeleteAccount";
 import PersonalDataProcessing from "./pages/PersonalDataProcessing";
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isLoginPending = useSelector((state) => state.auth.isLoginPending);
-  const isRegisterPending = useSelector(
+  const isLoginPending = useAppSelector((state) => state.auth.isLoginPending);
+  const isRegisterPending = useAppSelector(
     (state) => state.auth.isRegisterPending
   );
-  const isAccountDeletingPending = useSelector(
+  const isAccountDeletingPending = useAppSelector(
     (state) => state.auth.isAccountDeletingPending
   );
-  const infoMessage = useSelector((state) => state.auth.infoMessage);
+  const infoMessage = useAppSelector((state) => state.auth.infoMessage);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -58,7 +59,7 @@ const App = () => {
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
-    console.log("App.jsx");
+    console.log("App.tsx");
     console.log(
       "!isLoginPending || !isAccountDeletingPending || !isRegisterPending ==> spuštěno"
     );
@@ -96,10 +97,11 @@ const App = () => {
           }, 100);
         } else if (currentUser !== null && emailVerified) {
           console.log("karent jůsr není nul a potvrdil mail");
-
-          dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
-          dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-          dispatch(getInfoMessageRedux());
+          if (user && user.email) {
+            dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
+            dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
+            dispatch(getInfoMessageRedux());
+          }
         }
       });
       return () => {
@@ -159,7 +161,7 @@ const App = () => {
               path="/edit-archive-month-summary-settings"
               element={<EditArchiveMonthSummarySettings />}
             />
-            <Route path="/settings" lazy element={<Settings />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="/change-email" element={<ChangeEmail />} />
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/delete-account" element={<DeleteAccount />} />

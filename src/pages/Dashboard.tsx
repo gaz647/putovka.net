@@ -29,6 +29,26 @@ import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
 import { useNavigate } from "react-router-dom";
 
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
 const Dashboard = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -51,8 +71,29 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.archivedJobs
   );
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
-  const userSettings = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings
+  // const userSettings = useAppSelector(
+  //   (state) => state.auth.loggedInUserData.userSettings
+  // );
+  const nameFirst = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.nameFirst
+  );
+  const nameSecond = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.nameSecond
+  );
+  const numberEm = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.numberEm
+  );
+  const numberTrailer = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.numberTrailer
+  );
+  const numberTruck = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.numberTruck
+  );
+  const referenceId = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.referenceId
+  );
+  const terminal = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.terminal
   );
   const baseMoney = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.baseMoney
@@ -101,6 +142,23 @@ const Dashboard = () => {
   const [totalWaiting, setTotalWaiting] = useState(0);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
+  const userSettings = {
+    baseMoney,
+    email,
+    eurCzkRate,
+    nameFirst,
+    nameSecond,
+    numberEm,
+    numberTrailer,
+    numberTruck,
+    percentage,
+    referenceId,
+    secondJobBenefit,
+    terminal,
+    waitingBenefitEmployerCzk,
+    waitingBenefitEur,
+  };
+
   // ARCHIVE JOBS 2 ------------------------------------------------------
   // nejdříve získá kurz EUR/CZK a až potom zavolá funkci archiveJobs ----
   //
@@ -108,14 +166,14 @@ const Dashboard = () => {
     try {
       const renewedEurCzkRate = await getEurCzkCurrencyRate(); // Počká na dokončení asynchronní funkce
       archiveJobs(renewedEurCzkRate);
-    } catch (error) {
+    } catch (error: any | null) {
       console.error(error.message);
     }
   };
 
   // ARCHIVE JOBS --------------------------------------------------------
   //
-  const archiveJobs = (newEurCzkRate) => {
+  const archiveJobs = (newEurCzkRate: number) => {
     setShowArchiveModal(!showArchiveModal);
 
     const currentArchivedJobs =
@@ -133,7 +191,7 @@ const Dashboard = () => {
     const sortedJobsToBeArchived =
       sortCurrentJobsToBeArchivedAscending(jobsToBeArchived);
 
-    const filteredCurrentJobs = currentJobs.filter(
+    const filteredCurrentJobs: JobType[] = currentJobs.filter(
       (oneJob) =>
         getDateForComparing(oneJob.date) !==
         getDateForComparing(dateForArchiving)
@@ -159,14 +217,17 @@ const Dashboard = () => {
     if (currentArchivedJobs.length === 0) {
       console.log("archiv je prázdný");
       console.log("první ukládání do archivu");
-      const payload = {
-        userUid,
-        monthToArchive: [{ ...monthToArchive }],
-        filteredCurrentJobs,
-        userSettings,
-        newEurCzkRate,
-      };
-      dispatch(archiveDoneJobsFirstTimeRedux(payload));
+
+      if (userUid) {
+        const payload = {
+          userUid,
+          monthToArchive: { ...monthToArchive },
+          filteredCurrentJobs,
+          userSettings,
+          newEurCzkRate,
+        };
+        dispatch(archiveDoneJobsFirstTimeRedux(payload));
+      }
     }
     // Pokud archív NENÍ prázdný
     //
@@ -196,15 +257,17 @@ const Dashboard = () => {
           )
         );
 
-        const payload = {
-          userUid,
-          newMonthToArchive,
-          filteredCurrentJobs,
-          userSettings,
-          newEurCzkRate,
-        };
+        if (userUid) {
+          const payload = {
+            userUid,
+            newMonthToArchive,
+            filteredCurrentJobs,
+            userSettings,
+            newEurCzkRate,
+          };
 
-        dispatch(archiveDoneJobsNewMonthRedux(payload));
+          dispatch(archiveDoneJobsNewMonthRedux(payload));
+        }
       }
       //
       //
@@ -229,14 +292,16 @@ const Dashboard = () => {
           })
         );
 
-        const payload = {
-          userUid,
-          updatedArchivedJobs,
-          filteredCurrentJobs,
-          userSettings,
-        };
+        if (userUid) {
+          const payload = {
+            userUid,
+            updatedArchivedJobs,
+            filteredCurrentJobs,
+            userSettings,
+          };
 
-        dispatch(archiveDoneJobsExistingMonthRedux(payload));
+          dispatch(archiveDoneJobsExistingMonthRedux(payload));
+        }
       }
     }
   };
@@ -283,10 +348,10 @@ const Dashboard = () => {
         );
       }, 0)
     );
-    setTotalCzk(parseInt(totalEur * eurCzkRate));
+    setTotalCzk(Math.floor(totalEur * eurCzkRate));
 
     setSalary(
-      parseInt(
+      Math.floor(
         baseMoney +
           totalCzk * (percentage * 0.01) +
           totalSecondJobs * secondJobBenefit +
@@ -317,23 +382,31 @@ const Dashboard = () => {
         console.log(email);
         console.log(loggedInUserEmail);
 
-        const payload = {
-          userUid,
-          userSettings: {
-            baseMoney: Number(loggedInUserSettings.baseMoney),
-            email: loggedInUserEmail,
-            eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
-            percentage: Number(loggedInUserSettings.percentage),
-            secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
-            terminal: loggedInUserSettings.terminal,
-            waitingBenefitEmployerCzk: Number(
-              loggedInUserSettings.waitingBenefitEmployerCzk
-            ),
-            waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
-          },
-        };
-        console.log(payload);
-        dispatch(changeSettingsRedux(payload));
+        if (userUid) {
+          const payload = {
+            userUid,
+            userSettings: {
+              baseMoney: Number(loggedInUserSettings.baseMoney),
+              email: loggedInUserEmail,
+              eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
+              nameFirst: loggedInUserSettings.nameFirst,
+              nameSecond: loggedInUserSettings.nameSecond,
+              numberEm: loggedInUserSettings.numberEm,
+              numberTrailer: loggedInUserSettings.numberTrailer,
+              numberTruck: loggedInUserSettings.numberTruck,
+              percentage: Number(loggedInUserSettings.percentage),
+              referenceId: loggedInUserSettings.referenceId,
+              secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
+              terminal: loggedInUserSettings.terminal,
+              waitingBenefitEmployerCzk: Number(
+                loggedInUserSettings.waitingBenefitEmployerCzk
+              ),
+              waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
+            },
+          };
+          console.log(payload);
+          dispatch(changeSettingsRedux(payload));
+        }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,11 +1,12 @@
 import "./Settings.css";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useDispatch, useSelector } from "react-redux";
 import {
   editArchiveMonthSummarySettingsRedux,
   resetArchiveMonthSummarySettingsToEditRedux,
   runToastRedux,
 } from "../redux/AuthSlice";
-import { useSelector } from "react-redux";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
@@ -14,7 +15,7 @@ import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const EditArchiveMonthSummarySettings = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -22,61 +23,61 @@ const EditArchiveMonthSummarySettings = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const archivedJobs = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-  const date = useSelector(
+  const date = useAppSelector(
     (state) => state.auth.archiveMonthSummarySettingsToEdit.date
   );
-  // const email = useSelector(
+  // const email = useAppSelector(
   //   (state) => state.auth.loggedInUserData.userSettings.email
   // );
-  // const terminal = useSelector(
+  // const terminal = useAppSelector(
   //   (state) => state.auth.loggedInUserData.userSettings.terminal
   // );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isEditArchiveMonthSummarySettingsReduxSuccess = useSelector(
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isEditArchiveMonthSummarySettingsReduxSuccess = useAppSelector(
     (state) => state.auth.isEditArchiveMonthSummarySettingsReduxSuccess
   );
 
   // USE STATE -----------------------------------------------------------
   //
   const [baseMoney, setBaseMoney] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.baseMoney
     )
   );
   const [eurCzkRate, setEurCzkRate] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.eurCzkRate
     )
   );
   const [percentage, setPercentage] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.percentage
     )
   );
   const [secondJobBenefit, setSecondJobBenefit] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.secondJobBenefit
     )
   );
   const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
-    useSelector(
+    useAppSelector(
       (state) =>
         state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk
     )
   );
   const [waitingBenefitEur, setWaitingBenefitEur] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEur
     )
   );
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!eurCzkRate) {
       dispatch(
@@ -109,11 +110,13 @@ const EditArchiveMonthSummarySettings = () => {
       return archive;
     });
 
-    const payload = {
-      userUid,
-      updatedArchivedJobs,
-    };
-    dispatch(editArchiveMonthSummarySettingsRedux(payload));
+    if (userUid) {
+      const payload = {
+        userUid,
+        updatedArchivedJobs,
+      };
+      dispatch(editArchiveMonthSummarySettingsRedux(payload));
+    }
   };
 
   // HANDLE DECLINE ------------------------------------------------------

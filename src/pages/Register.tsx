@@ -2,13 +2,13 @@ import "./Login.css";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useDispatch, useSelector } from "react-redux";
 import {
   registerRedux,
   runToastRedux,
   resetToastRedux,
 } from "../redux/AuthSlice";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
@@ -19,7 +19,7 @@ import Heading from "../components/Heading";
 import TermsAndConditionsCheckbox from "../components/TermsAndConditionsCheckbox";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -27,13 +27,13 @@ const Register = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isLoading = useSelector((state) => state.auth.isLoading);
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isRegisterReduxSuccess = useSelector(
+  const isLoading = useAppSelector((state) => state.auth.isLoading);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isRegisterReduxSuccess = useAppSelector(
     (state) => state.auth.isRegisterReduxSuccess
   );
-  const toastRedux = useSelector((state) => state.auth.toast);
-  const resetToastStateRedux = useSelector(
+  const toastRedux = useAppSelector((state) => state.auth.toast);
+  const resetToastStateRedux = useAppSelector(
     (state) => state.auth.toast.resetToast
   );
 
@@ -67,7 +67,7 @@ const Register = () => {
 
   // HANDLE REGISTER -----------------------------------------------------
   //
-  const handleRegister = (e) => {
+  const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (registerPassword1 !== registerPassword2) {
@@ -98,7 +98,7 @@ const Register = () => {
 
   // HANDLE DECLINE ------------------------------------------------------
   //
-  const handleDecline = (e) => {
+  const handleDecline = (e: React.FormEvent) => {
     e.preventDefault();
     // navigate("/login");
     setRegisterEmail("");

@@ -1,4 +1,5 @@
 import "./DeleteAccount.css";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +12,7 @@ import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const DeleteAccount = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -19,11 +20,11 @@ const DeleteAccount = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const isDeleteAccountReduxSuccess = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const isDeleteAccountReduxSuccess = useAppSelector(
     (state) => state.auth.isDeleteAccountReduxSuccess
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -41,7 +42,7 @@ const DeleteAccount = () => {
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (currentPassword && userConfirmationCode === deleteCode) {
       // Vše vyplněné - nyní se otevře modal
@@ -73,7 +74,9 @@ const DeleteAccount = () => {
   // DELETE ACCOUNT ------------------------------------------------------
   //
   const deleteAccount = () => {
-    dispatch(deleteAccountRedux({ currentPassword, userUid }));
+    if (userUid) {
+      dispatch(deleteAccountRedux({ currentPassword, userUid }));
+    }
     handleDeleteJobModalVisibility();
     setCurrentPassword("");
     setUserConfirmationCode("");

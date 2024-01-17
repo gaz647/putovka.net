@@ -1,11 +1,11 @@
 import "./Settings.css";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useDispatch, useSelector } from "react-redux";
 import {
   changeSettingsRedux,
   logoutInSettingsRedux,
   runToastRedux,
 } from "../redux/AuthSlice";
-import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -18,7 +18,7 @@ import Heading from "../components/Heading";
 import SettingsMenu from "../components/SettingsMenu";
 
 const Settings = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -26,73 +26,87 @@ const Settings = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const loggedInUserEmail = useSelector(
+  const loggedInUserEmail = useAppSelector(
     (state) => state.auth.loggedInUserEmail
   );
   // const isLoading = useSelector((state) => state.auth.isLoading);
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isLogoutReduxSuccess = useSelector(
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isLogoutReduxSuccess = useAppSelector(
     (state) => state.auth.isLogoutReduxSuccess
   );
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const email = useSelector((state) => state.auth.loggedInUserEmail);
-  const referenceIdSel = useSelector(
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const email = useAppSelector((state) => state.auth.loggedInUserEmail);
+  const referenceIdSel = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.referenceId
   );
-  const isChangeSettingsReduxSuccess = useSelector(
+  const isChangeSettingsReduxSuccess = useAppSelector(
     (state) => state.auth.isChangeSettingsReduxSuccess
   );
 
   // USE STATE -----------------------------------------------------------
   //
   const [baseMoney, setBaseMoney] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.baseMoney)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.baseMoney
+    )
   );
   const [nameFirst, setNameFirst] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.nameFirst)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.nameFirst
+    )
   );
   const [nameSecond, setNameSecond] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.nameSecond)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.nameSecond
+    )
   );
   const [numberEm, setNumberEm] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.numberEm)
+    useAppSelector((state) => state.auth.loggedInUserData.userSettings.numberEm)
   );
   const [numberTrailer, setNumberTrailer] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.loggedInUserData.userSettings.numberTrailer
     )
   );
   const [numberTruck, setNumberTruck] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.numberTruck)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.numberTruck
+    )
   );
 
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+    useAppSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
   const [percentage, setPercentage] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.percentage)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.percentage
+    )
   );
   const [referenceId, setReferenceId] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.referenceId)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.referenceId
+    )
   );
   const [secondJobBenefit, setSecondJobBenefit] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
     )
   );
   const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
-    useSelector(
+    useAppSelector(
       (state) =>
         state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
     )
   );
   const [waitingBenefitEur, setWaitingBenefitEur] = useState(
-    useSelector(
+    useAppSelector(
       (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
     )
   );
   const [eurCzkRate, setEurCzkRate] = useState(
-    useSelector((state) => state.auth.loggedInUserData.userSettings.eurCzkRate)
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
+    )
   );
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
@@ -181,26 +195,28 @@ const Settings = () => {
       return;
     }
 
-    const payload = {
-      userUid,
-      userSettings: {
-        baseMoney: Number(baseMoney),
-        email,
-        eurCzkRate: Number(eurCzkRate),
-        nameFirst: firstLetterToUpperCase(nameFirst),
-        nameSecond: firstLetterToUpperCase(nameSecond),
-        numberEm: numberEm.toUpperCase(),
-        numberTrailer: numberTrailer.toUpperCase(),
-        numberTruck: numberTruck.toUpperCase(),
-        percentage: Number(percentage),
-        referenceId,
-        secondJobBenefit: Number(secondJobBenefit),
-        terminal,
-        waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
-        waitingBenefitEur: Number(waitingBenefitEur),
-      },
-    };
-    dispatch(changeSettingsRedux(payload));
+    if (userUid && email) {
+      const payload = {
+        userUid,
+        userSettings: {
+          baseMoney: Number(baseMoney),
+          email,
+          eurCzkRate: Number(eurCzkRate),
+          nameFirst: firstLetterToUpperCase(nameFirst),
+          nameSecond: firstLetterToUpperCase(nameSecond),
+          numberEm: numberEm.toUpperCase(),
+          numberTrailer: numberTrailer.toUpperCase(),
+          numberTruck: numberTruck.toUpperCase(),
+          percentage: Number(percentage),
+          referenceId,
+          secondJobBenefit: Number(secondJobBenefit),
+          terminal,
+          waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
+          waitingBenefitEur: Number(waitingBenefitEur),
+        },
+      };
+      dispatch(changeSettingsRedux(payload));
+    }
   };
 
   // HANDLE DECLINE ------------------------------------------------------

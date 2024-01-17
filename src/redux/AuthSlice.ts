@@ -25,23 +25,6 @@ import axios from "axios";
 import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
 
-type UserSettingsType = {
-  baseMoney: number;
-  email: string;
-  eurCzkRate: number;
-  nameFirst: string;
-  nameSecond: string;
-  numberEm: string;
-  numberTrailer: string;
-  numberTruck: string;
-  percentage: number;
-  referenceId: string;
-  secondJobBenefit: number;
-  terminal: string;
-  waitingBenefitEmployerCzk: number;
-  waitingBenefitEur: number;
-};
-
 type JobType = {
   city: string;
   cmr: string;
@@ -336,7 +319,25 @@ export const resetPasswordRedux = createAsyncThunk(
 //
 export const changeSettingsRedux = createAsyncThunk(
   "auth/changeSettingsRedux",
-  async (payload: { userUid: string; userSettings: UserSettingsType }) => {
+  async (payload: {
+    userUid: string;
+    userSettings: {
+      baseMoney: number;
+      email: string;
+      eurCzkRate: number;
+      nameFirst: string;
+      nameSecond: string;
+      numberEm: string;
+      numberTrailer: string;
+      numberTruck: string;
+      percentage: number;
+      referenceId: string;
+      secondJobBenefit: number;
+      terminal: string;
+      waitingBenefitEmployerCzk: number;
+      waitingBenefitEur: number;
+    };
+  }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -415,7 +416,7 @@ export const addJobRedux = createAsyncThunk(
 //
 export const editJobRedux = createAsyncThunk(
   "auth/editJobRedux",
-  async (payload: { userUid: string; sortedCurrentJobsEdit: [] }) => {
+  async (payload: { userUid: string; sortedCurrentJobsEdit: JobType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -462,11 +463,36 @@ export const deleteJobRedux = createAsyncThunk(
 export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
   "auth/archiveDoneJobsFirstTimeRedux",
   async (payload: {
-    newEurCzkRate: number;
     userUid: string;
-    monthToArchive: [];
-    filteredCurrentJobs: [];
-    userSettings: UserSettingsType;
+    monthToArchive: {
+      date: string;
+      jobs: JobType[];
+      userSettings: {
+        baseMoney: number;
+        eurCzkRate: number;
+        percentage: number;
+        secondJobBenefit: number;
+        waitingBenefitEmployerCzk: number;
+        waitingBenefitEur: number;
+      };
+    };
+    filteredCurrentJobs: JobType[];
+    userSettings: {
+      baseMoney: number;
+      email: string;
+      nameFirst: string;
+      nameSecond: string;
+      numberEm: string;
+      numberTrailer: string;
+      numberTruck: string;
+      percentage: number;
+      referenceId: string;
+      secondJobBenefit: number;
+      terminal: string;
+      waitingBenefitEmployerCzk: number;
+      waitingBenefitEur: number;
+    };
+    newEurCzkRate: number;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -500,7 +526,13 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
         }
       });
 
-      return payload;
+      return {
+        userUid: payload.userUid,
+        monthToArchive: [payload.monthToArchive],
+        filteredCurrentJobs: payload.filteredCurrentJobs,
+        userSettings: payload.userSettings,
+        newEurCzkRate: payload.newEurCzkRate,
+      };
     } catch (error: any | null) {
       console.log(error.message);
       throw error.message;
@@ -513,11 +545,25 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
 export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
   "auth/archiveDoneJobsNewMonthRedux",
   async (payload: {
-    newEurCzkRate: number;
     userUid: string;
-    newMonthToArchive: [];
-    filteredCurrentJobs: [];
-    userSettings: UserSettingsType;
+    newMonthToArchive: ArchiveType[];
+    filteredCurrentJobs: JobType[];
+    userSettings: {
+      baseMoney: number;
+      email: string;
+      nameFirst: string;
+      nameSecond: string;
+      numberEm: string;
+      numberTrailer: string;
+      numberTruck: string;
+      percentage: number;
+      referenceId: string;
+      secondJobBenefit: number;
+      terminal: string;
+      waitingBenefitEmployerCzk: number;
+      waitingBenefitEur: number;
+    };
+    newEurCzkRate: number;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
@@ -563,8 +609,8 @@ export const archiveDoneJobsExistingMonthRedux = createAsyncThunk(
   "auth/archiveDoneJobsExistingMonthRedux",
   async (payload: {
     userUid: string;
-    updatedArchivedJobs: [];
-    filteredCurrentJobs: [];
+    updatedArchivedJobs: ArchiveType[];
+    filteredCurrentJobs: JobType[];
   }) => {
     try {
       await runTransaction(db, async (transaction) => {
@@ -635,7 +681,10 @@ export const deleteArchiveMonthJobRedux = createAsyncThunk(
 //
 export const editArchiveJobRedux = createAsyncThunk(
   "auth/editArchiveJobRedux",
-  async (payload: { userUid: string; sortedUpdatedArchivedJobs: [] }) => {
+  async (payload: {
+    userUid: string;
+    sortedUpdatedArchivedJobs: ArchiveType[];
+  }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -658,7 +707,7 @@ export const editArchiveJobRedux = createAsyncThunk(
 //
 export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
   "auth/editArchiveDoneJobsNewMonthRedux",
-  async (payload: { userUid: string; newMonthToArchive: [] }) => {
+  async (payload: { userUid: string; newMonthToArchive: ArchiveType[] }) => {
     console.log(payload);
     try {
       await runTransaction(db, async (transaction) => {
@@ -685,7 +734,7 @@ export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
 //
 export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
   "auth/editArchiveMonthSummarySettingsRedux",
-  async (payload: { userUid: string; updatedArchivedJobs: [] }) => {
+  async (payload: { userUid: string; updatedArchivedJobs: ArchiveType[] }) => {
     try {
       await runTransaction(db, async (transaction) => {
         const userDocRef = doc(db, "users", payload.userUid);
@@ -717,6 +766,7 @@ interface UserSettings {
   numberTrailer: string;
   numberTruck: string;
   percentage: number;
+  referenceId: string;
   secondJobBenefit: number;
   terminal: string;
   waitingBenefitEmployerCzk: number;
@@ -840,6 +890,7 @@ const initialState: AuthState = {
       numberTrailer: "",
       numberTruck: "",
       percentage: 0,
+      referenceId: "",
       secondJobBenefit: 0,
       terminal: "",
       waitingBenefitEmployerCzk: 0,
@@ -1391,21 +1442,21 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        // state.loggedInUserData.userSettings.email = action.payload.email;
-        // state.loggedInUserData.userSettings.baseMoney =
-        //   action.payload.baseMoney;
-        // state.loggedInUserData.userSettings.eurCzkRate =
-        //   action.payload.eurCzkRate;
-        // state.loggedInUserData.userSettings.percentage =
-        //   action.payload.percentage;
-        // state.loggedInUserData.userSettings.secondJobBenefit =
-        //   action.payload.secondJobBenefit;
-        // state.loggedInUserData.userSettings.terminal = action.payload.terminal;
-        // state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
-        //   action.payload.waitingBenefitEmployerCzk;
-        // state.loggedInUserData.userSettings.waitingBenefitEur =
-        //   action.payload.waitingBenefitEur;
-        state.loggedInUserData.userSettings = action.payload;
+        state.loggedInUserData.userSettings.email = action.payload.email;
+        state.loggedInUserData.userSettings.baseMoney =
+          action.payload.baseMoney;
+        state.loggedInUserData.userSettings.eurCzkRate =
+          action.payload.eurCzkRate;
+        state.loggedInUserData.userSettings.percentage =
+          action.payload.percentage;
+        state.loggedInUserData.userSettings.secondJobBenefit =
+          action.payload.secondJobBenefit;
+        state.loggedInUserData.userSettings.terminal = action.payload.terminal;
+        state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
+          action.payload.waitingBenefitEmployerCzk;
+        state.loggedInUserData.userSettings.waitingBenefitEur =
+          action.payload.waitingBenefitEur;
+        // state.loggedInUserData.userSettings = action.payload;
 
         state.isChangeSettingsReduxSuccess = true;
 

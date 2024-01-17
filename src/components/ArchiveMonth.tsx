@@ -136,7 +136,7 @@ const ArchiveMonth = ({
       0
     );
 
-    const summaryCzk = summaryEur * userSettings.eurCzkRate;
+    const summaryCzk = Math.floor(summaryEur * userSettings.eurCzkRate);
 
     const summarySecondJobs = jobs.reduce((acc, job) => {
       return job.isSecondJob ? acc + 1 : acc;
@@ -146,12 +146,13 @@ const ArchiveMonth = ({
       return acc + job.waiting;
     }, 0);
 
-    const summarySalary =
+    const summarySalary = Math.floor(
       userSettings.baseMoney +
-      summaryCzk * (userSettings.percentage * 0.01) +
-      summarySecondJobs * userSettings.secondJobBenefit +
-      // waitingBenefitEur se nepřičítá - je už summaryEur
-      summaryWaiting * userSettings.waitingBenefitEmployerCzk;
+        summaryCzk * (userSettings.percentage * 0.01) +
+        summarySecondJobs * userSettings.secondJobBenefit +
+        // waitingBenefitEur se nepřičítá - je už summaryEur
+        summaryWaiting * userSettings.waitingBenefitEmployerCzk
+    );
     const summaryBaseMoney = userSettings.baseMoney;
     const summaryPercentage = userSettings.percentage;
     const summarySecondJobBenefit = userSettings.secondJobBenefit;

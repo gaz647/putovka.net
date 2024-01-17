@@ -6,8 +6,8 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { RiCharacterRecognitionLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { BsPencil } from "react-icons/bs";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useDispatch, useSelector } from "react-redux";
 import {
   setIsEditingFalseRedux,
   resetJobToAddValuesRedux,
@@ -16,16 +16,16 @@ import {
 } from "../redux/AuthSlice";
 
 const Navbar: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isLoading = useSelector((state) => state.auth.isLoading);
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isEditing = useSelector((state) => state.auth.isEditing);
+  const isLoading = useAppSelector((state) => state.auth.isLoading);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isEditing = useAppSelector((state) => state.auth.isEditing);
 
   // USE STATE -----------------------------------------------------------
   //

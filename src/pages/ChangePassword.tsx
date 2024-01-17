@@ -1,5 +1,6 @@
 import "./ChangeEmail.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { changePasswordRedux, runToastRedux } from "../redux/AuthSlice";
@@ -9,7 +10,7 @@ import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const ChangePassword = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -17,10 +18,10 @@ const ChangePassword = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isChangePasswordReduxSuccess = useSelector(
+  const isChangePasswordReduxSuccess = useAppSelector(
     (state) => state.auth.isChangePasswordReduxSuccess
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -42,7 +43,7 @@ const ChangePassword = () => {
       newPassword1 === newPassword2
     ) {
       console.log(
-        "ChangePassword.jsx - Uživatel vyplnil nové heslo - bude spuštěn dispatch pro změnu hesla"
+        "ChangePassword.tsx - Uživatel vyplnil nové heslo - bude spuštěn dispatch pro změnu hesla"
       );
       dispatch(
         changePasswordRedux({ currentPassword, newPassword: newPassword1 })

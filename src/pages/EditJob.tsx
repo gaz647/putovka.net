@@ -1,7 +1,7 @@
 import "./EditJob.css";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useSelector, useDispatch } from "react-redux";
 import {
   editJobRedux,
   editArchiveJobRedux,
@@ -21,8 +21,28 @@ import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
 import Spinner from "../components/Spinner";
 
+type JobType = {
+  city: string;
+  cmr: string;
+  date: string;
+  day: string;
+  id: string;
+  isCustomJob: boolean;
+  isHoliday: boolean;
+  isSecondJob: boolean;
+  note: string;
+  price: number;
+  terminal: string;
+  timestamp: number;
+  waiting: number;
+  weight: number;
+  weightTo27t: number;
+  weightTo34t: number;
+  zipcode: string;
+};
+
 const EditJob = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -30,72 +50,78 @@ const EditJob = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const currentJobs = useSelector(
+  const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-  const isCustomJob = useSelector((state) => state.auth.jobToEdit.isCustomJob);
-  const isHoliday = useSelector((state) => state.auth.jobToEdit.isHoliday);
-  const timestamp = useSelector((state) => state.auth.jobToEdit.timestamp);
-  const weightTo27t = useSelector((state) => state.auth.jobToEdit.weightTo27t);
-  const weightTo34t = useSelector((state) => state.auth.jobToEdit.weightTo34t);
+  const isCustomJob = useAppSelector(
+    (state) => state.auth.jobToEdit.isCustomJob
+  );
+  const isHoliday = useAppSelector((state) => state.auth.jobToEdit.isHoliday);
+  const timestamp = useAppSelector((state) => state.auth.jobToEdit.timestamp);
+  const weightTo27t = useAppSelector(
+    (state) => state.auth.jobToEdit.weightTo27t
+  );
+  const weightTo34t = useAppSelector(
+    (state) => state.auth.jobToEdit.weightTo34t
+  );
   const [price, setPrice] = useState(
-    useSelector((state) => state.auth.jobToEdit.price)
+    useAppSelector((state) => state.auth.jobToEdit.price)
   );
   const [isSecondJob, setIsSecondJob] = useState(
-    useSelector((state) => state.auth.jobToEdit.isSecondJob)
+    useAppSelector((state) => state.auth.jobToEdit.isSecondJob)
   );
   const [waiting, setWaiting] = useState(
-    useSelector((state) => state.auth.jobToEdit.waiting)
+    useAppSelector((state) => state.auth.jobToEdit.waiting)
   );
   const [note, setNote] = useState(
-    useSelector((state) => state.auth.jobToEdit.note)
+    useAppSelector((state) => state.auth.jobToEdit.note)
   );
   const [terminal, setTerminal] = useState(
-    useSelector((state) => state.auth.jobToEdit.terminal)
+    useAppSelector((state) => state.auth.jobToEdit.terminal)
   );
-  const id = useSelector((state) => state.auth.jobToEdit.id);
-  const userUid = useSelector((state) => state.auth.loggedInUserUid);
-  const archivedJobs = useSelector(
+  const id = useAppSelector((state) => state.auth.jobToEdit.id);
+  const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
+  const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
   );
-  const isEditingArchivedJob = useSelector(
+  const isEditingArchivedJob = useAppSelector(
     (state) => state.auth.isEditingArchivedJob
   );
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isEditJobReduxSuccess = useSelector(
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isEditJobReduxSuccess = useAppSelector(
     (state) => state.auth.isEditJobReduxSuccess
   );
-  const isEditArchiveJobReduxSuccess = useSelector(
+  const isEditArchiveJobReduxSuccess = useAppSelector(
     (state) => state.auth.isEditArchiveJobReduxSuccess
   );
-  const dateSel = useSelector((state) => state.auth.jobToEdit.date);
+  const dateSel = useAppSelector((state) => state.auth.jobToEdit.date);
 
-  const userSettings = useSelector(
+  const userSettings = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings
   );
 
   // USE STATE -----------------------------------------------------------
   //
   const [date, setDate] = useState(
-    useSelector((state) => state.auth.jobToEdit.date)
+    useAppSelector((state) => state.auth.jobToEdit.date)
   );
   const [day, setDay] = useState("");
   const [city, setCity] = useState(
-    useSelector((state) => state.auth.jobToEdit.city)
+    useAppSelector((state) => state.auth.jobToEdit.city)
   );
   const [cmr, setCmr] = useState(
-    useSelector((state) => state.auth.jobToEdit.cmr)
+    useAppSelector((state) => state.auth.jobToEdit.cmr)
   );
   const [zipcode, setZipcode] = useState(
-    useSelector((state) => state.auth.jobToEdit.zipcode)
+    useAppSelector((state) => state.auth.jobToEdit.zipcode)
   );
   const [weight, setWeight] = useState(
-    useSelector((state) => state.auth.jobToEdit.weight)
+    useAppSelector((state) => state.auth.jobToEdit.weight)
   );
 
   // GET CURRENT DAY CZ --------------------------------------------------
   //
-  const getCurrentDayCZ = (dateVariable) => {
+  const getCurrentDayCZ = (dateVariable: string) => {
     const dateTransformed = new Date(dateVariable);
     const daysOfTheWeek = ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"];
     return daysOfTheWeek[dateTransformed.getDay()];
@@ -103,7 +129,7 @@ const EditJob = () => {
 
   // HANDLE WEIGHT CHANGE ------------------------------------------------
   //
-  const handleWeightChange = (newWeight) => {
+  const handleWeightChange = (newWeight: number) => {
     if (newWeight === 27) {
       setWeight(27);
       if (!isCustomJob) {
@@ -121,9 +147,27 @@ const EditJob = () => {
 
   // EDIT JOB ------------------------------------------------------------
   //
-  const editJob = (e) => {
+  const editJob = (e: React.FormEvent) => {
     e.preventDefault();
-    let editedJob = {};
+    let editedJob: JobType = {
+      city: "",
+      cmr: "",
+      date: "",
+      day: "",
+      id: "",
+      isCustomJob: false,
+      isHoliday: false,
+      isSecondJob: false,
+      note: "",
+      price: 0,
+      terminal: "",
+      timestamp: 0,
+      waiting: 0,
+      weight: 0,
+      weightTo27t: 0,
+      weightTo34t: 0,
+      zipcode: "",
+    };
 
     if (!isHoliday) {
       if (!city || !cmr || !zipcode || !terminal) {
@@ -184,7 +228,7 @@ const EditJob = () => {
       const tempCurrentJobs = [...currentJobs];
 
       const indexOfJobToBeEdited = tempCurrentJobs.findIndex(
-        (job) => job.id === editedJob.id
+        (job: JobType) => job.id === editedJob.id
       );
 
       if (indexOfJobToBeEdited !== -1) {
@@ -192,9 +236,11 @@ const EditJob = () => {
 
         const sortedCurrentJobsEdit = sortJobs(tempCurrentJobs);
 
-        const payload = { userUid, sortedCurrentJobsEdit };
+        if (userUid) {
+          const payload = { userUid, sortedCurrentJobsEdit };
 
-        dispatch(editJobRedux(payload));
+          dispatch(editJobRedux(payload));
+        }
       }
     }
     // EDIT ARCHIVED JOB
@@ -213,8 +259,8 @@ const EditJob = () => {
       if (compareMonths(dateSel, date)) {
         console.log("STEJNÝ MĚSÍC");
         updatedArchivedJobs = tempArchivedJobs.map((oneMonth) => {
-          if (oneMonth.jobs.some((job) => job.id === id)) {
-            const updatedJobs = oneMonth.jobs.map((job) =>
+          if (oneMonth.jobs.some((job: JobType) => job.id === id)) {
+            const updatedJobs = oneMonth.jobs.map((job: JobType) =>
               job.id === id ? editedJob : job
             );
             return {
@@ -228,16 +274,18 @@ const EditJob = () => {
         sortedUpdatedArchivedJobs =
           sortArchiveMonthJobsAscending(updatedArchivedJobs);
 
-        payload = {
-          userUid,
-          sortedUpdatedArchivedJobs,
-        };
+        if (userUid) {
+          payload = {
+            userUid,
+            sortedUpdatedArchivedJobs,
+          };
 
-        dispatch(editArchiveJobRedux(payload));
+          dispatch(editArchiveJobRedux(payload));
+        }
       }
       // upravovaná práce JINÝ MĚSÍC
       else {
-        let indexOfMonthToMoveJob;
+        let indexOfMonthToMoveJob = 0;
 
         for (let i = 0; i < archivedJobs.length; i++) {
           if (compareMonths(archivedJobs[i].date, date)) {
@@ -258,7 +306,9 @@ const EditJob = () => {
               console.log(typeof archivedMonth.jobs);
               return {
                 ...archivedMonth,
-                jobs: archivedMonth.jobs.filter((oneJob) => oneJob.id !== id),
+                jobs: archivedMonth.jobs.filter(
+                  (oneJob: JobType) => oneJob.id !== id
+                ),
               };
             }
           });
@@ -270,12 +320,14 @@ const EditJob = () => {
           console.log("hotovo");
           console.log(sortedUpdatedArchivedJobs);
 
-          payload = {
-            userUid,
-            sortedUpdatedArchivedJobs,
-          };
+          if (userUid) {
+            payload = {
+              userUid,
+              sortedUpdatedArchivedJobs,
+            };
 
-          dispatch(editArchiveJobRedux(payload));
+            dispatch(editArchiveJobRedux(payload));
+          }
         }
         // měsíc NEEXISTUJE - vytvořit nový
         else {
@@ -292,7 +344,7 @@ const EditJob = () => {
           const filteredArchivedJobs = archivedJobs.map((oneMonth) => {
             return {
               ...oneMonth,
-              jobs: oneMonth.jobs.filter((job) => job.id !== id),
+              jobs: oneMonth.jobs.filter((job: JobType) => job.id !== id),
             };
           });
 
@@ -307,12 +359,14 @@ const EditJob = () => {
 
           console.log(newMonthToArchive);
 
-          const payload = {
-            userUid,
-            newMonthToArchive,
-          };
+          if (userUid) {
+            const payload = {
+              userUid,
+              newMonthToArchive,
+            };
 
-          dispatch(editArchiveDoneJobsNewMonthRedux(payload));
+            dispatch(editArchiveDoneJobsNewMonthRedux(payload));
+          }
         }
       }
     }

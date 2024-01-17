@@ -1,7 +1,8 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { loginRedux, setIsLoadingTrueRedux } from "../redux/AuthSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+// import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast, Flip } from "react-toastify";
@@ -13,7 +14,7 @@ import InputField from "../components/InputField";
 import Heading from "../components/Heading";
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   // PROPS DESTRUCTURING -------------------------------------------------
@@ -21,11 +22,11 @@ const Login = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const isLoading = useSelector((state) => state.auth.isLoading);
-  const isLoading2 = useSelector((state) => state.auth.isLoading2);
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const toastRedux = useSelector((state) => state.auth.toast);
-  const resetToastStateRedux = useSelector(
+  const isLoading = useAppSelector((state) => state.auth.isLoading);
+  const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+  const toastRedux = useAppSelector((state) => state.auth.toast);
+  const resetToastStateRedux = useAppSelector(
     (state) => state.auth.toast.resetToast
   );
 
@@ -36,18 +37,18 @@ const Login = () => {
 
   // HANDLE LOGIN --------------------------------------------------------
   //
-  const handleLogIn = (e) => {
+  const handleLogIn = (e: React.FormEvent) => {
     e.preventDefault();
 
     const loginCredentials = { loginEmail, loginPassword };
-    console.log("login SPUŠTĚN V Login.jsx");
+    console.log("login SPUŠTĚN V Login.tsx");
     dispatch(loginRedux(loginCredentials));
     dispatch(setIsLoadingTrueRedux);
   };
 
   // HANDLE DECLINE ------------------------------------------------------
   //
-  const handleDecline = (e) => {
+  const handleDecline = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginEmail("");
     setLoginPassword("");

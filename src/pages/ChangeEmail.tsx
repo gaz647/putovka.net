@@ -8,7 +8,7 @@ import {
   logoutRedux,
   runToastRedux,
 } from "../redux/AuthSlice";
-import resetIsAccountDisabledRedux from "../redux/AuthSlice";
+import { resetIsAccountDisabledRedux } from "../redux/AuthSlice";
 import isValidEmailFormat from "../customFunctionsAndHooks/isValidEmailFormat";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import Spinner from "../components/Spinner";
@@ -43,7 +43,7 @@ const ChangeEmail = () => {
   const changeEmail = () => {
     if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
       console.log(
-        "ChangeEmail.jsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
+        "ChangeEmail.tsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
       );
       dispatch(changeEmailRedux({ currentPassword, newEmail: newEmail1 }));
     } else if (!currentPassword || !newEmail1 || !newEmail2) {
@@ -94,7 +94,7 @@ const ChangeEmail = () => {
   useEffect(() => {
     if (isAccountDisabled === true) {
       console.log("isAccountDisabled", isAccountDisabled);
-      dispatch(resetIsAccountDisabledRedux);
+      dispatch(resetIsAccountDisabledRedux());
       dispatch(logoutRedux());
     }
   }, [dispatch, isAccountDisabled]);
