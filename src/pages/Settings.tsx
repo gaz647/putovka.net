@@ -1,13 +1,8 @@
 import "./Settings.css";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-// import { useDispatch, useSelector } from "react-redux";
-import {
-  changeSettingsRedux,
-  logoutInSettingsRedux,
-  runToastRedux,
-} from "../redux/AuthSlice";
+import { changeSettingsRedux, runToastRedux } from "../redux/AuthSlice";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import firstLetterToUpperCase from "../customFunctionsAndHooks/firstLetterToUpperCase";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
@@ -26,9 +21,7 @@ const Settings = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
-  const loggedInUserEmail = useAppSelector(
-    (state) => state.auth.loggedInUserEmail
-  );
+
   // const isLoading = useSelector((state) => state.auth.isLoading);
   const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
   const isLogoutReduxSuccess = useAppSelector(
@@ -73,7 +66,6 @@ const Settings = () => {
       (state) => state.auth.loggedInUserData.userSettings.numberTruck
     )
   );
-
   const [terminal, setTerminal] = useState(
     useAppSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
   );
@@ -225,13 +217,6 @@ const Settings = () => {
     navigate("/");
   };
 
-  // HANDLE LOGOUT -------------------------------------------------------
-  //
-  const handleLogout = () => {
-    dispatch(logoutInSettingsRedux());
-    // dispatch(logoutOnAuthRedux());
-  };
-
   // USE EFFECT ----------------------------------------------------------
   //
   useEffect(() => {
@@ -266,36 +251,7 @@ const Settings = () => {
             />
           )}
           <SettingsMenu />
-          <header className="settings-header">
-            <Heading text={"Nastavení"} />
-            <div className="settings-header-user-email text-shadow">
-              {loggedInUserEmail}
-            </div>
-            <button
-              className="settings-header-user-btns text-shadow"
-              onClick={() => handleLogout()}
-            >
-              odhlásit
-            </button>
-            <Link
-              className="settings-header-user-btns text-shadow"
-              to={"/change-email"}
-            >
-              změnit email
-            </Link>
-            <Link
-              className="settings-header-user-btns text-shadow"
-              to={"/change-password"}
-            >
-              změnit heslo
-            </Link>
-            <Link
-              className="settings-header-user-btns text-shadow"
-              to={"/delete-account"}
-            >
-              smazat účet
-            </Link>
-          </header>
+          <Heading text={"Nastavení"} />
           <main>
             <form className="settings-form">
               {/* <InputField

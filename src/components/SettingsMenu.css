@@ -9,8 +9,8 @@
 
 .settings-menu-icon {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0rem;
+  right: 0rem;
   font-size: 2rem;
   color: var(--white-2);
   cursor: pointer;
@@ -28,7 +28,7 @@
   height: 1px;
   width: 90%;
   margin: 0 auto;
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.5);
 }
 
 .settings-menu-email-icon {
@@ -39,11 +39,21 @@
   display: block;
   width: inherit;
   text-align: center;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0.7rem;
   cursor: pointer;
   color: var(--white-2);
 }
 
 .settings-menu-anchor:hover {
   font-size: 1.1rem;
+}
+
+.settings-menu-user-email {
+  display: block;
+  width: inherit;
+  text-align: center;
+  padding: 1rem 0.7rem;
+  cursor: pointer;
+  color: var(--white-2);
+  font-weight: bold;
 }

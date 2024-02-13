@@ -20,6 +20,9 @@ const DeleteAccount = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
+  const loggedInUserEmail = useAppSelector(
+    (state) => state.auth.loggedInUserEmail
+  );
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
   const isDeleteAccountReduxSuccess = useAppSelector(
     (state) => state.auth.isDeleteAccountReduxSuccess
@@ -44,6 +47,17 @@ const DeleteAccount = () => {
   //
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (loggedInUserEmail === "test@emtruck.net") {
+      dispatch(
+        runToastRedux({
+          message: "Tento účet je pouze pro testování a nelze smazat!",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
+
     if (currentPassword && userConfirmationCode === deleteCode) {
       // Vše vyplněné - nyní se otevře modal
       console.log("Vše vyplněné - nyní se otevře modal");
