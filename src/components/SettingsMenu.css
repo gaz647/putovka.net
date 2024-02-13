@@ -10,7 +10,7 @@
 .settings-menu-icon {
   position: absolute;
   top: 0rem;
-  right: 0rem;
+  right: 0.25rem;
   font-size: 2rem;
   color: var(--white-2);
   cursor: pointer;
