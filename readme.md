@@ -1,8 +1,6 @@
 ![header image](src/images/github-header-image.png)
 
 <br>
-<br>
-<br>
 
 # Welcome to the emTRUCK web application
 
@@ -14,7 +12,6 @@
 
 **Users who know the purpose of the app will understand this readme. For others, this is just a basic overview.**
 
-<br>
 <br>
 
 ## Registration
