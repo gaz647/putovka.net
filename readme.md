@@ -9,25 +9,16 @@
 **_Users who know the purpose of the app will understand this readme. For others, this is just a basic overview._**
 
 <br>
+<br>
 
 # Introduction
 
 ### The primary purpose of the application is to enable drivers to keep a driving log and thus provide them with an overview of their current and past earnings.
 
 <br>
-
-## Main Features
-
-- Keeping a driving log
-- Adding and managing jobs and holidays
-- Calculating wages and reimbursements
-- Archiving data
-- Viewing history and statistics
-- Exporting data
-
 <br>
 
-## Used technologies
+# Used technologies
 
 <br>
 
@@ -42,6 +33,32 @@
 ![axios badge](https://img.shields.io/badge/AXIOS-386BE4?style=for-the-badge)
 ![vite badge](https://img.shields.io/badge/VITE-BA37FE?style=for-the-badge)
 ![exchange rate api badge](https://img.shields.io/badge/EXCHANGE%20RATE%20API-ED1C24?style=for-the-badge)
+
+<br>
+<br>
+
+# Time spent
+
+<br>
+
+[![wakatime](https://wakatime.com/badge/github/gaz647/tatova-pila_ts.svg)](https://wakatime.com/badge/github/gaz647/tatova-pila_ts)
+
+<br>
+<br>
+
+# Main Features
+
+- Keeping a driving log
+- Adding and managing jobs and holidays
+- Calculating wages and reimbursements
+- Archiving data
+- Viewing history and statistics
+- Exporting data
+
+<br>
+<br>
+
+# First steps :
 
 <br>
 
