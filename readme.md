@@ -2,15 +2,46 @@
 
 <br>
 
-# Welcome to the emTRUCK web application
+<br>
+
+**_This application is created for truck drivers of a private company._**
+
+**_Users who know the purpose of the app will understand this readme. For others, this is just a basic overview._**
 
 <br>
 
-**This application is created for truck drivers of a private company.**
+# Introduction
+
+### The primary purpose of the application is to enable drivers to keep a driving log and thus provide them with an overview of their current and past earnings.
 
 <br>
 
-**Users who know the purpose of the app will understand this readme. For others, this is just a basic overview.**
+## Main Features
+
+- Keeping a driving log
+- Adding and managing jobs and holidays
+- Calculating wages and reimbursements
+- Archiving data
+- Viewing history and statistics
+- Exporting data
+
+<br>
+
+## Used technologies
+
+<br>
+
+![html badge](https://img.shields.io/badge/HTML-F15B29?style=for-the-badge)
+![css badge](https://img.shields.io/badge/CSS-1775BB?style=for-the-badge)
+![typescript badge](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge)
+![react badge](https://img.shields.io/badge/REACT-00D8FF?style=for-the-badge&labelColor=black)
+![react router badge](https://img.shields.io/badge/REACT%20ROUTER-F54250?style=for-the-badge&labelColor=black)
+![redux toolkit badge](https://img.shields.io/badge/REDUX%20TOOLKIT-7649BB?style=for-the-badge&labelColor=black)
+![firebase badge](https://img.shields.io/badge/FIREBASE-FFCC32?style=for-the-badge)
+![netlify badge](https://img.shields.io/badge/NETLIFY-00BEBB?style=for-the-badge)
+![axios badge](https://img.shields.io/badge/AXIOS-386BE4?style=for-the-badge)
+![vite badge](https://img.shields.io/badge/VITE-BA37FE?style=for-the-badge)
+![exchange rate api badge](https://img.shields.io/badge/EXCHANGE%20RATE%20API-ED1C24?style=for-the-badge)
 
 <br>
 
