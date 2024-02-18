@@ -41,7 +41,7 @@
 
 <br>
 
-[![wakatime](https://wakatime.com/badge/github/gaz647/tatova-pila_ts.svg)](https://wakatime.com/badge/github/gaz647/tatova-pila_ts)
+[![wakatime](https://wakatime.com/badge/github/gaz647/emTRUCK.svg)](https://wakatime.com/badge/github/gaz647/emTRUCK)
 
 <br>
 <br>
