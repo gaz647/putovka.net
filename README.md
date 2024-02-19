@@ -13,7 +13,7 @@
 
 # Introduction
 
-### The primary purpose of the application is to enable drivers to keep a driving log and thus provide them with an overview of their current and past earnings.
+The primary purpose of the application is to enable drivers to keep a driving log and thus provide them with an overview of their current and past earnings.
 
 <br>
 <br>
