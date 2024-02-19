@@ -29,10 +29,10 @@
 ![react router badge](https://img.shields.io/badge/REACT%20ROUTER-F54250?style=for-the-badge&labelColor=black)
 ![redux toolkit badge](https://img.shields.io/badge/REDUX%20TOOLKIT-7649BB?style=for-the-badge&labelColor=black)
 ![firebase badge](https://img.shields.io/badge/FIREBASE-FFCC32?style=for-the-badge)
-![netlify badge](https://img.shields.io/badge/NETLIFY-00BEBB?style=for-the-badge)
 ![axios badge](https://img.shields.io/badge/AXIOS-386BE4?style=for-the-badge)
-![vite badge](https://img.shields.io/badge/VITE-BA37FE?style=for-the-badge)
 ![exchange rate api badge](https://img.shields.io/badge/EXCHANGE%20RATE%20API-ED1C24?style=for-the-badge)
+![vite badge](https://img.shields.io/badge/VITE-BA37FE?style=for-the-badge)
+![netlify badge](https://img.shields.io/badge/NETLIFY-00BEBB?style=for-the-badge)
 
 <br>
 <br>
