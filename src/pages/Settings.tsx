@@ -153,7 +153,8 @@ const Settings = () => {
 
   // HANDLE SUBMIT -------------------------------------------------------
   //
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (!nameFirst || !nameSecond || !numberEm || !numberTruck) {
       dispatch(
         runToastRedux({

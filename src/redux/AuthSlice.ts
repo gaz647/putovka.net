@@ -1442,13 +1442,25 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-        state.loggedInUserData.userSettings.email = action.payload.email;
+
         state.loggedInUserData.userSettings.baseMoney =
           action.payload.baseMoney;
+        state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.eurCzkRate;
+        state.loggedInUserData.userSettings.nameFirst =
+          action.payload.nameFirst;
+        state.loggedInUserData.userSettings.nameSecond =
+          action.payload.nameSecond;
+        state.loggedInUserData.userSettings.numberEm = action.payload.numberEm;
+        state.loggedInUserData.userSettings.numberTrailer =
+          action.payload.numberTrailer;
+        state.loggedInUserData.userSettings.numberTruck =
+          action.payload.numberTruck;
         state.loggedInUserData.userSettings.percentage =
           action.payload.percentage;
+        state.loggedInUserData.userSettings.referenceId =
+          action.payload.referenceId;
         state.loggedInUserData.userSettings.secondJobBenefit =
           action.payload.secondJobBenefit;
         state.loggedInUserData.userSettings.terminal = action.payload.terminal;
@@ -1456,7 +1468,6 @@ export const authSlice = createSlice({
           action.payload.waitingBenefitEmployerCzk;
         state.loggedInUserData.userSettings.waitingBenefitEur =
           action.payload.waitingBenefitEur;
-        // state.loggedInUserData.userSettings = action.payload;
 
         state.isChangeSettingsReduxSuccess = true;
 
