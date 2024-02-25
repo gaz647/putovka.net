@@ -55,6 +55,12 @@ body {
   letter-spacing: 0.01rem;
 }
 
+button {
+  border: none;
+  display: inline;
+  background-color: inherit;
+}
+
 .wrapper {
   height: 100%;
   width: 90%;

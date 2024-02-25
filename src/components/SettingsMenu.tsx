@@ -39,11 +39,13 @@ const SettingsMenu = () => {
   //
   return (
     <div className="settings-menu" onBlur={handleBlur} tabIndex={0}>
-      <IoMenu
+      <button
         className={`settings-menu-icon ${!showMenu && "vis-visible"}`}
         onClick={() => setShowMenu(!showMenu)}
-      />
-      <div className={`settings-menu-content ${!showMenu && "dis-none"}`}>
+      >
+        <IoMenu />
+      </button>
+      <nav className={`settings-menu-content ${!showMenu && "dis-none"}`}>
         <div className=" settings-menu-user-email">{loggedInUserEmail}</div>
 
         <div className="settings-menu-content-line"></div>
@@ -122,7 +124,7 @@ const SettingsMenu = () => {
           </span>
           info@emtruck.net
         </a>
-      </div>
+      </nav>
     </div>
   );
 };
