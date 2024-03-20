@@ -115,7 +115,15 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
         oneJob.cmr
       }\u00A0\u00A0${oneJob.city}\u00A0\u00A0${oneJob.zipcode}\u00A0\u00A0${
         oneJob.weight + "t"
-      }\u00A0\u00A0${oneJob.price + "€"}\n`;
+      }\u00A0\u00A0${
+        oneJob.price + oneJob.waiting * summary.summaryWaitingBenefitEur + "€"
+      }\u00A0\u00A0${
+        oneJob.waiting > 0 || oneJob.isSecondJob
+          ? `(${oneJob.waiting > 0 ? `čekání: ${oneJob.waiting}` : ""}${
+              oneJob.waiting > 0 && oneJob.isSecondJob ? ", " : ""
+            }${oneJob.isSecondJob ? "druhá práce" : ""})`
+          : ""
+      }\n`;
     });
 
     const summaryData = `Fakturace:\u00A0${summaryEur}\u00A0€\u00A0/\u00A0${summaryCzk}\u00A0Kč\nPrací:\u00A0\u00A0${summaryJobs}\nDruhých prací:\u00A0\u00A0${summarySecondJobs}\nČekání:\u00A0\u00A0${summaryWaiting}\nDovolené:\u00A0\u00A0${summaryHolidays}`;
