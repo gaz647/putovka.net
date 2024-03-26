@@ -29,6 +29,7 @@ import {
   logoutRedux,
   loadUserDataRedux,
   getInfoMessageRedux,
+  getInfoMessagesRedux,
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
   runToastRedux,
@@ -52,6 +53,7 @@ const App = () => {
     (state) => state.auth.isAccountDeletingPending
   );
   const infoMessage = useAppSelector((state) => state.auth.infoMessage);
+  const infoMessages = useAppSelector((state) => state.auth.infoMessages);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -101,6 +103,7 @@ const App = () => {
             dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
             dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
             dispatch(getInfoMessageRedux());
+            dispatch(getInfoMessagesRedux());
           }
         }
       });
@@ -129,6 +132,7 @@ const App = () => {
         localStorage.setItem("infoMessage", infoMessage);
       }
     }
+    console.log("INFO MESSAGES: ", infoMessages);
   }, [dispatch, infoMessage]);
 
   return (

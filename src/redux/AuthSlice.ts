@@ -96,6 +96,29 @@ export const getInfoMessageRedux = createAsyncThunk(
   }
 );
 
+// GET INFO MESSAGES
+//
+export const getInfoMessagesRedux = createAsyncThunk(
+  "auth/getInfoMessagesRedux",
+  async () => {
+    try {
+      const docRef = doc(db, "infoMessages", "messages");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("DATA EXISTUJÍ !!!!!!!!!!!!!!!!!!!!!!!!! ");
+        console.log(docSnap.data().content);
+
+        return docSnap.data().content;
+      }
+    } catch (error: any | null) {
+      console.log("getInfoMessagesRedux TRY část NE-ÚSPĚŠNÁ");
+
+      throw error.message;
+    }
+  }
+);
+
 // Asynchronní funkce která po registraci vytvoří jeho collection ve Firestore databázi
 //
 const createUserData = async (userAuth: { email: string; uid: string }) => {
@@ -800,8 +823,15 @@ interface ArchiveMonthSummarySettings {
   eurCzkRate: number;
 }
 
+interface InfoMessagesMessage {
+  date: string;
+  text: string;
+  title: string;
+}
+
 interface AuthState {
   infoMessage: string | null;
+  infoMessages: any | null;
   toast: {
     isVisible: boolean;
     message: string;
@@ -840,6 +870,7 @@ interface AuthState {
 
 const initialState: AuthState = {
   infoMessage: null,
+  infoMessages: null,
   toast: {
     isVisible: false,
     message: "",
@@ -1340,6 +1371,19 @@ export const authSlice = createSlice({
       })
       .addCase(getInfoMessageRedux.rejected, () => {
         console.log("getInfoMessageRedux SELHAL");
+      })
+      //
+      // -----------------------------------------------------------------------
+      //
+      .addCase(getInfoMessagesRedux.pending, () => {
+        console.log("getInfoMessagesRedux PROBÍHÁ");
+      })
+      .addCase(getInfoMessagesRedux.fulfilled, (state, action) => {
+        console.log("getInfoMessagesRedux ÚSPĚŠNĚ DOKONČEN");
+        state.infoMessages = action.payload;
+      })
+      .addCase(getInfoMessagesRedux.rejected, () => {
+        console.log("getInfoMessagesRedux SELHAL");
       })
       //
       // -----------------------------------------------------------------------
