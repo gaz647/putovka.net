@@ -1,6 +1,6 @@
 import "./DeleteAccount.css";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";

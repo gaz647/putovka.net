@@ -13,6 +13,7 @@ import {
   resetIsEditJobReduxSuccess,
   setIsLoading2FalseRedux,
   resetIsChangeSettingsReduxSuccess,
+  runToastRedux,
 } from "../redux/AuthSlice";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
@@ -130,6 +131,7 @@ const Dashboard = () => {
   const isChangeSettingsReduxSuccess = useAppSelector(
     (state) => state.auth.isChangeSettingsReduxSuccess
   );
+  const infoMessages = useAppSelector((state) => state.auth.infoMessages);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -433,6 +435,33 @@ const Dashboard = () => {
     dispatch,
     navigate,
   ]);
+
+  useEffect(() => {
+    //  NEW MESSAGE
+    //
+    const lsInfoMessages = localStorage.getItem("infoMessages");
+
+    if (infoMessages !== null && infoMessages !== null) {
+      const infoMessagesStringified = JSON.stringify(infoMessages);
+      if (
+        lsInfoMessages === null ||
+        infoMessagesStringified !== lsInfoMessages
+      ) {
+        localStorage.setItem("infoMessages", infoMessagesStringified);
+        dispatch(
+          runToastRedux({
+            message: "Nová zpráva - budete přesměrováni.",
+            style: "warning",
+            time: 2000,
+          })
+        );
+        setTimeout(() => {
+          navigate("/info-messages");
+        }, 3000);
+      }
+    }
+    console.log("toto by mělo být uloženo do LS", infoMessages);
+  }, [infoMessages, navigate]);
 
   return (
     <section className="wrapper relative">

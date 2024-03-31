@@ -50,6 +50,12 @@ const SettingsMenu = () => {
 
         <div className="settings-menu-content-line"></div>
 
+        <Link className="settings-menu-anchor" to={"/info-messages"}>
+          Zprávy
+        </Link>
+
+        <div className="settings-menu-content-line"></div>
+
         <div className="settings-menu-anchor" onClick={() => handleLogout()}>
           Odhlásit
         </div>

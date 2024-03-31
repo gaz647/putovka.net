@@ -106,9 +106,6 @@ export const getInfoMessagesRedux = createAsyncThunk(
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("DATA EXISTUJÍ !!!!!!!!!!!!!!!!!!!!!!!!! ");
-        console.log(docSnap.data().content);
-
         return docSnap.data().content;
       }
     } catch (error: any | null) {
@@ -797,8 +794,8 @@ interface UserSettings {
 }
 
 interface LoggedInUserData {
-  archivedJobs: any[]; // Přizpůsobte podle skutečné struktury
-  currentJobs: any[]; // Přizpůsobte podle skutečné struktury
+  archivedJobs: any[];
+  currentJobs: any[];
   userSettings: UserSettings;
 }
 
@@ -823,15 +820,15 @@ interface ArchiveMonthSummarySettings {
   eurCzkRate: number;
 }
 
-interface InfoMessagesMessage {
+type InfoMessage = {
   date: string;
   text: string;
   title: string;
-}
+};
 
 interface AuthState {
   infoMessage: string | null;
-  infoMessages: any | null;
+  infoMessages: InfoMessage[] | null;
   toast: {
     isVisible: boolean;
     message: string;

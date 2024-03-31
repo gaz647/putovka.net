@@ -28,7 +28,6 @@ import {
   logoutOnAuthRedux,
   logoutRedux,
   loadUserDataRedux,
-  getInfoMessageRedux,
   getInfoMessagesRedux,
   setIsLoadingTrueRedux,
   setIsLoadingFalseRedux,
@@ -36,6 +35,7 @@ import {
 } from "./redux/AuthSlice";
 import DeleteAccount from "./pages/DeleteAccount";
 import PersonalDataProcessing from "./pages/PersonalDataProcessing";
+import InfoMessages from "./pages/InfoMessages";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -52,8 +52,6 @@ const App = () => {
   const isAccountDeletingPending = useAppSelector(
     (state) => state.auth.isAccountDeletingPending
   );
-  const infoMessage = useAppSelector((state) => state.auth.infoMessage);
-  const infoMessages = useAppSelector((state) => state.auth.infoMessages);
 
   // USE STATE -----------------------------------------------------------
   //
@@ -102,7 +100,6 @@ const App = () => {
           if (user && user.email) {
             dispatch(loadUserDataRedux({ email: user.email, uid: user.uid }));
             dispatch(loginOnAuthRedux({ email: user.email, uid: user.uid }));
-            dispatch(getInfoMessageRedux());
             dispatch(getInfoMessagesRedux());
           }
         }
@@ -112,28 +109,6 @@ const App = () => {
       };
     }
   }, [dispatch, isAccountDeletingPending, isLoginPending, isRegisterPending]);
-
-  useEffect(() => {
-    //  RUN MESSAGE
-    //
-    const lsInfoMessage = localStorage.getItem("infoMessage");
-
-    if (infoMessage !== null && infoMessage !== "") {
-      if (lsInfoMessage === null || infoMessage !== lsInfoMessage) {
-        console.log("infoMessage", infoMessage, "lsInfoMessage", lsInfoMessage);
-        console.log("teď má vyjet toast");
-        dispatch(
-          runToastRedux({
-            message: infoMessage,
-            style: "warning",
-            time: false,
-          })
-        );
-        localStorage.setItem("infoMessage", infoMessage);
-      }
-    }
-    console.log("INFO MESSAGES: ", infoMessages);
-  }, [dispatch, infoMessage]);
 
   return (
     <BrowserRouter>
@@ -170,6 +145,7 @@ const App = () => {
             <Route path="/change-password" element={<ChangePassword />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
             <Route path="/edit-job" element={<EditJob />} />
+            <Route path="/info-messages" element={<InfoMessages />} />
             <Route path="*" element={<Error404 />} />
           </Route>
         </Route>
