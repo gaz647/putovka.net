@@ -15,6 +15,8 @@ import {
 import { BsPencil, BsTrash3 } from "react-icons/bs";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { FaUmbrellaBeach } from "react-icons/fa";
+import getIsNewWaiting from "../customFunctionsAndHooks/getIsNewWaiting";
+import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
 
 type JobType = {
   city: string;
@@ -175,7 +177,10 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
         </div>
         <div className="archive-month-job-header-item">
           {!isHoliday
-            ? (price + waiting * waitingBenefitEur).toLocaleString() + " €"
+            ? (getIsNewWaiting(date)
+                ? getPriceWithWaiting(price, waiting).toLocaleString()
+                : price + waiting * waitingBenefitEur
+              ).toLocaleString() + " €"
             : "-------"}
         </div>
 

@@ -17,6 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
+import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
 
 type JobType = {
   city: string;
@@ -71,9 +72,9 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
     (state) => state.auth.loggedInUserData.currentJobs
   );
 
-  const waitingBenefitEur = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
-  );
+  // const waitingBenefitEur = useAppSelector(
+  //   (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
+  // );
 
   // USE STATE -----------------------------------------------------------
   //
@@ -201,7 +202,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
           </div>
           <div className="one-job-header-copy-to-clipboard-item">
             {!isHoliday
-              ? (price + waiting * waitingBenefitEur).toLocaleString() + " €"
+              ? getPriceWithWaiting(price, waiting).toLocaleString() + " €"
               : ""}
           </div>
         </div>

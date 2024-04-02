@@ -11,6 +11,8 @@ import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { deleteArchiveMonthRedux } from "../redux/AuthSlice";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { BsTrash3 } from "react-icons/bs";
+import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
+import getIsNewWaiting from "../customFunctionsAndHooks/getIsNewWaiting";
 
 type userSettingsType = {
   baseMoney: number;
@@ -128,10 +130,15 @@ const ArchiveMonth = ({
   //
   const getSummary = () => {
     const summaryEur = jobs.reduce(
-      (acc, job: { price: number; waiting: number }) => {
-        // sečte eura z prací + eura za čekání
+      (acc, job: { price: number; waiting: number; date: string }) => {
+        // sečte eura z prací + eura za čekání (1. hodina = 15, další hodiny = 30)
         // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
-        return acc + job.price + job.waiting * userSettings.waitingBenefitEur;
+        return (
+          acc +
+          (getIsNewWaiting(job.date)
+            ? getPriceWithWaiting(job.price, job.waiting)
+            : job.price + job.waiting * userSettings.waitingBenefitEur)
+        );
       },
       0
     );

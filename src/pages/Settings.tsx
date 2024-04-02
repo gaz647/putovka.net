@@ -341,7 +341,7 @@ const Settings = () => {
                   setWaitingBenefitEmployerCzk(e);
                 }}
               />
-              <InputField
+              {/* <InputField
                 type={"number"}
                 label={"Příplatek za čekání"}
                 subLabel={"(€)"}
@@ -349,7 +349,7 @@ const Settings = () => {
                 onNumberChange={(e) => {
                   setWaitingBenefitEur(e);
                 }}
-              />
+              /> */}
               <InputField
                 required={true}
                 type={"number-decimal"}

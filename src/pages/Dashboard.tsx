@@ -26,6 +26,7 @@ import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiv
 import sortCurrentJobsToBeArchivedAscending from "../customFunctionsAndHooks/sortCurrentJobsToBeArchivedAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
+import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
 import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
 import { useNavigate } from "react-router-dom";
@@ -340,14 +341,10 @@ const Dashboard = () => {
       }, 0)
     );
     setTotalEur(
-      // sečte eura z prací + eura za čekání
+      // sečte eura z prací + eura za čekání (1. hodina = 15, další hodiny = 30)
       // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
       currentJobs.reduce((acc, oneJob) => {
-        return (
-          acc +
-          Number(oneJob.price) +
-          Number(oneJob.waiting * waitingBenefitEur)
-        );
+        return acc + getPriceWithWaiting(oneJob.price, oneJob.waiting);
       }, 0)
     );
     setTotalCzk(Math.floor(totalEur * eurCzkRate));
