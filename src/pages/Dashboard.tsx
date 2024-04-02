@@ -438,13 +438,19 @@ const Dashboard = () => {
     //
     const lsInfoMessages = localStorage.getItem("infoMessages");
 
-    if (infoMessages !== null && infoMessages !== null) {
+    const lsInfoMessagesParsed = lsInfoMessages && JSON.parse(lsInfoMessages);
+
+    if (infoMessages !== null) {
+      console.log("infoMessages není null");
+
       const infoMessagesStringified = JSON.stringify(infoMessages);
+
       if (
         lsInfoMessages === null ||
-        infoMessagesStringified !== lsInfoMessages
+        lsInfoMessagesParsed.length !== infoMessages.length
       ) {
         localStorage.setItem("infoMessages", infoMessagesStringified);
+
         dispatch(
           runToastRedux({
             message: "Nová zpráva - budete přesměrováni.",
@@ -457,7 +463,6 @@ const Dashboard = () => {
         }, 3000);
       }
     }
-    console.log("toto by mělo být uloženo do LS", infoMessages);
   }, [infoMessages, navigate]);
 
   return (
