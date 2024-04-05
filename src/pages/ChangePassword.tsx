@@ -29,9 +29,10 @@ const ChangePassword = () => {
   const [newPassword1, setNewPassword1] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
 
-  // CHANGE EMAIL --------------------------------------------------------
+  // CHANGE PASSWORD --------------------------------------------------------
   //
-  const changeEmail = () => {
+  const changePassword = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     console.log("click");
     // password password
     if (
@@ -61,9 +62,7 @@ const ChangePassword = () => {
       );
       return;
     } else if (newPassword1 !== newPassword2) {
-      console.log(
-        "ChangeEmail - Uživatelem zadané údaje se buď neshodují nebo je heslo < 5"
-      );
+      console.log("ChangeEmail - newPassword1 !== newPassword2");
       dispatch(
         runToastRedux({
           message: "Nová hesla se neshodují!",
@@ -128,7 +127,7 @@ const ChangePassword = () => {
 
           <ConfirmDeclineBtns
             disabled={!newPassword1 || !newPassword2 || !currentPassword}
-            confirmFunction={changeEmail}
+            confirmFunction={changePassword}
             declineFunction={handleDecline}
           />
         </form>

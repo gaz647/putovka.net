@@ -40,7 +40,8 @@ const ChangeEmail = () => {
 
   // CHANGE EMAIL --------------------------------------------------------
   //
-  const changeEmail = () => {
+  const changeEmail = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
       console.log(
         "ChangeEmail.tsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
