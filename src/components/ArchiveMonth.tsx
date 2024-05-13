@@ -11,58 +11,7 @@ import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { deleteArchiveMonthRedux } from "../redux/AuthSlice";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { BsTrash3 } from "react-icons/bs";
-import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
-import getIsNewWaiting from "../customFunctionsAndHooks/getIsNewWaiting";
-
-type userSettingsType = {
-  baseMoney: number;
-  email: string;
-  eurCzkRate: number;
-  nameFirst: string;
-  nameSecond: string;
-  numberEm: string;
-  numberTrailer: string;
-  numberTruck: string;
-  percentage: number;
-  referenceId: string;
-  secondJobBenefit: number;
-  terminal: string;
-  waitingBenefitEmployerCzk: number;
-  waitingBenefitEur: number;
-};
-
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
-
-type ArchiveType = {
-  date: string;
-  jobs: JobType[];
-  userSettings: {
-    baseMoney: number;
-    eurCzkRate: number;
-    percentage: number;
-    secondJobBenefit: number;
-    waitingBenefitEmployerCzk: number;
-    waitingBenefitEur: number;
-  };
-};
+import { JobType, ArchiveType } from "../types";
 
 type SummaryType = {
   date: string;
@@ -70,14 +19,8 @@ type SummaryType = {
   summaryCzk: number;
   summarySecondJobs: number;
   summaryWaiting: number;
-  summarySalary: number;
   summaryJobs: number;
   summaryHolidays: number;
-  summaryBaseMoney: number;
-  summaryPercentage: number;
-  summarySecondJobBenefit: number;
-  summaryWaitingBenefitEmployerCzk: number;
-  summaryWaitingBenefitEur: number;
   summaryEurCzkRate: number;
   jobs: JobType[];
 };
@@ -87,7 +30,7 @@ const ArchiveMonth = ({
 }: {
   oneMonthData: {
     date: string;
-    userSettings: userSettingsType;
+    eurCzkRate: number;
     jobs: JobType[];
   };
 }) => {
@@ -95,7 +38,7 @@ const ArchiveMonth = ({
 
   // PROPS DESTRUCTURING -------------------------------------------------
   //
-  const { date, userSettings, jobs } = oneMonthData;
+  const { date, eurCzkRate, jobs } = oneMonthData;
 
   // USE SELECTOR --------------------------------------------------------
   //
@@ -112,14 +55,8 @@ const ArchiveMonth = ({
     summaryCzk: 0,
     summarySecondJobs: 0,
     summaryWaiting: 0,
-    summarySalary: 0,
     summaryJobs: 0,
     summaryHolidays: 0,
-    summaryBaseMoney: 0,
-    summaryPercentage: 0,
-    summarySecondJobBenefit: 0,
-    summaryWaitingBenefitEmployerCzk: 0,
-    summaryWaitingBenefitEur: 0,
     summaryEurCzkRate: 0,
     jobs: [],
   });
@@ -130,20 +67,13 @@ const ArchiveMonth = ({
   //
   const getSummary = () => {
     const summaryEur = jobs.reduce(
-      (acc, job: { price: number; waiting: number; date: string }) => {
-        // sečte eura z prací + eura za čekání (1. hodina = 15, další hodiny = 30)
-        // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
-        return (
-          acc +
-          (getIsNewWaiting(job.date)
-            ? getPriceWithWaiting(job.price, job.waiting)
-            : job.price + job.waiting * userSettings.waitingBenefitEur)
-        );
+      (acc, job: { price: number; date: string }) => {
+        return acc + job.price;
       },
       0
     );
 
-    const summaryCzk = Math.floor(summaryEur * userSettings.eurCzkRate);
+    const summaryCzk = Math.floor(summaryEur * eurCzkRate);
 
     const summarySecondJobs = jobs.reduce((acc, job) => {
       return job.isSecondJob ? acc + 1 : acc;
@@ -153,20 +83,7 @@ const ArchiveMonth = ({
       return acc + job.waiting;
     }, 0);
 
-    const summarySalary = Math.floor(
-      userSettings.baseMoney +
-        summaryCzk * (userSettings.percentage * 0.01) +
-        summarySecondJobs * userSettings.secondJobBenefit +
-        // waitingBenefitEur se nepřičítá - je už summaryEur
-        summaryWaiting * userSettings.waitingBenefitEmployerCzk
-    );
-    const summaryBaseMoney = userSettings.baseMoney;
-    const summaryPercentage = userSettings.percentage;
-    const summarySecondJobBenefit = userSettings.secondJobBenefit;
-    const summaryWaitingBenefitEmployerCzk =
-      userSettings.waitingBenefitEmployerCzk;
-    const summaryWaitingBenefitEur = userSettings.waitingBenefitEur;
-    const summaryEurCzkRate = userSettings.eurCzkRate;
+    const summaryEurCzkRate = eurCzkRate;
     const summaryJobs = jobs.filter((oneJob) => !oneJob.isHoliday).length;
     const summaryHolidays = jobs.filter((oneJob) => oneJob.isHoliday).length;
 
@@ -176,15 +93,9 @@ const ArchiveMonth = ({
       summaryCzk,
       summarySecondJobs,
       summaryWaiting,
-      summarySalary,
       summaryJobs,
       summaryHolidays,
       summaryEurCzkRate,
-      summaryBaseMoney,
-      summaryPercentage,
-      summarySecondJobBenefit,
-      summaryWaitingBenefitEmployerCzk,
-      summaryWaitingBenefitEur,
       jobs,
     });
   };

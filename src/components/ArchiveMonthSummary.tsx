@@ -8,46 +8,13 @@ import { BsPencil } from "react-icons/bs";
 import { setArchiveMonthSummarySettingsToEditRedux } from "../redux/AuthSlice";
 import getArchiveDate from "../customFunctionsAndHooks/getArchiveDate";
 import getCzDateArchiveJobEmailFormat from "../customFunctionsAndHooks/getCzDateArchiveJobEmailFormat";
+import { ArchiveMonthSummaryType } from "../types";
 
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
-
-type SummaryType = {
-  date: string;
-  summaryEur: number;
-  summaryCzk: number;
-  summarySecondJobs: number;
-  summaryWaiting: number;
-  summarySalary: number;
-  summaryJobs: number;
-  summaryHolidays: number;
-  summaryBaseMoney: number;
-  summaryPercentage: number;
-  summarySecondJobBenefit: number;
-  summaryWaitingBenefitEmployerCzk: number;
-  summaryWaitingBenefitEur: number;
-  summaryEurCzkRate: number;
-  jobs: JobType[];
-};
-
-const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
+const ArchiveMonthSummary = ({
+  summary,
+}: {
+  summary: ArchiveMonthSummaryType;
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -59,14 +26,8 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
     summaryCzk,
     summarySecondJobs,
     summaryWaiting,
-    summarySalary,
     summaryJobs,
     summaryHolidays,
-    summaryBaseMoney,
-    summaryPercentage,
-    summarySecondJobBenefit,
-    summaryWaitingBenefitEmployerCzk,
-    summaryWaitingBenefitEur,
     summaryEurCzkRate,
     jobs,
   } = summary;
@@ -86,11 +47,6 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
   const setEditArchiveMonthSummarySettings = () => {
     const payload = {
       date,
-      baseMoney: summaryBaseMoney,
-      percentage: summaryPercentage,
-      secondJobBenefit: summarySecondJobBenefit,
-      waitingBenefitEmployerCzk: summaryWaitingBenefitEmployerCzk,
-      waitingBenefitEur: summaryWaitingBenefitEur,
       eurCzkRate: summaryEurCzkRate,
     };
 
@@ -114,9 +70,7 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
       return `${getCzDateArchiveJobEmailFormat(oneJob.date)}\u00A0\u00A0${
         oneJob.cmr
       }\u00A0\u00A0${oneJob.city}\u00A0\u00A0${oneJob.zipcode}\u00A0\u00A0${
-        oneJob.weight + "t"
-      }\u00A0\u00A0${
-        oneJob.price + oneJob.waiting * summary.summaryWaitingBenefitEur + "€"
+        oneJob.weight + "kg"
       }\u00A0\u00A0${
         oneJob.waiting > 0 || oneJob.isSecondJob
           ? `(${oneJob.waiting > 0 ? `čekání: ${oneJob.waiting}` : ""}${
@@ -171,13 +125,7 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
         </div>
 
         <br />
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Výplata:</div>
-          <div className="archive-month-summary-item">
-            {summarySalary ? summarySalary.toLocaleString() + " Kč" : "0 Kč"}
-          </div>
-        </div>
-        <br />
+
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Prací:</div>
           <div className="archive-month-summary-item">{summaryJobs}</div>
@@ -202,60 +150,10 @@ const ArchiveMonthSummary = ({ summary }: { summary: SummaryType }) => {
         <BsPencil
           onClick={() => setShowArchiveMonthSummarySettingsEditModal(true)}
         />
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Základ:</div>
-
-          <div className="archive-month-summary-item">
-            {summaryBaseMoney
-              ? summaryBaseMoney.toLocaleString() + " Kč"
-              : "0 Kč"}
-          </div>
-        </div>
-
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">% z fakturace:</div>
-          <div className="archive-month-summary-item">
-            {summaryPercentage + " %"}
-            <span>&nbsp;</span>
-          </div>
-        </div>
-
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Druhá práce:</div>
-          <div className="archive-month-summary-item">
-            {summarySecondJobBenefit
-              ? summarySecondJobBenefit.toLocaleString() + " Kč"
-              : "0 Kč"}
-          </div>
-        </div>
-
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">
-            Čekání - zaměstnavatel (Kč):
-          </div>
-          <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEmployerCzk
-              ? summaryWaitingBenefitEmployerCzk.toLocaleString() + " Kč"
-              : "0 Kč"}
-          </div>
-        </div>
-
-        <div className="archive-month-summary-one-line">
-          <div className="archive-month-summary-item">Čekání (€):</div>
-          <div className="archive-month-summary-item">
-            {summaryWaitingBenefitEur
-              ? summaryWaitingBenefitEur.toLocaleString() + " €"
-              : "0 €"}
-            <span>&nbsp;</span>
-            <span>&nbsp;</span>
-          </div>
-        </div>
 
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Kurz Eur/Kč:</div>
-          <div className="archive-month-summary-item">
-            {summaryEurCzkRate + " Kč"}
-          </div>
+          <div className="archive-month-summary-item">{summaryEurCzkRate}</div>
         </div>
 
         <a

@@ -172,7 +172,7 @@ const InputField: React.FC<InputFieldProps> = ({
             {label !== "" || label !== undefined ? label : null}
             {required && <div className="required">*</div>}
             {subLabel && (
-              <span className="input-field-sub-label">{" " + subLabel}</span>
+              <span className="input-field-sub-label">{` (${subLabel})`}</span>
             )}
           </div>
           <input
@@ -263,43 +263,6 @@ const InputField: React.FC<InputFieldProps> = ({
         </div>
       )}
 
-      {type === "weight" && (
-        <div className="input-field-container input-field-weight-container">
-          <div
-            className={`input-field-weight ${
-              choosedWeight === 27 ? "input-field-weight-clicked" : ""
-            }`}
-            onClick={() => handleWeightChange(27)}
-          >
-            <div className="weight">
-              <span
-                className={`weight-text ${
-                  choosedWeight === 27 ? "weight-text-clicked" : ""
-                }`}
-              >
-                &lt;27t
-              </span>
-            </div>
-          </div>
-          <div
-            className={`input-field-weight ${
-              choosedWeight === 34 ? "input-field-weight-clicked" : ""
-            }`}
-            onClick={() => handleWeightChange(34)}
-          >
-            <div className="weight">
-              <span
-                className={`weight-text ${
-                  choosedWeight === 34 ? "weight-text-clicked" : ""
-                }`}
-              >
-                &lt;34t
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-
       {type === "checkbox" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
@@ -322,7 +285,7 @@ const InputField: React.FC<InputFieldProps> = ({
         </div>
       )}
 
-      {type === "terminal" && (
+      {type === "basePlace" && (
         <div className="input-field-container">
           <div className="input-field-label text-shadow">
             {label !== "" || label !== undefined ? label : null}

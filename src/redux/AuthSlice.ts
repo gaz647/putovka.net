@@ -24,58 +24,7 @@ import { db } from "../firebase/config";
 import axios from "axios";
 import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
-
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
-
-type ArchiveType = {
-  date: string;
-  jobs: JobType[];
-  userSettings: {
-    baseMoney: number;
-    eurCzkRate: number;
-    percentage: number;
-    secondJobBenefit: number;
-    waitingBenefitEmployerCzk: number;
-    waitingBenefitEur: number;
-  };
-};
-
-interface Job {
-  city: string;
-  cmr: string;
-  date: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-}
+import { JobType, ArchiveType, Job } from "../types";
 
 // GET INFO MESSAGE
 //
@@ -136,7 +85,7 @@ const createUserData = async (userAuth: { email: string; uid: string }) => {
       archivedJobs: [],
       currentJobs: [],
       userSettings: {
-        baseMoney: 0,
+        basePlace: "ceska_trebova",
         email: email,
         eurCzkRate: response.data.conversion_rate,
         nameFirst: "",
@@ -144,12 +93,7 @@ const createUserData = async (userAuth: { email: string; uid: string }) => {
         numberEm: "",
         numberTrailer: "",
         numberTruck: "",
-        percentage: 0,
         referenceId: uuidv4(),
-        secondJobBenefit: 0,
-        terminal: "ceska_trebova",
-        waitingBenefitEmployerCzk: 0,
-        waitingBenefitEur: 0,
       },
     });
     console.log("stáhnut kurz");
@@ -342,7 +286,7 @@ export const changeSettingsRedux = createAsyncThunk(
   async (payload: {
     userUid: string;
     userSettings: {
-      baseMoney: number;
+      basePlace: string;
       email: string;
       eurCzkRate: number;
       nameFirst: string;
@@ -350,12 +294,7 @@ export const changeSettingsRedux = createAsyncThunk(
       numberEm: string;
       numberTrailer: string;
       numberTruck: string;
-      percentage: number;
       referenceId: string;
-      secondJobBenefit: number;
-      terminal: string;
-      waitingBenefitEmployerCzk: number;
-      waitingBenefitEur: number;
     };
   }) => {
     try {
@@ -487,36 +426,24 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
     monthToArchive: {
       date: string;
       jobs: JobType[];
-      userSettings: {
-        baseMoney: number;
-        eurCzkRate: number;
-        percentage: number;
-        secondJobBenefit: number;
-        waitingBenefitEmployerCzk: number;
-        waitingBenefitEur: number;
-      };
+      eurCzkRate: number;
     };
     filteredCurrentJobs: JobType[];
     userSettings: {
-      baseMoney: number;
+      basePlace: string;
       email: string;
       nameFirst: string;
       nameSecond: string;
       numberEm: string;
       numberTrailer: string;
       numberTruck: string;
-      percentage: number;
       referenceId: string;
-      secondJobBenefit: number;
-      terminal: string;
-      waitingBenefitEmployerCzk: number;
-      waitingBenefitEur: number;
     };
     newEurCzkRate: number;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
-        baseMoney: payload.userSettings.baseMoney,
+        basePlace: payload.userSettings.basePlace,
         email: payload.userSettings.email,
         eurCzkRate: payload.newEurCzkRate,
         nameFirst: payload.userSettings.nameFirst,
@@ -524,13 +451,7 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
         numberEm: payload.userSettings.numberEm,
         numberTrailer: payload.userSettings.numberTrailer,
         numberTruck: payload.userSettings.numberTruck,
-        percentage: payload.userSettings.percentage,
         referenceId: payload.userSettings.referenceId,
-        secondJobBenefit: payload.userSettings.secondJobBenefit,
-        terminal: payload.userSettings.terminal,
-        waitingBenefitEmployerCzk:
-          payload.userSettings.waitingBenefitEmployerCzk,
-        waitingBenefitEur: payload.userSettings.waitingBenefitEur,
       };
 
       await runTransaction(db, async (transaction) => {
@@ -539,7 +460,7 @@ export const archiveDoneJobsFirstTimeRedux = createAsyncThunk(
 
         if (userDocSnapshot.exists()) {
           transaction.update(userDocRef, {
-            archivedJobs: payload.monthToArchive,
+            archivedJobs: [payload.monthToArchive],
             currentJobs: payload.filteredCurrentJobs,
             userSettings: userSetingsNewCurrencyRate,
           });
@@ -569,25 +490,20 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
     newMonthToArchive: ArchiveType[];
     filteredCurrentJobs: JobType[];
     userSettings: {
-      baseMoney: number;
+      basePlace: string;
       email: string;
       nameFirst: string;
       nameSecond: string;
       numberEm: string;
       numberTrailer: string;
       numberTruck: string;
-      percentage: number;
       referenceId: string;
-      secondJobBenefit: number;
-      terminal: string;
-      waitingBenefitEmployerCzk: number;
-      waitingBenefitEur: number;
     };
     newEurCzkRate: number;
   }) => {
     try {
       const userSetingsNewCurrencyRate = {
-        baseMoney: payload.userSettings.baseMoney,
+        basePlace: payload.userSettings.basePlace,
         email: payload.userSettings.email,
         eurCzkRate: payload.newEurCzkRate,
         nameFirst: payload.userSettings.nameFirst,
@@ -595,13 +511,7 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
         numberEm: payload.userSettings.numberEm,
         numberTrailer: payload.userSettings.numberTrailer,
         numberTruck: payload.userSettings.numberTruck,
-        percentage: payload.userSettings.percentage,
         referenceId: payload.userSettings.referenceId,
-        secondJobBenefit: payload.userSettings.secondJobBenefit,
-        terminal: payload.userSettings.terminal,
-        waitingBenefitEmployerCzk:
-          payload.userSettings.waitingBenefitEmployerCzk,
-        waitingBenefitEur: payload.userSettings.waitingBenefitEur,
       };
 
       await runTransaction(db, async (transaction) => {
@@ -777,7 +687,7 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
 //
 
 interface UserSettings {
-  baseMoney: number;
+  basePlace: string;
   email: string;
   eurCzkRate: number;
   nameFirst: string;
@@ -785,12 +695,7 @@ interface UserSettings {
   numberEm: string;
   numberTrailer: string;
   numberTruck: string;
-  percentage: number;
   referenceId: string;
-  secondJobBenefit: number;
-  terminal: string;
-  waitingBenefitEmployerCzk: number;
-  waitingBenefitEur: number;
 }
 
 interface LoggedInUserData {
@@ -801,12 +706,9 @@ interface LoggedInUserData {
 
 interface JobToAdd {
   city: string;
-  isCustomJob: boolean;
   price: number;
   weight: number;
-  terminal: string;
-  weightTo27t: number;
-  weightTo34t: number;
+  basePlace: string;
   zipcode: string;
 }
 
@@ -909,7 +811,7 @@ const initialState: AuthState = {
     archivedJobs: [],
     currentJobs: [],
     userSettings: {
-      baseMoney: 0,
+      basePlace: "",
       email: "",
       eurCzkRate: 0,
       nameFirst: "",
@@ -917,42 +819,31 @@ const initialState: AuthState = {
       numberEm: "",
       numberTrailer: "",
       numberTruck: "",
-      percentage: 0,
       referenceId: "",
-      secondJobBenefit: 0,
-      terminal: "",
-      waitingBenefitEmployerCzk: 0,
-      waitingBenefitEur: 0,
     },
   },
   jobToAdd: {
+    basePlace: "",
     city: "",
-    isCustomJob: true,
     price: 0,
-    weight: 27,
-    terminal: "",
-    weightTo27t: 0,
-    weightTo34t: 0,
+    weight: 0,
     zipcode: "",
   },
   isEditing: false,
   isEditingArchivedJob: false,
   jobToEdit: {
+    basePlace: "",
     city: "",
     cmr: "",
     date: "",
     id: "",
-    isCustomJob: false,
     isHoliday: false,
     isSecondJob: false,
     note: "",
     price: 0,
-    terminal: "",
     timestamp: 0,
     waiting: 0,
     weight: 0,
-    weightTo27t: 0,
-    weightTo34t: 0,
     zipcode: "",
   },
   archiveMonthSummarySettingsToEdit: {
@@ -1081,18 +972,14 @@ export const authSlice = createSlice({
       state.loggedInUserUid = null;
       state.loggedInUserData.archivedJobs = [];
       state.loggedInUserData.currentJobs = [];
-      state.loggedInUserData.userSettings.baseMoney = 0;
       state.loggedInUserData.userSettings.email = "";
       state.loggedInUserData.userSettings.nameFirst = "";
       state.loggedInUserData.userSettings.nameSecond = "";
       state.loggedInUserData.userSettings.numberEm = "";
       state.loggedInUserData.userSettings.numberTrailer = "";
       state.loggedInUserData.userSettings.numberTruck = "";
-      state.loggedInUserData.userSettings.percentage = 0;
-      state.loggedInUserData.userSettings.secondJobBenefit = 0;
-      state.loggedInUserData.userSettings.terminal = "";
-      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk = 0;
-      state.loggedInUserData.userSettings.waitingBenefitEur = 0;
+      state.loggedInUserData.userSettings.basePlace = "";
+
       state.isLoading = false;
     },
 
@@ -1100,61 +987,42 @@ export const authSlice = createSlice({
       console.log("setLoadedUsetLoadedUserDataReduxerData SPUŠTĚN");
       state.loggedInUserData.archivedJobs = action.payload.archivedJobs;
       state.loggedInUserData.currentJobs = action.payload.currentJobs;
-      state.loggedInUserData.userSettings.baseMoney =
-        action.payload.userSettings.baseMoney;
       state.loggedInUserData.userSettings.eurCzkRate =
         action.payload.userSettings.eurCzkRate;
       state.loggedInUserData.userSettings.email =
         action.payload.userSettings.email;
-      state.loggedInUserData.userSettings.percentage =
-        action.payload.userSettings.percentage;
-      state.loggedInUserData.userSettings.secondJobBenefit =
-        action.payload.userSettings.secondJobBenefit;
-      state.loggedInUserData.userSettings.terminal =
+      state.loggedInUserData.userSettings.basePlace =
         action.payload.userSettings.terminal;
-      state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
-        action.payload.userSettings.waitingBenefitEmployerCzk;
-      state.loggedInUserData.userSettings.waitingBenefitEur =
-        action.payload.userSettings.waitingBenefitEur;
     },
 
     setJobToAddRedux: (state, action) => {
       console.log("setJobToAddRedux SPUŠTĚN");
       state.jobToAdd.city = action.payload.city;
-      state.jobToAdd.isCustomJob = action.payload.isCustomJob;
-      state.jobToAdd.terminal = action.payload.terminal;
-      state.jobToAdd.weightTo27t = action.payload.weightTo27t;
-      state.jobToAdd.weightTo34t = action.payload.weightTo34t;
+      state.jobToAdd.basePlace = action.payload.terminal;
       state.jobToAdd.zipcode = action.payload.zipcode;
     },
 
     resetJobToAddValuesRedux: (state) => {
       console.log("resetJobToAddValuesRedux SPUŠTĚN");
       state.jobToAdd.city = "";
-      state.jobToAdd.isCustomJob = true;
-      state.jobToAdd.terminal = "";
-      state.jobToAdd.weightTo27t = 0;
-      state.jobToAdd.weightTo34t = 0;
+      state.jobToAdd.basePlace = "";
       state.jobToAdd.zipcode = "";
     },
 
     setJobToEditRedux: (state, action) => {
       console.log("setJobToEditRedux SPUŠTĚN");
+      state.jobToEdit.basePlace = action.payload.basePlace;
       state.jobToEdit.city = action.payload.city;
       state.jobToEdit.cmr = action.payload.cmr;
       state.jobToEdit.date = action.payload.date;
       state.jobToEdit.id = action.payload.id;
-      state.jobToEdit.isCustomJob = action.payload.isCustomJob;
       state.jobToEdit.isHoliday = action.payload.isHoliday;
       state.jobToEdit.isSecondJob = action.payload.isSecondJob;
       state.jobToEdit.note = action.payload.note;
       state.jobToEdit.price = action.payload.price;
-      state.jobToEdit.terminal = action.payload.terminal;
       state.jobToEdit.timestamp = action.payload.timestamp;
       state.jobToEdit.waiting = action.payload.waiting;
       state.jobToEdit.weight = action.payload.weight;
-      state.jobToEdit.weightTo27t = action.payload.weightTo27t;
-      state.jobToEdit.weightTo34t = action.payload.weightTo34t;
       state.jobToEdit.zipcode = action.payload.zipcode;
     },
 
@@ -1209,21 +1077,18 @@ export const authSlice = createSlice({
       console.log("resetJobToEditValuesRedux SPUŠTĚN");
       state.isEditingArchivedJob = false;
 
+      state.jobToEdit.basePlace = "";
       state.jobToEdit.city = "";
       state.jobToEdit.cmr = "";
       state.jobToEdit.date = "";
       state.jobToEdit.id = "";
-      state.jobToEdit.isCustomJob = true;
       state.jobToEdit.isHoliday = false;
       state.jobToEdit.isSecondJob = false;
       state.jobToEdit.note = "";
       state.jobToEdit.price = 0;
-      state.jobToEdit.terminal = "";
       state.jobToEdit.timestamp = 0;
       state.jobToEdit.waiting = 0;
       state.jobToEdit.weight = 0;
-      state.jobToEdit.weightTo27t = 0;
-      state.jobToEdit.weightTo34t = 0;
       state.jobToEdit.zipcode = "";
     },
   },
@@ -1483,9 +1348,6 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
-
-        state.loggedInUserData.userSettings.baseMoney =
-          action.payload.baseMoney;
         state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.eurCzkRate;
@@ -1498,18 +1360,8 @@ export const authSlice = createSlice({
           action.payload.numberTrailer;
         state.loggedInUserData.userSettings.numberTruck =
           action.payload.numberTruck;
-        state.loggedInUserData.userSettings.percentage =
-          action.payload.percentage;
         state.loggedInUserData.userSettings.referenceId =
           action.payload.referenceId;
-        state.loggedInUserData.userSettings.secondJobBenefit =
-          action.payload.secondJobBenefit;
-        state.loggedInUserData.userSettings.terminal = action.payload.terminal;
-        state.loggedInUserData.userSettings.waitingBenefitEmployerCzk =
-          action.payload.waitingBenefitEmployerCzk;
-        state.loggedInUserData.userSettings.waitingBenefitEur =
-          action.payload.waitingBenefitEur;
-
         state.isChangeSettingsReduxSuccess = true;
 
         // state.isLoading2 = false;
@@ -1566,12 +1418,10 @@ export const authSlice = createSlice({
         console.log("addJobRedux ÚSPĚŠNĚ DOKONČEN");
         state.isAddJobReduxSuccess = true;
 
+        state.jobToAdd.basePlace = "";
         state.jobToAdd.city = "";
         state.jobToAdd.price = 0;
-        state.jobToAdd.terminal = "";
         state.jobToAdd.weight = 0;
-        state.jobToAdd.weightTo27t = 0;
-        state.jobToAdd.weightTo34t = 0;
         state.jobToAdd.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;
         state.isLoading2 = false;
@@ -1604,21 +1454,18 @@ export const authSlice = createSlice({
 
         state.isEditJobReduxSuccess = true;
 
+        state.jobToEdit.basePlace = "";
         state.jobToEdit.city = "";
         state.jobToEdit.cmr = "";
         state.jobToEdit.date = "";
         state.jobToEdit.id = "";
-        state.jobToEdit.isCustomJob = true;
         state.jobToEdit.isHoliday = false;
         state.jobToEdit.isSecondJob = false;
         state.jobToEdit.note = "";
         state.jobToEdit.price = 0;
-        state.jobToEdit.terminal = "";
         state.jobToEdit.timestamp = 0;
         state.jobToEdit.waiting = 0;
         state.jobToEdit.weight = 0;
-        state.jobToEdit.weightTo27t = 0;
-        state.jobToEdit.weightTo34t = 0;
         state.jobToEdit.zipcode = "";
 
         state.loggedInUserData.currentJobs = action.payload;

@@ -26,12 +26,12 @@ import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiv
 import sortCurrentJobsToBeArchivedAscending from "../customFunctionsAndHooks/sortCurrentJobsToBeArchivedAscending";
 import trimArchiveOver13months from "../customFunctionsAndHooks/trimArchiveOver13month";
 import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyRate";
-import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
 import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
 import { useNavigate } from "react-router-dom";
 
 type JobType = {
+  basePlace: string;
   city: string;
   cmr: string;
   date: string;
@@ -42,12 +42,9 @@ type JobType = {
   isSecondJob: boolean;
   note: string;
   price: number;
-  terminal: string;
   timestamp: number;
   waiting: number;
   weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
   zipcode: string;
 };
 
@@ -73,9 +70,16 @@ const Dashboard = () => {
     (state) => state.auth.loggedInUserData.archivedJobs
   );
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
-  // const userSettings = useAppSelector(
-  //   (state) => state.auth.loggedInUserData.userSettings
-  // );
+
+  const basePlace = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.basePlace
+  );
+  const email = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.email
+  );
+  const eurCzkRate = useAppSelector(
+    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
+  );
   const nameFirst = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.nameFirst
   );
@@ -93,31 +97,6 @@ const Dashboard = () => {
   );
   const referenceId = useAppSelector(
     (state) => state.auth.loggedInUserData.userSettings.referenceId
-  );
-  const terminal = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.terminal
-  );
-  const baseMoney = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.baseMoney
-  );
-  const eurCzkRate = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.eurCzkRate
-  );
-  const percentage = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.percentage
-  );
-  const secondJobBenefit = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
-  );
-  const waitingBenefitEmployerCzk = useAppSelector(
-    (state) =>
-      state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
-  );
-  const waitingBenefitEur = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
-  );
-  const email = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.email
   );
   const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
   const isAddJobReduxSuccess = useAppSelector(
@@ -138,7 +117,6 @@ const Dashboard = () => {
   //
   const [totalEur, setTotalEur] = useState(0);
   const [totalCzk, setTotalCzk] = useState(0);
-  const [salary, setSalary] = useState(0);
   const [totalJobs, setTotalJobs] = useState(0);
   const [totalHolidays, setTotalHolidays] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
@@ -146,7 +124,7 @@ const Dashboard = () => {
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
   const userSettings = {
-    baseMoney,
+    basePlace,
     email,
     eurCzkRate,
     nameFirst,
@@ -154,12 +132,7 @@ const Dashboard = () => {
     numberEm,
     numberTrailer,
     numberTruck,
-    percentage,
     referenceId,
-    secondJobBenefit,
-    terminal,
-    waitingBenefitEmployerCzk,
-    waitingBenefitEur,
   };
 
   // ARCHIVE JOBS 2 ------------------------------------------------------
@@ -203,14 +176,7 @@ const Dashboard = () => {
     const monthToArchive = {
       date: dateForArchiving,
       jobs: sortedJobsToBeArchived,
-      userSettings: {
-        baseMoney,
-        eurCzkRate,
-        percentage,
-        secondJobBenefit,
-        waitingBenefitEmployerCzk,
-        waitingBenefitEur,
-      },
+      eurCzkRate,
     };
 
     // Pokud je archiv prázdný
@@ -341,36 +307,12 @@ const Dashboard = () => {
       }, 0)
     );
     setTotalEur(
-      // sečte eura z prací + eura za čekání (1. hodina = 15, další hodiny = 30)
-      // proto se při výpočtu salary už přičítá pouze příplatek od zaměstnavatele
       currentJobs.reduce((acc, oneJob) => {
-        return acc + getPriceWithWaiting(oneJob.price, oneJob.waiting);
+        return acc + oneJob.price;
       }, 0)
     );
     setTotalCzk(Math.floor(totalEur * eurCzkRate));
-
-    setSalary(
-      Math.floor(
-        baseMoney +
-          totalCzk * (percentage * 0.01) +
-          totalSecondJobs * secondJobBenefit +
-          // waitingBenefitEur se nepřičítá - je už totalEur
-          totalWaiting * waitingBenefitEmployerCzk
-      )
-    );
-  }, [
-    currentJobs,
-    eurCzkRate,
-    totalEur,
-    baseMoney,
-    totalCzk,
-    percentage,
-    totalSecondJobs,
-    secondJobBenefit,
-    totalWaiting,
-    waitingBenefitEmployerCzk,
-    waitingBenefitEur,
-  ]);
+  });
 
   useEffect(() => {
     if (email && loggedInUserEmail) {
@@ -385,7 +327,7 @@ const Dashboard = () => {
           const payload = {
             userUid,
             userSettings: {
-              baseMoney: Number(loggedInUserSettings.baseMoney),
+              basePlace: loggedInUserSettings.basePlace,
               email: loggedInUserEmail,
               eurCzkRate: Number(loggedInUserSettings.eurCzkRate),
               nameFirst: loggedInUserSettings.nameFirst,
@@ -393,14 +335,7 @@ const Dashboard = () => {
               numberEm: loggedInUserSettings.numberEm,
               numberTrailer: loggedInUserSettings.numberTrailer,
               numberTruck: loggedInUserSettings.numberTruck,
-              percentage: Number(loggedInUserSettings.percentage),
               referenceId: loggedInUserSettings.referenceId,
-              secondJobBenefit: Number(loggedInUserSettings.secondJobBenefit),
-              terminal: loggedInUserSettings.terminal,
-              waitingBenefitEmployerCzk: Number(
-                loggedInUserSettings.waitingBenefitEmployerCzk
-              ),
-              waitingBenefitEur: Number(loggedInUserSettings.waitingBenefitEur),
             },
           };
           console.log(payload);
@@ -485,33 +420,59 @@ const Dashboard = () => {
                 declineFunction={handleArchiveModalVisibility}
               />
             )}
+            {/*  */}
             <div className="dashboard-summary-invoicing">
               <div className="dashboard-summary-invoicing-container">
-                <div className="dashboard-summary-invoicing-heading">
-                  <LiaFileInvoiceDollarSolid />
+                <div className="dashboard-summary-invoicing-count vis-hidden">
+                  <div className="dashboard-summary-counts-text">=</div>
                 </div>
 
                 <div className="dashboard-summary-invoicing-count">
-                  {totalEur.toLocaleString() + " € "}
+                  <div className="dashboard-summary-counts-text">
+                    {totalEur.toLocaleString() + " € "}
+                  </div>
                 </div>
                 <div className="dashboard-summary-invoicing-count">
-                  {totalCzk.toLocaleString() + " Kč"}
-                </div>
-              </div>
-              <div className="dashboard-summary-invoicing-container">
-                <div className="dashboard-summary-invoicing-heading">
-                  <GiReceiveMoney />
+                  <div className="dashboard-summary-counts-text">
+                    {totalCzk.toLocaleString() + " Kč"}
+                  </div>
                 </div>
                 <div className="dashboard-summary-invoicing-count vis-hidden">
-                  =
+                  <div className="dashboard-summary-counts-text">=</div>
                 </div>
+              </div>
 
+              {/*  */}
+
+              <div className="dashboard-summary-invoicing-container">
                 <div className="dashboard-summary-invoicing-count">
-                  {salary.toLocaleString() + " Kč"}
+                  <TbRoad className="dashboard-summary-counts-icon" />
+                  <div className="dashboard-summary-counts-text">
+                    {totalJobs}
+                  </div>
+                </div>
+                <div className="dashboard-summary-invoicing-count">
+                  <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
+                  <div className="dashboard-summary-counts-text">
+                    {totalSecondJobs}
+                  </div>
+                </div>
+                <div className="dashboard-summary-invoicing-count">
+                  <PiClockBold className="dashboard-summary-counts-icon" />
+                  <div className="dashboard-summary-counts-text">
+                    {totalWaiting}
+                  </div>
+                </div>
+                <div className="dashboard-summary-invoicing-count">
+                  <FaUmbrellaBeach className="dashboard-summary-counts-icon dashboard-summary-counts-icon-beach" />
+                  <div className="dashboard-summary-counts-text">
+                    {totalHolidays}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="dashboard-summary-counts">
+
+            {/* <div className="dashboard-summary-counts">
               <div className="dashboard-summary-counts-container">
                 <TbRoad className="dashboard-summary-counts-icon" />
                 <div className="dashboard-summary-counts-text">{totalJobs}</div>
@@ -534,7 +495,8 @@ const Dashboard = () => {
                   {totalHolidays}
                 </div>
               </div>
-            </div>
+            </div> */}
+
             {currentJobs.length > 0 && (
               <button
                 className="dashboard-archive-btn"

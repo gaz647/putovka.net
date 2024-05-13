@@ -38,9 +38,10 @@ const Settings = () => {
 
   // USE STATE -----------------------------------------------------------
   //
-  const [baseMoney, setBaseMoney] = useState(
+
+  const [basePlace, setBasePlace] = useState(
     useAppSelector(
-      (state) => state.auth.loggedInUserData.userSettings.baseMoney
+      (state) => state.auth.loggedInUserData.userSettings.basePlace
     )
   );
   const [nameFirst, setNameFirst] = useState(
@@ -66,33 +67,10 @@ const Settings = () => {
       (state) => state.auth.loggedInUserData.userSettings.numberTruck
     )
   );
-  const [terminal, setTerminal] = useState(
-    useAppSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
-  );
-  const [percentage, setPercentage] = useState(
-    useAppSelector(
-      (state) => state.auth.loggedInUserData.userSettings.percentage
-    )
-  );
+
   const [referenceId, setReferenceId] = useState(
     useAppSelector(
       (state) => state.auth.loggedInUserData.userSettings.referenceId
-    )
-  );
-  const [secondJobBenefit, setSecondJobBenefit] = useState(
-    useAppSelector(
-      (state) => state.auth.loggedInUserData.userSettings.secondJobBenefit
-    )
-  );
-  const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
-    useAppSelector(
-      (state) =>
-        state.auth.loggedInUserData.userSettings.waitingBenefitEmployerCzk
-    )
-  );
-  const [waitingBenefitEur, setWaitingBenefitEur] = useState(
-    useAppSelector(
-      (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
     )
   );
   const [eurCzkRate, setEurCzkRate] = useState(
@@ -192,7 +170,7 @@ const Settings = () => {
       const payload = {
         userUid,
         userSettings: {
-          baseMoney: Number(baseMoney),
+          basePlace,
           email,
           eurCzkRate: Number(eurCzkRate),
           nameFirst: firstLetterToUpperCase(nameFirst),
@@ -200,12 +178,7 @@ const Settings = () => {
           numberEm: numberEm.toUpperCase(),
           numberTrailer: numberTrailer.toUpperCase(),
           numberTruck: numberTruck.toUpperCase(),
-          percentage: Number(percentage),
           referenceId,
-          secondJobBenefit: Number(secondJobBenefit),
-          terminal,
-          waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
-          waitingBenefitEur: Number(waitingBenefitEur),
         },
       };
       dispatch(changeSettingsRedux(payload));
@@ -280,7 +253,7 @@ const Settings = () => {
               <InputField
                 required={true}
                 type={"text"}
-                label={"Číslo"}
+                label={"Číslo auta"}
                 subLabel={"(např. 101, U01 atd.)"}
                 value={numberEm}
                 onTextChange={(e) => setNumberEm(e)}
@@ -299,57 +272,13 @@ const Settings = () => {
                 onTextChange={(e) => setNumberTrailer(e)}
               />
               <InputField
-                type={"terminal"}
-                label={"Terminál"}
-                value={terminal}
+                type={"basePlace"}
+                label={"Výchozí místo"}
+                value={basePlace}
                 onTerminalChange={(e) => {
-                  setTerminal(e);
+                  setBasePlace(e);
                 }}
               />
-              <InputField
-                type={"number"}
-                label={"Základní mzda"}
-                subLabel={"(Kč)"}
-                value={baseMoney}
-                onNumberChange={(e) => {
-                  setBaseMoney(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"% z fakturace"}
-                value={percentage}
-                onNumberChange={(e) => {
-                  setPercentage(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"Příplatek za druhou práci"}
-                subLabel={"(Kč)"}
-                value={secondJobBenefit}
-                onNumberChange={(e) => {
-                  setSecondJobBenefit(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"Příplatek za čekání - zaměstnavatel"}
-                subLabel={"(Kč)"}
-                value={waitingBenefitEmployerCzk}
-                onNumberChange={(e) => {
-                  setWaitingBenefitEmployerCzk(e);
-                }}
-              />
-              {/* <InputField
-                type={"number"}
-                label={"Příplatek za čekání"}
-                subLabel={"(€)"}
-                value={waitingBenefitEur}
-                onNumberChange={(e) => {
-                  setWaitingBenefitEur(e);
-                }}
-              /> */}
               <InputField
                 required={true}
                 type={"number-decimal"}

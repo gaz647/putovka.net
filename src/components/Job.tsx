@@ -17,27 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalPrompt from "./ModalPrompt";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
-import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
-
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
+import { JobType } from "../types";
 
 const Job = ({ jobDetails }: { jobDetails: JobType }) => {
   const dispatch = useAppDispatch();
@@ -46,22 +26,19 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
   // PROPS DESTRUCTURING -------------------------------------------------
   //
   const {
+    basePlace,
     city,
     cmr,
     date,
     day,
     id,
-    isCustomJob,
     isHoliday,
     isSecondJob,
     note,
     price,
-    terminal,
     timestamp,
     waiting,
     weight,
-    weightTo27t,
-    weightTo34t,
     zipcode,
   } = jobDetails;
 
@@ -100,21 +77,18 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
   //
   const editJobNavigate = () => {
     const jobToEdit = {
+      basePlace,
       city,
       cmr,
       date,
       id,
-      isCustomJob,
       isHoliday,
       isSecondJob,
       note,
       price,
-      terminal,
       timestamp,
       waiting: Number(waiting),
       weight,
-      weightTo27t,
-      weightTo34t,
       zipcode,
     };
     dispatch(setIsEditingArchivedJobFalseRedux());
@@ -201,9 +175,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
             {getCzDateFormat(date)}
           </div>
           <div className="one-job-header-copy-to-clipboard-item">
-            {!isHoliday
-              ? getPriceWithWaiting(price, waiting).toLocaleString() + " €"
-              : ""}
+            {!isHoliday ? price + " €" : ""}
           </div>
         </div>
 
@@ -237,7 +209,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
             )}
 
             <div className="one-job-body-item one-job-body-item-smaller">
-              {"terminál: " + terminal}
+              {"Výchozí místo: " + basePlace}
             </div>
 
             {note && (
@@ -261,7 +233,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
         </div>
 
         <div className="one-job-body-item one-job-body-item-smaller">
-          {isHoliday ? note : weight + "t"}
+          {isHoliday ? note : weight + " kg"}
         </div>
 
         <div

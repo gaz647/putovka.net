@@ -15,28 +15,7 @@ import {
 import { BsPencil, BsTrash3 } from "react-icons/bs";
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { FaUmbrellaBeach } from "react-icons/fa";
-import getIsNewWaiting from "../customFunctionsAndHooks/getIsNewWaiting";
-import getPriceWithWaiting from "../customFunctionsAndHooks/getPriceWithWaiting";
-
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
+import { JobType } from "../types";
 
 const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
   const dispatch = useAppDispatch();
@@ -45,22 +24,21 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
   // PROPS DESTRUCTURING -------------------------------------------------
   //
   const {
+    basePlace,
     city,
     cmr,
     date,
     day,
     id,
-    isCustomJob,
     isHoliday,
     isSecondJob,
     note,
     price,
-    terminal,
+
     timestamp,
     waiting,
     weight,
-    weightTo27t,
-    weightTo34t,
+
     zipcode,
   } = oneJobData;
 
@@ -69,9 +47,6 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
   const archivedJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.archivedJobs
-  );
-  const waitingBenefitEur = useAppSelector(
-    (state) => state.auth.loggedInUserData.userSettings.waitingBenefitEur
   );
 
   // USE STATE -----------------------------------------------------------
@@ -90,22 +65,19 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
   //
   const editArchiveMonthJob = () => {
     const archivedJobToEdit = {
+      basePlace,
       city,
       cmr,
       date,
       day,
       id,
-      isCustomJob,
       isHoliday,
       isSecondJob,
       note,
       price,
-      terminal,
       timestamp,
       waiting,
       weight,
-      weightTo27t,
-      weightTo34t,
       zipcode,
     };
     dispatch(setIsEditingArchivedJobTrueRedux());
@@ -173,15 +145,10 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
           {getCzDateFormat(date)}
         </div>
         <div className="archive-month-job-header-item">
-          {!isHoliday ? weight + "t" : "-------"}
+          {!isHoliday ? weight + " kg" : "-------"}
         </div>
         <div className="archive-month-job-header-item">
-          {!isHoliday
-            ? (getIsNewWaiting(date)
-                ? getPriceWithWaiting(price, waiting).toLocaleString()
-                : price + waiting * waitingBenefitEur
-              ).toLocaleString() + " €"
-            : "-------"}
+          {!isHoliday ? price.toLocaleString() + " €" : "-------"}
         </div>
 
         <div className="archive-month-job-header-item">
@@ -189,26 +156,28 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
         </div>
       </div>
 
-      <div>{city}</div>
-      <div>{zipcode}</div>
-      <div>{cmr}</div>
-      {isSecondJob && (
-        <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
-      )}
+      <div className="archive-month-job-body">
+        <div>{city}</div>
+        <div>{zipcode}</div>
+        <div>{cmr}</div>
+        {isSecondJob && (
+          <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
+        )}
 
-      {waiting > 0 && (
-        <div className="archive-month-job-second-waiting-icon-container">
-          <PiClockBold />
-          <div className="archive-month-job-second-waiting-count">
-            {waiting}
+        {waiting > 0 && (
+          <div className="archive-month-job-second-waiting-icon-container">
+            <PiClockBold />
+            <div className="archive-month-job-second-waiting-count">
+              {waiting}
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div>{note}</div>
-      {isHoliday && (
-        <FaUmbrellaBeach className="archive-month-holiday-job-icon" />
-      )}
+        <div>{note}</div>
+        {isHoliday && (
+          <FaUmbrellaBeach className="archive-month-holiday-job-icon" />
+        )}
+      </div>
     </section>
   );
 };

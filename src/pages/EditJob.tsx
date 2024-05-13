@@ -20,26 +20,7 @@ import compareMonths from "../customFunctionsAndHooks/compareMonths";
 import ConfirmDeclineBtns from "../components/ConfirmDeclineBtns";
 import InputField from "../components/InputField";
 import Spinner from "../components/Spinner";
-
-type JobType = {
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  terminal: string;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  weightTo27t: number;
-  weightTo34t: number;
-  zipcode: string;
-};
+import { JobType } from "../types";
 
 const EditJob = () => {
   const dispatch = useAppDispatch();
@@ -53,17 +34,8 @@ const EditJob = () => {
   const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-  const isCustomJob = useAppSelector(
-    (state) => state.auth.jobToEdit.isCustomJob
-  );
   const isHoliday = useAppSelector((state) => state.auth.jobToEdit.isHoliday);
   const timestamp = useAppSelector((state) => state.auth.jobToEdit.timestamp);
-  const weightTo27t = useAppSelector(
-    (state) => state.auth.jobToEdit.weightTo27t
-  );
-  const weightTo34t = useAppSelector(
-    (state) => state.auth.jobToEdit.weightTo34t
-  );
   const [price, setPrice] = useState(
     useAppSelector((state) => state.auth.jobToEdit.price)
   );
@@ -76,8 +48,8 @@ const EditJob = () => {
   const [note, setNote] = useState(
     useAppSelector((state) => state.auth.jobToEdit.note)
   );
-  const [terminal, setTerminal] = useState(
-    useAppSelector((state) => state.auth.jobToEdit.terminal)
+  const [basePlace, setBasePlace] = useState(
+    useAppSelector((state) => state.auth.jobToEdit.basePlace)
   );
   const id = useAppSelector((state) => state.auth.jobToEdit.id);
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
@@ -127,50 +99,29 @@ const EditJob = () => {
     return daysOfTheWeek[dateTransformed.getDay()];
   };
 
-  // HANDLE WEIGHT CHANGE ------------------------------------------------
-  //
-  const handleWeightChange = (newWeight: number) => {
-    if (newWeight === 27) {
-      setWeight(27);
-      if (!isCustomJob) {
-        setPrice(weightTo27t);
-        // console.log("weight:", weight, "price:", price);
-      }
-    } else if (newWeight === 34) {
-      setWeight(34);
-      if (!isCustomJob) {
-        setPrice(weightTo34t);
-        // console.log("weight:", weight, "price:", price);
-      }
-    }
-  };
-
   // EDIT JOB ------------------------------------------------------------
   //
   const editJob = (e: React.FormEvent) => {
     e.preventDefault();
     let editedJob: JobType = {
+      basePlace: "",
       city: "",
       cmr: "",
       date: "",
       day: "",
       id: "",
-      isCustomJob: false,
       isHoliday: false,
       isSecondJob: false,
       note: "",
       price: 0,
-      terminal: "",
       timestamp: 0,
       waiting: 0,
       weight: 0,
-      weightTo27t: 0,
-      weightTo34t: 0,
       zipcode: "",
     };
 
     if (!isHoliday) {
-      if (!city || !cmr || !zipcode || !terminal) {
+      if (!city || !cmr || !zipcode || !basePlace) {
         dispatch(
           runToastRedux({
             message: "Vyplňte povinná pole.",
@@ -182,42 +133,36 @@ const EditJob = () => {
       }
 
       editedJob = {
+        basePlace,
         city,
         cmr,
         date,
         day,
         id,
-        isCustomJob,
         isHoliday,
         isSecondJob,
         note,
         price: Number(price),
-        terminal,
         timestamp: Number(timestamp),
         waiting: Number(waiting),
         weight: Number(weight),
-        weightTo27t: Number(weightTo27t),
-        weightTo34t: Number(weightTo34t),
         zipcode,
       };
     } else if (isHoliday) {
       editedJob = {
+        basePlace: "",
         city: "DOVOLENÁ",
         cmr: "",
         date,
         day,
         id,
-        isCustomJob,
         isHoliday,
         isSecondJob: false,
         note,
         price: 0,
-        terminal: "",
         timestamp: new Date().getTime(),
         waiting: 0,
         weight: 0,
-        weightTo27t: 0,
-        weightTo34t: 0,
         zipcode: "",
       };
     }
@@ -438,10 +383,10 @@ const EditJob = () => {
                 />
 
                 <InputField
-                  label={""}
-                  type={"weight"}
+                  label={"Váha"}
+                  type={"number"}
                   value={weight}
-                  onWeightChange={(e) => handleWeightChange(e)}
+                  onNumberChange={(e) => setWeight(e)}
                 />
 
                 <InputField
@@ -482,10 +427,10 @@ const EditJob = () => {
 
                 <InputField
                   required={true}
-                  label={"Terminál"}
+                  label={"Výchozí místo"}
                   type={"text"}
-                  value={terminal}
-                  onTextChange={(e) => setTerminal(e)}
+                  value={basePlace}
+                  onTextChange={(e) => setBasePlace(e)}
                 />
               </>
             )}
@@ -507,7 +452,7 @@ const EditJob = () => {
             )}
 
             <ConfirmDeclineBtns
-              disabled={!isHoliday && (!city || !zipcode || !cmr || !terminal)}
+              disabled={!isHoliday && (!city || !zipcode || !cmr || !basePlace)}
               confirmFunction={editJob}
               declineFunction={handleDecline}
             />

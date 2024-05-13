@@ -43,35 +43,9 @@ const EditArchiveMonthSummarySettings = () => {
 
   // USE STATE -----------------------------------------------------------
   //
-  const [baseMoney, setBaseMoney] = useState(
-    useAppSelector(
-      (state) => state.auth.archiveMonthSummarySettingsToEdit.baseMoney
-    )
-  );
   const [eurCzkRate, setEurCzkRate] = useState(
     useAppSelector(
       (state) => state.auth.archiveMonthSummarySettingsToEdit.eurCzkRate
-    )
-  );
-  const [percentage, setPercentage] = useState(
-    useAppSelector(
-      (state) => state.auth.archiveMonthSummarySettingsToEdit.percentage
-    )
-  );
-  const [secondJobBenefit, setSecondJobBenefit] = useState(
-    useAppSelector(
-      (state) => state.auth.archiveMonthSummarySettingsToEdit.secondJobBenefit
-    )
-  );
-  const [waitingBenefitEmployerCzk, setWaitingBenefitEmployerCzk] = useState(
-    useAppSelector(
-      (state) =>
-        state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEmployerCzk
-    )
-  );
-  const [waitingBenefitEur, setWaitingBenefitEur] = useState(
-    useAppSelector(
-      (state) => state.auth.archiveMonthSummarySettingsToEdit.waitingBenefitEur
     )
   );
 
@@ -91,20 +65,11 @@ const EditArchiveMonthSummarySettings = () => {
     }
     const tempArchivedJobs = [...archivedJobs];
 
-    const newArchiveMonthSummarySettings = {
-      baseMoney: Number(baseMoney),
-      eurCzkRate: Number(eurCzkRate),
-      percentage: Number(percentage),
-      secondJobBenefit: Number(secondJobBenefit),
-      waitingBenefitEmployerCzk: Number(waitingBenefitEmployerCzk),
-      waitingBenefitEur: Number(waitingBenefitEur),
-    };
-
     const updatedArchivedJobs = tempArchivedJobs.map((archive) => {
       if (archive.date === date) {
         return {
           ...archive,
-          userSettings: newArchiveMonthSummarySettings,
+          eurCzkRate,
         };
       }
       return archive;
@@ -143,54 +108,10 @@ const EditArchiveMonthSummarySettings = () => {
       ) : (
         <>
           <header className="settings-header">
-            <Heading text={"Změna nastavení archivovaného měsíce"} />
+            <Heading text={"Změna kurzu Eur/Kč"} />
           </header>
           <main>
             <form className="settings-form">
-              <InputField
-                type={"number"}
-                label={"základní mzda"}
-                subLabel={"(Kč)"}
-                value={baseMoney}
-                onNumberChange={(e) => {
-                  setBaseMoney(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"% z fakturace"}
-                value={percentage}
-                onNumberChange={(e) => {
-                  setPercentage(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"příplatek za druhou práci"}
-                subLabel={"(Kč)"}
-                value={secondJobBenefit}
-                onNumberChange={(e) => {
-                  setSecondJobBenefit(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"příplatek za čekání - zaměstnavatel"}
-                subLabel={"(Kč)"}
-                value={waitingBenefitEmployerCzk}
-                onNumberChange={(e) => {
-                  setWaitingBenefitEmployerCzk(e);
-                }}
-              />
-              <InputField
-                type={"number"}
-                label={"příplatek za čekání"}
-                subLabel={"(€)"}
-                value={waitingBenefitEur}
-                onNumberChange={(e) => {
-                  setWaitingBenefitEur(e);
-                }}
-              />
               <InputField
                 required={true}
                 type={"number-decimal"}

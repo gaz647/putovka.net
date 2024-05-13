@@ -30,15 +30,7 @@ const AddJob = () => {
   const currentJobs = useAppSelector(
     (state) => state.auth.loggedInUserData.currentJobs
   );
-  const weightTo27t = useAppSelector(
-    (state) => state.auth.jobToAdd.weightTo27t
-  );
-  const weightTo34t = useAppSelector(
-    (state) => state.auth.jobToAdd.weightTo34t
-  );
-  const isCustomJob = useAppSelector(
-    (state) => state.auth.jobToAdd.isCustomJob
-  );
+
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
   const isLoading2 = useAppSelector((state) => state.auth.isLoading2);
   const isAddJobReduxSuccess = useAppSelector(
@@ -57,13 +49,15 @@ const AddJob = () => {
   const [zipcode, setZipcode] = useState(
     useAppSelector((state) => state.auth.jobToAdd.zipcode)
   );
-  const [weight, setWeight] = useState(27);
-  const [price, setPrice] = useState(weightTo27t);
+  const [weight, setWeight] = useState(0);
+  const [price, setPrice] = useState(0);
   const [isSecondJob, setIsSecondJob] = useState(false);
   const [waiting, setWaiting] = useState(0);
   const [note, setNote] = useState("");
-  const [terminal, setTerminal] = useState(
-    useAppSelector((state) => state.auth.loggedInUserData.userSettings.terminal)
+  const [basePlace, setBasePlace] = useState(
+    useAppSelector(
+      (state) => state.auth.loggedInUserData.userSettings.basePlace
+    )
   );
 
   // ADD JOB -------------------------------------------------------------
@@ -75,7 +69,7 @@ const AddJob = () => {
     let newJob = {};
 
     if (!isHoliday) {
-      if (!city || !cmr || !zipcode || !terminal) {
+      if (!city || !cmr || !zipcode || !basePlace) {
         dispatch(
           runToastRedux({
             message: "Vyplňte povinná pole.",
@@ -86,42 +80,38 @@ const AddJob = () => {
         return;
       }
       newJob = {
+        basePlace: getProperTerminalName(basePlace),
         city,
         cmr,
         date,
         day,
         id: uuidv4(),
-        isCustomJob,
+
         isHoliday,
         isSecondJob,
         note,
         price: Number(price),
-        terminal: getProperTerminalName(terminal),
         timestamp: new Date().getTime(),
         waiting: Number(waiting),
         weight: Number(weight),
-        weightTo27t: Number(weightTo27t),
-        weightTo34t: Number(weightTo34t),
         zipcode,
       };
     } else if (isHoliday) {
       newJob = {
+        basePlace: "",
         city: "DOVOLENÁ",
         cmr: "",
         date,
         day,
         id: uuidv4(),
-        isCustomJob,
+
         isHoliday,
         isSecondJob: false,
         note,
         price: 0,
-        terminal: "",
         timestamp: new Date().getTime(),
         waiting: 0,
         weight: 0,
-        weightTo27t: 0,
-        weightTo34t: 0,
         zipcode: "",
       };
     }
@@ -140,18 +130,6 @@ const AddJob = () => {
   const handleDecline = () => {
     dispatch(resetJobToAddValuesRedux());
     navigate("/");
-  };
-
-  // HANDLE WEIGHT CHANGE
-  //
-  const handleWeightChange = (newWeight: number) => {
-    if (newWeight === 27) {
-      setWeight(27);
-      setPrice(weightTo27t);
-    } else if (newWeight === 34) {
-      setWeight(34);
-      setPrice(weightTo34t);
-    }
   };
 
   // USE EFFECT ----------------------------------------------------------
@@ -176,26 +154,24 @@ const AddJob = () => {
       ) : (
         <>
           <form className="add-job-form">
-            {isCustomJob && (
-              <div className="add-job-holiday-swich-container">
-                <div
-                  className={`add-job-holiday-switch add-job-switch ${
-                    !isHoliday ? "add-job-holiday-selected" : ""
-                  }`}
-                  onClick={() => setIsHoliday(false)}
-                >
-                  PRÁCE
-                </div>
-                <div
-                  className={`add-job-holiday-switch add-holiday-switch ${
-                    isHoliday ? "add-job-holiday-selected" : ""
-                  }`}
-                  onClick={() => setIsHoliday(true)}
-                >
-                  DOVOLENÁ
-                </div>
+            <div className="add-job-holiday-swich-container">
+              <div
+                className={`add-job-holiday-switch add-job-switch ${
+                  !isHoliday ? "add-job-holiday-selected" : ""
+                }`}
+                onClick={() => setIsHoliday(false)}
+              >
+                PRÁCE
               </div>
-            )}
+              <div
+                className={`add-job-holiday-switch add-holiday-switch ${
+                  isHoliday ? "add-job-holiday-selected" : ""
+                }`}
+                onClick={() => setIsHoliday(true)}
+              >
+                DOVOLENÁ
+              </div>
+            </div>
 
             {!isHoliday && (
               <>
@@ -226,11 +202,11 @@ const AddJob = () => {
                 />
 
                 <InputField
-                  label={""}
-                  subLabel={""}
-                  type={"weight"}
-                  value={""}
-                  onWeightChange={(e) => handleWeightChange(e)}
+                  label={"Váha"}
+                  subLabel={"kg"}
+                  type={"number"}
+                  value={weight}
+                  onNumberChange={(e) => setWeight(e)}
                 />
 
                 <InputField
@@ -276,11 +252,11 @@ const AddJob = () => {
 
                 <InputField
                   required={true}
-                  label={"Terminál"}
+                  label={"Výchozí místo"}
                   subLabel={""}
                   type={"text"}
-                  value={getProperTerminalName(terminal)}
-                  onTextChange={(e) => setTerminal(e)}
+                  value={getProperTerminalName(basePlace)}
+                  onTextChange={(e) => setBasePlace(e)}
                 />
               </>
             )}
