@@ -1,21 +1,26 @@
 .dashboard-summary-invoicing {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1rem;
 }
 
-.dashboard-summary-invoicing-container {
-  width: 48%;
+.dashboard-summary-invoicing-container-counts {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
   background-color: var(--white-2);
   border-radius: 10px;
   padding: 0.5rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
+.dashboard-summary-invoicing-count-price {
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
 .dashboard-summary-invoicing-count {
-  font-weight: bold;
-  margin-bottom: 0.3rem;
+  /* font-weight: bold; */
+  font-weight: 500;
+
   color: var(--blue-2);
   display: flex;
   justify-content: center;

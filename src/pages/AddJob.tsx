@@ -86,7 +86,6 @@ const AddJob = () => {
         date,
         day,
         id: uuidv4(),
-
         isHoliday,
         isSecondJob,
         note,
@@ -104,7 +103,6 @@ const AddJob = () => {
         date,
         day,
         id: uuidv4(),
-
         isHoliday,
         isSecondJob: false,
         note,
@@ -214,7 +212,10 @@ const AddJob = () => {
                   subLabel={""}
                   type={"number"}
                   value={price}
-                  onNumberChange={(e) => setPrice(e)}
+                  onNumberChange={(e) => {
+                    setPrice(e);
+                    console.log(typeof e);
+                  }}
                 />
 
                 <InputField
@@ -223,7 +224,7 @@ const AddJob = () => {
                   subLabel={""}
                   type={"text"}
                   value={cmr}
-                  onTextChange={(e) => setCmr(e)}
+                  onTextChange={(e) => setCmr(e.toUpperCase())}
                 />
 
                 <InputField

@@ -230,7 +230,7 @@ const EditJob = () => {
       }
       // upravovaná práce JINÝ MĚSÍC
       else {
-        let indexOfMonthToMoveJob = 0;
+        let indexOfMonthToMoveJob = undefined;
 
         for (let i = 0; i < archivedJobs.length; i++) {
           if (compareMonths(archivedJobs[i].date, date)) {
@@ -242,13 +242,12 @@ const EditJob = () => {
         if (indexOfMonthToMoveJob !== undefined) {
           updatedArchivedJobs = archivedJobs.map((archivedMonth, index) => {
             if (index === indexOfMonthToMoveJob) {
-              console.log("ano");
+              console.log("měsíc existuje");
               return {
                 ...archivedMonth,
                 jobs: [...archivedMonth.jobs, editedJob],
               };
             } else {
-              console.log(typeof archivedMonth.jobs);
               return {
                 ...archivedMonth,
                 jobs: archivedMonth.jobs.filter(
@@ -262,7 +261,6 @@ const EditJob = () => {
           sortedUpdatedArchivedJobs =
             sortArchiveMonthJobsAscending(updatedArchivedJobs);
 
-          console.log("hotovo");
           console.log(sortedUpdatedArchivedJobs);
 
           if (userUid) {
@@ -401,7 +399,7 @@ const EditJob = () => {
                   label={"CMR"}
                   type={"text"}
                   value={cmr}
-                  onTextChange={(e) => setCmr(e)}
+                  onTextChange={(e) => setCmr(e.toUpperCase())}
                 />
 
                 <InputField

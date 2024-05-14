@@ -6,6 +6,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { RiCharacterRecognitionLine } from "react-icons/ri";
 import { FiSettings } from "react-icons/fi";
 import { BsPencil } from "react-icons/bs";
+import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 // import { useDispatch, useSelector } from "react-redux";
 import {
@@ -97,6 +98,14 @@ const Navbar: React.FC = () => {
           onClick={reset}
         >
           <FiSettings />
+        </NavLink>
+
+        <NavLink
+          to={"/info-messages"}
+          className={({ isActive }) => (isActive ? "link active-link" : "link")}
+          onClick={reset}
+        >
+          <HiOutlineChatBubbleLeftEllipsis />
         </NavLink>
       </nav>
     </div>

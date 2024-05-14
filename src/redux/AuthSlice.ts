@@ -24,7 +24,8 @@ import { db } from "../firebase/config";
 import axios from "axios";
 import getUserIpAddress from "../customFunctionsAndHooks/getUserIpAdress";
 import { v4 as uuidv4 } from "uuid";
-import { JobType, ArchiveType, Job } from "../types";
+import { AuthState } from "../types";
+import { JobType, ArchiveType } from "../types";
 
 // GET INFO MESSAGE
 //
@@ -686,87 +687,6 @@ export const editArchiveMonthSummarySettingsRedux = createAsyncThunk(
 // -----------------------------------------------------------------------
 //
 
-interface UserSettings {
-  basePlace: string;
-  email: string;
-  eurCzkRate: number;
-  nameFirst: string;
-  nameSecond: string;
-  numberEm: string;
-  numberTrailer: string;
-  numberTruck: string;
-  referenceId: string;
-}
-
-interface LoggedInUserData {
-  archivedJobs: any[];
-  currentJobs: any[];
-  userSettings: UserSettings;
-}
-
-interface JobToAdd {
-  city: string;
-  price: number;
-  weight: number;
-  basePlace: string;
-  zipcode: string;
-}
-
-interface ArchiveMonthSummarySettings {
-  date: string;
-  baseMoney: number;
-  percentage: number;
-  secondJobBenefit: number;
-  waitingBenefitEmployerCzk: number;
-  waitingBenefitEur: number;
-  eurCzkRate: number;
-}
-
-type InfoMessage = {
-  date: string;
-  text: string;
-  title: string;
-};
-
-interface AuthState {
-  infoMessage: string | null;
-  infoMessages: InfoMessage[] | null;
-  toast: {
-    isVisible: boolean;
-    message: string;
-    style: string;
-    time: number;
-    resetToast: boolean;
-  };
-  isLoading: boolean;
-  isLoading2: boolean;
-  isLoginPending: boolean;
-  isLoggedIn: boolean;
-  isRegisterPending: boolean;
-  isRegisterReduxSuccess: boolean;
-  isChangeEmailReduxSuccess: boolean;
-  isChangePasswordReduxSuccess: boolean;
-  isPasswordResetSuccess: boolean;
-  isLogoutReduxSuccess: boolean;
-  isAccountDeletingPending: boolean;
-  isAccountDisabled: boolean;
-  isDeleteAccountReduxSuccess: boolean;
-  isChangeSettingsReduxSuccess: boolean;
-  isAddJobReduxSuccess: boolean;
-  isEditJobReduxSuccess: boolean;
-  isEditArchiveJobReduxSuccess: boolean;
-  isArchiveDoneJobsAllCasesReduxSuccess: boolean;
-  isEditArchiveMonthSummarySettingsReduxSuccess: boolean;
-  loggedInUserEmail: string | null;
-  loggedInUserUid: string | null;
-  loggedInUserData: LoggedInUserData;
-  jobToAdd: JobToAdd;
-  isEditing: boolean;
-  isEditingArchivedJob: boolean;
-  jobToEdit: Job;
-  archiveMonthSummarySettingsToEdit: ArchiveMonthSummarySettings;
-}
-
 const initialState: AuthState = {
   infoMessage: null,
   infoMessages: null,
@@ -992,13 +912,13 @@ export const authSlice = createSlice({
       state.loggedInUserData.userSettings.email =
         action.payload.userSettings.email;
       state.loggedInUserData.userSettings.basePlace =
-        action.payload.userSettings.terminal;
+        action.payload.userSettings.basePlace;
     },
 
     setJobToAddRedux: (state, action) => {
       console.log("setJobToAddRedux SPUŠTĚN");
       state.jobToAdd.city = action.payload.city;
-      state.jobToAdd.basePlace = action.payload.terminal;
+      state.jobToAdd.basePlace = action.payload.basePlace;
       state.jobToAdd.zipcode = action.payload.zipcode;
     },
 
@@ -1348,6 +1268,8 @@ export const authSlice = createSlice({
       })
       .addCase(changeSettingsRedux.fulfilled, (state, action) => {
         console.log("changeSettingsRedux ÚSPĚŠNĚ DOKONČEN");
+        state.loggedInUserData.userSettings.basePlace =
+          action.payload.basePlace;
         state.loggedInUserData.userSettings.email = action.payload.email;
         state.loggedInUserData.userSettings.eurCzkRate =
           action.payload.eurCzkRate;

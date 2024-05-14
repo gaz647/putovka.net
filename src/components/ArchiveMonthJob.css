@@ -1,6 +1,8 @@
 .archive-month-job {
   margin: 2rem auto;
   font-size: 0.9rem;
+  background-color: #e7e7e7;
+  border-radius: inherit;
 }
 
 .archive-month-job-header {
@@ -8,13 +10,13 @@
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: lightgray;
-  padding: 0.5rem;
+  padding: 1rem;
   margin-bottom: 0.2rem;
   border-radius: 10px;
 }
 
 .archive-month-job-body {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .archive-month-job-second-job-icon {

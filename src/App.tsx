@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Dashboard from "./pages/Dashboard";
-import Search from "./pages/Search";
 import AddJob from "./pages/AddJob";
 import Archive from "./pages/Archive";
 import EditArchiveMonthSummarySettings from "./pages/EditArchiveMonthSummarySettings";
@@ -133,7 +132,6 @@ const App = () => {
         <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="/search" element={<Search />} />
             <Route path="/add-job" element={<AddJob />} />
             <Route path="/archive" element={<Archive />} />
             <Route

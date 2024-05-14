@@ -18,8 +18,6 @@ import {
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
 import { FaUmbrellaBeach } from "react-icons/fa";
-import { GiReceiveMoney } from "react-icons/gi";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
@@ -422,80 +420,36 @@ const Dashboard = () => {
             )}
             {/*  */}
             <div className="dashboard-summary-invoicing">
-              <div className="dashboard-summary-invoicing-container">
-                <div className="dashboard-summary-invoicing-count vis-hidden">
-                  <div className="dashboard-summary-counts-text">=</div>
+              <div className="dashboard-summary-invoicing-container-counts">
+                <div className="dashboard-summary-invoicing-count dashboard-summary-invoicing-count-price">
+                  {totalEur.toLocaleString() + " € "}
                 </div>
-
-                <div className="dashboard-summary-invoicing-count">
-                  <div className="dashboard-summary-counts-text">
-                    {totalEur.toLocaleString() + " € "}
-                  </div>
-                </div>
-                <div className="dashboard-summary-invoicing-count">
-                  <div className="dashboard-summary-counts-text">
-                    {totalCzk.toLocaleString() + " Kč"}
-                  </div>
-                </div>
-                <div className="dashboard-summary-invoicing-count vis-hidden">
-                  <div className="dashboard-summary-counts-text">=</div>
+                <div className="dashboard-summary-invoicing-count dashboard-summary-invoicing-count-price">
+                  {totalCzk.toLocaleString() + " Kč"}
                 </div>
               </div>
 
               {/*  */}
 
-              <div className="dashboard-summary-invoicing-container">
+              <div className="dashboard-summary-invoicing-container-counts">
                 <div className="dashboard-summary-invoicing-count">
                   <TbRoad className="dashboard-summary-counts-icon" />
-                  <div className="dashboard-summary-counts-text">
-                    {totalJobs}
-                  </div>
+                  {totalJobs}
                 </div>
                 <div className="dashboard-summary-invoicing-count">
                   <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
-                  <div className="dashboard-summary-counts-text">
-                    {totalSecondJobs}
-                  </div>
+                  {totalSecondJobs}
                 </div>
                 <div className="dashboard-summary-invoicing-count">
                   <PiClockBold className="dashboard-summary-counts-icon" />
-                  <div className="dashboard-summary-counts-text">
-                    {totalWaiting}
-                  </div>
+                  {totalWaiting}
                 </div>
                 <div className="dashboard-summary-invoicing-count">
                   <FaUmbrellaBeach className="dashboard-summary-counts-icon dashboard-summary-counts-icon-beach" />
-                  <div className="dashboard-summary-counts-text">
-                    {totalHolidays}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="dashboard-summary-counts">
-              <div className="dashboard-summary-counts-container">
-                <TbRoad className="dashboard-summary-counts-icon" />
-                <div className="dashboard-summary-counts-text">{totalJobs}</div>
-              </div>
-              <div className="dashboard-summary-counts-container">
-                <PiNumberSquareTwoBold className="dashboard-summary-counts-icon" />
-                <div className="dashboard-summary-counts-text">
-                  {totalSecondJobs}
-                </div>
-              </div>
-              <div className="dashboard-summary-counts-container">
-                <PiClockBold className="dashboard-summary-counts-icon" />
-                <div className="dashboard-summary-counts-text">
-                  {totalWaiting}
-                </div>
-              </div>
-              <div className="dashboard-summary-counts-container">
-                <FaUmbrellaBeach className="dashboard-summary-counts-icon dashboard-summary-counts-icon-beach" />
-                <div className="dashboard-summary-counts-text">
                   {totalHolidays}
                 </div>
               </div>
-            </div> */}
+            </div>
 
             {currentJobs.length > 0 && (
               <button

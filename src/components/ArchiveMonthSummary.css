@@ -4,7 +4,7 @@
 
 .archive-month-summary-container {
   background-color: lightgray;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 10px;
 }
 
@@ -21,6 +21,9 @@
   display: block;
   font-size: 0.8rem;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
   color: rgb(32, 32, 252);
+  background-color: #e7e7e7;
+  border-radius: 10px;
 }

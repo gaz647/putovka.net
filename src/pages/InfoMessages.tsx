@@ -3,12 +3,7 @@ import { useAppSelector } from "../redux/hooks";
 import { v4 as uuidv4 } from "uuid";
 import getCzDateFormat from "../customFunctionsAndHooks/getCzDateFomat";
 import Heading from "../components/Heading";
-
-type InfoMessage = {
-  date: string;
-  title: string;
-  text: string;
-};
+import { InfoMessage } from "../types";
 
 const InfoMessages = () => {
   // PROPS DESTRUCTURING -------------------------------------------------
