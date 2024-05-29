@@ -64,16 +64,15 @@ export interface UserSettings {
 
 export type ArchiveMonthSummaryType = {
   date: string;
-  summaryEur: number;
-  summaryCzk: number;
-  summarySecondJobs: number;
-  summaryWaiting: number;
-
-  summaryHolidays: number;
-  summaryEurCzkRate: number;
-  summaryJobs: number;
-  summaryTimeSpent: number;
   jobs: JobType[];
+  summaryCzk: number;
+  summaryEur: number;
+  summaryEurCzkRate: number;
+  summaryHolidays: number;
+  summaryJobs: number;
+  summarySecondJobs: number;
+  summaryTimeSpent: number;
+  summaryWaiting: number;
 };
 
 export type InfoMessage = {
