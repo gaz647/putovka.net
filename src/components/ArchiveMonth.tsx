@@ -11,19 +11,7 @@ import { useAppSelector, useAppDispatch } from "../redux/hooks";
 import { deleteArchiveMonthRedux } from "../redux/AuthSlice";
 import { MdOutlineExpandCircleDown } from "react-icons/md";
 import { BsTrash3 } from "react-icons/bs";
-import { JobType, ArchiveType } from "../types";
-
-type SummaryType = {
-  date: string;
-  summaryEur: number;
-  summaryCzk: number;
-  summarySecondJobs: number;
-  summaryWaiting: number;
-  summaryJobs: number;
-  summaryHolidays: number;
-  summaryEurCzkRate: number;
-  jobs: JobType[];
-};
+import { JobType, ArchiveType, ArchiveMonthSummaryType } from "../types";
 
 const ArchiveMonth = ({
   oneMonthData,
@@ -49,16 +37,17 @@ const ArchiveMonth = ({
 
   // USE STATE -----------------------------------------------------------
   //
-  const [summaryData, setSummaryData] = useState<SummaryType>({
+  const [summaryData, setSummaryData] = useState<ArchiveMonthSummaryType>({
     date: "",
-    summaryEur: 0,
-    summaryCzk: 0,
-    summarySecondJobs: 0,
-    summaryWaiting: 0,
-    summaryJobs: 0,
-    summaryHolidays: 0,
-    summaryEurCzkRate: 0,
     jobs: [],
+    summaryCzk: 0,
+    summaryEur: 0,
+    summaryEurCzkRate: 0,
+    summaryHolidays: 0,
+    summaryJobs: 0,
+    summarySecondJobs: 0,
+    summaryTimeSpent: 0,
+    summaryWaiting: 0,
   });
   const [showDetails, setShowDetails] = useState(false);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
@@ -86,17 +75,21 @@ const ArchiveMonth = ({
     const summaryEurCzkRate = eurCzkRate;
     const summaryJobs = jobs.filter((oneJob) => !oneJob.isHoliday).length;
     const summaryHolidays = jobs.filter((oneJob) => oneJob.isHoliday).length;
+    const summaryTimeSpent = jobs.reduce((acc, job) => {
+      return acc + job.timeSpent;
+    }, 0);
 
     setSummaryData({
       date,
-      summaryEur,
-      summaryCzk,
-      summarySecondJobs,
-      summaryWaiting,
-      summaryJobs,
-      summaryHolidays,
-      summaryEurCzkRate,
       jobs,
+      summaryCzk,
+      summaryEur,
+      summaryEurCzkRate,
+      summaryHolidays,
+      summaryJobs,
+      summarySecondJobs,
+      summaryTimeSpent,
+      summaryWaiting,
     });
   };
 

@@ -1,26 +1,4 @@
-type JobType = {
-  basePlace: string;
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  zipcode: string;
-};
-
-type ArchiveType = {
-  date: string;
-  jobs: JobType[];
-  eurCzkRate: number;
-};
+import { ArchiveType } from "../types";
 
 const trimArchiveOver13months = (archive: ArchiveType[]) => {
   if (archive.length > 13) {

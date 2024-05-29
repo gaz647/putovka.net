@@ -36,6 +36,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
     isSecondJob,
     note,
     price,
+    timeSpent,
     timestamp,
     waiting,
     weight,
@@ -86,6 +87,7 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
       isSecondJob,
       note,
       price,
+      timeSpent,
       timestamp,
       waiting: Number(waiting),
       weight,
@@ -207,6 +209,10 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
                 {cmr}
               </div>
             )}
+
+            <div className="one-job-body-item one-job-body-item-smaller">
+              {timeSpent + " h"}
+            </div>
 
             <div className="one-job-body-item one-job-body-item-smaller">
               {"Výchozí místo: " + basePlace}

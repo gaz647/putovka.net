@@ -51,6 +51,9 @@ const EditJob = () => {
   const [basePlace, setBasePlace] = useState(
     useAppSelector((state) => state.auth.jobToEdit.basePlace)
   );
+  const [timeSpent, setTimeSpent] = useState(
+    useAppSelector((state) => state.auth.jobToEdit.timeSpent)
+  );
   const id = useAppSelector((state) => state.auth.jobToEdit.id);
   const userUid = useAppSelector((state) => state.auth.loggedInUserUid);
   const archivedJobs = useAppSelector(
@@ -114,6 +117,7 @@ const EditJob = () => {
       isSecondJob: false,
       note: "",
       price: 0,
+      timeSpent: 0,
       timestamp: 0,
       waiting: 0,
       weight: 0,
@@ -143,6 +147,7 @@ const EditJob = () => {
         isSecondJob,
         note,
         price: Number(price),
+        timeSpent: Number(timeSpent),
         timestamp: Number(timestamp),
         waiting: Number(waiting),
         weight: Number(weight),
@@ -160,6 +165,7 @@ const EditJob = () => {
         isSecondJob: false,
         note,
         price: 0,
+        timeSpent: 0,
         timestamp: new Date().getTime(),
         waiting: 0,
         weight: 0,
@@ -414,6 +420,14 @@ const EditJob = () => {
                   type={"number"}
                   value={waiting}
                   onNumberChange={(e) => setWaiting(e)}
+                />
+
+                <InputField
+                  label={"Strávený čas"}
+                  subLabel={""}
+                  type={"number-decimal"}
+                  value={timeSpent}
+                  onNumberChange={(e) => setTimeSpent(e)}
                 />
 
                 <InputField

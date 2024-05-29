@@ -52,6 +52,7 @@ const AddJob = () => {
   const [weight, setWeight] = useState(0);
   const [price, setPrice] = useState(0);
   const [isSecondJob, setIsSecondJob] = useState(false);
+  const [timeSpent, setTimeSpent] = useState(0);
   const [waiting, setWaiting] = useState(0);
   const [note, setNote] = useState("");
   const [basePlace, setBasePlace] = useState(
@@ -90,6 +91,7 @@ const AddJob = () => {
         isSecondJob,
         note,
         price: Number(price),
+        timeSpent: Number(timeSpent),
         timestamp: new Date().getTime(),
         waiting: Number(waiting),
         weight: Number(weight),
@@ -107,6 +109,7 @@ const AddJob = () => {
         isSecondJob: false,
         note,
         price: 0,
+        timeSpent: 0,
         timestamp: new Date().getTime(),
         waiting: 0,
         weight: 0,
@@ -241,6 +244,14 @@ const AddJob = () => {
                   type={"number"}
                   value={waiting}
                   onNumberChange={(e) => setWaiting(e)}
+                />
+
+                <InputField
+                  label={"Strávený čas"}
+                  subLabel={""}
+                  type={"number-decimal"}
+                  value={timeSpent}
+                  onNumberChange={(e) => setTimeSpent(e)}
                 />
 
                 <InputField

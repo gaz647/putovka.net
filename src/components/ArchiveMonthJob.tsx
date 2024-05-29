@@ -34,7 +34,7 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
     isSecondJob,
     note,
     price,
-
+    timeSpent,
     timestamp,
     waiting,
     weight,
@@ -75,6 +75,7 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
       isSecondJob,
       note,
       price,
+      timeSpent,
       timestamp,
       waiting,
       weight,
@@ -160,6 +161,7 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
         <div>{city}</div>
         <div>{zipcode}</div>
         <div>{cmr}</div>
+        <div>{timeSpent + " h"}</div>
         {isSecondJob && (
           <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
         )}

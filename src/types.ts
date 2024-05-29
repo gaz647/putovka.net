@@ -9,6 +9,7 @@ export type JobType = {
   isSecondJob: boolean;
   note: string;
   price: number;
+  timeSpent: number;
   timestamp: number;
   waiting: number;
   weight: number;
@@ -25,6 +26,7 @@ export interface Job {
   isSecondJob: boolean;
   note: string;
   price: number;
+  timeSpent: number;
   timestamp: number;
   waiting: number;
   weight: number;
@@ -67,9 +69,10 @@ export type ArchiveMonthSummaryType = {
   summarySecondJobs: number;
   summaryWaiting: number;
 
-  summaryJobs: number;
   summaryHolidays: number;
   summaryEurCzkRate: number;
+  summaryJobs: number;
+  summaryTimeSpent: number;
   jobs: JobType[];
 };
 
@@ -86,10 +89,11 @@ export interface LoggedInUserData {
 }
 
 export interface JobToAdd {
+  basePlace: string;
   city: string;
   price: number;
+  timeSpent: number;
   weight: number;
-  basePlace: string;
   zipcode: string;
 }
 

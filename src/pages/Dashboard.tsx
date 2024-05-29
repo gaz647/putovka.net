@@ -18,6 +18,7 @@ import {
 import { PiNumberSquareTwoBold, PiClockBold } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
 import { FaUmbrellaBeach } from "react-icons/fa";
+import { LiaBusinessTimeSolid } from "react-icons/lia";
 import getDateForComparing from "../customFunctionsAndHooks/getDateForComparing";
 import sortArchiveMonthsDescending from "../customFunctionsAndHooks/sortArchiveMonthsDescending";
 import sortArchiveMonthJobsAscending from "../customFunctionsAndHooks/sortArchiveMonthJobsAscending";
@@ -27,24 +28,7 @@ import getEurCzkCurrencyRate from "../customFunctionsAndHooks/getEurCzkCurrencyR
 import Spinner from "../components/Spinner";
 import BackToTopBtn from "../components/BackToTopBtn";
 import { useNavigate } from "react-router-dom";
-
-type JobType = {
-  basePlace: string;
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  zipcode: string;
-};
+import { JobType } from "../types";
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
@@ -118,6 +102,7 @@ const Dashboard = () => {
   const [totalJobs, setTotalJobs] = useState(0);
   const [totalHolidays, setTotalHolidays] = useState(0);
   const [totalSecondJobs, setTotalSecondJobs] = useState(0);
+  const [totalTimeSpent, setTotalTimeSpent] = useState(0);
   const [totalWaiting, setTotalWaiting] = useState(0);
   const [showArchiveModal, setShowArchiveModal] = useState(false);
 
@@ -299,6 +284,11 @@ const Dashboard = () => {
     setTotalSecondJobs(
       currentJobs.filter((oneJob) => oneJob.isSecondJob === true).length
     );
+    setTotalTimeSpent(
+      currentJobs.reduce((acc, oneJob) => {
+        return acc + Number(oneJob.timeSpent);
+      }, 0)
+    );
     setTotalWaiting(
       currentJobs.reduce((acc, oneJob) => {
         return acc + Number(oneJob.waiting);
@@ -444,6 +434,12 @@ const Dashboard = () => {
                   <PiClockBold className="dashboard-summary-counts-icon" />
                   {totalWaiting}
                 </div>
+
+                <div className="dashboard-summary-invoicing-count">
+                  <LiaBusinessTimeSolid className="dashboard-summary-counts-icon" />
+                  {totalTimeSpent}
+                </div>
+
                 <div className="dashboard-summary-invoicing-count">
                   <FaUmbrellaBeach className="dashboard-summary-counts-icon dashboard-summary-counts-icon-beach" />
                   {totalHolidays}

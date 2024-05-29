@@ -1,20 +1,4 @@
-type JobType = {
-  basePlace: string;
-  city: string;
-  cmr: string;
-  date: string;
-  day: string;
-  id: string;
-  isCustomJob: boolean;
-  isHoliday: boolean;
-  isSecondJob: boolean;
-  note: string;
-  price: number;
-  timestamp: number;
-  waiting: number;
-  weight: number;
-  zipcode: string;
-};
+import { JobType } from "../types";
 
 const sortJobs = (jobs: JobType[]) => {
   let sortedJobs = jobs.sort((a, b) => {

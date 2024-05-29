@@ -493,6 +493,7 @@ export const archiveDoneJobsNewMonthRedux = createAsyncThunk(
     userSettings: {
       basePlace: string;
       email: string;
+      eurCzkRate: number;
       nameFirst: string;
       nameSecond: string;
       numberEm: string;
@@ -647,7 +648,6 @@ export const editArchiveDoneJobsNewMonthRedux = createAsyncThunk(
         console.log(userDocSnapshot.data());
 
         if (userDocSnapshot.exists()) {
-          console.log("jupííííí");
           transaction.update(userDocRef, {
             archivedJobs: payload.newMonthToArchive,
           });
@@ -746,6 +746,7 @@ const initialState: AuthState = {
     basePlace: "",
     city: "",
     price: 0,
+    timeSpent: 0,
     weight: 0,
     zipcode: "",
   },
@@ -761,6 +762,7 @@ const initialState: AuthState = {
     isSecondJob: false,
     note: "",
     price: 0,
+    timeSpent: 0,
     timestamp: 0,
     waiting: 0,
     weight: 0,
@@ -940,6 +942,7 @@ export const authSlice = createSlice({
       state.jobToEdit.isSecondJob = action.payload.isSecondJob;
       state.jobToEdit.note = action.payload.note;
       state.jobToEdit.price = action.payload.price;
+      state.jobToEdit.timeSpent = action.payload.timeSpent;
       state.jobToEdit.timestamp = action.payload.timestamp;
       state.jobToEdit.waiting = action.payload.waiting;
       state.jobToEdit.weight = action.payload.weight;
@@ -1343,6 +1346,7 @@ export const authSlice = createSlice({
         state.jobToAdd.basePlace = "";
         state.jobToAdd.city = "";
         state.jobToAdd.price = 0;
+        state.jobToAdd.timeSpent = 0;
         state.jobToAdd.weight = 0;
         state.jobToAdd.zipcode = "";
         state.loggedInUserData.currentJobs = action.payload;

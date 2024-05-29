@@ -25,6 +25,7 @@ const ArchiveMonthSummary = ({
     summaryEur,
     summaryCzk,
     summarySecondJobs,
+    summaryTimeSpent,
     summaryWaiting,
     summaryJobs,
     summaryHolidays,
@@ -145,6 +146,11 @@ const ArchiveMonthSummary = ({
         <div className="archive-month-summary-one-line">
           <div className="archive-month-summary-item">Čekání:</div>
           <div className="archive-month-summary-item">{summaryWaiting}</div>
+        </div>
+
+        <div className="archive-month-summary-one-line">
+          <div className="archive-month-summary-item">Hodin:</div>
+          <div className="archive-month-summary-item">{summaryTimeSpent}</div>
         </div>
 
         <div className="archive-month-summary-one-line">
