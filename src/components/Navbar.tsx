@@ -93,19 +93,19 @@ const Navbar: React.FC = () => {
         </NavLink>
 
         <NavLink
-          to={"/settings"}
-          className={({ isActive }) => (isActive ? "link active-link" : "link")}
-          onClick={reset}
-        >
-          <FiSettings />
-        </NavLink>
-
-        <NavLink
           to={"/info-messages"}
           className={({ isActive }) => (isActive ? "link active-link" : "link")}
           onClick={reset}
         >
           <HiOutlineChatBubbleLeftEllipsis />
+        </NavLink>
+
+        <NavLink
+          to={"/settings"}
+          className={({ isActive }) => (isActive ? "link active-link" : "link")}
+          onClick={reset}
+        >
+          <FiSettings />
         </NavLink>
       </nav>
     </div>

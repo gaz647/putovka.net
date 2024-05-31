@@ -50,9 +50,9 @@ const SettingsMenu = () => {
 
         <div className="settings-menu-content-line"></div>
 
-        <Link className="settings-menu-anchor" to={"/info-messages"}>
+        {/* <Link className="settings-menu-anchor" to={"/info-messages"}>
           Zprávy
-        </Link>
+        </Link> */}
 
         <div className="settings-menu-content-line"></div>
 
@@ -124,11 +124,14 @@ const SettingsMenu = () => {
 
         <div className="settings-menu-content-line"></div>
 
-        <a href="mailto:info@emtruck.net" className="settings-menu-anchor">
+        <a
+          href="mailto:knihajizd.netlify@gmail.com"
+          className="settings-menu-anchor"
+        >
           <span className="settings-menu-email-icon">
             <MdOutlineEmail />
           </span>
-          info@emtruck.net
+          knihajizd.netlify@gmail.com
         </a>
       </nav>
     </div>
