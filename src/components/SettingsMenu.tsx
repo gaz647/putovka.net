@@ -125,13 +125,13 @@ const SettingsMenu = () => {
         <div className="settings-menu-content-line"></div>
 
         <a
-          href="mailto:knihajizd.netlify@gmail.com"
+          href="mailto:info.putovka@gmail.com"
           className="settings-menu-anchor"
         >
           <span className="settings-menu-email-icon">
             <MdOutlineEmail />
           </span>
-          knihajizd.netlify@gmail.com
+          info.putovka@gmail.com
         </a>
       </nav>
     </div>
