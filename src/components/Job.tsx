@@ -198,9 +198,11 @@ const Job = ({ jobDetails }: { jobDetails: JobType }) => {
       <div className="one-job-body" onClick={handleShowDetails}>
         <div className="one-job-body-item one-job-body-city">{city}</div>
 
-        <div className="one-job-body-item one-job-body-item-smaller">
-          {zipcode}
-        </div>
+        {!isHoliday && (
+          <div className="one-job-body-item one-job-body-item-smaller">
+            {zipcode}
+          </div>
+        )}
 
         {showDetails && (
           <>
