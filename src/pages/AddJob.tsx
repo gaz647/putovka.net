@@ -197,9 +197,9 @@ const AddJob = () => {
                   required={true}
                   label={"PSČ"}
                   subLabel={""}
-                  type={"text"}
+                  type={"number"}
                   value={zipcode}
-                  onTextChange={(e) => setZipcode(e)}
+                  onNumberChange={(e) => setZipcode(e)}
                 />
 
                 <InputField

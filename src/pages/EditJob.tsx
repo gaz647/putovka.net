@@ -121,7 +121,7 @@ const EditJob = () => {
       timestamp: 0,
       waiting: 0,
       weight: 0,
-      zipcode: "",
+      zipcode: 0,
     };
 
     if (!isHoliday) {
@@ -169,7 +169,7 @@ const EditJob = () => {
         timestamp: new Date().getTime(),
         waiting: 0,
         weight: 0,
-        zipcode: "",
+        zipcode: 0,
       };
     }
     // EDIT CURRENT JOB
@@ -381,9 +381,9 @@ const EditJob = () => {
                 <InputField
                   required={true}
                   label={"PSČ"}
-                  type={"text"}
+                  type={"number"}
                   value={zipcode}
-                  onTextChange={(e) => setZipcode(e)}
+                  onNumberChange={(e) => setZipcode(e)}
                 />
 
                 <InputField

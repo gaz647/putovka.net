@@ -13,7 +13,7 @@ export type JobType = {
   timestamp: number;
   waiting: number;
   weight: number;
-  zipcode: string;
+  zipcode: number;
 };
 
 export interface Job {
@@ -30,7 +30,7 @@ export interface Job {
   timestamp: number;
   waiting: number;
   weight: number;
-  zipcode: string;
+  zipcode: number;
 }
 export type ArchiveType = {
   date: string;
@@ -93,7 +93,7 @@ export interface JobToAdd {
   price: number;
   timeSpent: number;
   weight: number;
-  zipcode: string;
+  zipcode: number;
 }
 
 export interface ArchiveMonthSummarySettings {
