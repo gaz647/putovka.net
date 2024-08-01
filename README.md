@@ -114,13 +114,7 @@ Go to the Settings section and fill in (ideally) all fields.
 
 <br>
 
-Once you're done, you can add your first job by searching via **city name** or **post Code.**:
-
-![login after registration](src/images/emtruck.net_job_search.png)
-
-<br>
-
-If you can't find your job, you can add it manually by filling in all fields yourself:
+Once you're done, you can add your first job:
 
 ![login after registration](src/images/emtruck.net_add_custom_job.png)
 

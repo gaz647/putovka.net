@@ -159,9 +159,13 @@ const ArchiveMonthJob = ({ oneJobData }: { oneJobData: JobType }) => {
 
       <div className="archive-month-job-body">
         <div>{city}</div>
-        <div>{zipcode}</div>
-        <div>{cmr}</div>
-        <div>{timeSpent + " h"}</div>
+        {!isHoliday && (
+          <>
+            <div>{zipcode}</div>
+            <div>{cmr}</div>
+            <div>{timeSpent + " h"}</div>
+          </>
+        )}
         {isSecondJob && (
           <PiNumberSquareTwoBold className="archive-month-job-second-job-icon" />
         )}
