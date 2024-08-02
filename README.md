@@ -192,6 +192,7 @@ Expanded archived month:
 - Log out
 - Change email
 - Change password
+- Reset password
 - Delete account
 
 <br>
