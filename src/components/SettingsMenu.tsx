@@ -20,7 +20,7 @@ const SettingsMenu = () => {
 
   // USE STATE -----------------------------------------------------------
   //
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
 
   const handleBlur = () => {
     setTimeout(() => {

@@ -68,25 +68,25 @@ The primary purpose of the application is to enable drivers to keep a driving lo
 
 Click on "Ještě nemáte účet? **<u>Zaregistrujte se.</u>**"
 
-![login](src/images/emtruck.net_login.png)
+![login](src/images/putovka.net_login.png)
 
 <br>
 
 Fill in all fields and click on the **green button**.
 
-![register](src/images/emtruck.net_register.png)
+![register](src/images/putovka.net_register.png)
 
 <br>
 
 Check your email for a new message.
 
-![register confirmation 1](src/images/emtruck.net_inbox.png)
+![register confirmation 1](src/images/putovka.net_email_confirmation_1.png)
 
 <br>
 
 Confirm the registration by clicking on the provided URL.
 
-![register confirmation 2](src/images/emtruck.net_inbox_confirm.png)
+![register confirmation 2](src/images/putovka.net_email_confirmation_2.png)
 
 <br>
 
@@ -96,7 +96,7 @@ Confirm the registration by clicking on the provided URL.
 
 Log in with your registration credentials.
 
-![login after registration](src/images/emtruck.net_login_after_registration.png)
+![login after registration](src/images/putovka.net_login_with_credentials.png)
 
 <br>
 
@@ -106,7 +106,7 @@ Log in with your registration credentials.
 
 Go to the Settings section and fill in (ideally) all fields.
 
-![login after registration](src/images/emtruck.net_settings.png)
+![login after registration](src/images/putovka.net_settings.png)
 
 <br>
 
@@ -116,13 +116,13 @@ Go to the Settings section and fill in (ideally) all fields.
 
 Once you're done, you can add your first job:
 
-![login after registration](src/images/emtruck.net_add_custom_job.png)
+![login after registration](src/images/putovka.net_add_job.png)
 
 <br>
 
 You can also add your holidays:
 
-![login after registration](src/images/emtruck.net_holiday.png)
+![login after registration](src/images/putovka.net_add_holiday.png)
 
 <br>
 
@@ -130,21 +130,19 @@ You can also add your holidays:
 
 <br>
 
-1 - Total EUR earned from jobs (top left - first line)
+1 - Sum of Euros earned from jobs (first line - on the left)
 
-2 - Euros converted to CZK by the last fetched conversion ratio (top left - second line)
+2 - Euros converted to CZK by the last fetched conversion ratio (first line - on the right)
 
-3 - Your current salary in CZK (top right)
+3 - Your stats such as summary of jobs, second jobs (in one day), waiting time, hours spent at work and holiday (line with 4 icons)
 
-4 - Your stats such as total jobs, total second jobs in one day, total waiting time, total holiday (line with 4 icons)
+4 - Red button to archive your jobs and holidays (important to do when month ends or a new one begins in order to see up-to-date stats)
 
-5 - Red button to archive your jobs and holidays (important to do when month ends or a new one begins in order to see up-to-date stats)
-
-6 - Your jobs and holidays
+5 - Your jobs and holidays
 
 <br>
 
-![login after registration](src/images/emtruck.net_dashboard.png)
+![login after registration](src/images/putovka.net_dashboard.png)
 
 <br>
 
@@ -154,31 +152,31 @@ You can also add your holidays:
 
 1 - Archived month's date
 
-2 - Total Euros earned
+2 - Sum of earned EUR
 
-3 - Total CZK earned
+3 - Sum of earned CZK
 
-4 - Your salary
+4 - Sum of jobs
 
-5 - Total jobs
+5 - Sum of "second" jobs
 
-6 - Total "second" jobs
+6 - Sum of waiting
 
-7 - Total waiting
+7 - Sum of holidays
 
-8 - Total holidays
+8 - CZK / EUR exchange rate of particular month
 
-. . . and your settings at the time of archiving, such as base money, % of earned money, second job benefit, waiting benefit from employer, waiting benefit of company job was done for, and EUR/CZK ratio.
+9 - Button to send statistics via email
 
 <br>
 
-![login after registration](src/images/emtruck.net_archive_collapsed.png)
+![login after registration](src/images/putovka.net_archive_collapsed.png)
 
 <br>
 
 Expanded archived month:
 
-![login after registration](src/images/emtruck.net_archive_expanded.png)
+![login after registration](src/images/putovka.net_archive_expanded.png)
 
 <br>
 
@@ -186,48 +184,10 @@ Expanded archived month:
 
 <br>
 
-## Edit job or holiday
-
-<br>
-
-![login after registration](src/images/emtruck.net_edit_job_holiday.png)
-
-![login after registration](src/images/emtruck.net_edit_job.png)
-![login after registration](src/images/emtruck.net_edit_holiday.png)
-
-<br>
-
-## Delete job or holiday
-
-<br>
-
-![login after registration](src/images/emtruck.net_delete_job_holiday.png)
-
-![login after registration](src/images/emtruck.net_delete_job.png)
-![login after registration](src/images/emtruck.net_delete_holiday.png)
-
-<br>
-
-## Delete archived month, edit and delete archived month's job or holiday
-
-<br>
-
-![login after registration](src/images/emtruck.net_edit_delete_archive_month_job_holiday.png)
-
-<br>
-
-## Send a summary of desired month as an email
-
-<br>
-
-![login after registration](src/images/emtruck.net_email_archive_month_summary.png)
-
-<br>
-
-## Other things you can do
-
-<br>
-
+- Edit job or holiday
+- Delete job or holiday
+- Send a summary of desired month as an email
+- Delete archived month, edit and delete archived month's job or holiday
 - View the email you're logged in with
 - Log out
 - Change email
