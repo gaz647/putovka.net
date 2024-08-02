@@ -205,4 +205,4 @@ and view:
 
 <br>
 
-![login after registration](src/images/emtruck.net_settings_menu.png)
+![login after registration](src/images/putovka.net_settings_menu.png)
