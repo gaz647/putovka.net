@@ -18,6 +18,9 @@ const ChangePassword = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
+  const loggedInUserEmail = useAppSelector(
+    (state) => state.auth.loggedInUserEmail
+  );
   const isChangePasswordReduxSuccess = useAppSelector(
     (state) => state.auth.isChangePasswordReduxSuccess
   );
@@ -33,7 +36,17 @@ const ChangePassword = () => {
   //
   const changePassword = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log("click");
+    if (loggedInUserEmail === "demo@putovka.net") {
+      dispatch(
+        runToastRedux({
+          message:
+            "Tento účet je pouze pro testování a nelze u něj měnit heslo!",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
     // password password
     if (
       currentPassword &&

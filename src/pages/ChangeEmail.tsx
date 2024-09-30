@@ -24,6 +24,9 @@ const ChangeEmail = () => {
 
   // USE SELECTOR --------------------------------------------------------
   //
+  const loggedInUserEmail = useAppSelector(
+    (state) => state.auth.loggedInUserEmail
+  );
   const isChangeEmailReduxSuccess = useAppSelector(
     (state) => state.auth.isChangeEmailReduxSuccess
   );
@@ -42,6 +45,17 @@ const ChangeEmail = () => {
   //
   const changeEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if (loggedInUserEmail === "demo@putovka.net") {
+      dispatch(
+        runToastRedux({
+          message:
+            "Tento účet je pouze pro testování a nelze u něj měnit email!",
+          style: "error",
+          time: 3000,
+        })
+      );
+      return;
+    }
     if (newEmail1 && newEmail2 && newEmail1 === newEmail2 && currentPassword) {
       console.log(
         "ChangeEmail.tsx - Uživatel vyplnil nový email - bude spuštěn dispatch pro změnu emailu"
