@@ -47,7 +47,7 @@ const DeleteAccount = () => {
   //
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (loggedInUserEmail === "test@emtruck.net") {
+    if (loggedInUserEmail === "demo@putovka.net") {
       dispatch(
         runToastRedux({
           message: "Tento účet je pouze pro testování a nelze smazat!",
